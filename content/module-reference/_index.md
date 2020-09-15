@@ -1,7 +1,7 @@
 ---
-title: module reference
+title: Module Reference
 id: module-reference
-date: 2018-03-01
+weight: 80
 draft: false
 author: "people"
 ---

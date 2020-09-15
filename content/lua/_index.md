@@ -1,7 +1,7 @@
 ---
-title: lua
+title: Scripting with Lua
 id: lua
-date: 2018-03-01
+weight: 100
 draft: false
 author: "people"
 ---

@@ -1,7 +1,7 @@
 ---
-title: lighttable and dam
+title: The Lighttable & Digital Asset Management
 id: lighttable-and-dam
-date: 2018-03-01
 draft: false
+weight: 20
 author: "people"
 ---

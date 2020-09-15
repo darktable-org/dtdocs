@@ -1,7 +1,7 @@
 ---
-title: map
+title: Map
 id: map
-date: 2018-03-01
+weight: 50
 draft: false
 author: "people"
 ---

@@ -1,7 +1,7 @@
 ---
-title: slideshow
+title: Slideshow
 id: slideshow
-date: 2018-03-01
+weight: 60
 draft: false
 author: "people"
 ---

@@ -1,7 +1,7 @@
 ---
-title: print
+title: Print
 id: print
-date: 2018-03-01
+weight: 70
 draft: false
 author: "people"
 ---

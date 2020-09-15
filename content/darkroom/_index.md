@@ -1,7 +1,7 @@
 ---
-title: darkroom
+title: Image Processing in the Darkroom
 id: darkroom
-date: 2018-03-01
+weight: 30
 draft: false
 author: "people"
 ---

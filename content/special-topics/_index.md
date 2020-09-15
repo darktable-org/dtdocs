@@ -1,7 +1,7 @@
 ---
-title: special topics
+title: Special Topics
 id: special-topics
-date: 2018-03-01
+weight: 120
 draft: false
 author: "people"
 ---

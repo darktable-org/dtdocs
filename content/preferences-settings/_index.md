@@ -1,7 +1,7 @@
 ---
-title: preferences and settings
+title: Preferences & Settings
 id: preferences-settings
-date: 2018-03-01
+weight: 90
 draft: false
 author: "people"
 ---

@@ -1,7 +1,7 @@
 ---
-title: tethering
+title: Tethering
 id: tethering
-date: 2018-03-01
+weight: 40
 draft: false
 author: "people"
 ---
