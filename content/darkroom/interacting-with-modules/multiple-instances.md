@@ -1,7 +1,7 @@
 ---
 title: Multiple Instances
 id: mutiple-instances
-date: 2020-09-13
+weight: 20
 draft: false
 ---
 

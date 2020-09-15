@@ -1,7 +1,7 @@
 ---
-title: The Darkroom View
+title: The Darkroom View Layout
 id: the-darkroom-view
-date: 2020-09-13
+weight: 20
 draft: false
 ---
 

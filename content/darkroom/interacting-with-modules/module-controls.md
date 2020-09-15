@@ -1,7 +1,7 @@
 ---
 title: Module Controls
 id: module-controls
-date: 2020-09-13
+weight: 40
 draft: false
 ---
 

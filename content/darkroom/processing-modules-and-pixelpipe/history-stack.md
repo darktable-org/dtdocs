@@ -1,7 +1,7 @@
 ---
 title: History Stack
 id: history-stack
-date: 2020-09-13
+weight: 30
 draft: false
 ---
 

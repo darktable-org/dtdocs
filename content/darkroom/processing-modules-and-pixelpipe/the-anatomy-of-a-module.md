@@ -1,7 +1,7 @@
 ---
 title: The Anatomy of a Module
 id: the-anatomy-of-a-module
-date: 2020-09-13
+weight: 10
 draft: false
 ---
 

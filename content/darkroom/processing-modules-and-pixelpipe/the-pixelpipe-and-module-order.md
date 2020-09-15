@@ -1,7 +1,7 @@
 ---
 title: The Pixelpipe and Module Order
 id: the-pixelpipe-and-module-order
-date: 2020-09-13
+weight: 20
 draft: false
 ---
 

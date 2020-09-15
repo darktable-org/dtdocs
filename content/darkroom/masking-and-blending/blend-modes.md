@@ -1,7 +1,7 @@
 ---
 title: Blend Modes
 id: blend-modes
-date: 2020-09-13
+weight: 20
 draft: false
 ---
 

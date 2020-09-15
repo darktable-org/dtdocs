@@ -1,7 +1,7 @@
 ---
-title: Blending and Masking
+title: Overview
 id: blending-and-masking
-date: 2020-09-13
+weight: 10
 draft: false
 ---
 
