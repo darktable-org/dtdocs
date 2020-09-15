@@ -1,6 +1,7 @@
 ---
-title: Preferences - darkroom tab
-date: 2020-09-09
+title: darkroom
+id: darkroom
+weight: 50
 draft: false
 ---
 

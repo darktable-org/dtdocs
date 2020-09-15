@@ -1,6 +1,7 @@
 ---
-title: Preferences - miscellaneous tab
-date: 2020-09-09
+title: miscellaneous
+id: miscellaneous
+weight: 110
 draft: false
 ---
 

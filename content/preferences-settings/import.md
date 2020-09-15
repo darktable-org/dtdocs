@@ -1,6 +1,7 @@
 ---
-title: Preferences - import tab
-date: 2020-09-09
+title: import
+id: import
+weight: 30
 draft: false
 ---
 

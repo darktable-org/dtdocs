@@ -1,6 +1,7 @@
 ---
-title: Preferences - security tab
-date: 2020-09-09
+title: security
+id: security
+weight: 80
 draft: false
 ---
 

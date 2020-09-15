@@ -1,6 +1,7 @@
 ---
-title: Preferences - other views tab
-date: 2020-09-09
+title: other views
+id: other-views
+weight: 60
 draft: false
 ---
 

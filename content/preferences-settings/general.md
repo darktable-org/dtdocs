@@ -1,6 +1,7 @@
 ---
-title: Preferences - general tab
-date: 2020-09-09
+title: general
+id: general
+weight: 20
 draft: false
 ---
 

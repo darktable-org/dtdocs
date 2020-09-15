@@ -1,6 +1,7 @@
 ---
-title: Preferences - presets tab
-date: 2020-09-09
+title: presets
+id: presets
+weight: 130
 draft: false
 ---
 

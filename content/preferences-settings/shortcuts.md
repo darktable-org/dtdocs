@@ -1,6 +1,7 @@
 ---
-title: Preferences - shortcuts tab
-date: 2020-09-09
+title: shortcuts
+id: shortcuts
+weight: 120
 draft: false
 ---
 

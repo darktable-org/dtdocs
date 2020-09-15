@@ -1,6 +1,7 @@
 ---
-title: Preferences - cpu/gpu/memory tab
-date: 2020-09-09
+title: cpu/gpu/memory
+id: cpu-gpu-memory
+weight: 90
 draft: false
 ---
 

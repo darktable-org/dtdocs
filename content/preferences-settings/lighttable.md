@@ -1,6 +1,7 @@
 ---
-title: Preferences - lighttable tab
-date: 2020-09-09
+title: lighttable
+id: lighttable
+weight: 40
 draft: false
 ---
 

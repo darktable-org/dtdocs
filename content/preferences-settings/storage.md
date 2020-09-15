@@ -1,6 +1,7 @@
 ---
-title: Preferences - storage tab
-date: 2020-09-09
+title: storage
+id: storage
+weight: 100
 draft: false
 ---
 

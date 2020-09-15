@@ -1,6 +1,7 @@
 ---
-title: Preferences - lua options
-date: 2020-09-09
+title: lua options
+id: lua-options
+weight: 140
 draft: false
 ---
 
