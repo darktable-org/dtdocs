@@ -1,8 +1,9 @@
 ---
-title: Utility Module - History Stack (darkroom)
+title: history stack
 id: history-staack
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 Query and modify the history stack of the current darkroom image.

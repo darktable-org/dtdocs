@@ -1,8 +1,9 @@
 ---
-title: Utility Module - More Modules (darkroom)
+title: more modules
 id: more-modules
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 Control the visibility of darktable's image processing modules.

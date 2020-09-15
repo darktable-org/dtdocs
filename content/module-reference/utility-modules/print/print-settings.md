@@ -1,7 +1,8 @@
 ---
-title: Utility Module - Print Settings (print) (ToDo)
+title: print settings (ToDo)
 id: print-settings
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: print
 ---
 

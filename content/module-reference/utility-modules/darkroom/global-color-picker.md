@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Global Color Picker (darkroom)
+title: global color picker
 id: global-color-picker
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 Take color samples from the current darkroom image, display their values in multiple ways and compare colors from different locations. The color picker is activated by pressing the color picker icon. There are multiple parameters for controlling how the color picker works, whose settings remain in effect until you leave the darkroom mode.

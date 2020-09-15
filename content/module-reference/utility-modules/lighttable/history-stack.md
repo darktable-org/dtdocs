@@ -1,8 +1,9 @@
 ---
-title: Utility Module - History Stack (lighttable)
+title: history stack
 id: history-stack
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Manipulate the history stack of one or more selected images.

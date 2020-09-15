@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Styles (lighttable)
+title: styles
 id: styles
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Store an image's history stack (as a named style) and apply it to other images. Styles can either be created within this panel or in the _history stack_ module in the darkroom. This module allows you to create, apply, edit and delete styles.

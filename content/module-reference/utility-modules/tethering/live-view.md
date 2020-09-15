@@ -1,7 +1,8 @@
 ---
-title: Utility Module - Live View (tethering) (ToDo)
+title: live view (ToDo)
 id: live-view
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: tethering
 ---
 

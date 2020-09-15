@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Mask Manager (darkroom)
+title: mask manager
 id: mask-manager
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 Manage all masks and shapes for the current image. This module can be used to create, rename, edit and delete shapes. You can add shapes to and remove them from a mask, group shapes together, and combine them using set operators. 

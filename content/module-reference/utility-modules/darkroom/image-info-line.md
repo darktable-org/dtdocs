@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Image Infos Line (darkroom)
+title: image info line
 id: image-info-line
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 Display important image information in a darkroom panel. The contents of this line can be set in the _darkroom_ tab of the _preferences_ dialog. 

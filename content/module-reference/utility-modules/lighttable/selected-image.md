@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Selected Image(s) (lighttable)
+title: selected images
 id: selected-image 
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Perform actions on images that have been selected in the lighttable view.

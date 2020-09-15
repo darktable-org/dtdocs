@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Duplicate Manager (darkroom)
+title: duplicate manager
 id: duplicate-manager
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 The duplicate manager lists all versions of the current darkroom image with their preview thumbnails. Single click on a thumbnail to temporarily show the related version in the center view. Double click to switch to this version and edit it. 

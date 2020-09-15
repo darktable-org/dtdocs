@@ -1,7 +1,8 @@
 ---
-title: Utility Module - Map Settings (map) (ToDo)
+title: map settings (ToDo)
 id: map-settings
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: map
 ---
 

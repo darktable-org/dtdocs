@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Select (lighttable)
+title: select
 id: select
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Select images in the lighttable according to simple criteria.

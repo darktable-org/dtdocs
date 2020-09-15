@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Export Selected (lighttable)
+title: export selected
 id: export-selected
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Export images selected in the lighttable. Files can be exported to a file on disk, email, various on-line storage locations, a webalbum, or a book template. 

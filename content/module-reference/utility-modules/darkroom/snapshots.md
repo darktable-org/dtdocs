@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Snapshots (darkroom)
+title: snapshots
 id: snapshots
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: darkroom
 ---
 
 A snapshot is stored as a bitmap of the current center view and is kept as long as you stay in the darkroom. A snapshot can then be selected and overlaid in the current center view to help you with a side by side comparison (by default left=snapshot, right=active edit) when you are tuning parameters of a module. This can also be combined with _history stack_ module to compare the snapshot against different stages of development. 

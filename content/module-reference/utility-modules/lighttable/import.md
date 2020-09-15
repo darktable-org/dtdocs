@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Import (lighttable)
+title: import
 id: import
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Import images into film rolls. Images can be imported from the local filesystem or from a connected camera.

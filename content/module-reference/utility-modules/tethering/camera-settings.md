@@ -1,7 +1,7 @@
 ---
-title: Utility Module - Camera Settings (tethering) (ToDo)
+title: camera settings (ToDo)
 id: camera-settings
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: tethering
 ---
-

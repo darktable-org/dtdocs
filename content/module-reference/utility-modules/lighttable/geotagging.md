@@ -1,8 +1,9 @@
 ---
-title: Utility Module - Geotagging (lighttable)
+title: geotagging
 id: geotagging
-date: 2020-09-13
-draft: false
+applicable-verison: 3.2.1
+tags: 
+view: lighttable
 ---
 
 Import and apply GPX track data on a selection of images.
