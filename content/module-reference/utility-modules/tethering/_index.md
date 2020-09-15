@@ -1,6 +1,6 @@
 ---
-title: user-manual
-id: user-manual
+title: tethering
+id: tethering
 draft: false
 author: "people"
 ---

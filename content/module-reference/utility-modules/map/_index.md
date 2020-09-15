@@ -1,6 +1,6 @@
 ---
-title: user-manual
-id: user-manual
+title: map
+id: map
 draft: false
 author: "people"
 ---

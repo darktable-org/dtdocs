@@ -1,6 +1,6 @@
 ---
-title: user-manual
-id: user-manual
+title: darkroom
+id: darkroom
 draft: false
 author: "people"
 ---

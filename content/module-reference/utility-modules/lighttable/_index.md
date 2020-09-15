@@ -1,6 +1,6 @@
 ---
-title: user-manual
-id: user-manual
+title: lighttable
+id: lighttable
 draft: false
 author: "people"
 ---

@@ -1,6 +1,6 @@
 ---
-title: user-manual
-id: user-manual
+title: print
+id: print
 draft: false
 author: "people"
 ---
