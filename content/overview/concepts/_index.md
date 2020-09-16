@@ -1,5 +1,5 @@
 ---
-title: basic concepts (ToDo)
+title: Basic Concepts (ToDo)
 id: concepts
 weight: 20
 draft: false

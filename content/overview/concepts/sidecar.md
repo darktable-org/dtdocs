@@ -1,5 +1,5 @@
 ---
-title: sidecar files and non-destructive editing (ToDo)
+title: Sidecar Files & Non-destructive Editing (ToDo)
 id: sidecar
 draft: false
 author: "people"

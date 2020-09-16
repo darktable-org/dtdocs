@@ -1,6 +1,6 @@
 ---
-title: Basic Workflow (ToDo)
-id: workflow
+title: Filmstrip (ToDo)
+id: filmstrip
 draft: false
 weight: 30
 author: "people"
