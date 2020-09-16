@@ -31,7 +31,7 @@ detail
 
 To understand the parameters of the local laplacian filter, you can think of it as applying a curve to the image, similar to the following graph:
 
-![local laplacian curve](local-laplacian-curve.png)
+![local laplacian curve](local-contrast/local-laplacian-curve.png)
 
 This curve will be applied to the image in a way that works locally and avoids halo artifacts.
 

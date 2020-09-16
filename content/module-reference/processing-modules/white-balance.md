@@ -40,7 +40,7 @@ setting
 : For convenience the final four modes can also be set by clicking on one of the buttons above the **_setting_** drop-down.
 
 finetune
-: Finetune specific white balance preset from camera. Only shown if available. Direction of adjustment is dependent on provided presets. If your camera doesn't have white balance presets available, check https://github.com/darktable-org/darktable/wiki/White-balance-presets to see how to submit your own.
+: Finetune specific white balance preset from camera. Only shown if available. Direction of adjustment is dependent on provided presets. If your camera doesn't have white balance presets available, check [this guide](https://github.com/darktable-org/darktable/wiki/White-balance-presets) to see how to submit your own.
 
 ### channel coefficients
 

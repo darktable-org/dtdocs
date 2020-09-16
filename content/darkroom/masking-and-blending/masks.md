@@ -108,7 +108,7 @@ Modules acting in _Lab_ color space have data channels for L, a, b, C (chroma of
 
 Modules acting in _RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
 
-_See https://en.wikipedia.org/wiki/Color_space._
+_See [Wikipedia](https://en.wikipedia.org/wiki/Color_space)._
 
 Each tab provides two sliders for its data channels: one for the input data that the module receives and one for the output data that the module produces prior to blending.
 

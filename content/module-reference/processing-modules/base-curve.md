@@ -23,7 +23,7 @@ scale
 : Choose between “linear” and “logarithmic” view. In the logarithmic view more space is given to the lower values allowing a more fine-grained adjustment of the shadows.
 
 fusion
-: Trigger the exposure fusion feature (see https://en.wikipedia.org/wiki/Exposure_Fusion). This allows you to merge the image with one or two copies of itself after applying the current base curve and boosting its exposure by a selectable number of EV units. The resulting image is thus a combination of two or three different exposures of the original image. Use this feature to compress the dynamic range of extremely underexposed images or for true HDR input. For best results, use the _exposure_ module to apply a suitable adjustment for correctly exposed highlights.
+: Trigger the exposure fusion feature (see [Wikipedia](https://en.wikipedia.org/wiki/Exposure_Fusion)). This allows you to merge the image with one or two copies of itself after applying the current base curve and boosting its exposure by a selectable number of EV units. The resulting image is thus a combination of two or three different exposures of the original image. Use this feature to compress the dynamic range of extremely underexposed images or for true HDR input. For best results, use the _exposure_ module to apply a suitable adjustment for correctly exposed highlights.
 
 exposure shift (fusion)
 : The exposure difference between the merged images in EV units (default 1). This slider is only visible if the _exposure fusion_ feature is activated.

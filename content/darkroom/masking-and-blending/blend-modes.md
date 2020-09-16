@@ -5,7 +5,7 @@ weight: 20
 draft: false
 ---
 
-Blend modes define how the input and output of a module are to be combined (blended) together before the final output is passed to the next module in the pixelpipe. Many of the blend modes should be familiar from other imaging software and are thoroughly discussed in the GIMP user manual (https://docs.gimp.org/2.8/en/gimp-concepts-layer-modes.html). 
+Blend modes define how the input and output of a module are to be combined (blended) together before the final output is passed to the next module in the pixelpipe. Many of the blend modes should be familiar from other imaging software and are thoroughly discussed in the [GIMP user manual](https://docs.gimp.org/2.8/en/gimp-concepts-layer-modes.html). 
 
 This section therefore only discusses some of the darktable-specific blend modes in more detail.
 

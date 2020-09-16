@@ -8,7 +8,7 @@ view: darkroom
 masking: true
 ---
 
-Perform denoising on raw image data before it is demosaiced. This module is ported from dcraw (http://www.cybercom.net/~dcoffin/dcraw/).
+Perform denoising on raw image data before it is demosaiced. This module is ported from [dcraw](http://www.cybercom.net/~dcoffin/dcraw/).
 
 ## Module Controls
 
