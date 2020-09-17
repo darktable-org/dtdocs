@@ -1,6 +1,6 @@
 ---
-title: Overview
-id: blending-and-masking
+title: overview
+id: overview
 weight: 10
 draft: false
 ---

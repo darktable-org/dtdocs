@@ -1,5 +1,5 @@
 ---
-title: Blend Modes
+title: blend modes
 id: blend-modes
 weight: 20
 draft: false
