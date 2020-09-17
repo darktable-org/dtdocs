@@ -1,5 +1,5 @@
 ---
-title: The Anatomy of a Module
+title: the anatomy of a module
 id: the-anatomy-of-a-module
 weight: 10
 draft: false
@@ -17,6 +17,6 @@ Every processing module executes in a similar manner, as follows
 4. Optionally modify the module's output data by combining it with the module's input data using a _blending operator_
 5. Pass the output to the next module
 
-Steps 3 and 4 are not supported by all modules. For example, the _demosaic_ module must be applied to the entire raw file in order to produce a legible image so it does not make sense to mask or blend its output.
+Steps 3 and 4 are not supported by all modules. For example, the [_demosaic_](../../../module-reference/processing-modules/demosaic.md) module must be applied to the entire raw file in order to produce a legible image so it does not make sense to mask or blend its output.
 
 Each of the above steps is defined in more detail in subsequent sections.

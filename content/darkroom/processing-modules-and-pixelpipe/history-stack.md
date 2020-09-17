@@ -1,5 +1,5 @@
 ---
-title: History Stack
+title: history stack
 id: history-stack
 weight: 30
 draft: false
@@ -9,4 +9,4 @@ The _history stack_ stores the entire history of the edits you have undertaken o
 
 Each time a module is enabled, disabled, moved or amended a new entry is added to the top of the _history stack_. The history stack is **not** a representation of the order in which the modules are **executed** but the order in which they were **amended**.
 
-The history stack can be queried and modified within the _history stack_ module in the darkroom.
+The history stack can be queried and modified within the [_history stack_](../../../module-reference/utility-modules/darkroom/history-stack.md) module in the darkroom.
