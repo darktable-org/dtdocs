@@ -38,7 +38,7 @@ resync local copy
 : This action will synchronize the XMP sidecars of the temporary local copy and the copy in external storage, if needed, and will remove the local copies. Note that if a local copy has been modified and the external storage is not accessible the local copy won't be deleted (see Section **LINK TBC**, “Local copies”).
 
 group
-: Create a new group from selected images (see the [image grouping](../../../lighttable-and-dam/digital-asset-management/grouping.md) section).
+: Create a new group from selected images (see the [image grouping](../../../lighttable/digital-asset-management/grouping.md) section).
 
 ungroup
-: Remove selected images from a group (see the [image grouping](../../../lighttable-and-dam/digital-asset-management/grouping.md) section).
+: Remove selected images from a group (see the [image grouping](../../../lighttable/digital-asset-management/grouping.md) section).

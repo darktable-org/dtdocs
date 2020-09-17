@@ -17,7 +17,7 @@ S 	switch to slideshow
 P 	switch to print
 ```
 
-[lighttable](../../lighttable-and-dam/_index.md)
+[lighttable](../../lighttable/_index.md)
 : Manage images and film roll collections.
 
 [darkroom](../../darkroom/_index.md)
