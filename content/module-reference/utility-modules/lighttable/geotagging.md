@@ -16,7 +16,7 @@ If your image already carries the UTC time stamp you can directly apply the GPX 
 
 Otherwise we take the following steps to correlate the time of camera and GPS tracker
 
-# Offset
+# offset
 
 To fix the offset of the camera time setting you can either enter it manually into the offset input field or let darktable calculate it. All you need is to take a photograph of a reliable time source. This can be any precise clock or, even better, the time displayed on your GPS device (bear in mind that GPS devices also normally _show_ the local time, even though they _store_ universal time). 
 
@@ -24,7 +24,7 @@ When you have this image selected simply click on the magnifying glass button an
 
 Now you can select all the images you want to geotag and click the apply button (currently represented by a check mark). This will alter the time in darktable's internal database for these pictures – you will see this change in the image information module on the left. 
 
-# Time Zone
+# time zone
 
 Finally you can apply a GPX track. Click the corresponding button and navigate to the GPX file. Before confirming the dialog that appears you should first select the corresponding time zone for your camera in the drop-down-menu. 
 

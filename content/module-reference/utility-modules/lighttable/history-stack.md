@@ -8,7 +8,7 @@ view: lighttable
 
 Manipulate the history stack of one or more selected images.
 
-# Module Controls
+# module controls
 
 copy
 : Copy the history stack of the selected image. A dialog appears to allow you to choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-clicking on an item copies that item only and immediately closes the dialog.

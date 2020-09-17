@@ -8,13 +8,13 @@ view: lighttable
 
 Perform actions on images that have been selected in the lighttable view.
 
-# Module Controls
+# module controls
 
 remove
 : Remove the selected images from the darktable database. Removed images will not be shown in the lighttable view any more, but remain on the filesystem alongside any XMP sidecar file. As darktable stores XMP files with your development parameters on disk, you can later fully reconstruct your work by just re-importing the images.
 
 delete/trash
-: Eliminate the selected images from the darktable database and remove any associated XMP sidecar files. If no duplicates of the selected image remain in the darktable database, the image file itself is also deleted. You can control whether this action irrevocably deletes the images or puts them into your system's trash bin with a configuration item in the _security_ tab of the _preferences_ dialog. A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
+: Eliminate the selected images from the darktable database and remove any associated XMP sidecar files. If no duplicates of the selected image remain in the darktable database, the image file itself is also deleted. You can control whether this action irrevocably deletes the images or puts them into your system's trash bin with a configuration item in the [_security_ tab of the _preferences_ dialog](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
 
 move
 : Physically move selected images (image file plus all associated XMP sidecar files) to another filesystem folder. If an image with the given filename already exists in the target folder the source image is not moved but kept where it is.
@@ -38,7 +38,7 @@ resync local copy
 : This action will synchronize the XMP sidecars of the temporary local copy and the copy in external storage, if needed, and will remove the local copies. Note that if a local copy has been modified and the external storage is not accessible the local copy won't be deleted (see Section **LINK TBC**, “Local copies”).
 
 group
-: Create a new group from selected images (see Section **LINK TBC** “Image grouping”).
+: Create a new group from selected images (see the [image grouping](../../../lighttable-and-dam/digital-asset-management/grouping.md) section).
 
 ungroup
-: Remove selected images from a group (see Section **LINK TBC** “Image grouping”).
+: Remove selected images from a group (see the [image grouping](../../../lighttable-and-dam/digital-asset-management/grouping.md) section).

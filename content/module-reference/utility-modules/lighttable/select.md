@@ -8,7 +8,7 @@ view: lighttable
 
 Select images in the lighttable according to simple criteria.
 
-# Module Controls
+# module controls
 
 select all
 : Select all images in the current view (collection), with respect to the filters.

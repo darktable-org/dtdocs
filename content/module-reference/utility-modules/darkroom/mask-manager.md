@@ -14,7 +14,7 @@ The panel below contains a list of all masks and individual shapes currently def
 
 Masks are indicated with a headline in the form “grp levels” indicating the module in which they are used with the component shapes being listed below. The list of masks is followed by a list of all individual shapes which have been generated in the context of the given image. If a shape is in use by any of the masks this is indicated by a symbol to the right of the shape name. 
 
-# Shapes
+# shapes
 
 By default shapes receive an automatically generated name, consisting of the shape type (“brush”, “circle”, “ellipse”, “path”, “gradient”) and a number that is incremented automatically. You can replace these automatically generated names by more meaningful ones. Double-clicking on the existing shape name prompts you to provide a new name. Giving a meaningful name is a good habit, especially if you are going to use the same selection in different masks.
 
@@ -26,7 +26,7 @@ All shapes that have ever been defined for the current image are retained unless
 
 _Note: If the list of shapes is very long the space required to store all shapes might exceed the limits of certain file formats. In this case storing the XMP tags can fail during export._
 
-# Masks
+# masks
 
 Clicking on the name of a mask expands a list showing the individual shapes which constitute that mask.
 
@@ -38,7 +38,7 @@ Because order matters when combining shapes you may move each shape up or down t
 
 The polarity of each shape can be inverted before being added. This is depicted by the symbol **TBC**.
 
-# Set Operators
+# set operators
 
 **NEEDS EXAMPLE IMAGES**
 

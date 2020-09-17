@@ -10,13 +10,13 @@ Export images selected in the lighttable. Files can be exported to a file on dis
 
 _Note: You can also use Ctrl+E from within the darkroom mode to export the current image._
 
-## Module Controls
+# module controls
 
 target storage
 : Where to store your selected images. Different back-ends are implemented, including file on disk, a LaTeX book template and various web albums. Depending on the selected target, you will be asked to give additional information, like filenames, or account name and password.
 
 filename template
-: You can define filenames that darktable generates for export. Several pre-defined variables can be used as placeholders (see **LINK TBC**)
+: You can define filenames that darktable generates for export. Several pre-defined variables can be used as placeholders (see the [variables](../../../special-topics/variables.md) section).
 
 output directory
 : The button beside the filename entry opens a dialog to select the parent directory for export.
@@ -62,11 +62,11 @@ export
 metadata
 : Press the icon on the right of export button allows you to to configure which metadata items are to be embedded into the exported image. This is done in a separate dialog which is further defined below
 
-### Including Metadata in the Exported Image
+# including metadata in the exported image
 
 Metadata configuration is saved along with other export selected parameters to your favorites presets and is retained when darktable is closed. Clicking on the icon to the right of the export button shows the following dialog to control how to include metadata in the exported image
 
-#### General Settings
+## general settings
 
 The left-hand-side of this dialog allows you to choose which groups of metadata are to be exported with the image. The following options are available:
 
@@ -92,11 +92,11 @@ hierarchical tags
 develop history
 : Export the development history (history stack and shapes) where supported. It may be necessary to deselect this if your image has a very large history stack as most output file formats place a limit on the size of this field.
 
-#### Per Metadata Settings
+## per metadata settings
 
 The right-hand-side of this dialog allows you to define a formulas to populate metadata. The formulas defined here have priority over the settings in the left-hand-side of the dialog. The first column identifies the entry to be edited. The second column allows you to define how to calculate the value for that metadata entry. 
 
-Leaving the formula empty prevents that specific metadata entry from being exported **(Exif.GPSInfo.GPSVersionID in the above example)**. To define a formula, you can use the same variables and rules as for filenames (as documented in the section **LINK TBC**). Press enter to validate the formula.
+Leaving the formula empty prevents that specific metadata entry from being exported **(Exif.GPSInfo.GPSVersionID in the above example)**. To define a formula, you can use the same variables and rules as for filenames (as documented in the [variables](../../../special-topics/variables.md) section). Press enter to validate the formula.
 
 Use the “-” icon to remove a metadata entry from the list and the “+” icon to add a new one from a predefined list of available metadata tags.
 
@@ -106,12 +106,12 @@ The formulas allow you virtually define all the metadata you need to qualify you
 
 _Remember that a tag set up as a category is never exported._
 
-#### Examples (not sure if we should keep this section)
+## examples
 
-Example 1
+example 1
 : A first level tag called places is set as a category, and is followed by four levels of information (or keywords), country, region, city and location: places|France|Nord|Lille|rue Nationale. Each level can be retrieved (when it is defined) by one of the variables $(CATEGORY0(places)), $(CATEGORY1(places)), $(CATEGORY2(places)) and $(CATEGORY3(places)). In that example, the returned values are respectively: France, Nord, Lille and rue Nationale. These keywords can also be retrieved as simple tags by the variable $(TAGS). The last keyword level defined (the leaf) is displayed in Image informations, here rue Nationale.
 
-Example 2
+example 2
 : A first level tag called creator followed by the name of the photographer, both set as category: creator|firstname lastname. The formula copyrights $(YEAR) $(CATEGORY0(creator)) builds the text associated to image rights. Image information display in categories the following: creator: firstname lastname. Neither creator nor firstname lastname appear in tags list; they are also not exported as simple tags.
 
 Note: tagging is not appropriate to define free text metadata, like a title or a description, which may be specific to each image. Use the _metadata editor_ for this type of information.
