@@ -10,7 +10,7 @@ masking: true
 
 Compress the tonal range of an HDR image into the limited tonal range of a typical LDR output file. Global tonemapping processes each pixel of an HDR image, without taking the local surrounding into account. This is generally faster than local tonemapping, but might lead to less convincing results with very high-dynamic-range scenes.
 
-## Module Controls
+# module controls
 
 operator
 : The operator to use. Reinhard, Filmic and Drago global tonemap operators are available. Depending on the selected operator, different parameters can be adjusted. Some operators are fully self-adjusting, and do not require specific controls.

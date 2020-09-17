@@ -16,7 +16,7 @@ manual
 automatic (RAW images only)
 : Use an analysis of the image's histogram to automatically set the exposure. Darktable automatically selects the exposure compensation that is required to shift the selected _percentile_ to the selected _target level_ (see definitions below). This mode is particularly useful for automatically altering a number of images to have the same exposure. A typical use case of automatic mode is deflickering of time-lapse photographs. 
 
-## Module Controls
+# module controls
 
 mode
 : Choose the mode of operation (automatic/manual)

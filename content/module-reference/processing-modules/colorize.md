@@ -10,7 +10,7 @@ masking: true
 
 Add a solid layer of color to the image.
 
-## Module Controls
+# module controls
 
 hue
 : The hue of the color layer.

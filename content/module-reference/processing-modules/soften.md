@@ -14,7 +14,7 @@ Michael Orton achieved his results on slide film by using two exposures of the s
 
 This module is a near-copy of Orton's analogue process into the digital domain.
 
-## Module Controls
+# module controls
 
 size
 : The size of blur of the overexposed image, the bigger the size, the softer the result.

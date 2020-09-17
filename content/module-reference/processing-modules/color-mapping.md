@@ -17,7 +17,7 @@ Two steps are required to use this module:
 
 When both source and target clusters are collected an automatic color mapping is applied to the target image. In its default settings the overall effect is quite exaggerated. A set of sliders gives you control of the effect's strength. You can also use blending operator _normal_ along with the _opacity_ slider to tame the effect. As the color mapping module comes early in the pixelpipe, you can finetune the colors with later modules.
 
-## Module Controls
+# module controls
 
 acquire as source/target
 : Press these buttons to generate color clusters for the source and target image, respectively. The processing takes a few seconds during which the GUI remains unresponsive.

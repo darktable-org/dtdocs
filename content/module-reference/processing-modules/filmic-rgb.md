@@ -15,19 +15,19 @@ The module is derived from the same named module in Blender 3D modeller by T. J.
 
 Filmic rgb is the successor of the _filmic_ module provided in darktable 2.6.x. While the underlying principles have not changed much, users of the previous version should not expect a 1:1 translation of their workflow.
 
-## Prerequisites
+# prerequisites
 
 In order to get the best from this module, your images need some preparation:
 
 - In-camera, expose the shot “to the right” - i.e. under-expose the shot so that the highlights are at the right of the histogram, just on the verge of clipping, but not clipped. It does not matter if the preview image is very dark on your camera screen. As long as highlights are unclipped, filmic rgb should be able to recover details from the raw data. Beware that clipped data is not recoverable. Some cameras have a clipping alert preview to help you diagnose this, and some even have an highlight-priority exposure mode.
 
-- In the _exposure_ module, push the exposure until the midtones are clear enough. Do not worry about losing the highlights - they will be recovered as part of filmic rgb processing. However, it is important to avoid negative pixels in black areas else the computations performed by filmic rgb will result in unpredictable results. For some camera models (Canon, mainly), rawspeed (the raw decoding library of darktable), may set an exaggerated black level, resulting in crushed blacks and negative values. If so, brighten the blacks by setting a negative black level value in the _exposure_ module.
+- In the [_exposure_](./exposure.md) module, push the exposure until the midtones are clear enough. Do not worry about losing the highlights - they will be recovered as part of filmic rgb processing. However, it is important to avoid negative pixels in black areas else the computations performed by filmic rgb will result in unpredictable results. For some camera models (Canon, mainly), rawspeed (the raw decoding library of darktable), may set an exaggerated black level, resulting in crushed blacks and negative values. If so, brighten the blacks by setting a negative black level value in the [_exposure_](./exposure.md) module.
 
 - If you plan on using filmic rgb's auto-tuners, use the white balance module first to correct any color casts and obtain neutral colors. In RGB color spaces, luminance and chrominance are linked, and filmic rgb's luminance detection relies on accurate measurements of both. If your image is very noisy, add an initial step of denoising to improve the black exposure readings, and use a high quality demosaicing method.
 
-- If you plan to use one of filmic rgb's chrominance preservation modes, avoid using _base curve_ and the various tone mapping modules. These may produce unpredictable color shifts that would make the chrominance preservation useless. None of these modules should be required when using filmic rgb.
+- If you plan to use one of filmic rgb's chrominance preservation modes, avoid using [_base curve_](base-curve.md) and the various tone mapping modules. These may produce unpredictable color shifts that would make the chrominance preservation useless. None of these modules should be required when using filmic rgb.
 
-## Usage
+# usage
 
 The filmic rgb module aims at mapping dynamic range of the photographed scene (RAW image) to the (smaller) dynamic range of the display. 
 
@@ -47,9 +47,9 @@ The curves at the top of the module are read-only and serve as a guide to the op
 
 _Note: Filmic rgb cannot be set with entirely neutral parameters (resulting in a no-operation) - as soon as the module is enabled, the image is always at least slightly affected._
 
-## Module Controls
+# module controls
 
-### Scene
+## scene
 
 middle-grey luminance
 : The luminance in RGB space of the scene-referred 18% grey. Use the color picker tool to read the average luminance over the drawn area. If you have a photograph of a grey card or a color chart (IT8 chart or colorchecker) shot in the scene lighting conditions, then the grey color picker tool can be used to quickly sample the luminance of the grey patch on that image. In other situations, the color picker can be used to sample the average luminance of the subject.
@@ -73,7 +73,7 @@ dynamic range scaling and auto-tune
 
 : When no true white and no true black are available on the scene, the maximum and minimum RGB values read on the image are not valid assumptions anymore, so the dynamic range scaling symmetrically shrinks or enlarges the detected dynamic range and the current parameters. This works with all color pickers, and adjusts the current values of white and black relative exposures.
 
-### Look
+## look
 
 contrast
 : The filmic rgb S-curve is created, from the user parameters, by computing the position of virtual nodes and interpolating them, similarly to the tone curve module (but here, the nodes cannot be moved manually). The filmic rgb S-curve is split into three parts: a middle linear part, and two extremities that transition smoothly from the slope of the middle part to the ends of the exposure range.
@@ -112,7 +112,7 @@ preserve chrominance
 
 : There is no "right" choice for the norm, depending on the picture to which it applies - you should experiment and decide for yourself on case by case basis.
 
-### Display
+## display
 
 target black luminance
 : The destination parameters set the target luminance values used to remap the tones through filmic rgb. The default parameters will work 99% of the time, the remaining 1% being when you output in linear RGB space (REC709, REC2020) for media handling log-encoded data. These settings are then to be used with caution because darktable does not allow separate pipelines for display preview and for file output.
@@ -130,11 +130,11 @@ target power factor function
 
 : To avoid double ups and washed pictures, filmic rgb applies a “gamma” compression reverting the output ICC gamma correction, so the middle-grey is correctly remapped at the end. To remove this compression, set the destination power factor to 1.0 and the middle-grey destination to 45%.
 
-## Workflow
+# workflow
 
 The filmic rgb module can seem pretty complex. The following is a proposed workflow for processing an image with filmic rgb to obtain a well-exposed picture from a RAW file.
 
-- Modify the exposure in the _exposure_ module so that the midtones are clear enough. Do not worry about losing details in the highlights: they will be recovered by the next steps of the processing.
+- Modify the exposure in the [_exposure_](./exposure.md) module so that the midtones are clear enough. Do not worry about losing details in the highlights: they will be recovered by the next steps of the processing.
 
 - In filmic rgb, start with “neutral” parameters: set the the middle grey luminance to 18.45% in the scene tab, and set the contrast to 1 in the look tab.
 
@@ -142,13 +142,13 @@ The filmic rgb module can seem pretty complex. The following is a proposed workf
 
 - In the look tab, experiment with the contrast parameter. Increase the latitude as much as you can without clipping the curve, slide it with the shadows/highlights balance parameter.
 
-- filmic rgb tends to compress the local contrast - you can compensate for that using the _local contrast_ module.
+- filmic rgb tends to compress the local contrast - you can compensate for that using the [_local contrast_](./local-contrast.md) module.
 
-- You may also want to increase the saturation in the _color balance_ module, and adjust settings in the tone equalizer module.
+- You may also want to increase the saturation in the [_color balance_](./color-balance.md) module, and adjust settings in the tone equalizer module.
 
 - Do the final adjustments in filmic rgb, and your picture is now ready for creative processing.
 
-## Filmic rgb for Darktable 2.6 filmic users
+# filmic rgb for darktable 2.6 filmic users
 
 Filmic rgb is a reimplementation of the original _filmic_ module, and some adjustments are necessary to switch from one version to the other. This section underlines the most important differences; a more comprehensive overview is available as a video ([darktable 3.0 filmic explained to users of darktable 2.6](https://www.youtube.com/watch?v=9awBFYcPgGU)). 
 
@@ -176,4 +176,4 @@ To achieve similar results between the previous version of _filmic_ and _filmic 
 
 - The old preserve chrominance setting corresponds to the max RGB mode; in that case, do not modify the extreme luminance saturation.
 
-- If you experience unexpected color shifts, change the working color space to prophoto RGB in the _input color profile_ module.
+- If you experience unexpected color shifts, change the working color space to prophoto RGB in the [_input color profile_](./input-color-profile.md) module.

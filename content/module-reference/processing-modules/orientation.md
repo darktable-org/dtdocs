@@ -10,7 +10,7 @@ masking: false
 
 Rotate the image 90 degrees at a time. By default this module sets the orientation to match that stored in the image's exif metadata.
 
-## Module Controls
+# module controls
 
 rotate
 : Double click to reset an image rotation

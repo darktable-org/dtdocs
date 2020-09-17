@@ -10,10 +10,10 @@ masking: false
 
 This module is activated automatically for all raw images and defines camera-specific black and white points. Default settings are applied for all supported cameras. Changes to the defaults are normally not required.
 
-## Module Controls
+# module controls
 
 black level 0-3
 : The camera-specific black level of the four pixels in the RGGB Bayer pattern. Pixels with values lower than the defined level are considered to contain no valid data.
 
 white point
-: The camera-specific white level. All pixels with values above this are likely to be clipped and will be handled accordingly in the _highlight reconstruction_ module.
+: The camera-specific white level. All pixels with values above this are likely to be clipped and will be handled accordingly in the [_highlight reconstruction_](./highlight-reconstruction.md) module.

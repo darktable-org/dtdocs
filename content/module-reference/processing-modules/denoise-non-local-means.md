@@ -12,7 +12,7 @@ Remove image noise while preserving structure.
 
 This is accomplished by averaging each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a certain size is used to measure that similarity. As denoising is a resource hungry process, it slows down pixelpipe processing significantly. Consider activating this module late in your workflow.
 
-## Module Controls
+# module controls
 
 patch size
 : The radius of the patch used for similarity evaluation.

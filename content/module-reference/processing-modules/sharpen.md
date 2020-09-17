@@ -11,7 +11,7 @@ masking: true
 Sharpen the details in the image using a standard UnSharp Mask (USM). This module works by increasing the contrast around edges thereby enhancing the _impression_ of sharpness of an image. This module is applied to the L-channel in Lab color space.
 
 
-## Module Controls
+# module controls
 
 radius
 : USM applies a gaussian blur to the image as part of its algorithm. This parameter controls the radius of that blur which, in turn, defines the spatial extent of the edge enhancement. Very high values will lead to ugly over-sharpening.

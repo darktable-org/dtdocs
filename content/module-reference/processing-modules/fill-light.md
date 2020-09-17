@@ -12,7 +12,7 @@ Locally modify exposure based on pixel lightness.
 
 This module pushes exposure by increasing lightness with a Gaussian curve of a specified width, centered on a given lightness.
 
-## Module Controls
+# module controls
 
 exposure
 : The fill-light exposure (EV)

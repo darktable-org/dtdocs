@@ -12,9 +12,9 @@ Simulate a graduated density filter in order to correct exposure and color in a 
 
 A line is shown on screen allow the position and rotation of the gradient to be manually modified using the mouse.
 
-This module is known to provoke banding artifacts under certain conditions. You should consider activating the _dithering_ module to alleviate these issues.
+This module is known to provoke banding artifacts under certain conditions. You should consider activating the [_dithering_](./dithering.md) module to alleviate these issues.
 
-## Module Controls
+# module controls
 
 density
 : Set the density of the filter (EV). A low value underexposes slightly whereas a high value creates a strong filter.

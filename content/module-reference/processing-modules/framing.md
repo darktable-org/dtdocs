@@ -10,7 +10,7 @@ masking: true
 
 Generate a frame around the image. The frame consists of a border with a user defined color and a frame line inside that border, with a second user defined color. There are various options to control the geometry of the frame.
 
-## Module Controls
+# module controls
 
 border size
 : The size of the frame as a percentage of the underlying full image.

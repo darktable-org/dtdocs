@@ -10,7 +10,7 @@ masking: true
 
 Saturate and reduce the lightness of the most saturated pixels to make the colors more vivid.
 
-## Module Controls
+# module controls
 
 vibrance
 : The amount of vibrance to apply to the image.

@@ -10,7 +10,7 @@ masking: true
 
 A versatile tool for adjusting the image's color balance. It can be used to revert parasitic color casts or to enhance the visual atmosphere of a picture using color grading, a popular technique in the cinema industry.
 
-### Overview
+# overview
 The color balance allows you to shift colors selectively by luminance range: shadows, mid-tones, and highlights. It does so using two different methods:
 
 lift, gamma, gain
@@ -27,13 +27,13 @@ In _slope, offset, power_ mode, the shadows parameter has a far heavier effect t
 
 _Side note: although this module acts on RGB colors its location in pixelpipe puts it into the Lab color space. Accordingly the modules converts from Lab to RGB, performs its color adjustments, and then converts back to Lab._
 
-### Presets
+# presets
 
 Several presets are provided in the module to help you understand how it can be used. The teal/orange color-grading preset is a very popular look in cinema and a good showcase model. It is meant to be used with two instances and masks: the first instance will exclude skin tones and will shift neutral colors toward teal blue. The second will partially revert the first one and add more vibrance on skin tones only. Together they will help creating separation between subjects and backgrounds. The masking and blending parameters will need to be tweaked to suit every picture, though.
 
 Other presets provide Kodak film emulations. In the same way you can recreate any film look you like with color balance.
 
-## Module Controls
+# module controls
 
 mode
 : _lift, gamma, gain (sRGB)_ is the legacy mode from darktable 2.4 and earlier. In this mode, the color transformations are applied in sRGB color space encoded with the sRGB gamma (average gamma of 2.2).
@@ -51,7 +51,7 @@ color control sliders
 
 : As a consequence, editing in RGB, then in HSL, then again in RGB will not retain the original RGB parameters, but will normalize them so their HSL lightness is 50%. The difference is barely noticeable in most cases, especially using the modes that already correct the RGB parameters internally in XYZ luminance.
 
-: In both modes, additional “factor” sliders act on all RGB channels at once. Their effect is similar to the controls of the _levels_ module and affect only the luminance.
+: In both modes, additional “factor” sliders act on all RGB channels at once. Their effect is similar to the controls of the [_levels_](./levels.md) module and affect only the luminance.
 
 input saturation
 : A saturation correction which is applied before the color balance. It can be used to dampen colors before adjusting the balance, to make difficult pictures easier to process. When you entirely desaturate the image, it creates a luminance-based monochrome picture that can be used as a luminance mask, to create color filters with the color balance settings, like split-toning or sepia effect (when used with blending modes).
@@ -68,11 +68,11 @@ shadows, mid-tones, highlights
 : In _RGBL_ mode, the RGB sliders' range is limited to \[-0.5; 0.5\]. In _HSL_ mode, the saturation sliders range is limited to \[0%; 25%\]. Values outside of these bounds can be defined from keyboard input by right-clicking on the slider.
 
 optimize luma
-: The color-picker beside the optimize luma label will select the whole image and optimize the factors for shadows, mid-tones and highlights so the average luminance of the picture is 50% Lab, the maximum is 100% and the minimum is 0%, at the output of this module. This is essentially histogram normalization, similar to that performed by the _levels_ module. The optimizer is only really accurate when used in _slope, offset, power_ mode.
+: The color-picker beside the optimize luma label will select the whole image and optimize the factors for shadows, mid-tones and highlights so the average luminance of the picture is 50% Lab, the maximum is 100% and the minimum is 0%, at the output of this module. This is essentially histogram normalization, similar to that performed by the [_levels_](./levels.md) module. The optimizer is only really accurate when used in _slope, offset, power_ mode.
 
 : If you want more control, you can define three control patches using the color pickers beside each factor slider, to sample luminance in selected areas. The shadows color picker samples the minimum luminance, the mid-tones color picker samples the average, and the highlights color picker samples the maximum luminance. The most sensitive parameter is the mid-tones factor, since selecting a slightly different area can lead to dramatic parameter changes. Using the factors color pickers alone, without triggering the luma optimization, will allow you to perform adjustments without general optimization, but each parameter is always computed accounting for other two. Once patches are selected, the label changes to read “optimize luma from patches”. To reset one patch, you can just redo the selection. Patches are not saved in the parameters and are kept only during the current session.
 
-: It is important to note that the luminance adjustment targets only the output of the color balance module and does not account for other luminance adjustments performed in modules coming later in the pixelpipe (e.g. _filmic rgb_, _tone curve_, _color zones_, _levels_, _global tonemapping_). Using the color balance to remap the luminance globally on the image is not recommended because it does not preserve the original colors, and modules such as _tone curve_ or _filmic rgb_ are better suited for this purpose. Luminance adjustments in color balance are better suited for local correction, in combination with color adjustments, for color-grading with masks.
+: It is important to note that the luminance adjustment targets only the output of the color balance module and does not account for other luminance adjustments performed in modules coming later in the pixelpipe (e.g. [_filmic rgb_](./filmic-rgb.md), [_tone curve_](./tone-curve.md), [_color zones_](./color-zones.md), [_levels_](./levels.md), [_global tonemapping_](./global-tonemap.md)). Using the color balance to remap the luminance globally on the image is not recommended because it does not preserve the original colors, and modules such as [_tone curve_](./tone-curve.md) or [_filmic rgb_](./filmic-rgb.md) are better suited for this purpose. Luminance adjustments in color balance are better suited for local correction, in combination with color adjustments, for color-grading with masks.
 
 neutralize colors
 : In an image where some areas are exposed to direct sunlight and some areas are exposed to reflected light (shadows), or when several artificial light sources are present simultaneously, shadows and highlights often have different color temperatures. These images are particularly difficult to correct since no general white balance will match all the colors at once. The color neutralization optimizer aims at helping you find the complementary color for shadows, midtones, and highlights so that all the color casts are reverted, and the average color of the picture is a neutral grey.

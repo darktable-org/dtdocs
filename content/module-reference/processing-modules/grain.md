@@ -10,7 +10,7 @@ masking: true
 
 Simulate film grain. The grain is processed on the L channel in the Lab color space.
 
-## Module Controls
+# module controls
 
 coarseness
 : The grain size, scaled to simulate an ISO number.

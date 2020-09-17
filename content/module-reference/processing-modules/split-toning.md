@@ -12,7 +12,7 @@ Create a two color linear toning effect where the shadows and highlights are rep
 
 The split-toning module does not convert images to black and white and has limited benefits on color images. In order to do traditional split-toning, the input to this module should therefore be monochrome.
 
-## Module Parameters
+# module controls
 
 shadows and highlights color
 : Set the desired hue and saturation for both shadows and highlights. Clicking on the colored squares will open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.

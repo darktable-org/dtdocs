@@ -24,9 +24,9 @@ manual
 automatic
 : the module automatically analyses the histogram of the image, detects the left and right histogram borders, and lets you define the black point, the gray point and the white point in terms of [percentiles](http://en.wikipedia.org/wiki/Percentile) relative to these borders.
 
-N.B. Under certain conditions, especially with highly saturated blue light sources, the levels module may produce black pixel artifacts. See the "gamut clipping" option of the _input color profile_ module for information about how to mitigate this issue.
+N.B. Under certain conditions, especially with highly saturated blue light sources, the _levels_ module may produce black pixel artifacts. See the "gamut clipping" option of the [_input color profile_](./input-color-profile.md) module for information about how to mitigate this issue.
 
-## Module Controls
+# module controls
 
 mode
 : The mode of operation (automatic or manual).

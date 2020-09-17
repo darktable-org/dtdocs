@@ -10,12 +10,12 @@ masking: true
 
 The input color profile defines how darktable will interpret the colors of your image. You can darktable's auto-allocated input color profile if there is an alternative that more closely matches the original image's color space. The module also allows colors to be confined to a certain gamut to mitigate some (infrequent) color artifacts.
 
-## Module Controls
+# module controls
 
 profile
 : The profile or color matrix to apply. A number of matrices are provided along with an enhanced color matrix for some camera models. The enhanced matrices are designed to provide a look closer to the camera manufacturer's.
 
-: You can also supply your own input ICC profiles and put them into `$DARKTABLE/share/darktable/color/in` or `$HOME/.config/darktable/color/in` (where `$DARKTABLE` represents the darktable installation directory and `$HOME` your home directory). One common source of ICC profiles is the software that is shipped with your camera, which often contains profiles specific to your camera model. You may need to activate the _unbreak input profile_ module to use your own profiles.
+: You can also supply your own input ICC profiles and put them into `$DARKTABLE/share/darktable/color/in` or `$HOME/.config/darktable/color/in` (where `$DARKTABLE` represents the darktable installation directory and `$HOME` your home directory). One common source of ICC profiles is the software that is shipped with your camera, which often contains profiles specific to your camera model. You may need to activate the [_unbreak input profile_](./unbreak-input-profile.md) module to use your own profiles.
 
 : If your input image is a low dynamic range file like JPEG, or a raw in DNG format, it might already contain an embedded ICC profile which darktable will use by default. You can restore the default by selecting “embedded icc profile”.
 

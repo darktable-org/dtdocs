@@ -10,9 +10,9 @@ masking: false
 
 Apply a vignetting effect to the image. Vignetting is a modification of the brightness & saturation at the borders of the image in a specified shape. Many of the parameters listed belowcan also be modified with a graphical control that overlays the image when the module has focus, showing the shape and extent of the effect.
 
-This module is known to provoke banding artifacts under certain conditions; you should consider also activating the _dithering_ module to alleviate this.
+This module is known to provoke banding artifacts under certain conditions; you should consider also activating the [_dithering_](./dithering.md) module to alleviate this.
 
-## Module Controls
+# module controls
 
 scale
 : The radius of the vignetting area
@@ -39,4 +39,4 @@ width/height ratio
 : Manually adjust the width/height ratio of the vignetting area.
 
 dithering
-: Activate random noise dithering to alleviate banding artifacts caused by vignette gradients. Select “8-bit output” to prevent banding on monitor display and for JPEGs. When set to “16-bit output”, only a little dithering will be applied, just strong enough to compensate for banding on the fine grained 16-bit level. It is now recommended to instead use the _dithering_ module to achieve this.
+: Activate random noise dithering to alleviate banding artifacts caused by vignette gradients. Select “8-bit output” to prevent banding on monitor display and for JPEGs. When set to “16-bit output”, only a little dithering will be applied, just strong enough to compensate for banding on the fine grained 16-bit level. It is now recommended to instead use the [_dithering_](./dithering.md) module to achieve this.

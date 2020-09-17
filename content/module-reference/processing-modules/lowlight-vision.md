@@ -14,7 +14,7 @@ The idea is to calculate a [scotopic vision](http://en.wikipedia.org/wiki/Scotop
 
 The module comes with several presets which can be used to get a better idea about how the module works.
 
-## Module Controls
+# module controls
 
 curve
 : The horizontal axis represents pixel lightness from dark (left) to bright (right). The vertical axis represents the kind of vision from night vision (bottom) to day vision (top).

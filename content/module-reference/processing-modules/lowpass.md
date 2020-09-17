@@ -10,7 +10,7 @@ masking: true
 
 Apply a lowpass filter (e.g. gaussian blur) to the image, while controlling the output contrast and saturation. This module is normally used with a _blending operator_. For example, try using the "local contrast mask" preset with an _overlay_ blending mode.
 
-## Module Controls
+# module controls
 
 radius
 : The radius of the blur

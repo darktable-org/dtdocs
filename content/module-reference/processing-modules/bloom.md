@@ -10,7 +10,7 @@ masking: true
 
 Create a soft bloom over the image. This module works by blurring the highlights and then blending them with the original image.
 
-## Module Controls
+# module controls
 
 size
 : The spacial extent of the bloom effect

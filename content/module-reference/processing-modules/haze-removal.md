@@ -14,7 +14,7 @@ Haze absorbs light from objects in the scene but it is also a source of diffuse 
 
 Setting both of the module's controls to unity maximizes the amount of haze removal but is also likely to produce some artefacts. Removing the atmospheric light entirely may render the image flat and may result in an unnatural looking style. Optimal values are typically below unity and are rather image dependent but also a matter of personal aesthetic preferences.
 
-## Module Controls
+# module controls
 
 strength
 : The amount of haze removal. At unity, the module removes 100 percent of the detected haze up to the specified distance. Negative values for the strength increase the amount of haze in the image.

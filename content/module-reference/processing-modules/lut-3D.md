@@ -12,7 +12,7 @@ A 3D LUT is a tridimensional table which is used to transform a given RGB value 
 
 This module accepts `.cube` and `.png` (haldclut) files. The 3D LUT data is not saved in the database or the XMP file, but is instead saved to the 3D LUT file path inside the 3D LUT root folder. This means that it is important to back up your 3D LUT folder properly. Sharing an image with its XMP is useless if the recipient doesn't also have the same 3D LUT file in their own 3D LUT folder.
 
-## Module Controls
+# module controls
 
 file selection
 : Choose the 3D LUT file to use. File selection is inactive until the 3D LUT root folder has been defined in the darktable _preferences_ dialog.

@@ -10,7 +10,7 @@ masking: true
 
 Perform denoising on raw image data before it is demosaiced. This module is ported from [dcraw](http://www.cybercom.net/~dcoffin/dcraw/).
 
-## Module Controls
+# module controls
 
 noise threshold
 : The threshold for noise detection. Higher values lead to stronger noise removal and greater loss of image detail.
@@ -22,4 +22,4 @@ coarse/fine curves
 
 : As another example, if you are tackling chroma noise with a blend mode, you can push up the right part of the curve, as colors are not supposed to change a lot on fine grain scales. This will help especially if you see some isolated pixel left undenoised. 
 
-: The best way to use the R, G, and B curves is to examine each of the channels in turn using the channel mixer module in gray mode, denoise that channel, and then repeat for the other channels. This way, you can take into account the fact that some channels may be noisier than others. Beware that guessing which channel is noisy without actually seeing the channels individually is not straightforward and can be counterintuitive: a pixel which is completely red may not be caused by noise on the R channel, but actually by noise on B and G channels.
+: The best way to use the R, G, and B curves is to examine each of the channels in turn using the [_channel mixer_](./channel-mixer.md) module in gray mode, denoise that channel, and then repeat for the other channels. This way, you can take into account the fact that some channels may be noisier than others. Beware that guessing which channel is noisy without actually seeing the channels individually is not straightforward and can be counterintuitive: a pixel which is completely red may not be caused by noise on the R channel, but actually by noise on B and G channels.

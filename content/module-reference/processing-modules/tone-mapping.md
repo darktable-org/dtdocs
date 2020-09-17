@@ -12,7 +12,7 @@ Compress the tonal range of HDR images, so they fit into the limits of a normal,
 
 The underlying algorithm uses a bilateral filter to decompose an image into a coarse base layer and a detail layer. The contrast of the base layer is compressed, while the detail layer is preserved, then both layers are re-combined.
 
-## Module Controls
+# module controls
 
 contrast compression
 : The contrast compression level of the base layer. A higher compression will make the image fit a lower dynamic range.

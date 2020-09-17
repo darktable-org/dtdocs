@@ -14,7 +14,7 @@ This module reduces noise in the image while preserving sharp edges. This is acc
 
 As denoising is a resource hungry process, it slows down pixelpipe processing significantly; consider activating this module late in your workflow.
 
-## Module Controls
+# module controls
 
 radius
 : The spacial extent of the gaussian blur.

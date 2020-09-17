@@ -16,7 +16,7 @@ If your system's lensfun library has no correction profile for the automatically
 
 If you can't find your lens, check if it is in the list of [currently supported lenses](http://lensfun.sourceforge.net/lenslist/), and try running [the lensfun-update-data tool](http://lensfun.sourceforge.net/manual/lensfun-update-data.html). If there is still no matching profile for your lens, please visit this [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) offered by Torsten Bronger, one of darktable's users. Alternatively you may go to [lensfun's home page](http://lensfun.sourceforge.net/) and learn how to generate your own set of correction parameters. Don't forget to share your profile with the lensfun team!
 
-## Module Controls
+# module controls
 
 camera
 : The camera make and model as determined by Exif data. You can override this manually and select your camera from a hierarchical menu. Only lenses with correction profiles matching the selected camera will be shown.
@@ -36,7 +36,7 @@ geometry
 : In addition to the correction of lens flaws, this module can change the projection type of your image. Set this combobox to the aimed projection type, such as “rectilinear”, “fish- eye”, “panoramic”, “equirectangular”, “orthographic”, “stereographic”, “equisolid angle”, “thoby fish-eye”.
 
 scale
-: Adjust the scaling factor of your image. Press the auto scale button (to the right of the slider) for _darktable_ to find the best fit to avoid black corners.
+: Adjust the scaling factor of your image. Press the auto scale button (to the right of the slider) for darktable to find the best fit to avoid black corners.
 
 mode
 : The default behavior of this module is to correct lens flaws. Switch this combobox to “distort” in order to instead _simulate_ the behavior of a specific lens (inverted effect).

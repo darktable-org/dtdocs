@@ -10,7 +10,7 @@ masking: true
 
 Modify the tonal range of the shadows and highlights of an image by enhancing local contrast.
 
-## Module Controls
+# module controls
 
 shadows
 : Control the effect on shadows. Positive values will lighten shadows while negative values will darken them.

@@ -12,7 +12,7 @@ A very basic tool for adjusting the _contrast_, _brightness_ and _saturation_ of
 
 All module controls default to a neutral position (zero) and provide the ability to increase or decrease the relevant parameter
 
-## Module Controls
+# module controls
 
 contrast
 : The contrast

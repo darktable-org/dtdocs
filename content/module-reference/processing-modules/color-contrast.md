@@ -10,7 +10,7 @@ masking: true
 
 A simplified control for changing the contrast or separation of colors between the green/magenta and blue/yellow axes in Lab color space. Higher values increase color contrast, lower values decrease it.
 
-## Module Controls
+# module controls
 
 green vs. magenta
 : Change the color contrast of green vs. magenta

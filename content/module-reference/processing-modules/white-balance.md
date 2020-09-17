@@ -12,9 +12,9 @@ Set the white balance of the image by (a) altering the temperature and tint, (b)
 
 The default settings for this module are derived from the image's Exif data.
 
-## Module Controls
+# module controls
 
-### scene illuminant temp
+## scene illuminant temp
 
 In this section there are scene illuminanant temperature and tint controls which set the white balace of the image. Click on 'scene illuminant temp' to cycle between 3 different slider color modes.
 
@@ -24,7 +24,7 @@ temperature
 tint
 : Alter the color tint of the image, from magenta (value `< 1`) to green (value `> 1`)
 
-### white balance presets
+## white balance presets
 
 setting
 : Choose from a predetermined list of white balances. The available selections are dervied from the presets available on the camera that was used to take the photograph. The following options are provided in addition to the camera-defined white balance presets.
@@ -42,16 +42,16 @@ setting
 finetune
 : Finetune specific white balance preset from camera. Only shown if available. Direction of adjustment is dependent on provided presets. If your camera doesn't have white balance presets available, check [this guide](https://github.com/darktable-org/darktable/wiki/White-balance-presets) to see how to submit your own.
 
-### channel coefficients
+## channel coefficients
 
 By default the RGB channel coefficients are hidden. Expand/collapse the channel coefficients section by clicking on either the 'channel coefficients' header or the adjacent "arrow" button.
 
 red/green/blue
 : Set the value of each RGB channel from `0` to `8`
 
-## Module reference
+# module reference
 
-### colored sliders
+## colored sliders
 
 By default the module doesn't enable colored sliders, since that's the way the module used to work. However in order to have better UX, the 2 new modes of colored sliders have been added and can be enabled in `preferences` -> `darkroom` -> `white balance slider colors` or by clicking on `scene illuminant temp` header in the module.
 
@@ -64,7 +64,7 @@ illuminant color
 efect emulation
 : the slider colors represent the effect the adjustment would have had on the scene. this is how most other raw processors show temperature/tint sliders colors.
 
-### button bar
+## button bar
 
 Button bar is simple addition to have one-click access to internal white balance settings. If you believe it clutters the interface you can disable it by editing your `darktablerc` file: find line that says
 

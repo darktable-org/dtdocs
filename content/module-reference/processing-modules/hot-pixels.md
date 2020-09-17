@@ -10,7 +10,7 @@ masking: true
 
 Automatically detect and eliminate hot pixels. Hot pixels are pixels which failed to record a light level correctly. Detected hot pixels are replaced by an average of their neighbors.
 
-## Module Controls
+# module controls
 
 threshold
 : How strong a pixel's value needs to deviate from its neighbors to be regarded as a hotpixel.

@@ -21,9 +21,9 @@ reconstruct in LCh
 reconstruct color
 : Use an algorithm that transfers color information from unclipped surroundings into the clipped highlights. This method works very well on areas with homogeneous colors and is especially useful on skin tones with smoothly fading highlights. Please note that this method can produce maze-like artifacts on highlights behind high-contrast edges, for example well-exposed fine structures in front of an overexposed background.
 
-_N.B. for highlight reconstruction to be effective you need to also apply a negative EV correction in the exposure module_
+_N.B. for highlight reconstruction to be effective you need to also apply a negative EV correction in the [exposure](./exposure.md) module_
 
-## Module Controls
+# module controls
 
 method
 : Choose the method for highlight reconstruction (see above)
