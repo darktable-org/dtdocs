@@ -1,24 +1,24 @@
 ---
-title: The Darkroom View Layout
+title: the darkroom view layout
 id: the-darkroom-view
 weight: 20
 draft: false
 ---
 
-# Left Panel
+# left panel
 
 From top to bottom:
 
-navigation
+[navigation](../module-reference/utility-modules/darkroom/navigation.md)
 : Navigate and zoom the image
 
-snapshots
+[snapshots](../module-reference/utility-modules/darkroom/snapshots.md)
 : Take snapshot images for comparison
 
-duplicate manager
+[duplicate manager](../module-reference/utility-modules/darkroom/duplicate-manager.md)
 : View and manage duplicates of the current image
 
-color picker
+[global color picker](../module-reference/utility-modules/darkroom/global-color-picker.md)
 : Select and display color information from parts of the image
 
 tagging
@@ -27,30 +27,30 @@ tagging
 image information
 : Display image information
 
-mask manager
+[mask manager](../module-reference/utility-modules/darkroom/mask-manager.md)
 : View and edit drawn shapes
 
-# Right Panel
+# right panel
 
 histogram
 : The histogram for the current image
 
-module groups (optional)
+[module groups (optional)](../module-reference/utility-modules/darkroom/module-groups.md)
 : Select module groups
 
 search module (optional)
 : Search for a module
 
-processing modules
+[processing modules](../module-reference/processing-modules/_index.md)
 : The modules used to process an image
 
-module order
+[module order](../module-reference/utility-modules/darkroom/module-groups.md)
 : Select from a predefined list of provided module orders
 
-more modules
+[more modules](../module-reference/utility-modules/darkroom/more-modules.md)
 : Control which modules are displayed and choose favourite modules
 
-# Bottom Panel
+# bottom panel
 
 presets
 : Quick access menu for module presets
