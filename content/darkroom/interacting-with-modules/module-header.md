@@ -1,5 +1,5 @@
 ---
-title: Module Header
+title: module header
 id: module-header
 weight: 10
 draft: false
@@ -11,7 +11,7 @@ At the top of each image operation module is the _module header_.
 
 _Click_ on the module header to expand the module and display the parameters that control its operation.
 
-By default darktable will only allow one image operation module to be expanded at a time. If you click the header of another module, the previous module controls are collapsed. If you want to see more than one module expanded, you may expand further modules with _Shift+click_: all previously expanded modules will remain open. The header bar behavior on _click_ and _Shift+click_, is controlled by a setting in the _darkroom_ tab of the _preferences_ dialog.
+By default darktable will only allow one image operation module to be expanded at a time. If you click the header of another module, the previous module controls are collapsed. If you want to see more than one module expanded, you may expand further modules with _Shift+click_: all previously expanded modules will remain open. The header bar behavior on _click_ and _Shift+click_, is controlled by a setting in the (_darkroom_ tab of the _preferences_)[../../../preferences-settings/darkroom.md] dialog.
 
 _N.B. Expanding a module does not activate it. See below_
 

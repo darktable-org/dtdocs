@@ -1,5 +1,5 @@
 ---
-title: Presets
+title: presets
 id: presets
 weight: 30
 draft: false
@@ -7,7 +7,7 @@ draft: false
 
 Presets are stored configurations for a module's parameters. Some modules already come with internal pre-defined presets but you can also define your own. Both internal and user-defined presets can be shown by clicking the _presets menu_ in the module header.
 
-# The Presets Menu
+# the presets menu
 
 The presets menu will contain one or more of the following entries:
 
@@ -28,7 +28,7 @@ store new preset
 
 If you _middle-click_ on a preset name this will create a new instance of the current module and set its parameters to match the selected preset.
 
-# Creating and Editing Presets
+# creating and editing presets
 
 When creating or editing presets, the following dialog is shown:
 
@@ -49,11 +49,11 @@ auto apply this preset to matching images
 
 : The example dialog above sets up following rules: if lens name matches and aperture is greater or equal to f/8 and focal length is between 24 and 35mm the preset will be automatically applied. Also the second checkbox is clicked so this preset will only be shown in the preset list if the image matches the rule. 
 
-: Tip: The image information panel for your image displays your model name, use this to ensure you have the correct spelling (see Section 2.3.5, “Image information”).
+: Tip: The image information panel for your image displays your model name, use this to ensure you have the correct spelling **LINK TBC** (see Section 2.3.5, “Image information”).
 
 only show this preset for matching images
 : Checking this box brings up additional selection fields (as above) where you can define a filter used to decide if the preset should be automatically shown in the presets menu.
 
-# Managing Presets
+# managing presets
 
-Both user created and pre-defined presets can be viewed and managed from within the _presets_ tab in the _preferences_ dialog.
+Both user created and pre-defined presets can be viewed and managed from within the [_presets_ tab in the _preferences_](../../../preferences-settings/presets.md) dialog.
