@@ -32,6 +32,8 @@ image information
 
 # right panel
 
+From top to bottom:
+
 histogram
 : The histogram for the current image
 
@@ -51,6 +53,8 @@ search module (optional)
 : Control which modules are displayed and choose favourite modules
 
 # bottom panel
+
+From left to right:
 
 presets
 : Quick access menu for module presets
