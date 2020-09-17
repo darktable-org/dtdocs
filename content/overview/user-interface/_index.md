@@ -1,5 +1,5 @@
 ---
-title: User Interface (ToDo)
+title: user interface
 id: user-interface
 draft: false
 weight: 10
