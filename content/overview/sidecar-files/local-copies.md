@@ -8,9 +8,9 @@ author: "people"
 
 Many users have huge image collections which they store on extra hard drives in their desktop computer, or on an external storage medium like a RAID NAS, etc.
 
-It is a common requirement to be able to develop a number of images while travelling using a laptop and then later synchronize them back to the original storage medium. However, copying images manually from the main storage to the laptop and back is cumbersome and prone to errors.
+It is a common requirement to be able to develop a number of images while travelling using a laptop and then later synchronize them back to the original storage medium. However, copying images manually from the main storage to the laptop and back is cumbersome and prone to errors. The “local copies” feature of darktable has been designed to directly support these use cases. 
 
-The “local copies” feature of darktable has been designed to directly support these use cases. You can create copies of selected pictures from within the lighttable. Local copies are always used when present, giving continued access to images even if the external storage is no longer connected. At a later point, when your primary storage medium has been reconnected, you can synchronize the XMP sidecar files back to this storage, deleting any local copies. These operations can be found in the [selected images](../../module-reference/utility-modules/lighttable/selected-images.md) module in the lighttable.
+You can create local copies of selected images from within the lighttable. Local copies are always used when present, giving continued access to images even if the external storage is no longer connected. At a later point, when your primary storage medium has been reconnected, you can synchronize the XMP sidecar files back to this storage, deleting any local copies. These operations can be found in the [selected images](../../module-reference/utility-modules/lighttable/selected-images.md) module in the lighttable.
 
 For safety reasons, if local copies exist and the external storage is available, the local XMP sidecars are automatically synchronized at start up.
 
