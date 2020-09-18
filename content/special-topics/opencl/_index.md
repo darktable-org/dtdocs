@@ -1,5 +1,5 @@
 ---
-title: OpenCL (ToDo)
+title: opencl
 id: opencl
 weight: 30
 draft: false
