@@ -1,5 +1,5 @@
 ---
-title: Lighttable Modes (ToDo)
+title: lighttable modes
 id: lighttable-modes
 draft: false
 weight: 40
