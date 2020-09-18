@@ -1,5 +1,5 @@
 ---
-title: Digital Asset Management (ToDo)
+title: digital asset management
 id: digital-asset-management
 draft: false
 weight: 50

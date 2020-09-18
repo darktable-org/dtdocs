@@ -30,6 +30,6 @@ activate OpenCL support
 
 OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems: 
-: **default**: the GPU processes the center view pixelpipe; the CPU processes the preview pipe; 
-: **multiple GPUs**: both pixelpipes are processed in parallel on two different GPUs; 
-: **very fast GPU**: both pixelpipes are processed sequentially on the GPU. 
+: _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe; 
+: _multiple GPUs_: both pixelpipes are processed in parallel on two different GPUs; 
+: _very fast GPU_: both pixelpipes are processed sequentially on the GPU. 
