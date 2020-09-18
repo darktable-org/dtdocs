@@ -24,7 +24,9 @@ output directory
 on conflict
 : _create unique filename_: Automatically choose a unique new file name if the generated filename conflicts with an existing file. 
 
-: _overwrite_: Automatically overwrite any existing files with the same name. This option will present you with a confirmation dialog in order to protect you from accidental data loss. Selecting “skip” will result in images not being exported when the destination filename already exists.
+: _overwrite_: Automatically overwrite any existing files with the same name. This option will present you with a confirmation dialog in order to protect you from accidental data loss. 
+
+: _skip_: Do not export images if the destination filename already exists.
 
 
 file format
@@ -40,6 +42,9 @@ file format
 
 max size
 : Set the maximum width and height of the output images in pixels. Set both to a value of “0” to export with the original dimensions (after cropping). If the values exceed the original dimensions darktable will either export with the original dimensions or perform an upscaling step, depending on the setting of the following parameter.
+
+high quality resampling
+: Set this to 'yes' to perform high quality resampling on the image. The image will first be processed in full resolution, and downscaled at the very end. This can sometimes result in better quality, but will always be slower.
 
 allow upscaling
 : If set to “yes” darktable will perform an upscaling step if the user defined maximum width and height exceed the original dimensions. If set to “no” the exported image's dimensions will not exceed the dimensions of the original image (after cropping).
