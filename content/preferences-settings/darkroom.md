@@ -16,11 +16,11 @@ smoothing of brush strokes
 display of individual color channels
 : Controls how individual color channels are displayed when activated in the parametric masks feature. You can choose between “false color” and “grey scale” (default "false color").
 
-pattern for the image infos line
+pattern for the image information line
 : See **TBC** for available values.
 
-position of the image info line
-: Control the panel in which the image info line is displaye. Choose between “top left” “top right” “top center” “bottom” and “hidden” (default "bottom").
+position of the image information line
+: Control the panel in which the image information line is displayed. Choose between “top left” “top right” “top center” “bottom” and “hidden” (default "bottom").
 
 show search module text entry
 : Controls how the darkroom determines which modules are shown at the same time in the right panel. You can choose between “groups icons” “search entry” “both” (default "both"). (need a restart)
