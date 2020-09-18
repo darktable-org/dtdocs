@@ -1,5 +1,5 @@
 ---
-title: color recostruction
+title: color reconstruction
 id: color-reconstruction
 applicable-verison: 3.2.1
 tags: 
