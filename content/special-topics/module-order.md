@@ -8,7 +8,7 @@ author: "people"
 
 The following sections describe the default module order in the new scene-referred workflow and the legacy display-referred workflow.
 
-# Scene-referred default module order
+# scene-referred default module order
 
 The default ordering of modules when using the new scene-referred workflow is as follows:
 
@@ -18,12 +18,12 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. **highlight reconstruction**
 2. chromatic aberrations
 2. hot pixels
-2. *raw denoise*
+2. _raw denoise_
 2. demosaic
 2. denoise (profiled)
-2. *denoise (bilateral filter)*
-2. *rotate pixels*
-2. *scale pixels*
+2. _denoise (bilateral filter)_
+2. _rotate pixels_
+2. _scale pixels_
 2. lens correction
 2. haze removal
 2. perspective correction
@@ -38,10 +38,10 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. tone equalizer
 2. graduated density
 2. unbreak_input_profile
-2. *legacy equalizer*
+2. _legacy equalizer_
 2. **input color profile**
 2. negadoctor
-2. *denoise (non-local means)*
+2. _denoise (non-local means)_
 2. color look up table
 2. defringe
 2. contrast equalizer
@@ -54,28 +54,28 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. channel mixer
 2. basic adjustments
 2. color balance
-2. *rgb curve*
-2. *rgb levels*
-2. *basecurve*
-2. *filmic (legacy)*
+2. _rgb curve_
+2. _rgb levels_
+2. _basecurve_
+2. _filmic (legacy)_
 2. **FILMIC RGB** -- transition from scene-referred to display-referred space
-2. *contrast brightness saturation*
-2. *tone curve*
-2. *levels*
-2. *shadows and highlights*
-2. *zone system*
-2. *global tonemap*
-2. *fill light*
+2. _contrast brightness saturation_
+2. _tone curve_
+2. _levels_
+2. _shadows and highlights_
+2. _zone system_
+2. _global tonemap_
+2. _fill light_
 2. local contrast
-2. *color correction*
-2. *color contrast*
+2. _color correction_
+2. _color contrast_
 2. velvia
 2. vibrance
 2. color zones
-2. *bloom*
+2. _bloom_
 2. colorize
 2. lowlight vision
-2. *monochrome*
+2. _monochrome_
 2. grain
 2. soften
 2. split-toning
@@ -86,11 +86,11 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. framing
 2. watermark
 
-**Key:**
+**key:**
 * _italic_: not recommended for scene-referred workflow
 * **bold**: module on by default
 
-# Legacy/display-referred default module order
+# legacy/display-referred default module order
 
 The default ordering of modules when using the legacy display-referred workflow is as follows:
 

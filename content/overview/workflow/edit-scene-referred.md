@@ -6,18 +6,18 @@ weight: 30
 author: "people"
 ---
 
-The *scene-referred* workflow places emphasis on doing image processing in the linear scene-referred part of the pixel pipe. This helps to reduce artifacts and colour shifts that can result from working in non-linear display-referred spaces, and by decoupling the image processing from the characteristics of a specific display, it makes it easier to adapt your work in the future to new display types, such asd high dynamic range displays.
+The _scene-referred_ workflow places emphasis on doing image processing in the linear scene-referred part of the pixel pipe. This helps to reduce artifacts and colour shifts that can result from working in non-linear display-referred spaces, and by decoupling the image processing from the characteristics of a specific display, it makes it easier to adapt your work in the future to new display types, such asd high dynamic range displays.
 
-# Base Modules
+# base modules
 Basic image processing in the scene-referred workflow requires you at a minimum to consider the following modules in order to render a reasonable image on your display:
 
 0. **Use your camera** to take a properly exposed image. Normally you can rely on the camera's metering and automatic exposure features. However, for some scenes you may need to use the camera's exposure compensation dial to get an optimal exposure. In general, you want to make the exposure in camera as bright as possible without clipping the highlights. This is known as "exposing to the right" (ETTR), and it ensures you take best advantage of the sensor's dynamic range. Many cameras have features like "zebras" or "blinkies" to warn you when you are in danger of clipping.
 1. **Exposure**: this module is enabled by default, and it will have an initial value of +0.5EV. The metering systems in cameras vary, and for some camera models you might want a bit more initial exposure (eg. +0.8EV ~ 1.5EV) -- you can create an auto-apply preset as required. The exposure module will detect if the camera's exposure compensation dial was used (see above remarks about ETTR), and will re-adjust the exposure accordingly. Use the exposure slider to adjust the midtones in the image to an appropriate brightness level. At this stage, don't worry about highlights and shadows, this will be dealt with later. 
 2. **White Balance**: it is important that white balance is set correctly to form a solid basis for further processing. The camera will normally propose some white balance setting inside the raw file's metadata, and darktable will use this as a starting point. To get a more accurate white balance, you can either use the colour picker to select a neutral grey tone in the image, or you can use the white balance presets for your camera where available. FIne adjustments can also be made using the sliders.
-3. **Filmic**: you already set the mid-grey tone level using the exposure module. Filmic will propose on its *scene* tab a white point and black point for the image, but you may need to adjust these for a particular scene. On the *look* tab you can adjust the midtone contrast and saturation settings if required.
+3. **Filmic**: you already set the mid-grey tone level using the exposure module. Filmic will propose on its _scene_ tab a white point and black point for the image, but you may need to adjust these for a particular scene. On the _look_ tab you can adjust the midtone contrast and saturation settings if required.
 
 
-# Additional Modules
+# additional modules
 In addition to the basic modules described above, you may want to consider the use of the following modules to make your image look prettier:
 
 color balance
@@ -27,10 +27,10 @@ tone equalizer
 : Use this to bring up shadows/adjust highlights. You need to check the mask is set up appropriately, then you can use your mouse wheel to adjust the tone levels as you mouse over different parts of the image.
 
 local contrast
-: Use this in *local lapacian* mode to improve general sharpness to the image.  
+: Use this in _local lapacian_ mode to improve general sharpness to the image.  
 
 denoise (profiled)
-: Use this in *non-local means* mode to reduce noise in an image. You should use a 1:1 zoom on the image when doing denoising. The wavelet feature of this module is also quite effective against colour noise. 
+: Use this in _non-local means_ mode to reduce noise in an image. You should use a 1:1 zoom on the image when doing denoising. The wavelet feature of this module is also quite effective against colour noise. 
 
 haze removal
 : Does what is says on the tin.
@@ -41,7 +41,7 @@ channel mixer
 lens correction
 : If your camera/lens combo is supported, use this if corrections were not already done in-camera
 
-# Non-Recommended Modules
+# non-recommended modules
 
 There are also a number of modules in darktable which are not really recommended for which a linear scene-referred workflow. It doesn't mean these modules can't be used, it's just that they can produce undesirable effects when pushed too far, and there are better alternatives in a linear workflow.
 
@@ -105,7 +105,7 @@ contrast/brightness/saturation
 : _use color balance instead_
 : Works in Lab space, with the usual limitations that implies.
 
-# Modules to be used with care
+# modules to be used with care
 
 Finally, there are some modules where there is not yet an alternative well suited to the scene-referred workflow. If they are required, they should be used sparingly and with care.
 
