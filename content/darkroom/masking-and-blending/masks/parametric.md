@@ -5,41 +5,41 @@ weight: 30
 draft: false
 ---
 
-The parametric mask feature offers fine-grained selective control over how individual pixels are masked. It does so by automatically generating an intermediate blend mask from user defined parameters. These parameters are color coordinates rather than the geometrical coordinates used in drawn masks.
+The parametric mask feature offers fine-grained selective control over how individual pixels are masked. It does this by automatically generating an intermediate blend mask from user-defined parameters. These parameters are color coordinates rather than the geometrical coordinates used in drawn masks.
 
-For each data channel of a module (Lab, RGB) and additionally for several virtual data channels (e.g. hue, saturation) you  can construct a per-channel opacity function. Depending on the pixel's value for a given data channel this function determines a blending factor between 0 and 1 (or 100%) for that pixel.
+For each data channel of a module (Lab, RGB) and several virtual data channels (e.g. hue, saturation) you  can construct a per-channel opacity function. Depending on each pixel's value for a given data channel this function calculates a blending factor between 0 and 1 (100%) for that pixel.
 
-Each pixel of an image thus has different blending factors for each of its data channels (real and virtual). All blending factors are finally multiplied together (pixel-wise) along with the value of the global opacity slider to form a complete blend mask for the image.
+Each pixel of an image thus has different blending factors for each of its data channels (real and virtual). All blending factors are finally multiplied together (pixel-by-pixel) along with the value of the global opacity slider to form a complete parametric blend mask for the image.
 
-If, for a given pixel, the blend mask has a value of 0, the input of the module is left unchanged. If the blend mask has its maximum value of 1 (or 100%), the module has full effect.
+If the blend mask has a value of 0 for a given pixel, the input of the module is left unchanged. If the blend mask has a value of 1 (100%) for a pixel, the module has full effect.
 
 # channel tabs
 
-Click on one of the channel tabs to select a data channel.
+Click on one of the channel tabs to select a data channel to use to build your mask.
 
 Modules acting in _Lab_ color space have data channels for L, a, b, C (chroma of LCh) and h (hue of LCh). 
 
 Modules acting in _RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
 
-_See [Wikipedia](https://en.wikipedia.org/wiki/Color_space)._
+_See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details about these color spaces._
 
-Each tab provides two sliders for its data channels: one for the input data that the module receives and one for the output data that the module produces prior to blending.
+Each tab provides two sliders for its associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending.
 
 ## inspecting data channels & masks
 
-Press the letter 'c' while hovering over the relevant slider to view the input or output image data for the selected color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in the [_darkroom_ tab of the _preferences_](../../../preferences-settings/darkroom.md) dialog. 
+Press the letter `C` while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in [`preferences` -> `darkroom` -> `display of individual color channels`](../../../preferences-settings/darkroom.md). 
 
-Press the letter 'm' to see the resulting mask for that slider overlaid on the image. 
+Press the letter `M` to see the resulting mask for that slider overlaid on the image. 
 
 When leaving the slider the image goes back to normal after a short delay. 
 
 ## linear / log mode
 
-Press the letter 'a' while hovering over the a slider to change it to 'log' mode. This provides more fine control in the shadows. Press 'a' again to toggle back to 'linear' mode.
+Press the letter `A` while hovering over the a slider to change it to 'log' mode. This provides more fine control in the shadows. Press `A` again to toggle back to 'linear' mode.
 
 # channel input/output sliders
 
-With each color channel slider you can construct a trapezoidal opacity function. For this purpose there are four markers per slider. Two filled triangles above the slider mark the range of values where opacity is 1. Two open triangles below the slider mark the range values where opacity is zero. Intermediate points between full and zero opacities are given a proportional opacity.
+With each color channel slider you can construct a trapezoidal opacity function. For this purpose there are four markers per slider. Two filled triangles above the slider mark the range of values where opacity is 1. Two open triangles below the slider mark the range values where opacity is zero. Intermediate points between full and zero are given a proportional opacity.
 
 The filled triangles, or inside markers, indicate the closed (mostly narrower) edge of the trapezoidal function. The open triangles, or outside markers, indicate the open (mostly wider) edge of the trapezoidal function. The sequence of the markers always remains unchanged: they can touch one another but they cannot switch position.
 
@@ -49,13 +49,13 @@ A polarity (+/-) button to the right of each the slider switches between "range 
 
 In their default state all markers are at their extreme positions. In this state a range select function selects the whole range of values giving an “all at 100%” mask. Starting from there one can move the sliders inwards to gradually exclude more and more parts of the image except for the remaining narrow range.
 
-A range de-select function (enabled by toggling the polarity) by default deselects the whole range of values, giving an “all-zero” mask as a starting point. Moving the sliders inwards gradually includes more and more parts of the image except for the remaining narrow range. 
+Conversely a range de-select function (enabled by toggling the polarity) by default deselects the whole range of values, giving an “all-zero” mask as a starting point. Moving the sliders inwards gradually includes more and more parts of the image except for the remaining narrow range. 
 
 # color pickers
 
 With the left-hand color picker button you can select a point or area probe from your image. The corresponding values for the real and virtual data channels are then displayed within each color channel slider.
 
-With the right-hand color picker button you can automatically set the slider's values based on the selected range. _Click_ and drag to set the parameters for the input slider from the drawn rectangle; _Ctrl+click_ and drag to set the parameters for the output slider.
+With the right-hand color picker button you can automatically set the slider's values based on the selected range. `Click` and drag to set the parameters for the input slider from the drawn rectangle; `Ctrl+click` and drag to set the parameters for the output slider.
 
 # invert
 
