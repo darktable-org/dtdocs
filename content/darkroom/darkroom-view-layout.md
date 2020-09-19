@@ -13,7 +13,7 @@ From top to bottom:
 : Navigate and zoom the image
 
 [snapshots](../module-reference/utility-modules/darkroom/snapshots.md)
-: Take snapshot images for comparison
+: Take and view snapshots for comparison with the current image
 
 [duplicate manager](../module-reference/utility-modules/darkroom/duplicate-manager.md)
 : View and manage duplicates of the current image
@@ -21,11 +21,11 @@ From top to bottom:
 [global color picker](../module-reference/utility-modules/darkroom/global-color-picker.md)
 : Select and display color information from parts of the image
 
-tagging
+[tagging](../module-reference/utility-modules/shared/tagging.md)
 : Manage tags for the current image
 
-image information
-: Display image information
+[image information](../module-reference/utility-modules/shared/image-information.md)
+: Display information about the current image
 
 [mask manager](../module-reference/utility-modules/darkroom/mask-manager.md)
 : View and edit drawn shapes
@@ -34,7 +34,7 @@ image information
 
 From top to bottom:
 
-histogram
+[histogram](../module-reference/utility-modules/shared/histogram.md)
 : The histogram for the current image
 
 [module groups (optional)](../module-reference/utility-modules/darkroom/module-groups.md)
@@ -46,7 +46,7 @@ search module (optional)
 [processing modules](../module-reference/processing-modules/_index.md)
 : The modules used to process an image
 
-[module order](../module-reference/utility-modules/darkroom/module-groups.md)
+[module order](../module-reference/utility-modules/darkroom/module-order.md)
 : Select from a predefined list of provided module orders
 
 [more modules](../module-reference/utility-modules/darkroom/more-modules.md)
@@ -56,10 +56,10 @@ search module (optional)
 
 From left to right:
 
-presets
+[presets](./interacting-with-modules/presets.md)
 : Quick access menu for module presets
 
-styles
+[styles](../module-reference/utility-modules/lighttable/styles.md)
 : Quick access menu for styles
 
 second darkroom window
@@ -71,16 +71,16 @@ focus peaking
 ISO12646 color assessment
 : Toggle the color assessment view
 
-raw overexposed
+[raw overexposed warning](../module-reference/utility-modules/darkroom/raw-overexposed.md)
 : Toggle raw overexposed indicators (right-click for options)
 
-clipping indication
+[clipping warning](../module-reference/utility-modules/darkroom/clipping.md)
 : Toggle clipping indicator (right-click for options)
 
-softproofing
+[soft proof](../module-reference/utility-modules/darkroom/soft-proof.md)
 : Toggle softproofing (right-click for options)
 
-gamut checking
+[gamut check](../module-reference/utility-modules/darkroom/gamut.md)
 : Toggle gamut checking (right-click for options)
 
 overlay line colors
