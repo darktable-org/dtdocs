@@ -1,5 +1,5 @@
 ---
-title: Import, Rate & Tag Images (ToDo)
+title: Import, Rate & Tag Images
 id: import-rate-tag
 draft: false
 weight: 10
