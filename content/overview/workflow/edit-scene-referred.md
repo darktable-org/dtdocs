@@ -59,7 +59,7 @@ shadows and highlights
 
 low-pass filter
 : _use contrast equalizer or tone equalizer instead_
-: Use _contrast equaliser_ for blurring, use _tone equaslizer_ if local dynamic range compression is needed.
+: Use _contrast equalizer_ for blurring, use _tone equaslizer_ if local dynamic range compression is needed.
 
 high-pass filter
 : _use contrast equalizer or local contrast instead_
@@ -67,7 +67,7 @@ high-pass filter
 
 sharpen
 : _use contrast equalizer or local contrast instead_
-: _Sharpen_'s USM algorithm is a little archaic and can easily cause artifacts; use _contrast equaliser_ presets for de-blurring, or local contrast for general sharpness.
+: _Sharpen_'s USM algorithm is a little archaic and can easily cause artifacts; use _contrast equalizer_ presets for de-blurring, or local contrast for general sharpness.
 
 monochrome
 : _use channel mixer (or color balance) instead_
@@ -94,7 +94,7 @@ velvia
 : Use the _output saturation_ sliderf the _color balance_ module.
 
 levels/rgb levels
-: _use |color balance instead_
+: _use color balance instead_
 : These modules are basically a subset of the color balance module functions, which makes them redundant.
 
 curves/rgb curves
