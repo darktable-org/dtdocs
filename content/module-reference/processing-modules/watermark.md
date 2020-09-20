@@ -14,7 +14,7 @@ The SVG processor of darktable also substitutes strings within the SVG document,
 
 User-designed watermarks are placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
 
-The following is a list of variable strings that are supported for substitution within the svg document. 
+The following is a list of variable strings that are supported for substitution within the SVG document. 
 
 Besides this list you can also use the variable strings defined in the [variables](../../special-topics/variables.md) section.
 
@@ -73,13 +73,13 @@ marker
 : Choose the watermark of interest. You can use the reload button to update the list with all newly added watermarks.
 
 text
-: A free text field with up to 63 characters which can be printed if the corresponding watermark references it. An example is supplied as `simple-text.svg`.
+: A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
 
 text color
 : The text color. Clicking on the colored field will open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.
 
 text font
-: The text font (default "DejaVu Sans Book"). Clicking on the field opens a dialog box which shows the fonts available to your system. Fonts can be searched by name and a preview of each available font is shown next to the font name; you may specify your own sample text.
+: The text font (default "DejaVu Sans Book"). Clicking on the field opens a dialog box which shows the fonts available to your system. Fonts can be searched by name and a preview of each available font is shown next to the font name. You may specify your own sample text.
 
 opacity
 : The opacity of the watermark's rendering.
@@ -94,7 +94,7 @@ scale on
 : Defines the reference for the scale parameter. The default setting “image” scales the watermark relative to the horizontal image size. Alternatively you can scale the watermark relative to the “larger border” or “smaller border”.
 
 alignment
-: Use these controls to align the watermark to any edge or center of the image.
+: Use these controls to align the watermark to any edge or the center of the image.
 
 x offset
 : Pixel-independent offset relative to the choice of alignment on the x-axis.

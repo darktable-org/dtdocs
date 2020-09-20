@@ -10,7 +10,7 @@ masking: true
 
 Create a two color linear toning effect where the shadows and highlights are represented by two different colors.
 
-The split-toning module does not convert images to black and white and has limited benefits on color images. In order to do traditional split-toning, the input to this module should therefore be monochrome.
+The split-toning module does not convert images to black and white and has limited benefits on color images. In order to perform traditional split-toning, the input to this module should therefore be monochrome.
 
 # module controls
 

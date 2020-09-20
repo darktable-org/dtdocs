@@ -8,7 +8,9 @@ view: darkroom
 masking: true
 ---
 
-Enhance image saturation. This module will affect pixels with low saturation more than pixels with high saturation. **N.B. I've changed this from the manual, which currently states that velvia effects _high-saturation_ pixels more. Please can someone confirm.**
+Enhance image saturation. 
+
+This module affects pixels with low saturation more than pixels with high saturation. **N.B. I've changed this from the manual, which currently states that velvia effects _high-saturation_ pixels more. Please can someone confirm.**
 
 # module controls
 
