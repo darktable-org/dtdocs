@@ -8,11 +8,11 @@ view: darkroom
 masking: false
 ---
 
-This module eliminates some of the banding artifacts which can occur when darktable's internal 32-bit floating point data is transferred into discrete 8-bit or 16-bit integer output format for display or file export.
+This module eliminates some of the banding artifacts that can result when darktable's internal 32-bit floating point data is transferred into discrete 8-bit or 16-bit integer output format for display or export.
 
-Although not an inherent problem in any of darktable's modules, some operations may provoke banding as they produce a lightness gradient in the image. To mitigate possible artifacts you should consider activating dithering when using the [_vignetting_](./vignetting.md) or [_graduated density_](./graduated-density.md) modules. This is especially relevant for images with extended homogeneous areas such as cloudless sky. Also watch out for banding artifacts when using a gradient [drawn mask](../../darkroom/masking-and-blending/masks/drawn).
+Although not an inherent problem in any of darktable's modules, some operations may provoke banding if they produce a lightness gradient in the image. To mitigate possible artifacts you should consider activating dithering when using the [_vignetting_](./vignetting.md) or [_graduated density_](./graduated-density.md) modules. This is especially relevant for images with extended homogeneous areas such as cloudless sky. Also watch out for banding artifacts when using a gradient [drawn mask](../../darkroom/masking-and-blending/masks/drawn).
 
-Viewing an image dithered into a very low bit depth from some distance (e.g. “floyd-steinberg 1-bit b&w”) will give the impression of a homogeneous grayscale image. We try to mimic this impression in darktable when rendering zoomed-out images in the center view, the navigation window and thumbnails. This is accomplished by dithering those images into a higher number of grayscale levels. Note that as a consequence the histogram – which is derived from the navigation window – will show this increased number of levels and is therefore not a full match of the output image.
+Viewing an image dithered into a very low bit depth from some distance (e.g. “floyd-steinberg 1-bit b&w”) will give the impression of a homogeneous grayscale image. darktable attempts to mimic this impression when rendering zoomed-out images in the center view, the navigation window and thumbnails. This is accomplished by dithering those images into a higher number of grayscale levels. Note that, as a consequence, the histogram -- which is derived from the navigation window -- will show this increased number of levels and is therefore not a full match to the output image.
 
 # module controls
 
