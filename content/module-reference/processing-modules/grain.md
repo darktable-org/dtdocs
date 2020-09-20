@@ -8,7 +8,7 @@ view: darkroom
 masking: true
 ---
 
-Simulate film grain. The grain is processed on the L channel in the Lab color space.
+Simulate the grain of analog film. The grain is processed on the L channel of Lab color space.
 
 # module controls
 

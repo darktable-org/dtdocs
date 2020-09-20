@@ -8,7 +8,9 @@ view: darkroom
 masking: true
 ---
 
-Attempt to reconstruct color information for pixels that are clipped in one or more RGB channel. If these pixels are left partially-clipped it can result in unrealistic colors appearing in the image. For example if both green and blue channels are clipped, those pixels will appear to be red without any highlight reconstruction.
+Attempt to reconstruct color information for pixels that are clipped in one or more RGB channel. 
+
+If these pixels are left partially clipped it can result in unrealistic colors appearing in the image. For example pixels with both green and blue channels clipped will appear to be red without any highlight reconstruction.
 
 Three methods of reconstruction are available:
 
@@ -21,7 +23,9 @@ reconstruct in LCh
 reconstruct color
 : Use an algorithm that transfers color information from unclipped surroundings into the clipped highlights. This method works very well on areas with homogeneous colors and is especially useful on skin tones with smoothly fading highlights. Please note that this method can produce maze-like artifacts on highlights behind high-contrast edges, for example well-exposed fine structures in front of an overexposed background.
 
-_N.B. for highlight reconstruction to be effective you need to also apply a negative EV correction in the [exposure](./exposure.md) module_
+_N.B. For highlight reconstruction to be effective you need to also apply a negative EV correction in the [exposure](./exposure.md) module_
+
+_N.B.B. When using the highlight reconstruction included with the [filmic rgb](./filmic-rgb.md) module it may be useful to disable this module so that filmic has more information to work with._
 
 # module controls
 
