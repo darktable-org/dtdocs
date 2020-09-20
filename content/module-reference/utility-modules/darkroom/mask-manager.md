@@ -6,43 +6,53 @@ tags:
 view: darkroom
 ---
 
-Manage all masks and shapes for the current image. This module can be used to create, rename, edit and delete shapes. You can add shapes to and remove them from a mask, group shapes together, and combine them using set operators. 
+Manage all masks and shapes for the current image. 
 
-In the top line of the mask manager panel are buttons that can be used to create new shapes. They are the same as in the drawn mask GUI of the individual modules.
+This module can be used to create, rename, edit and delete shapes. You can add shapes to and remove shapes from a mask, group shapes together, and combine them using set operators. 
 
-The panel below contains a list of all masks and individual shapes currently defined. 
+In the top line of the mask manager panel are buttons that can be used to create new shapes. These are the same as in the [drawn mask](../../../darkroom/masking-and-blending/masks/drawn.md) interface of the individual modules.
 
-Masks are indicated with a headline in the form “grp levels” indicating the module in which they are used with the component shapes being listed below. The list of masks is followed by a list of all individual shapes which have been generated in the context of the given image. If a shape is in use by any of the masks this is indicated by a symbol to the right of the shape name. 
+The panel below these buttons displays a list of all masks and individual shapes defined for the current image. 
+
+Groups of shapes forming a mask are displayed with a headline in the form `grp <module_name>` indicating the module in which they are used, with the component shapes listed below. The list of mask groups is followed by a list of all individual shapes that have been generated in the context of the current image. If a shape is in use by any masks this is indicated by a symbol to the right of the shape name. 
 
 # shapes
 
-By default shapes receive an automatically generated name, consisting of the shape type (“brush”, “circle”, “ellipse”, “path”, “gradient”) and a number that is incremented automatically. You can replace these automatically generated names by more meaningful ones. Double-clicking on the existing shape name prompts you to provide a new name. Giving a meaningful name is a good habit, especially if you are going to use the same selection in different masks.
+By default each shape receives an automatically generated name, consisting of the shape type (“brush”, “circle”, “ellipse”, “path”, “gradient”) and an automatically-incremented integer. You can rename a shape by double-clicking on its current name. It is a good habit to give shapes and groups meaninful names, especially if you are going to use the same selection in different masks.
 
-Clicking on the shape name shows the selected shape in the center canvas with all its controls. This is a convenient way to edit the properties of a single shape. This is especially useful where there are many overlapping shapes within a mask, making it difficult to select the right shape.
+Click on a shape name to show the selected shape on the image canvas with all of its controls, allowing you to edit the properties of just that shape. This is especially useful where there are many overlapping shapes within a mask, making it difficult to select the right one with the mouse.
 
-Right-clicking on a shape name gives you a drop-down menu with options to remove the current shape or to remove all shapes currently not in use.
+Right-click on a shape name to show a menu with options to remove the current shape or to remove all shapes not currently in use.
 
-All shapes that have ever been defined for the current image are retained unless you explicitly remove them. If you have worked a lot with shapes on one image, this list can get quite long. All defined shapes are stored within the XMP tags of an image and are included in exported files (if you choose to include develop history in the export). 
-
-_Note: If the list of shapes is very long the space required to store all shapes might exceed the limits of certain file formats. In this case storing the XMP tags can fail during export._
+_Note: darktable retains all shapes that have ever been defined for the current image unless you explicitly remove them. If you choose to include develop history when exporting an image, all defined shapes will be exported with the image. Beware that if the list of shapes is very long the space required to store those shapes might exceed the size limit of certain file formats. This can cause XMP tag creation to fail during export._
 
 # masks
 
-Clicking on the name of a mask expands a list showing the individual shapes which constitute that mask.
+Masks are constructed by adding shapes in the order that they are listed from top to bottom. Each shape adjusts the existing mask using one of four logical set operators (see below). Because order is important it is also possible to move shapes up and down the list.
 
-Right-clicking on the shape name opens a drop-down menu. Here you can define how the individual shapes interact to form the mask. You can also remove shapes from the mask. 
+Click on the name of a mask to expand the list of the individual shapes which constitute that mask.
 
-Masks are constructed by adding the shapes in the order that they are listed from top to bottom. Each shape adds to the mask by using one of four logical set operators.
+Right-click on the mask name to show a menu which with options to add new or existing shapes to the mask, or to clean up unused shapes.
 
-Because order matters when combining shapes you may move each shape up or down the list if required.
+Right-click on any of the constituent shapes to control how that shape contributes to the mask:
 
-The polarity of each shape can be inverted before being added. This is depicted by the symbol **TBC**.
+remove from group
+: Remove the shape from the current mask
+
+use inverted shape
+: Invert the polarity of the selected shape
+
+mode\: (union, intersection, difference, exclusion)
+: Choose how this shape will interact with the preceding mask by selecting one of the four set operators defined below
+
+move up/down
+: Move the shape up or down the list
 
 # set operators
 
 **NEEDS EXAMPLE IMAGES**
 
-We use as an example a combination of a gradient followed by a path to demonstrate the effect of each set operator when applied to the path shape. As a convention we say that a pixel is “selected” in a mask or shape if it has a value higher than zero. 
+As an example we will use a mask that combines a gradient followed by a path, to demonstrate the effect of each set operator when applied to the path shape. As a convention we say that a pixel is “selected” in a mask or shape if it has a value higher than zero. 
 
 union
 : This is the default set operator. It is depicted by the symbol **TBC** to the left of the shape name. The shape adds to the existing mask in such a way that the resulting mask contains the pixels that are *either* selected in the existing mask *or* in the added shape. In overlapping areas the maximum value is taken. 

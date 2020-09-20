@@ -6,8 +6,12 @@ tags:
 view: darkroom
 ---
 
-A snapshot is stored as a bitmap of the current center view and is kept as long as you stay in the darkroom. A snapshot can then be selected and overlaid in the current center view to help you with a side by side comparison (by default left=snapshot, right=active edit) when you are tuning parameters of a module. This can also be combined with _history stack_ module to compare the snapshot against different stages of development. 
+A snapshot is stored as a bitmap of the current center view. Snapshots can be taken at any point in the development process and then selected to be overlaid onto the current center view. This allows you to undertake a side by side comparison (by default left=snapshot, right=active edit) while you are tuning parameters of a module. This can also be combined with [history stack](./history-stack.md) module to compare a snapshot against different stages of development. 
 
-You can control the split view by moving the splitline back and forth over the image. If you hover with the mouse over the splitline, a small rotation icon will appear on the center of the line. Click it to change between vertical and horizontal split view. 
+You can control the split view by moving the splitline back and forth over the image with your mouse. If you hover with the mouse over the splitline, a small rotation icon will appear on the center of the line. Click this icon to change between vertical and horizontal split view. 
 
 At all times, an arrow containing the letter "S" is displayed to indicate which side of the image is the snapshot and which is the current edit.
+
+Click the module's reset button to remove all existing snapshots.
+
+_Note: Snapshots are retained for the duration of your darktable session. This means that you can also use snapshots to compare with a duplicate edit of the same image. Just navigate to that image and enable the snapshot view as normal._

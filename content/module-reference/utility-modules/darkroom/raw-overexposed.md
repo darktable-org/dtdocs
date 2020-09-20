@@ -8,7 +8,7 @@ view: darkroom
 
 This option warns you about areas of your raw input image with clipped color channels. Clipped color channels imply an overexposed image with loss of information in the affected areas. You may use the [_highlight reconstruction_](../../processing-modules/highlight-reconstruction.md) or [_color reconstruction_](../../processing-modules/color-reconstruction.md) modules to reconstruct these areas.
 
-Right-click on the icon to open a dialog containing configuration parameters. 	
+Right-click on the icon to open a dialog containing the following configuration parameters. 	
 
 mode
 : _mark with CFA color_: Display a pattern of the respective primary colors (red, green, and blue) to indicate which color channels are clipped. 
