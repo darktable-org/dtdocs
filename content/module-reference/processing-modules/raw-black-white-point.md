@@ -8,7 +8,9 @@ view: darkroom
 masking: false
 ---
 
-This module is activated automatically for all raw images and defines camera-specific black and white points. Default settings are applied for all supported cameras. Changes to the defaults are normally not required.
+Define the camera-specific black and white points. 
+
+This module is activated automatically for all raw images. Default settings are applied for all supported cameras. Changes to the defaults are normally not required.
 
 # module controls
 

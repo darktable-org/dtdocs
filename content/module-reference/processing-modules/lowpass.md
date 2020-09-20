@@ -8,7 +8,9 @@ view: darkroom
 masking: true
 ---
 
-Apply a lowpass filter (e.g. gaussian blur) to the image, while controlling the output contrast and saturation. This module is normally used with a _blending operator_. For example, try using the "local contrast mask" preset with an _overlay_ blending mode.
+Apply a low pass filter (e.g. gaussian blur) to the image, while controlling the output contrast and saturation. 
+
+This module is primarily intended to be used in combination with a [_blend mode_](../../darkroom/masking-and-blending/blend-modes.md). For example, try using the _local contrast mask_ preset with an _overlay_ blend mode.
 
 # module controls
 
@@ -17,14 +19,14 @@ radius
 
 soften with
 : The blur algorithm to use
-: **gaussian blur**: Blur all image channels (L, a, b)
-: **bilateral filter**: Blur the L channel only, while preserving edges
+: _gaussian blur_: Blur all image channels (L, a, b)
+: _bilateral filter_: Blur the L channel only, while preserving edges
 
 contrast
-: The contrast. Negative values result in an inverted negative image. Higher absolute values increase contrast; lower absolute values reduce contrast. A value of zero leads to a neutral plane.
+: Higher absolute values increase contrast. Lower absolute values reduce contrast. Negative values result in an inverted negative image. A value of zero leads to a neutral plane.
 
 brightness
-: The brightness. Negative values darken the image. Positive values lighten the image.
+: Negative values darken the image. Positive values lighten the image.
 
 saturation
-: The color saturation. Negative values result in complementary colors by inverting the a/b channels. Higher absolute values increase color saturation; lower absolute values reduce color saturation. A value of zero leads to a desaturated image.
+: The color saturation. Negative values result in complementary colors by inverting the a/b channels. Higher absolute values increase color saturation. Lower absolute values reduce color saturation. A value of zero desaturates the image.

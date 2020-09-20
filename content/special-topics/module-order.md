@@ -12,7 +12,7 @@ The following sections describe the default module order in the new scene-referr
 
 The default ordering of modules when using the new scene-referred workflow is as follows:
 
-1. [**raw black/white point**](../module-reference/processing-modules/raw-black_white-point.md)
+1. [**raw black/white point**](../module-reference/processing-modules/raw-black-white-point.md)
 2. [invert](../module-reference/processing-modules/invert.md)
 2. [**white balance**](../module-reference/processing-modules/white-balance.md)
 2. [**highlight reconstruction**](../module-reference/processing-modules/highlight-reconstruction.md)
@@ -92,7 +92,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 
 The default ordering of modules when using the legacy display-referred workflow is as follows:
 
-1. [**raw black/white point**](../module-reference/processing-modules/raw-black_white-point.md)
+1. [**raw black/white point**](../module-reference/processing-modules/raw-black-white-point.md)
 2. [invert](../module-reference/processing-modules/invert.md)
 2. [**white balance**](../module-reference/processing-modules/white-balance.md)
 2. [**highlight reconstruction**](../module-reference/processing-modules/highlight-reconstruction.md)
