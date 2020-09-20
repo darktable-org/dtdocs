@@ -1,14 +1,14 @@
 ---
-title: Default Module Order
+title: default module order
 id: module-order
 weight: 70
 draft: false
 author: "people"
 ---
 
-The following sections describe the default module order in the new scene-referred workflow and the legacy display-referred workflow.
+The following sections describe the default module order in the new scene-referred workflow and the legacy display-referred workflow. Note that in the following sections the module order goes from top (input file) to bottom (output image).
 
-# scene-referred default module order
+# scene-referred module order
 
 The default ordering of modules when using the new scene-referred workflow is as follows:
 
@@ -36,7 +36,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [local tone mapping](../module-reference/processing-modules/tone-mapping.md)
 2. [tone equalizer](../module-reference/processing-modules/tone-equalizer.md)
 2. [graduated density](../module-reference/processing-modules/graduated-density.md)
-2. [unbreak_input_profile](../module-reference/processing-modules/unbreak-input-profile.md)
+2. [unbreak input profile](../module-reference/processing-modules/unbreak-input-profile.md)
 2. _legacy equalizer_
 2. [**input color profile**](../module-reference/processing-modules/input-color-profile.md)
 2. [negadoctor](../module-reference/processing-modules/negadoctor.md)
@@ -88,7 +88,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 * _italic_: not recommended for scene-referred workflow
 * **bold**: module on by default
 
-# legacy/display-referred default module order
+# legacy/display-referred module order
 
 The default ordering of modules when using the legacy display-referred workflow is as follows:
 
