@@ -10,7 +10,7 @@ masking: true
 
 Remove color fringing, which often results from Longitudinal Chromatic Aberrations (LCA), also known as Axial Chromatic Aberrations.
 
-This module uses edge-detection. Where pixels are detected as a fringe, the color is rebuilt from lower-saturated neighboring pixels.
+This module uses edge-detection. Where pixels are detected as a fringe, the color is rebuilt from less saturated neighboring pixels.
 
 # module controls
 
