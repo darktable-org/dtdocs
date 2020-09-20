@@ -6,6 +6,20 @@ weight: 20
 author: "people"
 ---
 
+This section will guide you through the basics of developing an image in the darkroom view.
+
+To begin, open an image in darkroom mode by double clicking an image thumbnail on the lighttable. The darkroom mode is where the actual adjustments for an image are made, where an arsenal of modules are at hand to help you reach your goal.
+
+Each change made on a module while developing an image is turned into a history stack item. The history is stored in a database and in an XMP sidecar file for the specific image.
+
+All changes are stored automatically when you switch images or go from one darktable view to another. You can safely leave darkroom mode or quit darktable at any time and come back later to continue your work. That said darktable does not need a “save” button and it does not have one.
+
+On the left panel in darkroom mode is the history stack, showing changes starting from bottom, and building up with each change made to the image. You can select a point in this history to show how the image looked at that point, for comparison of changes. The stack can be compressed: it will be optimized and redundant changes will be discarded. When you think you are done and are happy with what you have done, just compress the history stack.
+
+A number of modules are shipped with darktable, arranged into groups. These module groups are accessed via toggle buttons in the right panel, just under the histogram. There are also two special module groups named “active” and “favorites”, which only show modules enabled in the history for the current image, and modules selected as a favourite, respectively. Marking a module as a favorite is done in the _more modules_ dialog at the bottom of the right panel, by clicking a module until a star is displayed in front of the icon.
+
+# choosing a workflow
+
 When processing an image, we apply a sequence of modules, known as the _pixel pipe_. 
 
 ```
