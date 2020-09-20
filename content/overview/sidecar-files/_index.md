@@ -1,7 +1,7 @@
 ---
 title: sidecar files & non-destructive editing
 id: concepts
-weight: 20
+weight: 30
 draft: false
 author: "people"
 ---
