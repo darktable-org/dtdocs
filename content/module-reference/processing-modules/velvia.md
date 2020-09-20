@@ -10,7 +10,7 @@ masking: true
 
 Enhance image saturation. 
 
-This module affects pixels with low saturation more than pixels with high saturation. **N.B. I've changed this from the manual, which currently states that velvia effects _high-saturation_ pixels more. Please can someone confirm.**
+This module's effect is tailored to increase saturation less on lower saturated pixels than on highly saturated pixels.
 
 # module controls
 
