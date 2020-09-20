@@ -8,9 +8,7 @@ view: darkroom
 masking: true
 ---
 
-Enhance image saturation. 
-
-This module's effect is tailored to increase saturation less on lower saturated pixels than on highly saturated pixels.
+Resaturate pixels in a weighted manner that gives more weight to blacks, whites and low-saturation pixels. 
 
 # module controls
 
