@@ -8,7 +8,7 @@ author: "people"
 
 darktable's input images are either RGB files (like JPEGs or TIFFs) or camera raws. Both represent colors by a combination of red, green and blue. For the most part darktable's modules act in the CIELAB color space (often just called “Lab”) which describes color as a combination of lightness data (L) and a point in the a-b color plane. The final output of the image processing pipeline is once again in RGB, either shaped for the monitor display or for the output file.
 
-This process implies that the pixelpipe has two color conversion steps: input color profile and output color profile. In addition there is the demosaic step for raw images, where the colors of each pixel are reconstructed by interpolation.
+This process implies that the pixelpipe has two color conversion steps: [_input color profile_](../../module-reference/processing-modules/input-color-profile.md) and [_output color profile_](../../module-reference/processing-modules/output-color-profile.md). In addition there is the [_demosaic_](../../module-reference/processing-modules/demosaic.md) step for raw images, where the colors of each pixel are reconstructed by interpolation.
 
 Each module has a fixed position in the pixelpipe which tells you which color space the module lives in:
 
