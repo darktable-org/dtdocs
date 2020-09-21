@@ -5,4 +5,4 @@ weight: 10
 draft: false
 ---
 
-darktable comes with a number of settings that can be configured by users. You reach the configuration menu by clicking the gear icon at the top of the screen. 
+darktable comes with a number of user-configurable preferences. These can be adjusted in the preferences dialog, which can be reached by clicking the gear icon on the right of the [top panel](../overview/user-interface/top-panel.md).
