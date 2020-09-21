@@ -6,4 +6,6 @@ tags:
 view: lighttable, map
 ---
 
-This module keeps track of the latest collections you have used, allowing you to reopen recently used collections without having to recall what rules used to specify that collection.
+Display a list of recently used collections from the [collect images](./collect-images.md) module.
+
+Click on an entry to reopen the selected collection. This also updates the collect images module with the appropriate filter criteria and rules.

@@ -6,4 +6,6 @@ tags:
 view: lighttable, darkroom, tethering, map, slideshow, print
 ---
 
-This module shows information embedded within an image's Exif data. When hovering with the mouse over thumbnails, darktable will update this view, displaying information of the image currently under the mouse cursor.
+This module displays the information embedded within an image's Exif data as well as a number of additional data fields defined within darktable. 
+
+When hovering with the mouse over thumbnails, darktable will update this view, displaying information about the image currently under the mouse cursor.
