@@ -2,24 +2,24 @@
 title: local contrast
 id: local-contrast
 applicable-verison: 3.2.1
-tags: 
+tags:
 working-color-space: Lab
 view: darkroom
 masking: true
 ---
-Enhance local contrast. 
+Enhance local contrast.
 
 This is achieved using either a _local laplacian_ filter (the default mode) or an _unnormalized bilateral_ filter. Both modes work exclusively on the L channel from Lab. The _local laplacian_ filter has been designed to be very robust against unwanted halo effects and gradient reversals along edges.
 
 # module controls
 
 mode
-: Choice of _local laplacian_ filter or _bilateral grid_. The following sections define the controls available for each of these modes. 
+: Choice of _local laplacian_ filter or _bilateral grid_. The following sections define the controls available for each of these modes.
 
 ## bilateral grid
 
 coarseness
-: Adjust the coarseness of the details to be adjusted. 
+: Adjust the coarseness of the details to be adjusted.
 
 contrast
 : How strongly the algorithm distinguishes between brightness levels. Increasing this parameter results in a more contrasty look.
@@ -31,7 +31,7 @@ detail
 
 To understand the parameters of the local laplacian filter, you can think of it as applying a curve to the image, similar to the following graph:
 
-![local laplacian curve](local-laplacian-curve.png)
+![local laplacian curve](local-contrast/local-laplacian-curve.png)
 
 This curve will be applied to the image in a way that works locally and avoids halo artifacts.
 
