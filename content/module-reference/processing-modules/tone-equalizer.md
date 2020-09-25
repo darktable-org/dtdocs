@@ -8,8 +8,6 @@ view: darkroom
 masking: 
 ---
 
-# Overview
-
 The _tone equalizer_ module is a tool for doing dodging and burning in your image. It is designed to be used together with filmic, where it can selectively brighten or darken up to 9 different ranges of luminosity. When used together with filmic, it replaces the need for other tone-mapping modules such as the Base Curve, Shadows/Highlights, Tone Curve and the Zone System modules. It works in linear RGB space, and it uses a mask to guide the dodging and burning adjustments, which helps to preserve local contrast within the image.
 
 In order to understand how the tone equaliser works, please refer to the following image:
@@ -36,7 +34,7 @@ The tone equalizer consists of 3 different tabs.
 
 ![tone-equalizer-simple](tone-equalizer-simple.png)
 
-2. The _advanced_ tab. This allows you to control the same 9 control points as in the basic tab, but it represents the amounts of exposure adjustment as a graph, just like the tone equalizer curve shown in the diagram from the overview section. Underneath the curve, you see a histogram. It it important to understand that this histogram represents the intensity levels in your _mask_, not in your input or output image. If the histogram is too bunched up, it means your mask doesn't have a good spread of intensity levels, which means you aren't able to independently control the brightness of different parts of your image. Therefore, you want the histogram to extend from the left side to the right side to cover as many of your control points as possible, in order to give you maximum flexibility in adjusting different parts of your image. If this is not the case, you need address this using the masking tab
+2. The _advanced_ tab. This allows you to control the same 9 control points as in the basic tab, but it represents the amounts of exposure adjustment as a graph, just like the tone equalizer curve shown in the tone equalizer overview diagram. Underneath the curve, you see a histogram. It it important to understand that this histogram represents the intensity levels in your _mask_, not in your input or output image. If the histogram is too bunched up, it means your mask doesn't have a good spread of intensity levels, which means you aren't able to independently control the brightness of different parts of your image. Therefore, you want the histogram to extend from the left side to the right side to cover as many of your control points as possible, in order to give you maximum flexibility in adjusting different parts of your image. If this is not the case, you need address this using the masking tab
 
 ![tone-equalizer-advanced](tone-equalizer-advanced.png)
 
