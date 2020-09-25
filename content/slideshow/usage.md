@@ -8,6 +8,9 @@ author: "people"
 
 The slideshow view is in an early stage of development with a basic set of features.
 
+_F11_
+: toggle full-screen mode.
+
 _+_ or _Up_
 : increase delay between each image.
 
