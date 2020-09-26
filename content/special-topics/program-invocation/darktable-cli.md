@@ -78,19 +78,19 @@ _where `<FORMAT>` is the name of the selected output format.__
 : Whether to load `data.db` which contains presets and styles. Disabling this option allows to run multiple instances of `darktable-cli` at the cost of inability to use `--style` option. Defaults to true.
 
 `--out-ext <extension>`
-: Set the output extension to use. If specified takes precedence over `<output file>`. Defaults to extracted from `<output file>` or `jpg` in case `<output folder>` is specified.
+: Set the output extension to use. If specified takes precedence over `<output file>`. By default this is extracted from `<output file>`. Defaults to `jpg` if `<output folder>` is specified.
 
 `--import <file or dir>`
-: Specify input file or folder, can be used multiple times. Do not combine this option with `<input file or folder>`.
+: Specify input file or folder, can be used multiple times. This option cannot be combined with `<input file or folder>`.
 
 `--icc-type <type>`
-: Specify ICC type. Defaults to NONE. Use `--help icc-type` for list of supported types.
+: Specify ICC profile type, which is the same as specifying `output profile` in `output color profile` module. Defaults to image specified. Use `--help icc-type` for list of supported types. See [output color profile](../../module-reference/processing-modules/output-color-profile) for a more detailed description of the available options.
 
 `--icc-file <file>` 
-: Specify ICC filename. Defaults to empty filename.
+: Specify ICC profile filename. Defaults to empty filename.
 
 `--icc-intent <intent>` 
-: Specify ICC intent, Defaults to LAST. Use `--help icc-intent` for list of supported intents.
+: Specify rendering intent, Defaults to image specified. Use `--help icc-intent` for list of supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
 
 `--verbose`
 : Enables verbose output.
