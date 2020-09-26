@@ -22,10 +22,11 @@ This is the user documentation for [darktable](https://darktable.org). The conte
 - Assume the reader has the application open while reading the user manual
 - You will be copy edited, don't take it personally
 - Changes to the content should be proposed via pull request or a similar mechanism
+- Use image callouts if you need to annotate an image, do not add word for annotations, this makes localization difficult
 
 ### Link conventions
 
-Internal links should be relative to the current file and must point to a markdown file. 
+Internal links should be relative to the current file and must point to a markdown file.
 
 See the following examples for the conventions used in the manual
 
@@ -53,10 +54,10 @@ If you already have the site cloned, but haven't included the submodule before:
 
 ### Hugo
 
-This site is built with the static site generator Hugo (extended).
+This site is built with the static site generator Hugo (*extended*).
 Currently v0.73 extended:
 ```
-$ ./hugo.exe version
+$ ./hugo version
 Hugo Static Site Generator v0.73.0/extended windows/amd64 BuildDate: unknown
 ```
 
