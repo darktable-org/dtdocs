@@ -13,7 +13,8 @@ The `darktable` binary starts darktable with its GUI and full functionality. Thi
 ```
 darktable [-d {all,cache,camctl,camsupport,control,dev,
                fswatch,input,lighttable,lua,masks,memory,nan,
-               opencl,perf,pwstorage,print,sql}]
+               opencl,perf,pwstorage,print,sql,ioporder,
+               imageio,undo,signal}]
           [<input file>|<image folder>]
           [--version]
           [--disable-opencl]
@@ -26,12 +27,15 @@ darktable [-d {all,cache,camctl,camsupport,control,dev,
           [--localedir <locale directory>]
           [--luacmd <lua command>]
           [--noiseprofiles <noiseprofiles json file>]
+          [--d-signal <signal>]
+          [--d-signal-act <all,raise,connect,disconnect,print-trace>]
           [--conf <key>=<value>]
+          [-t <num openmp threads>]
 ```
 
 All parameters are optional. In most cases darktable should be started without any additional parameters, in which case darktable uses suitable defaults.
 
-`-d {all,cache,camctl,camsupport,control,dev,fswatch,input,lighttable,lua,masks,memory,nan,opencl,perf,pwstorage,print,sql}`
+`-d {all,cache,camctl,camsupport,control,dev,fswatch,input,lighttable,lua,masks,memory,nan,opencl,perf,pwstorage,print,sqlioporder,imageio,undo,signal}`
 : Enable debug output to the terminal. There are several subsystems of darktable and debugging of each of them can be activated separately. You can use this option multiple times if you want debugging output of more than one subsystem.
 
 `<input file>|<image folder>`
@@ -72,6 +76,14 @@ All parameters are optional. In most cases darktable should be started without a
 `--noiseprofiles <noiseprofiles json file>`
 : Provide a json file that contains the camera specific noise profiles. The default location depends on your installation. Typical locations are `/opt/darktable/share/darktable/noiseprofile.json` and `/usr/share/darktable/noiseprofile.json`.
 
+`--d-signal <signal>`
+: If `-d signal` or `-d all` is specified, specify signal to debug using this option. Specify `ALL` to debug all signals or specify signal using it's full name. Can be used multiple times.
+
+`--d-signal-act <all,raise,connect,disconnect,print-trace>`
+: If `-d signal` or `-d all` is specified, specify signal action to debug using this option.
+
 `--conf <key>=<value>`
 : darktable supports a rich set of configuration parameters which the user defines in `$HOME/.config/darktable/darktablerc`. You may temporarily overwrite individual settings on the command line with this option – however, these settings will not be stored in “darktablerc” on exit.
 
+`-t <num openmp threads>`
+: limit number of openmp threads to use in openmp parallel sections
