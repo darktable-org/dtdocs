@@ -16,10 +16,10 @@ database fragmentation ratio threshold
 : Fragmentation ratio (in per cent) above which database maintenance should be performed (subject to the selection made in the option above) (default 25).
 
 create database snapshot
-: Specifies how often darktable should create database snapshot. Options are "never", "once a month", "once a week", "once a day" and "on close" (default "once a week")
+: Specifies how often darktable should create database snapshots. Options are "never", "once a month", "once a week", "once a day" and "on close" (default "once a week")
 
 how many snapshots to keep
-: Amount of snapshots to keep after creating newest snapshot. It never counts version update backups. Enter "-1" to store unlimited number of snapshots. (default 5)
+: Number of snapshots to keep after creating a new snapshot, not counting database backups taken when moving between darktable versions. Enter "-1" to store an unlimited number of snapshots. (default 5)
 
 ### xmp
 
