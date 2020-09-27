@@ -1,5 +1,5 @@
 ---
-title: scripting with lua
+title: Scripting with Lua
 id: lua
 weight: 100
 draft: false
