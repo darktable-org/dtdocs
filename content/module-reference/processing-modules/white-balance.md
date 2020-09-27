@@ -81,3 +81,12 @@ and change it to:
 ```
 plugins/darkroom/temperature/button_bar=FALSE
 ```
+
+# usage warning
+
+White balance module is not a "creative" module, but technical module, meaning that the goal of module operation is to technically correct overal white balance of image making sure that white color is actually white. For creative color operations, please use other modules such as channel mixer or color balance.
+
+The history in the database and associated XMP file and in a style contains the channel coefficients values and not the temperature and tint. The relationship between these two sets of values - channel coefficients and temp/tint - depends on camera characteristics. Therefore applying white balance in a style made with one camera model to another camera model will in general give a different temp/tint, and your image might look different to what you expected.
+
+The mathematical relationship between the two sets of values is not straightforward. Colour balances can be set using the channel coefficients which have no corresponding setting in terms of temperature and tint (this mainly happens when very high temperature values are calculated from the slider values). Therefore be aware that editing white balance using temp/tint on an image previously saved using channel coefficients may give odd results, at least if high temperature values are involved.
+
