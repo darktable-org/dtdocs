@@ -33,6 +33,6 @@ From top to bottom:
 
 # bottom panel
 
-[film strip](../module-reference/utility-modules/shared/filmstrip.md)
-: Drag images from the filmstrip onto the map as described in the [_find location_](../module-reference/utility-modules/map/find-location.md) section.
+[filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
+: Drag images from the filmstrip onto the map as described in the [_find location_](../module-reference/utility-modules/map/find-location.md) module documentation.
 
