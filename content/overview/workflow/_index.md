@@ -1,5 +1,5 @@
 ---
-title: Basic Workflow
+title: basic workflow
 id: workflow
 draft: false
 weight: 40
