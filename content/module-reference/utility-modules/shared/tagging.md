@@ -122,36 +122,35 @@ The “rename path...” operation is only aqvailable in the _tree_ view mode, a
 
 ## attach tag
 
-Selected tags are attached to selected images with the following actions.
+There are a number of ways to attach an existing tag to a set of selected images. These are:
 
-- `click` on the “attach” button to attach the tag selected in the dictionary.
-- `right-click` on a tag in the dictionary view and sub-menu “attach tag”
-- `double-click` on a tag n the _tag dictionary_ list.
-- `right-click` on a tag of attached view and sub-menu “attach tag to all”
--  Type into the text box and press the “new” button or `Enter`. Note that the tag is also created if it doesn't already exist.
-- `Ctrl+T` opens a small text box at the bottom of the central view for quickly tagging your selected images by typing a tag phrase and pressing `Enter`.
+- `click` on a tag in the _tag dictionary_ window to select it, then `click` on the `attach` button to attach that tag to the selected images
+- `right-click` on a tag in the _tag dictionary_ window which will bring up a pop-up menu, then select the “attach tag” menu item to attach that tag to the selected images.
+- a `double-click` on a tag in the _tag dictionary_ window will cause that tag to be attached to the selected images.
+- `right-click` on a tag shown in the _attached tags_ view to get a pop-up menu, and if not all of the selected images have that tag, the `attach tag to all` menu item will attach that tag to all the selected images.
+-  Type into the text box and press the “new” button or `Enter`. This will create the tag if it doesn't already exist, and attach it to the selected images.
+- `Ctrl+T` opens a small text box at the bottom of the central view of the lighttable. Type in the name of a tag and press `enter`. The tag will be created if it doesn't exist, and the tag will be attached to all the selected images.
 
-When hovering over the images in the ligthtable you can check which tags are attached to the image, either by looking at the _attached tags_ list or in the [image information](./image-information.md) module.
+When hovering over the images in the ligthtable you can check which tags are attached to the image, either by looking at the _attached tags_ window in the _tagging_ module, or in the _tags_ attribute in the [image information](./image-information.md) module.
 
 ## detach tag
 
-An attached tag can be detached in the following ways.
+There are several ways to remove a tag from a set of selected images. They are:
 
-- `click` on the “detach” button to detach the tag selected in the attached view.
-- `double-click` on a tag in the attached view.
-- `right-click` on a tag in the attached view and sub-menu “detach”
+- `click` on a tag in the _attached tag_ window of the _tagging_ module to select the tag, then `click` on the `detach` button underneath to remove the tag from the selected images.
+- a `double-click` on a tag in the _attached tag_ window will remove that tag from all the selected images.
+- `right-click` on a tag in the _attached tag_ window to bring up a pop-up menu, and select the `detach` menu item to remove the tag from all the selected images.
 
 ## delete tag
 
-Delete a tag from the list and from all images. A warning will be displayed showing many images have this tag attached. Take this warning seriously as there is no way to recover or later find the affected images (except by taking a backup). A tag in dictionary view can be deleted in the following ways.
+It is possible to completely remove a tag from all images (whether selected or not) and delete the tag from the database. Because this could impact a large number of images, a warning will be displayed indicating how many images have this tag attached. Take this warning seriously because there is no way to undo this action (except by restoring your database and/or XMP sidecar files from a backup). A tag in _tag dictionary_ window can be deleted in the following ways:
 
-- `click` on the “delete” button to delete the selected tag.
-- `right-click` on a tag in the dictionary view and sub-menu “delete tag”.
-- `right-click` on a tag in the dictionary view and sub-menu “delete branch”. In this case the tag and its sub tags are deleted.
+- `right-click` on a tag in the _tag dictionary_ window to get a pop-up menu, and choose the `delete tag` item to delete the tag.
+- `right-click` on a tag or category in the _tag dictionary_ window to get a pop-up menu, and choose the `delete path` item to delete the tag or category, together with any child tags or categories.
 
 ## import - export operations
 
-The “import” button allows you to choose a text file, which must follow the lightroom tag text file format and import its content. If a tag already exists, its properties will be updated, otherwise the tag will be created.
+The “import” button allows you to choose a text file (which must comply with the Lightroom tag text file format) and import its content. If a tag already exists, its properties will be updated, otherwise the tag will be created.
 
 The “export” button exports your entire tag dictionary into a text file of your choice (Lightroom tag text file format).
 
