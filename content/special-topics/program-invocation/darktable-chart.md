@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-The `darktable-chart` binary is a dedicated utility to create styles out of pairs of images such as RAW+JPEG with in-camera processing. Details about its usage can be found in the [using darktable-chart](../darktable-chart.md) section.
+The `darktable-chart` binary is a dedicated utility to create styles out of pairs of images such as RAW+JPEG with in-camera processing. Details about its usage can be found in the [using darktable-chart](../darktable-chart/_index.md) section.
 
 `darktable-chart` can either start a GUI or be used as a command-line program.
 
@@ -18,7 +18,7 @@ darktable-chart
               [<reference cgats/it8 or Lab pfm file>]
 ```
 
-All parameters are optional, however, if you want to supply the second file name you also need to supply the first one etc. Starting darktable-chart this way opens a special GUI (details can be found in the [using darktable-chart](../darktable-chart.md) section).
+All parameters are optional, however, if you want to supply the second file name you also need to supply the first one etc. Starting darktable-chart this way opens a special GUI (details can be found in the [using darktable-chart](../darktable-chart/_index.md) section).
 
 `--help`
 : Provide usage information and terminate.

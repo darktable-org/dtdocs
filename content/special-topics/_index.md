@@ -1,5 +1,5 @@
 ---
-title: Special Topics (ToDo)
+title: Special Topics
 id: special-topics
 weight: 120
 draft: false

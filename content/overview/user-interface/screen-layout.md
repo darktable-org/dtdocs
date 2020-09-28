@@ -23,7 +23,7 @@ right panel
 bottom panel
 : Provide access to view-specific settings and shortcuts.
 
-[filmstrip](./filmstrip.md)/timeline panel
+[filmstrip](../../module-reference/utility-modules/shared/filmstrip.md)/[timeline](../../module-reference/utility-modules/lighttable/timeline.md) panel
 : An optional panel that can be enabled at the bottom of the screen to display a timeline (in the lighttable view) or a filmstrip (in other views) of images in the current collection.
 
 Each of the panels can be expanded or collapsed by pressing a triangle located at the edge of the panel.

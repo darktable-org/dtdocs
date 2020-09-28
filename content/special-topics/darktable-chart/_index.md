@@ -1,5 +1,5 @@
 ---
-title: Using darktable-chart (ToDo)
+title: using darktable-chart
 id: darktable-chartg
 weight: 40
 draft: false
