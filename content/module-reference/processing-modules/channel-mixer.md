@@ -67,11 +67,11 @@ destination
 : This dropdown menu selects a destination channel that will be affected by the slider settings immediately below. The red, green and blue destination channels are used for color mixing as described in the matrix multiplication section above. The grey channel is used for making greyscale images as described in the _monochome_ section above. It is also possible to define the R, G & B input channels to produce HSL (hue, saturation and lightness) values on the output, although this would be a very specialised application.
 
 red
-: defines how much weighting the red input channel should have on the selected destination channel
+: Defines how much weighting the red input channel should have on the selected destination channel
 
 green
-: defines how much weighting the green input channel should have on the selected destination channel
+: Defines how much weighting the green input channel should have on the selected destination channel
 
 blue
-: defines how much weighting the blue input channel should have on the selected destination channel
+: Defines how much weighting the blue input channel should have on the selected destination channel
 
