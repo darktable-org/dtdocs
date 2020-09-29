@@ -50,8 +50,6 @@ move up/down
 
 # set operators
 
-**NEEDS EXAMPLE IMAGES**
-
 As an example we will use a mask that combines a gradient followed by a path, to demonstrate the effect of each set operator when applied to the path shape. As a convention we say that a pixel is “selected” in a mask or shape if it has a value higher than zero. 
 
 ![gradient](./mask-manager/mask-manager_ex1.png) 
