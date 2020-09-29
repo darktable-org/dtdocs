@@ -25,7 +25,7 @@ mode
 : The mode of operation. "RGB, linked channels" (default) provides a single levels tool which updates all channels, taking into account the selected color preservation method (see "preserve colors" below). "RGB, independent channels" provides separate levels controls for each of the R, G and B channels.
 
 auto
-: Auto-adjust the black and white point and plut the gray point exactly in the mean between them. Use the color picker to auto-adjust based on a selected area of the image.
+: Auto-adjust the black and white point and put the gray point exactly in the mean between them. Use the color picker to auto-adjust based on a selected area of the image.
 
 preserve colors
 : Choose a color preservation method when using "RGB, linked channels" mode (default "luminance").
