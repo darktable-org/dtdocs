@@ -56,5 +56,23 @@ Now let's see what we can do with wavelets. As mentioned before, the layers at s
 
 You can see this gives a much more natural result, and it has cleaned up the coarse skin blotches while retaining the fine detail of the pores in the skin. Note that this example is not meant to be a lesson in how to do (or perhaps how not to do) retouching; it is just a very rough exaggerated example attempting to illustrate the principles behind what wavelets are doing and how they can be helpful in image processing.)
 
-One useful trick when using modules that support wavelets -- you can get some clearer idea of what effect the module is having and which levels of detail it is impacting by selecting the uniform mask at the bottom of the module and then choosing the "difference" [blend mode](../masking-and-blending/blend-modes.md) -- this will show you what is the difference between the input and output of the module, and help you to better understand what effect it is having at which levels of detail.
+# application: smooth out blotchy skin
+
+Another application is selectively applying contrast to an image. Suppose we have the following original image:
+
+![contrast-original](contrast-original.png)
+
+The eye and the feathers of the bird are not all that sharp, so we decide to add some local contrast to make it appear sharper, using the [_local contrast_](../../module-reference/processing-modules/local-contrast.md) module, which operates in the spatial domain. We might get a picture like this:
+
+![contrast-local](contrast-local.png)
+
+You can see that it has sharpened the bird, but it has also increased the contrast of the rocks in the backgroud, which distracts from the bird that is the subject of the photo.
+
+The feathers of the bird represent a fine level of detail, whereas the blurry rocks in the background are a larger coarser structure. Since wavelets allow us to isolate and process separately different levels of detail in an image, let's see if we can sharpen the image of the bird without affecting the background. The [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module allows us to adjust the contrast at different scales in the image. If we push up the graph of the contrast equalizer at the "fine detail" end, we get the following image:
+
+![contrast-equalizer](contrast-equalizer.png)
+
+You can see indeed that the feathers and eye have been sharpened, with almost no impact at all the the background. Another benefit of the contrast module it that we were able to push up the bottom of the equaliser graph to introduce some denoising to counteract the noise amplified by the increased contrast.
+
+One useful trick when using modules like _contrast equalizer_ that support wavelets -- you can get some clearer idea of what effect the module is having and which levels of detail it is impacting by selecting the uniform mask at the bottom of the module and then choosing the "difference" [blend mode](../masking-and-blending/blend-modes.md) -- this will show you what is the difference between the input and output of the module, and help you to better understand what effect it is having at which levels of detail.
 
