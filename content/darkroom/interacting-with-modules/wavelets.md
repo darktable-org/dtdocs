@@ -24,6 +24,10 @@ The wavelet functions are used to scan across and down the image using a mathema
 
 Below are some examples of some layers where the details at various scales have been extracted out of the image shown in the first diagram. They were obtained by using the layer visualisation tool in the [_retouch_](../../module-reference/processing-modules/retouch.md) module):
 
+![wavelets-retouch-gui](wavelets-retouch-gui.png)
+
+The bar graph in the _wavelets decompose_ section indicates the various layers that have been extracted at different wavelet scales. The darkest rectangle at the left represents the entire composed image, if you drag the bottom triange across to the right it draws a lighter rectange for each wavelet scale. In this example, the image is being decomposed into 8 different scales of detail. The light rectangle which has the red box inside represents a layer atscale = 5, and the red box is indicating that I have created a mask at that scale to introduce some blurring in that specific layer. Clicking on the staircase icon below the bar graph enables the layer visualisation so that you can see what the currently selected layer looks like. So, let's take a look at some of those layers.
+
 At scale #2, we can see in the image below just the very fine detail, which includes eyebrows, eye lashes and pores of the skin. It doesn't include the coarser details of the image, because those coarse details are covered by other layers.
 
 ![wavelets-layer-scale-2](wavelets-layer-scale-2.png)
@@ -56,7 +60,7 @@ Now let's see what we can do with wavelets. As mentioned before, the layers at s
 
 You can see this gives a much more natural result, and it has cleaned up the coarse skin blotches while retaining the fine detail of the pores in the skin. Note that this example is not meant to be a lesson in how to do (or perhaps how not to do) retouching; it is just a very rough exaggerated example attempting to illustrate the principles behind what wavelets are doing and how they can be helpful in image processing.)
 
-# application: smooth out blotchy skin
+# application: selective sharpening
 
 Another application is selectively applying contrast to an image. Suppose we have the following original image:
 
@@ -66,13 +70,23 @@ The eye and the feathers of the bird are not all that sharp, so we decide to add
 
 ![contrast-local](contrast-local.png)
 
-You can see that it has sharpened the bird, but it has also increased the contrast of the rocks in the backgroud, which distracts from the bird that is the subject of the photo.
+You can see that it has sharpened the bird, but it has also increased the contrast of the rocks in the backgroud, which now distracts from the bird which is supposed to be the subject of the photo.
 
-The feathers of the bird represent a fine level of detail, whereas the blurry rocks in the background are a larger coarser structure. Since wavelets allow us to isolate and process separately different levels of detail in an image, let's see if we can sharpen the image of the bird without affecting the background. The [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module allows us to adjust the contrast at different scales in the image. If we push up the graph of the contrast equalizer at the "fine detail" end, we get the following image:
+The feathers of the bird represent a fine level of detail, whereas the blurry rocks in the background are a larger coarser structure. Since wavelets allow us to isolate and process separately different levels of detail in an image, let's see if we can sharpen the image of the bird without affecting the background. The [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module allows us to adjust the contrast at different scales in the image. Here is the main spline control for the _contrast equalizer_:
+
+![wavelets-contrast-spline](wavelets-contrast-spline.png)
+
+The contrast equalizer has 3 tabs: one for luma (which lets us selectively adjust contrast in brightness), one for chroma (which lets us selectively adjust color saturation) and one for edges (which is used to help rein in halo effects and other artifacts that can result from adjustments on the previous two tabs). 
+
+For sharpening, we want the luma tab. There is a white curve across the middle of the graph with a number of control points you can push up or down. The circle near the mouse pointer shows how much moving one control point will affect the control points on either side -- use the mouse wheel to make the circle bigger to affect more control points, or smaller to focus on moving just the one control point. You can also shift the control points left or right by dragging the triangles at the bottom of the graph.
+
+Pushing up the graph on the "coarser" end will affect the wavelet layers corresponding to big structures in the image; pushing up the graph on the right hand side will increase the contrast amongst the finer detail. There is also a second hidden curve along the bottom of the graph -- you can push it up by placing the mouse just above the triangle markers, and this will help to smooth out any noise at that wavelet scale.
+
+So, for our bird image, let's push up the graph of the contrast equalizer at the "fine detail" end on the right, and also push up the darker denoise curve at the bottom just a bit. We get the following image:
 
 ![contrast-equalizer](contrast-equalizer.png)
 
-You can see indeed that the feathers and eye have been sharpened, with almost no impact at all the the background. Another benefit of the contrast module it that we were able to push up the bottom of the equaliser graph to introduce some denoising to counteract the noise amplified by the increased contrast.
+You can see indeed that the fine details of the feathers and the eye have been sharpened, but there is almost no impact to the contrast with the coarser structure of the rocks in the background.
 
 One useful trick when using modules like _contrast equalizer_ that support wavelets -- you can get some clearer idea of what effect the module is having and which levels of detail it is impacting by selecting the uniform mask at the bottom of the module and then choosing the "difference" [blend mode](../masking-and-blending/blend-modes.md) -- this will show you what is the difference between the input and output of the module, and help you to better understand what effect it is having at which levels of detail.
 
