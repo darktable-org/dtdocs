@@ -8,7 +8,7 @@ view: darkroom
 masking: 
 ---
 
-An easy to use and highly efficient denoise module, adapted to the noise profiles of specific camera sensors at the given ISO.
+An easy to use and highly efficient denoise module, adapted to the noise profiles of specific camera sensors.
 
 One issue with a lot of denoising algorithms is that they assume that the variance of the noise is independent of the luminosity of the signal. By profiling the noise characteristics of a camera's sensor at different ISO settings, the variance at different luminosities can be assessed, and the denoising algorithm can be adjusted to more evenly smooth out the noise.
 
