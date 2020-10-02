@@ -10,7 +10,7 @@ masking:
 
 This module offers an easy to use and – at the same time – highly efficient denoise operation. Under the hood it applies (your choice of) a _non-local means_ or _edge-aware wavelet_ denoise algorithm with parameters specifically profiled for certain camera models and ISO settings.
 
-![denoise-nlm](denoise-nlm.png)
+![denoise-nlm](./denoise-profiled/denoise-nlm.png)
 
 One issue with a lot of denoising algorithms is that they assume the degree of variance in the noise is independent of the luminosity of the signal. By profiling the noise characteristics of a camera's sensor at different ISO settings, the level of variance at different luminosities can be evened out, and then the denoising algorithm can more evenly smooth out the noise.
 
@@ -102,13 +102,13 @@ For example, you can preserve very-fine grain noise by pulling down the right-mo
 
 The preferred way to use wavelets is with the new _Y0U0V0_ mode. This breaks the denoising of the pixels up into luminance (_Y0_) and color (_U0V0_) components. You can then use the _Y0_ curve to control the level of luma denoising at different scales, and you can use the _U0V0_ curve to control the level of chroma denoising at different scales.
 
-![denoise-y0u0v0](denoise-y0u0v0.png)
+![denoise-y0u0v0](./denoise-profiled/denoise-y0u0v0.png)
 
 ## wavelets RGB interface
 
 Before the _Y0U0V0_ interface, wavelet-based denoising was done directly on the _R_, _G_ and _B_ channels, either all together in one go, or on an individual channel basis.
 
-![denoise-rgb](denoise-rgb.png)
+![denoise-rgb](./denoise-profiled/denoise-rgb.png)
 
 In case you want to denoise the channels separately, the best way is to use an instance of the [_channel-mixer_](channel-mixer.md) module just before before the _denoise (profiled)_ module so that is outputs a grey channel based 100% on the _red_ channel only, then denoise the monochrome image using the _red_ wavelet curve. Repeat this procedure for the blue and green channels repsectively. This procedure is time-consuming, but gives the best result because looking at the color of a noisy pixel is not a reliable way to determine which channel to adjust (eg. a noisy red pixel could be due to a noise peak on the red channel, but cause also be due to a noise lull on the blue and green channels).
 
