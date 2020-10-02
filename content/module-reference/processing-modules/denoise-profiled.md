@@ -19,7 +19,9 @@ Currently, darktable has sensor noise profiles for over 300 popular camera model
 The _denoise (profiled)_ module implements two main algorithms, each of which is available in either an easy-to-use "auto" mode or a more advanced mode, with additional controls:
 
 non-local means
-: This algorithm works in the spatial domain in much the same way as the [_denoise (non-local means)_](./denoise-non-local-means.md) module. This algorithm averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a certain size is used to measure that similarity. Note that this algorithm is quite processor-intensive.
+: This algorithm works in the spatial domain in much the same way as the [_denoise (non-local means)_](./denoise-non-local-means.md) module. This algorithm averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a certain size is used to measure that similarity. 
+
+: Note that this algorithm is quite processor-intensive.
 
 wavelets
 : This algorithm works in the [wavelet](../../darkroom/interacting-with-modules/wavelets.md) domain, and provides a simplified user interface, especially when used in conjunction with the _Y0U0V0 color mode_. The wavelet decomposition allows you to adjust the strength of the denoising depending on the coarseness of the noise in the image. This mode can be used in either _Y0U0V0 color mode_ (which allows you to separately control luminance and chroma noise) or _RGB color mode_ (which allows you to separately control noise for each RGB channel).
