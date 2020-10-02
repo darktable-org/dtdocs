@@ -43,6 +43,14 @@ By scale #8 we are only seeing very high-level features such as the overall shap
 
 ![wavelets-layer-scale-8](./wavelets/wavelets-layer-scale-8.png)
 
+# why use wavelets?
+
+In the above example, suppose we wanted to smooth out some of the blotchiness in the model's skin, without losing any of the underlying skin texture. Wavelet decomposition makes this a trivial operation - we use the retouch module to apply a Gaussian blur to just the 'blotchy' detail layer. Once the adjustment is complete, the retouch module simply recombines that adjusted layer with the remaining untouched layers to produce the final image.
+
+The sequence of images below shows (1) The original image; (2) The layer (scale 5) that we wish to blur; and (3) The final image after the scale 5 layer has been blurred and the layers recombined:
+
+![wavelets-original](./wavelets/wavelets-original.png) ![wavelets-layer-scale-5](./wavelets/wavelets-layer-scale-5.png) ![wavelets-blur-layered](./wavelets/wavelets-blur-layered.png)
+
 # interacting with wavelet scales
 
 There are two methods by which processing modules allow you to modify their operation using wavelet scales
