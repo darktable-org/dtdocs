@@ -8,15 +8,17 @@ author: "people"
 
 The top panel is common to all darktable views and provides a number of common utility functions.
 
-**IMAGE HERE**
+![top panel](./top-panel/top-panel.png)
 
-From left to right, in order, these are:
+On the right-hand-side
 
 view
 : Choose which images to view in the lighttable/filmstrip, based on star rating and reject status.
 
 sort by
 : Choose the sort order of images in the lighttable/filmstrip using various image properties.
+
+On the left-hand-side (icons)
 
 grouping
 : Expand or collapse grouped images
