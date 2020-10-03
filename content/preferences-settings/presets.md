@@ -9,7 +9,7 @@ This menu gives you an overview of the [presets](../darkroom/interacting-with-mo
 
 Pre-defined presets (those that are included by default within darktable) are shown with a lock symbol. Their auto-apply properties cannot be changed.
 
-Selecting user-defined preset and pressing `Enter` key or Double clicking on it will open an edit dialog. This allows the chosen preset to be edited, saved to an external `.dtpreset` file or deleted from list of presets. Selecting user-defined preset and pressing `Delete` key will allow user to delete preset.
+Selecting a user-defined preset and pressing `Enter` or `double clicking` on it will open an edit dialog. This allows the chosen preset to be edited, saved to an external `.dtpreset` file or deleted. Selecting a user-defined preset and pressing the `Delete` key will delete the preset.
 
 See the [presets](../darkroom/interacting-with-modules/presets.md) section for more information.
 
