@@ -92,10 +92,37 @@ This should get things up and running.
 
 ### Building
 
-Building the site to test locally can be done from the root of the repo:
+You can build the HTML website locally, the production site to deploy to hosting, or the PDF.
+
+## Local Website
+
+Building the site to test locally can be done from the root of the repo.
 
 ```
 $ hugo server -D --disableFastRender
 ```
 
 The site should then be available at http://localhost:1313/dtdocs/
+
+## Production Website
+
+Run the `hugo` command:
+
+```
+hugo
+```
+
+The static files are now available to deploy to a webhost in the `public` directory.
+
+## PDF
+
+Ensure you have the [`weasyprint`](https://weasyprint.org) application installed; this will transform the generated HTML to PDF.
+
+```
+mkdir -p public
+hugo server --disableFastRender --config config-pdf.yaml
+weasyprint http://localhost:1313/dtdocs/index.html public/darktable_user_manual.pdf
+pkill hugo
+```
+
+The PDF is available in the `public` directory.
