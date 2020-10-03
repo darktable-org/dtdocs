@@ -22,8 +22,14 @@ pattern for the image information line
 position of the image information line
 : Control the darkroom panel in which the [image information line](../module-reference/utility-modules/darkroom/image-info-line.md) is displayed. Choose between “top left” “top right” “top center” “bottom” and “hidden” (default "bottom").
 
-show search module text entry
-: Controls how [processing modules](../module-reference/processing-modules) can be searched and grouped. You can choose between “groups icons” “search entry” “both” (default "both"). See [searching for and grouping modules](../darkroom/interacting-with-modules/search-and-group.md). (need a restart)
+show module groups and/or search text entry
+: Controls how [processing modules](../module-reference/processing-modules) can be searched and grouped. You can choose between “show search text” “show groups” and “show both” (default "show both"). See [searching for and grouping modules](../darkroom/interacting-with-modules/search-and-group.md). (need a restart)
+
+sort buit-in presets first
+: Controls sorting of processing modules presets. If this option is enabled, the built-in presets are shown first in presets menu. If the option is disabled, user's presets are shown first (default on).
+
+hide built-in presets
+: Controls presence of built-in presets in processing module presets menu. If enabled, only user's presets will be shown in presesets menu (default off).
 
 expand a single darkroom module at a time
 : Controls how [processing modules](../module-reference/processing-modules) are expanded. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with `Shift+click`. Disabling this option inverts the meaning of `click` and `Shift+click` (default on).
@@ -49,3 +55,29 @@ demosaicing for zoomed out darkroom mode
 
 reduce resolution of preview image
 : Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate masking (default "original").
+
+white balace slider colors
+: Controls appearance of [white balance](../module-reference/processing-modules/white-balance.md) sliders.
+: _no color_ - background of the sliders is not colored at all.
+: _illuminant color_ - slider colors represent the color of the light source, i.e. the color you are adjusting to in order to achieve neutral white
+: _efect emulation_ - slider colors represent the effect the adjustment would have had on the scene. This is how most other raw processors show temperature/tint sliders colors.
+: (default _no color_)
+
+colorbalance slider block layout
+: Controls appearance of [color balance](../module-reference/processing-modules/color-balance.md) shadows/mid-tones/highlights sections ui
+: _list_ - all sliders are shown in one long list (with headers)
+: _tabs_ - use tabs to switch between the blocks of sliders
+: _columns_ - the blocks of sliders are shown next to each other (in narrow columns)
+: (default _list_)
+
+show right-side buttons in darkroom module headers
+: Controls presence of processing module header button 
+: _always_ - always show all buttons
+: _active_ - only show the buttons when the mouse is over the module
+: _dim_ - buttons are dimmed when mouse is away
+: _auto_ - hide the buttons when the panel is narrow
+: _fade_ - fade out all buttons when panel narrows
+: _fit_ - hide all the buttons if the module name doesn't fit
+: _smooth_ - fade out all buttons in one header simultaneously
+: _glide_ - gradually hide individual buttons as needed
+: (default _always_)
