@@ -49,7 +49,11 @@ This mapping is defined in three steps, each handled in a separate tab in the in
 
 The ranges of filmic rgb's sliders are limited to usual and safe values, but you can enter values outside of these limits by right-clicking and entering values with the keyboard. 
 
-_Note: Filmic rgb cannot be set with entirely neutral parameters (resulting in a "no-operation") -- as soon as the module is enabled, the image is always at least slightly affected._
+---
+
+**Note:** Filmic rgb cannot be set with entirely neutral parameters (resulting in a "no-operation") -- as soon as the module is enabled, the image is always at least slightly affected.
+
+---
 
 # graphic display
 

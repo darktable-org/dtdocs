@@ -23,7 +23,11 @@ This will take you into the creation mode for that shape. Once you have finished
 
 For all drawn shapes, `Shift+scroll` changes the extent of the shape's feathering (the blur at the edge of the shape) and `Ctrl+scroll` changes the shape's opacity (how transparent it is). These operations are available in both creation and edit modes (as long as your mouse is over the shape in question).
 
-_Note: The preceding scroll operations will also cause the **default** feathering or opacity to be changed when used in shape creation mode. These values will be reapplied the next time you create a new shape._
+---
+
+**Note:** The preceding scroll operations will also cause the **default** feathering or opacity to be changed when used in shape creation mode. These values will be reapplied the next time you create a new shape.
+
+---
 
 # editing shapes
 
@@ -54,7 +58,11 @@ brush
 
 : Nodes and segments of a brush stroke can be modified individually. See the documentation on paths below for more details.
 
-: _Note: Rendering a complex brush shape can consume a significant number of CPU cycles. Consider using the circle, ellipse or path shapes instead where possible._
+---
+
+**Note:** Rendering a complex brush shape can consume a significant number of CPU cycles. Consider using the circle, ellipse or path shapes instead where possible.
+
+---
 
 circle
 : Click on the image canvas to place the circle. Use the scroll wheel of your mouse while hovering over the circle to change its diameter. Scroll while hovering your mouse over the circle border to adjust the width of the feathering (the same effect as `Shift+scroll` within the main shape).

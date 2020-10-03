@@ -27,9 +27,13 @@ ignore JPEG files
 apply metadata on import
 : This option allows you to automatically set some metadata fields on your images at import time.
 
-_Note: When importing images, darktable does not create duplicates of your image files in a separate folder structure but processes them in-situ. The import process simply adds details of those images to darktable's database (and creates an XMP sidecar file if applicable) allowing the images to be viewed and developed._
+---
 
-_This means that if you delete images from disk after having imported them, darktable cannot access them any more: Importing an image or folder in darktable is not a backup of your filesystem! Moreover, darktable does not watch for changes in the filesystem. Any new images will not be shown until they are explicitly imported._
+**Note:** When importing images, darktable does not create duplicates of your image files in a separate folder structure but processes them in-situ. The import process simply adds details of those images to darktable's database (and creates an XMP sidecar file if applicable) allowing the images to be viewed and developed.
+
+This means that if you delete images from disk after having imported them, darktable cannot access them any more: Importing an image or folder in darktable is not a backup of your filesystem! Moreover, darktable does not watch for changes in the filesystem. Any new images will not be shown until they are explicitly imported.
+
+---
 
 # import from a connected camera
 

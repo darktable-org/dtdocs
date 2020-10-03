@@ -10,7 +10,7 @@ Export images which have been selected in the lighttable.
 
 Files can be exported to a file on disk, email, various on-line storage locations, a webalbum, or a book template. 
 
-_Note: You can also press `Ctrl+E` within the darkroom mode to export the current image._
+You can also press `Ctrl+E` within the darkroom mode to export the currently-edited image using the last settings from this module.
 
 # module controls
 
@@ -28,7 +28,7 @@ on conflict
 
 : _create unique filename_: Automatically choose a unique new file name by appending an integer to the conflicting filename.
 
-: _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss. _Note: This dialog is not presented per-file but as a one-off confirmation before the export job starts._
+: _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss. _(**Note:** This dialog is not presented per-file but as a one-off confirmation before the export job starts.)_
 
 : _skip_: Do not export images where the destination filename already exists.
 

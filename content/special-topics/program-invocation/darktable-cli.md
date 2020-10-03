@@ -54,13 +54,17 @@ The user must supply an input filename and an output filename. All other paramet
 `--bpp <bpp>`
 : Define the bit depth of the exported image. Permitted values depend on the output file format. 
 
-_Note: This option is not currently functional. If you need to define the bit depth you need to use the following workaround:_
+---
+
+**Note:** This option is not currently functional. If you need to define the bit depth you need to use the following workaround:
 
 ```
     --core
     --conf plugins/imageio/format/<FORMAT>/bpp=<VALUE>
 ```
-_where `<FORMAT>` is the name of the selected output format._
+where `<FORMAT>` is the name of the selected output format.
+
+---
 
 `--hq <0|1|true|false>`
 : Define whether to use high quality resampling during export (see the [export selected](../../module-reference/utility-modules/lighttable/export-selected.md) module for more details). Defaults to true.

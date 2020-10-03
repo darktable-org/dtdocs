@@ -86,7 +86,13 @@ The following sections describe the operations that can be performed with tags.
 
 The text entry box (shown under the `attach`/`detach` buttons) has multiple purposes.
 
-- If the _tag dictionary_ list is in _list_ view mode (and not _tree_ view mode), then typing the first few characters of a tag will bring up a list of suggestions. You can then scroll down with the `arrow` keys and hit `enter` to select one of the suggestions. Hitting `enter` a second time will attach it to the selected images. You can also edit the name of the tag before hitting `enter` -- in this case the tag will be created if it doesn't already exist in the database. _Note: If you find the auto-completion behaviour annoying, it can be disabled in [`preferences` -> `miscellaneous` -> `disable the entry completion`](../../../preferences-settings/miscellaneous.md)._
+- If the _tag dictionary_ list is in _list_ view mode (and not _tree_ view mode), then typing the first few characters of a tag will bring up a list of suggestions. You can then scroll down with the `arrow` keys and hit `enter` to select one of the suggestions. Hitting `enter` a second time will attach it to the selected images. You can also edit the name of the tag before hitting `enter` -- in this case the tag will be created if it doesn't already exist in the database. 
+
+---
+
+Note: If you find the auto-completion behaviour annoying, it can be disabled in [`preferences` -> `miscellaneous` -> `disable the entry completion`](../../../preferences-settings/miscellaneous.md).
+
+---
 
 - Aside from the auto-completion suggestions, typing some partial text into the text entry box allows you filters the set of tags shown in the _tag dictionary_ window to those whose name or synonyms matches the entered text. Press `enter` to attach a tag with the entered name -- the entered tag will be attached to the selected images. If that tag name does not yet exist in the database, it will be created before being attached.
 

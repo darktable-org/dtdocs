@@ -24,7 +24,11 @@ Click on a shape name to show the selected shape on the image canvas with all of
 
 Right-click on a shape name to show a menu with options to remove the current shape or to remove all shapes not currently in use.
 
-_Note: darktable retains all shapes that have ever been defined for the current image unless you explicitly remove them. If you choose to include develop history when exporting an image, all defined shapes will be exported with the image. Beware that if the list of shapes is very long the space required to store those shapes might exceed the size limit of certain file formats. This can cause XMP tag creation to fail during export._
+---
+
+**Note:** darktable retains all shapes that have ever been defined for the current image unless you explicitly remove them. If you choose to include develop history when exporting an image, all defined shapes will be exported with the image. Beware that if the list of shapes is very long the space required to store those shapes might exceed the size limit of certain file formats. This can cause XMP tag creation to fail during export.
+
+---
 
 # masks
 

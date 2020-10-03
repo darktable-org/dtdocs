@@ -37,11 +37,19 @@ mode
 
 : In _overwrite_ mode the behavior is the same except that the history of the destination image is deleted before the paste operation commences. The “copy all”/“paste all” actions in this mode will precisely duplicate the entire history stack of the source image onto the destination (including any duplicate occurrences).
 
-: _Note (1): Automatic module presets are only added to an image when it is first opened in the darkroom. If you use “overwrite” mode to paste history stack entries to images that haven't previously been opened in the darkroom then the next time that image is opened in the darkroom, automatic presets will be applied to the image. It may therefore seem as if the “overwrite” mode did not accurately duplicate the existing history stack, but in this case, those automatic modules were added subsequently._
+---
 
-: _Note (2): The “append” mode allows you to later reconstruct your pre-existing history stack (because previous history items are retained in the stack of the destination image). However, in “overwrite” mode all previous edits are irrevocably lost._
+**Note (1):** Automatic module presets are only added to an image when it is first opened in the darkroom. If you use “overwrite” mode to paste history stack entries to images that haven't previously been opened in the darkroom then the next time that image is opened in the darkroom, automatic presets will be applied to the image. It may therefore seem as if the “overwrite” mode did not accurately duplicate the existing history stack, but in this case, those automatic modules were added subsequently.
 
-: _Note (3): The "mode" parameter is retained when you quit darktable._
+---
+
+**Note (2):** The “append” mode allows you to later reconstruct your pre-existing history stack (because previous history items are retained in the stack of the destination image). However, in “overwrite” mode all previous edits are irrevocably lost.
+
+---
+
+**Note (3):** The "mode" parameter is retained when you quit darktable.
+
+---
 
 load sidecar file
 : Open a dialog box which allows you to import the history stack from a selected XMP file. This copied history stack can then be pasted onto one or images.

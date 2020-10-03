@@ -14,6 +14,12 @@ Each module is shown with a small icon next to its name. Click to toggle a modul
 
 Hiding or un-hiding modules is not meant to be part of your daily workflow and you should only occasionally need to review the modules you typically use. However, you may store various settings in this module as presets for later reuse.
 
-A number of presets are provided reflecting common workflows. _Note: Selecting any of the provided presets will override your current settings. If you wish to revert back to a previous state make sure you first save your current settings as a preset._
+A number of presets are provided reflecting common workflows. 
 
 Hidden modules may still be activated manually by using the 'module search' facility.
+
+---
+
+**Note:** Selecting any of the provided presets will override your current settings. If you wish to revert back to a previous state make sure you first save your current settings as a preset.
+
+---

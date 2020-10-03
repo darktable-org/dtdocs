@@ -14,4 +14,8 @@ At all times, an arrow containing the letter "S" is displayed to indicate which 
 
 Click the module's reset button to remove all existing snapshots.
 
-_Note: Snapshots are retained for the duration of your darktable session. This means that you can also use snapshots to compare with a duplicate edit of the same image. Just navigate to that image and enable the snapshot view as normal._
+---
+
+**Note:** Snapshots are retained for the duration of your darktable session. This means that you can also use snapshots to compare with a duplicate edit of the same image. Just navigate to that image and enable the snapshot view as normal.
+
+---

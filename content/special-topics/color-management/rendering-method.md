@@ -10,6 +10,8 @@ darktable can render colors either with its internal algorithms or by using the 
 
 You can change the default method in [`preferences` ->`processing` -> `always use LittleCMS 2 to apply output color profile`](../../preferences-settings/processing.md)
 
+---
 
-_Note: If the given ICC is LUT-based or contains both, a LUT and a matrix, darktable will use LittleCMS2 to render the colors regardless of the configuration parameter's value._
+**Note:** If the given ICC is LUT-based or contains both, a LUT and a matrix, darktable will use LittleCMS2 to render the colors regardless of the configuration parameter's value.
 
+---

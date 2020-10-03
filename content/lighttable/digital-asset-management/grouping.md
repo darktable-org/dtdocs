@@ -22,4 +22,8 @@ If you collapse an image group and then enter darkroom mode (e.g. by double-clic
 
 Image groups are also a convenient way to protect an existing history stack against unintentional changes. Suppose you have just finalized an image and want to protect its current version: Simply select the image, click “duplicate” in the selected images panel, and make sure that grouping is switched on and that the group is collapsed. Now, whenever you open the image group again in darkroom, only the group head will be altered. The underlying duplicate remains unchanged.
 
-_Note that “duplicating images” only generates a copy of an image's history stack, stored in another small XMP file. There is still only one raw file._
+---
+
+**Note:** “duplicating images” only generates a copy of an image's history stack, stored in another small XMP file. There is still only one raw file.
+
+---

@@ -14,7 +14,11 @@ Whenever the user interface of this module is in focus, the full uncropped image
 
 Resize the crop by dragging the border and corner handles. Move the crop rectangle by holding down the left mouse button and dragging. Constrain movement to the horizontal/vertical axis by holding `Ctrl`/`Shift`, respectively while dragging. Commit changes by either giving focus to another module or double-clicking on the image.
 
-_Note: Some of the tools in this module (angle adjustment and perspective distortion correction) require the original image data to be interpolated. For best sharpness results set “lanczos3” as the pixel interpolator in [`preferences` -> `processing`](../../preferences-settings/processing.md)._
+---
+
+**Note:** Some of the tools in this module (angle adjustment and perspective distortion correction) require the original image data to be interpolated. For best sharpness results set “lanczos3” as the pixel interpolator in [`preferences` -> `processing`](../../preferences-settings/processing.md).
+
+---
 
 # module controls
 
@@ -47,7 +51,11 @@ aspect
 
 : Finally, the button beside the aspect combobox allows you to switch between portrait and landscape orientation if you have selected a rectangular aspect ratio.
 
-: _Note: While in freehand mode you may retain the current aspect ratio by holding `Shift` while dragging on any of the resize controls._
+---
+
+**Note:** While in freehand mode you may retain the current aspect ratio by holding `Shift` while dragging on any of the resize controls.
+
+---
 
 guides
 : Overlay standard compositional guide lines on the image while cropping. 
