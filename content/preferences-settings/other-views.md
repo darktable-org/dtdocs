@@ -9,9 +9,6 @@ The following options control functionality in the [map](../map/_index.md) and [
 
 ### map / geolocalisation
 
-only draw images on map that are currently collected and filtered
-: Use the current filter settings to select the geotagged images drawn in the map view. This limits the images drawn to those currently shown in the filmstrip and thus reduces the time needed (default off).
-
 maximum number of images drawn on map
 : The maximum number of geotagged images drawn on the map. Increasing this number can slow down the drawing of the map. Needs a restart if changed (default 100).
 

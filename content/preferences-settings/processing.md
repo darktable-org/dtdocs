@@ -35,4 +35,4 @@ auto-apply per camera basecurve presets
 : Use the per-camera basecurve by default instead of the generic manufacturer one if there is one available. This should only be used in conjunction with the _display referred_ workflow defined above (default off).
 
 auto-apply sharpen
-: Auto-apply the sharpen module to new images by default. This option is not recommended on cameras without a low-pass filter. The default is to not add any sharpening automatically as most recent cameras have no low-pass filter (requires a restart).
+: Auto-apply the sharpen module to new images by default. This option is not recommended on cameras without a low-pass filter. (default on, requires a restart).
