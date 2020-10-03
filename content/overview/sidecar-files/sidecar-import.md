@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
- When importing an image, darktable automatically checks if it is accompanied by a sidecar file. As well as looking for files named `<basename>.<extension>.xmp` and `<basename>_nn.<extension>.xmp` (darktable's XMP file naming formats) darktable also checks for the presence of a file in the form `<basename>.xmp`. Files with the latter naming format will be read by darktable but will not be written to. Once the image has been imported, darktable will generate an additional XMP file using its own naming convention.
+ When importing an image, darktable automatically checks if it is accompanied by a sidecar file. As well as looking for files named `<basename>.<extension>.xmp` and `<basename>_nn.<extension>.xmp` (darktable's XMP file naming formats) darktable also checks for the presence of a file in the form `<basename>.xmp` (the naming format for Lighroom's XMP sidecar files). Files with the latter naming format will be read by darktable but will not be written to. Once the image has been imported, darktable will generate an additional XMP file using its own naming convention.
 
 At present, darktable is able to deal with the following metadata from Lightroom-generated sidecar files during the import phase:
 
@@ -15,19 +15,19 @@ At present, darktable is able to deal with the following metadata from Lightroom
 - ratings
 - GPS information
 
-In addition, darktable has been designed to help migrate some image operations from specific other applications. The aim here is not to make darktable a drop-in replacement for any other software, but rather to help you recover part of the work you have invested into your image on migration to darktable. It is important to understand that this import process will never give identical results. The underlying development engines are very different from application to application, and additionally depend a lot on the specific image. In some cases, the results may be similar but ofteh, further adjustment will be required in darktable.
+In addition, darktable has been designed to help migrate some image operations from specific other applications. The aim here is not to make darktable a drop-in replacement for any other software, but rather to help you recover part of the work you have invested into your image on migration to darktable. It is important to understand that this import process will never give identical results. The underlying development engines are very different from application to application, and additionally depend a lot on the specific image. In some cases, the results may be similar but often, further adjustment will be required in darktable.
 
 This migration happens automatically when entering the darkroom view, provided that a corresponding XMP sidecar is found.
 
 At present, darktable is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding darktable module in parentheses):
 
-- crop and rotate ([crop and rotate](../../module-reference/processing-modules/crop-rotate.md))
-- black level ([exposure](../../module-reference/processing-modules/exposure.md))
-- exposure ([exposure](../../module-reference/processing-modules/exposure.md))
-- vignette ([vignetting](../../module-reference/processing-modules/vignetting.md))
-- clarity ([local contrast](../../module-reference/processing-modules/local-contrast.md))
-- tone curve ([tone curve](../../module-reference/processing-modules/tone-curve.md))
-- HSL ([color zones](../../module-reference/processing-modules/color-zones.md))
-- split-toning ([split-toning](../../module-reference/processing-modules/split-toning.md))
-- grain ([grain](../../module-reference/processing-modules/grain.md))
-- spot removal ([spot removal](../../module-reference/processing-modules/spot-removal.md))
+- crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md))
+- black level ([_exposure_](../../module-reference/processing-modules/exposure.md))
+- exposure ([_exposure_](../../module-reference/processing-modules/exposure.md))
+- vignette ([_vignetting_](../../module-reference/processing-modules/vignetting.md))
+- clarity ([_local contrast_](../../module-reference/processing-modules/local-contrast.md))
+- tone curve ([_tone curve_](../../module-reference/processing-modules/tone-curve.md))
+- HSL ([_color zones_](../../module-reference/processing-modules/color-zones.md))
+- split-toning ([_split-toning_](../../module-reference/processing-modules/split-toning.md))
+- grain ([_grain_](../../module-reference/processing-modules/grain.md))
+- spot removal ([_spot removal_](../../module-reference/processing-modules/spot-removal.md))

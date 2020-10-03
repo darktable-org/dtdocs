@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-Many users have huge image collections which they store on extra hard drives in their desktop computer, or on an external storage medium like a RAID NAS, etc.
+Many users have huge image collections stored on extra hard drives in their desktop computer, or on an external storage medium like a RAID NAS, etc.
 
 It is a common requirement to be able to develop a number of images while travelling using a laptop and then later synchronize them back to the original storage medium. However, copying images manually from the main storage to the laptop and back is cumbersome and prone to errors. The “local copies” feature of darktable has been designed to directly support these use cases. 
 
@@ -14,11 +14,6 @@ You can create local copies of selected images from within the lighttable. Local
 
 For safety reasons, if local copies exist and the external storage is available, the local XMP sidecars are automatically synchronized at start up.
 
-Local copies are stored within the `$HOME/.cache/darktable` directory and named `img-<SIGNATURE>.<EXT>`, where:
+Local copies are stored within the `$HOME/.cache/darktable` directory and named `img-<SIGNATURE>.<EXT>` (where `SIGNATURE` is a hash signature (MD5) of the full pathname, and `EXT` is the original filename extension).
 
-```
-SIGNATURE   is a hash signature (MD5) of the full pathname
-EXT         is the original filename extension
-```
-
-A local copy can be identified in the lighttable view by a white marker on the top right of the thumbnail. In addition, all local copies carry the `darktable|local-copy` tag to allow them to be easily selected.
+Local copies can be identified in the lighttable view by a white marker on the top right of the thumbnail. In addition, all local copies carry the `darktable|local-copy` tag to allow them to be easily selected.
