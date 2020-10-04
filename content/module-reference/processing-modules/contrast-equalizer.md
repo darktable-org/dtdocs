@@ -22,6 +22,12 @@ Each spline can be dragged with a proportional edit approach; use the mouse whee
 
 Drag the upper line (bright circles, here for the lightness channel) to affect local contrast. Pulling it up, as shown here, will result in a contrast boost for that scale of detail, and pulling it down will smooth out the detail at that scale. Coarser levels of detail are to the left-hand end of the graph, whereas finer levels of detail are towards the right of the graph.
 
+---
+
+**Note:** if the preview is zoomed in to a scale less than 100%, you may not see the effect of adjusting sliders at the fine detail end of the curve. In the background of the curve there are alternating light and dark stripes -- adjusting the curve where the background is stripy will result in visible changes to the preview, and making changes to the right of that where there are no more dark stripe will affect detail in the image that is not visible at that particular zoom level.
+
+---
+
 ![contrast-equalizer-2](./contrast-equalizer/contrast-equalizer-3.png)
 
 The bottom spline (with the dark control points) is used to perform denoising. It adjusts the wavelet shrinkage threshold for each frequency band. If you `Click` just above one of the small triangles, you can `Drag` up one of the control points of the denoising spline and see the effect. In this example, the noise which has been amplified by local contrast enhancement is removed.
@@ -36,4 +42,8 @@ Underneath the spline controls, there is a _mix_ slider which will translate the
 
 The module comes with a number of pre-defined presets to perform tasks such as adding clarity, blooms, deblurring, sharpening and denoising in vaious combinations. By studying what the shape of the curves after applying these presets, you will gain some intuitive insight into the general shape of these curves needed to achieve these different types of effects.
 
+---
 
+**Tip:** if you are having trouble visualising which parts of the curve will affect which details in the image, you can set the blending mode for the module to "difference". This will make the image go black excet for areas where the output of the module differs from the input. By pushing up the curve at one point, you will be able to see which details in the image are being impacted by that particular control point.
+
+---
