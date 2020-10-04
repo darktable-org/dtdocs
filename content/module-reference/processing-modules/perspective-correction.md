@@ -41,7 +41,7 @@ Click on one of the “automatic fit” icons (see below) to initiate an optimiz
 
 # module controls
 
-Once the initial image analysis is done, the following controls can be used to preform the perspective corrections.
+Once the initial image analysis is done, the following controls can be used to perform the perspective corrections.
 
 rotation
 : Control the rotation of the image around its center to correct for a skewed horizon.
