@@ -11,10 +11,10 @@ author: "people"
 From top to bottom:
 
 [import](../module-reference/utility-modules/lighttable/import.md)
-: Import images from the file system or a connected camera.
+: Import images from the filesystem or a connected camera.
 
 [collect images](../module-reference/utility-modules/shared/collect-images.md)
-: Filter the list of images displayed in the lighttable.
+: Filter the images displayed in the lighttable center panel -- also used to control the images displayed in the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) and [timeline](../../module-reference/utility-modules/lighttable/timeline.md) modules.
 
 [recently used collections](../module-reference/utility-modules/shared/recent-collections.md)
 : View recently used collections of images
@@ -22,7 +22,7 @@ From top to bottom:
 [image information](../module-reference/utility-modules/shared/image-information.md)
 : Display image information
 
-lua scripts installer (optional)
+[lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md) (optional)
 : Install lua scripts
 
 # right panel
@@ -30,7 +30,7 @@ lua scripts installer (optional)
 From top to bottom:
 
 [select](../module-reference/utility-modules/lighttable/select.md)
-: Select images in the lighttable according to simple criteria.
+: Select images in the lighttable using simple criteria.
 
 [selected images(s)](../module-reference/utility-modules/lighttable/selected-image.md)
 : Perform actions on selected images.
@@ -51,7 +51,7 @@ From top to bottom:
 : Import and apply GPX track data to selected images.
 
 [export selected](../module-reference/utility-modules/lighttable/export-selected.md)
-: Export images selected in the lighttable.
+: Export selected images to files or external locations.
 
 # bottom panel
 
@@ -66,7 +66,7 @@ From left to right:
 [mode selector](./lighttable-modes/_index.md)
 : Choose lighttable mode (also displays additional controls for the selected mode)
 
-enable focus-peaking mode
+enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
 : Click to enable focus-peaking mode
 
 [set display profile](../special-topics/color-management/display-profile.md)
