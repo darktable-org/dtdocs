@@ -5,14 +5,14 @@ weight: 30
 draft: false
 ---
 
-Presets allow you to store commonly used module settings for future use. Some modules already come with pre-defined presets but you can also define your own. Both internal and user-defined presets can be shown by clicking the _presets menu_ in the [module header](./module-header.md).
+Presets allow you to store commonly used module settings for future use. Some modules already come with pre-defined presets and you may also define your own. Both internal and user-defined presets can be shown by clicking the _presets menu_ in the [module header](./module-header.md).
 
 # the presets menu
 
-The presets menu will contain one or more of the following entries depending on the presets that are defined or selected for the module:
+The presets menu will contain one or more of the following entries depending on what presets are defined or selected for the current module:
 
 preset list
-: A list of the currently available presets. The currently selected preset (if any) is shown in **bold**.
+: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold**.
 
 edit this preset
 : If a preset has been selected, click to edit that preset (see below)
@@ -24,15 +24,15 @@ update preset \[name\]
 : Update the named preset to match the module's current parameters.
 
 store new preset
-: Create a new preset with the module's current parameters.
+: Create a new preset using the module's current parameters.
 
-`Middle-click` on a preset name to create a new instance of the module using the parameters of the selected preset.
+`Middle-click` on a preset name to create a new instance of the module and apply the selected preset to it.
 
 # creating and editing presets
 
 When creating or editing presets, the following dialog is shown:
 
-**INSERT IMAGE HERE**
+![new preset](./presets/new_preset.png)
 
 The following options can be set:
 
@@ -49,11 +49,11 @@ auto apply this preset to matching images
 
 : The example dialog above sets up following rules: if the lens name matches, the aperture is greater than or equal to f/8 and the focal length is between 24 and 35mm the preset will be automatically applied. 
 
-: _Tip: The image information panel for your image displays your model name, use this to ensure you have the correct spelling. See [image information](../../module-reference/utility-modules/shared/image-information.md) for more details._
+: _Tip: The image [image information](../../module-reference/utility-modules/shared/image-information.md) for your image displays your model name. Use this to ensure you have the correct spelling._
 
 only show this preset for matching images
-: Check this box to automatically show the preset in the preset menu, using a similar set of filters as above.
+: Check this box to automatically show the preset in the preset menu, using the same set of filters as above.
 
 # managing presets
 
-Both user created and pre-defined presets can be viewed and managed from within [`preferences` -> `presets`](../../../preferences-settings/presets.md).
+Both user-created and pre-defined presets can be viewed and managed from within [`preferences` -> `presets`](../../../preferences-settings/presets.md).
