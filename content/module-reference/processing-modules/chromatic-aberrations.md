@@ -10,6 +10,6 @@ masking: false
 
 Correct chromatic aberrations.
 
-The underlying model assumes as input an uncropped photographic image. The module is therefore likely to fail when you zoom in, as in that case it will only operate the visible portion of the image. This limitation only applies to interactive work and not to the final export. 
+The underlying model assumes as input an uncropped photographic image. The module is therefore likely to fail when you zoom in, as it is only able to operate on the visible portion of the image. This limitation only applies to interactive work and not to the final export. 
 
-This module currently only works for images recorded with a Bayer sensor (which is the sensor used in the majority of cameras). This module has no parameters.
+This module currently only works for images recorded with a Bayer sensor (the sensor used in the majority of cameras). This module has no parameters.
