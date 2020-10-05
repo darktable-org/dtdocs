@@ -33,24 +33,30 @@ select by saturation mode
 Once you've chosen a pixel selection mode from the previous section, it will appear along the horizonal axis of the pixel manipulation cures. There are three tabs, each with their own curve for manipulating either the hue, lightness or saturation. Let's say you chose a selection criterion of _hue_. Then, the three curves would look like:
 
 adjust lightness
-: By adjusting the curve up or down in certain places, you can brighten or darken pixels matching hues where the curve has been raised or lowered. 
+: By adjusting the curve up or down in certain places, you can brighten or darken pixels matching hues where the curve has been raised or lowered. In the example below the blue sky in an image has been darkened for more dramatic effect:
 : ![color zones adjust lightness](./color-zones/color-zones-adjust-lightness.png)
 
 adjust saturation
-: By adjusting the curve up or down in certain places, you can desaturate (make more monochrome) or saturate (make more colorful) pixels matching hues where the curve has been raised or lowered. 
+: By adjusting the curve up or down in certain places, you can desaturate (make more monochrome) or saturate (make more colorful) pixels matching hues where the curve has been raised or lowered. In the example below, a red object in the background has been desaturated so it is less of a distraction to the main subject of the photo:
 : ![color zones adjust saturation](./color-zones/color-zones-adjust-saturation.png)
 
 adjust hue
-: By adjusting the curve up or down in certain places, you can shift the hue of pixels matching hues where the curve has been raised or lowered, allowing you to replace one color with another. 
+: By adjusting the curve up or down in certain places, you can shift the hue of pixels matching hues where the curve has been raised or lowered, allowing you to replace one color with another. In the example below, a pink toy in an image has been changed to blue:
 : ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png)
 
 The curves work similarly in the lightness-based and saturation-based selection modes as well. See the section on [curves](../../darkroom/interacting-with-modules/curves.md) to see how spline curves work in general.
 
-You can `Click` the left eyedropper just above the curve and then choose  pixel in the image to see a dark vertical line where that pixel falls on the horizontal axis.
+# Pixel selection
+
+When adjusting the curves as in the previous section, sometimes it can be difficult to judge exactly where on the horizontal axis certain pixels will fall. Just above the curve are some eye droppers that can be used to help identify where along the horizontal axis you should make your adjustments, and they can even set up some initial control points for you to help with making your adjustments.
+
+If you `Click` the left eyedropper just above the curve and then choose pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis.
 
 If you `Click` on the right eyedropped above the curve, then you can `Drag` out a region of pixels on the image preview, and you'll see a white highlight on the curve showing a range on the horizontal axis which covers all pixels falling within the dragged-out region in the image. There will also be some control points placed on the curve and the start, median and end of that highlighted range on the horizontal axis, which can be convenient to allow you to push up or pull down the curve within that selected range. If you use a `Ctrl+Drag` to select a region in the preview image, the corresponding range of pixels on the horizontal axis will be highlighted like before, and the curve will be automatically pushed up a bit for you. You can then fine-tune how far you want the curve pushed up. If you `Shift+Drag` to select a region in the preview image, the same thing will happen except that the curve will automatically be pushed down  in the selected range.
 
 ![color zones overview](./color-zones/color-zones-overview.png)
+
+Note that you can also use masks with this module if needed, to help target even more precisely which parts of the image you do or do not want to affect.
 
 # module controls
 
