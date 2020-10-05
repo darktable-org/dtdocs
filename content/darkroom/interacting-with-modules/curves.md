@@ -29,7 +29,7 @@ interpolation method
 : - The “monotonic spline” method is designed specifically to give a monotonic interpolation, meaning that there will be none of the oscillations the cubic spline may produce. This method is most suitable when you are trying to build an analytical function from a node interpolation (for example: exponential, logarithm, power, etc.). Such functions are provided as presets. It is a good trade-off between the two aforementioned methods.
 
 preserve colors
-: The method of color preservation when applying contrast. Some of these methods are discussed in detail in the **preserve chrominance** control in the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module. The following options are available:
+: If a non-linear tone curve is applied to each of the RGB channels individually, then the amount of tone adjustment applied to each color channel may be different, and this can cause hue shifts. Therefore, the _preserve colors_ combobox provides different methods of calculating the "luminance level" of a pixel. The amount of tone adjustment is calculated based on this luminance value, and then this same adjustment is applied to all three of the RGB channels. Different luminance estimators can affect the contrast in different parts of the image, depending on the specific characteristics of that image. The user can therefore choose a particular estimator that provides the best results for the given image. Some of these methods are discussed in detail in the **preserve chrominance** control in the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module. The following options are available:
 
 : - _none_
 : - _luminance_
