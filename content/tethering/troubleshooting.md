@@ -10,23 +10,23 @@ author: "people"
 
  Find your camera port name to use it in the following tests. Usually the port `usb:` will be enough and therefore is used in these examples.
 
-# verify that your camera is detected
+# is your camera detected?
 
-The following command will verify a camera that is connected to the computer and detected by gphoto2. 
+The following command will verify that your camera is connected to the computer and detected by gphoto2. 
 
 ```
 env LANG=C gphoto2 --auto-detect
 ```
 
-# verify the camera's driver abilities
+# check the camera's driver abilities
 
-Execute the following command and verify that the capture choices ability supports “Image” and configuration support is “yes”. darktable will check these two abilities to decide if the “tethered shoot” button should be shown or not.
+Execute the following command and ensure that the capture choices ability supports “Image” and configuration support is “yes”. darktable will check these two abilities to decide if the “tethered shoot” button should be shown or not.
 
 ```
 env LANG=C gphoto2 --port usb: --abilities
 ```
 
-# verify camera remote capture
+# remote capture
 
 This step will verify that your camera can be remotely controlled -- i.e. that it can capture an image, download it to your computer and display it within darktable.
 
@@ -34,9 +34,9 @@ This step will verify that your camera can be remotely controlled -- i.e. that i
 env LANG=C gphoto2 --port usb: --capture-image-and-download
 ```
 
-# verify camera tethered capture
+# tethered capture
 
-This last step tests if your camera supports events which darktable heavily relies on. Running this command will make the gphoto2 process wait for an image capture event which you must manually trigger on your camera. If successful, the image will be downloaded to your computer.
+This last step tests if your camera supports events, which darktable heavily relies on. Running this command will make the gphoto2 process wait for an image capture event which you must manually trigger on your camera. If successful, the image will be downloaded to your computer.
 
 ```
 env LANG=C gphoto2 --port usb: --capture-tethered

@@ -24,4 +24,4 @@ To setup a timelapse capture, create a new [session](../module-reference/utility
 
 The [camera settings](../module-reference/utility-modules/tethering/camera-settings.md) module is where you define delay and sequence. Sequence will give you the opportunity to choose how many images you want to capture and delay will set the time in seconds between captures.
 
-To start the capture click the capture button in the same panel and watch the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) fill up with images. The latest captured image is always displayed in center view. 
+To start the capture click the capture button in the same panel and watch the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) fill up with images. The latest captured image is always displayed in the center view. 
