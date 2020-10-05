@@ -9,9 +9,9 @@ The parametric mask feature offers fine-grained selective control over how indiv
 
 For each data channel of a module (Lab, RGB) and several virtual data channels (e.g. hue, saturation) you  can construct a per-channel opacity function. Depending on each pixel's value for a given data channel this function calculates a blending factor between 0 and 1 (100%) for that pixel.
 
-Each pixel of an image thus has different blending factors for each of its data channels (real and virtual). All blending factors are finally multiplied together (pixel-by-pixel) along with the value of the global opacity slider to form a complete parametric blend mask for the image.
+Each pixel of an image thus has different blending factors for each of its data channels. All blending factors are finally multiplied together (pixel-by-pixel), along with the value of the global opacity slider, to form a complete parametric blend mask for the image.
 
-If the blend mask has a value of 0 for a given pixel, the input of the module is left unchanged. If the blend mask has a value of 1 (100%) for a pixel, the module has full effect.
+If the blend mask has a value of 0 for a given pixel, the input of the module is left unchanged. If the blend mask has a value of 1 (100%) for a pixel, the module has its full effect.
 
 # channel tabs
 
@@ -23,7 +23,9 @@ Modules acting in _RGB_ color space have data channels for g (gray), R, G, B, H 
 
 _See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details about these color spaces._
 
-Each tab provides two sliders for its associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending.
+Each data channel provides two sliders for the associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending.
+
+![input and output sliders](./parametric/input-output-sliders.png)
 
 ## inspecting data channels & masks
 
@@ -31,11 +33,11 @@ Press the letter `C` while hovering over a channel's input/output slider to view
 
 Press the letter `M` to see the resulting mask for that slider overlaid on the image. 
 
-When leaving the slider the image goes back to normal after a short delay. 
+When the mouse pointer leaves the slider the image returns to normal after a short delay. 
 
 ## linear / log mode
 
-Press the letter `A` while hovering over the a slider to change it to 'log' mode. This provides more fine control in the shadows. Press `A` again to toggle back to 'linear' mode.
+Press the letter `A` while hovering over the a slider to change its display to 'log' mode. This provides more fine control in the shadows. Press `A` again to toggle back to 'linear' mode.
 
 # channel input/output sliders
 
@@ -45,7 +47,15 @@ The filled triangles, or inside markers, indicate the closed (mostly narrower) e
 
 A polarity (+/-) button to the right of each the slider switches between "range select" and "range de-select" function modes with visual confirmation provided by exchanging the upper and lower triangle markers. These two types of trapezoidal functions are represented graphically in the following images. 
 
-**GRAPHS REQUIRED HERE**
+**range select**
+
+![range select slider](./parametric/blendif_2a.png)
+![range select graph](./parametric/blendif_2b.png)
+
+**range deselect**
+
+![range deselect slider](./parametric/blendif_3a.png)
+![range deselect graph](./parametric/blendif_3b.png)
 
 In their default state all markers are at their extreme positions. In this state a range select function selects the whole range of values giving an “all at 100%” mask. Starting from there one can move the sliders inwards to gradually exclude more and more parts of the image except for the remaining narrow range.
 

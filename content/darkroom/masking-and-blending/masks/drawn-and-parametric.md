@@ -12,7 +12,7 @@ There are two main elements which control how individual masks are combined: the
 The "combine masks" combobox contains the following options, defining how the drawn and parametric masks will be combined:
 
 exclusive
-: A straightforward method of combining masks is by multiplying the individual pixel values from each of the component masks. 
+: A straightforward method of combining masks is by multiplying together the individual pixel values from each of the component masks. 
 
 : For a given pixel, the final mask will have value of 0 if _all_ of the individual masks are 0 at that location and it will only have a value of 1.0 if _all_ masks have a value of 1.0 at that location. This method of combination is known as _exclusive_. 
 
@@ -40,6 +40,6 @@ inclusive mode
 exclusive mode
 : In the opposite case you set the “combine masks” combobox to exclusive mode and make sure that all polarity buttons are set to positive (+). Your starting point is a mask with all values at 1.0, i.e. all pixels selected. You now adjust the parametric mask sliders to exclude parts of your image as needed or directly draw shapes on the canvas to exclude those areas.
 
-: For your convenience the parametric masks GUI provides a toggle button that inverts all channel polarities and toggles between inclusive and exclusive mode in the “combine masks” combobox.
+For your convenience the parametric masks GUI provides a toggle button that inverts all channel polarities and toggles between inclusive and exclusive mode in the “combine masks” combobox.
 
-For novice users it is recommended that you stick to these two use cases. This means that you should decide beforehand how you want to construct your mask.
+For novice users it is recommended that you stick to the above two use cases. This means that you should decide beforehand how you want to construct your mask.

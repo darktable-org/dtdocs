@@ -27,7 +27,7 @@ hue
 color
 : This blend mode mixes color (chroma and hue) from the input and output images. Lightness is taken unaltered from the input image. 
 
-_Caution: When modules drastically modify hue (e.g. when generating complementary colors) this blend mode can result in strong color noise._
+: _Caution: When modules drastically modify hue (e.g. when generating complementary colors) this blend mode can result in strong color noise._
 
 Lab lightness
 : Only available with modules that work in the Lab color space, this blend mode mixes lightness from the input and output images, while color is taken unaltered from the input image. In contrast to “lightness” this blend mode does not involve any color space conversion and does not clamp any data. In some cases this blend mode is less prone to artifacts than “lightness”.

@@ -8,7 +8,7 @@ draft: false
 When a parametric or drawn mask is active, several additional sliders are shown which allow the mask to be further refined.
 
 feathering guide
-: Mask feathering smoothes a drawn or parametric mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending), depending on what is selected in the “feathering guide” combobox. Feathering is particularly sensitive to this choice when used with edge-modifying modules (modules for sharpening or blurring an image).
+: Mask feathering smooths a drawn or parametric mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending), depending on whether you select "input image" or "output image" in the “feathering guide” combobox. Feathering is particularly sensitive to this choice when used with edge-modifying modules (modules for sharpening or blurring an image).
 
 feathering radius
 : Adjust the strength of the feathering effect. Feathering works best if the mask's edges already approximately match some edges in the guiding image. The larger the “feathering radius” the better the feathering algorithm can align the mask to more distant edges. If this radius is too large, however, the feathered mask may overshoot (cover regions that the user wants to exclude). Feathering is disabled when the feathering radius is set to 0.
@@ -22,10 +22,10 @@ mask opacity
 mask contrast
 : This slider increases or decreases the mask contrast. This allows you to adjust the transition between opaque and transparent parts of the mask.
 
-temporarily switch off mask
+temporarily switch off mask (![eye icon](./refinement-controls/icon-eye.png))
 : Sometimes it is useful to visualize a module's effect without the mask being active. Click on this icon to temporarily deactivate the mask (the selected blend mode and global opacity remain in effect).
 
-display mask
+display mask (![mask icon](./refinement-controls/icon-mask.png))
 : Click on this icon to display the current mask as a yellow overlay over a black-and-white version of the image. Solid yellow indicates an opacity of 100%; a fully visible gray background image (without yellow overlay) indicates an opacity of 0%.
 
 # example: feathering a drawn mask
@@ -39,4 +39,4 @@ It can be rather tedious to create a drawn mask which precisely covers a particu
 3. The third image shows the effect of adjusting the feathering radius, mask opacity and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask opacity and mask contrast have been increased to 0.3 and 0.5, respectively. 
 4. The final image above shows the end result, where the color enhancement (via the [_color contrast_](../../../module-reference/processing-modules/color-contrast.md) module) is restricted to only the lion sculpture.
 
-Mask feathering works particularly well in this example because the sculpture is well separated from the blurry background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture. 
+Mask feathering works particularly well in this example because the sculpture is well separated from the out-of-focus background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture. 
