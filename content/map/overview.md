@@ -30,12 +30,6 @@ In order to remove location data from an image simply `drag` it from the map and
 
 # undo/redo
 
-All image moves in the map view are recorded by darktable. It is possible to undo or redo such changes to recover a previous state. Note that this undo/redo facility is unlimited while moving images but it is reset each time you leave the map view.
+All image movements in the map view are recorded by darktable. It is possible to undo or redo such changes to recover a previous state. Note that this undo/redo facility is unlimited while moving images but it is reset each time you leave the map view.
 
-The default keyboard shortcuts are:
-
-```
-Ctrl+Z:  undo last move
-Ctrl+Y:  redo last move (does nothing if undo has not been used yet)
-```
-
+Press `Ctrl+Z` to undo the last modification and `Ctrl+Y` to redo the last undone modification (if any).
