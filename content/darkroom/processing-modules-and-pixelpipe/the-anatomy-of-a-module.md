@@ -5,7 +5,7 @@ weight: 10
 draft: false
 ---
 
-The basic element of image processing in darktable is a _module_. In order to process a raw image a number of modules act on the input image in sequence, each performing a different _operation_ on the image.
+The basic element of image processing in darktable is the _module_. In order to process a raw image a number of modules act on the input image in sequence, each performing a different _operation_ on the image data.
 
 Every processing module executes independently in a similar manner:
 
