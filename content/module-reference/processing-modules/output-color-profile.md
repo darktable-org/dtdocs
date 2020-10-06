@@ -12,7 +12,7 @@ Manage the output profile for export and the rendering intent to be used when ma
 
 darktable comes with pre-defined profiles _sRGB_, _AdobeRGB_, _XYZ_ and _linear RGB_. You can provide additional profiles by placing them in `$DARKTABLE/share/darktable/color/out` and `$HOME/.config/darktable/color/out` (where `$DARKTABLE` is the darktable installation directory and `$HOME` is your home directory).
 
-The output color profile may also be defined within the [_export_](../utility-modules/lighttable/export-selected.md) module in the [lighttable](../../lighttable/_index.md) view.
+The output color profile may also be defined within the [export](../utility-modules/lighttable/export-selected.md) module in the [lighttable](../../lighttable/_index.md) view.
 
 # module controls
 
