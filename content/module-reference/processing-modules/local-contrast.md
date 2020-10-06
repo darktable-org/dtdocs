@@ -29,9 +29,9 @@ detail
 
 ## local laplacian
 
-To understand the parameters of the local laplacian filter, you can think of it as applying a curve to the image, similar to the following graph:
+To understand the parameters of the local laplacian filter, one can think of it as applying a curve to the image, similar to the following graph:
 
-![local laplacian curve](local-contrast/local-laplacian-curve.png)
+![local laplacian curve](local-contrast/local-laplacian-curve.png#w50)
 
 This curve will be applied to the image in a way that works locally and avoids halo artifacts.
 
@@ -44,7 +44,7 @@ highlights
 : This affects one end of the S shaped contrast curve, effectively increasing or compressing contrast in the highlights. A low value will pull the highlights down.
 
 shadows
-: Similar to the highlights parameter, this affects the other end of the S shaped contrast curve, and will increase or decrease contrast in the shadows. A higher value gives more contrast in the shadows. A lower value will lift the shadows and can effectively simulate a fill light. Note that this is done via local manipulation of the image. However, this means that a completely dark image cannot be brightened this way: only dark objects in front of bright objects will be affected.
+: Similar to the highlights parameter, this affects the other end of the S shaped contrast curve, and will increase or decrease contrast in the shadows. A higher value gives more contrast in the shadows. A lower value lifts the shadows and can effectively simulate a fill light. Note that this is done via local manipulation of the image. However, this means that a completely dark image cannot be brightened in this way -- only dark objects in front of bright objects are affected.
 
 midtone range
 : This controls the extent of the S shaped part of the contrast curve. A larger value will make the S wider, and thus classify more values to be midtone range and fewer values to belong to the highlights and shadows part. In more high dynamic range settings it can be useful to reduce this value to achieve stronger range compression by lowering the contrast in the highlights and the shadows. Note however that for really strong HDR scenarios this may work best in combination with a [_base curve_](./base-curve.md) which pre-compresses the range, perhaps with an approximately logarithmic base curve. The exposure fusion feature in the [_base curve_](./base-curve.md) module may lead to more pleasing results at times, but is also more prone to producing halo effects.
