@@ -14,6 +14,8 @@ This module identifies the camera/lens combination from the image's Exif data an
 
 If your system's lensfun library has no correction profile for the automatically identified camera/lens combination the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu. 
 
+If your lens is present in the list but has not been correctly identified, this may require some adjustment within the exiv2 program (see [this post](https://dev.exiv2.org/boards/3/topics/2854) for details). Note that you may need to re-import the images once such adjustments have been made.
+
 If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running [the lensfun-update-data tool](https://lensfun.github.io/manual/v0.3.2/lensfun-update-data.html). If there is still no matching profile for your lens, please visit this [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) offered by Torsten Bronger, one of darktable's users. Alternatively you may go to [lensfun's home page](https://lensfun.github.io/lenslist/) and learn how to generate your own set of correction parameters. Don't forget to share your profile with the lensfun team!
 
 # module controls
@@ -22,10 +24,10 @@ camera
 : The camera make and model as determined by the image's Exif data. You can override this manually and select your camera from a hierarchical menu. Only lenses with correction profiles matching the selected camera will be shown.
 
 lens
-: The lens make and model as determined by the image's Exif data. You can override this manually and select your lens from a hierarchical menu. This is mainly needed for pure mechanical lenses, but may also be needed for off-brand / third party lenses. If your lens is present in the list but not correctly identified, this may require some adjustment within the exiv2 program (see [this post](https://dev.exiv2.org/boards/3/topics/2854)).
+: The lens make and model as determined by the image's Exif data. You can override this manually and select your lens from a hierarchical menu. This is mainly required for pure mechanical lenses, but may also be needed for off-brand / third party lenses. 
 
 photometric parameters: focal length, aperture, focal distance
-: Lens corrections depend on certain photometric parameters that are read from the image's Exif data: focal length (for distortion, TCA, vignetting), aperture (for TCA, vignetting) and focal distance (for vignetting). Many cameras do not record focal distance in their Exif data; in this case you will need to set this manually.
+: Lens corrections depend on certain photometric parameters that are read from the image's Exif data: focal length (for distortion, TCA, vignetting), aperture (for TCA, vignetting) and focal distance (for vignetting). Many cameras do not record focal distance in their Exif data, in which case you will need to set this manually.
 
 : You can manually override all automatically selected parameters. Either take one of the predefined values from the drop-down menu or, with the drop-down menu still open, just type in your own value.
 
@@ -39,7 +41,7 @@ scale
 : Adjust the scaling factor of your image to avoid black corners. Press the auto scale button (to the right of the slider) for darktable to automatically find the best fit.
 
 mode
-: The default behavior of this module is to correct lens flaws. Switch this combobox to “distort” in order to instead _simulate_ the behavior of a specific lens (inverted effect).
+: The default behavior of this module is to _correct_ lens flaws. Switch this combobox to “distort” in order to instead _simulate_ the flaws/distortions of a specific lens (inverted effect).
 
 TCA red; TCA blue
 : Override the correction parameters for TCA. You can also use this slider to manually set the parameter if the lens profile does not contain TCA correction. Look out for colored seams at features with high contrast edges and adjust these parameters to minimize those seams.
