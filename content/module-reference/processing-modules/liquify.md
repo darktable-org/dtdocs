@@ -8,9 +8,11 @@ view: darkroom
 masking: 
 ---
 
-Move pixels around by applying freestyle distortions to parts of the image, using points, lines and curves.
+Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.
 
- Each of liquify's tools is based on nodes. A point is given by a single node and a line or curve consists of a set of nodes defining the path.
+# nodes
+
+ Each of liquify's tools is based on nodes. A point is given by a single node and a line or curve consists of a set of nodes defining a path.
 
 There is a limit of 100 nodes in a single liquify instance. For more nodes than this, use additional module instances. However, note that the liquify module consumes a lot of system resources. 
 
@@ -27,17 +29,17 @@ A point is formed by a single node. In a point the strength vector has three dif
 linear
 : A linear distortion inside the circle, starting from the opposite side of the strength vector and following the vector's direction. This is the default mode.
 
-![linear](./liquify/liquify_ex1.png)
+: ![linear](./liquify/liquify_ex1.png)
 
 radial growing
 : The strength vector's effect is radial, starting with a strength of 0% in the center and increasing away from the center. This mode is depicted by an additional circle with the arrow pointing outwards.
 
-![radial growing](./liquify/liquify_ex4.png)
+: ![radial growing](./liquify/liquify_ex4.png)
 
 radial shrinking
 : The strength vector's effect is radial, starting with a strength of 100% in the center and decreasing away from the center. This mode is depicted by an additional circle with the arrow pointing inwards.
 
-![radial shrinking](./liquify/liquify_ex3.png)
+: ![radial shrinking](./liquify/liquify_ex3.png)
 
 ## feathering
 
@@ -57,7 +59,7 @@ A point can be removed by `right-clicking` on the center of the node.
 
 # lines and curves
 
-Lines and curves are sets of points linked together by straight lines or curves. The effect is interpolated by a set of strength vectors. 
+Lines and curves are sets of points linked together by straight or curved lines. The effect is interpolated by a set of strength vectors. 
 
 `Click` the appropriate icon to activate the line or curve tool and `click` on the image to place points to form the path. `Right-click` anywhere when the last point has been placed.
 
@@ -67,13 +69,13 @@ lines
 curves
 : ![linear](./liquify/liquify_ex6.png)
 
-`Ctrl+click` on a segment to add a new control point. `Ctrl+right-click` on the center of a node to remove a control point. 
+`Ctrl+click` on a line or curve segment to add a new control point. `Ctrl+right-click` on the center of a node to remove a control point. 
 
 `Right-click` on a segment to remove the shape completely. `Ctrl+Alt+click` on a segment to change that segment from a line to a curve and vice versa.
 
 # link modes
 
-`Ctrl+click` on the center of a node to change the way the points of a curve are linked together. There are four modes which correspond to different ways of handling the steepness of the bezier curve by control handles: 
+`Ctrl+click` on the center of a node to change the way the points of a curve are linked together. There are four modes which correspond to different ways of handling the steepness of the bezier curve using control handles: 
 
 autosmooth
 : This is the default mode, in which control handles are not displayed as they are automatically computed to give a smooth curve.
