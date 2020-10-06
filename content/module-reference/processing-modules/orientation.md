@@ -10,7 +10,9 @@ masking: false
 
 Rotate the image 90 degrees at a time. 
 
-By default this module sets the orientation based on the image's Exif data.
+The module is enabled by default and the orientation is automatically set based on the image's Exif data.
+
+The orientation can also be set using the [selected images](../utility-modules/lighttable/selected-image.md) module in the lighttable view.
 
 # module controls
 
