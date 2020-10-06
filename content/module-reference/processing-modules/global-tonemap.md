@@ -10,7 +10,7 @@ masking: true
 
 Compress the tonal range of an HDR image into the limited tonal range of a typical LDR output file. 
 
-Global tonemapping processes each pixel of an HDR image, without taking the local surrounding into account. This is generally faster than [local tonemapping](./tone-mapping.md), but might lead to less convincing results with very high-dynamic-range scenes.
+Global tonemap processes each pixel of an HDR image, without taking the local surrounding into account. This is generally faster than local [_tone mapping_](./tone-mapping.md), but might lead to less convincing results with very high-dynamic-range scenes.
 
 # module controls
 
