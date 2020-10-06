@@ -39,4 +39,10 @@ target level (automatic mode)
 : Define the target level for automatic exposure correction (EV) relative to the white point of the camera.
 
 black level correction (manual and automatic modes)
-: Adjust the black level point to unclip negative RGB values. _N.B. Do not use this to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This causes problems with some modules later in the pixelpipe._
+: Adjust the black level point to unclip negative RGB values. 
+
+---
+
+**Note:** Do not use the black level correction to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This can cause problems with some modules later in the pixelpipe.
+
+---
