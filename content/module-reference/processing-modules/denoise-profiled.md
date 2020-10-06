@@ -19,22 +19,22 @@ Currently, darktable has sensor noise profiles for over 300 popular camera model
 The _denoise (profiled)_ module implements two main algorithms, each of which is available in either an easy-to-use "auto" mode or a more advanced mode, with additional controls:
 
 non-local means
-: This algorithm works in the spatial domain in much the same way as the [_denoise (non-local means)_](./denoise-non-local-means.md) module. This algorithm averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a certain size is used to measure that similarity. 
+: This algorithm works in the spatial domain in much the same way as the [_denoise (non-local means)_](./denoise-non-local-means.md) module. This algorithm averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a defined size is used to measure that similarity. 
 
-: Note that this algorithm is quite processor-intensive.
+: Note that this algorithm is quite resource-intensive.
 
 wavelets
-: This algorithm works in the [wavelet](../../darkroom/interacting-with-modules/wavelets.md) domain, and provides a simplified user interface, especially when used in conjunction with the _Y0U0V0 color mode_. The wavelet decomposition allows you to adjust the strength of the denoising depending on the coarseness of the noise in the image. This mode can be used in either _Y0U0V0 color mode_ (which allows you to separately control luminance and chroma noise) or _RGB color mode_ (which allows you to separately control noise for each RGB channel).
+: This algorithm works in the [wavelet](../../darkroom/interacting-with-modules/wavelets.md) domain, and provides a simplified user interface. Wavelet decomposition allows you to adjust the strength of the denoising depending on the coarseness of the noise in the image. This mode can be used in either _Y0U0V0 color mode_ (which allows you to independently control luminance and chroma noise) or _RGB color mode_ (which allows you to independently control noise for each RGB channel).
 
-: The wavelet algorithm is less processor-intensive than _non-local means_.
+: The wavelet algorithm is less resource-intensive than _non-local means_.
 
 ## luma versus chroma noise
 
 Both “non-local means” and “wavelet” algorithms can efficiently tackle luma (lightness) noise and chroma (color) noise.  
 
-In the past, it was suggested that you should use two separate instances of the _denoise (profiled)_ module. The first instance would be used together with a color blending mode to tackle _chroma_ noise (false colors due to noise), and the second instance with a lightness blending mode to tackle _luma_ noise (where the noise produces a "graininess" due to variations in brightness). 
+In the past, it was suggested that you should use two separate instances of the _denoise (profiled)_ module. The first instance would be used together with a color blending mode to tackle _chroma_ noise, and the second instance with a lightness blending mode to tackle _luma_ noise. 
 
-This isn't really recommended anymore, since the _denoise (profiled)_ module occurs early in the pixel pipe, before the input color profile (in order that the profile parameters are accurate) but color blending modes should really come after the input color profile is applied.
+This isn't really recommended any more, since the _denoise (profiled)_ module occurs early in the pixel pipe, before the input color profile (in order that the profile parameters are accurate) but color blending modes should really only be used after the input color profile has been applied.
 
 The new algorithms in this module now provide their own methods of dealing separately with luma and chroma noise, and in both cases this can be handled within a single module instance.
 
@@ -44,26 +44,26 @@ The _denoise (profiled)_ module provides a few controls that are independent of 
 
 When describing the controls specific to an algorithm, we will first cover the simplified interface, and then move on to the more advanced controls for that algorithm.
 
-Note that sliders are given minimum and maximum values by default. However these are only soft limits and, where needed, higher values can be entered by `right-clicking` on the slider and using the keyboard.
+Note that sliders are provided with minimum and maximum values by default. However these are only soft limits and, where needed, higher values can be entered by `right-clicking` on the slider and using the keyboard.
 
 ## common controls
 
 profile
-: darktable will automatically determine the camera model and ISO based on Exif data of your raw file. If found in its database, the corresponding noise profile will be used. If your image has an intermediate ISO value, the statistical properties will be interpolated between the two closest datasets in the database, and this interpolated setting will show up as the first line in the combo box. You can also manually override this selection if necessary. The top-most entry in the combo box will bring you back to the default profile.
+: darktable will automatically determine the camera model and ISO based on Exif data of your raw file. If found in its database, the corresponding noise profile will be used. If your image has an intermediate ISO value, the statistical properties will be interpolated between the two closest datasets in the database, and this interpolated setting will show up as the first line in the combo box. You can also manually override this selection if necessary. Re-selecting the top-most entry in the combo box will return you to the default profile.
 
 mode
-: Choose which algorithm to use for the denoising (see above), and whether to present the simplified ("auto") or full manual interface for that algorithm.
+: Choose which denoising algorithm to use (see above), and whether to present the simplified ("auto") or full manual interface for that algorithm.
 
 whitebalance-adaptive transform
-: As white-balance amplifies the RGB channels differently, each channel exhibits different noise levels. This checkbox makes the algorithm adaptive to white balance. This option should be disabled on the second instance if you have used a first instance with a color blend mode.
+: As white balance amplifies the RGB channels differently, each channel exhibits different noise levels. This checkbox makes the selected algorithm adapt to the white balance. This option should be disabled on the second instance if you have used a first instance with a color blend mode.
 
 adjust autoset parameters (auto mode only)
-: Automatically adjust all the other parameters on the current denoising algorithm using a single slider interface. This is particularly useful when you have had to push up the exposure on an under-exposed image, which will normally introduce noise into the image, in a similar way as if you had taken the shot with a higher ISO. This control compensates for that by using settings similar to what it would use for a higher ISO image. In general, the value of this slider indicates how many stops you had to push the exposure. For example, if you had to push the exposure 2 stops above what you normally use, then set this slider to `2`.
+: Automatically adjust all the other parameters on the current denoising algorithm using a single slider interface. This is particularly useful when you have had to increase the exposure on an under-exposed image, which normally introduces additional noise as if you had taken the shot with a higher ISO. This control compensates for that by using settings similar to what it would use for a higher ISO image. In general, the value of this slider indicates the number of stops by which you had to increase the exposure. For example, if you had to push the exposure 2 stops above what you normally use, then set this slider to `2`.
 
 strength
-: Fine-tune the strength of the denoise effect. The default value has been chosen to maximize the peak signal to noise ratio. It's mostly a matter of taste if you prefer a rather low noise level at the costs of a higher loss of detail, or if you accept more remaining noise in order to have finer structures better preserved within your image.
+: Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal to noise ratio. It's mostly a matter of taste if you prefer a rather low noise level at the costs of a higher loss of detail, or if you accept more remaining noise in order to have finer structures better preserved within your image.
 
-: In the case of _wavelets_ mode, the default value of this slider may not be enough. If you do not set enough strength on this slider, then adjusting the wavelet curves above it will not have a large enough effect. It is therefore recommended that you set a reasonably high strength on this slider, and than make finer adjustments on the wavelet curves. Don't hesitate to `right-click` and enter a higher value for this slider if the default soft limit for this slider doesn't allow for enough denoising. 
+: In the case of _wavelets_ mode, the default value of this slider may not be sufficient. If you do not set a high enough strength, then adjusting the wavelet curves above it will not have a large enough effect. It is therefore recommended that you set a reasonably high strength on this slider, and than make finer adjustments on the wavelet curves. Don't hesitate to `right-click` and enter a higher value if the default soft limit for this slider doesn't allow for enough denoising. 
 
 preserve shadows (advanced mode only)
 : Choose whether to denoise the shadows more agressively. Lower the value to denoise the shadows more. Usually, as noise increases, you will need to lower this value.
@@ -78,7 +78,7 @@ central pixel weight (details)
 
 ## non-local means advanced sliders
 
-When you take non-local means out of auto mode, the _adjust autoset parameters_ slider will be replaced by the following controls. You can use the auto-adjust slider to arrive at some initial settings then, when you switch to manual mode, the sliders will show the set of manual settings that are equivalent to that auto-adjust setting. You can then continue to fine-tune the manual settings using the initial auto setting as a basis.
+When you take non-local means out of auto mode, the _adjust autoset parameters_ slider will be replaced by the following controls. You can use the auto-adjust slider to arrive at some initial settings then, when you switch to manual mode, the sliders will show the set of manual settings that are equivalent to that auto-adjust setting. You can then continue to fine-tune the manual settings using the initial auto setting as a starting point.
 
 patch size
 : Control the size of the patches being matched when deciding which pixels to average -- see [_denoise (non-local means)_](./denoise-non-local-means.md). Set this to higher values as the noise gets higher. Be aware that high values may smooth out small edges. The effect of this slider on processing time is minimal.
@@ -88,9 +88,6 @@ search radius
 
 scattering (coarse-grain noise)
 : Like the _search radius_, this slider controls how far from a pixel the algorithm will try to find similar patches. However, it does this without increasing the number of patches considered. As such, processing time will stay about the same. Increasing the value will reduce coarse grain noise, but may smooth local contrast. This slider is particularly effective at reducing chroma noise.
-
-central pixel weight
-: This slider works the same as it does in _non-local means (auto)_ mode.
 
 ## wavelet curves
 
@@ -106,7 +103,7 @@ The preferred way to use wavelets is with the new _Y0U0V0 color mode_. This sepa
 
 ## wavelets _RGB_ color mode
 
-Before the _Y0U0V0 color mode_, wavelet-based denoising was performed directly on the _R_, _G_ and _B_ channels, either all together in one go, or on an individual channel basis.
+Before the _Y0U0V0 color mode_, wavelet-based denoising could only be performed directly on the _R_, _G_ and _B_ channels, either all together in one go, or on an individual channel basis.
 
 ![denoise-rgb](./denoise-profiled/denoise-rgb.png)
 
@@ -114,7 +111,7 @@ If you want to denoise the channels separately, the best way to do this is to us
 
 The issue with denoising the _RGB_ channels individually like this is that there can still be some residual chroma noise at the end that requires excessive smoothing to eliminate. This was in fact one of the key motivations behind implementing the _Y0U0V0 color mode_.
 
-### wavelets advanced sliders
+## wavelets advanced sliders
 
 When you take _wavelets_ out of _auto_ mode, the _adjust autoset parameters_ slider will be replaced by the _preserve shadows_ and _bias correction_ controls listed above in the _common controls_ section.
 
