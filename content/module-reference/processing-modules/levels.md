@@ -22,9 +22,13 @@ manual
 : Three color pickers are available for sampling the black, white and gray points from the image. The "auto" button auto-adjusts the black and white point and puts the gray point exactly in the mean between them.
 
 automatic
-: the module automatically analyses the histogram of the image, detects the left and right histogram borders, and lets you define the black point, the gray point and the white point in terms of [percentiles](http://en.wikipedia.org/wiki/Percentile) relative to these borders.
+: The module automatically analyses the histogram of the image, detects the left and right histogram borders, and lets you define the black point, the gray point and the white point in terms of [percentiles](http://en.wikipedia.org/wiki/Percentile) relative to these borders.
 
-_N.B. Under certain conditions, especially with highly saturated blue light sources, the _levels_ module may produce black pixel artifacts. See the "gamut clipping" option of the [input color profile](./input-color-profile.md) module for information about how to mitigate this issue._
+---
+
+**Note:** Under certain conditions, especially with highly saturated blue light sources, the _levels_ module may produce black pixel artifacts. See the "gamut clipping" option of the [_input color profile_](./input-color-profile.md) module for information about how to mitigate this issue.
+
+---
 
 # module controls
 
@@ -35,7 +39,7 @@ black (automatic mode only)
 : The black point in percentiles relative to the left border of the histogram.
 
 gray
-: The gray point in percentiles relative to the left and right borders of the histogram after having applied the black point and white point corrections
+: The gray point in percentiles relative to the left and right borders of the histogram after having applied the black point and white point corrections.
 
 white
-: The white point in percentiles relative to the right border of the histogram
+: The white point in percentiles relative to the right border of the histogram.
