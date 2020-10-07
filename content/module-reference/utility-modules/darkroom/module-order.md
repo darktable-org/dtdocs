@@ -6,15 +6,15 @@ tags:
 view: darkroom
 ---
 
-Change the order of the [_processing modules_](../../processing-modules/_index.md) in the darkroom using presets.
+Change the order of the [processing modules](../../processing-modules/_index.md) in the darkroom using presets.
 
-When processing an image, the active modules are applied in a specific order, which is shown in the right-hand section of the darkroom view. Towards the bottom of the module list is a utility module named "module order". This utility module provides information about the current ordering of the processing modules in the [pixelpipe](../../../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md). The parameter "current order" can take on 3 possible values:
+When processing an image, the active modules are applied in a specific order, which is shown in the right-hand panel of the darkroom view. This module provides information about the current ordering of the processing modules in the [pixelpipe](../../../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md). The single parameter "current order" can take on the following values:
 
 v3.0
-: This is the default module order, and it corresponds to the [_scene-referred_](../../../overview/workflow/edit-scene-referred.md) workflow. 
+: This is the default module order for [scene-referred](../../../overview/workflow/edit-scene-referred.md) workflow. 
 
 legacy
-: This module order is used for the older [_display-referred_](../../../overview/workflow/edit-display-referred.md) workflow. You will also see this order for any images you previously edited using a version of darktable prior to 3.0.
+: This module order is used for the legacy [display-referred](../../../overview/workflow/edit-display-referred.md) workflow. You will also see this order displayed for any images you previously edited in versions prior to darktable 3.0.
 
 custom
 : Since darktable 3.0, it is possible to change the order in which modules are applied in the pixelpipe by clicking on the module header while holding `Ctrl+Shift` and dragging it into a new position. If you have changed the order of any modules, this parameter will show the value "custom".
@@ -27,5 +27,5 @@ custom
 
 It is possible to reset the module order back to the v3.0 default order by clicking on the _reset parameters_ icon on the _module order_ header. You can also use the _presets menu_ to change the ordering to either v3.0 default or to legacy ordering.
 
-For a list of the default module orderings, please refer to the [_default module order_](../../../special-topics/module-order.md) section.
+For a list of the default module orders, please refer to the [default module order](../../../special-topics/module-order.md) section.
 
