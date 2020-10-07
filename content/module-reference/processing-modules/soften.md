@@ -8,11 +8,11 @@ view: darkroom
 masking: true
 ---
 
-Create a softened image using the Orton effect.
+Create a softened image using the [Orton effect](https://en.wikipedia.org/wiki/Orton_(photography)).
 
 Michael Orton achieved his results on slide film by using two exposures of the same scene, one well exposed and one overexposed. He then used a darkroom technique to blend these two images into a final image where the overexposed image was blurred.
 
-This module is a near-copy of Orton's analogue process into the digital domain.
+This module is a near-copy of Orton's analog process into the digital domain.
 
 # module controls
 
