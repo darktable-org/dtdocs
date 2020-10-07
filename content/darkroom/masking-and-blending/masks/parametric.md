@@ -25,7 +25,7 @@ _See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details abo
 
 Each data channel provides two sliders for the associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending.
 
-![input and output sliders](./parametric/input-output-sliders.png)
+![input and output sliders](./parametric/input-output-sliders.png#w50)
 
 ## inspecting data channels & masks
 
@@ -49,13 +49,13 @@ A polarity (+/-) button to the right of each the slider switches between "range 
 
 **range select**
 
-![range select slider](./parametric/blendif_2a.png)
-![range select graph](./parametric/blendif_2b.png)
+![range select slider](./parametric/blendif_2a.png#w50)
+![range select graph](./parametric/blendif_2b.png#w50)
 
 **range deselect**
 
-![range deselect slider](./parametric/blendif_3a.png)
-![range deselect graph](./parametric/blendif_3b.png)
+![range deselect slider](./parametric/blendif_3a.png#w50)
+![range deselect graph](./parametric/blendif_3b.png#w50)
 
 In their default state all markers are at their extreme positions. In this state a range select function selects the whole range of values giving an “all at 100%” mask. Starting from there one can move the sliders inwards to gradually exclude more and more parts of the image except for the remaining narrow range.
 
