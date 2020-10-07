@@ -21,7 +21,7 @@ keyboard arrow keys
 right-click
 : When your mouse is over a slider right-clicking enables a multi-functional pop-up below the slider for fine control with your mouse or numerical entry using the keyboard.
 
-: ![bauhaus](./module-controls/bauhaus.png)
+: ![bauhaus](./module-controls/bauhaus.png#w50)
 
 : A bent line extending from the triangular marker moves with your mouse. The closer your mouse pointer is to the triangular marker the coarser the control you have over the value; the further away from the triangular marker the finer your control. Left-click with your mouse to accept the new value and and hide the pop-up.
 
@@ -48,7 +48,7 @@ Click on a combobox to open a list of available options which you can click to s
 
 # color pickers
 
-A number of modules allow parameters to be set using color pickers (identified by the ![color-picker](./module-controls/color-picker.png) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by `clicking` on the color picker icon. Area mode can be activated by `Ctrl+clicking` on the icon.
+A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by `clicking` on the color picker icon. Area mode can be activated by `Ctrl+clicking` on the icon.
 
 # keyboard shortcuts
 
