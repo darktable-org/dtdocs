@@ -19,7 +19,7 @@ A wavelet is a mathematical function that starts off at zero, oscillates up and 
 
 ![wavelets-overview](./wavelets/wavelets-overview.png#w50) 
 
-These wavelet functions are used to scan across and down the image using a mathematical operation called _convolution_. This picks out details from the image that are on a similar scale to the size of a given wavelet, and a builds number of detail layers each corresponding to a different wavelet scale.
+These wavelet functions are used to scan across and down the image using a mathematical operation called _convolution_. This picks out details from the image that are on a similar scale to the size of a given wavelet, and builds a number of detail layers each corresponding to a different wavelet scale.
 
 Below is an example where detail layers have been extracted from the image shown above. In this case, the images were produced using the [_retouch_](../../module-reference/processing-modules/retouch.md) module), splitting the image into 8 different layers, and using the module's controls to visualise the details present at each of these wavelet scales:
 
