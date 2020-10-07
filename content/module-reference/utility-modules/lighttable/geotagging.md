@@ -8,7 +8,7 @@ view: lighttable
 
 Import and apply GPX track data to a selection of images.
 
-A GPS receiver calculates its current position based on the information it receives from satellites and records it in a GPX file – together with the current date and time. The Exif data of the images also contains a time stamp defined by the camera settings. The _geotagging_ module takes the time stamp of the image, looks up the position in the GPX file at that time, and stores the appropriate coordinates (latitude/longitude/elevation) in its database and the image's XMP sidecar file.
+A GPS receiver calculates its current position based on the information it receives from satellites and records it in a GPX file, together with the current date and time. The Exif data of the images also contains a time stamp defined by the camera settings. The _geotagging_ module takes the time stamp of the image, looks up the position in the GPX file at that time, and stores the appropriate coordinates (latitude/longitude/elevation) in its database and the image's XMP sidecar file.
 
 Two problems may occur during this process: 
 - In contrast to GPS devices, most cameras don't record the time accurately.
