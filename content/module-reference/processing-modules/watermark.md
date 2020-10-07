@@ -10,13 +10,13 @@ masking: true
 
 Render a vector-based overlay onto your image. Watermarks are standard SVG documents and can be designed using [Inkscape](http://www.inkscape.org/).
 
-The SVG processor of darktable also substitutes strings within the SVG document, which allows you to include image dependent information in the watermark.
+The SVG processor of darktable can also substitute strings within the SVG document, which allows you to include image dependent information in the watermark.
 
-User-designed watermarks are placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
+User-designed watermarks should be placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
 
 The following is a list of variable strings that are supported for substitution within the SVG document. 
 
-Besides this list you can also use the variable strings defined in the [variables](../../special-topics/variables.md) section.
+In addition to this list you can also use the variable strings defined in the [variables](../../special-topics/variables.md) section.
 
 ```
 $(DARKTABLE.NAME)             The application name
@@ -70,16 +70,16 @@ $(GPS.LOCATION)               All three coordinates (latitude, longitude, elevat
 # module controls
 
 marker
-: Choose the watermark of interest. You can use the reload button to update the list with all newly added watermarks.
+: Choose the watermark to apply. You can use the reload button to update the list to include any newly-added watermarks.
 
 text
 : A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
 
 text color
-: The text color. Clicking on the colored field will open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.
+: The color of the text. Click on the colored field to open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.
 
 text font
-: The text font (default "DejaVu Sans Book"). Clicking on the field opens a dialog box which shows the fonts available to your system. Fonts can be searched by name and a preview of each available font is shown next to the font name. You may specify your own sample text.
+: The font to use (default "DejaVu Sans Book"). Clicking on the field opens a dialog box which shows the fonts available on your system. Fonts can be searched by name and a preview of each available font is shown next to the font name. You may specify your own sample text.
 
 opacity
 : The opacity of the watermark's rendering.
@@ -91,7 +91,7 @@ rotate
 : The rotation angle of the watermark.
 
 scale on
-: Defines the reference for the scale parameter. The default setting “image” scales the watermark relative to the horizontal image size. Alternatively you can scale the watermark relative to the “larger border” or “smaller border”.
+: The reference for the scale parameter. The default setting “image” scales the watermark relative to the horizontal image size. Alternatively you can scale the watermark relative to the “larger border” or “smaller border”.
 
 alignment
 : Use these controls to align the watermark to any edge or the center of the image.
