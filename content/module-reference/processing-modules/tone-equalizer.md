@@ -50,7 +50,7 @@ This tab provides a set of sliders that control how the module affects the pixel
 
 This tab allows you to control the same intensity levels as in the basic tab, though here they are represented as control points on a curve. Behind the curve is a histogram representing the intensity levels of the **_mask_** (not of the input or output image). If the histogram is too bunched up, it means your mask doesn't have a good spread of intensity levels, which makes it harder to independently control the brightness of different parts of your image. It is therefore recommended that the histogram is adjusted so that it extends the entire range, and covers as many control points as possible, thereby providing you with maximum flexibility. You can adjust the mask using the controls in the _masking_ tab.
 
-control points on the curve:
+control points on the curve
 : `Click+drag` the control points on the tone equalizer curve up or down to adjust the brightness of all pixels that are classified under that mask intensity level. Control points to the left will normally affect the shadows, and control points to the right will normally affect the highlights, assuming you have a nice spread of the mask histogram. Moving one control point will generally affect control points on either side to ensure the curve remains smooth.
 
 curve smoothing
