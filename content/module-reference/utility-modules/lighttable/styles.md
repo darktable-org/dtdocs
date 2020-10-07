@@ -6,18 +6,18 @@ tags:
 view: lighttable
 ---
 
-Store an image's [history stack](../../../darkroom/processing-modules-and-pixelpipe/history-stack.md) as a named style and apply styles to selected images. 
+Create named styles from selected images' [history stacks](../../../darkroom/processing-modules-and-pixelpipe/history-stack.md) and apply styles to selected images. 
 
-Styles can either be created within this panel or in the [history stack module](../darkroom/history-stack.md) in the darkroom.
+Styles can either be created within this panel or in the [history stack](../darkroom/history-stack.md) module in the darkroom.
 
-A list of all available styles is displayed at the top of the module. A search field above the list allows you to input a text string which can be used to filter styles by their name or description. This module also allows styles to be edited and deleted.
+A list of all available styles is displayed at the top of the module. A search field above the list allows you to locate a style by name or description. This module also allows styles to be edited and deleted.
 
 Double-click on a style name to apply that style to all selected images. 
 
 # module controls
 
 create duplicate
-: When applying a style to selected images, ticking this box creates a duplicate of the image before applying the style. Disable this option if you want to try various styles without creating multiple duplicates. Beware that in this case any existing history stack is overwritten and cannot be recovered.
+: When applying a style to images, tick this box to create a duplicate of each image before applying the chosen style to that duplicate. Disable this option to apply the chosen style directly to the selected images. Beware that in this case any existing history stack is overwritten (depending on the mode -- see below) and cannot be recovered.
 
 mode
 : As with the [history stack](./history-stack.md) module, this combobox allows you to either "append" the style to the current history stack or to "overwrite" the history stack of the target image.
