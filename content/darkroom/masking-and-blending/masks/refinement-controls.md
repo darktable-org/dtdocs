@@ -30,7 +30,7 @@ display mask (![mask icon](./refinement-controls/icon-mask.png))
 
 # example: feathering a drawn mask
 
-![feathering1](./refinement-controls/feathering_1.png) ![feathering2](./refinement-controls/feathering_2.png) ![feathering3](./refinement-controls/feathering_3.png) ![feathering4](./refinement-controls/feathering_4.png)
+![feathering](./refinement-controls/feathering.png#w100)
 
 It can be rather tedious to create a drawn mask which precisely covers a particular feature in an image. In this example, we want to enhance the color contrast of the lion sculpture shown in the left image above without affecting the background.
 
