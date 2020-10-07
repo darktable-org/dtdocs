@@ -14,7 +14,7 @@ This module is very similar to the [_tone curve_](./tone-curve.md) module but wo
 
 Activate the color picker on the left to show the picked values in the graph (`Ctrl+click` to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the widget.
 
-A second color picker to the right can be used to directly amend the curve based on the sampled area. `Ctrl+click+drag` will create a positive curve for the selected area; `Shift+click+drag` will create a negative curve.
+A second color picker to the right can be used to automtaically create new nodes based on the sampled area. `Ctrl+click+drag` to alter the created nodes to have a positive curve for the selected area; `Shift+click+drag` to create a negative curve.
 
 # module controls
 
@@ -25,9 +25,8 @@ mode
 
 : Depending on the desired intent you can apply the RGB curve in two different modes
 
-: - "RGB, linked channels" mode applies the L-channel curve to all three channels in the RGB color space.
-
-: - "RGB, independent channels" allows you to adjust the R, G and B curves independently.
+: - _RGB, linked channels_: Apply the L-channel curve to all three channels in the RGB color space.
+: - _RGB, independent channels_: R, G and B curves can be adjusted independently.
 
 compensate middle grey
 : Select this to change the histogram display in the module. This option does not alter the processing but may assist when editing the curve.
