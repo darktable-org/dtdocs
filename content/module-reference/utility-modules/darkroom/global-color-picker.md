@@ -8,14 +8,14 @@ view: darkroom
 
 Take color samples from the current darkroom image, display their values in multiple ways and compare colors from different locations. 
 
-The color picker is activated by pressing the color picker icon. There are multiple parameters for controlling how the color picker works, whose settings remain in effect until you leave the darkroom mode.
+The color picker is activated by pressing the color picker icon. The module's parameters will remain in effect until you leave the darkroom mode.
 
-Besides the global color picker described here, many darktable modules (e.g. [_tone curve_](../../processing-modules/tone-curve.md)) also contain local color pickers which are (mostly) used to set individual module parameters. You should be aware that these two forms of color picker do not always work in the same color space. The global color picker works in monitor color space and takes samples after the complete pixelpipe has been processed. Local color pickers run in the color space of the module in which they are activated and reflect the input or output data of that module within the pixelpipe.
+Besides the global color picker described here, many darktable modules (e.g. [_tone curve_](../../processing-modules/tone-curve.md)) also contain local color pickers which are used to set individual module parameters. You should be aware that these two forms of color picker do not always work in the same color space. The global color picker works in monitor color space and takes its samples after the complete pixelpipe has been processed. Local color pickers run in the color space of the module in which they are activated and reflect the input or output data of that module within the pixelpipe.
 
 # module controls
 
 point/area mode
-: The global color picker can be run in point or area mode. When in point mode only a small spot under your cursor is taken as a sample. In area mode you can draw a rectangle and darktable samples the area within that rectangle.
+: The global color picker can be run in point or area mode by `clicking` or `Ctrl+clicking` on the color picker icon, respectively. When in point mode only a small spot under your cursor is taken as a sample. In area mode you can draw a rectangle and darktable samples the area within that rectangle.
 
 mean/min/max
 : If samples are taken in area mode, darktable will calculate mean, minimum and maximum color channel values. This combobox allows you to select which of those are displayed. For obvious statistical reasons mean, min and max are identical for the single sample of point mode.
