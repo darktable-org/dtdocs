@@ -7,7 +7,7 @@ draft: false
 
 At the top of each image operation module is the _module header_. 
 
-![module header](./module-header/module-header.png)
+![module header](./module-header/module-header.png#w25)
 
 `Click` on the module name to expand the module and display the parameters that control its operation.
 
