@@ -8,7 +8,7 @@ view: darkroom
 masking: true
 ---
 
-Perform denoising on raw image data before it is demosaiced. 
+Perform denoising on raw image data before it is [demosaiced](./demosaic.md). 
 
 This module has been ported from [dcraw](https://www.dechifro.org/dcraw/).
 
@@ -24,4 +24,6 @@ coarse/fine curves
 
 : As another example, if you are tackling chroma noise with a [blend mode](../../darkroom/masking-and-blending/blend-modes.md), you can push the rightmost part of the curve up, as colors do not change a lot on fine grain scales. This will help especially if you see some isolated pixel left un-denoised. 
 
-: The best way to use the R, G, and B curves is to examine each of the channels in turn using the [_channel mixer_](./channel-mixer.md) module in gray mode, denoise that channel, and then repeat for the other channels. This way, you can take into account the fact that some channels may be noisier than others. Beware that guessing which channel is noisy without actually seeing the channels individually is not straightforward and can be counterintuitive. A pixel which is completely red may not be caused by noise on the R channel, but actually by noise on B and G channels.
+: The best way to use the R, G, and B curves is to examine each of the channels in turn using the [_channel mixer_](./channel-mixer.md) module in gray mode, denoise that channel, and then repeat for the other channels. This way, you can take into account the fact that some channels may be noisier than others. Beware that guessing which channel is noisy without actually seeing the channels individually is not straightforward and can be counterintuitive. A pixel which is completely red may not be caused by noise on the R channel, but actually by noise on G and B channels.
+
+: See the [wavelet](../../darkroom/interacting-with-modules/wavelets.md) section for more details.
