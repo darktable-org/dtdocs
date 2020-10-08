@@ -6,4 +6,4 @@ draft: false
 ---
 
 lua scripts installer don't show again
-: Check this box to not show the lua scripts installer in the lighttable if no lua scripts are installed
+: Check this box to hide the [lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md) in the lighttable if no lua scripts are installed.
