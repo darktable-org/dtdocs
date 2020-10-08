@@ -7,7 +7,7 @@ draft: false
 
 The following options control functionality in the [map](../map/_index.md) and [slideshow](../slideshow/_index.md) views.
 
-### map / geolocalisation
+# map / geolocalisation
 
 maximum number of images drawn on map
 : The maximum number of geotagged images drawn on the map. Increasing this number can slow down the drawing of the map. Needs a restart if changed (default 100).
@@ -15,7 +15,7 @@ maximum number of images drawn on map
 pretty print the image location
 : Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on). 
 
-### slideshow
+# slideshow
 
 waiting time before each picture in slideshow
 : The number of seconds before displaying the next image (default 5). 
