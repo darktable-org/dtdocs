@@ -8,28 +8,27 @@ draft: false
 The following options control how images are processed.
 
 always use LittleCMS 2 to apply output color profile
-: If this option is activated, darktable will use the LittleCMS 2 system library instead of its own internal routines. This is significantly slower than the default but might give more accurate results in some cases (default off).
-
-: Note that if the given ICC is LUT-based or contains both a LUT and a matrix, darktable will use LittleCMS 2 to render the colors regardless of this configuration parameter's value.
+: If this option is activated, darktable will use the LittleCMS 2 system library to apply the output color profile instead of its own internal routines. This is significantly slower than the default but might give more accurate results in some cases. 
+: If the given ICC is LUT-based or contains both a LUT and a matrix, darktable will use LittleCMS 2 to render the colors regardless of this configuration parameter's value (default off).
 
 pixel interpolator
-: Pixel interpolator used in rotation, lens correction, up-scaling and down-scaling; options are “bilinear”, “bicubic”, “lanczos2”, “lanczos3” (default).
+: The pixel interpolator used in rotation, lens correction, up-scaling and down-scaling. Options are “bilinear”, “bicubic”, “lanczos2”, “lanczos3” (default).
 
 3D lut root folder
-: Define the root folder (and sub-folders) that contains Lut files used by the [_lut 3D_](../module-reference/processing-modules/lut-3D.md) module
+: Define the root folder (and sub-folders) containing Lut files used by the [_lut 3D_](../module-reference/processing-modules/lut-3D.md) module
 
 auto-apply pixel workflow defaults
 : Choose which modules and module order to apply to new images by default:
 
-: _scene-referred_ workflow is based on linear RGB modules. Selecting this option will automatically enable [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) and [_exposure_](../module-reference/processing-modules/exposure.md) modules will set the pixelpipe order to the (scene-referred) order defined for darktable 3.0 and later. 
+- _scene-referred_ workflow is based on linear RGB modules. Selecting this option will automatically enable [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) and [_exposure_](../module-reference/processing-modules/exposure.md) modules will set the pixelpipe order to the (scene-referred) order defined for darktable 3.0 and later. 
 
-: The _exposure_ module will include an automatic adjustment of +0.5 EV to adjust the mid-grey to match that of the majority of SLR cameras. This adjustment can be overridden with an automatically-applied preset if the default produces consistently dark images for your camera. 
+  The _exposure_ module will include an automatic adjustment of +0.5 EV to adjust the mid-grey to match that of the majority of SLR cameras. This adjustment can be overridden with an automatically-applied preset if the default produces consistently dark images for your camera. 
 
-: Finally, this setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used to protect highlights in the image or Expose To The Right (ETTR) to optimally make use of the sensor's dynamic range.
+  Finally, this setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used to protect highlights in the image or Expose To The Right (ETTR) to optimally make use of the sensor's dynamic range.
 
-: _display-referred_ (default) workflow is based on Lab modules and is the legacy mode from darktable 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module and set the pixelpipe order to the legacy (display-referred) order used by default up to version 2.6.
+- _display-referred_ (default) workflow is based on Lab modules and is the legacy mode from darktable 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module and set the pixelpipe order to the legacy (display-referred) order used by default up to version 2.6.
 
-: _none_ will not enable any modules by default and will set the pixelpipe to the (scene-referred) order defined for darktable 3.0 and later.
+- _none_ will not enable any modules by default and will set the pixelpipe to the (scene-referred) order defined for darktable 3.0 and later.
 
 auto-apply per camera basecurve presets
 : Use the per-camera basecurve by default instead of the generic manufacturer one if there is one available. This should only be used in conjunction with the _display referred_ workflow defined above (default off).
