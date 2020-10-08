@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-Lua scripts can be used to define actions that darktable will perform whenever a specified event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.
+Lua scripts can be used to define actions for darktable to perform when an event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.
 
 [Lua](http://www.lua.org/) is an independent project founded in 1993, providing a powerful, fast, lightweight, embeddable scripting language. Lua is widely used by many open source applications, in commercial programs, and for games programming.
 
