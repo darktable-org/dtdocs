@@ -20,7 +20,7 @@ sort film rolls by
 : Sort film rolls by either the "folder" (path) or the film roll "id" in the [collect images](../module-reference/utility-modules/shared/collect-images.md) module. Select "id" to sort film rolls by the date they were first imported into darktable. (default "id").
 
 sort collection recent to older
-: Within the [collect images](../module-references/utility-modules/shared/collect-images.md) module, sort items from recent to older when selecting folders and times/dates (default on).
+: Within the [collect images](../module-reference/utility-modules/shared/collect-images.md) module, sort items from recent to older when selecting folders and times/dates (default on).
 
 high quality thumbnail processing from size
 : If the thumbnails size is greater than this value, it will be processed using the full quality rendering path, which is better but slower (default 720p).
