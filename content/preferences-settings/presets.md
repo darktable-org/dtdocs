@@ -9,12 +9,10 @@ This menu gives you an overview of the [presets](../darkroom/interacting-with-mo
 
 Pre-defined presets (those that are included by default within darktable) are shown with a lock symbol. Their auto-apply properties cannot be changed.
 
-Selecting a user-defined preset and pressing `Enter` or `double clicking` on it will open an edit dialog. This allows the chosen preset to be edited, saved to an external `.dtpreset` file or deleted. Selecting a user-defined preset and pressing the `Delete` key will delete the preset.
-
-See the [presets](../darkroom/interacting-with-modules/presets.md) section for more information.
+Selecting a user-defined preset and pressing `Enter` or double-clicking on it will open an edit dialog. This allows the chosen preset to be edited, saved to an external `.dtpreset` file or deleted. Selecting a user-defined preset and pressing the `Delete` key will delete the preset.
 
 auto apply this preset to matching images
-: Activate this checkbutton to automatically apply the preset to newly imported images; a set of fields is displayed where you can define patterns to be matched against Exif data.
+: Activate this checkbutton to automatically apply the preset to newly imported images -- a set of fields is displayed where you can define patterns to be matched against Exif data.
 
 only show this preset for matching images
 : Activate this checkbutton to hide the preset in darkroom mode if it does not match the defined patterns.
@@ -39,3 +37,6 @@ aperture
 
 focal length
 : Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
+
+See the [presets](../darkroom/interacting-with-modules/presets.md) section for more information.
+
