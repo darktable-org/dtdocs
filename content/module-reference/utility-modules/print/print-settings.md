@@ -36,7 +36,7 @@ orientation
 : Portrait or landscape (note that darktable chooses the best fit by default).
 
 units
-: The unit to use for setting the margins. “mm”, “cm”, or “inch”.
+: The unit to use for setting the margins: “mm”, “cm”, or “inch”.
 
 margins
 : Set each margin separately, or all together by clicking on the middle “lock” button.
@@ -45,7 +45,7 @@ image width/height
 : This information field displays the actual image width and height (given with the selected units) on the paper.
 
 scale factor
-: This information field displays the scaling of the image to fit on the paper. If this value is less than 1 the image is down-scaled otherwise it is up-scaled. This is an important factor to watch -- a value that is too large (up-scale) may result in a low quality print. The corresponding dpi (dots per inch) is also displayed.
+: This information field displays the scaling of the image to fit on the paper. If this value is less than 1 the image is down-scaled, otherwise it is up-scaled. This is an important factor to watch -- a value that is too large (up-scale) may result in a low quality print. The corresponding dpi (dots per inch) is also displayed.
 
 alignment
 : Select the alignment of the image on the paper.
@@ -59,11 +59,11 @@ intent
 : The rendering intent to use when exporting the image. For more information see [rendering intent](../../../special-topics/color-management/rendering-intent.md).
 
 style
-: Defines a style to apply when exporting the image and defaults to “none”. See the [export selected](../lighttable/export-selected.md) module for a more detailed discussion of applying a style during export.
+: Choose a style to apply when exporting the image -- defaults to “none”. See the [export selected](../lighttable/export-selected.md) module for a more detailed discussion of applying a style during export.
 
 mode
-: Whether the style is appended to the existing history stack or replaces it completely. See the [export selected](../lighttable/export-selected.md) module for more details.
+: Whether the chosen style should be appended to the existing history stack or replace it completely. See the [export selected](../lighttable/export-selected.md) module for more details.
 
 ## print button
 
-At the bottom of the module you will find the “print” button. When clicked the image is exported using the selected options and sent to the printer.
+When clicked, the image is exported using the selected options and sent to the printer.
