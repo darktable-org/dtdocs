@@ -1,5 +1,5 @@
 ---
-title: basic principles -- luarc files
+title: "basic principles: luarc files"
 id: basic-principles
 weight: 20
 draft: false
