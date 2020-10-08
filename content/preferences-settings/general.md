@@ -11,7 +11,7 @@ interface language
 : Set the language of the user interface. the system default is marked with an * (needs a restart)
 
 theme
-: Set the theme for the user interface. Apart from any aesthetic considerations, the recommended interface color for color evaluation is middle grey. Indeed, visual perception is affected by ambient brightness, and a low brightness of the interface causes all kinds of illusions. Using a dark interface to retouch photos can therefore lead to excessive retouching (abuse of contrast and saturation) and to a photo that is too dark once printed. It is therefore highly recommended that you use one of the "grey" themes for retouching work as these are designed to approximate middle grey.
+: Set the theme for the user interface. Apart from any aesthetic considerations, the recommended interface color for color evaluation is middle grey. Indeed, visual perception is affected by ambient brightness, and a low brightness of the interface causes all kinds of illusions. Using a dark interface to retouch photos can therefore lead to excessive retouching (abuse of contrast and saturation) and to a photo that is too dark once printed. It is therefore highly recommended that you use one of the "grey" themes for retouching work as these are designed so that the user interface approximates middle grey.
 
 use system font size
 : Select this option to use the font size defined by your system. If unchecked, you may enter a custom font size in the box below (default on).
@@ -23,11 +23,11 @@ GUI thumbs and previews DPI scaling factor
 : Scale the thumbnails and previews resolutions for high DPI screens. Increase if thumbnails look blurry, decrease if lighttable is too slow. Set to -1.0 to use the system-defined global scaling. Default is 1.0 on most systems, or 2.0 when using resolutions above 1920×1080 px. (needs a restart)
 
 GUI controls and text DPI
-: Adjust the global GUI resolution to rescale controls, buttons, labels, etc. Increase for a magnified GUI, decrease to fit more content in window. Set to -1 to use the system-defined global resolution. Default is 96 DPI on most systems. (needs a restart)
+: Adjust the global GUI resolution to rescale controls, buttons, labels, etc. Increase for a magnified GUI, decrease to fit more content in the window. Set to -1 to use the system-defined global resolution. Default is 96 DPI on most systems. (needs a restart)
 
-### CSS Theme Modifications
+# CSS Theme Modifications
 
-In addition to selecting a pre-built theme to apply to darktable as a whole (above) you can also apply additional CSS customisations of your own to tweak the look-and-feel of darktable. A text entry box is provided for this purpose.
+In addition to selecting a pre-built theme you can also apply additional CSS customisations of your own to tweak the look-and-feel of darktable. A text entry box is provided for this purpose.
 
 When you have finished entering your CSS tweaks, click on the 'save and apply' button. This will save your CSS to a file (`$HOME/.config/darktable/user.css`) and immediately apply it to the current darktable session.
 
