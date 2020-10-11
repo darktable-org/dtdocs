@@ -71,7 +71,7 @@ colorbalance slider block layout
 : (default _list_)
 
 show right-side buttons in darkroom module headers
-: Controls the display of the buttons that appear on the right-hand-side of processing module headers.
+: Choose whether to show the three buttons (multi-instance, reset, presets) on the right-hand-side of the [module header](../darkroom/interacting-with-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
 : - _always_: always show all buttons
 : - _active_: only show the buttons when the mouse is over the module
 : - _dim_: buttons are dimmed when mouse is away
