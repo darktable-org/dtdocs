@@ -137,12 +137,26 @@ grey/colorful details
 
 ## look
 
+When working on the _look_ tab, it is recommended to monitor S-curve spline on the _look only_ graph. The curve starts from the scene+display black levels at the bottom left of the graph, and should smoothly increase up to the scene+display white levels at the top right. Sometimes if the constraints on the S-curve are too tight, the splines in the shadows and/or highlights regions can "overshoot" the limits of the display, and and orange warning is shown on those part of the spline.
+
+If you see the orange warning indicator at either end of the S-curve, corrective actions should be performed to bring the S-curve back to a smooth monotonically increasing curve. This may involve:
+
+- reducing the latitude and/or contrast,
+
+- adjusting the shadows/highlights slider to shift the latitude and allow more room for the spline,
+
+- ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
+
+- setting one or both of the contrast settings on the filmic _options_ tab to _hard_.
+
+If the _target black luminence_ setting on the _display_ tab is non-zero, this can also make it difficult for filmic to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the _display_ section to understand the implications of this.
+
 contrast
 : The filmic rgb S-curve is created, from the user parameters, by computing the position of virtual nodes and interpolating them. This is similar to how the tone curve module operates, but here, the nodes cannot be moved manually. The curve is split into three parts -- a middle linear part, and two extremities that transition smoothly from the slope of the middle part to the ends of the exposure range.
 
 : The contrast slider controls the slope of the middle part of the curve, as illustrated in the graph display. The larger the dynamic range is, the greater the contrast should be set. This parameter mostly affects mid-tones.
 
-: When the contrast is set to 1, this disables the S-curve.
+: When the contrast is set to 1, this almost completely disables the S-curve (there will be a very small residual effect from the splines in the highlights and shadows).
 
 hardness (previously _target power factor function_)
 : Previously the _target power factor function_ slider in older versions of filmic RGB, this slider is hidden by default, and is set automatically based on other values provided in the _scene_ tab. To make this slider visibile, you need to uncheck _auto adjust hardness_ in the _options_ tab.
@@ -169,7 +183,7 @@ The parameters in this tab will only rarely require adjustment.
 target black luminance
 : The destination parameters set the target luminance values used to remap the tones through filmic rgb. The default parameters will work 99% of the time, the remaining 1% being when you output in linear RGB space (REC709, REC2020) for media handling log-encoded data. These settings should therefore be used with caution because darktable does not allow separate pipelines for display preview and file output.
 
-: The target black luminance parameter sets the ground-level black of the target medium. Set it greater than 0% if you want raised, faded blacks to achieve a retro look.
+: The target black luminance parameter sets the ground-level black of the target medium. By default it is set to the minimum non-zero value that can be encoded by the available number of bits in the ouput color space. Reducing it to zero means that some non-zero luminences will be mapped to a `0` value in the output, potentially losing some detail in the very darkest parts of the shadows. Increasing this slider will produce raised, faded blacks that can produce something of a "retro" look.
 
 target middle-grey
 : This is the middle-grey of the output medium that is used as a target for the filmic rgb S curve central node. On gamma corrected media, the actual grey is computed with the gamma correction (middle-grey^(1/gamma)), so a middle-grey parameter of 18% with a gamma of 2.2 gives an actual middle-grey target of 45.87%.
