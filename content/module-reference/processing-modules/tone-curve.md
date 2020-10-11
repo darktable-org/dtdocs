@@ -21,13 +21,11 @@ _Please refer to the [curves](../../darkroom/interacting-with-modules/curves.md)
 color spaces
 : Depending on the desired intent, you can apply the tone curve in three different color spaces:
 
-: - Lab, linked channels,
+: - Lab (linked channels or separated channels),
 
-: - Lab, separated channels,
+: - XYZ (linked channels)
 
-: - XYZ, linked channels,
-
-: - RGB, linked channels.
+: - RGB (linked channels)
 
 : Lab is a perceptual color space that is designed to approximate the way humans perceive colors and lightness, and represents color information independently of lightness information. In “Lab, separated channels”, you are given fully independent control over the luminance (L-channel) and the chrominance (a/b-channels). In “Lab, linked channels” mode, only the luminance (L-channel) control is available. The color saturation correction will be automatically computed, for each pixel, from the contrast correction applied to the luminance channel. This works better in cases where a subtle contrast correction is applied, but gives increasingly inaccurate saturation correction as the contrast gets more dramatically enhanced.
 
