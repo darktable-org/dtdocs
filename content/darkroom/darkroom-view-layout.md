@@ -54,6 +54,8 @@ From top to bottom:
 
 # bottom panel
 
+![darkroom-view-layout](./darkroom-view-layout/darkroom-bottom-panel.png#w100)
+
 From left to right:
 
 [presets](./interacting-with-modules/presets.md)

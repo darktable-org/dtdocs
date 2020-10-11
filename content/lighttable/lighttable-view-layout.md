@@ -55,6 +55,8 @@ From top to bottom:
 
 # bottom panel
 
+![lighttable-bottom-panel](./lighttable-view-layout/lighttable-bottom-panel.png#w100)
+
 From left to right:
 
 [star ratings](./digital-asset-management/star-color.md)
