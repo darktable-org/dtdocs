@@ -66,16 +66,24 @@ The ranges of filmic rgb's sliders are limited to usual and safe values, but you
 The graphic display of the _filmic rgb_ module now offers multiple views. You can cycle through the different views using the ![view-icon](./filmic-rgb/view-icon.png) icon to the right of the graph display. You can also toggle the labels on the axes on and off using the ![legend-icon](./filmic-rgb/legend-icon.png) icon. The available displays are:
 
 look only
-: This is the traditional graph provided by filmic. The main bright curve shows how the dynamic range of scene (in EV) is compressed into the display-referred output range. It also shows the extreme luminance desaturation curve in a darker color.
+: This is the traditional graph provided by filmic. The main bright curve shows how the dynamic range of scene (in EV) is compressed into the display-referred output range. The orange dot in the middle shows the middle grey point, the white dots either side mark out the latitude range, and the organge part of the curve at the bottom indicates an overshoot problem with the spline (the _look_ tab in the _module controls_ section has some information on how to deal with this).  The darker curve shows how the color saturation is being rolled off in the highlights and shadows extremes.
+
+: ![filmic-rgb-look-only](./filmic-rgb/filmic-look-only.png)
 
 look + mapping (linear)
 : This view shows the mapping of input values [0,1] to output values in linear space, including the dynamic range mapping and the output transfer function. Note that in a scene-referred workflow, input values are allowed to exceed 1, however the graph only shows in/out values in the interval [0,1] in order to make the shape of the graph comparable to other tone curve mapping tools such as _base curve_ or _tone curve_. The actual value of the scene white point is shown in brackets on the _X axis_ (expressed as a percentage of an input value of 1).
 
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-lin.png)
+
 look + mapping (log)
 : The same as the previous view, but plotted in log space.
 
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-log.png)
+
 dynamic range mapping
 : This view (shown above, at the start of this section) is inspired by the Ansel Adams Zone System, showing how the EV zones in the input scene are mapped to the output. Middle grey from the scene is always mapped to 18% in the output (linear) space, and it shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones.
+
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png)
 
 # module controls
 
