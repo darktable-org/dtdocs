@@ -12,7 +12,7 @@ Negadoctor allows you to process a scanned film negative.
 
 You can obtain an image of a negative using a film scanner, or by photographing it against a white light (e.g. a light table or computer monitor) or off-camera flash.
 
-# Preparation
+# preparation
 
 If the image of the negative was obtained using a digital camera, then in order to obtain accurate colors in the final image, you will need to take the following points into consideration:
 
