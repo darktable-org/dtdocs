@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
- For darktable to accurately render colors on screen it needs to find the correct display profile for your monitor. In general this requires your monitor to be properly calibrated and profiled, and it needs the profile to be correctly installed on your system. darktable queries your X display server's xatom as well as the system service colord (if available) for the right profile. If required you can enforce a specific method in [`preferences` -> `miscellaneous`](../../preferences-settings/miscellaneous.md).
+ For darktable to accurately render colors on screen it needs to find the correct display profile for your monitor. In general this requires your monitor to be properly calibrated and profiled, and it needs the profile to be correctly installed on your system. darktable queries your X display server's xatom as well as the system service colord (if available) for the right profile. If required you can enforce a specific method in the [`preferences` -> `miscellaneous`](../../preferences-settings/miscellaneous.md) section.
 
 To investigate your display profile configuration you can run the [`darktable-cmstest`](../program-invocation/darktable-cmstest.md) binary (Linux only) which prints out useful information (e.g. profile name per-monitor) and tells you if the system is correctly configured.
 
