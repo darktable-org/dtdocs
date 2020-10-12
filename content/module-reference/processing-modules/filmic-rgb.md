@@ -11,8 +11,6 @@ Compress the tonal range of an image by reproducing the tone and color response 
 
 This module protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights. It is particularly suited to portrait photography, especially in back-lit situations, but needs extra care when details need to be preserved in the highlights (e.g. clouds).
 
-![filmic-rgb-zones](filmic-rgb-zones.png)
-
 The module is derived from a module of the same name in Blender 3D modeller by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module. The developer has provided a detailed explanation of the module in a video: [filmic rgb: remap any dynamic range in darktable 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
 
 Filmic rgb is the successor to the _filmic_ module from darktable 2.6.x. While the underlying principles have not changed much, users of the previous version should not expect a 1:1 translation of their workflow to the new version.
