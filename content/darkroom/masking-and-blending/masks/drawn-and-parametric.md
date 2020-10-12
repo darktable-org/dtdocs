@@ -14,7 +14,7 @@ The "combine masks" combobox contains the following options, defining how the dr
 exclusive
 : A straightforward method of combining masks is by multiplying together the individual pixel values from each of the component masks. 
 
-: For a given pixel, the final mask will have value of 0 if _all_ of the individual masks are 0 at that location and it will only have a value of 1.0 if _all_ masks have a value of 1.0 at that location. This method of combination is known as _exclusive_. 
+: For a given pixel, the final mask will have value of 0 if _any_ of the individual masks are 0 at that location and it will only have a value of 1.0 if _all_ masks have a value of 1.0 at that location. This method of combination is known as _exclusive_. 
 
 : Any individual mask can _exclude_ a pixel by setting its value to 0, regardless of what the other masks do. Once a pixel is excluded by a mask there is no way for another mask to include it again.
 
