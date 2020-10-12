@@ -24,6 +24,10 @@ Resize the crop by dragging the border and corner handles. Move the crop rectang
 
 # module controls
 
+The _crop and rotate_ module controls are spread across a _main_ tab and a _margins_ tab.
+
+## main tab
+
 flip
 : Flip the image on the horizontal, vertical or both axes.
 
@@ -34,7 +38,7 @@ keystone
 : Correct perspective distortions. This tool is useful, for example, when you shoot a high building from the ground with a short focal length, aiming upwards with your camera. The combobox allows you to select the type of correction you want to use:
 : - _vertical_: Limit the correction to vertical lines
 : - _horizontal_: Limit the correction to horizontal lines
-: - _free_: Correct horizontal and vertical lines at the same time
+: - _full_: Correct horizontal and vertical lines at the same time
 
 : Depending on the selected correction type you will see two or four straight adjustment lines overlaid on your image. Two red circles on every line allow you to modify the line positions with your mouse. Each line additionally carries a “symmetry” button. If activated (and highlighted in red) all movements of the affected line will be mirrored by the opposite line.
 
@@ -51,6 +55,7 @@ aspect
 : Set the aspect ratio of the crop, constraining the width:height ratio of the crop rectangle to the chosen aspect. Many common numerical ratios are pre-defined. A few special aspect ratios deserve explanation:
 : - _freehand_: Crop without any ratio restrictions. 
 : - _original image_: Retain the aspect ratio of the original image
+: - _square_: Constrains the aspect ratio to be 1:1
 : - _golden cut_: The golden ratio (1.62:1)
 
 : You can also select any other ratio after opening the combobox and typing it in the form of “x:y” or as a decimal (e.g. "0.5" to apply a ratio of 2:1). If you want to add an aspect ratio to the pre-defined drop-down list you can do this by including a line of the form "`plugins/darkroom/clipping/extra_aspect_ratios/foo=x:y`" in darktable's configuration file `$HOME/.config/darktable/darktablerc`. Here “`foo`” defines the name of the new aspect ratio and “`x`” and “`y`” the corresponding numerical values.
@@ -68,4 +73,20 @@ guides
 
 guides flip
 : If the chosen guidelines are not symmetrical relative to the image frame, you can flip them on the horizontal, vertical or both axes.
+
+## margins tab
+
+These sliders allow you to directly set how much of the image to crop off from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.
+
+left
+: this slider specifies the percentance of the image that should be cropped off from the left side.
+
+right
+: this slider specifies the percentance of the image that should be cropped off from the right side.
+
+top
+: this slider specifies the percentance of the image that should be cropped off from the the top.
+
+bottom
+: this slider specifies the percentance of the image that should be cropped off the bottom.
 
