@@ -28,6 +28,8 @@ In order to assign geo coordinates to an image, activate the [filmstrip](../modu
 
 In order to remove location data from an image simply `drag` it from the map and drop it onto the filmstrip.
 
+Normally images in the center map view have black borders. If an image is selected in the filmstrip, then the corresponding image on the map will be highlighted with a white border.
+
 # undo/redo
 
 All image movements in the map view are recorded by darktable. It is possible to undo or redo such changes to recover a previous state. Note that this undo/redo facility is unlimited while moving images but it is reset each time you leave the map view.
