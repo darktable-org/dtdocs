@@ -24,7 +24,7 @@ Resize the crop by dragging the border and corner handles. Move the crop rectang
 
 # module controls
 
-The _crop and rotate_ module controls are spread across a _main_ tab and a _margins_ tab.
+The _crop and rotate_ module controls are split between two tabs as follows:
 
 ## main tab
 
@@ -76,17 +76,17 @@ guides flip
 
 ## margins tab
 
-These sliders allow you to directly set how much of the image to crop off from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.
+These sliders allow you to directly set how much of the image to crop from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.
 
 left
-: this slider specifies the percentance of the image that should be cropped off from the left side.
+: The percentance of the image that should be cropped from the left side.
 
 right
-: this slider specifies the percentance of the image that should be cropped off from the right side.
+: The percentance of the image that should be cropped from the right side.
 
 top
-: this slider specifies the percentance of the image that should be cropped off from the the top.
+: The percentance of the image that should be cropped from the the top.
 
 bottom
-: this slider specifies the percentance of the image that should be cropped off the bottom.
+: The percentance of the image that should be cropped from the bottom.
 
