@@ -58,17 +58,9 @@ Just like on the luma tab, the chroma tab also has a denoising spline at the bot
 
 The basic wavelet _à trous_ transform has been enhanced in contrast equalizer to have an awareness of edges, which can help reduce gradient reversals and halo artifacts that can arise from the basic algorithm. The _edge_ tab does not directly act on edges in an image; rather it adjusts the level of the edge awareness feature of the wavelet transform. If you have not adjusted the luma or chroma splines, then adjusting the edge awareness spline will have no effect.
 
-To see the sorts of artifacts that the edge awareness tries to combat, here is an example image where the edge awareness spline has been reduced to minimum, effectively disabling the edge awareness feature:
+To see the sorts of artifacts that the edge awareness tries to combat, here is an example taken from the paper Hanika, Damertz and Lensch 2011 "Edge-Optimized À-Trous Wavelets for Local Contrast Enhancement with Robust Denoising". In the image on the left, the edge curve was reduced to a minimum, effectively disabling the edge awareness. You can see that this results in halos. In the middle image, the edge spline is increased too much, and you can see that we get gradient reversals. The image on the right shows an image where the edge spline is placed somewhere in between the two extremes, which results in nice clean edges in the image.
 
-![contrast-equalizer-edge-low](./contrast-equalizer/contrast-equalizer-edge-low.png)
-
-You can see the halos around the top of the wooden handle, and the darkening of the coloring of the wood, which arises from the strong boost in local contrast. This can be tamed a little by moving the edge awareness slider to somewhere around the middle:
-
-![contrast-equalizer-edge-low](./contrast-equalizer/contrast-equalizer-edge-med.png)
-
-The wavelet transform is then able to handle the transition much better without such strong gradient reversals.  If we increase the edge awareness too far, it can again introduce a gradient reversal at the edge of the wood, where it goes light, then dark, than light again:
-
-![contrast-equalizer-edge-high](./contrast-equalizer/contrast-equalizer-edge-high.png)
+![contrast-equalizer-edge](./contrast-equalizer/contrast-equalizer-edge.png)
 
 Usually the default central position of the spline is a good starting point, but in case there are objectionable artifacts around the edges, this control can helpful in mitigating them.
 
