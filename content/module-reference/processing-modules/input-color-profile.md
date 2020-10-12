@@ -26,7 +26,7 @@ input profile
 : If your input image is a low dynamic range file like JPEG, or a raw in DNG format, it might already contain an embedded ICC profile which darktable will use by default. You can restore this default by selecting “embedded icc profile”.
 
 working profile
-: The working profile used by darktable modules. Each module can specify an alterntive space that it will work in, and this will trigger a conversion. By default darktable will use "linear Rec2020 RGB", which is a good choice in most cases.
+: The working profile used by darktable modules. Each module can specify an alternative space that it will work in, and this will trigger a conversion. By default darktable will use "linear Rec2020 RGB", which is a good choice in most cases.
 
 gamut clipping
 : Activate a color clipping mechanism. In most cases you can leave this control in its default “off” state. However, if your image shows some specific features such as highly saturated blue light sources, gamut clipping might be useful to avoid black pixel artifacts. See [possible color artifacts](../../special-topics/color-management/color-artifacts.md) for more information.
