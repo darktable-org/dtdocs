@@ -11,8 +11,6 @@ Compress the tonal range of an image by reproducing the tone and color response 
 
 This module protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights. It is particularly suited to portrait photography, especially in back-lit situations, but needs extra care when details need to be preserved in the highlights (e.g. clouds).
 
-![filmic-rgb-zones](filmic-rgb-zones.png)
-
 The module is derived from a module of the same name in Blender 3D modeller by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module. The developer has provided a detailed explanation of the module in a video: [filmic rgb: remap any dynamic range in darktable 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
 
 Filmic rgb is the successor to the _filmic_ module from darktable 2.6.x. While the underlying principles have not changed much, users of the previous version should not expect a 1:1 translation of their workflow to the new version.
@@ -66,16 +64,24 @@ The ranges of filmic rgb's sliders are limited to usual and safe values, but you
 The graphic display of the _filmic rgb_ module now offers multiple views. You can cycle through the different views using the ![view-icon](./filmic-rgb/view-icon.png) icon to the right of the graph display. You can also toggle the labels on the axes on and off using the ![legend-icon](./filmic-rgb/legend-icon.png) icon. The available displays are:
 
 look only
-: This is the traditional graph provided by filmic. The main bright curve shows how the dynamic range of scene (in EV) is compressed into the display-referred output range. It also shows the extreme luminance desaturation curve in a darker color.
+: This is the traditional graph provided by filmic. The main bright curve shows how the dynamic range of scene (in EV) is compressed into the display-referred output range. The orange dot in the middle shows the middle grey point, the white dots either side mark out the latitude range, and the organge part of the curve at the bottom indicates an overshoot problem with the spline (the _look_ tab in the _module controls_ section has some information on how to deal with this).  The darker curve shows how the color saturation is being rolled off in the highlights and shadows extremes.
+
+: ![filmic-rgb-look-only](./filmic-rgb/filmic-look-only.png)
 
 look + mapping (linear)
 : This view shows the mapping of input values [0,1] to output values in linear space, including the dynamic range mapping and the output transfer function. Note that in a scene-referred workflow, input values are allowed to exceed 1, however the graph only shows in/out values in the interval [0,1] in order to make the shape of the graph comparable to other tone curve mapping tools such as _base curve_ or _tone curve_. The actual value of the scene white point is shown in brackets on the _X axis_ (expressed as a percentage of an input value of 1).
 
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-lin.png)
+
 look + mapping (log)
 : The same as the previous view, but plotted in log space.
 
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-log.png)
+
 dynamic range mapping
 : This view (shown above, at the start of this section) is inspired by the Ansel Adams Zone System, showing how the EV zones in the input scene are mapped to the output. Middle grey from the scene is always mapped to 18% in the output (linear) space, and it shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones.
+
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png)
 
 # module controls
 
@@ -137,12 +143,26 @@ grey/colorful details
 
 ## look
 
+When working on the _look_ tab, it is recommended to monitor S-curve spline on the _look only_ graph. The curve starts from the scene+display black levels at the bottom left of the graph, and should smoothly increase up to the scene+display white levels at the top right. Sometimes if the constraints on the S-curve are too tight, the splines in the shadows and/or highlights regions can "overshoot" the limits of the display, and and orange warning is shown on those part of the spline.
+
+If you see the orange warning indicator at either end of the S-curve, corrective actions should be performed to bring the S-curve back to a smooth monotonically increasing curve. This may involve:
+
+- reducing the latitude and/or contrast,
+
+- adjusting the shadows/highlights slider to shift the latitude and allow more room for the spline,
+
+- ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
+
+- setting one or both of the contrast settings on the filmic _options_ tab to _hard_.
+
+If the _target black luminence_ setting on the _display_ tab is non-zero, this can also make it difficult for filmic to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the _display_ section to understand the implications of this.
+
 contrast
 : The filmic rgb S-curve is created, from the user parameters, by computing the position of virtual nodes and interpolating them. This is similar to how the tone curve module operates, but here, the nodes cannot be moved manually. The curve is split into three parts -- a middle linear part, and two extremities that transition smoothly from the slope of the middle part to the ends of the exposure range.
 
 : The contrast slider controls the slope of the middle part of the curve, as illustrated in the graph display. The larger the dynamic range is, the greater the contrast should be set. This parameter mostly affects mid-tones.
 
-: When the contrast is set to 1, this disables the S-curve.
+: When the contrast is set to 1, this almost completely disables the S-curve (there will be a very small residual effect from the splines in the highlights and shadows).
 
 hardness (previously _target power factor function_)
 : Previously the _target power factor function_ slider in older versions of filmic RGB, this slider is hidden by default, and is set automatically based on other values provided in the _scene_ tab. To make this slider visibile, you need to uncheck _auto adjust hardness_ in the _options_ tab.
@@ -169,7 +189,7 @@ The parameters in this tab will only rarely require adjustment.
 target black luminance
 : The destination parameters set the target luminance values used to remap the tones through filmic rgb. The default parameters will work 99% of the time, the remaining 1% being when you output in linear RGB space (REC709, REC2020) for media handling log-encoded data. These settings should therefore be used with caution because darktable does not allow separate pipelines for display preview and file output.
 
-: The target black luminance parameter sets the ground-level black of the target medium. Set it greater than 0% if you want raised, faded blacks to achieve a retro look.
+: The target black luminance parameter sets the ground-level black of the target medium. By default it is set to the minimum non-zero value that can be encoded by the available number of bits in the ouput color space. Reducing it to zero means that some non-zero luminences will be mapped to a `0` value in the output, potentially losing some detail in the very darkest parts of the shadows. Increasing this slider will produce raised, faded blacks that can produce something of a "retro" look.
 
 target middle-grey
 : This is the middle-grey of the output medium that is used as a target for the filmic rgb S curve central node. On gamma corrected media, the actual grey is computed with the gamma correction (middle-grey^(1/gamma)), so a middle-grey parameter of 18% with a gamma of 2.2 gives an actual middle-grey target of 45.87%.
