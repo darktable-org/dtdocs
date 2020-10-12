@@ -16,35 +16,21 @@ The default collection is based on the _film roll_ attribute and displays all im
 
 The images in a collection can be filtered using the following image attributes:
 
+## files
+
 film roll 
 : The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides)
 
 folders 
 : The folder (file path) where the image file is located
 
-camera 
-: The Exif data entry describing the camera make and model
+filename 
+: The filename of the image
+
+## metadata
 
 tag 
 : Any tag that is attached to the image. When activated a hierarchical list of known tags is displayed
-
-date 
-: The date the photo was taken, in the format `YYYY:MM:DD`
-
-time 
-: The date & time the photo was taken, in the format `YYYY:MM:DD hh:mm:ss`
-
-history 
-: Choose images whose history stacks have been altered or not
-
-color label 
-: Any color label attached to the image (“red”, “yellow”, “green”, “blue”, “purple”)
-
-title 
-: The image's metadata “title” field
-
-description 
-: The image's metadata “description” field
 
 creator 
 : The image's metadata “creator” field
@@ -52,11 +38,57 @@ creator
 publisher 
 : The image's metadata “publisher” field
 
+title 
+: The image's metadata “title” field
+
+description 
+: The image's metadata “description” field
+
 rights 
 : The image's metadata “rights” field
 
+notes
+: The image's metadata "notes" field
+
+color label 
+: Any color label attached to the image (“red”, “yellow”, “green”, “blue”, “purple”)
+
+geotagging 
+: The geo location of the image 
+
+## times
+
+date taken
+: The date the photo was taken, in the format `YYYY:MM:DD`
+
+date-time taken
+: The date & time the photo was taken, in the format `YYYY:MM:DD hh:mm:ss`
+
+import timestamp
+: The date/time the file was imported, in the format `YYYY:MM:DD hh:mm:ss`
+
+change timestamp
+: The date/time the file was last changed, in the format `YYYY:MM:DD hh:mm:ss`
+
+export timestamp
+: The date/time the file was last expoted, in the format `YYYY:MM:DD hh:mm:ss`
+
+print timestamp
+: The date/time the file was last printed, in the format `YYYY:MM:DD hh:mm:ss`
+
+## capture details
+
+camera 
+: The Exif data entry describing the camera make and model
+
 lens 
 : The description of the lens, as derived from Exif data
+
+aperture 
+: The aperture, as derived from Exif data
+
+exposure
+: The shutter speed, as derived from Exif data
 
 focal length 
 : The focal length, as derived from Exif data
@@ -64,14 +96,25 @@ focal length
 ISO 
 : The ISO, as derived from Exif data
 
-aperture 
-: The aperture, as derived from Exif data
+aspect ratio
+: The aspect ratio of the image, including any cropping within darktable
 
-filename 
-: The filename of the image
+## darktable
 
-geotagging 
-: The geo location of the image 
+grouping
+: Choose between "group followers" and "group leaders"
+
+local copy
+: Show files that are, or are not copied locally
+
+history 
+: Choose images whose history stacks have been altered or not
+
+module
+: Filter based on which processing modules have been applied to the image
+
+module order
+: Choose images with "v3.0", "legacy" or "custom" module orders
 
 # module controls
 
