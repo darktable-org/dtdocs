@@ -21,14 +21,18 @@ mean/min/max
 : If samples are taken in area mode, darktable will calculate mean, minimum and maximum color channel values. This combobox allows you to select which of those are displayed. For obvious statistical reasons mean, min and max are identical for the single sample of point mode.
 
 color swatch / color values
-: A color swatch representing the sampled point or area is displayed alongside numerical values. The global color picker works in monitor RGB color space. Select "Lab" to translate these numerical values into Lab color space. Beware that Lab values are approximated here. Depending on the monitor color profile there may be some deviations from the actual values.
+: A color swatch representing the sampled point or area is displayed alongside numerical values. Clicking on the swatch will toggle on/off a much larger swatch for easier viewing.
 
-restrict histogram to selection
-: When this checkbox is ticked, only the values of the selected area or point are taken into account by the main histogram at the top of the right hand panel. This allows you to see what tonal values are present in a specific area.
+: The global color picker works in monitor RGB color space. Select "Lab" to translate these numerical values into Lab color space. Beware that Lab values are approximated here. Depending on the monitor color profile there may be some deviations from the actual values.
 
 live samples
 : The sampled colors (in either area or point mode) can be stored as live samples by pressing the “add” button. A color swatch and numerical values will be shown for each stored sample. You can select which numerical value (mean, min, max) is to be displayed and whether the display should be in RGB or Lab color space.
 
 : Newly created live samples are not locked. If you change your image those changes will be reflected in your live samples. This can be used to show you how changing a parameter affects different parts of an image. Clicking on a live sample's color swatch locks it and a lock symbol is displayed. Further image changes will then no longer affect the sample. You can use this to compare two live samples by locking just one of them, providing a before and after comparison.
 
-: Live sample locations are visually indicated on your image if you check the option “display sample areas on image”. 
+display sample areas on image
+: When this checkbox is ticked, live sample locations are visually indicated on your image. 
+
+restrict histogram to selection
+: When this checkbox is ticked, only the values of the selected area or point are taken into account by the main histogram at the top of the right hand panel. This allows you to see what tonal values are present in a specific area.
+
