@@ -14,7 +14,9 @@ import images from the filesystem
 import images from a camera
 : To import images from a camera, first connect the camera to your system with a USB cable. If your system tries to automount the camera's files, you should choose to abort the mount operation, otherwise the camera cannot be accessed from within darktable. If you don't see your camera listed in the import module, press the "scan for devices" button. Once your camera is detected the import module should offer the ability to _import_ images or _tether_ your camera while shooting. Unlike when importing of images from the filesystem, darktable will physically copy files imported from the camera into a specified directory.
 
-Once images are imported, they will appear in the lighttable view. By default, the images will all be given a one-star rating. 
+Once images are imported, they will appear in the lighttable view. By default, the images will all be given a one-star rating.
+
+The photo will auto-tagged with `darktable|mode|monochrome` if it was taken on a monochrome camera, if the demosaic module is in passthrough, or if [`preferences` -> `processing` -> `detect monochrome previews`](../../../preferences-settings/processing.md) is enabled and the embedded preview jpeg is monochrome. 
 
 There are many different ways to manage a set of newly imported photos, such as giving them tags and adjusting their ratings. Please refer to the [lighttable](../../lighttable/_index.md) section of this guide for a full list of _digital asset management_ features.
 

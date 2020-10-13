@@ -48,3 +48,9 @@ TCA red; TCA blue
 
 corrections done
 : Occasionally, for a given camera/lens combination, only some of the possible corrections are supported by lensfun's profiles. This message box will tell you which corrections have actually been applied to the image.
+
+---
+
+**Note:** TCA corrections will not be applied to photos that have been identified as monochrome.
+
+---
