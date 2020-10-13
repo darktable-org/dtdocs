@@ -29,7 +29,7 @@ The shadows parameter has a far heavier effect in _slope, offset, power_ mode th
 
 ---
 
-_Note: Although this module acts on RGB colors its location in pixelpipe puts it into the Lab color space. Accordingly the module converts from Lab to RGB, performs its color adjustments, and then converts back to Lab._
+**Note:** Although this module acts on RGB colors its location in the pixelpipe puts it into the Lab color space. Accordingly the module converts from Lab to RGB, performs its color adjustments, and then converts back to Lab.
 
 ---
 
