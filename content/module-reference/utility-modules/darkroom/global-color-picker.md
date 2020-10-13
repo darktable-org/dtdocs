@@ -30,6 +30,8 @@ live samples
 
 : Newly created live samples are not locked. If you change your image those changes will be reflected in your live samples. This can be used to show you how changing a parameter affects different parts of an image. Clicking on a live sample's color swatch locks it and a lock symbol is displayed. Further image changes will then no longer affect the sample. You can use this to compare two live samples by locking just one of them, providing a before and after comparison.
 
+: If you hover the mouse over the "delete" button of one of the live sample entries, the selected region for that sample will be highlighted in the image preview.
+
 display sample areas on image
 : When this checkbox is ticked, live sample locations are visually indicated on your image. 
 
