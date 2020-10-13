@@ -21,7 +21,7 @@ A wavelet is a mathematical function that starts off at zero, oscillates up and 
 
 These wavelet functions are used to scan across and down the image using a mathematical operation called _convolution_. This picks out details from the image that are on a similar scale to the size of a given wavelet, and builds a number of detail layers each corresponding to a different wavelet scale.
 
-Below is an example where detail layers have been extracted from the image shown above. In this case, the images were produced using the [_retouch_](../../module-reference/processing-modules/retouch.md) module), splitting the image into 8 different layers, and using the module's controls to visualise the details present at each of these wavelet scales:
+Below is an example where detail layers have been extracted from the image shown above. In this case, the images were produced using the [_retouch_](../../module-reference/processing-modules/retouch.md) module, splitting the image into 8 different layers, and using the module's controls to visualise the details present at each of these wavelet scales:
 
 ![wavelets-retouch-gui](./wavelets/clean-retouch.png#w50)
 
@@ -33,13 +33,13 @@ At scale #2, the image contains only very fine details, including the model's ey
 
 ![wavelets-layer-scale-2](./wavelets/wavelets-layer-scale-2.png#w50)
 
-At scales #5 and #6 we begin to see larger and larger features
+At scales #5 and #6 we begin to see larger and larger features:
 
 ![wavelets-layer-scale-5](./wavelets/wavelets-layer-scale-5.png#w50) 
 
 ![wavelets-layer-scale-6](./wavelets/wavelets-layer-scale-6.png#w50)
 
-By scale #8 we only see very high-level features such as the overall shape of the model's nose, eye and the cheek.
+By scale #8 we only see very high-level features such as the overall shape of the model's nose, eye and the cheek:
 
 ![wavelets-layer-scale-8](./wavelets/wavelets-layer-scale-8.png#w50)
 
@@ -63,7 +63,7 @@ There are two methods by which processing modules allow you to modify their oper
 
 ## wavelet decomposition
 
-As discussed above, the _retouch_ module allows you to choose how many detail levels to split your image into. It decomposese the image into separate layers and allows you to perform operations selectively on each individual layer or on the image as a whole:
+As discussed above, the _retouch_ module allows you to choose how many detail levels to split your image into. It decomposes the image into separate layers and allows you to perform operations selectively on each individual layer or on the image as a whole:
 
 ![wavelets-retouch-gui](./wavelets/clean-retouch.png#w50)
 
