@@ -24,11 +24,11 @@ The auto-built version of the website can be found at https://elstoc.github.io/d
 - Assume the reader has the application open while reading the user manual
 - You will be copy edited, don't take it personally
 - Changes to the content should be proposed via pull request or a similar mechanism
-- Use image callouts if you need to annotate an image, do not add words into the image for annotations, this makes localization difficult
+- Use image callouts if you need to annotate an image (eg. mark parts of the image with a number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult
 
 ### Link conventions
 
-Internal links should be relative to the current file and must point to a markdown file or an image.
+Internal links should be relative to the current file and must point to a markdown file.
 
 See the following examples for the conventions used in the manual
 
@@ -37,8 +37,17 @@ See the following examples for the conventions used in the manual
 - Link to a top level section by referencing the _index.md file: ``[module reference](../../module-reference/_index.md)``
 - Link to a tab in the preferences dialog:  ``[`preferences` -> `general`](../../preferences-settings/general.md)``
 - Link to a specific preference setting:  ``[`preferences` -> `general` -> `interface language`](../../preferences-settings/general.md)``
-- Link to an image:  ``![image-name](./filmic-rgb/image-name.png)`` (images are placed in a subdirectory named after the `.md` file, but without the `.md` extension.
-- Link to an icon image:  ``![image-name-icon](./filmic-rgb/image-name-icon.png)`` (the "-icon" after the name puts the icon image in-line within the text)
+
+### Image conventions
+
+In general, images should be used sparingly in the documentation. Where needed,
+a subdirectory is created alongside the `.md` markdown file, using the same name as the `.md` file but without the `.md` extension.
+
+Images can appear after a paragraph, or they can also be included inline. Here are some examples:
+
+- Link to an image:  ``![image-name](./markdown-base-filename/image-name.png)`` (images are placed in a subdirectory named after the `.md` file, but without the `.md` extension.
+- Link to an icon image:  ``![image-name-icon](./markdown-base-filename/image-name-icon.png)`` (the "-icon" after the name puts the icon image in-line within the text)
+- Link to an inline image:  ``![image-name](./markdown-base-filename/image-name.png#inline#w25)`` (the `#w25` means the image takes 25% of the page width. Other possible values are `#w50`, `#w75`, `#w100`)
 
 ## Obtaining and Building
 
