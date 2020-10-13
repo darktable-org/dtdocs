@@ -54,6 +54,11 @@ auto apply this preset to matching images
 only show this preset for matching images
 : Check this box to automatically show the preset in the preset menu, using the same set of filters as above.
 
+If you create a preset with the same name as a built-in preset, your newly created preset will override the build-in preset, the the built-in preset will be no longer accessible.
+
 # managing presets
 
 Both user-created and pre-defined presets can be viewed and managed from within [`preferences` -> `presets`](../../../preferences-settings/presets.md).
+
+If you delete a preset that has the same name as one of the built-in presets, then your user preset will be deleted, and that preset name will no longer appear in the preset menu at all. The next time you start darktable, the corresponding built-in preset will once again become visible.
+
