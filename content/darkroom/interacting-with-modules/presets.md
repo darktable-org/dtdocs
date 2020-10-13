@@ -54,7 +54,7 @@ auto apply this preset to matching images
 only show this preset for matching images
 : Check this box to automatically show the preset in the preset menu, using the same set of filters as above.
 
-If you create a preset with the same name as a built-in preset, your newly created preset will override the built-in preset, which will be no longer accessible.
+If you create a preset with the same name as a built-in preset, your newly created preset will override the built-in preset, which will no longer be accessible.
 
 # managing presets
 
