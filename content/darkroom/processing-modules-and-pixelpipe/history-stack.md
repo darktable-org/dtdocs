@@ -11,6 +11,8 @@ Each time a processing module is enabled, disabled, moved or amended a new entry
 
 The history stack can be queried and modified within the [history stack](../../../module-reference/utility-modules/darkroom/history-stack.md) module in the darkroom.
 
+Hovering the mouse over a specific entry in the history stack will show a tooltip describing all the changes to the module settings that are associated with that entry. This can be helpful in tracking down adjustments that were made unintentionally which could be causing a module to have unintended effects. This is expecially useful for complex modules that contain many many tabs, or for tracing changes to parametric blending settings.
+
 ---
 
 **Note:** The history stack is not a representation of the order in which the modules are **executed** but the order in which they were **amended**. The execution order is represented by the order of the modules in the right-hand panel.
