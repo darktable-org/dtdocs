@@ -54,7 +54,7 @@ demosaicing for zoomed out darkroom mode
 : (default "_at most ppg (reasonable)_"). 
 
 reduce resolution of preview image
-: Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate masking (default "original").
+: Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color-picking and masking (default "original").
 
 white balance slider colors
 : Controls the appearance of the sliders in the [white balance](../module-reference/processing-modules/white-balance.md) module.
