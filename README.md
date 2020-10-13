@@ -24,11 +24,11 @@ The auto-built version of the website can be found at https://elstoc.github.io/d
 - Assume the reader has the application open while reading the user manual
 - You will be copy edited, don't take it personally
 - Changes to the content should be proposed via pull request or a similar mechanism
-- Use image callouts if you need to annotate an image, do not add word for annotations, this makes localization difficult
+- Use image callouts if you need to annotate an image, do not add words into the image for annotations, this makes localization difficult
 
 ### Link conventions
 
-Internal links should be relative to the current file and must point to a markdown file.
+Internal links should be relative to the current file and must point to a markdown file or an image.
 
 See the following examples for the conventions used in the manual
 
@@ -37,6 +37,8 @@ See the following examples for the conventions used in the manual
 - Link to a top level section by referencing the _index.md file: ``[module reference](../../module-reference/_index.md)``
 - Link to a tab in the preferences dialog:  ``[`preferences` -> `general`](../../preferences-settings/general.md)``
 - Link to a specific preference setting:  ``[`preferences` -> `general` -> `interface language`](../../preferences-settings/general.md)``
+- Link to an image:  ``![image-name](./filmic-rgb/image-name.png)`` (images are placed in a subdirectory named after the `.md` file, but without the `.md` extension.
+- Link to an icon image:  ``![image-name-icon](./filmic-rgb/image-name-icon.png)`` (the "-icon" after the name puts the icon image in-line within the text)
 
 ## Obtaining and Building
 
