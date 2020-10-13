@@ -2,6 +2,8 @@
 
 This is the user documentation for [darktable](https://darktable.org). The content is authored in markdown and rendered to HTML using [Hugo](https://gohugo.io) and to PDF and ePub using the [DITA Open Toolkit](https://dita-ot.org).
 
+The auto-built version of the website can be found at https://elstoc.github.io/dtdocs/.
+
 ## Styles and Conventions
 
 ### Markdown Files
