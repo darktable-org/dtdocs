@@ -23,7 +23,7 @@ These wavelet functions are used to scan across and down the image using a mathe
 
 Below is an example where detail layers have been extracted from the image shown above. In this case, the images were produced using the [_retouch_](../../module-reference/processing-modules/retouch.md) module, splitting the image into 8 different layers, and using the module's controls to visualise the details present at each of these wavelet scales:
 
-![wavelets-retouch-gui](./wavelets/clean-retouch.png#w50)
+![wavelets-retouch-gui](./wavelets/clean-retouch.png)
 
 The bars in the _wavelet decompose_ section indicate the layers that have been extracted at different wavelet scales. The darkest rectangle at the left represents the entire image (before decomposition) and the grey boxes represent each of the decomposed layers. Clicking on the staircase icon below the bar graph enables the layer visualisation overlay so that you can see what the currently selected layer looks like. 
 
@@ -65,7 +65,7 @@ There are two methods by which processing modules allow you to modify their oper
 
 As discussed above, the _retouch_ module allows you to choose how many detail levels to split your image into. It decomposes the image into separate layers and allows you to perform operations selectively on each individual layer or on the image as a whole:
 
-![wavelets-retouch-gui](./wavelets/clean-retouch.png#w50)
+![wavelets-retouch-gui](./wavelets/clean-retouch.png)
 
 See the [_retouch_](../../../module-reference/processing-modules/retouch.md) module documentation for more details.
 
