@@ -51,6 +51,8 @@ To link to an inline image:  `![image-name](./markdown-base-filename/image-name.
 
 To set the width of an image, there are several modifiers: `![image-name](./markdown-base-filename/image-name.png#w25)`(the `#w25` means the image takes 25% of the page width. Other possible values are `#w50`, `#w75`, `#w100`)
 
+The inline and width modifiers can also be combined. This is useful to have images appear together side-by-side if possible (if you want to make it mandatory that the images are placed side-by-side, bake them together into a single image file). To combine the modifiers: `![image-name](./markdown-base-filename/image-name.png#inline#w25)`
+
 ## Obtaining and Building
 
 ### Cloning
