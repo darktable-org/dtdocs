@@ -22,10 +22,10 @@ mask opacity
 mask contrast
 : This slider increases or decreases the mask contrast. This allows you to adjust the transition between opaque and transparent parts of the mask.
 
-temporarily switch off mask (![eye icon](./refinement-controls/icon-eye.png))
+![eye icon](./refinement-controls/icon-eye.png) temporarily switch off mask
 : Sometimes it is useful to visualize a module's effect without the mask being active. Click on this icon to temporarily deactivate the mask (the selected blend mode and global opacity remain in effect).
 
-display mask (![mask icon](./refinement-controls/icon-mask.png))
+![mask icon](./refinement-controls/icon-mask.png) display mask
 : Click on this icon to display the current mask as a yellow overlay over a black-and-white version of the image. Solid yellow indicates an opacity of 100%; a fully visible gray background image (without yellow overlay) indicates an opacity of 0%.
 
 # example: feathering a drawn mask
