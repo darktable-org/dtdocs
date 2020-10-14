@@ -24,7 +24,7 @@ The auto-built version of the website can be found at https://elstoc.github.io/d
 - Assume the reader has the application open while reading the user manual
 - You will be copy edited, don't take it personally
 - Changes to the content should be proposed via pull request or a similar mechanism
-- Use image callouts if you need to annotate an image, do not add word for annotations, this makes localization difficult
+- Use image callouts if you need to annotate an image (eg. mark parts of the image with a number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult
 
 ### Link conventions
 
@@ -37,6 +37,21 @@ See the following examples for the conventions used in the manual
 - Link to a top level section by referencing the _index.md file: ``[module reference](../../module-reference/_index.md)``
 - Link to a tab in the preferences dialog:  ``[`preferences` -> `general`](../../preferences-settings/general.md)``
 - Link to a specific preference setting:  ``[`preferences` -> `general` -> `interface language`](../../preferences-settings/general.md)``
+
+### Image conventions
+
+In general, images should be used sparingly in the documentation. Where needed,
+a subdirectory is created alongside the `.md` markdown file, using the same name as the `.md` file but without the `.md` extension. For example: `![image-name](./markdown-base-filename/image-name.png)`
+
+Several keywords or filename suffixes are used to determine how an image is displayed. By default, all images are block elements.
+
+To link to an icon image:  `![image name icon](./markdown-base-filename/image-name-icon.png)` (the word `icon` after the name puts the icon image in-line within the text)
+
+To link to an inline image:  `![image-name](./markdown-base-filename/image-name.png#inline)` (the `#inline` after the file extension indicates that the image should be rendered as an inline element.
+
+To set the width of an image, there are several modifiers: `![image-name](./markdown-base-filename/image-name.png#w25)`(the `#w25` means the image takes 25% of the page width. Other possible values are `#w50`, `#w75`, `#w100`)
+
+The inline and width modifiers can also be combined. This is useful to have images appear together side-by-side if possible (if you want to make it mandatory that the images are placed side-by-side, bake them together into a single image file). To combine the modifiers: `![image-name](./markdown-base-filename/image-name.png#inline#w25)`
 
 ## Obtaining and Building
 
