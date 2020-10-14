@@ -15,20 +15,20 @@ The auto-built version of the website can be found at https://elstoc.github.io/d
 ### Authoring Content
 
 - All content is authored in *plain*  markdown; no shortcodes and HTML should be kept to an absolute minimum , if at all
-- Minimalism is an absolute must. Less words are preferred
+- Minimalism is an absolute must. Fewer words are preferred
 - Markdown files should be as short as possible
 - Images are used only when necessary
-- Follow the naming and capitalization norms present in the GUI of the application
-- Headers in a file are not to exceed level three
+- Follow the naming and capitalization norms present in the GUI of the application - namely all headers and titles are in lower case, except for the very top-level section names
+- Headers in a file are not to exceed level three (`###`)
 - The primary authoring language is English
 - Assume the reader has the application open while reading the user manual
 - You will be copy edited, don't take it personally
 - Changes to the content should be proposed via pull request or a similar mechanism
-- Use image callouts if you need to annotate an image (eg. mark parts of the image with a number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult
+- Use image callouts if you need to annotate an image (i.e. mark parts of the image with a letter or number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult
 
 ### Link conventions
 
-Internal links should be relative to the current file and must point to a markdown file.
+Internal links should be relative to the current file and must point to a markdown (`.md`) file.
 
 See the following examples for the conventions used in the manual
 
@@ -40,12 +40,11 @@ See the following examples for the conventions used in the manual
 
 ### Image conventions
 
-In general, images should be used sparingly in the documentation. Where needed,
-a subdirectory is created alongside the `.md` markdown file, using the same name as the `.md` file but without the `.md` extension. For example: `![image-name](./markdown-base-filename/image-name.png)`
+In general, images should be used sparingly in the documentation. Where needed, a subdirectory should be created alongside the `.md` markdown file, using the same name as the `.md` file but without the `.md` extension. For example: `![image-name](./markdown-base-filename/image-name.png)`
 
 Several keywords or filename suffixes are used to determine how an image is displayed. By default, all images are block elements.
 
-To link to an icon image:  `![image name icon](./markdown-base-filename/image-name-icon.png)` (the word `icon` after the name puts the icon image in-line within the text)
+To link to an icon image:  `![image name icon](./markdown-base-filename/image-name-icon.png)` (the word `icon` after the name -- within the square brackets -- puts the icon image in-line within the text)
 
 To link to an inline image:  `![image-name](./markdown-base-filename/image-name.png#inline)` (the `#inline` after the file extension indicates that the image should be rendered as an inline element.
 
@@ -70,7 +69,7 @@ If you already have the site cloned, but haven't included the submodule before:
 ### Hugo
 
 This site is built with the static site generator Hugo (*extended*).
-Currently v0.73 extended:
+Currently v0.75.1 extended:
 ```
 $ ./hugo version
 Hugo Static Site Generator v0.73.0/extended windows/amd64 BuildDate: unknown
@@ -129,7 +128,7 @@ Run the `hugo` command:
 hugo
 ```
 
-The static files are now available to deploy to a webhost in the `public` directory.
+The static files are now available to deploy to a webhost in the `public` directory. This is currently performed automatically when new changes are pushed to the master branch, via github Actions.
 
 ## PDF
 
