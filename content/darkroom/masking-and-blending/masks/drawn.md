@@ -31,7 +31,7 @@ For all drawn shapes, `Shift+scroll` may be used to change the extent of the sha
 
 # editing shapes
 
-Click on the 'show and edit mask elements' icon ![show and edit masks](./drawn/shape-edit.png) to enter shape edit mode. This will show all drawn masks in use by the current module and allow you to edit those shapes. `Ctrl+click` on the same icon to enter restricted edit mode, where certain actions (e.g. dragging a complete shape or changing its size) are blocked. This is particularly useful to avoid costly mistakes when editing path and brush shapes.
+Click on the 'show and edit mask elements' icon ![show-and-edit-masks-icon](./drawn/shape-edit.png) to enter shape edit mode. This will show all drawn masks in use by the current module and allow you to edit those shapes. `Ctrl+click` on the same icon to enter restricted edit mode, where certain actions (e.g. dragging a complete shape or changing its size) are blocked. This is particularly useful to avoid costly mistakes when editing path and brush shapes.
 
 Click and drag a shape to move it around the image canvas.
 
