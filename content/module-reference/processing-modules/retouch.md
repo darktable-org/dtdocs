@@ -112,7 +112,18 @@ current
 : Indicates which layer is currently selected (also marked with the light grey dot on the bar graph).
 
 merge from
-: This setting allows a common edit to be applied to multiple consecutive scales within a group starting from the coarsest scale (not including the residual image) down to the scale selected. For example, if "merge from" is set to 3 and the maximum scale is 5 then all edits that are added to scale 5 will be applied to scales 3 to 5. Edits added to scale 4 will be applied to scales 3 and 4, and edits added to scale 3 will be applied only to scale 3.
+: This setting allows a common edit to be applied to multiple consecutive scales within a group starting from the coarsest scale (not including the residual image) down to the scale selected. For example, if "merge from" is set to 3 and the maximum scale is 5 then all edits that are added to scale 5 will be applied to scales 3 to 5. Edits added to scale 4 will be applied to scales 3 and 4, and edits added to scale 3 will be applied only to scale 3. If you set _merge from_ to `0`, then merging is disabled, and all edits apply only to the scale that are defined in. Setting _merge from_ to the highest scale (in this example, 5) would also effectively disable any merging.
+
+```
+           merge_from
+               v
+   0   1   2   3   4   5    scale
+               <-------o    scale 5 edits
+               <---o        scale 4 edits
+               o            scale 3 edits
+           o                scale 2 edits
+       o                    scale 1 edits
+```
 
 ![retouch-display-icon](./retouch/rt-display-icon.png) display wavelet scale
 : Toggles whether to display the currently-selected wavelet layer on the center image. Selecting this option brings up an additional control -- _preview single scale_.
