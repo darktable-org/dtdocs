@@ -8,6 +8,8 @@ author: "people"
 
 The layout of all views is similar and consists of a center area with panels at the edges: 
 
+![screen-layout](./screen-layout/screen-layout.png#w100)
+
 center area
 : Contains information and functionality specific to the current view.
 
