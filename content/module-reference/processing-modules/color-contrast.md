@@ -1,7 +1,7 @@
 ---
 title: color contrast
 id: color-contrast
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space: Lab
 view: darkroom
@@ -12,8 +12,8 @@ A simplified control for changing the contrast or separation of colors between t
 
 # module controls
 
-green vs. magenta
-: Change the color contrast of green vs. magenta
+green-magenta contrast
+: Change the green-magenta color contrast. This is equivalent to raising or lowering the steepness of the a\* curve in Lab. Lower values desaturate greens and magenta, while higher values increase their saturation.
 
-blue vs. yellow
-: Change the color contrast of blue vs. yellow
+blue-yellow contrast
+: Change the blue-yellow color contrast. This is equivalent to raising or lowering the steepness of the b\* curve in Lab. Lower values desaturate blues and yellows, while higher values increase their saturation.
