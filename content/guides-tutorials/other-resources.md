@@ -6,6 +6,10 @@ weight: 20
 author: "people"
 ---
 
+You will find some helpful information about building, using and developing for darktable in the github wiki:
+
+- [darktable github wiki](https://github.com/darktable-org/darktable/wiki)
+
 The following articles provide some useful background information on the datkbable scene-referred workflow:
 
 - [darktable 3.0 for dummies in 3 modules](https://discuss.pixls.us/t/darktable-3-0-for-dummies-in-3-modules/15849)
