@@ -1,5 +1,5 @@
 ---
-title: Guides & Tutorials (ToDo)
+title: Guides & Tutorials
 id: guides-tutorials
 draft: false
 weight: 110
