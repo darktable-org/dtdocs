@@ -19,7 +19,8 @@ between [_demosaic_](../../module-reference/processing-modules/demosaic.md) and 
 : Image is in RGB format within the color space of the specific camera or input file.
 
 between [_input color profile_](../../module-reference/processing-modules/input-color-profile.md) and [_output color profile_](../../module-reference/processing-modules/output-color-profile.md) 	  	
-: Image is in Lab format. This is a very large universal color space which covers all colors visible to the human eye (and even more). As darktable processes images in 4x32-bit floating point buffers, it can handle the Lab color space without risking banding or tonal breaks.
+: Image is in the space defined by the selected working profile (linear Rec2020 RGB by default). As darktable processes images in 4x32-bit floating point buffers, we can handle large working color spaces without risking banding or tonal breaks.
+
 
 after [_output color profile_](../../module-reference/processing-modules/output-color-profile.md) 	  	
 : Image is in RGB format as defined by the selected display or output ICC profile.
