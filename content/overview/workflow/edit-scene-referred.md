@@ -38,8 +38,8 @@ In addition to the basic modules described above, you may want to consider using
 [_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) / [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md)
 : Quite frequently you want to only show part of the captured scene in your image, e.g. to take away some disturbing feature close to the frame. In other cases, the horizon in the image may need levelling, or there may be perspective distortions. All of this can be corrected with full manual control in the _crop and rotate_ module. For a fully automatic correction of perspective distortions you may alternatively visit the _perspective correction_ module. 
 
-[_spot removal_](../../module-reference/processing-modules/spot-removal.md) / [_retouch_](../../module-reference/processing-modules/retouch.md) / [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md)
-: Sometimes you will need to remove spots caused by sensor dirt. The _spot removal_ and _retouch_ modules are at hand for this and can also correct other disturbing elements like skin blemishes. If your camera has stuck pixels or tends to produce hot pixels at high ISO values or longer exposure times, take a look at the _hot pixels_ module for automatic correction.
+[_retouch_](../../module-reference/processing-modules/retouch.md) / [_spot removal_](../../module-reference/processing-modules/spot-removal.md) / [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md)
+: Sometimes you will need to remove spots caused by sensor dirt. The new _retouch_ and the older _spot removal_ modules are at hand for this and can also correct other disturbing elements like skin blemishes. If your camera has stuck pixels or tends to produce hot pixels at high ISO values or longer exposure times, take a look at the _hot pixels_ module for automatic correction.
 
 [_color balance_](../../module-reference/processing-modules/color-balance.md)
 : This is a versatile module that can be used to further adjust the contrast and saturation of an image, and can also be used to perform color grading (e.g. emulate "orange and teal" grading used in hollywood films, remove redness in skin tones, adjust for uneven color balance in shadows/midtones/highlights, etc.). The [_color zones_](../../module-reference/processing-modules/color-zones.md) module can also be helpful in some cases where you are unable to achieve the desired effect using the _color balance_ module.
@@ -55,7 +55,7 @@ In addition to the basic modules described above, you may want to consider using
 [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md)
 : The _denoise (profiled)_ module is usually your best option for reducing noise in an image. This module offers an almost “single-click” solution to remove noise. From a user perspective the effect only depends on camera type and ISO value, both derived from Exif data. All other settings are taken from a database of noise profiles that the darktable team has collected -- now covering well above 300 popular camera models. The simplest way to use this module is _non-local means (auto)_ mode. The wavelet feature of this module is also quite effective against color noise. It is recommended that you use this module at 100% zoom so that you can accurately see the effects of your changes. 
 
-: Other modules that allow for image denoising include [_raw denoise_](../../module-reference/processing-modules/raw-denoise.mf), [_denoise (bilateral filter)_](../../module-reference/processing-modules/denoise-bilateral-filter.md), [_denoise (non-local means)_](../../module-reference/processing-modules/denoise-non-local-means.md), and the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is based on wavelets. If your camera is not yet supported by _denoise (profiled)_, denoising based on _non-local means_ is probably the most convenient, as it allows you to treat color and luminance noise separately.
+: Other modules that allow for image denoising include [_raw denoise_](../../module-reference/processing-modules/raw-denoise.mf), [_denoise (bilateral filter)_](../../module-reference/processing-modules/denoise-bilateral-filter.md), [_denoise (non-local means)_](../../module-reference/processing-modules/denoise-non-local-means.md), and the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is based on wavelets. If your camera is not yet supported by _denoise (profiled)_, denoising based on [_denoise (non-local means)_](../../module-reference/processing-modules/denoise-non-local-means.md) is probably the most convenient, as it allows you to treat color and luminance noise separately.
 
 [_haze removal_](../../module-reference/processing-modules/haze-removal.md)
 : Does what is says on the tin -- removes atmospheric haze.
@@ -64,7 +64,38 @@ In addition to the basic modules described above, you may want to consider using
 : This module offers a range of presets for making black and white images emulating classic film. It can also be used to tweak your color profile matrices, for example, to deal with color gamut issues.
 
 [_lens correction_](../../module-reference/processing-modules/lens-correction.md)
-: If your camera/lens combination is supported, use this module to correct for standard lens distortions, where corrections have not already been performed in-camera. The [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md) module can also be helpful for simulating the effects of a tilt-shift lens.
+: If your camera/lens combination is supported, use this module to correct for standard lens distortions, where corrections have not already been performed in-camera. The [_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) or [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md) modules can also be helpful for simulating the effects of a tilt-shift lens.
+
+# modules to be used with care
+
+There are some modules for which there is not yet an alternative well suited to the scene-referred workflow. If required, they should be used sparingly and with care.
+
+[_vibrance_](../../module-reference/processing-modules/vibrance.md)
+: Tends to darken colors. Consider using using [_color zones_](../../module-reference/processing-modules/color-zones.md) with a saturation parametric mask to give more control.
+
+[_color zones_](../../module-reference/processing-modules/color-zones.md)
+: Transitions may not be graceful. An alternative can be to use [_color balance_](../../module-reference/processing-modules/color-balance.md) with a parameteric mask.
+
+[_vignetting_](../../module-reference/processing-modules/vignetting.md)
+: This module can produce unnatural-looking results with too strong a fall-off. You may be better off using the [_exposure_](../../module-reference/processing-modules/exposure.md) module with an elliptical mask with large transition area, and perhaps adding [_color balance_](../../module-reference/processing-modules/color-balance.md) with the same mask to reduce saturation at the edges.
+
+---
+
+**Note:** When using [blend modes](../../darkroom/masking-and-blending/blend-modes.md) on any module, you should be aware that many of the blend modes are optimized for display-referred space and assume a mid-gray value of 50%. For the linear scene-referred space, stick with blend modes based on arithmetic operations (addition, multiplication, division, subtraction, average), on maximum/minimum comparisons (screen) or on channel separations (hue, color, chroma, etc.).
+
+---
+
+# other artistic effects
+
+There are also a number of artistic effect modules available in darktable. To name just a few: 
+
+- Use the [_watermark_](../../module-reference/processing-modules/watermark.md) module to add an individual watermark to your image. 
+- Use the [_grain_](../../module-reference/processing-modules/grain.md) module to simulate the typical noise of classical analogue photos. 
+- Use the [_color mapping_](../../module-reference/processing-modules/color-mapping.md) module to transfer the look and feel of one color image onto another. 
+- Use the [_lowlight vision_](../../module-reference/processing-modules/lowlight-vision.md) module to simulate human vision making low light pictures look closer to reality. 
+- Use the [_graduated density_](../../module-reference/processing-modules/graduated-density.md) filter to add a neutral or colored gradient to your image for exposure and color correction. 
+
+We suggest you peruse the [processing module reference](../../module-reference/processing-modules/_index.md) section to see what else is available.
 
 # non-recommended modules
 
@@ -144,35 +175,4 @@ There are a number of modules in darktable which are not really recommended with
 : _prefer [color balance](../../module-reference/processing-modules/color-balance.md)_
 
 : This module works in Lab color space (with the limitations that implies) and basically duplicates functions already provided by _color balance_.
-
-# modules to be used with care
-
-There are some modules for which there is not yet an alternative well suited to the scene-referred workflow. If required, they should be used sparingly and with care.
-
-[_vibrance_](../../module-reference/processing-modules/vibrance.md)
-: Tends to darken colors. Consider using using [_color zones_](../../module-reference/processing-modules/color-zones.md) with a saturation parametric mask to give more control.
-
-[_color zones_](../../module-reference/processing-modules/color-zones.md)
-: Transitions may not be graceful. An alternative can be to use [_color balance_](../../module-reference/processing-modules/color-balance.md) with a parameteric mask.
-
-[_vignetting_](../../module-reference/processing-modules/vignetting.md)
-: This module can produce unnatural-looking results with too strong a fall-off. You may be better off using the [_exposure_](../../module-reference/processing-modules/exposure.md) module with an elliptical mask with large transition area, and perhaps adding [_color balance_](../../module-reference/processing-modules/color-balance.md) with the same mask to reduce saturation at the edges.
-
----
-
-**Note:** When using [blend modes](../../darkroom/masking-and-blending/blend-modes.md) on any module, you should be aware that many of the blend modes are optimized for display-referred space and assume a mid-gray value of 50%. For the linear scene-referred space, stick with blend modes based on arithmetic operations (addition, multiplication, division, subtraction, average), on maximum/minimum comparisons (screen) or on channel separations (hue, color, chroma, etc.).
-
----
-
-# other artistic effects
-
-There are also a number of artistic effect modules available in darktable. To name just a few: 
-
-- Use the [_watermark_](../../module-reference/processing-modules/watermark.md) module to add an individual watermark to your image. 
-- Use the [_grain_](../../module-reference/processing-modules/grain.md) module to simulate the typical noise of classical analogue photos. 
-- Use the [_color mapping_](../../module-reference/processing-modules/color-mapping.md) module to transfer the look and feel of one color image onto another. 
-- Use the [_lowlight vision_](../../module-reference/processing-modules/lowlight-vision.md) module to simulate human vision making low light pictures look closer to reality. 
-- Use the [_graduated density_](../../module-reference/processing-modules/graduated-density.md) filter to add a neutral or colored gradient to your image for exposure and color correction. 
-
-We suggest you peruse the [processing module reference](../../module-reference/processing-modules/_index.md) section to see what else is available.
 
