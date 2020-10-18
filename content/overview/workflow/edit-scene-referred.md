@@ -55,7 +55,7 @@ In addition to the basic modules described above, you may want to consider using
 [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md)
 : The _denoise (profiled)_ module is usually your best option for reducing noise in an image. This module offers an almost “single-click” solution to remove noise. From a user perspective the effect only depends on camera type and ISO value, both derived from Exif data. All other settings are taken from a database of noise profiles that the darktable team has collected -- now covering well above 300 popular camera models. The simplest way to use this module is _non-local means (auto)_ mode. The wavelet feature of this module is also quite effective against color noise. It is recommended that you use this module at 100% zoom so that you can accurately see the effects of your changes. 
 
-: Other modules that allow for image denoising include [_raw denoise_](../../module-reference/processing-modules/raw-denoise.mf), [_denoise (bilateral filter)_](../../module-reference/processing-modules/denoise-bilateral-filter.md), [_denoise (non-local means)_](../../module-reference/processing-modules/denoise-non-local-means.md), and the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is based on wavelets. If your camera is not yet supported by _denoise (profiled)_, denoising based on [_denoise (non-local means)_](../../module-reference/processing-modules/denoise-non-local-means.md) is probably the most convenient, as it allows you to treat color and luminance noise separately.
+: Other modules that allow for image denoising include [_raw denoise_](../../module-reference/processing-modules/raw-denoise.mf), [_denoise (bilateral filter)_](../../module-reference/processing-modules/denoise-bilateral-filter.md), [_denoise (non-local means)_](../../module-reference/processing-modules/denoise-non-local-means.md), and the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is based on wavelets. If your camera is not yet supported by _denoise (profiled)_, _denoise (non-local means)_ is probably the most convenient alternative, as it allows you to treat color and luminance noise separately.
 
 [_haze removal_](../../module-reference/processing-modules/haze-removal.md)
 : Does what is says on the tin -- removes atmospheric haze.
@@ -64,11 +64,11 @@ In addition to the basic modules described above, you may want to consider using
 : This module offers a range of presets for making black and white images emulating classic film. It can also be used to tweak your color profile matrices, for example, to deal with color gamut issues.
 
 [_lens correction_](../../module-reference/processing-modules/lens-correction.md)
-: If your camera/lens combination is supported, use this module to correct for standard lens distortions, where corrections have not already been performed in-camera. The [_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) or [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md) modules can also be helpful for simulating the effects of a tilt-shift lens.
+: If your camera/lens combination is supported, use this module to correct for standard lens distortions, where corrections have not already been performed in-camera. The [_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) or [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md) modules can also be used to simulate the effects of a tilt-shift lens.
 
 # modules to be used with care
 
-There are some modules for which there is not yet an alternative well suited to the scene-referred workflow. If required, they should be used sparingly and with care.
+There are some modules for which there is not yet an alternative that is well-suited to the scene-referred workflow. If required, these modules should be used sparingly and with care.
 
 [_vibrance_](../../module-reference/processing-modules/vibrance.md)
 : Tends to darken colors. Consider using using [_color zones_](../../module-reference/processing-modules/color-zones.md) with a saturation parametric mask to give more control.
@@ -95,11 +95,11 @@ There are also a number of artistic effect modules available in darktable. To na
 - Use the [_lowlight vision_](../../module-reference/processing-modules/lowlight-vision.md) module to simulate human vision making low light pictures look closer to reality. 
 - Use the [_graduated density_](../../module-reference/processing-modules/graduated-density.md) filter to add a neutral or colored gradient to your image for exposure and color correction. 
 
-We suggest you peruse the [processing module reference](../../module-reference/processing-modules/_index.md) section to see what else is available.
+Please see the [processing module reference](../../module-reference/processing-modules/_index.md) for a list of the available modules.
 
-# non-recommended modules
+# modules to avoid
 
-There are a number of modules in darktable which are not really recommended within a scene-referred workflow. This doesn't mean these modules can't be used, it's just that they can produce undesirable effects when their sliders are pushed too far, and there are better alternatives in a linear workflow. In each case, the preferred alternative module is listed.
+There are a number of modules which are no longer recommended for use within a scene-referred workflow. This doesn't mean they can't be used, but they can produce undesirable effects when their sliders are pushed too far, and there are better alternatives. In each case, the preferred alternative module is listed along with a brief explanation.
 
 [_local tone mapping_](../../module-reference/processing-modules/tone-mapping.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md)_
