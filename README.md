@@ -35,8 +35,8 @@ See the following examples for the conventions used in the manual
 - Links to a processing module should be in italics: ``[_some processing module_](../../module-reference/processing-modules/some-processing-module.md)``
 - Links to a utility module should be in plaintext ``[some utility module](../../module-reference/utility-modules/darkroom/some-utility-module.md)``
 - Link to a top level section by referencing the _index.md file: ``[module reference](../../module-reference/_index.md)``
-- Link to a tab in the preferences dialog:  ``[`preferences` -> `general`](../../preferences-settings/general.md)``
-- Link to a specific preference setting:  ``[`preferences` -> `general` -> `interface language`](../../preferences-settings/general.md)``
+- Link to a tab in the preferences dialog:  ``[`preferences > general`](../../preferences-settings/general.md)``
+- Link to a specific preference setting:  ``[`preferences > general > interface language`](../../preferences-settings/general.md)``
 
 ### Image conventions
 

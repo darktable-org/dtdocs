@@ -11,7 +11,7 @@ At the top of each image operation module is the _module header_.
 
 `Click` on the module name to expand the module and display the parameters that control its operation.
 
-By default darktable will only allow one processing module to be expanded at a time -- if you `click` the header of another module, the previously-opened module's controls are collapsed. If you want expand more than one module, you may expand further modules with `Shift+click` and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [`preferences` -> `darkroom`](../../../preferences-settings/darkroom.md).
+By default darktable will only allow one processing module to be expanded at a time -- if you `click` the header of another module, the previously-opened module's controls are collapsed. If you want expand more than one module, you may expand further modules with `Shift+click` and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [`preferences > darkroom`](../../../preferences-settings/darkroom.md).
 
 ---
 
@@ -40,4 +40,4 @@ reset parameters
 presets menu
 : This menu allows you to apply, create and edit module presets. See the [presets](./presets.md) section for more information.
 
-The visibility of the three icons to the right of the module name can be controlled through [`preferences` -> `darkroom` -> `show right-side buttons in darkroom module headers`](../../preferences-settings/darkroom.md).
+The visibility of the three icons to the right of the module name can be controlled through [`preferences > darkroom > show right-side buttons in darkroom module headers`](../../preferences-settings/darkroom.md).

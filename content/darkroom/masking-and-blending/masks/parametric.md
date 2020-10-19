@@ -29,7 +29,7 @@ Each data channel provides two sliders for the associated data channel: one that
 
 ## inspecting data channels & masks
 
-Press the letter `C` while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in [`preferences` -> `darkroom` -> `display of individual color channels`](../../../preferences-settings/darkroom.md). 
+Press the letter `C` while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in [`preferences > darkroom > display of individual color channels`](../../../preferences-settings/darkroom.md). 
 
 Press the letter `M` to see the resulting mask for that slider overlaid on the image. 
 

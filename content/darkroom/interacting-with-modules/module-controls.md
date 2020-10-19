@@ -52,4 +52,4 @@ A number of modules allow parameters to be set using color pickers (identified b
 
 # keyboard shortcuts
 
-Module parameters can also be amended with keyboard shortcuts. See [`preferences` -> `shortcuts`](../../preferences-settings/shortcuts.md) for more information.
+Module parameters can also be amended with keyboard shortcuts. See [`preferences > shortcuts`](../../preferences-settings/shortcuts.md) for more information.

@@ -19,7 +19,7 @@ The order of the pixelpipe is represented graphically by the order in which modu
 
 The order in which modules are executed within the pixelpipe has been carefully chosen to give the best output quality. In previous versions of darktable it was not possible to change the module order. However, there are a number of very specific use cases where the movement of some modules within the pixelpipe is advised.
 
-One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [`preferences` -> `processing` -> `auto-apply pixel workflow defaults`](../../../preferences-settings/processing.md) setting.
+One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [`preferences > processing > auto-apply pixel workflow defaults`](../../../preferences-settings/processing.md) setting.
 
 The main difference between these two workflows is that _display-referred_ operates primarily in the low-dynamic-range of the user's screen, whereas _scene-referred_ operates in the high-dynamic range of the original RAW file. The transition between _scene-referred_ and _display-referred_ is usually performed by a _tone mapping_ module which takes the high-dynamic-range input from the camera and compresses it to fit the dynamic range of the output medium.
 

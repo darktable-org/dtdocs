@@ -55,7 +55,7 @@ red/green/blue
 
 ## colored sliders
 
-By default the module's sliders are monochrome. However two flavors of colored sliders can be enabled in [`preferences` -> `darkroom` -> `white balance slider colors`](../../preferences-settings/darkroom.md) or by clicking on the 'scene illuminant temp' label in the module.
+By default the module's sliders are monochrome. However two flavors of colored sliders can be enabled in [`preferences > darkroom > white balance slider colors`](../../preferences-settings/darkroom.md) or by clicking on the 'scene illuminant temp' label in the module.
 
 no color
 : This is the default mode, meaning that background of the sliders is not colored at all.

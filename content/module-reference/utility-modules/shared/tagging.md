@@ -96,7 +96,7 @@ The text entry box (shown under the `attach`/`detach` buttons) has multiple purp
 
 ---
 
-**Note:** If you find the auto-completion behaviour annoying, it can be disabled in [`preferences` -> `miscellaneous` -> `disable the entry completion`](../../../preferences-settings/miscellaneous.md).
+**Note:** If you find the auto-completion behaviour annoying, it can be disabled in [`preferences > miscellaneous > disable the entry completion`](../../../preferences-settings/miscellaneous.md).
 
 ---
 

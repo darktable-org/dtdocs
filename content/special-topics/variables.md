@@ -10,7 +10,7 @@ darktable supports variable substitution in a number of modules and preference s
 
 - Defining file names in the [export selected](../module-reference/utility-modules/lighttable/export-selected.md) lighttable module
 - Displaying image information in the darkroom's [image information line](../module-reference/utility-modules/darkroom/image-info-line.md)
-- Displaying image information in the lighttable's overlays and tooltips (see [`preferences` -> `lighttable`](../preferences-settings/lighttable.md))
+- Displaying image information in the lighttable's overlays and tooltips (see [`preferences > lighttable`](../preferences-settings/lighttable.md))
 - Placing text on an image in the [_watermark_](../module-reference/processing-modules/watermark.md) processing module
 
 # available variables

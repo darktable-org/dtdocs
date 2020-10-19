@@ -10,7 +10,7 @@ The huge diversity of systems and the marked differences between OpenCL vendors 
 
 The principle OpenCL function flow is like this:
 
-`darktable` -> `libOpenCL.so` -> `libnvidia-opencl.so.1` -> `kernel driver module(s)` -> `GPU`
+`darktable > libOpenCL.so > libnvidia-opencl.so.1 > kernel driver module(s) > GPU`
 
 - darktable dynamically loads `libOpenCL.so`, a system library which must be accessible to the system's dynamic loader (`ld.so`).
 

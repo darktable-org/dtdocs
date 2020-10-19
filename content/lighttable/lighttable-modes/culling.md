@@ -28,4 +28,4 @@ In culling mode, you can zoom (up to 100%) using `Ctrl+scroll` and pan within zo
 
 By default, zooming and panning are synchronized between all visible images. If you want to zoom or pan only a specific image, add the `Shift` modifier to the above actions.
 
-To enhance performance when loading zoomed images, you can enable ([`preferences` -> `cpu/gpu/memory` -> `enable disk backend for full preview cache`](../../preferences-settings/cpu-gpu-memory.md)). Bear in mind that this can occupy a lot of disk space.
+To enhance performance when loading zoomed images, you can enable ([`preferences > cpu/gpu/memory > enable disk backend for full preview cache`](../../preferences-settings/cpu-gpu-memory.md)). Bear in mind that this can occupy a lot of disk space.

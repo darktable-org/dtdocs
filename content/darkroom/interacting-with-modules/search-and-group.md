@@ -9,7 +9,7 @@ At the top of the right-hand panel in the darkroom view is a module that allows 
 
 ![group and search](./search-and-group/module-group-and-search.png#w25)
 
-The appearance of the module groups and search functionality can be modified in [`preferences` -> `darkroom` -> `show module groups and/or search text entry`](../../../preferences-settings/darkroom.md). Here, you can choose to show only the module groups, only the search entry, or both. 
+The appearance of the module groups and search functionality can be modified in [`preferences > darkroom > show module groups and/or search text entry`](../../../preferences-settings/darkroom.md). Here, you can choose to show only the module groups, only the search entry, or both. 
 
 # groups
 

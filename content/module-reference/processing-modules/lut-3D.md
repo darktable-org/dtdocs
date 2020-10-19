@@ -15,7 +15,7 @@ This module accepts `.cube` and `.png` (haldclut) files. The 3D LUT data is not 
 # module controls
 
 file selection
-: Choose the 3D LUT file to use. File selection is inactive until the 3D LUT root folder has been defined in [`preferences` -> `processing`](../../preferences-settings/processing.md).
+: Choose the 3D LUT file to use. File selection is inactive until the 3D LUT root folder has been defined in [`preferences > processing`](../../preferences-settings/processing.md).
 
 application color space
 : A 3D LUT is defined relative to a specific color space. Choose the color space for which the selected 3D LUT file has been built. Cube files are usually related to REC.709 while most others are related to sRGB.

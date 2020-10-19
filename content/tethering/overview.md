@@ -16,7 +16,7 @@ darktable uses [gphoto2](https://github.com/gphoto/gphoto2) to interface with yo
 
 In the center view, images are shown while you capture them. You can capture an image by either using darktable's user interface or by manually triggering a capture with your camera. If you are using Live View the image will be shown in darktable's center view.
 
-When entering tethering view, a film roll will be created using the same structure as defined for camera import (see [`preferences` -> `import` -> `session options`](../preferences-settings/import.md)). The job code will be predefined as “capture”.
+When entering tethering view, a film roll will be created using the same structure as defined for camera import (see [`preferences > import > session options`](../preferences-settings/import.md)). The job code will be predefined as “capture”.
 
 If you want to group your captures into different film rolls, you should use the [session](../module-reference/utility-modules/tethering/session.md) module in the right-hand panel to set a different job code. When entering a new name and pressing `Enter`, a new film roll will be created and newly-captured images will be added into this new film roll.
 

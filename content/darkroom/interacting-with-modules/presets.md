@@ -58,7 +58,7 @@ If you create a preset with the same name as a built-in preset, your newly creat
 
 # managing presets
 
-Both user-created and pre-defined presets can be viewed and managed from within [`preferences` -> `presets`](../../../preferences-settings/presets.md).
+Both user-created and pre-defined presets can be viewed and managed from within [`preferences > presets`](../../../preferences-settings/presets.md).
 
 If you delete a preset that has the same name as one of the built-in presets, then your user preset will be deleted, and that preset name will no longer appear in the preset menu at all. The next time you start darktable, the corresponding built-in preset will once again become visible.
 

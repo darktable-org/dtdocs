@@ -58,4 +58,4 @@ Scrolling in the appropriate area -- rather than dragging -- will also adjust ex
 
 For the regular histogram, the image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest.  
 
-In the case of the waveform and RGB parade scopes, the colorspace depends on the [`preferences` -> `lighttable` -> `color manage cached thumbnails`](../../../preferences-settings/lighttable.md) configuration parameter. In its default (true) setting, these scopes are calculated in the “Adobe RGB (compatible)” colorspace. Otherwise, they are calculated in the display colorspace.
+In the case of the waveform and RGB parade scopes, the colorspace depends on the [`preferences > lighttable > color manage cached thumbnails`](../../../preferences-settings/lighttable.md) configuration parameter. In its default (true) setting, these scopes are calculated in the “Adobe RGB (compatible)” colorspace. Otherwise, they are calculated in the display colorspace.

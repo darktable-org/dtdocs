@@ -18,7 +18,7 @@ Resize the crop by dragging the border and corner handles. Move the crop rectang
 
 ---
 
-**Note:** Some of the tools in this module (angle adjustment and perspective distortion correction) require the original image data to be interpolated. For best sharpness results set “lanczos3” as the pixel interpolator in [`preferences` -> `processing`](../../preferences-settings/processing.md).
+**Note:** Some of the tools in this module (angle adjustment and perspective distortion correction) require the original image data to be interpolated. For best sharpness results set “lanczos3” as the pixel interpolator in [`preferences > processing`](../../preferences-settings/processing.md).
 
 ---
 

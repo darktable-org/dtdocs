@@ -110,7 +110,7 @@ If the end of a combobox list is reached, these shortcuts will cycle back to the
 
 It is possible to create [multiple instances](../darkroom/interacting-with-modules/multiple-instances.md) of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations.
 
-See [`preferences` -> `miscellaneous`](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
+See [`preferences > miscellaneous`](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
 
 ## (utility) modules
 
