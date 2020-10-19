@@ -43,6 +43,6 @@ black level correction (manual and automatic modes)
 
 ---
 
-**Note:** Do not use the black level correction to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This can cause problems with some modules later in the pixelpipe. Instead, use a tone mapping curve to add density to the blacks (eg. use the _relative black exposure_ slider on the _scene_ tab of [filmic rgb](filmic-rgb.md), or establish a deeper toe in [base curve](base-curve.md)).
+**Note:** Do not use the black level correction to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This can cause problems with some modules later in the pixelpipe. Instead, use a tone mapping curve to add density to the blacks (e.g. use the _relative black exposure_ slider on the _scene_ tab of [filmic rgb](filmic-rgb.md), or establish a deeper toe in [base curve](base-curve.md)).
 
 ---
