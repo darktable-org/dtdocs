@@ -16,8 +16,6 @@ import images from a camera
 
 Once images are imported, they will appear in the lighttable view. By default, the images will all be given a one-star rating.
 
-The photo will auto-tagged with `darktable|mode|monochrome` if it was taken on a monochrome camera, if the demosaic module is in passthrough, or if [`preferences` -> `processing` -> `detect monochrome previews`](../../../preferences-settings/processing.md) is enabled and the embedded preview jpeg is monochrome. If you have permanent overlays enabled on your lighttable thumbnails, it will also place a `B&W` indicator next to the file type. The automatic tag informs modules that the image is intended to be monochrome, and they can perform special monochrome-specific handling where needed.
-
 There are many different ways to manage a set of newly imported photos, such as giving them tags and adjusting their ratings. Please refer to the [lighttable](../../lighttable/_index.md) section of this guide for a full list of _digital asset management_ features.
 
 One example workflow might be:

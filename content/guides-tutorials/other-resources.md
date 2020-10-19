@@ -2,7 +2,7 @@
 title: other resources
 id: other-resources
 draft: false
-weight: 20
+weight: 120
 author: "people"
 ---
 
