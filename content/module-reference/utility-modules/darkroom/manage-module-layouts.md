@@ -44,18 +44,21 @@ Settings will be automatically saved when you exit the screen. Click `reset` to 
 There are two standard module group layouts that ship with darktable, both of which are available for selection as presets. These module groups cannot be amended:
 
 - **default**: This is the default module group layout from darktable 3.4 onwards, and consists of a new simplified set of module groups.
-- **legacy layout**: This contains the default module groupings that were used in darktable prior to version 3.4
+- **all modules**: This contains the complete set of modules, sorted by the traditional module groupings.
+- **scene referred**: This contains the modules commonly used for the [scene-referred workflow](../../../overview/workflow/edit-scene-referred.md).
+- **display referred**: This contains the modules commonly used for the [display-referred workflow](../../../overview/workflow/edit-display-referred.md).
+- **minimal**: This contains a limited set of modules that are most important when first starting out with darktable. It is suggested that beginners could start by copying this minimal preset, and adding to it as they gain experience with additional modules.
 
 In addition, if you have used a version of darktable prior to 3.4, two additional presets may also be automatically created when you upgrade. These will allow you to retain some or all of your previous module group layouts and can be edited or deleted:
 
 - **previous config**: Where a user previously set up favourites or altered the _hidden_ flag on modules, this preset contains those customisations, retaining the legacy module groups.
 - **previous config with new layout**: Where a user previously set up favourites or altered the _hidden_ flag on modules, this preset contains those customisations but with modules grouped according to the new (darktable 3.4+) group layout.
 
-## default module groups
+## default preset
 
-The default module group layout consists of 4 module groups
+The _default_ module group layout consists of 4 module groups
 
- active modules
+![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) active modules
 : This group indicates which modules are currently active in the pixel pipeline. Clicking on this icon a second time shows a complete list of visible modules
 
 ![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png) technical modules
@@ -67,14 +70,14 @@ The default module group layout consists of 4 module groups
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
 : Includes special effects such as retouching, liquifying, blooming, sharpness, etc..
 
-## legacy layout module groups
+## all modules preset
 
-The legacy versions of darktable had the following module groupings:
+The _all modules_ preset contains all modules, sorted according to the following groups:
 
 ![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) active modules
 : Works the same as in the default layout.
 
-![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) basic modules
+![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
 : A minimal set of modules normally required to render a presentable image.
 
 ![module-group-tone-icon](./manage-module-layouts/module-group-tone-icon.png) tone modules
@@ -85,6 +88,41 @@ The legacy versions of darktable had the following module groupings:
 
 ![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png) corrective modules
 : Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, etc..
+
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+: Includes special effects such as retouching, liquifying, blooming, sharpness, etc..
+
+## scene-referred and display-referred presets
+
+The _scene-referred_ and _display-referred_ presets define groups of modules relevant to those workflows, sorted into groups as shown below:
+
+![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) active modules
+: Works the same as in the default layout.
+
+![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
+: A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply tone mappings and contrast as appropriate to the workflow.
+
+![module-group-color-icon](./manage-module-layouts/module-group-color-icon.png) color modules
+: Modules relating to color grading and color saturation.
+
+![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png) corrective modules
+: Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, retouching, etc..
+
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+: Includes special effects such as applying watermarks and framing, vignetting, etc..
+
+## minimal preset 
+
+The _minimal_ preset provides a minimal set of modules targeted as a starting point for beginners, and consists of the following module groups:
+
+![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
+: A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply a basic tone mapping via base curve or basic adjustments.
+
+![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png) grading modules
+: Modules dealing with creative tone and color grading.
+
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+: Includes special effects such as retouching, sharpening, watermarks, etc..
 
 ## previous config module groups
 
