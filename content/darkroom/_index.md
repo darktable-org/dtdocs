@@ -1,5 +1,5 @@
 ---
-title: Image Processing in the Darkroom
+title: Darkroom
 id: darkroom
 weight: 30
 draft: false

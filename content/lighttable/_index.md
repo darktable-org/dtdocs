@@ -1,5 +1,5 @@
 ---
-title: The Lighttable & Digital Asset Management
+title: Lighttable
 id: lighttable-and-dam
 draft: false
 weight: 20
