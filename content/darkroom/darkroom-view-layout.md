@@ -49,9 +49,6 @@ From top to bottom:
 [module order](../module-reference/utility-modules/darkroom/module-order.md)
 : Choose the order in which processing modules are executed in the pixelpipe
 
-[more modules](../module-reference/utility-modules/darkroom/more-modules.md)
-: Control which modules are displayed and choose favourite modules
-
 # bottom panel
 
 ![darkroom-view-layout](./darkroom-view-layout/darkroom-bottom-panel.png#w100)
