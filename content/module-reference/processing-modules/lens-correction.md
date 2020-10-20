@@ -51,6 +51,6 @@ corrections done
 
 ---
 
-**Note:** TCA corrections will not be applied to photos that have been identified as monochrome.
+**Note:** TCA corrections will not be applied to photos that have been identified as monochrome (see [developing monochrome images](../../guides-tutorials/monochrome.md) for more information).
 
 ---
