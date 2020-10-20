@@ -41,25 +41,22 @@ Settings will be automatically saved when you exit the screen. Click `reset` to 
 
 # system-defined presets
 
-There are two standard module group layouts that ship with darktable, both of which are available for selection as presets. These module groups cannot be amended:
+There are five standard module group layouts that ship with darktable, each of which is available for selection as a preset. These module groups cannot be amended:
 
 - **default**: This is the default module group layout from darktable 3.4 onwards, and consists of a new simplified set of module groups.
-- **all modules**: This contains the complete set of modules, sorted by the traditional module groupings.
+- **all modules**: This contains the complete set of modules, sorted by the traditional module groupings used before darktable 3.4.
 - **scene referred**: This contains the modules commonly used for the [scene-referred workflow](../../../overview/workflow/edit-scene-referred.md).
 - **display referred**: This contains the modules commonly used for the [display-referred workflow](../../../overview/workflow/edit-display-referred.md).
-- **minimal**: This contains a limited set of modules that are most important when first starting out with darktable. It is suggested that beginners could start by copying this minimal preset, and adding to it as they gain experience with additional modules.
+- **minimal**: This contains a limited set of modules that are most important when first starting out with darktable. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with additional modules.
 
-In addition, if you have used a version of darktable prior to 3.4, two additional presets may also be automatically created when you upgrade. These will allow you to retain some or all of your previous module group layouts and can be edited or deleted:
+In addition, if you have used a version of darktable prior to 3.4, two additional presets may also be automatically created when you upgrade. These allow you to retain some or all of your previous module group layouts and can be edited or deleted:
 
 - **previous config**: Where a user previously set up favourites or altered the _hidden_ flag on modules, this preset contains those customisations, retaining the legacy module groups.
 - **previous config with new layout**: Where a user previously set up favourites or altered the _hidden_ flag on modules, this preset contains those customisations but with modules grouped according to the new (darktable 3.4+) group layout.
 
 ## default preset
 
-The _default_ module group layout consists of 4 module groups
-
-![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) active modules
-: This group indicates which modules are currently active in the pixel pipeline. Clicking on this icon a second time shows a complete list of visible modules
+The _default_ layout consists of the following module groups
 
 ![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png) technical modules
 : This group contains modules that deal with technical issues relsting to the physics of sensors and denoising, lenses and associated corrections, color profiles, dynamic range and tone mapping, and recovering from damage to the image by physical limitations (hot pixels, recovery from clipped highlights, etc.)
@@ -73,9 +70,6 @@ The _default_ module group layout consists of 4 module groups
 ## all modules preset
 
 The _all modules_ preset contains all modules, sorted according to the following groups:
-
-![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) active modules
-: Works the same as in the default layout.
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
 : A minimal set of modules normally required to render a presentable image.
@@ -95,9 +89,6 @@ The _all modules_ preset contains all modules, sorted according to the following
 ## scene-referred and display-referred presets
 
 The _scene-referred_ and _display-referred_ presets define groups of modules relevant to those workflows, sorted into groups as shown below:
-
-![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) active modules
-: Works the same as in the default layout.
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
 : A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply tone mappings and contrast as appropriate to the workflow.
