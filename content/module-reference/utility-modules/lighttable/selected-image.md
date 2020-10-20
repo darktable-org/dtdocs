@@ -10,6 +10,10 @@ Perform actions on images that have been selected in the lighttable view.
 
 # module controls
 
+The module controls are spread over two tabs, one for manipulating the image files, and the other for manipulating the metadata related to the images.
+
+## images tab
+
 remove
 : Remove the selected images from the darktable database. Removed images can no longer be viewed or edited within darktable but the image files remain on the filesystem along with any XMP sidecar files. As darktable keeps the XMP files up-to-date with your latest development history, you can later fully restore your work by re-importing the images.
 
@@ -42,3 +46,27 @@ group
 
 ungroup
 : Remove selected images from a group (see [image grouping](../../../lighttable/digital-asset-management/grouping.md)).
+
+## metadata tab
+
+checkboxes
+: Use the checkboxes to select which types metadata (ratings, tags, metadata, colors, geo tags) you want to operate on. 
+
+copy
+: Use this button to copy the metadata of the selected image onto the clipboard. If you have more than one image selected, or no images selected, then this button is unavailable.
+
+paste
+: Use this button to paste any metadata in the clipboard onto the selected images.
+
+clear
+: Use this button to clear from the image any metadata of the types selected in the checkboxes. 
+
+mode
+: when pasting metadata onto images, this menu controls whether the existing metadata should be merged with the metadata on the clipboard (_merge_), or whether the metadata types selected in the checkboxes should be completely replaced by the metadata from the clipboard (_overwrite_).
+
+monochrome
+: this button flags in the image metadata that the image is intended to be developed as a monochrome image, and should receive any monochrome-specific workflow treatment that is offered by the processing modules. Refer to the [developing monochrome images](../../../guides-tutorials/monochrome.md) section for more details.
+
+color
+: this button removes the monochrome workflow flags from the image metadata so that the image will receive the default workflow treatment that is normally used in darktable when developing photos.
+
