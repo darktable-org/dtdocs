@@ -49,24 +49,24 @@ ungroup
 
 ## metadata tab
 
-checkboxes
-: Use the checkboxes to select which types metadata (ratings, tags, metadata, colors, geo tags) you want to operate on. 
+metadata type checkboxes
+: Choose which types of metadata (ratings, tags, metadata, colors, geo tags) you want to operate on. 
 
 copy
-: Use this button to copy the metadata of the selected image onto the clipboard. If you have more than one image selected, or no images selected, then this button is unavailable.
+: Copy the chosen types of metadata from the selected image onto the clipboard. If you have more than one image selected, or no images selected, then this button is unavailable.
 
 paste
-: Use this button to paste any metadata in the clipboard onto the selected images.
+: Paste any metadata in the clipboard onto the selected images.
 
 clear
-: Use this button to clear from the image any metadata of the types selected in the checkboxes. 
+: Clear the chosen types of metadata from the selected images.
 
 mode
-: when pasting metadata onto images, this menu controls whether the existing metadata should be merged with the metadata on the clipboard (_merge_), or whether the metadata types selected in the checkboxes should be completely replaced by the metadata from the clipboard (_overwrite_).
+: When pasting metadata onto images, this option controls whether the metadata on the clipboard should be merged with the existing metadata (_merge_), or should replace it entirely (_overwrite_).
 
 monochrome
-: this button flags in the image metadata that the image is intended to be developed as a monochrome image, and should receive any monochrome-specific workflow treatment that is offered by the processing modules. Refer to the [developing monochrome images](../../../guides-tutorials/monochrome.md) section for more details.
+: Flag the image as monochrome, meaning that it will receive any monochrome-specific workflow treatment that is offered by the processing modules. Refer to the [developing monochrome images](../../../guides-tutorials/monochrome.md) section for more details.
 
 color
-: this button removes the monochrome workflow flags from the image metadata so that the image will receive the default workflow treatment that is normally used in darktable when developing photos.
+: Remove the monochrome flag from the image so that it will receive the default workflow treatment that is normally used when developing color photos.
 
