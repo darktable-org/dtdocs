@@ -5,7 +5,9 @@ weight: 10
 draft: false
 ---
 
-The basic element of image processing in darktable is the _module_. In order to process a raw image a number of modules act on the input image in sequence, each performing a different _operation_ on the image data.
+The basic element of image processing in darktable is the [_processing module_](../../module-reference/processing-modules/). In order to process a raw image a number of modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in darktable is somewhat similar to an _adjustment layer_ in that that are both making an adjustment to an image, and each one is building on top of all the processing steps that came before.
+
+There are also [_utility modules_](../../module-reference/utility-modules/) in darktable, however these are not directly involved in the image processing, and are instead providing a GUI that allows you to manage your images, tag them, export them and so on.
 
 Every processing module executes independently in a similar manner:
 

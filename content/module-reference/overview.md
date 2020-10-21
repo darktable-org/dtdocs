@@ -9,10 +9,10 @@ author: "people"
 The modules in this reference section are broken down into two types:
 
 [processing modules](./processing-modules/_index.md)
-: These modules are used exclusively in the darkroom view to perform pixel operations on your image. Together they form the [pixelpipe](../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md).
+: These modules are used exclusively in the darkroom view, and each performs its set of pixel processing operations on the image before passing the image up to the next modules so it can add its processing on top. Together this set of processing steps performed by each module forms the [pixelpipe](../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md).
 
 [utility modules](./utility-modules/_index.md)
-: These modules may be used in any darktable view. They perform other ancillary functions related to managing the image metadata and tags, editing history, pixel pipeline order, snapshots and duplicates, image export and so on.
+: These modules may be used in any darktable view. They are not directly involved in processing the pixels of your image; instead they perform other ancillary functions related to managing the image metadata and tags, editing history, modifying overall pixel pipeline order, snapshots and duplicates, image export and so on.
 
 The two types of modules have a few aspects in common, as described below.
 
