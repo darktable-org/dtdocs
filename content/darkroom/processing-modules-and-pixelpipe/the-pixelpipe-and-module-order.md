@@ -7,7 +7,7 @@ draft: false
 
 The ordered sequence of [processing modules](../../module-reference/processing-modules/_index.md) operating on an input file to generate an output image is known as the "pixelpipe". 
 
-The order of the pixelpipe is represented graphically by the order in which modules are presented in the user interface -- the pixelpipe starts with a RAW image at the bottom of the list, and applies the processing modules one by one, piling up layer upon layer of processing from the bottom up, until it reaches the top of the list, at which point we have a fully processed image.
+The order of the pixelpipe is represented graphically by the order in which modules are presented in the user interface -- the pixelpipe starts with a RAW image at the bottom of the list, and applies the processing modules one by one, piling up layer upon layer of processing from the bottom up, until it reaches the top of the list, where it outputs the fully processed image.
 
 ---
 
