@@ -47,9 +47,9 @@ Shortcut actions in this section are applicable to all darktable views.
 
 A single section is provided for each darktable view. Shortcut actions are only applicable to the selected view.
 
-## processing modules ('image operations') 
+## processing modules
 
-Shortcut actions in the _image operations_ section of this tab are only applicable to the [processing modules](../module-reference/processing-modules/_index.md) in the darktable view. A section is provided for each processing module.
+Shortcut actions for the [processing modules](../module-reference/processing-modules/_index.md) in the darktable view. A section is provided for each processing module.
 
 ### common shortcuts
 
@@ -112,9 +112,9 @@ It is possible to create [multiple instances](../darkroom/interacting-with-modul
 
 See [`preferences > miscellaneous`](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
 
-## (utility) modules
+## utility modules
 
-Shortcuts in the _modules_ section apply to [utility modules](../module-reference/utility-modules/_index.md) only. These are modules that are not used for image processing and may appear on any panel. Some utility modules can be used in multiple views.
+Shortcut actions for the [utility modules](../module-reference/utility-modules/_index.md). These are modules that are not used for image processing and may appear on any panel. Some utility modules can be used in multiple views.
 
 As with processing modules, some shortcut actions are provided by default for each module:
 
