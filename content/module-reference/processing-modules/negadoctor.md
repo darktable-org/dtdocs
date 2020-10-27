@@ -32,16 +32,24 @@ The _working profile_ parameter in darktable's [_input color profile_](input-col
 
 - [https://discuss.pixls.us/t/input-color-profile-to-use-for-negatives/20271/13](https://discuss.pixls.us/t/input-color-profile-to-use-for-negatives/20271/13)
 
+---
+
+**Note:** if you want to use [_tone equalizer_](tone-equalizer.md) together with _negadoctor_, you'll need to move the _tone equalizer_ **after** _negadoctor_ in the pixel pipeline, since the _tone equalizer_ is not designed to work with negatives.
+
+---
+
 # module controls
 
-It is strongly recommended that you set the parameters following the order in which they are presented in the GUI. Start by setting the _film stock_, move to the _film properties_ tab, working from top to bottom, then move on to the _corrections_ tab and finally the _print properties_ tab.
+It is strongly recommended that you set the parameters following the order in which they are presented in the GUI. Start by setting the _film stock_, move to the _film properties_ tab, working from top to bottom, then move on to the _corrections_ tab and finally the _print properties_ tab. 
+
+When using color pickers, be careful of dust and scratches, which can skew the results of the sampled region.
 
 film stock
 : The first step is to choose "color" or "black and white" in the _film stock_ drop-down. If you select "black and white", any sliders that are only used for color only will be hidden from view.
 
 ## film properties
 
-This tab contains the following basic settings. If, after adjusting these settings, your image is still not quite as you would like it, you can make further adjustments on the the _corrections_ tab.
+This tab contains the following basic settings. If, after adjusting these settings, your image is still not quite as you would like it, you can make further adjustments on the the _corrections_ tab. These are tevhnical settings, and serve a somewhat similar purpose to the _scene_ tab in [_filmic rgb_](filmic-rgb.md), in that they adjust _negadoctor_ to the black and white points and hence the dynamic range of the negative.
 
 color of the film base
 : Sample an area of the base film stock from your scan. This is the area just outside of the image (i.e. an unexposed part of the film). When working with black and white negatives, you can leave this at its default (white). If working on color film, click the color picker to the right of the color bar. This will create a bounding box which covers about 98% of your image. Then, click and drag across an area of your negative which contains only unexposed film stock. This will automatically calculate values for the _D min_ slider(s). It is likely at this point that your image will still look too dark, but you can correct this later.
@@ -53,7 +61,7 @@ D max
 : This slider represents the dynamic range of your film, and it effectively sets its white point. Dragging this to the left will make the negative brighter. Dragging to the right will make the negative darker. When adjusting this slider manually, it's a good idea to closely watch your histogram to ensure that you don't clip the highlights (i.e. where the histogram has been pushed over too far off the right hand side of the graph). If you click the color picker icon (on the right) negadoctor will automatically calculate this value to ensure maximal use of the histogram without clipping. To use the color picker, click and drag to draw a rectangle across only the exposed parts of the negative. Don't include the unexposed film stock, as this will skew the result.
 
 scan exposure bias
-: This slider allows you to set the black point. Dragging this to the left will make the negative brighter. Dragging to the right will make the negative darker. When adjusting this slider manually, it's a good idea to closely watch your histogram and ensure that you don't clip the shadows (where the histogram is pushed too far off the left hand side of the graph). You can use the color picker to allow negadoctor to automatically calculate any required offset.
+: This slider allows you to set the black point. It is a technical adjustment that ensures a proper zeroing of the RGB values and a spreading of the histogram between [0, 1] values for robustness in the operations that follow. Dragging this to the left will make the negative brighter. Dragging to the right will make the negative darker. When adjusting this slider manually, it's a good idea to closely watch your histogram and ensure that you don't clip the shadows (where the histogram is pushed too far off the left hand side of the graph). You can use the color picker to allow negadoctor to automatically calculate any required offset. To use the color picker, select a region in the darkest lowlights, or you can the entire image without including any unexposed film stock. Double-check the histogram to ensure the left part of it doesn't clip.
 
 ## corrections
 
@@ -64,17 +72,22 @@ The settings on this tab should not be needed for most well-preserved negatives 
 The other case where these color cast corrections may be needed is if the white balance properties of the light used to scan the film negative are significantly different to the light source under which the original film camera took the shot. For example, if you illuminate the film with an LED light, but the original shot was taken under daylight, this may require some additional color cast corrections.
 
 shadows color cast
-: These three sliders allow you to correct for color casts in the shadows by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a shadow region requiring correction. Because the shadows sliders can also affect highlights color casts, it is import to finish setting the shadows sliders before moving on to the highlights sliders.
+: These three sliders allow you to correct for color casts in the shadows by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a neutral grey shadow region requiring correction. Because the shadows sliders can also affect highlights color casts, it is import to finish setting the shadows sliders before moving on to the highlights sliders.
 
 highlights white balance
-: These three sliders allow you to correct the white balance in the highlights by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a region in the highlights that is not properly balanced.
+: These three sliders allow you to correct the white balance in the highlights by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a neutral grey region in the highlights that is not properly balanced.
 
 ## print properties
 
-This tab contains settings that will mimic the tonal effect of the photochemical papers that would have been used to create the hard copy image if you were not developing the photo digitally.
+This tab contains settings that will mimic the tonal effect of the photochemical papers that would have been used to create the hard copy image if you were not developing the photo digitally. These are creative settings, and serve a similar overall purpose to the creative tone curve settings on the _look_ tab of the [_filmic rgb_](filmic-rgb.md) module.
+
+It can be noted that the _print exposure_, _paper black_, _paper grade_ and _print exposure_ are analogous to the _slope_, _offset_ and _power_ controls in the [_color balance_](color-balance.md) module (which in turn is based on the ACES CDL standard). They bake a creative tone curve to enforce your contrast intent after the inversion, at the end of the module. The equation governing this slope/offset/power behaviour is:
+
+ _RGB_out_ = ( _RGB_in_ × _exposure_ + _black_ ) ᵍʳᵃᵈᵉ
+
 
 paper black (density correction)
-: For this slider, select the color picker and click and drag to select a region that encompasses only the exposed part of the film negative. If you can see unexposed film stock around the edges of your image, ensure that these areas are excluded from the drawn rectangle when calculating the _paper black_ slider setting. Paper black represents the density of the blackest silver-halide crystal available on the virtual paper. In the analog development process, this black density always results in non-zero luminance, but the digital pipeline usually expects that black should be encoded with a zero RGB value. This slider setting lets you remap paper black to pipeline black via an offset.
+: For this slider, select the color picker and click and drag to select a region that encompasses only the exposed part of the film negative. If you can see unexposed film stock around the edges of your image, ensure that these areas are excluded from the drawn rectangle when calculating the _paper black_ slider setting. Paper black represents the density of the blackest silver-halide crystal available on the virtual paper. In the analog development process, this black density always results in non-zero luminance, but the digital pipeline usually expects that black should be encoded with a zero RGB value. This slider setting lets you remap paper black to pipeline black via an offset. You can use the color picker to select a region of the image that should be mapped to black in the final image.
 
 paper grade (gamma)
 : This slider is your gamma (contrast) control, and it defaults to a value of 4. If all has gone well, this value (4) minus the value of D max (from the “film properties” tab) should normally leave you with a value between 2 and 3.
@@ -83,5 +96,5 @@ paper gloss (specular highlights)
 : This slider is essentially a highlights compression tool. As you drag this slider to the left, you will see in the histogram that the highlight values are being compressed (pushed to the left). Adjust this accordingly, so that your highlights are not clipped in the histogram. You can also use this to simulate a matte photo print with low-contrast highlights.
 
 print exposure adjustment
-: This slider offers one final opportunity to correct any clipping of the highlights. If you have followed all the previous instructions carefully, you shouldn't need to adjust this setting. Note that you can increase the print exposure while at the same time decreasing the paper gloss, which allows you to brighten the midtones without losing any highlights.
+: This slider offers one final opportunity to correct any clipping of the highlights. If you have followed all the previous instructions carefully, you shouldn't need to adjust this setting. Note that you can increase the print exposure while at the same time decreasing the paper gloss, which allows you to brighten the midtones without losing any highlights. You can use the color picker to select the brightest highlights, or entire image without including any unexposed film stock, and this will then set the exposure so that the brightest part of the selected region will not be clipped. Double-check the histogram to make sure the right part of the histogram doesn't clip.
 
