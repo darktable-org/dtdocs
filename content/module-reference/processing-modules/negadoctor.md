@@ -79,7 +79,7 @@ highlights white balance
 
 ## print properties
 
-This tab contains settings that will mimic the tonal effect of the photochemical papers that would have been used to create the hard copy image if you were not developing the photo digitally. These are creative settings, and serve a similar purpose to the creative tone curve settings on the _look_ tab of the [_filmic rgb_](filmic-rgb.md) module.
+This tab contains settings that will mimic the tonal effect of the photochemical papers that would have been used to create the hard copy image if you were not developing the photo digitally. These are creative settings, and serve a similar overall purpose to the creative tone curve settings on the _look_ tab of the [_filmic rgb_](filmic-rgb.md) module.
 
 It can be noted that the _print exposure_, _paper black_, _paper grade_ and _print exposure_ are analogous to the _slope_, _offset_ and _power_ controls in the [_color balance_](color-balance.md) module (which in turn is based on the ACES CDL standard). They bake a creative tone curve to enforce your contrast intent after the inversion, at the end of the module. The equation governing this slope/offset/power behaviour is:
 
