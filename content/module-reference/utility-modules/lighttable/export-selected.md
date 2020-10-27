@@ -36,36 +36,38 @@ on conflict
 
 ## format options
 
+Options within this section will appear or not depending on the selected _file format_.
+
 file format
-: Images can be exported to various file formats. Depending on the chosen format additional parameters may appear. For some formats you need to choose the desired bit depth and compression method.
+: Choose the file format for the exported image.
 
 quality
-: For some export formats you can define an output quality. Higher values will lead to larger file sizes. The default quality (95) is a good setting for very high quality exports, e.g. for archiving or printing purposes. If you need a good compromise between size and quality, e.g. for online image display or uploads, you should consider a value of “90” instead.
+: The quality of the exported file. Higher values will lead to larger file sizes. The default quality (95) is a good setting for very high quality exports, e.g. for archiving or printing purposes. If you need a good compromise between size and quality, e.g. for online image display or uploads, you should consider a value of “90” instead.
 
 bit depth
-: For some export formats you can define the number of bits used for each color channel. More bits means less posterization/color banding.
+: The number of bits used for each color channel. More bits means less posterization/color banding.
 
 compression
-: For some export formats, it is possible to choose what sort of compression shall be applied.
+: Choose what sort of compression to use.
 
 compression level
-: For export formats where _compression_ can be specified, the _compression level_ can be used to specify how much compression to apply. The higher the level, the more the data will be compressed, at the cost of more CPU cycles.
+: For export formats where _compression_ can be specified, the _compression level_ specifies how much compression to apply. The higher the level, the more the data will be compressed, at the cost of more CPU cycles.
 
 b&w image
-: For TIFF export format, it is possible to same a monochrome image. This setting controls whether the resulting file should contain RGB values to represent the shades of grey, or by writing a single greyscale channel. The latter option will reuslt in smaller files.
+: For TIFF export format, it is possible to save a monochrome image. This setting controls whether the resulting file encodes the shades of grey as separate RGB channels, or as a single greyscale channel. The latter option will reuslt in smaller files.
 
 ## global options
 
 set size
 : Choose how to measure the maximum size of your exported image
 
-: - _in pixels (for file)_: Enter the maximum width and height in pixels. Entering a value of `0` places no restriction on that dimension.
+: - _in pixels (for file)_: Enter the maximum width and height in pixels. Entering a value of 0 places no constraint on that dimension.
 
 : - _in cm (for print)_: Enter the maximum width and height in cm and define the image's dpi. The equivalent size in pixels will be automatically calculated.
 
 : - _in inch (for print)_: Enter the maximum width and height in inches and define the image's dpi. The equivalent size in pixels will be automatically calculated.
 
-: - _by scale (for file)_: Enter a multiplier to specify by how much the output image should be scaled compared to the input image. For example, entering a value of `0.5` will result in an output image with only half the number of pixels along the width and height dimensions that were in the original image.
+: - _by scale (for file)_: Enter a multiplier to specify by how much the output image should be scaled compared to the input image. For example, entering a value of 0.5 will result in an output image with half the width and height (in pixels) of the original image.
 
 dpi
 : If units of cm or inches are chosen, set the dpi of the output image.
