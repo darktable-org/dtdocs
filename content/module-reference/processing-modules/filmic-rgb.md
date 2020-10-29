@@ -81,7 +81,7 @@ look + mapping (log)
 : ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-log.png)
 
 dynamic range mapping
-: This view is inspired by the Ansel Adams Zone System, showing how the EV zones in the input scene are mapped to the output. Middle grey from the scene is always mapped to 18% in the output (linear) space, and it shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones.
+: This view is inspired by the Ansel Adams Zone System, showing how the EV zones in the input scene are mapped to the output. Middle grey from the scene is always mapped to 18% in the output (linear) space, and it shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones. The latitude range is represented by the darker grey portion in the middle.
 
 : ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png)
 
