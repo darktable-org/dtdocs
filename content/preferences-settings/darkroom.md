@@ -34,6 +34,9 @@ hide built-in presets
 expand a single darkroom module at a time
 : Controls how [processing modules](../module-reference/processing-modules) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with `Shift+click`. Disabling this option inverts the meaning of `click` and `Shift+click` (default on).
 
+only collapse modules in current group
+: When choosing to expand a single darkroom module at a time (using the logic defined in the previous setting), only collapse other modules that appear in the current visible group. Disable this option to ensure that modules in non-visible groups are also collapsed (default on).
+
 expand the module when it is activated, and collapse it when disabled
 : Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules) when they are enabled or disabled. (default off)
 
