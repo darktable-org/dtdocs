@@ -81,7 +81,9 @@ If cloning the repo fresh, remember to build the bootstrap assets locally:
 
 ```
 $ cd ./themes/hugo-bootstrap-bare/assets/
-$ yarn install (or alternatively `npm install`).
+$ yarn install (or alternatively `npm install`)
+$ cd ../../hugo-darktable-docs-theme/assets/
+$ yarn install
 ```
 
 ### Updating
