@@ -43,6 +43,8 @@ Keyboard shortcuts are categorized within a hierarchical list so that they can e
 
 Shortcut actions in this section are applicable to all darktable views.
 
+If you have created any user-defined styles, these will be available as actions within a "styles" sub-section.
+
 ## views
 
 A single section is provided for each darktable view. Shortcut actions are only applicable to the selected view.
