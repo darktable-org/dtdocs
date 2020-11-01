@@ -28,4 +28,5 @@ Clicking the "reset parameters" button in the module header discards the entire 
 
 The button to the right of the "compress history stack" button allows you to create a new style from the history stack of the current image, which can then be applied to other images. Use the first line of the popup dialog window to name your style and the second to add a searchable description. You will be prompted to choose which of the current history stack modules to include in the style.
 
-Once created, styles can be managed and applied to other images with the lighttable's [styles](../lighttable/styles.md) module. 
+Once created, styles can be managed and applied to other images with the lighttable's [styles](../lighttable/styles.md) module.  You can also assign shortcut keys to your styles (see [shortcuts](../../../preference-settings/shortcuts.md) in preferences) and apply the associated style to all selected images by pressing the shortcut key whenever you are in the lighttable or darkroom view.
+
