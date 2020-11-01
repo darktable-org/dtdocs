@@ -35,7 +35,7 @@ multiple instance menu
 : This drop-down menu allows you to create, delete, move and rename module instances. `Middle-click` on this icon to directly create a new instance of the module. See the [multiple instances](./multiple-instances.md) section for more information.
 
 reset parameters
-: `Click` to reset all parameters within the module to their default values
+: `Click` to reset all parameters within the module to their default values. `Ctrl+click` to reapply any automatic [presets](./presets.md) for the module -- if no automatic presets are applicable for this module, `Ctrl+click` will simply reset to default values (same as `click`).
 
 presets menu
 : This menu allows you to apply, create and edit module presets. See the [presets](./presets.md) section for more information.

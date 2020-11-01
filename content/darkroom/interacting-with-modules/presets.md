@@ -43,7 +43,7 @@ description
 : A searchable description for the preset (optional)
 
 auto apply this preset to matching images
-: Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time. Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data.
+: Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by `Ctrl+clicking` on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data.
 
 : For example, if you want a preset to be applied to all images from a specific camera leave all fields at default values except for the model field. Leave all fields unchanged to auto-apply a preset to all images.
 
