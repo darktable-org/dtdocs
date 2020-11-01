@@ -26,7 +26,7 @@ update preset \[name\]
 store new preset
 : Create a new preset using the module's current parameters.
 
-`Left-click` on a preset name to apply the preset to the current instance of the module.  `Middle-click` on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time you are in the darkroom by pressing the shortcut key which has been assigned to that preset (see [shortcuts](../../preferences-settings/shortcuts.md)).
+`Left-click` on a preset name to apply the preset to the current instance of the module.  `Middle-click` on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom by pressing the shortcut key that has been assigned to it (see [`preferences > shortcuts`](../../preferences-settings/shortcuts.md)).
 
 # creating and editing presets
 
