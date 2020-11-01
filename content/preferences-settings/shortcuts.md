@@ -70,6 +70,9 @@ reset module parameters
 show preset menu
 : Show the presets menu for the module
 
+presets
+: An expandable category which lists all currently-defined presets for the module as possible actions.  It will not be shown if there are no presets.
+
 For comboboxes and sliders, some standard shortcut actions are provided, as described in the following sections.
 
 In addition, other module-specific controls will be provided with their own shortcut actions.
