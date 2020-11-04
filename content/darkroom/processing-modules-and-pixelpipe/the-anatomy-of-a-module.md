@@ -11,12 +11,20 @@ darktable also provides [_utility modules_](../../module-reference/utility-modul
 
 Every processing module executes independently in a similar manner:
 
-1. Receive _input data_ from the last executed module
-2. Perform some processing (the module's _operation_) on the input data to generate the output data. The _operation_ is what distinguishes individual darktable modules from one another. See [processing modules](../../module-reference/processing-modules/_index.md) for details of the available processing modules.
-3. Modify the module's output data (if required) by applying a [_mask_](../masking-and-blending/masks/_index.md), which is used to selectively apply (or partially apply) the module's operation to only some parts of the image. 
-4. Modify the \[masked\] output data (if required) by combining it with the input data using a [_blending operator_](../masking-and-blending/blend-modes.md)
-5. Pass the output to the next module
+![module anatomy](./the-anatomy-of-a-module/module-anatomy.png#w100)
 
-Steps 3 and 4 are not supported by all modules. For example, the [_demosaic_](../../../module-reference/processing-modules/demosaic.md) module must be applied to the entire raw file in order to produce a legible image so it does not make sense to mask or blend its output.
+1. Receive _input data_ from the last executed module. Perform some processing on that data to generate the module's _output data_. This _operation_ is what distinguishes individual [processing modules](../../module-reference/processing-modules/_index.md) from one another.
+
+2. Generate a mask, which defines an _opacity_ for each pixel in the image. The opacity is later used to control how strongly the module's operation is applied to each part of the image. 
+
+   The user may define their own mask by drawing shapes on the image or by using the properties of the individual pixels of either the input or output image (see [_masks_](../masking-and-blending/masks/_index.md) for details). This mask may then be further modified with a global opacity setting, which impacts every pixel equally. 
+
+   If no drawn/parametric mask is used, the output of this step is a mask where every pixel has the same opacity (governed by the global opacity setting). If no opacity is defined (no blending is performed) a global opacity of 1.0 (or 100%) is assumed.
+
+3. Combine the module's _input data_ and _output data_ using a [_blending operator_](../masking-and-blending/blend-modes.md) to produce the _blended output_.
+
+4. Combine the _blended output_ with the _mask_ and the _input data_, to produce the _final output_, which is passed to the next module. This combination is performed pixel-by-pixel, where a mask opacity of 100% returns the _blended output_ for that pixel, an opacity of 0 returns the _input data_ for that pixel and an intermediate opacity blends the two proportionally.
+
+Steps 2 and 3 are not supported by all modules. For example, the [_demosaic_](../../../module-reference/processing-modules/demosaic.md) module must be applied to the entire raw file in order to produce a legible image so it does not make sense to mask or blend its output.
 
 Each of the above steps is defined in more detail in subsequent sections.
