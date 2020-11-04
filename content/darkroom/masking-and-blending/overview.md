@@ -29,7 +29,7 @@ The basic flow for blending and masking is as follows:
 
 5. There is an overall opacity slider _g_ which weakens the mask so that more of the original unprocessed image will show through in areas selected by the mask for image processing. This _opacity_ parameter, having a value between 0% and 100%. Typically an opacity of 0% outputs an image which is identical to the input image (the module has no effect) whereas an opacity of 100% delivers the maximum effect of the module and blending mode.
 
-6. The output of the blender _(2)_ and the original input image _I_ are added together in a final mixer _W_ as a weighted sum, where the weighting towards original image versus the processed/blended image depends on the mask level _M_ and the overall opacity paremeter _g_. This mixing operation produces the final image _O_ that will be passed on to the next module.
+6. The output of the blender _(2)_ and the original input image _I_ are added together in a combining mixer _C_ as a weighted sum, where the weighting towards original image versus the processed/blended image depends on the mask level _M_ and the overall opacity paremeter _g_. This mixing operation produces the final image _O_ that will be passed on to the next module.
 
 Blending and masking functionality is controlled via a group of icons located at the bottom of each applicable module. 
 
