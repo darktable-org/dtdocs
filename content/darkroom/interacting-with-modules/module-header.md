@@ -5,7 +5,7 @@ weight: 10
 draft: false
 ---
 
-At the top of each image operation module is the _module header_. 
+At the top of each processing module is the _module header_. 
 
 ![module header](./module-header/module-header.png#w25)
 
