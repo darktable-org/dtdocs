@@ -10,10 +10,10 @@ Manipulate the history stack of one or more selected images.
 
 # module controls
 
-copy
+copy parts...
 : Copy the history stack of the selected image. A dialog appears within which you may choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-clicking on an item copies that item only and immediately closes the dialog.
 
-copy all
+copy
 : Copy the complete history stack from the selected image; all items will be included except for certain items deemed unsafe to copy. If more than one image is selected, the history stack is taken from the image that was selected first.
 
 : Information relating to the internal display encoding and the mask management functions will not be copied, and the following modules will also be excluded from the _copy all_ operation:
@@ -31,10 +31,10 @@ compress history
 discard history
 : Physically delete the history stack of the selected images. _Beware, this action can not be undone!_
 
-paste
+paste parts...
 : Paste a previously copied history stack onto all selected images. A dialog appears within which you may choose which items from the source history stack to include.
 
-paste all
+paste
 : Paste all items of a copied history stack onto all selected images.
 
 mode
