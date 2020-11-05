@@ -11,12 +11,14 @@ Manipulate the history stack of one or more selected images.
 # module controls
 
 copy parts...
-: Copy the history stack of the selected image. A dialog appears within which you may choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-clicking on an item copies that item only and immediately closes the dialog.
+: Copy the history stack of the selected image. A dialog appears within which you may choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on an item to copy that item only and immediately close the dialog.
 
 copy
-: Copy the complete history stack from the selected image; all items will be included except for certain items deemed unsafe to copy. If more than one image is selected, the history stack is taken from the image that was selected first.
+: Copy the complete history stack from the selected image. If more than one image is selected, the history stack is taken from the image that was selected first.
 
-: Information relating to the internal display encoding and the mask management functions will not be copied, and the following modules will also be excluded from the _copy all_ operation:
+: Information relating to internal display encoding and mask management is considered unsafe to automatically copy to other images and will therefore not be copied when using this button. These modules may still be pasted onto images using the _paste parts..._ button. 
+
+: The following modules will be excluded from the _copy_ operation:
 
  - [_orientation_](../../processing-modules/orientation.md)
  - [_lens correction_](../../processing-modules/lens-correction.md)
