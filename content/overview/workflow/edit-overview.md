@@ -24,7 +24,7 @@ When processing an image, we apply a sequence of modules, known as the [pixelpip
 
 1. The _scene-referred_ modules are intended to process pixel values that are proportional to the amount of light collected by the camera at the scene. The dynamic range of an image in the scene-referred section of the pixelpipe is often larger than that of the display medium. 
 
-2. At some point in the pixelpipe, these pixel values will be compressed by a tone mapping module into a smaller dynamic range more suitable for display on a monitor or hardcopy print.
+2. At some point in the pixelpipe, these pixel values are compressed by a tone mapping module into a smaller dynamic range more suitable for display on a monitor or hardcopy print.
 
 3. The remaining modules operate in this non-linear _display-referred_ section of the pixelpipe to produce the final output image.
 
