@@ -16,9 +16,9 @@ In order to understand how the tone equalizer works, please refer to the followi
 
 ![tone-equalizer-mask](./tone-equalizer/tone-equalizer-overview.png)
 
-1. Starting with an input image where some dodging and burning is required.
+1. Starting with an input image where some dodging and burning is required. Produce a B/W mask of the image which divides the image up into different regions of luminosity. The details within each region should be blurred in the mask so that the pixels within that region are all treated similarly. This will help to preserve local contrast in the final image.
 
-2. Produce a B/W mask of the image which divides the image up into different regions of luminosity. The details within each region should be blurred in the mask so that the pixels within that region are all treated similarly. This will help to preserve local contrast in the final image. Once the mask is defined, the equalizer graph or sliders can be used to increase or decrease the brightness of any pixels that belong to a particular brightness level selected out by the mask. That is, the horizonal axis of the equalizer graph corresponds to different brightness levels of the mask, and the vertical axis specifies an exposure adjustment to be made to any pixels whose mask matches that brightness level.
+2. Once the mask is defined, the equalizer graph or sliders can be used to increase or decrease the brightness of any pixels that belong to a particular brightness level selected out by the mask. That is, the horizonal axis of the equalizer graph corresponds to different brightness levels of the mask, and the vertical axis specifies an exposure adjustment to be made to any pixels whose mask matches that brightness level.
 
 3. Once an exposure adjustment value is calcualted for each pixel, using the mask to and equalizer graph, the required exposure adjustment is applied to each pixel from the original input image in order to assemble a final output image.
 
