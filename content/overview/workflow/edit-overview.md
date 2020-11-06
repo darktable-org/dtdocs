@@ -20,13 +20,13 @@ A large number of [processing modules](../../module-reference/processing-modules
 
 When processing an image, we apply a sequence of modules, known as the [pixelpipe](../../darkroom/processing-modules-and-pixelpipe/_index.md). 
 
-![edit-overview](./edit-overview/edit-overview.png)
+![edit-overview](./edit-overview/edit-overview.png#w100)
 
-1. The _scene-referred_ modules are intended to process pixel values that are proportional to the amount of light collected by the camera at the scene. The dynamic range of an image in the scene-referred section of the pixelpipe is often higher than that of the display medium. 
+1. The _scene-referred_ modules are intended to process pixel values that are proportional to the amount of light collected by the camera at the scene. The dynamic range of an image in the scene-referred section of the pixelpipe is often larger than that of the display medium. 
 
-2. At some point in the pixelpipe, these pixel values will be compressed by a tone mapping module into a smaller dynamic range that is more suitable for display or a monitor or a hardcopy print.
+2. At some point in the pixelpipe, these pixel values will be compressed by a tone mapping module into a smaller dynamic range more suitable for display on a monitor or hardcopy print.
 
-3. The remaining modules will work in this non-linear _display-referred_ section of the pixel pipe in order to produce the final output image.
+3. The remaining modules operate in this non-linear _display-referred_ section of the pixelpipe to produce the final output image.
 
 There are two standard workflows offered in darktable (these can be changed in [`preferences > processing > auto-apply pixel workflow defaults`](../../preferences-settings/processing.md)):
 * [_scene-referred workflow_](edit-scene-referred.md): Here the emphasis is on doing as much processing as possible in the scene-referred part of the pipeline, and performing dynamic range compression to display-referred space as late as possible. This is the preferred workflow for darktable. It uses the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module to perform the tone mapping compression.
