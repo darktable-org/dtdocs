@@ -14,7 +14,7 @@ This module can selectively brighten or darken up to 9 different ranges of lumin
 
 In order to understand how the tone equalizer works, please refer to the following diagram and subsequent explanation:
 
-![tone-equalizer-mask](./tone-equalizer/tone-equalizer-overview.png)
+![tone-equalizer-mask](./tone-equalizer/tone-equalizer-overview.png#w100)
 
 1. Produce a monochrome mask which divides the input image into regions of similar luminosity. The resulting mask should blur the fine details within the image so that pixels within that region are all treated similarly. This will help to preserve local contrast.
 
