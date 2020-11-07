@@ -20,7 +20,7 @@ In order to understand how the tone equalizer works, please refer to the followi
 
 2. Once the mask is defined, the sliders (in the simple tab) or the equalizer graph (in the advanced tab) can be adjusted to increase or decrease the brightness of the image, based on the brightness of the mask. That is, the horizonal axis of the equalizer graph corresponds to the brightness level of the mask, and the vertical axis specifies the exposure adjustment that will be be made to pixels where the mask matches that brightness level.
 
-3. The exposure of each pixel of the input image is adjusted using the mask and the equalizer graph. For each pixel, the module looks up the brightness of the mask, finds the matching brightness on the x-axis of the equalizer graph and increases or decreases the exposure accordingly. 
+3. The exposure of each pixel of the input image is adjusted using the mask and the equalizer graph. For each pixel, the module looks up the brightness of the mask, finds the matching brightness on the horizontal axis of the equalizer graph and increases or decreases the exposure accordingly (using the vertical axis of the graph). 
 
 It is important when using the tone equalizer that the mask divides your image up into different regions of similar brightness, and that a suitable amount of blur is applied within those regions. This means that all of the pixels in each region will have a similar adjustment to their exposure, without adversely affecting local contrast. Examine your image beforehand to identify which regions you wish to dodge and burn, and use the controls on the _masking tab_ to ensure that those areas are reasonably separated in tone in the final mask. This will allow those regions to be adjusted independently of one another.
 
