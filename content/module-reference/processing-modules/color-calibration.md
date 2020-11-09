@@ -38,7 +38,7 @@ adaptation
 ---
 
 color picker icon
-: Used to select a region in the image for spot white-balance, or to restrict the region considered by the AI auto-detect algorithms. The color swatch next to this icon shows the color of the illuminant which will be used in the CAT compensation.
+: Used to select a region in the image for spot white-balance, or to restrict the region considered by the AI auto-detect algorithms. The color swatch next to this icon shows the color of the illuminant (ie. the color of the light that was used to light up the scene) which will be used in the CAT compensation.
 
 illuminant
 : This menu selects the type of illuminant what should be assumed when doing the white balancing. It can be set to:
