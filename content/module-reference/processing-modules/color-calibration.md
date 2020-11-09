@@ -75,7 +75,7 @@ normalize channels
 ## colorfulness tab
 
 input red/green/blue
-: these sliders allow the saturation of the red, green and blue channels to be adjusted separately.
+: these sliders allow the saturation of certain colors in the image to be adjusted, depending on how much red, green or blue components those colors contain. For example, adjusting the _input red_ slider will affect the saturation of colors containing a lot of red much more than colors containing only a small amount of red. 
 
 normalize channels
 : If this checkbox is selected, try to keep the average amount of overall saturation in the image constant between the input and output images.
@@ -83,7 +83,7 @@ normalize channels
 ## brightness tab
 
 input red/green/blue
-: these sliders allow the brightness of the red, green and blue channels to be adjusted separately.
+: these sliders allow the brightness of certain colors in the image to be adjusted, depending on how much red, green or blue components those colors contain. For example, adjusting the _input red_ slider will affect the brightness of colors containing a lot of red much more than colors containing only a small amount of red. When darkening/brightening a pixel, the ratio of the R, G and B channels for that pixel is maintained, in order to preserve the hue.
 
 normalize channels
 : If this checkbox is selected, try to keep the average overall brightness of the image constant between the input and output images.
