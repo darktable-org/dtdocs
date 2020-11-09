@@ -33,7 +33,8 @@ adaptation
 
 ---
 
-**Note:*** If the CAT in this module has not been disabled, then the _white balance_ module should be placed in "camera reference" mode. 
+**Note:** If the CAT in this module has not been disabled, then the _white balance_ module should be placed in "camera reference" mode. 
+
 ---
 
 color picker icon
