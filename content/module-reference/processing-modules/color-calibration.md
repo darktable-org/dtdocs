@@ -8,34 +8,91 @@ view: darkroom
 masking: 
 ---
 
-This module is designed to be a replacement for the old [_channel mixer_](channel-mixer.md) module. Like that previous module, it allows R, G and B channels to be mixed togather, but it has a number of improvements
+The _color calibration_ module takes Red, Green and Blue color channels as inputs, and uses matrix multiplication to mix those channels together and produce output Red, Green and Blue channels. This simple yet powerful technique can be used to achive a number of things:
 
-- The modules normally works in an LMS color space (based around the long, medium and short wavelength cones in the human eye), and this space is well-suited for Chromatic Adaptation Transform (CAT), more generally known to photographers as white balancing. Therefore, the first tab of this module is dedicated to providing white-balancing features that are more accurate than the primitive and inaccurate white balancing methods offered by the [_white balance_](white-balance.md) module. In order to take advantage of these features, the _white balance_ module needs to be set in "camera reference" mode, which applies the camera's basic D65 white balancing parameters to act as a base for the _color correction_ module to work on.
+- It can be used as a simple channel mixer, similar to the [_channel mixer_](channel-mixer.md) module. One difference is that it doesn't clip the channels exceeding a value of 1.0, meaning it is well suited for use as part of a linear scene-referred pipeline. Another difference is that the _color calibration_ module offers a "normalisation" feature to make it easier to adjust the mixer coefficients while minimising the imapact on other image attributes such as overall brightness.
 
-- It provides the complete set of standard CIE illuminants (daylight, incandescent, fluorescent, equi-energy and black body), plus the ability to provide custom white balancing using a color picker or LCh color space hue and chroma (saturation) sliders.
+- It can be used to white balance an image. In this case, it needs to work in tandem with the [_white balance](white-balance.md) module, The _white balance_ module does an initial rough white balance (assuming a D65 illuminant was used to light the scene), as this is required for the demosac module to work effectively. The _color calibration_ will then perfom a more accurate white balance after the input color profile has been applied, using more sophisticated algorithms than those available in the _white balance_ module_. To ensure that the two modules work together properly and don't conflict, [`preferences > processing > auto-apply chromatic adaptation defaults`](../../preferences-settings/processing.md) controls whether the tehincal white balancing is shared between the _color calibration_ and _white balance_ module, or whether the _white balance_ module will be soley responsible for technical white balancing. Neither option precludes the use of other modules such as [_color balance_](color-balance.md) further down the pixel pipeline for creative color grading.
 
-- The _white balance_ module provides a simplistic auto-white balance detection based on the "Grey World" assumption. The _color calibration_ module provides more sophisticated white balance detection techniques which use AI techniques to focus more on the grey surfaces in the image, or to use the "Grey Edge" assumption which assumes that average edge differences in the image are achromatic. It can also read and apply the auto white-balance settings from the camera.
+- As well as mixing the R, G & B channels directly, the _color calibration_ module can make adjustments to color saturation and brightness of the image, based on the amounts of the red, green and blue components in each pixel.
 
-- This module uses linear transforms to move between pipeline RGB -> XYZ -> LMS color spaces, and doesn't clip the R, G and B channels to have a value less than 1.0, which makes it suitable for a linear scene-referred workflow. It does however offer the possibility to clip negative pixels which correspond to imaginary colors (particularly in the blues) that can arise as a result of the white balancing process. It offers a gamut compressiion function that is useful for managing out-of-gamut colors, which is also very useful for scenes lit by blue LED lighting.
+- Like the _channel mixer_ module, the _color calibration_ module can be used to combine the R, G & B channels by different weightings in order to produce a monochrome image.
 
-- When mixing the R, G and B channels, it offers a "normalisation" option that attempts to maintain a constant average luminance when adjusting the sliders (although it doesn't compensate for the Helmholtz-Kohlrauch effect where hue shifts are percieved as changes in brightness). 
+# Chromatic Adaptation Transformation (white balancing)
 
-- There are two new tabs which allow "colorfulness" (saturation) and "brightness" to be adjusted based on a mix of the R, G and B channels. This is based on the same color science features in the [_filmic rgb v4_](filmic-rgb.md) module, which preserves color channel ratios using a normalisation function.
+If the white balancing (Chromatic Adaptation Transformation, or CAT) capabilities have been enabled by setting [`preferences > processing > auto-apply chromatic adaptation defaults`](../../preferences-settings/processing.md) to _modern_, then the _white balance_ module is set up to do a simple white balance assuming a D65 illuminant, based on the standard matrix coefficients of the camera concerned, so that the demosaicing of the raw image can be performed. The rest of the white balancing is deferred to the _color calibration_ module. When using _color calibration_, the white balancing is done in a specially designed RGB space known as a _CAT space_. The CAT space could be CAT16 from the CIECAM 2016 color model, Bradfield linear from the ICC v4 standard, Bradfield non-linear, or even XYZ (this last one is mainly for testing and debugging). 
 
-- Like the original _channel mixer_, the _color calibration_ module also allows the R, G, B channels to be mixed to produce a greyscale image.
+Once the CAT space is chosen, the white balancing method used within that space can be:
+
+- Standardised CIE illuminants (by _illuminant_ we mean what was the color of the light that was used to illuminate the scene). These include daylight, incandescent, fluorescent, equi-energy and black-body illuminants, as well as LED lighting. These values are all pre-computed, so as long as your camera sensor is properly profiled, you can just use them as-is.
+
+- For the Daylight and Planckian Black Body illuminants, because they lie near the Planckian locus, it makes sense to talk about "color temperature", and so a slider is provided to allow some fine adjustment along that locus. For other illuminants, the concept of "color temperature" doesn't make sense, and so there is no color temperature slider presented. If an illuminant that does not fall near the Planckian locus, then adjustments can be made manually us mentioned below.
+
+- Manual color picker: if there is a neutral grey patch available in the image, that the color of the illuminant can be selected manually selected using the color picker, or can be manual specified using hue and saturation sliders. In cases wherre there is no suitable reference patch, the following two AI methods will likely give a better result, although which method is better will depend on the specifics of the image. These manual methods replace the "temperature" and "tint" sliders you may see in other software, since the concept of color temperature is no longer meaningful once we move too far off the Planckian locus.
+
+- AI Auto-detection based on image surfaces: this gets the average color of image patches that have a high covariance between chroma channels in Yuv space and a high intra-channel variance. In other words, it looks for parts of the image that appear as though they should be grey, and discards flat colored surfaces that may be legitimately non-grey. It also discards chroma noise as well as chromatic aberrations.
+
+- AI Auto-detection based on edges in the image: unlike the _white balance_ module auto-white balcing which relies on the "Grey World" assumption, this method of auto-detecting a suitable illuminant uses the "Grey Edge" assumption by calculating this gets the Minkowski p-norm (p = 8) of the laplacian and trying to minimize it. That is to say, it assumes that edges between objects should have the same gradient over all channels (grey edges). It is more sensitive to noise than the previous surface-based detection method.
+
+Another important CAT-related feature _gamut handling_. When performing a white balance, colors in the image can get pushed out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet in the final output color space). By using a combination of _gamut compression_ (which uses XYZ scaling) and _negative RGB vaue clipping_, the colors can be squeezed back into gamut, albeit with some loss of hue accuracy. One example where this feature is very useful is for scenes where there are blue LED lights, which are often quite problematic and result in ugly gamut clipping in the final image.
+
+It is also worth noting that, unlike the _white balance_ module,  _color calibration_ module works with masks. This means you can set up parametric and drawn masks to single out and apply CAT one one part of the image, and then create a second instance of the module to apply a CAT for a different iluminant on the rest of the image by inverting the mask.
+
+# RGB matrix multiplication
+
+At its most basic level, you can think of the _color calibration_ module as a type of matrix multiplication between a 3x3 matrix and the input [R G B] values. This is in fact very similar to what a matrix-based ICC color profile does, except that the user can input the matrix coefficients via the darktable GUI rather than reading the coefficients from a file.
+
+```
+┌ R_out ┐     ┌ Rr Rg Rb ┐     ┌ R_in ┐
+│ G_out │  =  │ Gr Gg Gb │  X  │ G_in │
+└ B_out ┘     └ Br Bg Bb ┘     └ B_in ┘
+```
+
+If, for example, you've been provided with a matrix to transform from one color space to another, you can enter the matrix coefficients into the _channel mixer_ as follows:
+
+- select the _red_ tab and then set the Rr, Rg & Rb values using the red, green and blue input sliders
+- select the _green_ tab and then set the Gr, Gg & Gb values using the red, green and blue input sliders
+- select the _blue_ tab and then set the Br, Bg & Bb values using the red, green and blue input sliders
+
+By default, the mixing function in _color calibration_ just copies the input [R G B] channels straight over to the matching output channels. This is equivalent to multiplying by the identify matrix:
+
+```
+┌ R_out ┐     ┌ 1  0  0 ┐      ┌ R_in ┐
+│ G_out │  =  │ 0  1  0 │   X  │ G_in │
+└ B_out ┘     └ 0  0  1 ┘      └ B_in ┘
+```
+
+To get an intuitive understanding of how the mixing sliders on the red, greeen and blue tabs behave:
+
+- for the _red_ destination, adjusting sliders to the right will make the R, G or B areas of the image more red. Moving the slider to the left will make those areas more cyan.
+- for the _green_ destination, adjusting sliders to the right will make the R, G or B areas of the image more green. Moving the slider to the left will make those areas more magenta.
+- for the _blue_ destination, adjusting sliders to the right will make the R, G or B areas of the image more blue. Moving the slider to the left will make those areas more yellow.
+
+# brightness and colorfulness
+
+The brightness and colorfulness (color saturation) of pixels in an image can also be adjusted. This uses the same basic algorithm as what the [_filmic rgb_](filmic-rgb.md) module uses for tone mapping (which preserved RGB ratios) and for midtones saturation (which massages the RGB ratios). For example, if you want to darken the pixels which have a high blue component and brighten the ones having a high red component, you can do this by decreasing the blue slider and increasing the red slider on the brightness tab. Similarly, on the colorfulness tab, you can influence the overall color saturation of individual pixels based on how much of one component or another each pixel has.
+
+# monochrome
+
+Another very useful application of _color calibration_ is the ability to mix the channels together to produce a grayscale output -- a monochrome image. Select the _gray_ tab, and set the red, green and blue sliders to control how much each 
+channel contributes to the brightness of the output. This is equivalent to the following matrix multiplication:
+```
+GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
+                              │ G_in │
+                              └ B_in ┘
+```
+
+When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. `[0.9, 0.3, -0.3]`) will make for smooth skin tones, whereas emphasising green (e.g. `[0.4, 0
+.75, -0.15]`) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
 
 # module controls
 
 ## CAT tab
 
+This tab will only be available if [`preferences > processing > auto-apply chromatic adaptation defaults`](../../preferences-settings/processing.md) is set to _modern_. In that case, the _white balance_ module will be forced into _camera reference_ (D65 illuminant) mode.
+
 adaptation
 : This menu selects the color space in which the module will do its work, for the chromatic adaptation transform as well as any channel mixing. It can work in the linear or non-linear Bradfield LMS color spaces, in the CIECAM16 LMS color space, or it can work directly in the XYZ color space (scaled by luminance Y). It is also possible to disable CAT white balancing altogether, in which case the module works in XYZ space. 
-
----
-
-**Note:** If the CAT in this module has not been disabled, then the _white balance_ module should be placed in "camera reference" mode. 
-
----
 
 color picker icon
 : Used to select a region in the image for spot white-balance, or to restrict the region considered by the AI auto-detect algorithms. The color swatch next to this icon shows the color of the illuminant (ie. the color of the light that was used to light up the scene) which will be used in the CAT compensation.
@@ -75,7 +132,7 @@ normalize channels
 ## colorfulness tab
 
 input red/green/blue
-: these sliders allow the saturation of certain colors in the image to be adjusted, depending on how much red, green or blue components those colors contain. For example, adjusting the _input red_ slider will affect the saturation of colors containing a lot of red much more than colors containing only a small amount of red. 
+: these sliders allow the color saturation of pixels in the image to be adjusted, depending on how much red, green or blue components those pixels contain. For example, adjusting the _input red_ slider will affect the color saturation of pixels containing a lot of red much more than colors containing only a small amount of red. 
 
 normalize channels
 : If this checkbox is selected, try to keep the average amount of overall saturation in the image constant between the input and output images.
