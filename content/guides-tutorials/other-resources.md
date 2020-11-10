@@ -16,6 +16,8 @@ The following articles provide some useful background information about darktabl
 - [darktable 3.0 for dummies in 3 modules](https://discuss.pixls.us/t/darktable-3-0-for-dummies-in-3-modules/15849)
 - [darktable 3.0 for dummies -- hardcore edition](https://discuss.pixls.us/t/darktable-3-0-for-dummies-hardcore-edition/15864)
 - [darktable 3.0: RGB or Lab? Which modules? Help!](https://pixls.us/articles/darktable-3-rgb-or-lab-which-modules-help/)
+- [darktable's filmic FAQ](https://discuss.pixls.us/t/darktables-filmic-faq/20138)
+- [Introducing color calibration module](https://discuss.pixls.us/t/introducing-color-calibration-module-formerly-known-as-channel-mixer-rgb/21227)
 
 The following resources can provide a deeper understanding of the functionality of some specific processing modules:
 
