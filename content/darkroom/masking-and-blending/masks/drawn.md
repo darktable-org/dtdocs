@@ -41,7 +41,13 @@ While in edit mode `right-click` on a shape to remove it.
 
 # reusing shapes
 
-You can reuse shapes that you have drawn in other modules. Click on the shapes drop-down (next to the 'show and edit mask elemenst' button) to choose previously-drawn shapes individually or to use the same group of shapes as used by another module.
+You can reuse shapes that you have drawn in other modules. Click on the shapes drop-down (next to the 'show and edit mask elements' button) to choose previously-drawn shapes individually or to use the same group of shapes as used by another module. The following options are available for selection:
+
+add existing shape
+: Choose either an individual shape or a group of shapes that you've drawn previously (either within the [mask manager](../../../module-reference/utility-modules/darkroom/mask-manager.md) or from within the drawn mask of another module). If that shape or group is used elsewhere, any changes you make will be reflected everywhere the shape or group is used.
+
+use same shapes as
+: Add a list of shapes used in another module to the current module's mask. This differs from the previous option in that it creates a new group, allowing shapes to be added to or removed from the group independently of the module from which they are copied. All shapes that are common to both groups remain linked.
 
 # combining and managing shapes
 
