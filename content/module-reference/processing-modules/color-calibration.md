@@ -150,7 +150,7 @@ normalize channels
 This tab is useful to convert a color image into a greyscale image. 
 
 input red/green/blue
-: these sliders allow a weight to be set for how much each of the R, G and B channels contribute to the grey level of the output. The image will only be converted to monochrome if one of the sliders is moved away from zero. Adding more blue will tend to bring out more details, adding more red will tend to smooth over skin tones.
+: these sliders allow a weight to be set for how much each of the R, G and B channels contribute to the grey level of the output. The image will only be converted to monochrome if the three sliders add up to some non-zero value. Adding more blue will tend to bring out more details, adding more red will tend to smooth over skin tones.
 
 normalize channels
 : If this checkbox is selected, try to keep the overall brightness of the monochrome image constant as you adjust the sliders.
