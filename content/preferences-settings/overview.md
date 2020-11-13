@@ -9,6 +9,8 @@ darktable comes with a number of user-configurable preferences. These can be adj
 
 When opened from within the lighttable or darkroom views, the appropriate tab will be loaded by default to allow you to modify that view's settings.
 
-Any altered settings (i.e. those that differ from their default state) are highlighted in bold. If you change a setting that needs a restart to take effect, a message will appear as a reminder after you exit the preferences dialog.
+Any altered settings (i.e. those that differ from their default state) are highlighted with a bullet beside them. If you change a setting that needs a restart to take effect, a message will appear as a reminder after you exit the preferences dialog.
 
-Double click on a setting's label to reset that setting to its default value.
+Double click on a setting's label to reset to its default value.
+
+The preferences dialog can be closed by clicking on the close button in your window manager or pressing the `Escape` key.
