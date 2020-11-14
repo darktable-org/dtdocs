@@ -20,6 +20,6 @@ darktable ships with some standard pre-defined module grouping presets, which ca
 
 # search 
 
-When you enter some text in the _search module_ entry, any modules whose name contains that text will be listed under the search box. All matching modules will be shown, regardless whether they are currently available in any of the module groups. You can then activate any of the listed modules by clicking on its activation icon, expand the module by clicking on its name, and adjust any settings as required.
+When you enter some text in the _search module_ entry, any modules whose name or alias contains that text will be listed under the search box. All matching modules will be shown, regardless whether they are currently available in any of the module groups. You can then activate any of the listed modules by clicking on its activation icon, expand the module by clicking on its name, and adjust any settings as required.
 
 If you choose to hide the module groups and show only the search entry, the module list will contain a list of either the currently-active modules or the results of any search term entered.
