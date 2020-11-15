@@ -18,6 +18,16 @@ The _color calibration_ module takes Red, Green and Blue color channels as input
 
 - Like the _channel mixer_ module, the _color calibration_ module can be used to combine the R, G & B channels by different weightings in order to produce a monochrome image.
 
+Note that the all the channel mixing is done in the adaptation color space. If you want to disable white balancing in this instance of the _color calibration_ module and work directly in the pipeline RGB color space, you need to set the _adaptation_ parameter to _bypass_. If you do want to work in an adaptation space (eg. XYZ) but don't want to do white balancing in this instance of the module, then choose the desired _adaptation_ color space and set the _illiminant_ to _same as pipeline (D50)_.
+
+---
+
+**Note:** if you have two instances of _color calibration_ module both set up to do white balancing, a warning icon is displayed next to the module title and a warning is message is given in the module GUI. In such cases, you normally need to disable CAT in one of the instances in order to avoid double-corrections. An exception to this might be if you use masks to set up that the two instances do white balancing in non-overlapping areas of the image.
+
+You will also see a warning if you try to do white balancing in a _color calibration_ module, and the _white balance_ module is not set to _camera reference_. In this case, either set the _white balance_ module to _camera reference_ mode, or disable CAT in the _color calibration_ module.
+
+---
+
 # Chromatic Adaptation Transformation (white balancing)
 
 If the white balancing (Chromatic Adaptation Transformation, or CAT) capabilities have been enabled by setting [`preferences > processing > auto-apply chromatic adaptation defaults`](../../preferences-settings/processing.md) to _modern_, then the _white balance_ module is set up to do a simple white balance assuming a D65 illuminant, based on the standard matrix coefficients of the camera concerned, so that the demosaicing of the raw image can be performed. The rest of the white balancing is deferred to the _color calibration_ module. When using _color calibration_, the white balancing is done in a specially designed RGB space known as a _CAT space_. The CAT space could be CAT16 from the CIECAM 2016 color model, Bradfield linear from the ICC v4 standard, Bradfield non-linear, or even XYZ (this last one is mainly for testing and debugging). 
@@ -100,7 +110,7 @@ color picker icon
 illuminant
 : This menu selects the type of illuminant what should be assumed when doing the white balancing. It can be set to:
 
- - _same as pipeline (D50)_, where the D65 illuminant white balance parameters for the camera that was set by the _white balance_ module is adjusted to a D50 illuminant
+ - _same as pipeline (D50)_, which disables any white balancing from being sone in this instance of the module.
  -  one of the CIE standard illuminants (daylight, incandescent, fluorescent, equi-energy, or black body), or a non-standard _LED light_ illuminant.
  - _custom_, in which case the illuminant color can be set using the color picker icon, or by setting the hue and chroma (saturation) in LCh perceptual color space using the sliders
  - _(AI) detect from image surfaces_, where the white balance is auto-detected, placing a greater weighting on colors in the image close to grey
@@ -121,7 +131,7 @@ gamut compression
 
 ## R, G and B tabs
 
-These tabs allow the red, green and blue channel outputs for each pixel to be make up of a weighted sum of the red, green and blue channel inputs. Each tab has 3 sliders, and there are 3 tabs, so the sliders are effectively setting the coefficients of a 3x3 matrix, just like in the _channel mixer_ module
+These tabs allow the R, G and B channel outputs for each pixel to be make up of a weighted sum of the R, G and B channel inputs. Each tab has 3 sliders, and there are 3 tabs, so the sliders are effectively setting the coefficients of a 3x3 matrix, just like in the _channel mixer_ module
 
 input red/green/blue
 : These sliders set the mix of how heavily the input R, G and B channels influence the output channel relating to the tab concerned.
@@ -140,7 +150,7 @@ normalize channels
 ## brightness tab
 
 input red/green/blue
-: these sliders allow the brightness of certain colors in the image to be adjusted, depending on how much red, green or blue components those colors contain. For example, adjusting the _input red_ slider will affect the brightness of colors containing a lot of red much more than colors containing only a small amount of red. When darkening/brightening a pixel, the ratio of the R, G and B channels for that pixel is maintained, in order to preserve the hue.
+: these sliders allow the brightness of certain colors in the image to be adjusted, depending on how much R, G or B components those colors contain. For example, adjusting the _input red_ slider will affect the brightness of colors containing a lot of R channel much more than colors containing only a small amount of R channel. When darkening/brightening a pixel, the ratio of the R, G and B channels for that pixel is maintained, in order to preserve the hue.
 
 normalize channels
 : If this checkbox is selected, try to keep the average overall brightness of the image constant between the input and output images.
