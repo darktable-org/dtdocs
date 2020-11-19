@@ -12,11 +12,27 @@ The following image illustrates this concept.
 
 ![Spectral decomposition of a light emission into 3 RGB intensities](./color-spaces/spectral-decomposition.png)
 
-On the left-hand-side of the image is a colored light that we need to represent digitally. Using three color filters, we can decompose it into three colored primary lights at different intensities. This is how both the retina and the camera sensor filters work. To recreate the original colored light from our decomposition, in the center of the image, we simply need to recombine those 3 primary lights by addition.
+On the left-hand-side of the image is a colored light that we need to represent digitally. Using three ideal color filters, we can decompose it into three colored primary lights at different intensities. To recreate the original colored light from our ideal decomposition, in the center of the image, we simply need to recombine those 3 primary lights by addition.
 
-Digital images store the intensities of these 3 primary lights for each pixel, depicted on the right as shades of grey. To illustrate this concept, you could also use a combination of white lights having these intensities along with appropriately colored filters to reconstruct the original colored light. This experiment can be performed at home using gels and dimmeable white bulbs - it is roughly what old color CRT displays did. Today, LED screens emit colored light directly, but they are dimmed in the same spirit.
+The decomposition process is performed in camera sensors, by the color filter array (CFA), and
+is not ideal, so we cannot recreate the original emission directly by a simple addition:
+we will need intermediate scalings of the 3 intensities.
+On screens, the LED bulbs are dimmed proportionnaly to each intensity, and
+the three lights emissions are physically added to recompose the original emission.
+In-between, digital images store the intensities of these 3 primary lights as numbers for each pixel, depicted on the right as shades of grey.
 
-The need for color spaces arises because, unlike the simple example presented above, the color-filters that split the incoming light on the left often don't have the same color as the ones used to recreate that light from digital intensities on the right. This means that these intensities need to be rescaled to take into account the change of primaries in order to retain the original color after reconstruction. The method for the scaling is described in color profiles, usually stored in .icc files.
+Instead of LED light bulbs, you could use a combination of white lights powered proportionaly to these intensities, projecting through appropriately colored filters, to reconstruct the original colored light on a white screen. This experiment can be performed at home using gels and dimmeable white bulbs - it is roughly what old color CRT displays did, and what video-projectors still do.
+
+While a set of display intensities can be simply turned into light together to recreate an original light on a screen, for example if we created a synthetic image in-computer,
+a the set of captured intensities from a sensor needs some scaling in order for the
+light addition to reproduce the original light emission.
+It means that every set of intensities, expressed as an RGB set, is linked to a set of filters
+(or primary LED colors) that defines a color space: any RGB set is circumstancially tied to a
+colorspace.
+Not only do we need to temper the captured intensities to make them summable again,
+but if we are to recompose the original light on a display that does not have the same
+filters or primaries as the space in which our set belongs, these intensities
+will need to be rescaled to take into account the change of filters. The method for the scaling is described in color profiles, usually stored in .icc files.
 
 It is important to note that color is not a physical property of light -- it exists only in the human brain, as a product of the decomposition of a light emission by the cone cells in the retina, again very similar in principle to the above filtering example. An "RGB" value should be understood as "light emissions encoded on 3 channels connected to 3 primaries", but the primaries themselves may look different from what humans would call "green", "red" or "blue".
 
