@@ -2,11 +2,11 @@
 
 This is the user documentation for [darktable](https://darktable.org). The content is authored in markdown and rendered to HTML using [Hugo](https://gohugo.io) and to PDF and ePub using the [DITA Open Toolkit](https://dita-ot.org).
 
-The auto-built version of the website can be found at https://elstoc.github.io/dtdocs/.
+The auto-built version of the website can be found at https://darktable-org.github.io/dtdocs/.
 
 ## Contributing
 
-Please see https://elstoc.github.io/dtdocs/special-topics/contributing/ for information about contributing content
+Please see https://darktable-org.github.io/dtdocs/special-topics/contributing/ for information about contributing content
 
 ## Obtaining and Building
 
@@ -15,7 +15,7 @@ Please see https://elstoc.github.io/dtdocs/special-topics/contributing/ for info
 The theme for the site uses https://gitlab.com/patdavid/hugo-bootstrap-bare as a git submodule.
 In order to clone this submodule along with the site you just need to add the flag `--recurse-submodules` to the clone command:
 
-    git clone --recurse-submodules https://github.com/elstoc/dtdocs.git
+    git clone --recurse-submodules https://github.com/darktable-org/dtdocs.git
 
 If you already have the site cloned, but haven't included the submodule before:
 
