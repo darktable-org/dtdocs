@@ -185,7 +185,7 @@ contrast
 
 : The contrast slider controls the slope of the middle part of the curve, as illustrated in the graph display. The larger the dynamic range is, the greater the contrast should be set to, in order preserve a natural-looking image. This parameter mostly affects mid-tones. Note here that global contrast has an impact on the acutance, which is the perceived sharpness. A low-contrast image will look unsharp even though it is optically sharp in the sense of the [MTF](https://en.wikipedia.org/wiki/Optical_transfer_function).
 
-: Setting the contrast is set to 1 almost completely disables the S-curve, though there will be a very small residual effect from the splines in the highlights and shadows.
+: Setting the contrast to 1 almost completely disables the S-curve, though there will be a very small residual effect from the splines in the highlights and shadows.
 
 hardness (previously _target power factor function_)
 : Previously the _target power factor function_ slider in older versions of _filmic rgb_, this slider is hidden by default, and is set automatically based on other values provided in the _scene_ tab. To make this slider visibile, you need to uncheck _auto adjust hardness_ in the _options_ tab.
