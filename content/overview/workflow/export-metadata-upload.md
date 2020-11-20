@@ -6,11 +6,11 @@ weight: 50
 author: "people"
 ---
 
-Changes to an image are not saved directly to the image file as they are in a regular image editor. Rather, darktable is a non-destructive editor, which means that all changes are recorded in darktable's library database, and the original image is left untouched. Therefore, you need to export images in order to bake your processing options and metadata changes into an output file that can be distributed outside of darktable.
+Changes to an image are not saved directly to the image file contrary to a regular image editor. Rather, darktable is a non-destructive editor, which means that all changes are recorded in darktable's library database, and the original image is left untouched. Therefore, you need to export images in order to bake your processing options and metadata changes into an output file that can be distributed outside of darktable.
 
 Images are exported from the lighttable view, using the [export selected](../../module-reference/utility-modules/lighttable/export-selected.md) module in the right panel. This module offers a lot of options, but by far the most common use is to "save my developed raw image as a JPEG".
 
-When exporting images in darktable , there are two basic questions you need to answer:
+When exporting images in darktable, there are two basic questions you need to answer:
 
 - _Where shall I send the exported images?_ Most often you will choose to write the files to a folder on your local disk, but other options include writing them to a LaTeX photo book template or sending them to another program such as [Hugin](http://hugin.sourceforge.net/) (for panarama stitching) or [GIMP](https://www.gimp.org/) (for further editing).
 
