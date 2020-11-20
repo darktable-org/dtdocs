@@ -10,7 +10,7 @@ Screens and most image file formats can only encode RGB intensities confined wit
 
 This is a limitation for image processing applications, because it means that any pixel lying outside of this range will be clipped to the nearest bound, resulting in non-recoverable loss of data (colors and/or textures).
 
-For the longest time, image processing software too was bounded to this limitation for technical reasons, and some still are, but now by design choice. As a result, they would clip RGB intensities at 100 % display-referred between image operations.
+For the longest time, image processing software too was bounded to this limitation for technical reasons, and some still is, but now by design choice. As a result, they would clip RGB intensities at 100 % display-referred between image operations.
 
 darktable uses floating-point arithmetic inside its color pipeline, which means it can handle any RGB value internally, even those outside the display-referred range, as long as it is positive. Only at the very end of the pipeline, before the image is saved to a file or sent to display, are the RGB values clipped if needed.
 
