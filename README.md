@@ -1,4 +1,4 @@
-# Darktable Documentation
+# darktable Documentation
 
 This is the user documentation for [darktable](https://darktable.org). The content is authored in markdown and rendered to HTML using [Hugo](https://gohugo.io) and to PDF and ePub using the [DITA Open Toolkit](https://dita-ot.org).
 
