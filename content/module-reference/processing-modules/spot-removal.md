@@ -27,3 +27,5 @@ After creation the source and target areas of each shape can be shifted independ
 Use the shape-specific controls to adjust each shape's size, border width, and other attributes.
 
 Right-click on a shape to delete it.
+
+This module is equivalent to the "cloning" tool in the [_retouch_](./retouch.md) module; see the description of the cloning tool for additional details and examples.  If _spot removal_ produces unsatisfactory results, you may want to try the "heal" tool in _retouch_ instead.
