@@ -2,42 +2,48 @@
 title: filmic rgb
 id: filmic-rgb
 applicable-verison: 3.2.1
-tags: 
+tags:
 working-color-space: RGB
 view: darkroom
 masking: true
 ---
-Compress the tonal range of an image by reproducing the tone and color response of classic film. 
+Remap the tonal range of an image by reproducing the tone and color response of classic film.
+It can be used either to expand or to contract the dynamic range of the scene into the
+dynamic range of the display.
 
-This module protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights. It is particularly suited to portrait photography, especially in back-lit situations, but needs extra care when details need to be preserved in the highlights (e.g. clouds).
+This module protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights and dark shadows. Highlights will need extra care when details need to be preserved (e.g. clouds).
 
 The module is derived from a module of the same name in Blender 3D modeller by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module. The developer has provided a detailed explanation of the module in a video: [filmic rgb: remap any dynamic range in darktable 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
 
-_filmic rgb_ is the successor to the _filmic_ module from darktable 2.6.x. While the underlying principles have not changed much, users of the previous version should not expect a 1:1 translation of their workflow to the new version.
+_filmic rgb_ is the successor to the _filmic_ module from darktable 2.6.x. While the underlying principles have not changed much, the default settings and their assumptions
+have, so users of the previous version should not expect a 1:1 translation of their workflow to the new version.
+
+Despite the technical look of this module, please note that the best way to set it up is to assess the quality of the visual result, and to not overthink the numbers that are put in the GUI to quantify the strength of the effects.
 
 # prerequisites
 
 In order to get the best from this module, your images need some preparation:
 
 capturing (ETTR)
-: In-camera, it is recommended that you use a technique known as "Expose To The Right" (ETTR). This means exposing the shot so that the exposure is as bright as possible without clipping the highlights. It is called "exposing to the right" because the in-camera histogram should be touching all the way up to the right hand side without peaking at the right hand side (which could indicate clipping). This technique ensures you make maximum use of the dynamic range of your camera's sensor. 
+: In-camera, it is recommended that you use a technique known as "Expose To The Right" (ETTR). This means exposing the shot so that the exposure is as bright as possible without clipping the highlights. It is called "exposing to the right" because the in-camera histogram should be touching all the way up to the right hand side without peaking at the right hand side (which could indicate clipping). This technique ensures you make maximum use of the dynamic range of your camera's sensor.
 
-: The default auto-exposure metering mode in your camera will normally expose the image so that the average brightness in the image tends towards middle grey. Sometimes, for scenes dominated by light tones (e.g. snowy scenes), the camera will underexpose the image to bring those light tones more towards middle grey. For scenes dominated by dark tones, it may over-expose the image and end up clipping the highlights. In such cases you can use the exposure compensation dial in your camera to raise or lower the exposure -- the darktable exposure module can take this into account when processing your image. 
+: The default auto-exposure metering mode in your camera will normally expose the image so that the average brightness in the image tends towards middle grey. Sometimes, for scenes dominated by light tones (e.g. snowy scenes), the camera will underexpose the image to bring those light tones more towards middle grey. For scenes dominated by dark tones, it may over-expose the image and end up clipping the highlights. In such cases you can use the exposure compensation dial in your camera to raise or lower the exposure -- the darktable exposure module can take this into account when processing your image.
 
 : In some cases, such as for specular highlights reflecting off shiny objects, it may be acceptable to have some clipping, but be aware that any clipped data in your image is irrevocably lost. Where data has been clipped, _filmic rgb_ offers a "highlight reconstruction" feature to help mitigate the effects of the clipping and blend it smoothly with the rest of the image. The settings for this feature are on the _reconstruct_ tab. It is also helpful to know that some cameras offer a "highlight priority" exposure metering mode that can help to maximise exposure while protecting the highlights, and many offer features such as "zebras" or "blinkies" to help alert the photographer when parts of the image are being clipped.
 
 adjust for the mid-tones
-: In the [_exposure_](./exposure.md) module, adjust the exposure until the midtones are clear enough. Do not worry about losing the highlights - they will be recovered as part of the filmic processing. However, it is important to avoid negative pixels in black areas else the computations performed by _filmic rgb_ will result in unpredictable results. For some camera models (Canon, mainly), rawspeed (the raw decoding library of darktable) may set an exaggerated black level, resulting in crushed blacks and negative values. If so, brighten the blacks by setting a negative black level correction value in the [_exposure_](./exposure.md) module.
+: In the [_exposure_](./exposure.md) module, adjust the exposure until the midtones are clear enough. Do not worry about losing the highlights when setting exposure - they will be recovered as part of the filmic processing. However, it is important to avoid negative pixels in black areas else the computations performed by _filmic rgb_ will result in unpredictable results. For some camera models (Canon, mainly), rawspeed (the raw decoding library of darktable) may set an exaggerated black level, resulting in crushed blacks and negative pixel values. If so, brighten the blacks by setting a negative black level correction value in the [_exposure_](./exposure.md) module.
 
 white balance, denoise, demosaic
-: If you plan on using _filmic rgb_'s auto-tuners, use the [_white balance_](./white-balance.md) module to first correct any color casts and obtain neutral colors. In RGB color spaces, luminance and chrominance are linked, and _filmic rgb_'s luminance detection relies on accurate measurements of both. If your image is very noisy, add an initial step of denoising to improve the black exposure readings, and use a high quality [_demosaicing_](./demosaic.md) method.
+: If you plan on using _filmic rgb_'s auto-tuners, use the [_white balance_](./white-balance.md) module to first correct any color casts and obtain neutral colors. In RGB color spaces, luminance and chrominance are linked, and _filmic rgb_'s luminance detection relies on accurate measurements of both. If your image is very noisy, add an initial step of denoising to improve the black exposure readings, and use a high quality [_demosaicing_](./demosaic.md) method. You do not need to care about noise if you are going to setup filmic manually,
+without the auto-tuners.
 
 disable tone mapping modules
 : If you plan to use one of _filmic rgb_'s chrominance preservation modes, avoid using [_base curve_](base-curve.md) and the various tone mapping modules. These may produce unpredictable color shifts that would make the chrominance preservation useless. None of these modules should be required when using _filmic rgb_.
 
 # usage
 
-The _filmic rgb_ module aims at mapping the dynamic range of the photographed scene (RAW image) to the (usually smaller) dynamic range of the display. 
+The _filmic rgb_ module aims at mapping the dynamic range of the photographed scene (RAW image) to the dynamic range of the display.
 
 This mapping is defined in three steps, each handled in a separate tab in the interface:
 
@@ -45,19 +51,24 @@ This mapping is defined in three steps, each handled in a separate tab in the in
 
  - The _reconstruct_ tab offers some tools to handle blown highlights in the image.
 
- - The _look_ tab contains the parameters of the mapping that is applied to the input parameters (defined in the scene tab). Notably, this part of the module applies an S-shaped parametric curve to enhance the contrast and remap the grey value to the middle grey of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you want to increase the latitude as much as possible without clipping the extremes of the curve.
+ - The _look_ tab contains the artistic intent of the mapping that is applied to the input parameters (defined in the scene tab). Notably, this part of the module applies an S-shaped parametric curve to enhance the mid-tones contrast and remap the grey value to the middle grey of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you want to increase the latitude as much as possible without clipping the extremes of the curve.
 
  - The _display_ tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab will rarely require adjustment.
 
- - The _options_ tab includes some additional settings and parameters.
+ - The _options_ tab includes some advanced and optional settings and parameters.
 
  - _filmic rgb_ tends tends to compress local contrast, so after you have set up _filmic rgb_ you may want to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance_](color-balance.md) module, and maybe further adjusts the tones using [_tone equalizer_](tone-equalizer.md).
 
-The ranges of _filmic rgb_'s sliders are limited to usual and safe values, but you can enter values outside of these limits by right-clicking and entering values with the keyboard. 
+The ranges of _filmic rgb_'s sliders are limited to usual and safe values, but you can enter values outside of these limits by right-clicking and entering values with the keyboard.
 
 ---
 
-**Note:** _filmic rgb_ cannot be set with entirely neutral parameters (resulting in a "no-operation") -- as soon as the module is enabled, the image is always at least slightly affected.
+**Note:** _filmic rgb_ cannot be set with entirely neutral parameters (resulting in a "no-operation") -- as soon as the module is enabled, the image is always at least slightly affected. You can come close to neutral by setting:
+- in _look_ tab: contrast to 1.0, latitude to 99 %, middle tones saturation to 0 %,
+- in _options_ tab: contrast in shadows and in highlights to _soft_.
+
+In this configuration, filmic will only perform a logarithmic tone mapping
+between the bounds set in the _scene_ tab.
 
 ---
 
@@ -89,33 +100,54 @@ dynamic range mapping
 
 ## scene
 
+---
+
+** Note:** the controls of the _scene_ tab are similar in principle to those of the
+_levels_ module (black, grey, white). The difference is _levels_ assume pixels
+values display-referred (between 0 and 100%), while _filmic_ allows to work on
+scene-referred pixels (between -infinity EV and + infinity EV), which forces
+to use a different interface.
+
+---
+
 middle-grey luminance (hidden by default)
 : It is not recommended that you use this control, hence it is now hidden by default. You should instead use the _exposure_ module to set the mid-grey level (see _usage_, above). However, if you want to make this slider visible, enable the _use custom mid-grey values_ checkbox in the _options_ tab.
 
-: This slider represents the luminance in RGB space of the scene-referred 18% grey. Use the color picker tool to read the average luminance over the drawn area. If you have a photograph of a grey card or a color chart (IT8 chart or colorchecker) shot in the scene lighting conditions, then the grey color picker tool can be used to quickly sample the luminance of the grey patch on that image. In other situations, the color picker can be used to sample the average luminance of the subject.
+: This setting lets you decide what luminance in the scene has to be considered the reference middle grey, that will be remapped to 18% in display. Use the color picker tool to read the average luminance over the drawn area. If you have a photograph of a grey card or a color chart (IT8 chart or colorchecker) shot in the scene lighting conditions, then the grey color picker tool can be used to quickly sample the luminance of the grey patch on that image. In other situations, the color picker can be used to sample the average luminance of the subject.
 
-: This setting has an effect on the picture that is analogous to a lightness correction. Values close to 100% do not compress the highlights but fail to recover shadows. Values close to 0% greatly recover the shadows but compress the highlights more harshly and result in local-contrast losses. The standard middle-grey value for linearly encoded camera RGB is 18%. Good grey values are usually the average luminance of the whole picture or of the subject. In studio and indoor lighting (low dynamic range scenes), proper grey values are found between 15-18%. In high dynamic range scenes (landscapes, back-lit portraits), proper grey values lie between 1.25 and 9%.
+: It has an effect on the picture that is analogous to a brightness correction. Values close to 100% do not compress the highlights but fail to recover shadows. Values close to 0% greatly recover the shadows but compress the highlights more harshly and result in local-contrast losses.
 
 : When modifying the middle-grey luminance, the white and black exposures are automatically adjusted accordingly, to prevent the dynamic range from clipping and to help you set the right parameter faster. If you are not happy with the auto adjustment performed by the grey slider, you can correct the white and black exposure parameters afterwards.
 
 white relative exposure
-: The number of stops (EV) between pure white and middle grey. This is the right bound of the dynamic range and should be adjusted to avoid highlight clipping. The color picker tool reads the maximum luminance in RGB space over the drawn area, assumes it is pure white, and sets the white exposure parameter to remap the reading to 100% luminance.
-
-: When the grey is set at 18%, the white exposure will always be around 2.45EV. When the grey is set at 100%, the white exposure should be set at 0EV.
+: The number of stops (EV) between scene middle grey luminance and the scene luminance
+to be remapped to display pure white (peak-white). This is the right bound of the scene dynamic range that will be represented on the display, everything
+brighter than this value on the scene will be clipped on display.
+The color picker tool reads the maximum luminance in RGB space over the drawn area, assumes it is pure white, and sets the white exposure parameter to remap the reading to 100% luminance.
 
 black relative exposure
-: The number of stops (EV) between pure black and middle grey. This is the left bound of the dynamic range. The color picker tool reads the minimum luminance in RGB space over the drawn area, assumes it is pure black, and sets the black exposure parameter to remap the minimum reading to 0% luminance. The black color picker measurement is very sensitive to noise, and cannot identify whether the minimum luminance is pure black (actual data) or just noise. It works better on low ISO pictures and with high quality demosaicing. When the color picker puts the black exposure at -16EV, it is a sign that the measurement has failed and you will need to adjust it manually.
+: The number of stops (EV) between middle grey luminance and the scene luminance to be remapped to display pure white (maximum density). This is the left bound of the scene dynamic range that wll be represented on the display, everything darker than this value on the scene will be clipped on display. The color picker tool reads the minimum luminance in RGB space over the drawn area, assumes it is pure black, and sets the black exposure parameter to remap the minimum reading to 0% luminance. The black color picker measurement is very sensitive to noise, and cannot identify whether the minimum luminance is pure black (actual data) or just noise. It works better on low ISO pictures and with high quality demosaicing. When the color picker puts the black exposure at -16EV, it is a sign that the measurement has failed and you will need to adjust it manually.
 
-: The black relative exposure allows you to choose how far you want to recover lowlights. In contrast to the white exposure, it is not always possible to completely avoid clipping blacks. Every camera sensor has a maximum physical dynamic range for each ISO value (you can find them measured on DXOmark or DPreview). The software dynamic range in _filmic rgb_ (dynamic range = white exposure - black exposure) should generally not be greater than the physical dynamic range of the sensor (10-14EV in most cases). Note that the dynamic range of the scene can be lower than that of the camera, especially indoors.
+: The black relative exposure allows you to choose how far you want to recover lowlights.
 
 dynamic range scaling and auto-tune
 : The auto-tune color picker combines all three color pickers above, and allows you to set the grey, white and black exposures all at once, using the average of the drawn region as the grey estimation, the maximum as the white, and the minimum as the black. This gives good results in landscape photography but usually fails for portraits and indoor scenes.
 
 : When no true white and no true black are available on the scene, the maximum and minimum RGB values read on the image are not valid assumptions any more, so the dynamic range scaling symmetrically shrinks or enlarges the detected dynamic range and the current parameters. This works with all color pickers, and adjusts the current values of white and black relative exposures.
 
+---
+
+**Note:** There is no direct relationship between your camera sensor dynamic range (to be found in DxoMark.com or PhotonsToPhotos.org measurements) and the dynamic range in filmic (scene white EV - scene black EV). Many things happen before _filmic_ in the pipeline, amongst them a black raw offset that could map black to 0, such that _filmic_ sees a theoritically infinite dynamic range at its input (which has to do only with pixels encoding manipulation in software, not actual sensor capabilities).
+
+The _scene-referred_ workflow forces a black level correction of -0.0002, in _exposure_ module, which ensures the dynamic range seen by _filmic's_ input is around 12.3 EV most of the time. Decrease that value even more if setting the black relative exposure in _filmic_ to -16 EV fails to unclip blacks.
+
+---
+
 ## reconstruct
 
-This tab provides controls that will help to blend transisitons between unclipped and clipped areas within an image and can also help to reconstruct clipped areas from adjacent pixels. Firstly, a mask needs to be set up to identify the areas of the image that will be affected by the highlights reconstruction. Then there are some controls to fine-tune some of the tradeoffs made by the reconstruction algorithm.
+This tab provides controls that will help to blend transisitons between unclipped and clipped areas within an image and can also help to reconstruct colors from adjacent pixels. It is designed to deal with spotlights that could not possibly be unclipped when doing the shot, like naked light bulbs or the sun disc when they are in the frame, and aims at diffusing their edges as film would do. It is not designed to recover large areas of clipped pixels or inpaint missing parts of the image.
+
+Firstly, a mask needs to be set up to identify the areas of the image that will be affected by the highlights reconstruction. Then there are some controls to fine-tune some of the tradeoffs made by the reconstruction algorithm.
 
 ### _highlights clipping_
 
@@ -135,10 +167,10 @@ display highlight reconstruction mask
 These controls allow you to balance the trade-offs between the various reconstruction algorithms.
 
 structure/texture
-: Use this to control whether the reconstruction algorithm should favor painting in a smooth color gradient (structure), or trying to reconstruct the texture using unclipped pixel data. By default, the control is in the middle at 0%, which favors both strategies equally. If you have lots of areas where all three channels are clipped, there is no texture detail available to reconstruct in those clipped areas, so it is better to move the slider to the left to favor color reconstruction. If you have lots of areas where only one or two channels are clipped, then there may be some texture detail in the unclipped channel(s), and moving the slider to the right will place more emphasis on trying to reconstruct texture using this unclipped data. 
+: Use this to control whether the reconstruction algorithm should favor painting in a smooth color gradient (structure), or trying to reconstruct the texture using sharp details extracted from unclipped pixel data. By default, the control is in the middle at 0%, which favors both strategies equally. If you have lots of areas where all three channels are clipped, there is no texture detail available to reconstruct in those clipped areas, so it is better to move the slider to the left to favor color reconstruction. If you have lots of areas where only one or two channels are clipped, then there may be some texture detail in the unclipped channel(s), and moving the slider to the right will place more emphasis on trying to reconstruct texture using this unclipped data.
 
 bloom/reconstruct
-: Use this to control whether the algorithm tries to reconstruct sharp detail in the clipped areas, or whether it should apply a blur that approximates the blooming effect you get with traditional film. By default, this is set to 100% which tries to maximise the sharpness of the detail in the clipped areas. Move this slider to the left if you want to introduce more blur in these areas.
+: Use this to control whether the algorithm tries to reconstruct sharp detail in the clipped areas, or whether it should apply a blur that approximates the blooming effect you get with traditional film. By default, this is set to 100% which tries to maximise the sharpness of the detail in the clipped areas. Move this slider to the left if you want to introduce more blur in these areas. Introducing more blur will usually tend to darken the highlights as a by-product, which may lead to a more colorful reconstruction.
 
 grey/colorful details
 : Use this to control whether the algorithm favors the recovery of monochromatic highlights or colorful highlights. Move the slider to the right if you want more color in the highlights. Move the slider to the left if you want to reduce the saturation of the highlights. It can be helpful to reduce the saturation in the highlights if you see start seeing magenta or out-of-gamut colors.
@@ -162,14 +194,15 @@ If the _target black luminence_ setting on the _display_ tab is non-zero, this c
 contrast
 : The _filmic rgb_ S-curve is created, from the user parameters, by computing the position of virtual nodes and interpolating them. This is similar to how the tone curve module operates, but here, the nodes cannot be moved manually. The curve is split into three parts -- a middle linear part, and two extremities that transition smoothly from the slope of the middle part to the ends of the exposure range.
 
-: The contrast slider controls the slope of the middle part of the curve, as illustrated in the graph display. The larger the dynamic range is, the greater the contrast should be set. This parameter mostly affects mid-tones.
+: The contrast slider controls the slope of the middle part of the curve, as illustrated in the graph display. The larger the dynamic range is, the greater the contrast should be set to preserve a natural-looking image. This parameter mostly affects mid-tones. Notice here that global contrast has an impact on the acutance, which is the perceived sharpness.
+A low-contrast image will look unsharp even though it is optically sharp in the sense of the [MTF](https://en.wikipedia.org/wiki/Optical_transfer_function).
 
 : When the contrast is set to 1, this almost completely disables the S-curve (there will be a very small residual effect from the splines in the highlights and shadows).
 
 hardness (previously _target power factor function_)
 : Previously the _target power factor function_ slider in older versions of _filmic rgb_, this slider is hidden by default, and is set automatically based on other values provided in the _scene_ tab. To make this slider visibile, you need to uncheck _auto adjust hardness_ in the _options_ tab.
 
-: This parameter is the power function applied to the output transfer function, and it is often improperly called the _gamma_ (because only screens have a "gamma"). It is used to raise or compress the mid-tones to account for display non-linearities or to avoid quantization artifacts when encoding in 8 bit file formats. This is a common operation when applying ICC color profiles (except for linear RGB spaces, like REC 709 or REC 2020, which have a linear “gamma” of 1.0). However, at the output of _filmic rgb_, the signal is logarithmically encoded, which is not something ICC color profiles know to handle. As a consequence, if we let them apply a gamma of 1/2.2 on top, it will result in a double-up, which would cause the middle-grey to be remapped to 76% instead of 45% as it should in display-referred space.
+: This parameter is the power function applied to the output transfer function, and it is often improperly called the _gamma_ (which can mean too many things in imaging applications, so we should stop using that term). It is used to raise or compress the mid-tones to account for display non-linearities or to avoid quantization artifacts when encoding in 8 bit file formats. This is a common operation when applying ICC color profiles (except for linear RGB spaces, like REC 709 or REC 2020, which have a linear “gamma” of 1.0). However, at the output of _filmic rgb_, the signal is logarithmically encoded, which is not something ICC color profiles know to handle. As a consequence, if we let them apply a gamma of 1/2.2 on top, it will result in a double-up, which would cause the middle-grey to be remapped to 76% instead of 45% as it should in display-referred space.
 
 latitude
 : The latitude is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the scene tab (white-relative-exposure minus black-relative-exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. It is usually advisable to keep the latitude as large as possible, while avoiding clipping. If clipping is observed, you can compensate for this effect by either decreasing the latitude, shifting the latitude interval with the _shadow/highlights balance_ parameter, or decreasing the contrast.
@@ -240,11 +273,10 @@ auto-adjust hardness
 : By default, this setting is enabled, and _filmic rgb_ will automatically calculate the power function (aka "gamma") to be applied on the output transfer curve. If this setting is disabled, a _hardness_ slider will appear on the _look_ tab so that value can be manually set.
 
 iterations of high-quality reconstruction
-: Use this setting to increase the number of passes of the _filmic rgb_ highlight reconstruction algorithm. More iterations mean more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping.
+: Use this setting to increase the number of passes of the _filmic rgb_ highlight reconstruction algorithm. More iterations mean more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping. This uses a different algorithm: the default reconstruction works on separate RGB channels and has only one iteration applied, while the _high quality_ reconstruction works on RGB ratios, which is a way of breaking down chromaticity from luminance, and can use several iterations to graduately propagate colors from neighbouring pixels in clipped areas. However, if too many iterations are used, the reconstruction can denegenerate, which will result in far colors being improperly inpainted into clipped objects (color bleeding), such as white clouds being inpainted with blue sky, or the sun disc shot through trees being inpainted with leaf green.
 
 add noise in highlights
 : This artificially introduces noise into the reconstructed  highlights to prevent them from looking too smooth compared to surrounding areas that may already contain noise. This can help to blend the reconstructed areas more naturally with the surrounding non-clipped areas.
 
 type of noise
-: This specifies the statistical distribution of the noise. It can be helpful to match the look of the artificially generated noise with the naturally occurring noise in the surrounding areas from the camera's sensor.
-
+: This specifies the statistical distribution of the noise. It can be helpful to match the look of the artificially generated noise with the naturally occurring noise in the surrounding areas from the camera's sensor. The _poissonian_ noise is the closest to natural sensor noise but is less visually pleasing than _gaussian_, which is probably closer to film grain. Also, most denoising modules will turn the sensor noise from poissonian to slightly gaussian, so you should pick the variant that blends better into the actual noise your image has.
