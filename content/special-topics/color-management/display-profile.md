@@ -12,6 +12,6 @@ To investigate your display profile configuration you can run the [`darktable-cm
 
 In rare cases you may need to manually select the display profile. This is possible from the [soft proof](../../module-reference/utility-modules/darkroom/soft-proof.md) and [gamut check](../../module-reference/utility-modules/darkroom/gamut.md) option dialogs in the darkroom view and the display profile dialog in the lighttable view.
 
-Bear in mind that high-tier consumer-grade screens do not need an user-made profiling, since they are properly factory-calibrated to sRGB, unless you need to perform soft-proofing with professional expectations.
+Bear in mind that high-tier consumer-grade screens do not need a user-made display profile unless you need to perform soft-proofing with professional expectations, since they are properly calibrated to sRGB in the factory.
 
-A poorly made display profile will be more harmful than sticking to the default sRGB profile, since the default might be slightly inaccurate but will at least be reliable. Advanced and professional users are advised to proceed with custom profiles production only if they have training to assess the quality of the resulting profile and understanding of the profiling options.
+A poorly made display profile will be more harmful than sticking to the default sRGB profile, since the default might be slightly inaccurate but will at least be reliable. Advanced and professional users are advised to proceed with the production of custom display profiles only if they have the training to assess the quality of the resulting profile and understanding of the profiling options.
