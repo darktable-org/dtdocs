@@ -18,20 +18,20 @@ view
 sort by
 : Choose the property to sort by from the dropdown.
 
-![top-panel_sort-order icon](./top-panel/top-panel_sort-order.png#inline) sort order
+sort order ![top-panel_sort-order icon](./top-panel/top-panel_sort-order.png#inline)
 : Switch the sort order (ascending / descending) with the arrow-toggle.
 
 # On the right-hand-side
 
-![top panel_grouping icon](./top-panel/top-panel_grouping.png#inline) grouping
+grouping ![top panel_grouping icon](./top-panel/top-panel_grouping.png#inline)
 : Expand or collapse grouped images
 
-![top panel_overlays icon](./top-panel/top-panel_overlays.png#inline) thumbnail overlays
+thumbnail overlays ![top panel_overlays icon](./top-panel/top-panel_overlays.png#inline)
 : Define what information is displayed over thumbnails in the lighttable/filmstrip.
-: You can define different settings depending on the thumbnail size (set sizes categories in [`preferences > lighttable`](../../preferences-settings/lighttable.md))
+: You can define different settings depending on the thumbnail size in [`preferences > lighttable`](../../preferences-settings/lighttable.md)
 
-![top panel_help icon](./top-panel/top-panel_help.png#inline) context-sensitive help
+context-sensitive help ![top panel_help icon](./top-panel/top-panel_help.png#inline)
 : Click on this icon and then click on a control element to be directed to the appropriate online help page.
 
-![top panel_preferences icon](./top-panel/top-panel_preferences.png#inline) preferences
+preferences ![top panel_preferences icon](./top-panel/top-panel_preferences.png#inline)
 : Open the [preferences & settings](../../preferences-settings/_index.md) dialog
