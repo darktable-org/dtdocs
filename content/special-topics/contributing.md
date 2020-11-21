@@ -1,7 +1,7 @@
 ---
 title: contributing to dtdocs
 id: contributing
-weight: 80
+weight: 90
 draft: false
 author: "people"
 ---
