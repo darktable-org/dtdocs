@@ -20,7 +20,7 @@ darktable.preferences.register("scp_export","export_path",
 darktable.register_storage("scp_export","Export via scp",
   function( storage, image, format, filename,
      number, total, high_quality, extra_data)
-    if coroutine.yield("RUN_COMMAND","scp "..filename.." "..
+    if not darktable.control.execute("scp "..filename.." "..
       darktable.preferences.read("scp_export",
          "export_path","string")) then
       darktable.print_error("scp failed for "..tostring(image))
