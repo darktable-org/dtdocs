@@ -26,5 +26,5 @@ darktable natively reads “ordinary” images in JPEG, 8-bit/16-bit PNG and 8-b
 
 # hdr image files
 
-darktable reads high dynamic range images in OpenEXR, RGBE and PFM formats.
+darktable reads high dynamic range images in OpenEXR, RGBE and PFM formats, as well as 16-bit/32-bit floating point TIFF formats.
 
