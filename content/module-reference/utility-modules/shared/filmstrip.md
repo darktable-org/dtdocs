@@ -12,9 +12,9 @@ The filmstrip can be used to quickly switch between images in any darktable view
 
 The filmstrip can be switched on and off using the shortcut `Ctrl+F`. The height of the filmstrip panel can be changed by clicking and dragging its top border.
 
-Quickly navigate through the images in the filmstrip by scrolling with the mouse. In the darkroom you can change the photo currently being processed by double clicking on another image in the filmstrip.
+Quickly navigate through the images in the filmstrip by scrolling with the mouse. In the darkroom you can change the photo currently being processed by clicking on another image in the filmstrip.
 
-In the darkroom, the image currently being processed is selected and highlighted. Single click to select any other image from the filmstrip without changing the image being processed.
+In the darkroom, the image currently being processed is selected and highlighted. Use Mouse over to select any other image from the filmstrip without changing the image being processed.
 
 The following shortcuts are available to select images in the filmstrip or to perform actions on the selected images:
 
