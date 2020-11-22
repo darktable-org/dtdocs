@@ -25,6 +25,9 @@ From top to bottom:
 [find location](../module-reference/utility-modules/map/find-location.md)
 : Search for a place on map.
 
+[locations](../module-reference/utility-modules/map/locations.md)
+: Manage a heirarchical list of location tags and their corresponding regions on the map.
+
 [map settings](../module-reference/utility-modules/map/map-settings.md)
 : Set up your map overlay information and map providers.
 
