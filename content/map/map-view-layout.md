@@ -20,7 +20,7 @@ These modules are identical to the lighttable view. From top to bottom:
 
 # right panel
 
-Here you can find the modules specific for the map view. From top to bottom:
+Here you can find the modules specific to the map view. From top to bottom:
 
 [find location](../module-reference/utility-modules/map/find-location.md)
 : Search for a place on map.
@@ -32,7 +32,7 @@ Here you can find the modules specific for the map view. From top to bottom:
 : Set up your map overlay information and map providers.
 
 [tagging](../module-reference/utility-modules/shared/tagging.md)
-: Tag selected images (as in lighttable).
+: Tag selected images.
 
 # bottom panel
 
