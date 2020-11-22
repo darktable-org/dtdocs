@@ -22,9 +22,6 @@ pattern for the image information line
 position of the image information line
 : Choose the darkroom panel in which the [image information line](../module-reference/utility-modules/darkroom/image-info-line.md) is displayed. Choose between “top left” “top right” “top center” “bottom” and “hidden” (default "bottom").
 
-show module groups and/or search text entry
-: Controls how [processing modules](../module-reference/processing-modules) can be searched and grouped. You can choose between “show search text” “show groups” and “show both” (default "show both"). See [searching for and grouping modules](../darkroom/interacting-with-modules/search-and-group.md). (need a restart)
-
 sort built-in presets first
 : Choose how the presets menu is sorted for processing modules. If this option is enabled, built-in presets are shown first. If the option is disabled, user presets are shown first (default on).
 
