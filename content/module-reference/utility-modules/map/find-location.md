@@ -4,7 +4,6 @@ id: find-location
 applicable-verison: 3.2.1
 tags: 
 view: map
-weight: 10
 ---
 
 Search for a location on the map. You must be connected to the internet to use this feature.

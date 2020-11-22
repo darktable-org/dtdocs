@@ -28,13 +28,13 @@ In order to assign geo coordinates to an image, activate the [filmstrip](../modu
 
 In order to remove location data from an image simply `drag` it from the map and drop it onto the filmstrip.
 
-Images close to each other are grouped under a single image group. See _map settings_ to control the grouping as needed. The number displayed on the bottom left of the thumbnail gives the number of images inside the group. A white number means that all images of the group are exactly at the same location. A yellow number means that the locations of images in the group are not all the same. Use the mouse scroll wheel over a group of images to scroll through the thumbnails of the images in the group.
+Images close to each other are grouped under a single image group. You can use the  [map settings](../module-reference/utility-modules/map/map-settings.md) module to control the grouping as needed. The number displayed on the bottom left of the thumbnail gives the number of images inside the group. A white number means that all images of the group are exactly at the same location. A yellow number means that the locations of images within the group are not all the same. Use the mouse scroll wheel while hovering over a group of images to scroll through the thumbnails of the images in that group.
 
 Normally images in the center map view have black borders. If an image is selected in the filmstrip, then the corresponding image on the map will be highlighted with a white border.
 
-`Click+drag` to adjust the position of an image. `Ctrl-click` to move a complete group of images.
+`Click+drag` to adjust the position of an image. `Ctrl+click` to move a complete group of images.
 
-On the left and right of the central map there are panels for additional control.
+On the left and right of the central map are panels that provide additional controls.
 
 # undo/redo
 
