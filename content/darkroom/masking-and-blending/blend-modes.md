@@ -43,3 +43,7 @@ HSV color
 
 color adjustment
 : Some modules act predominantly on the tonal values of an image but also perform some color saturation adjustments (e.g. the [_levels_](../../module-reference/processing-modules/levels.md) and [_tone curve_](../../module-reference/processing-modules/tone-curve.md) modules). This blend mode takes the lightness from the module's output and mixes colors from input and output, enabling control of the module's color adjustments.
+
+blend fulcrum
+: This additional parameter is available for some of the blending operators in the RGB scene referred version of the blending. It allows to adapt the effect of the applied operator. The effect depends on the operator.
+
