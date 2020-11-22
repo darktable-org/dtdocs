@@ -19,11 +19,15 @@ Click on one of the channel tabs to select a data channel to use to build your m
 
 Modules acting in _Lab_ color space have data channels for L, a, b, C (chroma of LCh) and h (hue of LCh). 
 
-Modules acting in _RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
+Modules acting in _(display-referred) RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
+
+Modules acting in _(scene-referred) RGB_ color space have data channels for g (gray), R, G, B, J*z* (luminance component of J*z*C*z*h*z*), C*z* (chroma, or saturation, of J*z*C*z*h*z*), and h*z* (hue of J*z*C*z*h*z*). The J*z*C*z*h*z* color space is a polar representation of the J*z*a*z*b*z* color space, in the same way that LCh is a polar represrntation for Lab space. However, J*z*a*z*b*z* is much better to high dynamic range images and is less susceptible to hue shifts than Lab space.
 
 _See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details about these color spaces._
 
-Each data channel provides two sliders for the associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending.
+Each data channel may provide two sliders for the associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending. The slider for the output data is hidden by default and can be shown using the _show output channels_ menu item in the blending menu.
+
+The _boost factor_ slider allows to extend the range of values that may be targetted by the parametric mask sliders. It may be used in scene referred editing where luminance values may go beyond 100% to target highlights. This slider is only available for channels where it is meaningful.
 
 ![input and output sliders](./parametric/input-output-sliders.png#w50)
 
