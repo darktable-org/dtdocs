@@ -10,25 +10,25 @@ The layout of all views is similar and consists of a center area with panels at 
 
 ![screen-layout](./screen-layout/screen-layout.png#w100)
 
-center area
+1. center area
 : Contains information and functionality specific to the current view.
 
-left panel
+2. left panel
 : Contains modules primarily used to provide information.
 
-right panel
+3. right panel
 : Contains modules primarily used for image processing.
 
-top banner
+4. top banner
 : Contains information about the current darktable version and allows you to switch between views. Also used by some modules to show hints and messages.
 
-[top panel](./top-panel.md)
+5. [top panel](./top-panel.md)
 : Provides access to global settings and shortcuts
 
-bottom panel
+6. bottom panel
 : Provides access to view-specific settings and shortcuts.
 
-[filmstrip](../../module-reference/utility-modules/shared/filmstrip.md)/[timeline](../../module-reference/utility-modules/lighttable/timeline.md) panel
+7. [filmstrip](../../module-reference/utility-modules/shared/filmstrip.md)/[timeline](../../module-reference/utility-modules/lighttable/timeline.md) panel
 : An optional panel that can be enabled at the bottom of the screen to display a timeline (in the lighttable view) or a filmstrip (in other views) of images in the current collection.
 
 # panel size and visibility
