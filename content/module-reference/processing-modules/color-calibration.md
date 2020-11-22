@@ -54,6 +54,14 @@ The remainder of this module is a standard channel mixer, allowing you to adjust
 
 Channel mixing is performed in the color space defined by the _adaptation_ control on the CAT tab. The _color calibration_ module can be made into a "pure" channel mixer (without chromatic adaptation) in pipeline RGB color space by setting the _adaptation_ to "none (bypass)". To perform channel mixing in one of the _adaptation_ color spaces without chromatic adaptation, set the _illuminant_ to "same as pipeline (D50)".
 
+The following diagram illustrates how the R, G and B input channels are mixed together using different sliders to produce R, G and B output channels. For example, the R output channel is normally dependant mainly on the R input channel, but some cross-talk from the G and B channels can also be mixed in.
+
+![channel-mixer](color-calibration/channelmixer.png#w100)
+
+Another way to think of channel mixing is that is it rotating and scaling the vectors representing the R, G and B primary colors within the standard CIE XYZ color space reference frame. By shifting the primary colors around, it will shift the hues of the colors within the image, which can be useful for creative purposes.
+
+![rotate-primaries](color-calibration/rotate-primaries.png#w100)
+
 ## RGB matrix multiplication
 
 At its most basic level, you can think of the R, G and B tabs of the _color calibration_ module as a type of matrix multiplication between a 3x3 matrix and the input [R G B] values. This is in fact very similar to what a matrix-based ICC color profile does, except that the user can input the matrix coefficients via the darktable GUI rather than reading the coefficients from a file.
