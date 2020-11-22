@@ -11,14 +11,14 @@ The _zoomable lighttable_ mode provides a different way to navigate large collec
 # controls
 
 zoom
-: Use the mouse wheel to zoom in and out of the lighttable (compared to `Ctrl+scroll` in _filemanager_).
+: Use the mouse wheel to zoom in and out of the lighttable (compared to `Ctrl+scroll` in [filemanager](./filemanager.md) mode).
 : Zooming the thumbnails does not change the number of thumbnails per row, so the lighttable can exceed the visible area on all sides.
 
 navigate
 : Hold down the left mouse button to drag the images around on the lighttable to navigate through your collection.
 
 select
-: Select images as in the _filemanager_ mode.
+: As with the filemanager mode, you can select the image under the pointer by clicking on its thumbnail or by pressing Enter. A range of images can be selected by clicking on the first image and then Shift+clicking on the last one. Images can be added or removed from a selection by Ctrl+clicking on their thumbnails or by pressing Spacebar.
 
 ---
 

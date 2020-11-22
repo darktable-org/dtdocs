@@ -16,11 +16,11 @@ zoom
 : By default, zooming and panning are synchronized between all visible images. If you want to zoom or pan only a specific image, add the `Shift` modifier to the above actions.
 
 navigate
-: Use the mouse wheel or arrow keys (←/→) to scroll through your collection
+: Use the mouse wheel or arrow keys (←/→) to scroll through your collection.
 
 # modes
 
-There are two different ways to define how many images are shown at the same time: “fixed” and “dynamic”. Switch between these methods while in culling mode by pressing the key `<`.
+There are two different ways to define how many images are shown at the same time: “fixed” and “dynamic”. Switch between these methods while in culling mode by pressing the `<` key.
 
 fixed mode
 : The number of images displayed is always the same, independent of the selection length. This number can be set with a slider on the bottom panel.
