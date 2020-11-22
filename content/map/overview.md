@@ -32,9 +32,9 @@ Images close to each other are grouped under a single image group. You can use t
 
 Normally images in the center map view have black borders. If an image is selected in the filmstrip, then the corresponding image on the map will be highlighted with a white border.
 
-`Click+drag` to adjust the position of an image. `Ctrl+click` to move a complete group of images.
+`Click+drag` to adjust the position of an image. `Shift+click` to move a complete group of images.
 
-On the left and right of the central map are panels that provide additional controls.
+On the left and right of the central map are panels that provide additional controls (see [map view layout](./map-view-layout.md)).
 
 # undo/redo
 

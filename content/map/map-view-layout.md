@@ -7,7 +7,7 @@ author: "people"
 ---
 
 # left panel
-From top to bottom:
+These modules are identical to the lighttable view. From top to bottom:
 
 [collect images](../module-reference/utility-modules/shared/collect-images.md)
 : Filter the list of images displayed in the map view.
@@ -20,19 +20,19 @@ From top to bottom:
 
 # right panel
 
-From top to bottom:
+Here you can find the modules specific for the map view. From top to bottom:
 
 [find location](../module-reference/utility-modules/map/find-location.md)
 : Search for a place on map.
 
 [locations](../module-reference/utility-modules/map/locations.md)
-: Manage a heirarchical list of location tags and their corresponding regions on the map.
+: Manage a hierarchical list of location tags and their corresponding regions on the map.
 
 [map settings](../module-reference/utility-modules/map/map-settings.md)
 : Set up your map overlay information and map providers.
 
 [tagging](../module-reference/utility-modules/shared/tagging.md)
-: Tag selected images.
+: Tag selected images (as in lighttable).
 
 # bottom panel
 
