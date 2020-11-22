@@ -6,7 +6,7 @@ weight: 40
 author: "people"
 ---
 
-From any of the lighttable modes, you can diplay a fully zoomed preview of the image that is currently under the mouse pointer by pressing and holding down `W`. This is useful to more closely inspect an image while rating and selecting images.
+From any of the lighttable modes, you can display a fully zoomed preview of the image that is currently under the mouse pointer by pressing and holding down `W`. This is useful to more closely inspect an image while rating and selecting images.
 
 Holding down `Ctrl+W` fully zooms into the image and also identifies any regions of sharpness in the image that may indicate the image is in focus. For this tool to work the input image needs to hold an embedded JPEG thumbnail, which is the case for most raw files.
 

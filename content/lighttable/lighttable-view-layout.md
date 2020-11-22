@@ -51,7 +51,7 @@ From top to bottom:
 : Import and apply GPX track data to selected images.
 
 [export selected](../module-reference/utility-modules/lighttable/export-selected.md)
-: Export selected images to files or external locations.
+: Export selected images to local files or external services.
 
 # bottom panel
 
@@ -66,10 +66,13 @@ From left to right:
 : Apply color categories to images
 
 [mode selector](./lighttable-modes/_index.md)
-: Choose lighttable mode (also displays additional controls for the selected mode)
+: Choose lighttable mode using the dropdown
 
-enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
+[zoom](./lighttable-modes/filemanager.md)
+: Use the slider to change the size of thumbnails
+
+![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
 : Click to enable focus-peaking mode
 
-[set display profile](../special-topics/color-management/display-profile.md)
+![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png) [set display profile](../special-topics/color-management/display-profile.md)
 : Click to choose display profiles

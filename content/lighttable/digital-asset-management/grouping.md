@@ -12,7 +12,7 @@ You can combine images into a group by selecting them and clicking the “group�
 
 Images which are members of a group are labeled with a “G” symbol in their thumbnails.
 
-The "group" button in the top panel of the lighttable view toggles grouping mode on and off. If grouping is off, each image is displayed as an individual thumbnail. If grouping is on, images of a group are collapsed, and are represented by a single thumbnail image. This displayed thumbnail is called the group head. If you press the “G” symbol in the group's thumbnail, only this group is expanded. If you then expand another group, the first group collapses. To collapse an expanded group again, just click again on the “G” symbol of its group head.
+The "group" button (![top panel_grouping icon](../../../overview/user-interface/top-panel/top-panel_grouping.png)) in the top panel of the lighttable view toggles grouping mode on and off. If grouping is off, each image is displayed as an individual thumbnail. If grouping is on, images of a group are collapsed, and are represented by a single thumbnail image. This displayed thumbnail is called the group head. If you press the “G” symbol in the group's thumbnail, only this group is expanded. If you then expand another group, the first group collapses. To collapse an expanded group again, just click again on the “G” symbol of its group head.
 
 An expanded group in the filemanager mode of lighttable view is indicated by an orange frame which appears as soon as your mouse pointer hovers over one of the images. This frame surrounds all images in the group.
 
