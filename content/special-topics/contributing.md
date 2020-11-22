@@ -88,12 +88,15 @@ weight
 
 The standard method of presenting information about darktable module controls is with the use of definition lists. 
 
-the gui name of a control
+gui control name
 : A declaration of what the control does. For example "Set the exposure in EV units".
 
 : You can include as many paragraphs as you like, but try to limit to 2 or 3 where possible.
 
-the gui name of a combobox
+![active-icon](./contributing/active-icon.png) a control accessed through a button with an icon
+: When a control is activated using an icon, take a screenshot of the icon using the standard darktable theme and add it before the name of the control
+
+gui combobox name
 : Comboboxes often have multiple options that all need to be displayed with separate definitions. Use bulleted lists with _italics_ for the combobox values.
 : - _the first value_: What the first value means
 : - _the second value_: What the second value means
@@ -121,6 +124,8 @@ Internal links must be relative to the current file and must point to a valid ma
 - Link to a specific preference setting: [`preferences > general > interface language`](../preferences-settings/general.md)
 
 ## Images
+
+When taking screenshots from the darktable application itself, use the default darktable theme.
 
 Several keywords or filename suffixes are used to determine how an image is rendered.
 
