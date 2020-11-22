@@ -28,7 +28,7 @@ All thumbnails are fully color managed if the corresponding option is activated 
 
 # skulls
 
-If for some reason darktable is unable to generate a thumbnail, it displays an image of a skull. Don't panic!
+If for some reason darktable is unable to generate a thumbnail, it displays an image of a skull (![skull icon](./thumbnails/skull.png)). Don't panic!
 	
 There are three main reasons that this could happen:
 
