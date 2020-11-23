@@ -20,11 +20,9 @@ darktable reads raw files using the open source library [RawSpeed](https://githu
 
 With the exception of Fujifilm X-Trans cameras, darktable does not decode images from cameras with non-Bayer sensors (e.g. Sigma cameras with the Foveon X3 sensor).
 
-# ldr image files
+# other image files
 
-darktable natively reads “ordinary” images in JPEG, 8-bit/16-bit PNG and 8-bit/16-bit TIFF format. JPEG2000 is also supported if the required libraries are present at compile time. Similarly, if darktable was compiled with GraphicsMagick support, there are further supported formats, such as GIF, Dicom DCM, additional exotic TIFF formats, and some of Sun's “portable xyz-map” family.
+darktable natively reads “ordinary” images in JPEG, 8-bit/16-bit PNG and 8-bit/16-bit TIFF format, as well as 16-bit/23-bit floating poing TIFF formats. JPEG2000 is also supported if the required libraries are present at compile time. Similarly, if darktable was compiled with GraphicsMagick support, there are further supported formats, such as GIF, Dicom DCM, additional "exotic" TIFF formats, and some of Sun's “portable xyz-map” family.
 
-# hdr image files
-
-darktable reads high dynamic range images in OpenEXR, RGBE and PFM formats.
+darktable also reads high dynamic range images in OpenEXR, RGBE and PFM formats.
 
