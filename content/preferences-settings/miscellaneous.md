@@ -7,10 +7,13 @@ draft: false
 
 # interface
 
+sort built-in presets first
+: Choose how the presets menu is sorted. If this option is enabled, built-in presets are shown first. If the option is disabled, user presets are shown first (default on).
+
 mouse wheel scrolls modules side panel by default
 : When enabled, the mouse wheel scrolls side panels by default and `Ctrl+Alt+mouse wheel` scrolls data entry fields. When disabled, this behavior is reversed (default off). 
 
-always show panels scrollbars
+always show panels' scrollbars
 : Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart) 
 
 method to use for getting the display profile
