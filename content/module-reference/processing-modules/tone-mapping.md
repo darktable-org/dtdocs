@@ -1,11 +1,17 @@
 ---
-title: tone mapping
+title: tone mapping (deprecated)
 id: tone-mapping
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space: RGB 
 view: darkroom
 masking: true
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) module instead.**
+
 ---
 
 Compress the tonal range of HDR images so that they fit into the limits of an LDR image, using Durand's 2002 algorithm. 

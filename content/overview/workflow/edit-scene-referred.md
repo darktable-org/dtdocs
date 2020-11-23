@@ -101,7 +101,7 @@ Please see the [processing module reference](../../module-reference/processing-m
 
 There are a number of modules which are no longer recommended for use within a scene-referred workflow. This doesn't mean they can't be used, but they can produce undesirable effects when their sliders are pushed too far, and there are better alternatives. In each case, the preferred alternative module is listed along with a brief explanation.
 
-[_local tone mapping_](../../module-reference/processing-modules/tone-mapping.md)
+[_local tone mapping (deprecated)_](../../module-reference/processing-modules/tone-mapping.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md)_
 
 : This module applies a bilateral blur over a non-linear (log) mapping that can provoke halos and fringing. This is common issue for modules performing blurs and occlusions that operate over a non-linear encoding.
