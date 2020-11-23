@@ -1,16 +1,20 @@
 ---
-title: invert
+title: invert (deprecated)
 id: invert
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space: Not Applicable (RAW) 
 view: darkroom
 masking: false
 ---
 
-Invert scanned negatives.
+---
 
-For negatives that have been imaged using a DSLR, consider using the [_negadoctor_](./negadoctor.md) module.
+**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_negadoctor_](./negadoctor.md) module instead.**
+
+---
+
+Invert scanned negatives.
 
 # module controls
 
