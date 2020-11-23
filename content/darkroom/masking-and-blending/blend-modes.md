@@ -9,6 +9,8 @@ Blend modes define how the input and output of a module are combined (blended) t
 
 This section therefore only discusses some of the darktable-specific blend modes in detail.
 
+Some blend modes depend on a fulcrum for their operation. This fulcrum usually defines the point at which the blend mode results in a "no-operation" which may be white or grey depending on the blend mode. The additional _blend fulcrum_ parameter allows the position of this fulcrum to be adjusted where blending is performed within the RGB scene-referred color space. The effect depends on the operator used. For example, values above the fulcrum might be brightened and values below darkened, or vice versa.
+
 normal
 : The most commonly used blend mode, "normal" simply mixes input and output to an extent determined by the opacity parameter. This mode is commonly used to reduce the strength of a module's effect by reducing the opacity. This is also usually the blend mode of choice when applying a module's effect selectively with masks.
 
@@ -43,7 +45,4 @@ HSV color
 
 color adjustment
 : Some modules act predominantly on the tonal values of an image but also perform some color saturation adjustments (e.g. the [_levels_](../../module-reference/processing-modules/levels.md) and [_tone curve_](../../module-reference/processing-modules/tone-curve.md) modules). This blend mode takes the lightness from the module's output and mixes colors from input and output, enabling control of the module's color adjustments.
-
-blend fulcrum
-: Some blend modes depend on a fulcrum for their operation. This additional parameter allows the position of this fulcrum to be adjusted for these blending operators within RGB scene-referred blending. The effect depends on the operator used.
 
