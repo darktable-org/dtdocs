@@ -17,6 +17,9 @@ pixel interpolator
 3D lut root folder
 : Define the root folder (and sub-folders) containing Lut files used by the [_lut 3D_](../module-reference/processing-modules/lut-3D.md) module
 
+auto-apply chromatic adaptation defaults
+: Choose which module is responsible for performing white balance adjustments (chromatic adaptation) by default. Select "legacy" (default) to perform basic chromatic adaptation within the [_white balance_](../module-reference/processing-modules/white-balance.md) module only. Select "modern" to use a combination of the _white balance_ and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules to perform modern chromatic adaptation with improved color science. These settings are applied by default to new edits and will not impact old edits.
+
 auto-apply pixel workflow defaults
 : Choose which modules and module order to apply to new images by default:
 
