@@ -19,7 +19,7 @@ Currently, darktable has sensor noise profiles for over 300 popular camera model
 The _denoise (profiled)_ module implements two main algorithms, each of which is available in either an easy-to-use "auto" mode or a more advanced mode, with additional controls:
 
 non-local means
-: This algorithm works in the spatial domain in much the same way as the [_denoise (non-local means)_](./denoise-non-local-means.md) module. This algorithm averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a defined size is used to measure that similarity. 
+: This algorithm works in the spatial domain in much the same way as the [_astrophoto denoise_](./astrophoto-denoise.md) module. This algorithm averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a defined size is used to measure that similarity. 
 
 : Note that this algorithm is quite resource-intensive.
 
@@ -81,7 +81,7 @@ central pixel weight (details)
 When you take non-local means out of auto mode, the _adjust autoset parameters_ slider will be replaced by the following controls. You can use the auto-adjust slider to arrive at some initial settings then, when you switch to manual mode, the sliders will show the set of manual settings that are equivalent to that auto-adjust setting. You can then continue to fine-tune the manual settings using the initial auto setting as a starting point.
 
 patch size
-: Control the size of the patches being matched when deciding which pixels to average -- see [_denoise (non-local means)_](./denoise-non-local-means.md). Set this to higher values as the noise gets higher. Be aware that high values may smooth out small edges. The effect of this slider on processing time is minimal.
+: Control the size of the patches being matched when deciding which pixels to average -- see [_astrophoto denoise_](./astrophoto-denoise.md). Set this to higher values as the noise gets higher. Be aware that high values may smooth out small edges. The effect of this slider on processing time is minimal.
 
 search radius
 : Control how far away from a pixel the algorithm will try to find similar patches. Increasing the value can give better results for very noisy images when coarse grain noise is visible, but the processing time is hugely impacted by this parameter (the processing time is in the order of the square of this parameter). A lower value will make execution faster, a higher value will make it slower. It most cases it is better to use the scattering parameter, which has a similar effect but without the heavy processing cost.

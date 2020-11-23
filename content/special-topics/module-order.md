@@ -40,7 +40,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. _legacy equalizer_
 2. [**input color profile**](../module-reference/processing-modules/input-color-profile.md)
 2. [negadoctor](../module-reference/processing-modules/negadoctor.md)
-2. [_denoise (non-local means)_](../module-reference/processing-modules/denoise-non-local-means.md)
+2. [_astrophoto denoise_](../module-reference/processing-modules/astrophoto-denoise.md)
 2. [color look up table](../module-reference/processing-modules/color-look-up-table.md)
 2. [defringe](../module-reference/processing-modules/defringe.md)
 2. [contrast equalizer](../module-reference/processing-modules/contrast-equalizer.md)
@@ -130,7 +130,7 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [colorize](../module-reference/processing-modules/colorize.md)
 2. [color mapping](../module-reference/processing-modules/color-mapping.md)
 2. [bloom](../module-reference/processing-modules/bloom.md)
-2. [denoise (non-local means)](../module-reference/processing-modules/denoise-non-local-means.md)
+2. [astrophoto denoise](../module-reference/processing-modules/astrophoto-denoise.md)
 2. [global tonemap](../module-reference/processing-modules/global-tonemap.md)
 2. [shadows and highlights](../module-reference/processing-modules/shadows-and-highlights.md)
 2. [contrast equalizer](../module-reference/processing-modules/contrast-equalizer.md)

@@ -1,7 +1,7 @@
 ---
-title: denoise (non-local means)
-id: denoise-non-local-means
-applicable-verison: 3.2.1
+title: astrophoto denoise
+id: astrophoto-denoise
+applicable-verison: 3.4
 tags: 
 working-color-space: Lab 
 view: darkroom
