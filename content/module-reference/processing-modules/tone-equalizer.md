@@ -10,7 +10,7 @@ masking: true
 
 Perform dodging and burning on an image while preserving local contrast.
 
-This module can selectively brighten or darken up to 9 different ranges of luminosity. When used together with [_filmic rgb_](./filmic-rgb.md), it replaces the need for other tone-mapping modules such as the [_base curve_](./base-curve.md), [_shadows and highlights_](./shadows-and-highlights.md), [_tone curve_](./tone-curve.md) and [_zone system_](./zone-system.md) modules. It works in linear RGB space and uses a mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.
+This module can selectively brighten or darken up to 9 different ranges of luminosity. When used together with [_filmic rgb_](./filmic-rgb.md), it replaces the need for other tone-mapping modules such as the [_base curve_](./base-curve.md), [_shadows and highlights_](./shadows-and-highlights.md), [_tone curve_](./tone-curve.md) and [_zone system (deprecated)_](./zone-system.md) modules. It works in linear RGB space and uses a mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.
 
 In order to understand how the tone equalizer works, please refer to the following diagram and subsequent explanation:
 

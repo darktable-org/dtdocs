@@ -1,11 +1,17 @@
 ---
-title: zone system
+title: zone system (deprecated)
 id: zone-system
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space: Lab 
 view: darkroom
 masking: true
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) or multiple instances of the [_exposure_](./exposure.md) module with [parametric masks](../../darkroom/masking-and-blending/masks/parametric.md) to narrow down on a zone.**
+
 ---
 
 Adjust the lightness of an image using Ansel Adams' [zone system](https://en.wikipedia.org/wiki/Zone_System).

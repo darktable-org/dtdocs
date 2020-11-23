@@ -146,7 +146,7 @@ There are a number of modules which are no longer recommended for use within a s
 
 : Again, this module uses blurs in Lab space. Either use the _tone equalizer_ module or the _exposure_ module with a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md), both of which operate with linear encodings.
 
-[_zone system_](../../module-reference/processing-modules/zone-system.md)
+[_zone system (deprecated)_](../../module-reference/processing-modules/zone-system.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) (or [exposure](../../module-reference/processing-modules/exposure.md))_
 
 : This module again operates in Lab space, and becomes problematic if you push it too far. It is better to use the _tone equalizer_ or multiple instances of the _exposure_ module with parametric masks to narrow down on a zone.
