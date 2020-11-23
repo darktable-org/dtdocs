@@ -37,6 +37,14 @@ uniformly
 [raster mask](./masks/raster.md)
 : Reprocessing takes place with the chosen blend mode and opacity based on a mask that was generated within a different module
 
+blending options
+: Choose which color space to perform blending in and whether or not to show output channels. The following options are available:
+: - _reset to default blend colorspace_: Perform blending operations in the default color space for the module.
+: - _Lab_: Perform blending operations in the Lab color space (where available).
+: - _RGB (display)_: Perform blending operations in the display RGB color space.
+: - _RGB (scene)_: Perform blending operations in the scene RGB color space.
+: - _show output channels_: Show the output channels in the [parametric mask](./masks/parametric.md) controls.
+
 ---
 
 **Note:** Not all of these blend options are available for every module.
