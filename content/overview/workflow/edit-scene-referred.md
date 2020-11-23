@@ -136,7 +136,7 @@ There are a number of modules which are no longer recommended for use within a s
 
 : The _monochrome_ module can be quite fiddly to use. The _color calibration_ presets better emulate what physically happens with film, or you can set the _output saturation_ slider in the _color balance_ module to 0% for a more perceptual approach.
 
-[_fill light_](../../module-reference/processing-modules/fill-light.md)
+[_fill light (deprecated)_](../../module-reference/processing-modules/fill-light.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) (or [exposure](../../module-reference/processing-modules/exposure.md))_
 
 : Used to add light to a scene, this module again uses blurs in Lab space. The _tone equalizer_ works in linear space, or you can also achieve a similar effect by using the _exposure_ module with a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md).

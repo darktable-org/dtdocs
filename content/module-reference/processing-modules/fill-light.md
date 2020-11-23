@@ -1,11 +1,17 @@
 ---
-title: fill light
+title: fill light (deprecated)
 id: fill-light
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space: Lab 
 view: darkroom
 masking: false
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) module or the [_exposure_](./exposure.md) module with a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md).**
+
 ---
 
 Locally modify exposure based on pixel lightness.
