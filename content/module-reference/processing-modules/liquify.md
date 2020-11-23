@@ -20,7 +20,7 @@ Drag the central point of a node to move the node around. The radius describes t
 
 # points
 
-Click the point icon to activate the point tool and `click` on the image to place it.
+Click the point icon to activate the point tool and `click` on the image to place it. Holding `Ctrl` while clicking on the point icon allows you to add multiple points without having to click the icon again. Right-click to exit creation mode.
 
 A point is formed by a single node. In a point the strength vector has three different modes which are toggled using `Ctrl+click` over the arrowhead of the strength vector.
 
@@ -61,7 +61,9 @@ A point can be removed by `right-clicking` on the center of the node.
 
 Lines and curves are sets of points linked together by straight or curved lines. The effect is interpolated by a set of strength vectors. 
 
-`Click` the appropriate icon to activate the line or curve tool and `click` on the image to place points to form the path. `Right-click` anywhere when the last point has been placed.
+`Click` the appropriate icon to activate the line or curve tool and `click` on the image to place points to form the path. `Right-click` anywhere when the last point has been placed in order to finish drawing a line/curve.
+
+Holding `Ctrl` while clicking on the point icon allows you to add multiple points without having to click the icon again. `Right-click` a second time to exit creation mode after a line or curve has been completed.
 
 lines
 : ![linear](./liquify/liquify_ex5.png)
