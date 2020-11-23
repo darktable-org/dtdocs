@@ -19,6 +19,3 @@ pretty print the image location
 
 waiting time before each picture in slideshow
 : The number of seconds before displaying the next image (default 5). 
-
-do high quality processing for slideshow
-: Controls how images are processed for the slideshow view. It this option is enabled, the image will be processed in full resolution and downscaled at the very end. This can sometimes result in better quality, but will always be slower (default on). 
