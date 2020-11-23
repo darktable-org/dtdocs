@@ -60,7 +60,7 @@ In addition to the basic modules described above, you may want to consider using
 [_haze removal_](../../module-reference/processing-modules/haze-removal.md)
 : Does what is says on the tin -- removes atmospheric haze.
 
-[_channel mixer_](../../module-reference/processing-modules/channel-mixer.md)
+[_color calibration_](../../module-reference/processing-modules/color-calibration.md)
 : This module offers a range of presets for making black and white images emulating classic film. It can also be used to tweak your color profile matrices, for example, to deal with color gamut issues.
 
 [_lens correction_](../../module-reference/processing-modules/lens-correction.md)
@@ -132,9 +132,9 @@ There are a number of modules which are no longer recommended for use within a s
 : The USM algorithm used in the _sharpen_ module suffers from same issues as the _highpass_ module, and can easily cause artifacts. Use the presets offered by the _contrast equalizer_ for de-blurring, or _local contrast_ for general sharpness.
 
 [_monochrome_](../../module-reference/processing-modules/monochrome.md)
-: _prefer [channel mixer](../../module-reference/processing-modules/channel-mixer.md) (or [color balance](../../module-reference/processing-modules/color-balance.md))_
+: _prefer [color calibration](../../module-reference/processing-modules/color-calibration.md) (or [color balance](../../module-reference/processing-modules/color-balance.md))_
 
-: The _monochrome_ module can be quite fiddly to use. The _channel mixer_ presets better emulate what physically happens with film, or you can set the _output saturation_ slider in the _color balance_ module to 0% for a more perceptual approach.
+: The _monochrome_ module can be quite fiddly to use. The _color calibration_ presets better emulate what physically happens with film, or you can set the _output saturation_ slider in the _color balance_ module to 0% for a more perceptual approach.
 
 [_fill light_](../../module-reference/processing-modules/fill-light.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) (or [exposure](../../module-reference/processing-modules/exposure.md))_

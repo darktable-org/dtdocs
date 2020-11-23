@@ -1,11 +1,17 @@
 ---
-title: channel mixer
+title: channel mixer (deprecated)
 id: channel-mixer
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space:  
 view: darkroom
 masking: 
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_color calibration_](./color-calibration.md) module instead.**
+
 ---
 
 A simple yet powerful tool to manage color channels.  

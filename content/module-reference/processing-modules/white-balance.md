@@ -12,7 +12,7 @@ Adjust the white balance of the image by altering the temperature and tint, defi
 
 The default settings for this module are derived from the camera white balance stored in the image's Exif data.
 
-White balance is not intended as a "creative" module -- its primary goal is is to technically correct the white balance of the image ensuring that neutral colored objects in the scene are rendered as neutral colors in the image. For creative color operations, it is usually better to use other modules such as the [_channel mixer_](./channel-mixer.md) or the [_color balance_](./color-balance.md) module.
+White balance is not intended as a "creative" module -- its primary goal is is to technically correct the white balance of the image ensuring that neutral colored objects in the scene are rendered as neutral colors in the image. For creative color operations, it is usually better to use other modules such as the [_color calibration_](./color-calibration.md) or the [_color balance_](./color-balance.md) module.
 
 # module controls
 
