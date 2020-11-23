@@ -106,7 +106,7 @@ There are a number of modules which are no longer recommended for use within a s
 
 : This module applies a bilateral blur over a non-linear (log) mapping that can provoke halos and fringing. This is common issue for modules performing blurs and occlusions that operate over a non-linear encoding.
 
-[_global tonemap_](../../module-reference/processing-modules/global-tonemap.md)
+[_global tonemap (deprecated)_](../../module-reference/processing-modules/global-tonemap.md)
 : _prefer [filmic rgb](../../module-reference/processing-modules/filmic-rgb.md)_
 
 : This module tries to deal with HDR images using the Lab color space, which is not well suited for high dyanamic ranges. The _filmic rgb_ module operates in a linear space and can easily scale over a wide range of input values from the scene and fit them into the narrower dynamic range demanded by display and printing devices.

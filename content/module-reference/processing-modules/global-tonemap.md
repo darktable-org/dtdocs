@@ -1,11 +1,17 @@
 ---
-title: global tonemap
+title: global tonemap (deprecated)
 id: global-tonemap
-applicable-verison: 3.2.1
+applicable-verison: 3.4
 tags: 
 working-color-space: Lab 
 view: darkroom
 masking: true
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_filmic rgb_](./filmic-rgb.md) module instead.**
+
 ---
 
 Compress the tonal range of an HDR image into the limited tonal range of a typical LDR output file. 
