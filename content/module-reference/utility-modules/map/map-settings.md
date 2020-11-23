@@ -20,7 +20,7 @@ map source
 : Choose the mapping provider to source map information from.
 
 group size factor
-: Increase or decrease the size of image thumbnails shown on the map.
+: Increase or decrease the size of the area that causes images to be grouped.
 
 min images per group
 : The minimum number of images that need to be placed in the same position in order to automatically create an image group for them.
