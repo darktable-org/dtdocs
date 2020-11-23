@@ -22,9 +22,6 @@ use system font size
 font size in points
 : If the "use system font size" option is switched off, enter a font size (in points) for darktable to use. The font size will be changed immediately.
 
-GUI thumbs and previews DPI scaling factor
-: Scale the thumbnails and previews resolutions for high DPI screens. Increase if thumbnails look blurry, decrease if lighttable is too slow. Set to -1.0 to use the system-defined global scaling. Default is 1.0 on most systems, or 2.0 when using resolutions above 1920×1080 px. (needs a restart)
-
 GUI controls and text DPI
 : Adjust the global GUI resolution to rescale controls, buttons, labels, etc. Increase for a magnified GUI, decrease to fit more content in the window. Set to -1 to use the system-defined global resolution. Default is 96 DPI on most systems. (needs a restart)
 
