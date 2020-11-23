@@ -36,7 +36,7 @@ Change the icon assigned to a group by clicking on the existing group icon and s
 
 Change order the groups are displayed in by clicking on the `<` and `>` buttons beside the group headers.
 
-Rename a preset using the text entry box at the top of the module list. `Right-click` to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
+Rename a module group using the text entry box at the top of the module list. `Right-click` to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
 
 Settings will be automatically saved when you exit the screen. Click `reset` to reset the settings to the start of your editing session.
 
