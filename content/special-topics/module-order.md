@@ -21,7 +21,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [_raw denoise_](../module-reference/processing-modules/raw-denoise.md)
 2. [demosaic](../module-reference/processing-modules/demosaic.md)
 2. [denoise (profiled)](../module-reference/processing-modules/denoise-profiled.md)
-2. [_denoise (bilateral filter)_](../module-reference/processing-modules/denoise-bilateral-filter.md)
+2. [_surface blur_](../module-reference/processing-modules/surface-blur.md)
 2. [_rotate pixels_](../module-reference/processing-modules/rotate-pixels.md)
 2. [_scale pixels_](../module-reference/processing-modules/scale-pixels.md)
 2. [lens correction](../module-reference/processing-modules/lens-correction.md)
@@ -115,7 +115,7 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [tone equalizer](../module-reference/processing-modules/tone-equalizer.md)
 2. [graduated density](../module-reference/processing-modules/graduated-density.md)
 2. [**BASE CURVE**](../module-reference/processing-modules/base-curve.md)  -- default transition between scene-referred and diaplay-refered space
-2. [denoise (bilateral filter)](../module-reference/processing-modules/denoise-bilateral-filter.md)
+2. [surface blur](../module-reference/processing-modules/surface-blur.md)
 2. [unbreak input profile](../module-reference/processing-modules/unbreak-input-profile.md)
 2. [haze removal](../module-reference/processing-modules/haze-removal.md)
 2. [**input color profile**](../module-reference/processing-modules/input-color-profile.md)

@@ -1,10 +1,9 @@
 ---
-title: denoise (bilateral filter)
-id: deboise-bilateral
+title: surface blur
+id: surface-blur
 applicable-verison: 3.2.1
 tags: 
 working-color-space: RGB 
-view: darkroom
 masking: true
 ---
 
