@@ -64,6 +64,9 @@ clear
 mode
 : When pasting metadata onto images, this option controls whether the metadata on the clipboard should be merged with the existing metadata (_merge_), or should replace it entirely (_overwrite_).
 
+refresh exif
+: Refresh the Exif data from the source file.
+
 monochrome
 : Flag the image as monochrome, meaning that it will receive any monochrome-specific workflow treatment that is offered by the processing modules. Refer to the [developing monochrome images](../../../guides-tutorials/monochrome.md) section for more details.
 
