@@ -56,6 +56,3 @@ pattern for the thumbnail extended overlay text
 pattern for the thumbnail tooltip (empty to disable)
 : Defines what information is displayed in the tooltip when the mouse hovers over image thumbnails. This pattern can use any of the variables defined in the [variables](../special-topics/variables.md) section.
 
-overlay txt sidecar over zoomed images
-: If there is a text file next to an image in the filesystem it can be shown as an overlay over zoomed images on the lighttable. The text file must have the same base name as the image file with file extension `.txt`. The text file either has to be present at import time or the crawler has to be enabled – see [`preferences > storage > look for updated xmp files on startup`](./storage.md) (default off).
-
