@@ -56,7 +56,7 @@ From top to bottom:
 From left to right:
 
 [presets](./interacting-with-modules/presets.md)
-: Quick access menu for module presets
+: Quick access menu for module presets. You can manage the contents of this menu by selecting "manage quick presets list..."
 
 [styles](../module-reference/utility-modules/lighttable/styles.md)
 : Quick access menu for styles
