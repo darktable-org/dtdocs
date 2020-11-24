@@ -18,6 +18,9 @@ shape
 new location / new sub-location
 : When no location is selected the _new location_ button lets you create a location at root level. When a location is selected the _new sub-location_ button lets you create a sub-location within the selected location.
 
+show all
+: Show or hide all locations that are visible on the current map.
+
 
 ## actions on the locations list
 
