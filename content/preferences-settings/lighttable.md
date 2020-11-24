@@ -48,7 +48,7 @@ high quality thumbnail processing from size
 : If the thumbnails size is greater than this value, it will be processed using the full quality rendering path, which is better but slower (default 720p).
 
 delimiters for size categories
-: Size categories are used to allow different thumbnail overlays to be shown depending on the thumbnail size. A pipe delimited set of values defines at what image sizes the categories change (default "120|400")
+: Size categories are used to allow different thumbnail overlays to be shown depending on the thumbnail size. A pipe delimited set of values defines at what image sizes the categories change. The default value of "120|400" means that there will be 3 categories of thumbnails: 0-120px, 120-400px and >400px. 
 
 pattern for the thumbnail extended overlay text
 : If the user has chosen to show extended overlay text over thumbnail images, this setting allows the user to define what information is displayed. This pattern can use any of the variables defined in the [variables](../special-topics/variables.md) section.
