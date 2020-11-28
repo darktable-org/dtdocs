@@ -44,9 +44,7 @@ keystone
 
 : In order to correct perspective distortions, you need to find suitable horizontal and/or vertical features in your image and align the adjustment lines with them. When finished, press the “OK” button, located close to the center of your image. The image will be corrected immediately. You can at any time come back and refine your corrections by selecting “correction applied” in the keystone combobox.
 
-![keystone set](./crop-rotate/keystone-set.png#w25) 
-
-![keystone applied](./crop-rotate/keystone-applied.png#w25)
+![keystone set](./crop-rotate/keystone-set.png#w25#inline) ![keystone applied](./crop-rotate/keystone-applied.png#w25#inline)
 
 automatic cropping
 : Automatically crop the image to avoid black edges on the image borders. This is useful when rotating the image.
