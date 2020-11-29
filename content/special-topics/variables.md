@@ -15,7 +15,7 @@ darktable supports variable substitution in a number of modules and preference s
 
 # available variables
 
-The following variables are available:
+The following variables are available, though they may not all be available in all contexts:
 
 ```
 $(ROLL_NAME)               roll of the input image
@@ -51,21 +51,28 @@ $(LONGITUDE)               longitude
 $(LATITUDE)                latitude
 $(ELEVATION)               elevation
 $(STARS)                   star rating
-$(LABELS)                  colorlabels
+$(RATING_ICONS)            star rating (using star characters)
+$(LABELS)                  colorlabels (text only)
+$(LABELS_ICONS)            colorlabels (using colored bullet characters)
+$(LABELS_COLORICONS)       colorlabels (using colored icons)
 $(MAKER)                   camera maker
 $(MODEL)                   camera model
 $(LENS)                    lens
 $(TITLE)                   title from metadata
-$(DECRIPTION)              description from metadata
+$(DESCRIPTION)             description from metadata
 $(CREATOR)                 creator from metadata
 $(PUBLISHER)               publisher from metadata
 $(RIGHTS)                  rights from metadata
+$(TAGS)                    tags list (Xmp.dc.Subject)
+$(CATEGORYn(category))     tag name of level n [0,9] of selected category (or tag)
+$(SIDECAR_TEXT)            content of the text sidecar file (if any)
 $(PICTURES_FOLDER)         pictures folder
 $(HOME)                    home folder
 $(DESKTOP)                 desktop folder
-$(OPENCL)                  whether OpenCL is activated
-$(TAGS)                    tags list (Xmp.dc.Subject)
-$(CATEGORYn(category))     tag name of level n [0,9] of selected category (or tag)
+$(OPENCL_ACTIVATED)        whether OpenCL is activated
+$(USERNAME)                user name defined by OS
+$(NL)                      newline character
+$(JOBCODE)                 internal jobcode of current job
 ```
 
 # string substitution
