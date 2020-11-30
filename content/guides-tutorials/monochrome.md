@@ -30,7 +30,7 @@ When importing an image, there are a number of properties that can be used to in
 
   **Note:** You should only use this for images taken on a camera where the Bayer filter has been removed.
 
-- After you have imported the image, you can manually flag an image as monochrome (or not) using the _metadata_ tab on the lighttable's [selected images](../module-references/utility-modules/lighttable/selected-files.md) module,
+- After you have imported the image, you can manually flag an image as monochrome (or not) using the _metadata_ tab on the lighttable's [selected images](../module-reference/utility-modules/lighttable/selected-image.md) module,
 
 If any of the above methods result in an image being flagged as monochrome, darktable modules can use this information to present the user with some monochrome-specific module controls and/or apply special processing to the image.
 
