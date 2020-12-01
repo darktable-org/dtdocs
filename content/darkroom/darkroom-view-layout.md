@@ -1,5 +1,5 @@
 ---
-title: the darkroom view layout
+title: darkroom view layout
 id: the-darkroom-view
 weight: 20
 draft: false

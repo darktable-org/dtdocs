@@ -1,5 +1,5 @@
 ---
-title: the print view layout
+title: print view layout
 id: overview
 weight: 20
 draft: false
