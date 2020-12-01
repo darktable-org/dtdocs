@@ -24,7 +24,7 @@ When importing an image, there are a number of properties that can be used to in
 
 - When you capture a scene from which you would like to produce a monochrome image, it can be helpful to put your camera into a "black & white" creative mode. This allows you to visualise what the scene would look like in monochrome through your camera's liveview screen or electronic viewfinder. The camera will still capture the full color data in the raw file, but the embedded jpeg preview image will be monochrome. When you import such an image, darktable can automatically flag the image as monochrome based on the preview image.
 
-  Checking whether the preview is monochrome slows down the import process, so this is disabled by default. You can enable this check in [`preferences > processing > detect monochrome previews`](../preferences-settings/processing.md)  
+  Checking whether the preview is monochrome slows down the import process, so this is disabled by default. You can enable this check in [preferences > processing > detect monochrome previews](../preferences-settings/processing.md)  
 
 - When processing a raw file, one of the first steps is to [_demosaic_](../module-reference/processing-modules/demosaic.md) the image. If you set the _demosaicing method_ to "passthrough (monochrome)", this discards color information during the demosaicing process, and darktable will flag the image as monochrome. 
 
