@@ -7,7 +7,7 @@ draft: false
 
 Much of the functionality of darktable can be accessed via shortcuts using the keyboard or keyboard/mouse combinations. These shortcuts are user-configurable via the _shortcuts_ tab. 
 
-Many important shortcut actions are provided with default key combinations, but most must be manually configured by the user. Any key may be used for a keyboard shortcut, and may be combined with the `Shift`, `Control` or `Alt` modifier keys (or any combination thereof).
+Many important shortcut actions are provided with default key combinations, but most must be manually configured by the user. Any key may be used for a keyboard shortcut, and may be combined with the Shift, Control or Alt modifier keys (or any combination thereof).
 
 When you open the _shortcuts_ tab you are initially presented with a hierarchical list of all actions that can be applied with a keyboard shortcut. At the top of this hierarchy is a short list of key _categories_ which are defined below.
 
@@ -19,21 +19,21 @@ If a conflict is found you will be given the option to retain the existing short
 
 # remove a shortcut
 
-To remove a keyboard shortcut, single-click on the action you wish to remove it from and press the `backspace` key.
+To remove a keyboard shortcut, single-click on the action you wish to remove it from and press the Backspace key.
 
 # search for a shortcut action
 
-A search field is shown at the bottom of the _shortcuts_ tab. Enter the text you wish to search for and press `Enter` or click the `search` button. Press `Enter` or `search` multiple times to cycle through all matching shortcut actions.
+A search field is shown at the bottom of the _shortcuts_ tab. Enter the text you wish to search for and press Enter or click the _search_ button. Press Enter or _search_ multiple times to cycle through all matching shortcut actions.
 
 # view currently assigned shortcuts
 
-Press the `H` key in any darktable view to show a list of all shortcuts that are assigned for the current view.
+Press the H key in any darktable view to show a list of all shortcuts that are assigned for the current view.
 
 # import, export, reset
 
 You can import your shortcut mappings from or export them to a file.
 
-Press the “`default`” button to reset all shortcuts to their default state. _Take care when using this option as it is not possible to restore back to a previous state unless you have first exported existing shortcuts to a file or taken a backup of your configuration directory._
+Press the _default_ button to reset all shortcuts to their default state. _Take care when using this option as it is not possible to restore back to a previous state unless you have first exported existing shortcuts to a file or taken a backup of your configuration directory._
 
 # shortcut categories
 
@@ -115,7 +115,7 @@ If the end of a combobox list is reached, these shortcuts will cycle back to the
 
 It is possible to create [multiple instances](../darkroom/interacting-with-modules/multiple-instances.md) of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations.
 
-See [`preferences > miscellaneous`](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
+See [preferences > miscellaneous](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
 
 ## utility modules
 

@@ -25,7 +25,7 @@ use single-click in the collect module
 : Enable "single click" mode in the [collect images](../module-reference/utility-modules/shared/collect-images.md) module, which allows ranges to be selected (default off).
 
 expand a single utility module at a time
-: Controls how utility modules are expanded. If this option is enabled, expanding a module by clicking collapses any other currently expanded panel. If you want to expand a panel without collapsing the others you can do so with `Shift+click`. Disabling this option inverts the meaning of `click` and `Shift+click` (default off).
+: Controls how utility modules are expanded. If this option is enabled, expanding a module by clicking collapses any other currently expanded panel. If you want to expand a panel without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default off).
 
 scroll to utility modules when expanded/collapsed
 : With this option enabled the side panels will scroll a utility module to the top of the panel when it is expanded or collapsed (default off).

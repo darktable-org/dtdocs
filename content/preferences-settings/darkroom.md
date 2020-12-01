@@ -58,7 +58,7 @@ hide built-in presets for processing modules
 : If enabled, only user-defined presets will be shown in presets menu for processing modules -- built-in presets will be hidden (default off).
 
 expand a single processing module at a time
-: Controls how [processing modules](../module-reference/processing-modules) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with `Shift+click`. Disabling this option inverts the meaning of `click` and `Shift+click` (default on).
+: Controls how [processing modules](../module-reference/processing-modules) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default on).
 
 only collapse modules in current group
 : When choosing to expand a single processing module at a time (using the logic defined in the previous setting), only collapse other modules that appear in the current visible group. Disable this option to ensure that modules in non-visible groups are also collapsed (default on).

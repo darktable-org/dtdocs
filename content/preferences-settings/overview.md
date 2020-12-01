@@ -13,4 +13,4 @@ Any altered settings (i.e. those that differ from their default state) are highl
 
 Double click on a setting's label to reset to its default value.
 
-The preferences dialog can be closed by clicking on the close button in your window manager or pressing the `Escape` key.
+The preferences dialog can be closed by clicking on the close button in your window manager or pressing the Escape key.
