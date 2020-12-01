@@ -8,7 +8,7 @@ author: "people"
 
 The slideshow view is still in an early stage of development with only a basic set of features.
 
-If you don't need the auto-advance mode, you could even use the [sticky-preview feature](../lighttable/lighttable-modes/full-preview.md) instead.
+If you don't need the auto-advance mode, you could even use the [sticky preview feature](../lighttable/lighttable-modes/full-preview.md) instead.
 
 ```
 
