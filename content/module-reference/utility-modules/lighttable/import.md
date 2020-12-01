@@ -16,7 +16,7 @@ You can import either a single image or a folder of images from the filesystem b
 
 Clicking on “image” or “folder” opens a file selector dialog. Navigate through the filesystem, and select the item(s) to import. 
 
-On the lower part of the dialog, are some additional _import options_ as follows. Default values for all of these options can be set in [`preferences > import`](../../../preferences-settings/import.md).
+On the lower part of the dialog, are some additional _import options_ as follows. Default values for all of these options can be set in [preferences > import](../../../preferences-settings/import.md).
 
 import folders recursively (folder import only)
 : Check this option to import images in the currently selected folder and all subfolders. It is not recommended to use this option to import a large number of images at the same time. The import process causes darktable to generate thumbnails for all of the imported images, but in the end it will only be able to keep the most recent in its cache. It is better to import images in smaller chunks.
@@ -42,7 +42,7 @@ When a camera is detected, it will show up in the device panel after pressing �
 import from camera
 : This will bring up an import dialog, showing any images on camera that can be selected for import into a film roll.
 
-: The base folder for storing imported images and the naming pattern of subfolders and individual images can be set in [`preferences > import`](../../../preferences-settings/import.md).
+: The base folder for storing imported images and the naming pattern of subfolders and individual images can be set in [preferences > import](../../../preferences-settings/import.md).
 
 tethered shoot
 : Tethering is used to integrate darktable with your camera. When you take images with your camera, they are automatically imported into darktable, so you can review the result of the shoot. You can also setup remote capture jobs, controlling the number of images and time between captures, along with camera settings such as exposure time, aperture etc.

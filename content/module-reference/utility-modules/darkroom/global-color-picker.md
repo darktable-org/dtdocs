@@ -15,7 +15,7 @@ Besides the global color picker described here, many darktable modules (e.g. [_t
 # module controls
 
 point/area mode
-: The global color picker can be run in point or area mode by `clicking` or `Ctrl+clicking` on the color picker icon, respectively. When in point mode only a small spot under your cursor is taken as a sample. In area mode you can draw a rectangle and darktable samples the area within that rectangle.
+: The global color picker can be run in point or area mode by clicking or Ctrl+clicking on the color picker icon, respectively. When in point mode only a small spot under your cursor is taken as a sample. In area mode you can draw a rectangle and darktable samples the area within that rectangle.
 
 mean/min/max
 : If samples are taken in area mode, darktable will calculate mean, minimum and maximum color channel values. This combobox allows you to select which of those are displayed. For obvious statistical reasons mean, min and max are identical for the single sample of point mode.

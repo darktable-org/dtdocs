@@ -18,6 +18,6 @@ The end result is that the image can end up being too dark, and overly-processed
 
 When the lightbulb icon (![bulb-icon](./color-assessment/bulb-icon.png)) is selected in the bottom panel, the image is zoomed out so that a thick mid-grey border appears around the image to act as a reference against which to compare the image's tones. A thinner white border is placed immediately around the image to give the eyes a basis for comparison when looking at parts of the image that are meant to be a bright white.
 
-Although the color assessment mode provides a mid-grey surrounding to the image, it is recommended that you also set your user interface (in [`preferences > general`](../../../preferences-settings/general.md)) to one of the "grey" themes. These themes are designed to provide a user interface that is close to middle grey (it is actually slightly darker to allow better contrast with the text in the user interface). When one of these themes is used together with the color assessment mode, this will help to avoid the above perception issues.
+Although the color assessment mode provides a mid-grey surrounding to the image, it is recommended that you also set your user interface (in [preferences > general](../../../preferences-settings/general.md)) to one of the "grey" themes. These themes are designed to provide a user interface that is close to middle grey (it is actually slightly darker to allow better contrast with the text in the user interface). When one of these themes is used together with the color assessment mode, this will help to avoid the above perception issues.
 
-Color assessment mode can also be toggled by pressing `Ctrl+B`.
+Color assessment mode can also be toggled by pressing Ctrl+B.

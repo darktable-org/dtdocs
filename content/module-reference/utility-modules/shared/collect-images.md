@@ -135,7 +135,7 @@ select by value
 
 : The box below the _search pattern_ will list values for the selected attribute that are present in the currently-selected images. This list is continuously updated as you type. You may also choose a sorting criteria by scrolling through the list and double-clicking.
 
-: If you enable single-click mode (see [`preferences > lighttable`](../../../preferences-settings/lighttable.md)) you can select with a single-click rather than double-click. This mode also allows you to select a range of values with the mouse. This only works for numerical and date-time attributes.
+: If you enable single-click mode (see [preferences > lighttable](../../../preferences-settings/lighttable.md)) you can select with a single-click rather than double-click. This mode also allows you to select a range of values with the mouse. This only works for numerical and date-time attributes.
 
 ## combining multiple filters
 

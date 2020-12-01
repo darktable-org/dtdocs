@@ -18,27 +18,27 @@ This maintenance screen can be accessed from the _presets_ menu beside the modul
 
 The left-hand panel lists the currently-defined module layout presets. Those at the top of the list are fixed and cannot be altered. User-defined presets are placed at the bottom of the list.
 
-To create a new (empty) preset, click on the `+` button at the bottom of the left-hand panel. Alternatively click on the `duplicate` button to the right of one of the existing module presets to copy that preset to a new one. The above screenshot shows a new preset which has been created by duplicating the "modules: default" preset.
+To create a new (empty) preset, click on the + button at the bottom of the left-hand panel. Alternatively click on the _duplicate_ button to the right of one of the existing module presets to copy that preset to a new one. The above screenshot shows a new preset which has been created by duplicating the "modules: default" preset.
 
-Delete a user-defined preset with the `X` button.
+Delete a user-defined preset with the X button.
 
-Rename a preset using the text entry box at the top of the right-hand panel. `Right-click` to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
+Rename a preset using the text entry box at the top of the right-hand panel. Right-click to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
 
 ## module groups
 
 The right-hand panel allows you to create and amend module groups for the selected preset.
 
-Add a new group by clicking on the `+` sign beside the "module groups" header. Remove a group by clicking on the `X` button beside the header of that module group.
+Add a new group by clicking on the + sign beside the "module groups" header. Remove a group by clicking on the X button beside the header of that module group.
 
-Add a module to a group by clicking the `+` sign at the bottom of the group, and select the required module from the list that appears. Remove a module by clicking the `X` beside the module name.
+Add a module to a group by clicking the + sign at the bottom of the group, and select the required module from the list that appears. Remove a module by clicking the X beside the module name.
 
 Change the icon assigned to a group by clicking on the existing group icon and selecting a new one from the drop-down list.
 
-Change order the groups are displayed in by clicking on the `<` and `>` buttons beside the group headers.
+Change order the groups are displayed in by clicking on the < and > buttons beside the group headers.
 
-Rename a module group using the text entry box at the top of the module list. `Right-click` to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
+Rename a module group using the text entry box at the top of the module list. Right-click to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
 
-Settings will be automatically saved when you exit the screen. Click `reset` to reset the settings to the start of your editing session.
+Settings will be automatically saved when you exit the screen. Click _reset_ to reset the settings to the start of your editing session.
 
 
 # system-defined presets

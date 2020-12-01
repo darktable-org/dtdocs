@@ -17,7 +17,7 @@ legacy
 : This module order is used for the legacy [display-referred](../../../overview/workflow/edit-display-referred.md) workflow. You will also see this order displayed for any images you previously edited in versions prior to darktable 3.0.
 
 custom
-: Since darktable 3.0, it is possible to change the order in which modules are applied in the pixelpipe by clicking on the module header while holding `Ctrl+Shift` and dragging it into a new position. If you have changed the order of any modules, this parameter will show the value "custom".
+: Since darktable 3.0, it is possible to change the order in which modules are applied in the pixelpipe by clicking on the module header while holding Ctrl+Shift and dragging it into a new position. If you have changed the order of any modules, this parameter will show the value "custom".
 
 ---
 

@@ -24,13 +24,13 @@ show all
 
 ## actions on the locations list
 
-`click`
+click
 : Select (or de-select) a location. If the location is not visible on the map, the map is automatically centred on that location.
 
-`Ctrl+click`
-: Edit the name of the location. Press `Enter` to save changes or `Esc` to close the editing window without saving.
+Ctrl+click
+: Edit the name of the location. Press Enter to save changes or Esc to close the editing window without saving.
 
-`right-click`
+right-click
 : Call up a sub-menu which allows you to:
 : - Edit the name of the location.
 : - Delete the location.
@@ -39,23 +39,23 @@ show all
 
 ## actions on locations in the map
 
-`click` and drag
+click and drag
 : Move the location shape to a new position on the map.
 
-`Ctrl+click` or `Ctrl+Shift+click`
+Ctrl+click or Ctrl+Shift+click
 : Move an image or a group of images to place them inside a location shape.
 
-`scroll`
+mouse scroll
 : When inside a location shape (but not over an image), increase or decrease the size of that shape.
 : When hovering over an image, display the different thumbnails of images located at that position on the map.
 : When outside a location shape (and not over an image) zoom the map in or out.
 
-`Shift+scroll`
+Shift+scroll
 : Increase or decrease the width of the location shape.
 
-`Ctrl+scroll`
+Ctrl+scroll
 : Increase or decrease the height of the location shape.
 
-`click` on a location shape
+click on a location shape
 : Select a different location when the _show all_ checkbox is selected.
 

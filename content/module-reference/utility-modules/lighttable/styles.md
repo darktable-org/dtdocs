@@ -12,7 +12,7 @@ Styles can either be created within this panel or in the [history stack](../dark
 
 A list of all available styles is displayed at the top of the module. A search field above the list allows you to locate a style by name or description. This module also allows styles to be edited and deleted.
 
-Double-click on a style name to apply that style to all selected images.  A style may also be applied to all selected images by pressing a shortcut key assigned to it (see [`preferences > shortcuts`](../../../preferences-settings/shortcuts.md)) while in either lighttable or darkroom view.
+Double-click on a style name to apply that style to all selected images.  A style may also be applied to all selected images by pressing a shortcut key assigned to it (see [preferences > shortcuts](../../../preferences-settings/shortcuts.md)) while in either lighttable or darkroom view.
 
 # module controls
 

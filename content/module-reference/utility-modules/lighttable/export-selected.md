@@ -10,7 +10,7 @@ Export images that have been selected in the lighttable.
 
 Files can be exported to a file on disk, email, various on-line storage locations, a webalbum, or a book template. 
 
-You can also press `Ctrl+E` within the darkroom mode to export the currently-edited image using the last settings from this module.
+You can also press Ctrl+E within the darkroom mode to export the currently-edited image using the last settings from this module.
 
 # module controls
 
@@ -140,7 +140,7 @@ develop history
 
 The right-hand-side of this dialog allows you to define formulas to populate image metadata. The formulas defined here have priority over the settings in the left-hand-side of the dialog. The first column identifies the entry to be edited. The second column allows you to define how to calculate the value for that metadata entry using a formula. 
 
-Leave the formula empty to prevent a given metadata entry from being exported (`Exif.GPSInfo.GPSVersionID` in the above example). To define a formula to calculate the metadata value, you can use the same variables and rules as for filenames (as documented in the [variables](../../../special-topics/variables.md) section). Press `Enter` to validate the formula.
+Leave the formula empty to prevent a given metadata entry from being exported (`Exif.GPSInfo.GPSVersionID` in the above example). To define a formula to calculate the metadata value, you can use the same variables and rules as for filenames (as documented in the [variables](../../../special-topics/variables.md) section). Press Enter to validate the formula.
 
 Use the “--” icon to remove a metadata entry from the list and the “+” icon to add a new one from a predefined list of available metadata tags.
 

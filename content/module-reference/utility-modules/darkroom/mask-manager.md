@@ -16,11 +16,11 @@ In the top line of the mask manager panel are buttons that can be used to create
 
 The panel below these buttons displays a list of all masks and individual shapes defined for the current image. 
 
-Groups of shapes forming a mask are displayed with a headline in the form `grp <module_name>` indicating the module in which they are used, with the component shapes listed below. The list of mask groups is followed by a list of all individual shapes that have been generated in the context of the current image. If a shape is in use by any masks this is indicated by a symbol to the right of the shape name. 
+Groups of shapes forming a mask are displayed with a headline in the form "grp <module_name>" indicating the module in which they are used, with the component shapes listed below. The list of mask groups is followed by a list of all individual shapes that have been generated in the context of the current image. If a shape is in use by any masks this is indicated by a symbol to the right of the shape name. 
 
 # shapes
 
-By default each shape receives an automatically generated name, consisting of the shape type (“brush”, “circle”, “ellipse”, “path”, “gradient”) and an automatically-incremented integer. You can rename a shape by double-clicking on its current name. It is a good habit to give shapes and groups meaninful names, especially if you are going to use the same selection in different masks.
+By default each shape receives an automatically generated name, consisting of the shape type ("brush", "circle", "ellipse", "path", "gradient") and an automatically-incremented integer. You can rename a shape by double-clicking on its current name. It is a good habit to give shapes and groups meaninful names, especially if you are going to use the same selection in different masks.
 
 Click on a shape name to show the selected shape on the image canvas with all of its controls, allowing you to edit the properties of just that shape. This is especially useful where there are many overlapping shapes within a mask, making it difficult to select the right one with the mouse.
 

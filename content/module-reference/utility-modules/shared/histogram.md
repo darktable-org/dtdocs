@@ -12,7 +12,7 @@ A graphical depiction of the developed image's light levels.
 
 Move the mouse over the panel to show buttons to adjust the display. The leftmost button cycles the mode between a "regular" and a waveform-style histogram. The next button controls how the data for the current mode is displayed. The three rightmost colored squares are toggles which enable or disable the display of the red, green and blue color channels.  
 
-When the mouse is over the histogram panel, scrolling while holding down the `Ctrl` key will change the height of the panel. You can show/hide the histogram entirely with a keyboard shortcut (default `Ctrl+Shift+H`).
+When the mouse is over the histogram panel, scrolling with the mouse while holding down the Ctrl key will change the height of the panel. You can show/hide the histogram entirely with a keyboard shortcut (default Ctrl+Shift+H).
 
 For the purposes of speed, the histogram display is calculated from the image preview (the image which is displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
 
@@ -58,4 +58,4 @@ Scrolling in the appropriate area -- rather than dragging -- will also adjust ex
 
 For the regular histogram, the image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest.  
 
-In the case of the waveform and RGB parade scopes, the colorspace depends on the [`preferences > lighttable > color manage cached thumbnails`](../../../preferences-settings/lighttable.md) configuration parameter. In its default (true) setting, these scopes are calculated in the “Adobe RGB (compatible)” colorspace. Otherwise, they are calculated in the display colorspace.
+In the case of the waveform and RGB parade scopes, the colorspace depends on the [preferences > lighttable > color manage cached thumbnails](../../../preferences-settings/lighttable.md) configuration parameter. In its default (true) setting, these scopes are calculated in the “Adobe RGB (compatible)” colorspace. Otherwise, they are calculated in the display colorspace.
