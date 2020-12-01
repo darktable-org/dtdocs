@@ -11,7 +11,7 @@ The _zoomable lighttable_ mode provides a different way to navigate large collec
 # controls
 
 zoom
-: Use the mouse wheel to zoom in and out of the lighttable (compared to `Ctrl+scroll` in [filemanager](./filemanager.md) mode).
+: Scroll with the mouse wheel to zoom in and out of the lighttable (compared to Ctrl+scroll in [filemanager](./filemanager.md) mode).
 : Zooming the thumbnails does not change the number of thumbnails per row, so the lighttable can exceed the visible area on all sides.
 
 navigate
