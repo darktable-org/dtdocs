@@ -21,7 +21,7 @@ The two types of modules have a few aspects in common, as described below.
 Each module has a header at the top, normally consisting of the following elements:
 
 module name
-: `Click` on the name to expand or collapse the rest of the module and show/hide its controls.
+: Click on the name to expand or collapse the rest of the module and show/hide its controls.
 
 reset parameters button
 : This normally appears to the right of the module name and is used to reset the state of the module back to its original condition.
@@ -33,5 +33,5 @@ Processing modules contain additional elements in their module header, as descri
 
 # module resizing
 
-Some modules contain lists of infomation which can grow as more entries are added. To help manage screen real-estate, it is possible to shrink or expand the number of entries that are displayed in the list of a module. Place the mouse over an entry in the list, and use `Ctrl+scroll` to increase or reduce the number of entries that are shown. If the list contains more entries that can be shown at one time, a scrollbar will appear to the right of the list, so that you can access the hidden entries.
+Some modules contain lists of infomation which can grow as more entries are added. To help manage screen real-estate, it is possible to shrink or expand the number of entries that are displayed in the list of a module. Place the mouse over an entry in the list, and hold Ctrl while scrolling your mouse wheel to increase or reduce the number of entries that are shown. If the list contains more entries that can be shown at one time, a scrollbar will appear to the right of the list, so that you can access the hidden entries.
 
