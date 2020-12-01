@@ -80,7 +80,7 @@ tabbed controls
 edit by area
 : Control the interaction mode with the curve. This setting is disabled by default, which allows the control points for the curve to be freely placed and dragged. By enabling this setting, the adjustment of the curve falls back to a legacy mode, which functions in a similar to the spline curve controls used in the [wavelets](../../darkroom/interacting-with-modules/wavelets.md) modules.
 
-mask display (![mask-icon](./color-zones/icon-mask.png))
+ ![mask-icon](./color-zones/icon-mask.png) mask display
 : Enable the _mask display_ to highlight any pixels that have been affected by _color zones_ adjustments in yellow.
 
 select by
