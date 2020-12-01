@@ -120,8 +120,8 @@ Internal links must be relative to the current file and must point to a valid ma
 - Links to a processing module should be in italics, e.g. [_exposure_](../module-reference/processing-modules/exposure.md)
 - Links to a utility module should be in plaintext, e.g. [history stack](../module-reference/utility-modules/darkroom/history-stack.md)
 - Link to a top level section by referencing the `_index.md` file, e.g. [module reference](../module-reference/_index.md)
-- Link to a tab in the preferences dialog: [`preferences > general`](../preferences-settings/general.md)
-- Link to a specific preference setting: [`preferences > general > interface language`](../preferences-settings/general.md)
+- Link to a tab in the preferences dialog: [preferences > general](../preferences-settings/general.md)
+- Link to a specific preference setting: [preferences > general > interface language](../preferences-settings/general.md)
 
 ## Images
 
