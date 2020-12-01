@@ -20,9 +20,9 @@ darktable.register_event("shortcut",hello_shortcut,
        "A shortcut that prints its parameters")
 ```
 
-Now start darktable, go to  `preferences > shortcuts > lua > A shortcut that prints its parameters`, assign a shortcut and try it. You should see a nice message printed on the screen.
+Now start darktable, go to  "preferences > shortcuts > lua > A shortcut that prints its parameters", assign a shortcut and try it. You should see a nice message printed on the screen.
 
-Let's look at the code in detail. We first define a function which takes two strings as input parameters. The first one is the type of event that is triggered ( `"shortcut"` ) and the second one is the name of the shortcut ( `"A shortcut that prints its parameters"` ). The function itself calls `darktable.print`, which will print the message as an overlay in the main window.
+Let's look at the code in detail. We first define a function which takes two strings as input parameters. The first one is the type of event that is triggered ( "shortcut" ) and the second one is the name of the shortcut ( "A shortcut that prints its parameters" ). The function itself calls `darktable.print`, which will print the message as an overlay in the main window.
 
 Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering a shortcut event, then we give the callback to call and last, we give the string to use to describe the shortcut in the preferences window.
 
