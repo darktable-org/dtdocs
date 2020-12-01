@@ -20,9 +20,9 @@ Drag the central point of a node to move the node around. The radius describes t
 
 # points
 
-Click the point icon to activate the point tool and `click` on the image to place it. Holding `Ctrl` while clicking on the point icon allows you to add multiple points without having to click the icon again. Right-click to exit creation mode.
+Click the point icon to activate the point tool and click on the image to place it. Holding Ctrl while clicking on the point icon allows you to add multiple points without having to click the icon again. Right-click to exit creation mode.
 
-A point is formed by a single node. In a point the strength vector has three different modes which are toggled using `Ctrl+click` over the arrowhead of the strength vector.
+A point is formed by a single node. In a point the strength vector has three different modes which are toggled using Ctrl+click over the arrowhead of the strength vector.
 
 ## point modes
 
@@ -55,15 +55,15 @@ feathered mode
 
 ## removing points
 
-A point can be removed by `right-clicking` on the center of the node.
+A point can be removed by right-clicking on the center of the node.
 
 # lines and curves
 
 Lines and curves are sets of points linked together by straight or curved lines. The effect is interpolated by a set of strength vectors. 
 
-`Click` the appropriate icon to activate the line or curve tool and `click` on the image to place points to form the path. `Right-click` anywhere when the last point has been placed in order to finish drawing a line/curve.
+Click the appropriate icon to activate the line or curve tool and click on the image to place points to form the path. Right-click anywhere when the last point has been placed in order to finish drawing a line/curve.
 
-Holding `Ctrl` while clicking on the point icon allows you to add multiple points without having to click the icon again. `Right-click` a second time to exit creation mode after a line or curve has been completed.
+Holding Ctrl while clicking on the point icon allows you to add multiple points without having to click the icon again. Right-click a second time to exit creation mode after a line or curve has been completed.
 
 lines
 : ![linear](./liquify/liquify_ex5.png)
@@ -71,13 +71,13 @@ lines
 curves
 : ![linear](./liquify/liquify_ex6.png)
 
-`Ctrl+click` on a line or curve segment to add a new control point. `Ctrl+right-click` on the center of a node to remove a control point. 
+Ctrl+click on a line or curve segment to add a new control point. Ctrl+right-click on the center of a node to remove a control point. 
 
-`Right-click` on a segment to remove the shape completely. `Ctrl+Alt+click` on a segment to change that segment from a line to a curve and vice versa.
+Right-click on a segment to remove the shape completely. Ctrl+Alt+click on a segment to change that segment from a line to a curve and vice versa.
 
 # link modes
 
-`Ctrl+click` on the center of a node to change the way the points of a curve are linked together. There are four modes which correspond to different ways of handling the steepness of the bezier curve using control handles: 
+Ctrl+click on the center of a node to change the way the points of a curve are linked together. There are four modes which correspond to different ways of handling the steepness of the bezier curve using control handles: 
 
 autosmooth
 : This is the default mode, in which control handles are not displayed as they are automatically computed to give a smooth curve.
@@ -93,7 +93,7 @@ symmetrical
 
 # view and edit nodes
 
-`Click` the node tool icon to activate or deactivate the node edit tool displaying all defined distortion objects and their controls. Alternatively you can at any time `right-click` on the image for the same effect. 
+Click the node tool icon to activate or deactivate the node edit tool displaying all defined distortion objects and their controls. Alternatively you can at any time right-click on the image for the same effect. 
 
 # warps and nodes count
 

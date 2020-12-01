@@ -14,11 +14,11 @@ Whenever the user interface of this module is in focus, the full uncropped image
 
 ![screen controls](./crop-rotate/screen-controls.png#w75)
 
-Resize the crop by dragging the border and corner handles. Move the crop rectangle by clicking and dragging. Constrain movement to the horizontal/vertical axis by holding `Ctrl`/`Shift`, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
+Resize the crop by dragging the border and corner handles. Move the crop rectangle by clicking and dragging. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
 
 ---
 
-**Note:** Some of the tools in this module (angle adjustment and perspective distortion correction) require the original image data to be interpolated. For best sharpness results set “lanczos3” as the pixel interpolator in [`preferences > processing`](../../preferences-settings/processing.md).
+**Note:** Some of the tools in this module (angle adjustment and perspective distortion correction) require the original image data to be interpolated. For best sharpness results set “lanczos3” as the pixel interpolator in [preferences > processing](../../preferences-settings/processing.md).
 
 ---
 
@@ -32,7 +32,7 @@ flip
 : Flip the image on the horizontal, vertical or both axes.
 
 angle
-: Correct the rotation angle to level an image by setting a numerical value in degrees or using the mouse. To use the mouse, `right-click` and drag to draw a line along a suitable horizontal or vertical feature. As soon as you release the mouse button the image is rotated so that the line you drew matches the horizontal or vertical axis.
+: Correct the rotation angle to level an image by setting a numerical value in degrees or using the mouse. To use the mouse, right-click and drag to draw a line along a suitable horizontal or vertical feature. As soon as you release the mouse button the image is rotated so that the line you drew matches the horizontal or vertical axis.
 
 keystone
 : Correct perspective distortions. This tool is useful, for example, when you shoot a high building from the ground with a short focal length, aiming upwards with your camera. The combobox allows you to select the type of correction you want to use:
@@ -62,7 +62,7 @@ aspect
 
 ---
 
-**Note:** When resizing an image in freehand mode you may retain the currently-set aspect ratio by holding `Shift` while dragging on any of the resize controls.
+**Note:** When resizing an image in freehand mode you may retain the currently-set aspect ratio by holding Shift while dragging on any of the resize controls.
 
 ---
 

@@ -24,6 +24,6 @@ interaction
 
 : Start with an appropriate palette of source colors (either from the presets menu or from a style you have downloaded). You can then change the lightness (L), green-red (a), blue-yellow (b), or saturation \(c\) of the patches' target values via sliders.
 
-: To change the source color of a patch you can select a new color from your image by using the color picker and `Shift+click` on the patch you want to replace.
+: To change the source color of a patch you can select a new color from your image by using the color picker and Shift+click on the patch you want to replace.
 
-: `Double-click` a patch to reset it; `Right-click` a patch to delete it; `Shift+click` on empty space to add a new patch (with the currently picked color as source color).
+: Double-click a patch to reset it; Right-click a patch to delete it; Shift+click on empty space to add a new patch (with the currently picked color as source color).

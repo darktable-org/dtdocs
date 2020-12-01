@@ -34,7 +34,7 @@ preserve colors
 : If a non-linear tone curve is applied to each of the RGB channels individually, then the amount of tone adjustment applied to each color channel may be different, and this can cause hue shifts. Therefore, the _preserve colors_ menu provides different methods of calculating the "luminance level" of a pixel. The amount of tone adjustment is calculated based on this luminance value, and then this same adjustment is applied to all three of the RGB channels. Different luminance estimators can affect the contrast in different parts of the image, depending on the specific characteristics of that image. The user can therefore choose a particular estimator that provides the best results for the given image.
 
 middle grey
-: Set the fulcrum point for the _contrast_ slider. This is equivalent to the _contrast fulcrum_ slider on the [_color balance_](color-balance.md) module. If the contrast slider is set to `0` this slider will not have any effect.
+: Set the fulcrum point for the _contrast_ slider. This is equivalent to the _contrast fulcrum_ slider on the [_color balance_](color-balance.md) module. If the contrast slider is set to 0 this slider will not have any effect.
 
 brightness
 : Equivalent to increasing the _gamma factor_ slider in the [_color balance_](color-balance.md) module. Moving the slider to the right will increase the brightness of the image, with an emphasis on the mid-tones.

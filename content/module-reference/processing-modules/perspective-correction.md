@@ -35,7 +35,7 @@ grey
 
 Lines marked in red or yellow are regarded as outliers and are not taken into account for the automatic fitting step. This outlier elimination involves a statistical process using random sampling which means that each time you press the “get structure” button the color pattern of the lines will look slightly different. 
 
-You can manually change the status of line segments: `Left-Click` on a line to select it (turn the color to green or blue) and `Right-click` to deselect it (turn the color to red or yellow). If you keep the mouse button pressed, you can use a sweeping action to select/deselect multiple lines in a row. The size of the select/deselect brush can be changed with the mouse wheel. Hold down the `Shift` key and keep the left or right mouse button pressed while dragging to select or deselect all lines in the chosen rectangular area.
+You can manually change the status of line segments: Left-Click on a line to select it (turn the color to green or blue) and Right-click to deselect it (turn the color to red or yellow). If you keep the mouse button pressed, you can use a sweeping action to select/deselect multiple lines in a row. The size of the select/deselect brush can be changed with the mouse wheel. Hold down the Shift key and keep the left or right mouse button pressed while dragging to select or deselect all lines in the chosen rectangular area.
 
 Click on one of the “automatic fit” icons (see below) to initiate an optimization process which finds the best suited module parameters based on the detected structure. The image and the overlaid lines are then displayed with perspective corrections applied.
 
@@ -74,10 +74,10 @@ aspect ratio
 : If the _lens model_ is set to "specific", this parameter allows for a free manual adjustment of the image's aspect ratio.
 
 automatic fit
-: Click on one of the _automatic fit_ icons to set the distortion correction sliders automatically based on the edge detection analysis. You can choose to automatically apply just the vertical corrections ![vertical-icon](./perspective-correction/icon-vertical.png), just the horizontal corrections ![horizontal-icon](./perspective-correction/icon-horizontal.png), or both together ![both-icon](./perspective-correction/icon-both.png). `Ctrl+click` on any of the icons to apply a rotation without the lens shift. `Shift+click` on any of the icons to apply the lens shift without any rotation.
+: Click on one of the _automatic fit_ icons to set the distortion correction sliders automatically based on the edge detection analysis. You can choose to automatically apply just the vertical corrections ![vertical-icon](./perspective-correction/icon-vertical.png), just the horizontal corrections ![horizontal-icon](./perspective-correction/icon-horizontal.png), or both together ![both-icon](./perspective-correction/icon-both.png). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
 
 get structure
-: Click on the ![structure-icon](./perspective-correction/icon-get-structure.png) icon to (re-)analyze the image for suitable line segments. `Shift+click` to apply a contrast enhancement step before performing further analysis. `Ctrl+click` to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
+: Click on the ![structure-icon](./perspective-correction/icon-get-structure.png) icon to (re-)analyze the image for suitable line segments. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
 
 : Click on the ![cross-icon](./perspective-correction/icon-cross.png)icon to discard any structural information collected during previous analysis steps.
 

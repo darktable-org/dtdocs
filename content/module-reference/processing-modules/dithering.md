@@ -24,4 +24,4 @@ method
 : _random dithering_: This method just adds some level of randomness to break sharp tonal value bands. 
 
 damping ("random" method only)
-: Controls the level of added random noise expressed as a damping factor in a `10*log 2` basis. A value of -80 is a good fit for 8-bit output formats; -160 for 16-bit output.
+: Controls the level of added random noise expressed as a damping factor in a 10*log 2 basis. A value of -80 is a good fit for 8-bit output formats; -160 for 16-bit output.

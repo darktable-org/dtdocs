@@ -62,11 +62,11 @@ In practical use, these examples would probably need to be combined with [drawn]
 
 When adjusting the pixel manipulation curves, it can sometimes be difficult to judge exactly where on the horizontal axis pixels will fall. Just above the curve are a pair of color pickers that can be used to help identify where to make your adjustments, and they can even assist further by automatically setting up some initial control points for you.
 
-If you `click` the color picker on the left and then choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you `Ctrl+click` on the same color picker you can choose a rectangular area from the image -- the range of values represented within that rectangular will be shaded vertically, with a similar dark line showing the median value.
+If you click the color picker on the left and then choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you Ctrl+click on the same color picker you can choose a rectangular area from the image -- the range of values represented within that rectangular will be shaded vertically, with a similar dark line showing the median value.
 
-If you `click` on the color picker on the right, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, at the start, median and end of the highlighted range (see below). Simply drag on the center notde to push up or pull down the curve within that selected range. 
+If you click on the color picker on the right, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, at the start, median and end of the highlighted range (see below). Simply drag on the center notde to push up or pull down the curve within that selected range. 
 
-If you hold `Ctrl` while selecting a region using the right-hand color picker, the auto-generated curve nodes will be automatically pushed up in the selected range. You can then fine-tune by dragging on the individual nodes. If you hold `Shift` while selecting a region, the curve will instead be pushed down in the selected range.
+If you hold Ctrl while selecting a region using the right-hand color picker, the auto-generated curve nodes will be automatically pushed up in the selected range. You can then fine-tune by dragging on the individual nodes. If you hold Shift while selecting a region, the curve will instead be pushed down in the selected range.
 
 ![color zones overview](./color-zones/color-zones-overview.png#w50)
 

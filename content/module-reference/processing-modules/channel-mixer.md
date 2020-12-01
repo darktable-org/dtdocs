@@ -68,7 +68,7 @@ GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
                               └ B_in ┘
 ```
 
-When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. `[0.9, 0.3, -0.3]`) will make for smooth skin tones, whereas emphasising green (e.g. `[0.4, 0.75, -0.15]`) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
+When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. [0.9, 0.3, -0.3]) will make for smooth skin tones, whereas emphasising green (e.g. [0.4, 0.75, -0.15]) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
 
 Different types of traditional black and white film have differing sensitivities to red, green and blue colors, and this can be simulated by setting the gray destination coefficients appropriately. The _channel mixer_ module has a number of built-in presets that can be used to achieve this.
 

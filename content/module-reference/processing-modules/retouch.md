@@ -46,19 +46,19 @@ These two options are most useful when used together with wavelet decomposition,
 
 When you activate the _clone_ or _heal_ tool, you will place one or more matching pairs of shapes on the image, each consisting of a target region to be repaired, and a source region to use to undertake that repair. You must first choose the shape you wish to use (you can choose from _circle_, _ellipse_, _path_ or _brush_ -- see the [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) section for details) and (except when using the path shape), an outline of the shape will appear under the cursor.
 
-While you hover over the image with your mouse, a small plus sign (`+`) will be shown somewhere on the image, marking where the source shape will be placed by default. This plus sign will either be in a fixed position on the image or will move about with your cursor depending on whether the last pair of shapes was placed using absolute or relative mode (see below). 
+While you hover over the image with your mouse, a small plus sign (+) will be shown somewhere on the image, marking where the source shape will be placed by default. This plus sign will either be in a fixed position on the image or will move about with your cursor depending on whether the last pair of shapes was placed using absolute or relative mode (see below). 
 
 ![retouch-source-cross](./retouch/rt-source-cross.png)
 
 The source and target shapes can be placed onto the image in the following ways:
 
-- `Click` on the image to begin placing the target shape (see the [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) section for details on how to draw shapes). The source shape will be placed at the position of the "plus" (`+`) sign on the image and can be adjusted later.
+- Click on the image to begin placing the target shape (see the [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) section for details on how to draw shapes). The source shape will be placed at the position of the "plus" (+) sign on the image and can be adjusted later.
 
-- `Shift+click` to change the position of the source shape in "relative mode". The position of the "plus" (`+`) symbol will move to the clicked location. Then move the mouse and `Click` to begin placing the target shape. If you place subsequent shapes without changing the target location, the source shape will be placed at the same offset from the target shape as was used for the first stroke.
+- Shift+click to change the position of the source shape in "relative mode". The position of the "plus" (+) symbol will move to the clicked location. Then move the mouse and Click to begin placing the target shape. If you place subsequent shapes without changing the target location, the source shape will be placed at the same offset from the target shape as was used for the first stroke.
 
-- `Ctrl+Shift+click` to change the position of the source shape in "absolute" mode. As above, the position of the "plus" (`+`) symbol will move to the clicked location and you can then place your target shape. If you place subsequent shapes without changing the target location, exactly the same source position will be used, fixed in the absolute coordinate system of the image.
+- Ctrl+Shift+click to change the position of the source shape in "absolute" mode. As above, the position of the "plus" (+) symbol will move to the clicked location and you can then place your target shape. If you place subsequent shapes without changing the target location, exactly the same source position will be used, fixed in the absolute coordinate system of the image.
 
-- For _circle_ and _ellipse_ shapes only, you can simply click on the desired target location and then `drag`, releasing your mouse button when you reach the desired source location. This operation does not affect the placement of subsequent shapes.
+- For _circle_ and _ellipse_ shapes only, you can simply click on the desired target location and then drag, releasing your mouse button when you reach the desired source location. This operation does not affect the placement of subsequent shapes.
 
 The positions of the source and target shapes may then be altered manually.
 
@@ -81,11 +81,11 @@ The _retouch tools_ section consists of two items:
 shapes
 : The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer. 
 
-: `Click` on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details). 
+: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details). 
 
-: `Ctrl+click` on a shape icon to draw multiple shapes continuously (`right-click` to cancel). 
+: Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel). 
 
-: `Click` the _show and edit shapes_ button (![retouch-shapes-icon](./retouch/rt-shapes-icon.png)) to show all existing shapes for the currently-selected wavelet scale (see below) and edit them.
+: Click the _show and edit shapes_ button (![retouch-shapes-icon](./retouch/rt-shapes-icon.png)) to show all existing shapes for the currently-selected wavelet scale (see below) and edit them.
 
 algorithms
 : Choose a retouching algorithm: clone, heal, fill or blur (see above for details).
@@ -99,7 +99,7 @@ The _wavelet decompose_ section centres around a bar graph showing how the image
 - The white square on the right represents the residual image (the remainder of the image after the detail layers have been extracted).
 - A light grey dot in a square indicates the currently-selected layer. Click on another square to select a different layer.
 - The light grey bar running along the top indicates which levels of detail are visible at the current zoom level. Zoom in closer to see the finer levels of detail.
-- The triangle at the bottom shows how many layers the image has been decomposed into. `Drag` the triangle to the right to create more layers. `Drag` it to the left to decrease the number of layers. By default no wavelet decomposition is performed.
+- The triangle at the bottom shows how many layers the image has been decomposed into. Drag the triangle to the right to create more layers. Drag it to the left to decrease the number of layers. By default no wavelet decomposition is performed.
 - The triangle at the top shows the current value of the "merge from" parameter (see below)
 - The orange lines under the squares indicate which layers have retouching edits applied.
 
@@ -112,7 +112,7 @@ current
 : Indicates which layer is currently selected (also marked with the light grey dot on the bar graph).
 
 merge from
-: This setting allows a common edit to be applied to multiple consecutive scales within a group starting from the coarsest scale (not including the residual image) down to the scale selected. For example, if "merge from" is set to 3 and the maximum scale is 5 then all edits that are added to scale 5 will be applied to scales 3 to 5. Edits added to scale 4 will be applied to scales 3 and 4, and edits added to scale 3 will be applied only to scale 3. If you set _merge from_ to `0`, then merging is disabled, and all edits apply only to the scale that are defined in. Setting _merge from_ to the highest scale (in this example, 5) would also effectively disable any merging.
+: This setting allows a common edit to be applied to multiple consecutive scales within a group starting from the coarsest scale (not including the residual image) down to the scale selected. For example, if "merge from" is set to 3 and the maximum scale is 5 then all edits that are added to scale 5 will be applied to scales 3 to 5. Edits added to scale 4 will be applied to scales 3 and 4, and edits added to scale 3 will be applied only to scale 3. If you set _merge from_ to 0, then merging is disabled, and all edits apply only to the scale that are defined in. Setting _merge from_ to the highest scale (in this example, 5) would also effectively disable any merging.
 
 ```
            merge_from
@@ -167,5 +167,5 @@ blur radius
 : If the _blur_ algorithm has been selected for the currently-selected shape, choose the radius of the blur.
 
 mask opacity
-: Alter the opacity of the mask associated with the currently-selected shape. An opacity of `1.000` indicates the shape is completely opaque and the module's effect is fully applied, whereas a value less than `1.000` indicates that the effect applied by the shape is blended with the underlying image to the degree indicated by the slider.
+: Alter the opacity of the mask associated with the currently-selected shape. An opacity of 1.000 indicates the shape is completely opaque and the module's effect is fully applied, whereas a value less than 1.000 indicates that the effect applied by the shape is blended with the underlying image to the degree indicated by the slider.
 

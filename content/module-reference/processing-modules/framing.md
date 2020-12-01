@@ -24,7 +24,7 @@ orientation
 : The orientation of the frame (portrait/landscape). Select 'auto' for darktable to choose the most reasonable orientation based on the underlying image.
 
 horizontal/vertical position
-: Select from a set of pre-defined ratios defining where you want your underlying image be positioned on the horizontal/vertical axis. You can also right click and enter your own ratio as `x/y`.
+: Select from a set of pre-defined ratios defining where you want your underlying image be positioned on the horizontal/vertical axis. You can also right click and enter your own ratio as "x/y".
 
 frame line size
 : The percentage of the frame line size relative to the border size at its smallest part.

@@ -44,7 +44,7 @@ The _denoise (profiled)_ module provides a few controls that are independent of 
 
 When describing the controls specific to an algorithm, we will first cover the simplified interface, and then move on to the more advanced controls for that algorithm.
 
-Note that sliders are provided with minimum and maximum values by default. However these are only soft limits and, where needed, higher values can be entered by `right-clicking` on the slider and using the keyboard.
+Note that sliders are provided with minimum and maximum values by default. However these are only soft limits and, where needed, higher values can be entered by right-clicking on the slider and using the keyboard.
 
 ## common controls
 
@@ -58,12 +58,12 @@ whitebalance-adaptive transform
 : As white balance amplifies the RGB channels differently, each channel exhibits different noise levels. This checkbox makes the selected algorithm adapt to the white balance. This option should be disabled on the second instance if you have used a first instance with a color blend mode.
 
 adjust autoset parameters (auto mode only)
-: Automatically adjust all the other parameters on the current denoising algorithm using a single slider interface. This is particularly useful when you have had to increase the exposure on an under-exposed image, which normally introduces additional noise as if you had taken the shot with a higher ISO. This control compensates for that by using settings similar to what it would use for a higher ISO image. In general, the value of this slider indicates the number of stops by which you had to increase the exposure. For example, if you had to push the exposure 2 stops above what you normally use, then set this slider to `2`.
+: Automatically adjust all the other parameters on the current denoising algorithm using a single slider interface. This is particularly useful when you have had to increase the exposure on an under-exposed image, which normally introduces additional noise as if you had taken the shot with a higher ISO. This control compensates for that by using settings similar to what it would use for a higher ISO image. In general, the value of this slider indicates the number of stops by which you had to increase the exposure. For example, if you had to push the exposure 2 stops above what you normally use, then set this slider to 2.
 
 strength
 : Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal to noise ratio. It's mostly a matter of taste if you prefer a rather low noise level at the costs of a higher loss of detail, or if you accept more remaining noise in order to have finer structures better preserved within your image.
 
-: In the case of _wavelets_ mode, the default value of this slider may not be sufficient. If you do not set a high enough strength, then adjusting the wavelet curves above it will not have a large enough effect. It is therefore recommended that you set a reasonably high strength on this slider, and than make finer adjustments on the wavelet curves. Don't hesitate to `right-click` and enter a higher value if the default soft limit for this slider doesn't allow for enough denoising. 
+: In the case of _wavelets_ mode, the default value of this slider may not be sufficient. If you do not set a high enough strength, then adjusting the wavelet curves above it will not have a large enough effect. It is therefore recommended that you set a reasonably high strength on this slider, and than make finer adjustments on the wavelet curves. Don't hesitate to right-click and enter a higher value if the default soft limit for this slider doesn't allow for enough denoising. 
 
 preserve shadows (advanced mode only)
 : Choose whether to denoise the shadows more agressively. Lower the value to denoise the shadows more. Usually, as noise increases, you will need to lower this value.

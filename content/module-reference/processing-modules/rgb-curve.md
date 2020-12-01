@@ -12,9 +12,9 @@ A classic digital photography tool to alter an image's tones using curves.
 
 This module is very similar to the [_tone curve_](./tone-curve.md) module but works in RGB color space.
 
-Activate the color picker on the left to show the picked values in the graph (`Ctrl+click` to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the widget.
+Activate the color picker on the left to show the picked values in the graph (Ctrl+click to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the widget.
 
-A second color picker to the right can be used to automtaically create new nodes based on the sampled area. `Ctrl+click+drag` to alter the created nodes to have a positive curve for the selected area; `Shift+click+drag` to create a negative curve.
+A second color picker to the right can be used to automtaically create new nodes based on the sampled area. Ctrl+click+drag to alter the created nodes to have a positive curve for the selected area; Shift+click+drag to create a negative curve.
 
 # module controls
 

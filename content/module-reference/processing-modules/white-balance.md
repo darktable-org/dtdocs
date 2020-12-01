@@ -24,7 +24,7 @@ temperature
 : Set the color temperature in Kelvin.
 
 tint
-: Alter the color tint of the image, from magenta (value `< 1`) to green (value `> 1`)
+: Alter the color tint of the image, from magenta (value < 1) to green (value > 1)
 
 ## white balance presets
 
@@ -49,13 +49,13 @@ finetune
 By default the RGB channel coefficients are hidden. You can expand/collapse the channel coefficients section by clicking on either the 'channel coefficients' label or the adjacent triangular button.
 
 red/green/blue
-: Set the value of each RGB channel from `0` to `8`
+: Set the value of each RGB channel from 0 to 8
 
 # additional functionality
 
 ## colored sliders
 
-By default the module's sliders are monochrome. However two flavors of colored sliders can be enabled in [`preferences > darkroom > white balance slider colors`](../../preferences-settings/darkroom.md) or by clicking on the 'scene illuminant temp' label in the module.
+By default the module's sliders are monochrome. However two flavors of colored sliders can be enabled in [preferences > darkroom > white balance slider colors](../../preferences-settings/darkroom.md) or by clicking on the 'scene illuminant temp' label in the module.
 
 no color
 : This is the default mode, meaning that background of the sliders is not colored at all.

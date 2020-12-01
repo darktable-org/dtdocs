@@ -24,7 +24,7 @@ Chromatic adaptation aims to predict how all surfaces in the scene would look if
 
 Chromatic adaptation is controlled within the Chromatic Adaptation Transformation (CAT) tab of the _color calibration_ module. When used in this way the _white balance_ module only needs to perform a basic white balance operation assuming a D65 illuminant ("camera reference" mode), which is expected by input color profiles. The remainder of the white balance (chromatic adaptation) is then performed by the _color calibration_ module, on top of those corrections performed by _white balance_ and _input color profile_. The use of custom matrices in the _input color profile_ module is therefore discouraged and the coefficients in the _white balance_ module need to be accurate in order for this module to work in a predictable way.
 
-The _color calibration_ and _white balance_ modules can be automatically applied to perform chromatic adaptation for new edits by setting the chromatic adaptation workflow option ([`preferences > processing > auto-apply chromatic adaptation defaults`](../../preferences-settings/processing.md)) to "modern". If you prefer to perform all white balancing within the _white balance_ module, a "legacy" option is also available. Neither option precludes the use of other modules such as [_color balance_](./color-balance.md) further down the pixel pipeline for creative color grading.
+The _color calibration_ and _white balance_ modules can be automatically applied to perform chromatic adaptation for new edits by setting the chromatic adaptation workflow option ([preferences > processing > auto-apply chromatic adaptation defaults](../../preferences-settings/processing.md)) to "modern". If you prefer to perform all white balancing within the _white balance_ module, a "legacy" option is also available. Neither option precludes the use of other modules such as [_color balance_](./color-balance.md) further down the pixel pipeline for creative color grading.
 
 By default, _color calibration_ performs chromatic adaptation by:
 
@@ -199,8 +199,7 @@ GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
                               └ B_in ┘
 ```
 
-When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. `[0.9, 0.3, -0.3]`) will make for smooth skin tones, whereas emphasising green (e.g. `[0.4, 0
-.75, -0.15]`) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
+When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. [0.9, 0.3, -0.3]) will make for smooth skin tones, whereas emphasising green (e.g. [0.4, 0.75, -0.15]) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
 
 ## grey tab controls
 
