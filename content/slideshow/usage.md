@@ -36,7 +36,7 @@ left shift-key
 
 ---
 
-**Hint:** To take full advantage of your screen size, put darktable into fullscreen mode by pressing `F11` and hide the border-controls by pressing the key `b`.
+**Hint:** To take full advantage of your screen size, put darktable into fullscreen mode by pressing F11 and hide the border-controls by pressing the B key.
 
 ---
 
