@@ -21,7 +21,7 @@ capture an image
 
 : Use the exposure slider to adjust the midtones in the image to an appropriate brightness level. At this stage, don't worry about highlights and shadows -- these will be handled later. 
 
-: You can also `click+drag` on the histogram to change the exposure, but this gives less control than using the _exposure_ module slider. While you can use the _exposure_ module to tweak the black level to supply more contrast, you need to be very careful doing this as you can end up with negative RGB values.
+: You can also click+drag on the histogram to change the exposure, but this gives less control than using the _exposure_ module slider. While you can use the _exposure_ module to tweak the black level to supply more contrast, you need to be very careful doing this as you can end up with negative RGB values.
 
 [_white balance_](../../module-reference/processing-modules/white-balance.md)
 : It is important that the white balance is set correctly to form a solid basis for subsequent processing. The camera will normally store the selected white balance setting inside the raw file's metadata, and darktable will use this as a starting point. To get a more accurate white balance, you can either use the color picker to select a neutral grey tone in the image, or you can switch to a different white balance preset from your camera, where available. Fine adjustments to the global white balance are made using the _temperature_ slider and, less often, the _tint_ slider. Moving the _temperature_ slider to the left makes the image cooler (more blue), and moving it to the right makes it warmer (more orange).

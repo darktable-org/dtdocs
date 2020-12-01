@@ -28,7 +28,7 @@ sort by
 
 ![top panel_overlays icon](./top-panel/top-panel_overlays.png) thumbnail overlays
 : Define what information is displayed over thumbnails in the lighttable/filmstrip.
-: You can define different settings depending on the thumbnail size in [`preferences > lighttable`](../../preferences-settings/lighttable.md)
+: You can define different settings depending on the thumbnail size in [preferences > lighttable](../../preferences-settings/lighttable.md)
 
 ![top panel_help icon](./top-panel/top-panel_help.png) context-sensitive help
 : Click on this icon and then click on a control element to be directed to the appropriate online help page.
