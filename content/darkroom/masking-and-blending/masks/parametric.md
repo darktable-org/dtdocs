@@ -33,15 +33,15 @@ The _boost factor_ slider allows the range of values targetted by the parametric
 
 ## inspecting data channels & masks
 
-Press the letter `C` while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in [`preferences > darkroom > display of individual color channels`](../../../preferences-settings/darkroom.md). 
+Press the letter C while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in [preferences > darkroom > display of individual color channels](../../../preferences-settings/darkroom.md). 
 
-Press the letter `M` to see the resulting mask for that slider overlaid on the image. 
+Press the letter M to see the resulting mask for that slider overlaid on the image. 
 
 When the mouse pointer leaves the slider the image returns to normal after a short delay. 
 
 ## linear / log mode
 
-Press the letter `A` while hovering over the a slider to change its display to 'log' mode. This provides more fine control in the shadows. Press `A` again to toggle back to 'linear' mode.
+Press the "A" key while hovering over the a slider to change its display to 'log' mode. This provides more fine control in the shadows. Press A again to toggle back to 'linear' mode.
 
 # channel input/output sliders
 
@@ -69,7 +69,7 @@ Conversely a range de-select function (enabled by toggling the polarity) by defa
 
 With the left-hand color picker button you can select a point or area probe from your image. The corresponding values for the real and virtual data channels are then displayed within each color channel slider.
 
-With the right-hand color picker button you can automatically set the slider's values based on the selected range. `Click` and drag to set the parameters for the input slider from the drawn rectangle; `Ctrl+click` and drag to set the parameters for the output slider.
+With the right-hand color picker button you can automatically set the slider's values based on the selected range. Click and drag to set the parameters for the input slider from the drawn rectangle; Ctrl+click and drag to set the parameters for the output slider.
 
 # invert
 

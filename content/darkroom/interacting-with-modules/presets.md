@@ -26,7 +26,7 @@ update preset \[name\]
 store new preset
 : Create a new preset using the module's current parameters.
 
-`Left-click` on a preset name to apply the preset to the current instance of the module.  `Middle-click` on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom by pressing the shortcut key that has been assigned to it (see [`preferences > shortcuts`](../../preferences-settings/shortcuts.md)).
+Left-click on a preset name to apply the preset to the current instance of the module.  Middle-click on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom by pressing the shortcut key that has been assigned to it (see [preferences > shortcuts](../../preferences-settings/shortcuts.md)).
 
 # creating and editing presets
 
@@ -43,7 +43,7 @@ description
 : A searchable description for the preset (optional)
 
 auto apply this preset to matching images
-: Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by `Ctrl+clicking` on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data.
+: Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by Ctrl+clicking on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data.
 
 : For example, if you want a preset to be applied to all images from a specific camera leave all fields at default values except for the model field. Leave all fields unchanged to auto-apply a preset to all images.
 
@@ -58,7 +58,7 @@ If you create a preset with the same name as a built-in preset, your newly creat
 
 # managing presets
 
-Both user-created and pre-defined presets can be viewed and managed from within [`preferences > presets`](../../../preferences-settings/presets.md).
+Both user-created and pre-defined presets can be viewed and managed from within [preferences > presets](../../../preferences-settings/presets.md).
 
 If you delete a preset that has the same name as one of the built-in presets, then your user preset will be deleted, and that preset name will no longer appear in the preset menu at all. The next time you start darktable, the corresponding built-in preset will once again become visible.
 

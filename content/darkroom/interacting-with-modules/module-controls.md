@@ -32,8 +32,8 @@ double-click
 
 In addition, the precision of mouse-wheel and arrow key-adjustments can be altered:
 
- - hold down the `Shift` key while adjusting to _increase_ the step size by a factor of 10. 
- - hold down the `Ctrl` key while adjusting to _decrease_ the step size by a factor of 10.
+ - hold down the Shift key while adjusting to _increase_ the step size by a factor of 10. 
+ - hold down the Ctrl key while adjusting to _decrease_ the step size by a factor of 10.
 
 Both of these multipliers can be amended in the `$HOME/.config/darktablerc` file:
 
@@ -48,8 +48,8 @@ Click on a combobox to open a list of available options which you can click to s
 
 # color pickers
 
-A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by `clicking` on the color picker icon. Area mode can be activated by `Ctrl+clicking` on the icon.
+A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by clicking on the color picker icon. Ctrl+click on the icon to activate area mode.
 
 # keyboard shortcuts
 
-Module parameters can also be amended with keyboard shortcuts. See [`preferences > shortcuts`](../../preferences-settings/shortcuts.md) for more information.
+Module parameters can also be amended with keyboard shortcuts. See [preferences > shortcuts](../../preferences-settings/shortcuts.md) for more information.

@@ -7,9 +7,9 @@ draft: false
 
 Many of darktable's modules can be applied more than once in the pixelpipe. Each instance of a module behaves independently, taking its input from the module below in the pixelpipe delivering its output to the module above.
 
-As with the base instance of a module, all instances can be moved independently within the pixelpipe either by holding `Ctrl+Shift` while dragging & dropping or by choosing "move up" or "move down" in the _multiple instances_ drop-down menu.
+As with the base instance of a module, all instances can be moved independently within the pixelpipe either by holding Ctrl+Shift while dragging & dropping or by choosing "move up" or "move down" in the _multiple instances_ drop-down menu.
 
-Instances can be renamed with `Ctrl+click` on the module header.
+Instances can be renamed by Ctrl+clicking on the module header.
 
 # typical use cases
 
