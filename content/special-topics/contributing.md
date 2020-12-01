@@ -8,7 +8,7 @@ author: "people"
 
 This page defines the style guide for dtdocs and information about how to contribute to the project.
 
-It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://github.com/darktable-org/dtdocs/blob/master/content/special-topics/memory.md) to see the source for this page.
+It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://raw.githubusercontent.com/darktable-org/dtdocs/master/content/special-topics/contributing.md) to see the source for this page.
 
 # format
 
