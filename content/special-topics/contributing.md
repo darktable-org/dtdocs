@@ -103,7 +103,7 @@ gui combobox name
 
 Definition lists are also used throughout the document, wherever a named piece of functionality needs to be defined. See, for example, [darktable-cli](./program-invocation/darktable-cli.md).
 
-## Notes
+## notes
 
 If you wish to present an important note to the user, use the following format:
 
@@ -113,7 +113,11 @@ If you wish to present an important note to the user, use the following format:
 
 ---
 
-## Links
+## fixed-width fonts and code blocks
+
+Fixed width fonts (using the \` character) should normally only be used for code blocks and when referencing file names and command line parameters.
+
+## links
 
 Internal links must be relative to the current file and must point to a valid markdown (.md) file. Start links with either `./` to represent the current directory or `../` to represent the parent directory.
 
@@ -123,9 +127,9 @@ Internal links must be relative to the current file and must point to a valid ma
 - Link to a tab in the preferences dialog: [preferences > general](../preferences-settings/general.md)
 - Link to a specific preference setting: [preferences > general > interface language](../preferences-settings/general.md)
 
-## Images
+## images
 
-When taking screenshots from the darktable application itself, use the default darktable theme.
+when taking screenshots from the darktable application itself, use the default darktable theme.
 
 Several keywords or filename suffixes are used to determine how an image is rendered.
 
