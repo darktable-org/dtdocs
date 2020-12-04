@@ -71,7 +71,7 @@ In addition to the basic modules described above, you may want to consider using
 There are some modules for which there is not yet an alternative that is well-suited to the scene-referred workflow. If required, these modules should be used sparingly and with care.
 
 [_vibrance_](../../module-reference/processing-modules/vibrance.md)
-: Tends to darken colors. Consider using using [_color zones_](../../module-reference/processing-modules/color-zones.md) with a saturation parametric mask to give more control.
+: Tends to darken colors. Consider using [_color zones_](../../module-reference/processing-modules/color-zones.md) with a saturation parametric mask to give more control.
 
 [_color zones_](../../module-reference/processing-modules/color-zones.md)
 : Transitions may not be graceful. An alternative can be to use [_color balance_](../../module-reference/processing-modules/color-balance.md) with a parameteric mask.
