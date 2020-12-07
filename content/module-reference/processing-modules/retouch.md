@@ -18,7 +18,7 @@ Cloning allows us to hide part of an image by replacing it with an area copied f
 
 ![retouch-original](./retouch/rt-original.png)
 
-The simplest way to do this is with the _basic cloning_ tool (![retouch-clone-icon](./retouch/rt-clone-icon.png)) -- simply take a circle of blue sky next to the cloud, and use it to paint over the cloud we want to hide:
+The simplest way to do this is with the _basic cloning_ tool (![retouch-clone-icon](./retouch/rt-clone-icon.png#icon)) -- simply take a circle of blue sky next to the cloud, and use it to paint over the cloud we want to hide:
 
 ![retouch-clone](./retouch/rt-clone.png)
 
@@ -26,7 +26,7 @@ However, if the sample we take doesn't precisely match the surroundings of the i
 
 ![retouch-clone-nocontrol](./retouch/rt-clone-nocontrol.png)
 
-If we instead use the _heal_ tool (![retouch-heal-icon](./retouch/rt-heal-icon.png)), the color and luma of the sample is blended to fit better with the surroundings. In our example, using _heal_ instead of _clone_ gives a much more uniform-looking result:
+If we instead use the _heal_ tool (![retouch-heal-icon](./retouch/rt-heal-icon.png#icon)), the color and luma of the sample is blended to fit better with the surroundings. In our example, using _heal_ instead of _clone_ gives a much more uniform-looking result:
 
 ![retouch-heal-nocontrol](./retouch/rt-heal-nocontrol.png)
 
@@ -34,10 +34,10 @@ If we instead use the _heal_ tool (![retouch-heal-icon](./retouch/rt-heal-icon.p
 
 The _clone_ and _heal_ tools both require us to specify another part of the image, which is used to "fill in" the region we want to hide. Sometimes there is no suitable sample in the image that we can use to fill over the spot. In such cases, the _retouch_ module offers two further options:
 
-![retouch-fill-icon](./retouch/rt-fill-icon.png) fill tool
+![retouch-fill-icon](./retouch/rt-fill-icon.png#icon) fill tool
 : This tool will fill in the selected region using a chosen color.
 
-![retouch-blur-icon](./retouch/rt-blur-icon.png) blur tool
+![retouch-blur-icon](./retouch/rt-blur-icon.png#icon) blur tool
 : This tool applies a blur to the selected region, smoothing out any detail.
 
 These two options are most useful when used together with wavelet decomposition, where they can be used to smooth over features within a selected detail layer.
@@ -85,7 +85,7 @@ shapes
 
 : Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel). 
 
-: Click the _show and edit shapes_ button (![retouch-shapes-icon](./retouch/rt-shapes-icon.png)) to show all existing shapes for the currently-selected wavelet scale (see below) and edit them.
+: Click the _show and edit shapes_ button (![retouch-shapes-icon](./retouch/rt-shapes-icon.png#icon)) to show all existing shapes for the currently-selected wavelet scale (see below) and edit them.
 
 algorithms
 : Choose a retouching algorithm: clone, heal, fill or blur (see above for details).
@@ -125,22 +125,22 @@ merge from
        o                    scale 1 edits
 ```
 
-![retouch-display-icon](./retouch/rt-display-icon.png) display wavelet scale
+![retouch-display-icon](./retouch/rt-display-icon.png#icon) display wavelet scale
 : Toggles whether to display the currently-selected wavelet layer on the center image. Selecting this option brings up an additional control -- _preview single scale_.
 
 preview single scale
-: An additional control that allows the black, white and grey points of the wavelet scale preview to be adjusted to make it easier to see. Click the ![auto-levels-icon](./retouch/rt-auto-levels-icon.png) to set them automatically. This does not affect the module's operation -- only the wavelet scale preview.
+: An additional control that allows the black, white and grey points of the wavelet scale preview to be adjusted to make it easier to see. Click the ![auto-levels-icon](./retouch/rt-auto-levels-icon.png#icon) to set them automatically. This does not affect the module's operation -- only the wavelet scale preview.
 
-![retouch-cut-icon](./retouch/rt-cut-icon.png) cut
+![retouch-cut-icon](./retouch/rt-cut-icon.png#icon) cut
 : Place all shapes on the currently-selected layer onto the clipboard so they can be moved to another layer
 
-![retouch-paste-icon](./retouch/rt-paste-icon.png) paste
+![retouch-paste-icon](./retouch/rt-paste-icon.png#icon) paste
 : Move the shapes on the clipboard to the currently-selected layer.
 
-![retouch-hide-icon](./retouch/rt-hide-icon.png) temporarily switch off shapes
+![retouch-hide-icon](./retouch/rt-hide-icon.png#icon) temporarily switch off shapes
 : Toggle all shapes (whether on the current layer or not) on or off, so temporarily removing the module's effect.
 
-![retouch-mask-icon](./retouch/rt-mask-icon.png) display masks
+![retouch-mask-icon](./retouch/rt-mask-icon.png#icon) display masks
 : Show the target shapes associated with the currently-selected layer with a yellow overlay.
 
 

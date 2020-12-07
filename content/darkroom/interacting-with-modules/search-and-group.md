@@ -13,7 +13,7 @@ darktable ships with some standard pre-defined module group presets, which can b
 
 # groups
 
-Click on one of the _module group_ icons above the _search module_ textbox to see all of the modules which belong to that group. Click on the _active modules_ group (![module-group-active-icon](./search-and-group/module-group-active-icon.png)) to list the modules that are active in the pixelpipe of the current edit.
+Click on one of the _module group_ icons above the _search module_ textbox to see all of the modules which belong to that group. Click on the _active modules_ group (![module-group-active-icon](./search-and-group/module-group-active-icon.png#icon)) to list the modules that are active in the pixelpipe of the current edit.
 
 If you click on any module group (including the _active modules_ group) a second time, a complete list of all available modules is shown.
 

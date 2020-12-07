@@ -93,7 +93,7 @@ gui control name
 
 : You can include as many paragraphs as you like, but try to limit to 2 or 3 where possible.
 
-![active-icon](./contributing/active-icon.png) a control accessed through a button with an icon
+![active-icon](./contributing/active-icon.png#icon) a control accessed through a button with an icon
 : When a control is activated using an icon, take a screenshot of the icon using the standard darktable theme and add it before the name of the control
 
 gui combobox name
@@ -134,7 +134,7 @@ when taking screenshots from the darktable application itself, use the default d
 Several keywords or filename suffixes are used to determine how an image is rendered.
 
 icon
-: To insert an image as an icon, ensure that the "alt text" has the word "icon" at the end. The markdown `![squirrel icon](./contributing/contributing.png)` causes the following output: ![squirrel icon](./contributing/squirrel.png)
+: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./contributing/contributing.png#icon)` causes the following output: ![squirrel icon](./contributing/squirrel.png#icon)
 
 image width
 : You can set the image width to 25, 50, 75 or 100 per cent of the rendered page width by including "#wxx" after the image name in the link, where xx is the desired width.

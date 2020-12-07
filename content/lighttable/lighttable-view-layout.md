@@ -71,8 +71,8 @@ From left to right:
 [zoom](./lighttable-modes/filemanager.md)
 : Use the slider to change the size of thumbnails
 
-![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
+![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png#icon) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
 : Click to enable focus-peaking mode
 
-![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png) [set display profile](../special-topics/color-management/display-profile.md)
+![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png#icon) [set display profile](../special-topics/color-management/display-profile.md)
 : Click to choose display profiles
