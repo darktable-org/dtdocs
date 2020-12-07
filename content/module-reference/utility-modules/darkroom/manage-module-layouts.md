@@ -64,70 +64,70 @@ In addition, if you have upgraded an older version of darktable to 3.4, two addi
 
 The _modules: default_ layout preset consists of the following module groups
 
-![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png) technical modules
+![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png#icon) technical modules
 : Modules that deal with technical issues relating to the physics of sensors and denoising, lenses and associated corrections, color profiles, dynamic range and tone mapping, and recovering from damage to the image by physical limitations (hot pixels, clipped highlights, etc.)
 
-![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png) grading modules
+![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png#icon) grading modules
 : Modules concerned with primary (corrective) and secondary (creative) subjective corrections of colors and tones
 
-![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as retouch, liquify, bloom, sharpen, etc..
 
 ## _modules: all_
 
 The _modules: all_ preset contains all modules, sorted according to the following groups:
 
-![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
+![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : A minimal set of modules normally required to render a presentable image.
 
-![module-group-tone-icon](./manage-module-layouts/module-group-tone-icon.png) tone modules
+![module-group-tone-icon](./manage-module-layouts/module-group-tone-icon.png#icon) tone modules
 : Other modules relating to tone levels and contrast
 
-![module-group-color-icon](./manage-module-layouts/module-group-color-icon.png) color modules
+![module-group-color-icon](./manage-module-layouts/module-group-color-icon.png#icon) color modules
 : Modules relating to color grading and color profiles
 
-![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png) corrective modules
+![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png#icon) corrective modules
 : Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, etc..
 
-![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : Includes special effects such as retouch, liquify, bloom, sharpen, etc..
 
 ## _workflow: scene-referred_, _workflow: display-referred_
 
 The _workflow: scene-referred_ and _workflow: display-referred_ presets define groups of modules relevant to those workflows, sorted into groups as shown below:
 
-![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
+![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply tone mappings and contrast as appropriate to the workflow.
 
-![module-group-color-icon](./manage-module-layouts/module-group-color-icon.png) color modules
+![module-group-color-icon](./manage-module-layouts/module-group-color-icon.png#icon) color modules
 : Modules relating to color grading and color saturation.
 
-![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png) corrective modules
+![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png#icon) corrective modules
 : Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, retouching, etc..
 
-![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : Includes special effects such as watermarks, framing, vignetting, etc..
 
 ## _workflow: beginner_
 
 The _workflow: beginner_ preset provides a minimal set of modules targeted as a starting point for beginners, and consists of the following module groups:
 
-![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png) base modules
+![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply a basic tone mapping via base curve or basic adjustments.
 
-![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png) grading modules
+![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png#icon) grading modules
 : Modules dealing with creative tone and color grading.
 
-![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png) (special) effects modules
+![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : Includes special effects such as retouch, sharpen, watermarks, etc..
 
 ## previous config module groups
 
 These follow the layouts of the previous two groups, but include an additional _favourites_ group where users made use of this feature in prior versions of darktable. Now that users may create their own custom groups, there is no longer a need for an explicit "favourites" group.
 
-![module-group-favourites-icon](./manage-module-layouts/module-group-favorites-icon.png) favourite modules
+![module-group-favourites-icon](./manage-module-layouts/module-group-favorites-icon.png#icon) favourite modules
 : This group was previously used by users to make it easier to find frequently-used modules, and is available under the "previous config" presets. New users can, of course, still create their own custom group and name it "favourites" if they so desire.
 
 ## active module group
 
-In addition, all module layouts include the ![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png) _active group_, which lists all modules that are currently active in the pixelpipe.
+In addition, all module layouts include the ![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png#icon) _active group_, which lists all modules that are currently active in the pixelpipe.

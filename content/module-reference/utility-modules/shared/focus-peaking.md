@@ -8,7 +8,7 @@ view: lighttable, darkroom, tethering, map
 
 The _focus peaking_ module allows you to identify which parts of the image are sharp and in-focus. It works both in the lighttable view, where you can easily see at a glance which images are sharp and which are blurry, and in the darkroom view, when you are processing a single image.
 
-The module is activated by clicking on the focus-peaking icon (![focus-peaking-icon](./focus-peaking/focus-peaking-icon.png)). It highlights the sharp parts of the image with a yellow, green and blue overlay:
+The module is activated by clicking on the focus-peaking icon (![focus-peaking-icon](./focus-peaking/focus-peaking-icon.png#icon)). It highlights the sharp parts of the image with a yellow, green and blue overlay:
 
 ![focus-peaking-overview](./focus-peaking/focus-peaking-overview.png#w75)
 

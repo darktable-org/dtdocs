@@ -74,7 +74,7 @@ In this configuration, filmic will only perform a logarithmic tone mapping betwe
 
 # graphic display
 
-The graphic display of the _filmic rgb_ module now offers multiple views. You can cycle through the different views using the ![view-icon](./filmic-rgb/view-icon.png) icon to the right of the graph display. You can also toggle the labels on the axes on and off using the ![legend-icon](./filmic-rgb/legend-icon.png) icon. The available displays are:
+The graphic display of the _filmic rgb_ module now offers multiple views. You can cycle through the different views using the ![view-icon](./filmic-rgb/view-icon.png#icon) icon to the right of the graph display. You can also toggle the labels on the axes on and off using the ![legend-icon](./filmic-rgb/legend-icon.png#icon) icon. The available displays are:
 
 look only
 : This is the traditional graph provided by _filmic rgb_. The main bright curve shows how the dynamic range of scene (in EV) is compressed into the display-referred output range. The orange dot shows the middle grey point, the white dots either side mark out the latitude range, and the organge part of the curve at the bottom indicates an overshoot problem with the spline (the _look_ tab in the _module controls_ section has some controls to deal with this).  The darker curve shows how the color saturation is rolled off in the highlights and shadows extremes.

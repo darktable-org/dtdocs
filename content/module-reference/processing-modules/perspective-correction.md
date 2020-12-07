@@ -16,7 +16,7 @@ This module is able to correct converging lines by warping the image in such a w
 
 # analysing the structure of an image
 
-Click the ![structure-icon](./perspective-correction/icon-get-structure.png) icon to analyze the image for structural elements -- darktable will automatically detect and evaluate line elements. Only lines that form a set of vertical or horizontal converging lines are used for the subsequent processing steps. The line segments are displayed as overlays on the image canvas, with the type of line identified by color:
+Click the ![structure-icon](./perspective-correction/icon-get-structure.png#icon) icon to analyze the image for structural elements -- darktable will automatically detect and evaluate line elements. Only lines that form a set of vertical or horizontal converging lines are used for the subsequent processing steps. The line segments are displayed as overlays on the image canvas, with the type of line identified by color:
 
 green
 : Vertical converging lines
@@ -74,14 +74,14 @@ aspect ratio
 : If the _lens model_ is set to "specific", this parameter allows for a free manual adjustment of the image's aspect ratio.
 
 automatic fit
-: Click on one of the _automatic fit_ icons to set the distortion correction sliders automatically based on the edge detection analysis. You can choose to automatically apply just the vertical corrections ![vertical-icon](./perspective-correction/icon-vertical.png), just the horizontal corrections ![horizontal-icon](./perspective-correction/icon-horizontal.png), or both together ![both-icon](./perspective-correction/icon-both.png). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
+: Click on one of the _automatic fit_ icons to set the distortion correction sliders automatically based on the edge detection analysis. You can choose to automatically apply just the vertical corrections ![vertical-icon](./perspective-correction/icon-vertical.png#icon), just the horizontal corrections ![horizontal-icon](./perspective-correction/icon-horizontal.png#icon), or both together ![both-icon](./perspective-correction/icon-both.png#icon). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
 
 get structure
-: Click on the ![structure-icon](./perspective-correction/icon-get-structure.png) icon to (re-)analyze the image for suitable line segments. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
+: Click on the ![structure-icon](./perspective-correction/icon-get-structure.png#icon) icon to (re-)analyze the image for suitable line segments. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
 
-: Click on the ![cross-icon](./perspective-correction/icon-cross.png)icon to discard any structural information collected during previous analysis steps.
+: Click on the ![cross-icon](./perspective-correction/icon-cross.png#icon)icon to discard any structural information collected during previous analysis steps.
 
-: Click on the ![eye-icon](./perspective-correction/icon-eye.png) icon to toggle the display of line segments identified by any previous structural analysis.
+: Click on the ![eye-icon](./perspective-correction/icon-eye.png#icon) icon to toggle the display of line segments identified by any previous structural analysis.
 
 # examples
 

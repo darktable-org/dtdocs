@@ -141,7 +141,7 @@ select by value
 
 You can combine multiple filters together to create more complex collections of images using a series of rules. A rule is a combination of a filter critera along with a logical operation that defines how that criteria is combined with any previous rules.
 
-Click on the ![collect-expander-icon](./collect-images/collect-expander.png) button (to the right of the search field) to open a menu with the following options:
+Click on the ![collect-expander-icon](./collect-images/collect-expander.png#icon) button (to the right of the search field) to open a menu with the following options:
 
 clear this rule
 : Remove the current rule – or reset to default if this is the only rule defined.
@@ -155,7 +155,7 @@ add more images
 exclude images
 : Add a new rule, which is combined with the previous rule(s) in a logical EXCEPT operation. Images that are selected by the new criteria are excluded from the collection.
 
-The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![collect-and-icon](./collect-images/collect-and.png) symbol, OR by the ![collect-or-icon](./collect-images/collect-or.png) symbol, and EXCEPT by the ![collect-except-icon](./collect-images/collect-except.png) symbol. Clicking on any of these icons allows you to change the logical operation for that rule.
+The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![collect-and-icon](./collect-images/collect-and.png#icon) symbol, OR by the ![collect-or-icon](./collect-images/collect-or.png#icon) symbol, and EXCEPT by the ![collect-except-icon](./collect-images/collect-except.png#icon) symbol. Clicking on any of these icons allows you to change the logical operation for that rule.
 
 ## updating the folder path of moved images
 
