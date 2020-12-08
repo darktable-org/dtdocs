@@ -38,12 +38,12 @@ uniformly
 : Reprocessing takes place with the chosen blend mode and opacity based on a mask that was generated within a different module
 
 blending options
-: Choose which color space to perform blending in and whether or not to show output channels. The following options are available:
-: - _reset to default blend colorspace_: Perform blending operations in the default color space for the module.
-: - _Lab_: Perform blending operations in the Lab color space (where available).
-: - _RGB (display)_: Perform blending operations in the display RGB color space.
-: - _RGB (scene)_: Perform blending operations in the scene RGB color space.
-: - _show output channels_: Show the output channels in the [parametric mask](./masks/parametric.md) controls.
+: Choose which color space to use when calculating the blending mask, and specify whether or not to allow a mask to be generated based on the module's output channels (normally a parametric mask is generated based on the input channels coming into the module). The following options are available:
+: - _reset to default blend colorspace_: Perform blending mask generation based on parameters within in the default color space for the module.
+: - _Lab_: Perform generation of the blending mask based on parameters defined in the Lab color space (where available).
+: - _RGB (display)_: Perform generation of the blending mask based on parameters defined in the display-referred RGB/HSL color space.
+: - _RGB (scene)_: Perform generation of the blending mask based on parameters defined in the scene-referred RGB/J<sub>z</sub>C<sub>z</sub>h</sub>z</sub> color space.
+: - _show output channels_: Show the output channels in the [parametric mask](./masks/parametric.md) controls, so that the parametric mask can be defined in terms of the modules output channels.
 
 ---
 
