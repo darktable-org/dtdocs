@@ -16,7 +16,7 @@ There are two ways in which a pixel might become clipped when represented in the
 
 The "clipping warning" module is used to highlight those pixels that cannot be accurately represented in the output color space, either due to luminance or gamut clipping. Prior to darktable 3.4, the clipping highlighted any pixels that exceeded the maximum allowed value on any of the [R,G,B] channels, or that had been completely crushed to black. From darktable 3.4 onwards, the clipping warning indicator has some additional modes to help you to differentiate between luminance and gamut clipping, so that you can make better decisions about how to address any issues.
 
-![clipping-menu](./clipping/clipping-menu.png)
+![clipping-menu](./clipping/clipping-menu.png#w33)
 
 The clipping warning module, described here, deals with clipping caused by image processing and the limitations of the output color space. It should not be confused with the following similar tools:
 

@@ -8,7 +8,7 @@ view: darkroom
 
 Manage all masks and shapes for the current image. 
 
-![mask manager](./mask-manager/mask-manager.png)
+![mask manager](./mask-manager/mask-manager.png#w25)
 
 This module can be used to create, rename, edit and delete shapes. You can add shapes to and remove shapes from a mask, group shapes together, and combine them using set operators. 
 
@@ -58,26 +58,26 @@ move up/down
 
 As an example we will use a mask that combines a gradient followed by a path, to demonstrate the effect of each set operator when applied to the path shape. As a convention we say that a pixel is “selected” in a mask or shape if it has a value higher than zero. 
 
-![gradient](./mask-manager/mask-manager_ex1.png#w25) 
+![gradient](./mask-manager/mask-manager_ex1.png#w33) 
 
-![path](./mask-manager/mask-manager_ex2.png#w25)
+![path](./mask-manager/mask-manager_ex2.png#w33)
 
 union
 : This is the default set operator. It is depicted by the symbol ![union-icon](./mask-manager/masks_union.png#icon) to the left of the shape name. The shape adds to the existing mask in such a way that the resulting mask contains the pixels that are *either* selected in the existing mask *or* in the added shape. In overlapping areas the maximum value is taken: 
 
-: ![union](./mask-manager/mask-manager_ex3.png#w25)
+: ![union](./mask-manager/mask-manager_ex3.png#w33)
 
 intersection
 : This set operator is depicted by the symbol ![intersection-icon](./mask-manager/masks_intersection.png#icon) to the left of the shape name. The shape adds to the existing mask in such a way that the resulting mask contains only pixels that are selected in *both* the existing mask *and* the added shape. In overlapping areas the minimum value is used. In the given example we use this operator to “imprint” the path with a gradient: 
 
-: ![intersection](./mask-manager/mask-manager_ex4.png#w25)
+: ![intersection](./mask-manager/mask-manager_ex4.png#w33)
 
 difference
 : This set operator is depicted by the symbol ![difference-icon](./mask-manager/masks_difference.png#icon) to the left of the shape name. In the non-overlapping area the existing mask is unchanged. In the resulting mask, pixels are selected only if they are selected in the existing mask but *not* in the added shape. This set operator can be chosen if you want to “cut out” a region from within an existing selection: 
 
-: ![difference](./mask-manager/mask-manager_ex5.png#w25)
+: ![difference](./mask-manager/mask-manager_ex5.png#w33)
 
 exclusion
 : This set operator is depicted by the symbol ![exclusion-icon](./mask-manager/masks_exclusion.png#icon) to the left of the shape name. The resulting mask has all pixels selected that are either selected in the existing mask and not in the added shape or vice versa. This is equivalent to an “exclusive or”: 
 
-: ![exclusion](./mask-manager/mask-manager_ex6.png#w25)
+: ![exclusion](./mask-manager/mask-manager_ex6.png#w33)

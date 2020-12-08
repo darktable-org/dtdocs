@@ -16,19 +16,19 @@ This module extends the capabilities of the [_spot removal_](./spot-removal.md) 
 
 Cloning allows us to hide part of an image by replacing it with an area copied from another part of the image. For example, we may wish to get rid of a small cloud in a blue sky:
 
-![retouch-original](./retouch/rt-original.png)
+![retouch-original](./retouch/rt-original.png#w33)
 
 The simplest way to do this is with the _basic cloning_ tool (![retouch-clone-icon](./retouch/rt-clone-icon.png#icon)) -- simply take a circle of blue sky next to the cloud, and use it to paint over the cloud we want to hide:
 
-![retouch-clone](./retouch/rt-clone.png)
+![retouch-clone](./retouch/rt-clone.png#w33)
 
 However, if the sample we take doesn't precisely match the surroundings of the item we want to clone out, the result can look a bit jarring. In our example, the sample of sky we chose to use (the clone "source" patch) was slightly darker than the piece of sky we wanted to replace (the "target" patch):
 
-![retouch-clone-nocontrol](./retouch/rt-clone-nocontrol.png)
+![retouch-clone-nocontrol](./retouch/rt-clone-nocontrol.png#w33)
 
 If we instead use the _heal_ tool (![retouch-heal-icon](./retouch/rt-heal-icon.png#icon)), the color and luma of the sample is blended to fit better with the surroundings. In our example, using _heal_ instead of _clone_ gives a much more uniform-looking result:
 
-![retouch-heal-nocontrol](./retouch/rt-heal-nocontrol.png)
+![retouch-heal-nocontrol](./retouch/rt-heal-nocontrol.png#w33)
 
 # fill and blur
 
@@ -68,11 +68,11 @@ Wavelets allow us to decompose an image into different layers with varying level
 
 Through this method, we could for example use the healing tool to paint over a spot that appears in one of the coarse detail layers, while leaving the whiskers in the fine detail layers intact:
 
-![retouch-beard-preserve](./retouch/rt-beard-preserve.jpg)
+![retouch-beard-preserve](./retouch/rt-beard-preserve.jpg#w50)
 
 # module controls
 
-![retouch-overview](./retouch/rt-overview.png)
+![retouch-overview](./retouch/rt-overview.png#w33)
 
 ## retouch tools
 

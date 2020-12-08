@@ -8,7 +8,7 @@ view: lighttable, tethering
 
 A graphical depiction of the developed image's light levels.
 
-![histogram](./histogram/histogram.png#w50)
+![histogram](./histogram/histogram.png#w33)
 
 Move the mouse over the panel to show buttons to adjust the display. The leftmost button cycles the mode between a "regular" and a waveform-style histogram. The next button controls how the data for the current mode is displayed. The three rightmost colored squares are toggles which enable or disable the display of the red, green and blue color channels.  
 
@@ -18,7 +18,7 @@ For the purposes of speed, the histogram display is calculated from the image pr
 
 # the "regular" histogram
 
-![histogram-regular](./histogram/histogram-regular.png#w50)
+![histogram-regular](./histogram/histogram-regular.png#w33)
 
 This shows the distribution of pixels by lightness for each color channel channel. In its default state, data for all three RGB color channels is displayed. The x-axis runs from 0% to 100% lightness for each channel. The y-axis gives the count of pixels with the given lightness.
 
@@ -26,7 +26,7 @@ Click the second-to-leftmost button on the panel to toggle between a logarithmic
 
 # waveform
 
-![histogram-waveform](./histogram/histogram-waveform.png#w50)
+![histogram-waveform](./histogram/histogram-waveform.png#w33)
 
 The waveform scope includes spatial data about the image. The y-axis represents the distribution of pixels by lightness for each channel. The x-axis represents the distribution of this data across the x-axis of the image. The lightness of each point of the waveform represents the number of pixels at that position.  
 
@@ -38,7 +38,7 @@ See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histogram
 
 # rgb parade
 
-![histogram-parade](./histogram/histogram-parade.png#w50)
+![histogram-parade](./histogram/histogram-parade.png#w33)
 
 This shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side. When in waveform mode, clicking the second-to-leftmost button on the panel toggles between waveform (overlaid) and RGB parade rendering of the data.  
 

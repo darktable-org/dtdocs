@@ -32,7 +32,7 @@ Left-click on a preset name to apply the preset to the current instance of the m
 
 When creating or editing presets, the following dialog is shown:
 
-![new preset](./presets/new_preset.png)
+![new preset](./presets/new_preset.png#w33)
 
 The following options can be set:
 

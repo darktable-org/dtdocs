@@ -20,7 +20,7 @@ The tagging module consists of two sections
 
 2. The lower _tag dictonary_ section (with the _new/import.../export..._ buttons under it)
 
-![tagging-overview](./tagging-overview/tagging-overview.png)
+![tagging-overview](./tagging-overview/tagging-overview.png#w33)
 
 ## attached tags section
 

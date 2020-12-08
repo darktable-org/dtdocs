@@ -21,7 +21,7 @@ keyboard arrow keys
 right-click
 : When your mouse is over a slider right-clicking enables a multi-functional pop-up below the slider for fine control with your mouse or numerical entry using the keyboard.
 
-: ![bauhaus](./module-controls/bauhaus.png#w50)
+: ![bauhaus](./module-controls/bauhaus.png#w33)
 
 : A bent line extending from the triangular marker moves with your mouse. The closer your mouse pointer is to the triangular marker the coarser the control you have over the value; the further away from the triangular marker the finer your control. Left-click with your mouse to accept the new value and and hide the pop-up.
 

@@ -21,17 +21,17 @@ The _color zones_ module offers three different methods for selecting which pixe
 select by hue (default)
 : Choose which pixels to manipulate based on their hue. For example, you may want to darken a blue sky, or to change a red porche into a yellow one. The following image shows the full range of hues that you can choose to operate on:
 
-: ![color zones choose hue](./color-zones/color-zones-choose-hue.png#w50)
+: ![color zones choose hue](./color-zones/color-zones-choose-hue.png#w33)
 
 select by lightness
 : Choose which pixels to manipulate based on their lightness. For example, you may want to make your shadows brighter (which is like doing a sort of tone mapping), or to make your highlights a little more yellow in hue. The following image shows the range of lightness levels that you can choose to operate on, from dark to light:
 
-: ![color zones choose lightness](./color-zones/color-zones-choose-lightness.png#w50)
+: ![color zones choose lightness](./color-zones/color-zones-choose-lightness.png#w33)
 
 select by saturation
 : Choose which pixels to manipulate based on their saturation. For example, you may want to tone down the saturation of some already highly saturated pixels, or to change their hue. The following image shows the range of saturation levels that you can choose to operate on, from a completely unsaturated monochrome grey through to the most highly saturated color:
 
-: ![color zones choose saturation](./color-zones/color-zones-choose-saturation.png#w50)
+: ![color zones choose saturation](./color-zones/color-zones-choose-saturation.png#w33)
 
 # pixel manipulation curves
 
@@ -42,17 +42,17 @@ If, for example, you were to choose to _select by hue_ (the default), the horizo
 lightness
 : By adjusting the lightness curve up or down in a given (hue) location, you can brighten or darken pixels matching hues where the curve has been raised or lowered, respectively. In the example below the blue sky in an image has been darkened for dramatic effect:
 
-: ![color zones adjust lightness](./color-zones/color-zones-adjust-lightness.png#w50)
+: ![color zones adjust lightness](./color-zones/color-zones-adjust-lightness.png#w33)
 
 saturation
 : By adjusting the saturation curve up or down in a given (hue) location, you can desaturate (make less colorful) or resaturate (make more colorful) pixels matching hues where the curve has been raised or lowered, respectively. In the example below, a red object in the background has been desaturated so it is less of a distraction to the main subject of the photo:
 
-: ![color zones adjust saturation](./color-zones/color-zones-adjust-saturation.png#w50)
+: ![color zones adjust saturation](./color-zones/color-zones-adjust-saturation.png#w33)
 
 hue
 : By adjusting the hue curve up or down in a given (hue) location, you can shift the hue of pixels matching hues where the curve has been raised or lowered, respectively, allowing you to replace one color with another. In the example below, a pink toy in an image has been changed to blue:
 
-: ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png#w50)
+: ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png#w33)
 
 The curves work similarly in the lightness-based and saturation-based selection modes as well. See the section on [curves](../../darkroom/interacting-with-modules/curves.md) to see how spline curves work in general.
 
@@ -68,7 +68,7 @@ If you click on the color picker on the right, you can similarly choose a rectan
 
 If you hold Ctrl while selecting a region using the right-hand color picker, the auto-generated curve nodes will be automatically pushed up in the selected range. You can then fine-tune by dragging on the individual nodes. If you hold Shift while selecting a region, the curve will instead be pushed down in the selected range.
 
-![color zones overview](./color-zones/color-zones-overview.png#w50)
+![color zones overview](./color-zones/color-zones-overview.png#w33)
 
 # module controls
 

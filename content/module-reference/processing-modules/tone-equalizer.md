@@ -56,7 +56,7 @@ This tab contains all of the controls required to set up the guided mask. The pu
 
 To avoid having to switch back and forth between the _advanced_ tab and the _masking_ tab, under the "mask post processing" label there is a grey bar which shows a representation of the middle 80% of the histogram. By using the controls mentioned below to centre and spread out this grey bar, you can then expect to have a nicely shaped histogram when you return to the "advanced" tab. If you see orange at either end of the grey bar, it means too much of the histogram has moved off the edge of the screen, and you need to bring it back to centre and/or compress it a bit more.
 
-![tone-equalizer-mask-histogram](./tone-equalizer/tone-equalizer-mask-histogram.png)
+![tone-equalizer-mask-histogram](./tone-equalizer/tone-equalizer-mask-histogram.png#w33)
 
 When setting up the mask, there are a number of trade-offs to be made to balance the blurring within tonal regions against the preservation of boundaries between these regions.
 

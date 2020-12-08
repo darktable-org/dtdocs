@@ -15,7 +15,7 @@ The opacity can be the same for every pixel in the image (by simply combining a 
 
 Blending and masking functionality is controlled via a group of icons located at the bottom of each applicable module. 
 
-![mask & blend options](./overview/mask-blend-options.png)
+![mask & blend options](./overview/mask-blend-options.png#w33)
 
 These icons enable the following masking and blending options, from left to right:
 

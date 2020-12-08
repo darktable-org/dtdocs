@@ -7,7 +7,7 @@ draft: false
 
 At the top of the right-hand panel in the darkroom view is a module that allows you to search for and select from pre-defined groups of processing modules:
 
-![group and search](./search-and-group/module-group-and-search.png#w25)
+![group and search](./search-and-group/module-group-and-search.png#w33)
 
 darktable ships with some standard pre-defined module group presets, which can be selected from the presets menu on the right-hand-side of the module groups list. You can also customize and create your own groups by selecting "manage presets..." from the same drop-down menu. Please refer to the [_manage module layouts_](../../module-reference/utility-modules/darkroom/manage-module-layouts.md) section for more details about this functionality.
 

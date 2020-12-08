@@ -87,11 +87,11 @@ get structure
 
 Here is an image with a skewed horizon and converging lines caused by directing the camera upwards:
 
-![prespective-correction-example-before](./prespective-correction/perspective-correction-example-before.png#w75)
+![prespective-correction-example-before](./prespective-correction/perspective-correction-example-before.png#w66)
 
 Here is the image after having corrected for vertical and horizontal perspective distortions. Note the framing by the automatic cropping feature and the still-visible overlay of structural lines:
 
-![prespective-correction-example-after](./prespective-correction/perspective-correction-example-after.png#w75)
+![prespective-correction-example-after](./prespective-correction/perspective-correction-example-after.png#w66)
 
 
 

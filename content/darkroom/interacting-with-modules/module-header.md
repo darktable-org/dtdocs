@@ -7,7 +7,7 @@ draft: false
 
 At the top of each processing module is the _module header_. 
 
-![module header](./module-header/module-header.png#w25)
+![module header](./module-header/module-header.png#w33)
 
 Click on the module name to expand the module and display the parameters that control its operation.
 

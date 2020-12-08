@@ -79,22 +79,22 @@ The graphic display of the _filmic rgb_ module now offers multiple views. You ca
 look only
 : This is the traditional graph provided by _filmic rgb_. The main bright curve shows how the dynamic range of scene (in EV) is compressed into the display-referred output range. The orange dot shows the middle grey point, the white dots either side mark out the latitude range, and the organge part of the curve at the bottom indicates an overshoot problem with the spline (the _look_ tab in the _module controls_ section has some controls to deal with this).  The darker curve shows how the color saturation is rolled off in the highlights and shadows extremes.
 
-: ![filmic-rgb-look-only](./filmic-rgb/filmic-look-only.png)
+: ![filmic-rgb-look-only](./filmic-rgb/filmic-look-only.png#w50)
 
 look + mapping (linear)
 : This view shows the mapping of input values [0,1] to output values in linear space, including the dynamic range mapping and the output transfer function. Note that in a scene-referred workflow, input values are allowed to exceed 1, however the graph only shows in/out values in the interval [0,1] in order to make the shape of the graph comparable to other tone curve mapping tools such as _base curve_ or _tone curve_. The actual value of the scene white point is shown in brackets on the _X axis_ (expressed as a percentage of an input value of 1).
 
-: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-lin.png)
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-lin.png#w50)
 
 look + mapping (log)
 : The same as the previous view, but plotted in log space.
 
-: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-log.png)
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-log.png#w50)
 
 dynamic range mapping
 : This view is inspired by the Ansel Adams Zone System, showing how the EV zones in the input scene are mapped to the output. Middle grey from the scene is always mapped to 18% in the output (linear) space, and it shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones. The latitude range is represented by the darker grey portion in the middle.
 
-: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png)
+: ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png#w50)
 
 # module controls
 
