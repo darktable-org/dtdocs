@@ -39,11 +39,11 @@ uniformly
 
 blending options
 : Choose which color space to use when calculating the blending mask, and specify whether or not to allow a mask to be generated based on the module's output channels (normally a parametric mask is generated based on the input channels coming into the module). The following options are available:
-: - _reset to default blend colorspace_: Perform blending mask generation based on parameters within in the default color space for the module.
-: - _Lab_: Perform generation of the blending mask based on parameters defined in the Lab color space (where available).
-: - _RGB (display)_: Perform generation of the blending mask based on parameters defined in the display-referred RGB/HSL color space.
-: - _RGB (scene)_: Perform generation of the blending mask based on parameters defined in the scene-referred RGB/J<sub>z</sub>C<sub>z</sub>h<sub>z</sub> color space.
-: - _show output channels_: Show the output channels in the [parametric mask](./masks/parametric.md) controls, so that the parametric mask can be defined in terms of the modules output channels.
+: - _reset to default blend colorspace_: Use the default color space for the module to specify the parametric mask.
+: - _Lab_: Use the Lab color space (where available) when specifying the parametric mask.
+: - _RGB (display)_: Use the display-referred RGB/HSL color space to specify the parametric mask.
+: - _RGB (scene)_: Use the scene-referred RGB/J<sub>z</sub>C<sub>z</sub>h<sub>z</sub> color space to specify the parametric mask.
+: - _show output channels_: Show the [parametric mask](./masks/parametric.md) output channel controls, so that the parametric mask can be defined in terms of the module's output channels.
 
 ---
 
