@@ -42,7 +42,7 @@ blending options
 : - _reset to default blend colorspace_: Perform blending mask generation based on parameters within in the default color space for the module.
 : - _Lab_: Perform generation of the blending mask based on parameters defined in the Lab color space (where available).
 : - _RGB (display)_: Perform generation of the blending mask based on parameters defined in the display-referred RGB/HSL color space.
-: - _RGB (scene)_: Perform generation of the blending mask based on parameters defined in the scene-referred RGB/J<sub>z</sub>C<sub>z</sub>h</sub>z</sub> color space.
+: - _RGB (scene)_: Perform generation of the blending mask based on parameters defined in the scene-referred RGB/J<sub>z</sub>C<sub>z</sub>h<sub>z</sub> color space.
 : - _show output channels_: Show the output channels in the [parametric mask](./masks/parametric.md) controls, so that the parametric mask can be defined in terms of the modules output channels.
 
 ---
