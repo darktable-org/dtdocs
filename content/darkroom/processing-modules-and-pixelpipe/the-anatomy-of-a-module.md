@@ -23,7 +23,7 @@ Every processing module executes independently in a similar manner:
 
    If no drawn/parametric mask is used, the output of this step is a mask where every pixel has the same opacity (governed by the global opacity setting). If no opacity is defined (no blending is performed) a global opacity of 1.0 (or 100%) is assumed.
 
-4. Combine the _module input_ and _blended output_ pixel-by-pixel using the _mask_ as a mixing operator, to produce the _final output_. Where the mask opacity is 100%, the _final output_ is the the _blended output_ for that pixel. Where the mask opacity is 0 the final output is the _module input_ for that pixel. An intermediate opacity combines the _blended output_ and _module input_ proportionally. The _final output_ is passed to the next module for further processing.
+4. Combine the _module input_ and _blended output_ pixel-by-pixel using the _mask_ as a mixing operator, to produce the _final output_. Where the mask opacity is 100%, the _final output_ is the _blended output_ for that pixel. Where the mask opacity is 0 the final output is the _module input_ for that pixel. An intermediate opacity combines the _blended output_ and _module input_ proportionally. The _final output_ is passed to the next module for further processing.
 
 Steps 2 and 3 are optional and not supported by all modules. For example, the [demosaic](../../../module-reference/processing-modules/demosaic.md) module must be applied to the entire raw file in order to produce a legible image so it does not make sense to mask or blend its output.
 
