@@ -126,33 +126,29 @@ Internal links must be relative to the current file and must point to a valid ma
 - Link to a top level section by referencing the `_index.md` file, e.g. [module reference](../module-reference/_index.md)
 - Link to a tab in the preferences dialog: [preferences > general](../preferences-settings/general.md)
 - Link to a specific preference setting: [preferences > general > interface language](../preferences-settings/general.md)
+- Each header within a page can be linked to directly with an anchor link: [contributing/notes](./contributing.md#notes)
 
 ## images
 
-when taking screenshots from the darktable application itself, use the default darktable theme.
+When taking screenshots from the darktable application itself, use the default darktable theme.
 
-Several keywords or filename suffixes are used to determine how an image is rendered.
+Several filename suffixes can be used to control how an image is rendered.
 
 icon
-: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./contributing/contributing.png#icon)` causes the following output: ![squirrel icon](./contributing/squirrel.png#icon)
+: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./contributing/contributing.png#icon)` outputs the following: ![squirrel icon](./contributing/squirrel.png#icon)
 
 image width
-: You can set the image width to 25, 50, 75 or 100 per cent of the rendered page width by including "#wxx" after the image name in the link, where xx is the desired width.
-: `![squirrel](./contributing/squirrel.png#w25)`
+: You can set the image width to 25, 33, 50, 66, 75 or 100 per cent of the rendered page width by including `#wxx` after the image name in the link, where `xx` is the desired width. For example:
+: `![squirrel](./contributing/squirrel.png#w25)` outputs
 : ![squirrel](./contributing/squirrel.png#w25)
-: `![squirrel](./contributing/squirrel.png#w50)`
-: ![squirrel](./contributing/squirrel.png#w50)
-: `![squirrel](./contributing/squirrel.png#w75)`
+: `![squirrel](./contributing/squirrel.png#w75)` outputs
 : ![squirrel](./contributing/squirrel.png#w75)
-: `![squirrel](./contributing/squirrel.png#w100)`
-: ![squirrel](./contributing/squirrel.png#w100)
 
 inline
-: With the exception of icons, images are included as block elements by default. You can override this by including "#inline" after the image name. This can be combined with the width setting as follows.
-: This image ![squirrel](./contributing/squirrel.png#w25#inline) has been made inline using the syntax `![squirrel](./contributing/squirrel.png#w25#inline)`
+: With the exception of icons, images are included as block elements by default. You can override this by including `#inline` after the image name. This can be combined with the width setting as follows.
+: `![squirrel](./contributing/squirrel.png#w25#inline)` outputs ![squirrel](./contributing/squirrel.png#w25#inline) 
 
 default
-: By default images will be presented as block elements with no restriction on their width. Be careful with this is it can render in unpredictable ways:
-: `![squirrel](./contributing/squirrel.png)`
+: By default images are presented as block elements with 100% width. So `![squirrel](./contributing/squirrel.png#w100)` and `![squirrel](./contributing/squirrel.png)` are equivalent and both output the following:
 : ![squirrel](./contributing/squirrel.png)
 
