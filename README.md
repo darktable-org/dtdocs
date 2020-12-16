@@ -12,12 +12,12 @@ Please see https://darktable-org.github.io/dtdocs/special-topics/contributing/ f
 
 ### Cloning
 
-The theme for the site uses https://gitlab.com/patdavid/hugo-bootstrap-bare as a git submodule.
-In order to clone this submodule along with the site you just need to add the flag `--recurse-submodules` to the clone command:
+The themes for the site and PDF use [hugo-darktable-docs-theme](https://github.com/pixlsus/hugo-darktable-docs-theme.git) and [hugo-darktable-docs-pdf-theme](https://github.com/pixlsus/hugo-darktable-docs-pdf-theme.git) as git submodules.
+In order to clone these submodules along with the site you just need to add the flag `--recurse-submodules` to the clone command:
 
     git clone --recurse-submodules https://github.com/darktable-org/dtdocs.git
 
-If you already have the site cloned, but haven't included the submodule before:
+If you already have the site cloned, but haven't included the submodules before:
 
     git submodule update --init --recursive
 
@@ -36,9 +36,9 @@ Hugo Static Site Generator v0.73.0/extended windows/amd64 BuildDate: unknown
 If cloning the repo fresh, remember to build the bootstrap assets locally:
 
 ```
-$ cd ./themes/hugo-bootstrap-bare/assets/
+$ cd ./themes/hugo-darktable-docs-theme/assets/
 $ yarn install (or alternatively `npm install`)
-$ cd ../../hugo-darktable-docs-theme/assets/
+$ cd ../../hugo-darktable-docs-pdf-theme/assets/
 $ yarn install
 ```
 
@@ -58,7 +58,7 @@ git submodule update --init --recursive
 
 And finally make sure the assets are built:
 ```
-cd themes/hugo-bootstrap-bare/assets/
+cd themes/hugo-darktable-docs-theme/assets/
 yarn install (or alternatively `npm install`).
 ```
 This should get things up and running.
