@@ -10,7 +10,7 @@ masking: true
 
 A fully-featured color-space correction, white balance adjustment and channel mixer. This simple yet powerful module can be used in the following ways:
 
-- To adjust the white balance (chromatic adaptation), working in tandem with the [_white balance_](./white-balance.md) module. In this case, the _white balance_ module performs an initial white balance step (which is still required in order for the demosac module to work effectively). The _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
+- To adjust the white balance (chromatic adaptation), working in tandem with the [_white balance_](./white-balance.md) module. In this case, the _white balance_ module performs an initial white balance step (which is still required in order for the [_demosaic_](./demosaic.md) module to work effectively). The _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
 
 - As a simple RGB channel mixer, adjusting the output R, G and B channels based on the R, G and B input channels, to perform cross-talk color-grading.
 
