@@ -128,9 +128,7 @@ The "edit tag..." operation allows you to change the name of a tag, though you c
 
 The "rename path..." operation is only available in the _tree_ view mode, and it shows the number of tagged images which would be impacted by a change to the name of this tag or category. The rename path window lets the user change the full path of the tag, including the categories to which it belongs (categories can be specified using the pipe `|` symbol). This operation is powerful, but please take care as it can have a significant impact on the metadata of your images. The operation is aborted if the requested change causes a conflict with an existing tag.
 
-A quick way to organize the tag structure is to drag and drop the tags. In the _tree_ view mode, you can drag any tag (node or leaf) and drop it on top of another one (node or leaf). The first tag and its descendants, if any, become descendants of the second tag. Dragging over a node automatically opens the node.
-To place a tag at the root level, drag it onto the top of the tagging window.
-If the requested change causes a conflict with an existing tag, the operation is aborted.
+A quick way to organize the tag structure is to drag and drop the tags. In the _tree_ view mode, you can drag any node or leaf tag and drop it on top of any other node or leaf tag. The first tag and its descendants, if any, become descendants of the second tag. Dragging over a node automatically opens that node. To place a tag at the root level, drag it onto the top of the tagging window. If the requested change causes a conflict with an existing tag, the operation is aborted.
 
 ## attach tag
 
@@ -140,7 +138,7 @@ There are a number of ways to attach an existing tag to a group of selected imag
 - right-click on a tag in the _tag dictionary_ window which will bring up a pop-up menu, then select the “attach tag” menu item.
 - double-click on a tag in the _tag dictionary_ window.
 - right-click on a tag shown in the _attached tags_ view to show a pop-up menu. If some of the selected images do not currently have that tag, the "attach tag to all" menu item will attach that tag to all the selected images.
-- Type into the text box and press the “new” button or Enter. This will create the tag if it doesn't already exist, and attach it to the selected images.
+- Type into the text box and press the "new" button or the Enter key. This will create the tag if it doesn't already exist, and attach it to the selected images.
 - Press Ctrl+T to open a small text box at the bottom of the central view of the lighttable. Type in the name of a tag and press Enter. The tag will be created if it doesn't exist, and the tag will be attached to all the selected images.
 - Drag an image or group of images and drop it onto the desired tag.
 
