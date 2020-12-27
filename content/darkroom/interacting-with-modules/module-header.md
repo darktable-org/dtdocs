@@ -11,7 +11,7 @@ At the top of each processing module is the _module header_.
 
 Click on the module name to expand the module and display the parameters that control its operation.
 
-By default darktable will only allow one processing module to be expanded at a time -- if you click the header of another module, the previously-opened module's controls are collapsed. If you want expand more than one module, you may expand further modules by Shift+clicking on the header and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [preferences > darkroom](../../../preferences-settings/darkroom.md).
+By default darktable will only allow one processing module to be expanded at a time -- if you click the header of another module, the previously-opened module's controls are collapsed. If you want to expand more than one module, you may expand further modules by Shift+clicking on the header and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [preferences > darkroom](../../../preferences-settings/darkroom.md).
 
 ---
 
