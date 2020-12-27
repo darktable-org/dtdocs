@@ -53,8 +53,8 @@ notes
 color label 
 : Any color label attached to the image (“red”, “yellow”, “green”, “blue”, “purple”)
 
-geotagging 
-: The geo location of the image 
+geotagging
+: The geo location of the image (see [locations](../map/locations.md))
 
 ## times
 
