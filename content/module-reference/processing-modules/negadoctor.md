@@ -22,7 +22,7 @@ If the image of the negative was obtained using a digital camera, then in order 
 
 - Apply the standard or enhanced camera matrix in the [_input color profile_](./input-color-profile.md) module.
 
-When scanning or photographing your film negative, make sure you include some unexposed part of the film within the captured image. This is required to set the _Dmin_ parameter (see below). If this is not possible (e.g. your film holder completed obscures the unexposed parts of the film), you can take a separate image of an unexposed part of the film, measure the _Dmin_ parameter from that image, and then paste that setting to the rest of the images from that film.
+When scanning or photographing your film negative, make sure you include some unexposed part of the film within the captured image. This is required to set the _Dmin_ parameter (see below). If this is not possible (e.g. your film holder completely obscures the unexposed parts of the film), you can take a separate image of an unexposed part of the film, measure the _Dmin_ parameter from that image, and then paste that setting to the rest of the images from that film.
 
 When developing the scanned/photographed film negatives, it is recommended that you disable any tone mapping modules such as [_filmic rgb_](filmic-rgb.md), [_base curve_](base-curve.md) and the like.
 
@@ -45,7 +45,7 @@ It is strongly recommended that you set the parameters following the order in wh
 When using color pickers, be careful to avoid including dust and scratches, which can skew the results of the sampled region.
 
 film stock
-: The first step is to choose "color" or "black and white" in the _film stock_ drop-down. If you select "black and white", any sliders that are only used for color only will be hidden from view.
+: The first step is to choose "color" or "black and white" in the _film stock_ drop-down. If you select "black and white", any sliders that are only used for color will be hidden from view.
 
 ## film properties
 
@@ -67,7 +67,7 @@ scan exposure bias
 
 This tab contains sliders which allow you to make color cast corrections within both the shadow and highlight regions.
 
-The settings on this tab should not be needed for most well-preserved negatives and will mostly be useful for old and poorly-preserved negatives having a decayed film base that introduces undesirable color casts. Note that that the shadows color cast setting will have no effect if the _scan exposure bias_ setting in the _film properties_ tab is set to a non-zero value.
+The settings on this tab should not be needed for most well-preserved negatives and will mostly be useful for old and poorly-preserved negatives having a decayed film base that introduces undesirable color casts. Note that the shadows color cast setting will have no effect if the _scan exposure bias_ setting in the _film properties_ tab is set to a non-zero value.
 
 The other case where these color cast corrections may be needed is if the white balance properties of the light used to scan the film negative are significantly different to the light source under which the original film camera took the shot. For example, if you illuminate the film with an LED light, but the original shot was taken under daylight, this may require some additional color cast corrections.
 

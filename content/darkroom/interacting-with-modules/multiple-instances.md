@@ -15,7 +15,7 @@ Instances can be renamed by Ctrl+clicking on the module header.
 
 There are many occasions where it makes sense to have a module apply more than once in the pixelpipe. Here are some typical use cases.
 
- - The [_exposure_](../../../module-reference/processing-modules/exposure.md) module can be used in combination with with [masks](../masking-and-blending/masks/_index.md) to lighten or darken parts of an image. A separate instance may be created to modify each part of the image.
+ - The [_exposure_](../../../module-reference/processing-modules/exposure.md) module can be used in combination with [masks](../masking-and-blending/masks/_index.md) to lighten or darken parts of an image. A separate instance may be created to modify each part of the image.
 - You may wish to handle luma and chroma noise independently. This can be accomplished by generating two instances of your chosen denoising module and using the first one only on luma (by selecting [blend mode](../masking-and-blending/blend-modes.md) “lightness”) and the second one only on chroma (by selecting blend mode “color”).
 
 ---

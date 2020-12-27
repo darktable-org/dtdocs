@@ -59,7 +59,7 @@ As you can see, the large-scale skin blotches have been removed, but the smaller
 
 # interacting with wavelet scales
 
-There are two methods by which processing modules allow you to modify their operation using wavelet scales
+There are two methods by which processing modules allow you to modify their operation using wavelet scales.
 
 ## wavelet decomposition
 
