@@ -29,7 +29,7 @@ Prior to version 3.0 darktable's workflow was _display-referred_ (auto-apply pix
 
 This worfklow enables the legacy (pre-darktable-3.0) module order and automatically switches on the [_base curve_](../../../module-reference/processing-modules/base-curve.md) module for new images.
 
-Pixel data within the _display-referred_ space is non-linear and is not a physically realistic representation of the original scene. This can lead to various artifacts with sime modules, hence the creation of the (now recommended) _scene-referred_ workflow.
+Pixel data within the _display-referred_ space is non-linear and is not a physically realistic representation of the original scene. This can lead to various artifacts with some modules, hence the creation of the (now recommended) _scene-referred_ workflow.
 
 ## scene-referred workflow
 
