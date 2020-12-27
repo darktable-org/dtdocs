@@ -27,7 +27,7 @@ on/off button
 : Ctrl+click on the on/off button to toggle whether the module has focus. The focus state is usually used to activate any overlays that a module places over the image to control its functionality. For example, the [_crop & rotate_](../../../module-reference/processing-modules/crop-rotate.md) module only shows the composition and crop guide lines on the image if it has focus. 
 
 module name
-: The module name consists of a description of the module's operation (which cannot be changed) followed by the module's instance name (which can). By default the first instance of a module has an empty instance name. If you create additional instances, the name of each new instance is initiated with unique integer. For example, the second created instance of an exposure module will be automatically named `exposure 1`.
+: The module name consists of a description of the module's operation (which cannot be changed) followed by the module's instance name (which can). By default the first instance of a module has an empty instance name. If you create additional instances, the name of each new instance is initiated with a unique integer. For example, the second created instance of an exposure module will be automatically named `exposure 1`.
 
 : Ctrl+click on a module's name to manually amend its instance name. 
 
