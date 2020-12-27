@@ -45,7 +45,7 @@ It is strongly recommended that you set the parameters following the order in wh
 When using color pickers, be careful to avoid including dust and scratches, which can skew the results of the sampled region.
 
 film stock
-: The first step is to choose "color" or "black and white" in the _film stock_ drop-down. If you select "black and white", any sliders that are only used for color only will be hidden from view.
+: The first step is to choose "color" or "black and white" in the _film stock_ drop-down. If you select "black and white", any sliders that are only used for color will be hidden from view.
 
 ## film properties
 
