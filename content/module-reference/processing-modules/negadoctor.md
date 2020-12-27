@@ -22,7 +22,7 @@ If the image of the negative was obtained using a digital camera, then in order 
 
 - Apply the standard or enhanced camera matrix in the [_input color profile_](./input-color-profile.md) module.
 
-When scanning or photographing your film negative, make sure you include some unexposed part of the film within the captured image. This is required to set the _Dmin_ parameter (see below). If this is not possible (e.g. your film holder completed obscures the unexposed parts of the film), you can take a separate image of an unexposed part of the film, measure the _Dmin_ parameter from that image, and then paste that setting to the rest of the images from that film.
+When scanning or photographing your film negative, make sure you include some unexposed part of the film within the captured image. This is required to set the _Dmin_ parameter (see below). If this is not possible (e.g. your film holder completely obscures the unexposed parts of the film), you can take a separate image of an unexposed part of the film, measure the _Dmin_ parameter from that image, and then paste that setting to the rest of the images from that film.
 
 When developing the scanned/photographed film negatives, it is recommended that you disable any tone mapping modules such as [_filmic rgb_](filmic-rgb.md), [_base curve_](base-curve.md) and the like.
 
