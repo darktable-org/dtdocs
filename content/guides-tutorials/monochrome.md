@@ -44,7 +44,7 @@ This approach tends to work with linear scene-referred data from the sensor, and
 
 1. Map the color channels from the sensor into a single monochrome channel. Different types of monochrome photographic film have different levels of sensitivity to various wavelengths of light, and this can be simulated by giving the three color channels different weightings when combining them together into a single monochrome channel. The [_color calibration_](../module-reference/processing-modules/color-calibration.md) module allows the three channels to be mixed into a grey channel by varying amounts, and it includes a number of presets that are designed to emulate the characteristics of some well-known types of photographic film.
 
-2. Apply a luminosity saturation curve. As a piece of photographic film is exposed to more intense light, its repsonse will fall off as the silver emulsion becomes saturated. This saturation curve is simulated by the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) module.
+2. Apply a luminosity saturation curve. As a piece of photographic film is exposed to more intense light, its response will fall off as the silver emulsion becomes saturated. This saturation curve is simulated by the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) module.
 
 3. Developing a monochrome film in the darkroom traditionally involves "dodging and burning" to control the level of exposure across different parts of the image. This can be emulated in darktable by using either the [_exposure_](../module-reference/processing-modules/exposure.md) module with manually created [masks](../darkroom/masking-and-blending/overview.md), or by using the [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md) module, which will automatically generate a mask for you using a guided filter.
 
@@ -52,7 +52,7 @@ This approach tends to work with linear scene-referred data from the sensor, and
 
 The other option for producing a monochrome image is to reduce the color saturation in the image, which can be done in a linear colorspace, or in a color space oriented towards modelling human perception.
 
-- The [_color balance_](../module-reference/processing-modules/color-balance.md) module operates in linear RGB, and allows you to reduce the color saturation in the image using either the inout or output color saturation slider -- which you choose depends on whether you want to make any other adjustments to either the color or monochrome image in the color balance module. The color balance module tends to give a predicable and perceptually uniform result.
+- The [_color balance_](../module-reference/processing-modules/color-balance.md) module operates in linear RGB, and allows you to reduce the color saturation in the image using either the input or output color saturation slider -- which you choose depends on whether you want to make any other adjustments to either the color or monochrome image in the color balance module. The color balance module tends to give a predictable and perceptually uniform result.
 
 - The [_monochrome_](../module-reference/processing-modules/monochrome.md) module works in Lab color space, and it allows the user to graphically define a weighted combination of colors to determine the density of the blacks in the monochrome image. The interface can be somewhat sensitive to the settings, with small changes producing large effects, and you may experience problems with the global contrast and/or black pixel artifacts.
 
