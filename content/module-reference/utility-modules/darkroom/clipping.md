@@ -16,6 +16,8 @@ There are two ways in which a pixel might become clipped when represented in the
 
 The "clipping warning" module is used to highlight those pixels that cannot be accurately represented in the output color space, either due to luminance or gamut clipping. Prior to darktable 3.4, the clipping highlighted any pixels that exceeded the maximum allowed value on any of the [R,G,B] channels, or that had been completely crushed to black. From darktable 3.4 onwards, the clipping warning indicator has some additional modes to help you to differentiate between luminance and gamut clipping, so that you can make better decisions about how to address any issues.
 
+As the clipping warning runs at the end of the preview pixelpipe, it receives data in display color space then converts it to histogram color space. If you are using a display color space which is not "well behaved" (this is common for a device profile), then colors which are outside of the gamut of the display profile will clip or distort.
+
 ![clipping-menu](./clipping/clipping-menu.png#w33)
 
 The clipping warning module, described here, deals with clipping caused by image processing and the limitations of the output color space. It should not be confused with the following similar tools:
@@ -29,9 +31,9 @@ The clipping warning module, described here, deals with clipping caused by image
 clipping preview mode
 : This allows you to choose which type of clipping you want the indicator to highlight, and can be one of the following:
 
-: - _any RGB channel_: Provides an over-clipping indication if any one of the three [R,G,G] channels exceeds the maximum permitted value for the output color space, or an under-clipping indication if the three [R,G,B] channels are too dark and are all forced to black. This was the default mode prior to darktable version 3.4.
+: - _any RGB channel_: Provides an over-clipping indication if any one of the three [R,G,G] channels exceeds the maximum permitted value for the histogram color space, or an under-clipping indication if the three [R,G,B] channels are too dark and are all forced to black. This was the default mode prior to darktable version 3.4.
 : - _luminance only_: Indicates any pixels that are clipped because their luminance falls outside of the range set in the "upper threshold" and "lower threshold" sliders. If this happens, it generally means that tone mapping or exposure settings have been poorly set
-: - _saturation only_: Indicates where over-saturated colors have pushed one or more of the [R,G,B] channels towards a value outside the permitted range of the output color space, even though the overall luminance of the pixel may lie within acceptable limits. This means this pixel color is imposible to represent in the target color space, and can arise from poorly set gamut mapping or saturation settings,
+: - _saturation only_: Indicates where over-saturated colors have pushed one or more of the [R,G,B] channels towards a value outside the permitted range of the histogram color space, even though the overall luminance of the pixel may lie within acceptable limits. This means this pixel color is imposible to represent in the histogram color space, and can arise from poorly set gamut mapping or saturation settings,
 : - _full gamut_: Shows the combination of the 3 previous options. This is the default mode from darktable 3.4 onwards, and it gives the most complete indication of potentially problematic pixels.
 
 color scheme
