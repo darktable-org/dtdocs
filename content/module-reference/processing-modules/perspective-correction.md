@@ -71,7 +71,7 @@ crop factor
 : If the _lens model_ is set to "specific", set the camera crop factor. You will normally need to set this value manually.
 
 aspect ratio
-: If the _lens model_ is set to "specific", this parameter allows for a free manual adjustment of the image's aspect ratio.
+: If the _lens model_ is set to "specific", this parameter allows for a free manual adjustment of the image's aspect ratio.  This is useful for "unsqueezing" images taken with an anamorphic lens (which changes the ratio of image height to width).
 
 automatic fit
 : Click on one of the _automatic fit_ icons to set the distortion correction sliders automatically based on the edge detection analysis. You can choose to automatically apply just the vertical corrections ![vertical-icon](./perspective-correction/icon-vertical.png#icon), just the horizontal corrections ![horizontal-icon](./perspective-correction/icon-horizontal.png#icon), or both together ![both-icon](./perspective-correction/icon-both.png#icon). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
