@@ -20,7 +20,7 @@ darktable 3.0 introduced the pipeline reordering feature, allowing to change the
 
 When no entry is detected for a module mandatorily enabled by default, darktable 3.0 and later will initialize a new entry with the default parameters of the module as of the current darktable version.
 
-As a result, edits created with versions prior to 3.0 may be initialized with different defaults than the ones they were created with, especially if you use the *scene-referred* workflow and the *modern* chromatic adaptation, and the look may change.
+As a result, edits created with versions prior to 3.0 will lack some history entries which may be initialized by newer versions with different defaults than the ones they were created with, especially if you use the *scene-referred* workflow and the *modern* chromatic adaptation, and the look may change.
 
 ## Solution
 
