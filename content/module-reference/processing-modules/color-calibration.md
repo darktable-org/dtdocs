@@ -130,6 +130,18 @@ Channel mixing is performed in the color space defined by the _adaptation_ contr
 
 ---
 
+Channel mixing is a process that defines a boosting/muting factor for each channel as a ratio of all the original channels. Instead of entering a flat correction that ties the output value of a channel to its input value (for example, output R = input R × correction), the correction is made dependent of all the other channels (for example, output R = input R × correction R + input G × correction G + input B × correction B) for each pixel. This allows to make pixel's channels contribute to each other, a process named "cross-talk", which is equivalent to rotating the primary colors of the color space in 3D, and simulates physical color filters in a digital way.
+
+Although rotating primary colors in 3D is ultimately equivalent to applying a general hue rotation, the connection between the RGB corrections and the resulting perceptual  hue rotation is not directly predictable, which makes the process non-intuitive. "R", "G" and "B" are here to be taken as a mixture of 3 lights that we dial up and down, not as a set of colors or hues. Also, since RGB tristimulus does not decouple luminance and chrominance, but is an additive lighting setup, the "G" channel is more strongly tied to human luminance perception than the "R" and "B" ones and all pixels shall have a non-zero G channel, which implies any correction on the G channel will likely affect all pixels.
+
+The channel mixing process is therefore tied to a physical interpretation of the RGB tristimulus (as additive lights) that makes it well-suited for primary color grading and illuminant corrections, and blends the color changes smoothly. However, trying to understand and predict it from a perceptual point of view (luminance, hue and saturation) is going to fail and is discouraged.
+
+---
+
+**Note**: The "R", "G" and "B" labels put on the channels of the color spaces used in this module are merely conventions out of habit. These channels do not necessarily look red, green and blue, so users are advised against trying to make sense out of them based on their names. This also applies to any RGB space used in any application.
+
+---
+
 # R, G and B tabs
 
 At its most basic level, you can think of the R, G and B tabs of the _color calibration_ module as a type of matrix multiplication between a 3x3 matrix and the input [R G B] values. This is in fact very similar to what a matrix-based ICC color profile does, except that the user can input the matrix coefficients via the darktable GUI rather than reading the coefficients from an ICC profile file.
