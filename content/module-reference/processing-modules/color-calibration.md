@@ -20,9 +20,9 @@ A fully-featured color-space correction, white balance adjustment and channel mi
 
 # White Balance in the Chromatic Adaptation Transformation (CAT) tab
 
-Chromatic adaptation aims to predict how all surfaces in the scene would look if they had been lit by another illuminant. What we actually want to predict, though, is how those surfaces would have looked if they had been lit by the same illuminant as your monitor. White balance, on the other hand, aims only at ensuring that whites are really whites (R = G = B) and doesn’t really care about the rest of the color range.
+Chromatic adaptation aims to predict how all surfaces in the scene would look if they had been lit by another illuminant. What we actually want to predict, though, is how those surfaces would have looked if they had been lit by the same illuminant as your monitor, in order to make all colors in the scene match the illuminant change. White balance, on the other hand, aims only at ensuring that whites are really whites (R = G = B) and doesn’t really care about the rest of the color range, so it is only a partial chromatic adaptation.
 
-Chromatic adaptation is controlled within the Chromatic Adaptation Transformation (CAT) tab of the _color calibration_ module. When used in this way the _white balance_ module only needs to perform a basic white balance operation assuming a D65 illuminant ("camera reference" mode), which is expected by input color profiles. The remainder of the white balance (chromatic adaptation) is then performed by the _color calibration_ module, on top of those corrections performed by _white balance_ and _input color profile_. The use of custom matrices in the _input color profile_ module is therefore discouraged and the coefficients in the _white balance_ module need to be accurate in order for this module to work in a predictable way.
+Chromatic adaptation is controlled within the Chromatic Adaptation Transformation (CAT) tab of the _color calibration_ module. When used in this way the _white balance_ module is still required and needs to perform a basic white balance operation, connected to the input color profile values. This technical white balancing ("camera reference" mode) is a flat setting that will make greys lit by a standard D65 illuminant look achromatic, and will make the demosaicing process more accurate, but it will not perform any perceptual adaptation according to the scene. The actual chromatic adaptation is then performed by the _color calibration_ module, on top of those corrections performed by _white balance_ and _input color profile_. The use of custom matrices in the _input color profile_ module is therefore discouraged and the coefficients in the _white balance_ module need to be accurate in order for this module to work in a predictable way.
 
 The _color calibration_ and _white balance_ modules can be automatically applied to perform chromatic adaptation for new edits by setting the chromatic adaptation workflow option ([preferences > processing > auto-apply chromatic adaptation defaults](../../preferences-settings/processing.md)) to "modern". If you prefer to perform all white balancing within the _white balance_ module, a "legacy" option is also available. Neither option precludes the use of other modules such as [_color balance_](./color-balance.md) further down the pixel pipeline for creative color grading.
 
@@ -32,7 +32,7 @@ By default, _color calibration_ performs chromatic adaptation by:
 - adjusting this setting using the camera reference white balance from the _white balance_ module,
 - further adjusting this setting with the input color profile in use (standard matrix only).
 
-The settings used in the _white balance_ and _input color profile_ modules (including any user presets) are ignored when building _color calibration_'s default settings, since the program cannot trace what has been done in these modules. DNG RAW files are also ignored since they can (but don't have to) interpolate between 2 embedded DNG profiles to perform white balancing, which can affect the settings. For these cases, you will have to configure the settings yourself and use your camera manufacturer's documentation to take the appropriate color correction steps.
+The settings defined in the _input color profile_ module are ignored when building _color calibration_'s default settings, which always assumes the standard matrix is in use, for consistency. However, the _color calibration_'s defaults can read any auto-applied preset in _white balance_ module.
 
 It is also worth noting that, unlike the _white balance_ module, _color calibration_ can be used with [masks](../../darkroom/masking-and-blending/masks/_index.md). This means that you can selectively correct different parts of the image to account for differing light sources.
 
@@ -54,27 +54,34 @@ The color patch shows the color of the currently calculated illuminant projected
 
 To the left of the color patch is the _CCT_ (correlated color temperature) approximation. This is the closest temperature, in kelvin, to the illuminant currently in use. In most image processing software it is customary to set the white balance using a combination of temperature and tint. However, when the illuminant is far from daylight, the CCT becomes inaccurate and irrelevant, and the CIE (International Commission on Illumination) discourages its use in such conditions. The CCT reading informs you of the closest CCT match found:
 
-- When the CCT is followed by _(daylight)_, this means that the current illuminant is close to an ideal daylight spectrum ± 0.5 %, and the CCT figure is therefore meaningful.
-- When the CCT is followed by _(black  body)_, this means that the current illuminant is close to an ideal black body (Planckian) spectrum ± 0.5 %, and the CCT figure is therfore meaningful.
-- When the CCT is followed by _(invalid)_, this means that the CCT figure is meaningless and most likely wrong, because we are too far from either a daylight or a black body light spectrum.
+- When the CCT is followed by _(daylight)_, this means that the current illuminant is close to an ideal daylight spectrum ± 0.5 %, and the CCT figure is therefore meaningful. In this case, you are advised to use the _D (daylight)_ illuminant.
+- When the CCT is followed by _(black  body)_, this means that the current illuminant is close to an ideal black body (Planckian) spectrum ± 0.5 %, and the CCT figure is therfore meaningful. In this case, you are advised to use the _Planckian (black body)_ illuminant.
+- When the CCT is followed by _(invalid)_, this means that the CCT figure is meaningless and wrong, because we are too far from either a daylight or a black body light spectrum. In this case, you are advised to use the _custom_ illuminant. The chromatic adaptation will still perform as expected (see the note below), so the _(invalid)_ tag only means the current illuminant color is not accurately tied to the displayed CCT. This tag is nothing to be worried about and only tells you to stay away from the daylight and planckian illuminants because they will not behave as you think they should.
 
-When one of the above illuminant detection methods is used, the program checks where the calculated illuminant sits using the 2 idealized spectra (daylight and black body) and chooses the most accurate spectrum model to use in the _illuminant_ parameter. The user-interface will change accordingly: a temperature slider will be provided for _D (daylight)_ and _Planckian (black body)_, for which the CCT is meaningful; otherwise general hue and chroma sliders in CIE Luv space are offered for the _custom_ illuminant.
+When one of the above illuminant detection methods is used, the program checks where the calculated illuminant sits using the 2 idealized spectra (daylight and black body) and chooses the most accurate spectrum model to use in the _illuminant_ parameter. The user-interface will change accordingly:
 
-When you switch from a _custom_ illuminant to, for example, a _D (daylight)_ illuminant, the closest CCT from your custom illuminant is transfered and used by the daylight model. This conversion is almost non-destructive (± 0.5 %) if the _(daylight)_ tag was displayed in the CCT reading when using the _custom_ illuminant. The same applies to _Planckian (black body)_ illuminant. Switching from any illuminant to _custom_ is 100% non-destructive regarding the original setting. Switching from _custom_ to any other illuminant _is_ destructive and most likely innacurate if the CCT reading is tagged as _(invalid)_.
+* a typical temperature slider will be provided if the illuminant is detected close to a _D (daylight)_ or _Planckian (black body)_, for which the CCT is meaningful,
+* general hue and chroma sliders in CIE 1976 Luv space are offered for the _custom_ illuminant, which allows a direct selection of the illuminant color in a perceptual framework without any intermediate assumption.
 
-Other hard-coded _illuminants_ are available (see below). Their values come from standard CIE illuminants and are absolute. You can use them directly if you know exactly what kind of light bulb was used to light the scene and if you trust your camera's input profile and reference (D65) coefficients to be accurate.
+---
 
-The illuminant detection modes also set the best suited CAT color space. The _linear Bradford_ CAT space is known to be more perceptually accurate for daylight and black body illuminants between 2800 K and 6500 K. The _CAT 16_ space is known to hold the gamut better for difficult illuminants such as blue lights.
+**Note:** Internally, the illuminant is represented by its absolute chromaticity coordinates in CIE xyY color space. All the illuminant selection options in the module are merely interfaces to setup this chromaticity from real-world relationships intended to make the process faster. It does not matter to the actual algorithm if the CCT is tagged "invalid": it only means the relationship between the CCT and the corresponding xyY coordinates is not physically accurate. Regardless, the color set for the illuminant, as displayed in the patch, will always be honored by the algorithm.
+
+---
+
+When switching from one illuminant to another, the module tries to translate the original setting as accurately as possible. Switching from any illuminant to _custom_ is 100 % non-destructive since the _custom_ illuminant is a general case. Switching between other modes, or from _custom_ to any other mode, is destructive and involves rounding errors.
+
+Other hard-coded _illuminants_ are available (see below). Their values come from standard CIE illuminants and are absolute. You can use them directly if you know exactly what kind of light bulb was used to light the scene and if you trust your camera's input profile and reference (D65) coefficients to be accurate (see _caveats_ below, otherwise).
 
 ## CAT tab controls
 
 adaptation
 : The working color space in which the module will perform its chromatic adaptation transform and channel mixing. The following options are provided:
 
-: - _Linear Bradford (1985)_: This is more accurate for illuminants close to daylight but produces out-of-gamut colors for more difficult illuminants.
-: - _CAT16 (2016)_: This is more robust in avoiding imaginary colors while working with large gamut or saturated cyan and purple.
+: - _Linear Bradford (1985)_: This is accurate for illuminants close to daylight and is compatible with ICC v4 standard, but produces out-of-gamut colors for more difficult illuminants.
+: - _CAT16 (2016)_: This is more robust in avoiding imaginary colors while working with large gamut or saturated cyan and purple, and more accurate than the Bradform CAT in general.
 : - _Non-linear Bradford (1985)_: This can produce better results than the linear version but is unreliable.
-: - _XYZ_: A simple scaling space (scaled by luminance Y). This is generally not recommended except for testing and debugging purposes.
+: - _XYZ_: This is the least accurate method and is generally not recommended except for testing and debugging purposes.
 : - _none (disable)_: Disable any adaptation and use the pipeline working RGB space.
 
 illuminant
@@ -220,3 +227,16 @@ input red/green/blue
 
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
+
+# Caveats
+
+The ability to use the standard CIE illuminants as well as the CCT-based interfaces to define the illuminant color relies on sound defaults values for the standard matrix, in _input color profile_ module, and for the RGB coefficients, in _white balance_ module.
+
+Some cameras, noticeably from Olympus and Sony, have unexpected white balance coefficients, which will always make the detected CCT invalid even for legitimate daylight illuminants on the scene. This error most likely comes from the standard input matrix, which is taken from Adobe DNG Converter.
+
+It is possible to alleviate this issue if you have a computer screen calibrated for D65 illuminant:
+
+1. display a white surface on your screen, for example opening a blank canvas in any photo editing software you like
+2. take a blurry picture (out of focus) of that surface with your camera, ensuring you don't have any parasite light in the frame, you have no clipping, and using an aperture from f/5.6 to f/8,
+3. open the picture in darktable and extract the white balance with the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subjected to chromatic aberrations). This will generate a set of 3 RGB coefficients.
+4. [save a preset](../darkroom/interacting-with-modules/presets/#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image done with the same camera.
