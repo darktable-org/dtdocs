@@ -95,7 +95,7 @@ edit
 reset
 : Reset the slider to its default value.
 
-In addition, you can modify the coarseness of the increase/decrease operations with a _global_ keyboard shortcut. You can choose between fine, normal and coarse (see [module controls](../darkroom/interacting-with-modules/module-controls.md) for more details).
+In addition, you can modify the precision of the increase/decrease operations with a keyboard shortcut (_shortcuts > views > darkroom > change keyboard shortcut slider precision_), choosing between fine, normal and coarse. See [module controls](../darkroom/interacting-with-modules/module-controls.md) for more details.
 
 When performing increase/decrease and dynamic operations on sliders a toast message will appear at the top of the image to indicate the current value of the slider.
 
