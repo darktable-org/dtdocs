@@ -1,7 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
-applicable-verison: 3.4
+applicable-verison: 3.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -227,6 +227,131 @@ input red/green/blue
 
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
+
+# Color checker settings extraction
+
+Since the channel mixer is essentially an RGB matrix, similar to the input color profile used for RAW pictures, it can be used to improve the color accuracy of the input color profiles by computing ad-hoc color calibration settings that minimize the color difference between the scene reference and the camera recording in a given lighting situation.
+
+This is equivalent to doing a color profile, but instead of saving a generic ICC profile, the profile stored as color calibration settings that can be saved as presets or styles in darktable, to be shared and reused between pictures. Such profiles are meant to refine the generic input profile and complement it, they do not replace them.
+
+This feature can help :
+
+* dealing with difficult illuminants, such as low [CRI](https://en.wikipedia.org/wiki/Color_rendering_index) light bulbs, for which a mere white balancing will never suffice,
+* digitizing artworks or commercial products where an accurate and non-opinionated rendition of the original colors of the pieces is required,
+* neutralizing each camera to the same ground-truth, in photo sessions recorded from several cameras, to get a consistent base look and be able to share the color editing settings with a consistent final look,
+* getting a sane color pipeline straight from the beginning, nailing white balance and removing any bounced light color cast at once, with minimal effort and time.
+
+## Supported color checker targets
+
+Users are not allowed to use custom targets at this time, but we provide a limited set of verified color checkers from reputable manufacturers:
+
+* X-Rite / Gretag MacBeth Color Checker 24 (before and after 2014),
+* Datacolor SpyderCheckr 24,
+* Datacolor SpyderCheckr 48.
+
+
+---
+
+**Note**: X-Rite has changed the formula of their pigments in 2014, slightly changing the color of the patches too. Old and new formulas are both supported in darktable, you only need to ensure the right reference is used for your target. In case of a doubt, try both and chose the one that yields the lowest average delta E after calibration.
+
+---
+
+Users are discouraged from getting cheap, off-brand, color targets for which color constancy between batches cannot possibly be asserted at such prices, provided that inaccurate color checkers will only defeat the purpose of a calibration and possibly make things worse.
+
+IT7 and IT8 charts are not supported since they are hardly portable and not practically usable on-location for ad-hoc profiles. They are better suited for generic color profiles, done under standard illuminant, for example with [Argyll CMS](https://encrypted.pcode.nl/blog/index.html%3Fp=594.html).
+
+## Prequisites
+
+Photographers need to take a test shot of a color checker chart, on-location, under the set lighting:
+
+* frame the chart in the center 50 % of the camera field, to use the sensor area free from any lens vignetting,
+* ensure the main light source is far enough from the chart, to get an even lighting field on the surface of the chart,
+* adjust the light-chart-lens angle to prevent reflections and gloss on patches,
+* the camera exposure should be set such that the white patch has a brightness L of 94-96 % in CIE Lab space or a luminance Y of 83-88 % in CIE XYZ space. To be safe, it is advised to do an exposure bracketing between -1 and +1 EV in matrix metering mode, and pick the closest exposed picture in post-production.
+
+If the lighting conditions are close to a standard D50 to D65 illuminant (direct natural light, no colored bounced light), the color checker shot can be used to produce a generic profile that will be suitable for any daylight illuminant with only a tweak of the white balance.
+
+If the lighting conditions are peculiar and far from standard illuminants, the color checker shot will be only usable as an ad-hoc profile suitable only for pictures taken in the same lighting conditions.
+
+
+## Usage
+
+Color calibration settings depend on the chosen CAT space and on any color settings defined earlier in the pipe, in the _white balance_ module and in the _input color profile_ module. As such, the results of the profiling (e.g. the RGB channel mixing coefficients) are valid only for a rigid set of CAT space and _white balance_ and _input profile_ settings. In case you want to create a generic style with your profile, don't forget to include the settings in _white balance_ and _input color profile_ modules too.
+
+1. Enable the _[lens correction](../module-reference/processing-modules/lens-correction.md)_ module to correct any vignetting that could mislead the calibration,
+2. On the bottom of the _color calibration_ module, click on the arrow near the _calibrate with a color checker_ label, to show the controls,
+3. In _chart_, pick the model and manufacturer that match your chart,
+4. In the image preview, an overlay of the chart patches will appear. Drag and drop the corners of the chart to make them match the visual references (dots or crosses) around the target, to compensate for the perspective distortion,
+5. Click the "refresh" button to compute the profile,
+6. Check the "Profile Quality report". If it is "good", you can click on the "validation" button. If not, try changing the optimization strategy and refresh the profile.
+7. Save the profile in a preset, in a style, or simply copy-paste the module settings on all the pictures taken under the same lighting conditions, from the lighttable view.
+
+---
+
+**Note:** you don't have to use the standard matrix, as _input color profile_, when doing a calibration, but be aware that the "as shot in camera" default white balance will not work properly with any other profile, and that you will need to always use the same profile whenever you reuse the calibration settings.
+
+---
+
+## Reading the profile report
+
+The profile report helps you assess the quality of the calibration. Whatever is done in color calibration is only a "best fit" optimization and will never be 100 % accurate for the whole color spectrum, therefore we need to track "how much inaccurate" it is, to know whether we can trust this profile or not. Bad profiles can happen and will do more harm than good if used.
+
+### Delta E and Quality report
+
+The [CIE delta E 2000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) (ΔE) is used as a perceptual metric of the color error between the reference color of the patches and the color obtained after each step of calibration:
+
+* ΔE = 0 would mean no error: the obtained color is exactly the reference color. This will unfortunately never happen in practice.
+* ΔE = 2.3 is called the Just Noticeable Difference (JND).
+* ΔE < 2.3 means the average observer will not be able to tell the difference between the expected reference color and the obtained color. This is a satisfactory result.
+* ΔE > 2.3 means the color difference between the expected reference and the obtained color is noticeable for the average observer. This is unsatisfactory but sometimes unavoidable.
+
+The report tracks the average and maximum ΔE at the input of the module (before anything is done), after the chromatic adaptation step (white balance only), and at the output of the module (white balance and channel mixing). At each step, the ΔE should be lower than at the previous step if anything goes as planned.
+
+### Profile data
+
+These are the RGB 3×3 matrix and found illuminant. They are expressed in the CAT _adaptation_ space defined in the _CAT_ tab. They are given in case you want to export these coefficients to another software. In case the found illuminant is _daylight_ or _black body_, the matrix should be fairly generic and re-usable for other _daylight_ and _black body_ illuminants with merely a white balance adjustment.
+
+### Normalization values
+
+These are the settings to define, as-is, in the _[exposure](../module-reference/processing-modules/exposure.md)_ module, for _exposure_ and _black level correction_ parameters, in order to get the lowest-error profile possible. This step is optional and useful only when the utmost precision is required, but can produce negative RGB values that will get clipped in various places of the pipeline.
+
+### Overlay
+
+![color checker](./color-calibration/color-checker.png)
+
+The chart overlay displays a disc, in the center of each patch, that represents the expected reference value of the patch, projected into the display RGB space. This will help visually assessing the difference between reference and actual color without having to bother with ΔE values. This visual clue will be reliable only if you set the _exposure_ module as instructed in the _normalization values_ of the profile report.
+
+Once the profile has been calibrated, some square patches will get crossed in the background by one or two diagonals:
+
+* patches non-crossed have ΔE < 2.3 (JND), meaning they are accurate enough for the average observer to be unable to notice the deviation,
+* patches crossed with one diagonal have 2.3 < ΔE < 4.6, meaning they are mildly inaccurate,
+* patches crossed with two diagonals have ΔE > 4.6 (2 × JND), meaning they are heavily inaccurate.
+
+This visual feedback will help setting up the optimization trade-off to check which colors are more or less accurate.
+
+## Enhancing the profile
+
+Because any calibration is merely a "best fit" optimization, using a weighted least-squares method, you will notice that it is impossible to have all patches within our ΔE < 2.3 tolerance. Therefore, we will need to compromise.
+
+The _optimize for_ parameter will let you define an optimization strategy that will put more pressure on the solver to increase the profile accuracy in some colors:
+
+: _none_: don't use any explicit strategy but rely on the implicit stategy defined by the color checker manufacturer. For example, if the color checker has a majority of low-saturation patches, the profile will be more accurate for low-saturation colors.
+: _neutral colors_: optimize in priority for greys and low-saturation colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in high-saturation colors more than before applying the profile.
+: _saturated colors_: optimize in priority for primary colors and high-saturation colors. This is useful in product and commercial photography, to get brand colors right.
+: _skin and soil colors_, _foliage colors_, _sky and water colors_: optimize for a selective hue range. This is useful if the subject of your pictures is clearly defined and has a typical color.
+: _average delta E_: optimize to make the color error uniform across the color range and minimize the average perceptual error. This is useful for generic profiles.
+: _maximum delta E_: optimize to minimize outliers and large errors, at the expense of the average error. This is useful to get saturated blues back in line.
+
+No matter what you do, you will notice that strategies that favour a low average ΔE will usually have an higher maximum ΔE, and the other way around. Also, blues are always the more challenging color range to get correct, so the calibration usually falls back to protecting blues at the expense of everything else, or everything else at the expense of blues.
+
+The easiness of getting a proper calibration depend on the quality of the scene illuminant (daylight and high CRI should always be favoured), the quality of the primary _input color profile_, the _black point compensation_ set in _exposure_ module, but first and foremost on the maths properties of the camera sensor filter array.
+
+## Profile checking
+
+It is possible to use the _color space check_ button, first on the left, at the bottom of the module, to perform a single ΔE computation of the color checker reference against the output of the _color calibration_ module. This can be used:
+
+1. to check the accuracy of a profile done in particular conditions against a color checker shot in different conditions,
+2. to evaluate the performance of any color correction done earlier in the pipe, by setting the _color calibration_ parameters to values that effectively disable it (CAT _adaptation_ to _none_, everything else set to default), and just use the average ΔE as a performance metric.
 
 # Caveats
 
