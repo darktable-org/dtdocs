@@ -11,7 +11,7 @@ Edit the metadata (title, description, creator, publisher, rights etc.) of selec
 # module controls
 
 metadata entry fields
-: A separate field is displayed for each metadata item. Hold Ctrl while scrolling with your mouse to increase the height of a field. Press Ctrl+Enter to insert a new line. Press Enter to apply any text entered in the current metadata field to the selected images.
+: A separate field is displayed for each metadata item. Hold Ctrl while scrolling with your mouse to increase the height of a field. Press Ctrl+Enter to insert a new line. Press Enter to apply any text entered in the current metadata field to the selected images. Double-click on a field's label to delete the contents of that field.
 
 apply
 : Apply new settings, from the metadata entry fields, to the selected images.
