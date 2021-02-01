@@ -22,6 +22,8 @@ Similarly you can click the first star for a second time to reset the image rati
 
 To rate multiple images at once, select those images in the lighttable or filmstrip and then press the appropriate shortcut key, or click the desired star rating in the bottom panel of the lighttable view. 	
 
+Filtering by star rating can be done at the [top panel](../../overview/user-interface/top-panel.md) above the film strip.
+
 # color labels
 
 Color labels are another way to classify images, and can be used as an alternative to star ratings or work alongside star ratings. Each image can carry any combination of one or more color labels in red, yellow, green, blue, and purple.
@@ -29,3 +31,5 @@ Color labels are another way to classify images, and can be used as an alternati
 You can set the color labels for a single image by hovering your cursor over the thumbnail and pressing the function keys F1 – F5, which correspond with the labels in the order given above.
 
 To toggle the color labels of one or more images, select the desired images in the lighttable or filmstrip and then press the appropriate shortcut key or click the corresponding color button in the bottom panel. To remove all labels from the selected images, press the grey button.
+
+Filtering by color label can be done in the ["collect images"-module](../../module-reference/utility-modules/shared/collect-images.md) at the lefthand side.
