@@ -2,7 +2,7 @@
 title: collect images
 id: collect-images
 applicable-verison: 3.2.1
-tags: 
+tags:
 view: lighttable, tethering, map
 ---
 
@@ -18,39 +18,41 @@ The images in a collection can be filtered using the following image attributes:
 
 ## files
 
-film roll 
-: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides)
+film roll
+: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides).
+Shift double click to switch to corresponding folder.
 
-folders 
-: The folder (file path) where the image file is located
+folders
+: The folder (file path) where the image file is located. Shift double click to switch to corresponding film roll.
 
-filename 
+filename
 : The filename of the image
 
 ## metadata
 
-tag 
-: Any tag that is attached to the image. When activated a hierarchical list of known tags is displayed
+tag
+: Any tag that is attached to the image. Not tagged images are grouped under "not tagged" entry.
+When activated a hierarchical list of known tags is displayed
 
-creator 
+creator
 : The image's metadata “creator” field
 
-publisher 
+publisher
 : The image's metadata “publisher” field
 
-title 
+title
 : The image's metadata “title” field
 
-description 
+description
 : The image's metadata “description” field
 
-rights 
+rights
 : The image's metadata “rights” field
 
 notes
 : The image's metadata "notes" field
 
-color label 
+color label
 : Any color label attached to the image (“red”, “yellow”, “green”, “blue”, “purple”)
 
 geotagging
@@ -78,22 +80,22 @@ print timestamp
 
 ## capture details
 
-camera 
+camera
 : The Exif data entry describing the camera make and model
 
-lens 
+lens
 : The description of the lens, as derived from Exif data
 
-aperture 
+aperture
 : The aperture, as derived from Exif data
 
 exposure
 : The shutter speed, as derived from Exif data
 
-focal length 
+focal length
 : The focal length, as derived from Exif data
 
-ISO 
+ISO
 : The ISO, as derived from Exif data
 
 aspect ratio
@@ -107,7 +109,7 @@ grouping
 local copy
 : Show files that are, or are not copied locally
 
-history 
+history
 : Choose images whose history stacks have been altered or not
 
 module
@@ -162,6 +164,24 @@ The logical operators defining how rules are combined are indicated with icons t
 While it is best to not touch imported files behind darktable's back, this module can help you recover from situations when you have moved or renamed image folders after importing them. The collect images module has a feature that allows you to update darktable's library database with the new folder location. The process is as follows:
 
 1. Set the _image attribute_ combobox to "folder" or "film roll".
-1. The original film roll or folder name will be displayed with strikethrough formatting to emphasize that it can not be located. 
+1. The original film roll or folder name will be displayed with strikethrough formatting to emphasize that it can not be located.
 1. Right-click on the folder or film roll name, select “search filmroll...” or “search folder...”, and then select the new location of the folder.
 
+## preferences
+
+In presets menu the preferences... entry allows you to tweak the behavior of the collect module.
+
+do not set the 'uncategorized' for tag
+: By default an entry 'uncategorized' groups only one level tags (default on).
+
+tag case sensitivity
+: If sensitive the tags of different case are shown (default insensitive).
+
+number of folder levels to show in lists
+: The number of folder levels to show in film roll names, starting from the right (default 1).
+
+sort film rolls by
+: Sort film rolls by either the "folder" (path) or the "id" (roughly equivalent to the date the film rolls were first imported) (default "id").
+
+sort collection recent to older
+: When selecting folders and dates/times, sort items from recent to older (default on).
