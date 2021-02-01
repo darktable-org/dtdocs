@@ -5,7 +5,7 @@ weight: 130
 draft: false
 ---
 
-This menu gives you an overview of the [presets](../darkroom/interacting-with-modules/presets.md) that are defined for darktable's modules. In this dialog you can select whether a user-defined preset should be auto-applied to matching images. By pressing the “import” button at the bottom of the window you can import a saved preset.
+This menu gives you an overview of the [presets](../darkroom/interacting-with-modules/presets.md) that are defined for darktable's modules. In this dialog you can select whether a user-defined preset should be auto-applied to matching images. By pressing the “import” button at the bottom of the window you can import a saved presets. Pressing the "export" button at the bottom of the window will allow you to choose directory to which you want to export all of your presets excluding predefined presets. 
 
 Pre-defined presets (those that are included by default within darktable) are shown with a lock symbol. Their auto-apply properties cannot be changed.
 
