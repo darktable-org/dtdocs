@@ -161,7 +161,7 @@ The logical operators defining how rules are combined are indicated with icons t
 
 While it is best to not touch imported files behind darktable's back, this module can help you recover from situations when you have moved or renamed image folders after importing them. The collect images module has a feature that allows you to update darktable's library database with the new folder location. The process is as follows:
 
-1. Set the _image attribute_ combobox to "folders" 
-1. Locate the original folder name in the tree. The folder name will be displayed struck-through to emphasize that it is no longer present. 
-1. Right-click on the folder name, select “search filmroll...”, and then select the new location of the folder.
+1. Set the _image attribute_ combobox to "folder" or "film roll".
+1. The original film roll or folder name will be displayed with strikethrough formatting to emphasize that it can not be located. 
+1. Right-click on the folder or film roll name, select “search filmroll...” or “search folder...”, and then select the new location of the folder.
 
