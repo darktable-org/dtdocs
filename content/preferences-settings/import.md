@@ -7,29 +7,6 @@ draft: false
 
 This tab contains a number of default settings for the lighttable [import](../module-reference/utility-modules/lighttable/import.md) module.
 
-# import
-
-ignore JPEG images when importing film rolls
-: When you have RAW+JPEG images together in one directory it usually doesn't make sense to import both. Set this flag to ignore all JPEGs when importing images (default off).
-
-recursive directory traversal when importing film rolls
-: When importing images from a folder, also recursively import images from its sub-folders. (default off).
-
-creator to be applied when importing
-: If provided, automatically add this string as a metadata creator tag when importing images (default none).
-
-publisher to be applied when importing
-: If provided, automatically add this string as a metadata publisher tag when importing images (default none).
-
-rights to be applied when importing
-: If provided, automatically add this string as a metadata rights tag when importing images (default none).
-
-comma separated tags to be applied when importing
-: If you want to add further tags by default when importing images, you can provide them here as a comma separated list (default none).
-
-initial import rating
-: Initial star rating (from 0 to 5) for all images when importing a film roll (default 1). 
-
 # session options
 
 These options define a naming pattern to organize images on disk when importing from a connected camera and when taking photos in the [tethering](../tethering/_index.md) view.
@@ -75,4 +52,4 @@ keep original filename
 : Check this box to keep original the filename instead of using the pattern below when importing from a camera or card (default off).
 
 file naming pattern
-: The file name part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(SEQUENCE).$(FILE_EXTENSION`). 
+: The file name part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(SEQUENCE).$(FILE_EXTENSION`).

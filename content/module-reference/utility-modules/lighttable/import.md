@@ -2,11 +2,11 @@
 title: import
 id: import
 applicable-verison: 3.2.1
-tags: 
+tags:
 view: lighttable
 ---
 
-Import images into one or more film rolls. 
+Import images into one or more film rolls.
 
 Images can be imported from the local filesystem or from a connected camera. See [supported file formats](../../../overview/supported-file-formats.md) for more information.
 
@@ -14,18 +14,41 @@ Images can be imported from the local filesystem or from a connected camera. See
 
 You can import either a single image or a folder of images from the filesystem by clicking the relevant button. The imported image(s) will be automatically added to a film roll with the same name as the filesystem folder they are imported from.
 
-Clicking on “image” or “folder” opens a file selector dialog. Navigate through the filesystem, and select the item(s) to import. 
+Clicking on “image” or “folder” opens a file selector dialog. Navigate through the filesystem, and select the item(s) to import.
 
-On the lower part of the dialog, are some additional _import options_ as follows. Default values for all of these options can be set in [preferences > import](../../../preferences-settings/import.md).
+In the parameters section of the module are _import options_ as follows. The reset button sets all parameters to their default value.
+All parameters are saved from one session to the other. In addition the user can save different presets.
 
-import folders recursively (folder import only)
+recursive directory (folder import only)
 : Check this option to import images in the currently selected folder and all subfolders. It is not recommended to use this option to import a large number of images at the same time. The import process causes darktable to generate thumbnails for all of the imported images, but in the end it will only be able to keep the most recent in its cache. It is better to import images in smaller chunks.
 
-ignore JPEG files
+ignore JPEG images
 : Check this option if there are `JPEG` images in the same folder that you do not want to import. This option is usually used where the camera stores `RAW+JPEG` and you only want to work on the raw files, leaving the `JPEG` images untouched.
 
+ignore exif rating
+: Check this option to disconsider the rating coming with exif (camera) information.
+
+initial rating
+: Initial star rating (from 0 to 5) for all images when importing a film roll (default 1).
+
 apply metadata on import
-: This option allows you to automatically set some metadata fields on your images at import time.
+: This option allows you to automatically set some metadata fields and tags on your images at import time.
+
+metadata
+: Are listed here the metadata you have set as visible in metadata module. If provided automatically add this string when importing images (default none).
+
+comma separated tags to be applied when importing
+: If you want to add further tags by default when importing images, you can provide them here as a comma separated list (default none).
+
+---
+
+**Metadata:**
+The comboboxes provide the presets defined in metadata and tagging modules and can be used to fulfill the different fields.
+
+Double-click on a label to reset the corresponding field. Double-click on metadata presets label to reset all the fields.
+
+When the preference "write sidecar file for each image" is unchecked an additional column "from xmp" allows you to avoid importing
+non desired metadata from xmp files.
 
 ---
 
