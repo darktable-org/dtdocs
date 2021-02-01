@@ -15,5 +15,5 @@ Delete a preset by selecting it and pressing the Delete key.
 
 Edit a preset's properties by selecting it and pressing Enter or double-clicking. This will open a dialog that allows the preset to be edited, saved to an external `.dtpreset` file or deleted. 
 
-See the [presets](../darkroom/interacting-with-modules/presets.md) section for more information.
+See the [creating and editing presets](../darkroom/interacting-with-modules/presets.md#creating-and-editing-presets) section for more information about the other properties that can be edited in this dialog.
 
