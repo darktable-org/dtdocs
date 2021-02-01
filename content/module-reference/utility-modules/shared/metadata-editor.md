@@ -19,8 +19,14 @@ apply
 reset button
 : Delete existing metadata from the selected images.
 
-preferences... in Presets menu
-: Brings up a dialog where you can configure how metadata is handled within darktable. For each metadata item, two check boxes are available which allow you to restrict how metadata is handled:
-: - _visible_: Show this metadata field. If not shown, it will not be displayed anywhere in darktable and will not be included in exported images.
-: - _private_: Keep this metadata field private. It will be displayed within darktable but will not be included in exported images.
-: If both options are unchecked, the field will be displayed within darktable and included in exported images.
+# preferences
+
+The “preferences…” option in the presets menu brings up a dialog where you can configure how metadata is handled within darktable. For each metadata item, two check boxes allow you to restrict how metadata is handled:
+
+visible 
+: Show or hide this metadata field. Hidden fields will not be displayed anywhere in darktable and will not be included in exported images.
+
+private
+: Keep this metadata field private. Private fields will be displayed within darktable but will not be included in exported images.
+
+Fields with both options are unchecked will be displayed within darktable and included in exported images.
