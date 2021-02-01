@@ -12,47 +12,44 @@ Images can be imported from the local filesystem or from a connected camera. See
 
 # import from filesystem
 
-You can import either a single image or a folder of images from the filesystem by clicking the relevant button. The imported image(s) will be automatically added to a film roll with the same name as the filesystem folder they are imported from.
+You can import either a single image or a folder of images from the filesystem by clicking the relevant button. The imported image(s) will be automatically added to a film roll with the same name as the filesystem folder that they are imported from.
 
-Clicking on “image” or “folder” opens a file selector dialog. Navigate through the filesystem, and select the item(s) to import.
+Click on “image” or “folder” to open a file selector dialog. Navigate through the filesystem, and select the item(s) to import.
 
-In the parameters section of the module are _import options_ as follows. The reset button sets all parameters to their default value.
-All parameters are saved from one session to the other. In addition the user can save different presets.
+## parameters
+
+Click on the "parameters" label or the expander button beside it to display the following additional options related to file import.
+
+All parameters are saved from one session to the next and can be saved as module presets. Press the module reset button to revert all parameters to their default value.
 
 recursive directory (folder import only)
-: Check this option to import images in the currently selected folder and all subfolders. It is not recommended to use this option to import a large number of images at the same time. The import process causes darktable to generate thumbnails for all of the imported images, but in the end it will only be able to keep the most recent in its cache. It is better to import images in smaller chunks.
+: Check this option to import images in the selected folder _and all subfolders_. It is recommended that you not use this option to import a large number of images at the same time. The import process causes darktable to generate thumbnails for all of the imported images, but in the end it will only be able to keep the most recent in its cache. It is therefore better to import images in smaller chunks to avoid the performance penalty this imposes.
 
 ignore JPEG images
-: Check this option if there are `JPEG` images in the same folder that you do not want to import. This option is usually used where the camera stores `RAW+JPEG` and you only want to work on the raw files, leaving the `JPEG` images untouched.
+: Check this option if there are `JPEG` images in the same folder that you do not want to import. This option is usually used where the camera stores `RAW+JPEG` and you only want to work on the `RAW` files, leaving the `JPEG` images untouched.
 
 ignore exif rating
-: Check this option to disconsider the rating coming with exif (camera) information.
+: Check this option to ignore any rating stored within the image's Exif data and instead use a hard-coded value (below).
 
 initial rating
 : Initial star rating (from 0 to 5) for all images when importing a film roll (default 1).
 
-apply metadata on import
-: This option allows you to automatically set some metadata fields and tags on your images at import time.
+apply metadata
+: Check this option to automatically set metadata fields and/or tags at import time (see below).
 
 metadata
-: Are listed here the metadata you have set as visible in metadata module. If provided automatically add this string when importing images (default none).
+: If the "apply metadata" box is checked, a list of the _visible_ metadata fields is presented for completion (see [metadata editor](../shared/metadata-editor.md) for details). Any populated strings are automatically added to the imported images. You can also choose from any presets saved within the metadata editor module.
 
-comma separated tags to be applied when importing
-: If you want to add further tags by default when importing images, you can provide them here as a comma separated list (default none).
+: Double-click on a label to reset the corresponding field. Double-click on the "metadata presets" label to reset all fields.
 
----
+: When [preferences > storage > write sidecar file for each image](../../../preferences-settings/storage.md#xmp) is unchecked an additional column "from xmp" is presented so that you can choose to prevent the import of non-desired metadata from xmp files.
 
-**Metadata:**
-The comboboxes provide the presets defined in metadata and tagging modules and can be used to fulfill the different fields.
-
-Double-click on a label to reset the corresponding field. Double-click on metadata presets label to reset all the fields.
-
-When the preference "write sidecar file for each image" is unchecked an additional column "from xmp" allows you to avoid importing
-non desired metadata from xmp files.
+tags
+: If you want to add further tags by default when importing images, you can provide them here as a comma separated list. As with metadata you can also choose from any presets saved within the [tagging](../shared/tagging.md) module.
 
 ---
 
-**Note:** When importing images, darktable does not create duplicates of your image files in a separate folder structure but processes them in-situ. The import process simply adds details of those images to darktable's database (and creates an XMP sidecar file if applicable) allowing the images to be viewed and developed.
+**Note:** When importing images from the filesystem, darktable does not create duplicates of your image files in a separate folder structure but processes them in-situ. The import process simply adds details of those images to darktable's database (and creates an XMP sidecar file if applicable) allowing the images to be viewed and developed.
 
 This means that if you delete images from disk after having imported them, darktable cannot access them any more: Importing an image or folder in darktable is not a backup of your filesystem! Moreover, darktable does not watch for changes in the filesystem. Any new images will not be shown until they are explicitly imported.
 
