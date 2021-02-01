@@ -11,7 +11,7 @@ At the top of each processing module is the _module header_.
 
 Click on the module name to expand the module and display the parameters that control its operation.
 
-By default darktable will only allow one processing module to be expanded at a time -- if you click the header of another module, the previously-opened module's controls are collapsed. If you want expand more than one module, you may expand further modules by Shift+clicking on the header and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [preferences > darkroom](../../../preferences-settings/darkroom.md).
+By default darktable will only allow one processing module to be expanded at a time -- if you click the header of another module, the previously-opened module's controls are collapsed. If you want to expand more than one module, you may expand further modules by Shift+clicking on the header and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [preferences > darkroom](../../../preferences-settings/darkroom.md).
 
 ---
 
@@ -27,7 +27,7 @@ on/off button
 : Ctrl+click on the on/off button to toggle whether the module has focus. The focus state is usually used to activate any overlays that a module places over the image to control its functionality. For example, the [_crop & rotate_](../../../module-reference/processing-modules/crop-rotate.md) module only shows the composition and crop guide lines on the image if it has focus. 
 
 module name
-: The module name consists of a description of the module's operation (which cannot be changed) followed by the module's instance name (which can). By default the first instance of a module has an empty instance name. If you create additional instances, the name of each new instance is initiated with unique integer. For example, the second created instance of an exposure module will be automatically named `exposure 1`.
+: The module name consists of a description of the module's operation (which cannot be changed) followed by the module's instance name (which can). By default the first instance of a module has an empty instance name. If you create additional instances, the name of each new instance is initiated with a unique integer. For example, the second created instance of an exposure module will be automatically named `exposure 1`.
 
 : Ctrl+click on a module's name to manually amend its instance name. 
 

@@ -48,7 +48,7 @@ In addition to the basic modules described above, you may want to consider using
 : Use this module to perform "dodging and burning" operations and recover detail in the shadows and highlights. This module generates a mask to average out the luminance in different parts of the image, and the equalizer allows you to selectively increase and decrease luminance levels using that mask. It is recommended that you first check the mask is set up appropriately, then you can use the sliders or the spline curve to adjust the various brightness levels. You can also place the mouse cursor over different parts of the image to see the EV level of the mask at that point, and then use the mouse wheel to adjust the brightness of that EV level accordingly.
 
 [_local contrast_](../../module-reference/processing-modules/local-contrast.md)
-: This module can emphasise detail and improve clarity, and is a good way to improve the general sharpness of an image. It is recommended that you use this module in _local lapacian_ mode.
+: This module can emphasise detail and improve clarity, and is a good way to improve the general sharpness of an image. It is recommended that you use this module in _local laplacian_ mode.
 
 : A more versatile but also more complex technique is to use the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is very useful for making adjustments where spatial dimension plays a role. It has a number of pre-defined presets that may be helpful as a starting point in understanding this module.
 

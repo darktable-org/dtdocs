@@ -17,6 +17,8 @@ Click on one of the _module group_ icons above the _search module_ textbox to se
 
 If you click on any module group (including the _active modules_ group) a second time, a complete list of all available modules is shown.
 
+To quickly add a module to a group, right-click on the group icon and select a module from the resulting drop-down list.
+
 # search 
 
 When you enter some text in the _search module_ entry, any modules whose name or tag/alias contains that text will be listed under the search box. All matching modules will be shown, regardless whether they are currently available in any of the module groups. You can then activate any of the listed modules by clicking on its activation icon, expand the module by clicking on its name, and adjust any settings as required.

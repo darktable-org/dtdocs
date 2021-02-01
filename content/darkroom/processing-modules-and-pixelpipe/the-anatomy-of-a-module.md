@@ -13,7 +13,7 @@ Every processing module executes independently in a similar manner:
 
 ![module anatomy](./the-anatomy-of-a-module/module-anatomy.png#w100)
 
-1. Receive the _module input_ from the last executed module and perform an _operation_ it to produce the _processed output_. This _operation_ is different for every [processing module](../../module-reference/processing-modules/_index.md).
+1. Receive the _module input_ from the last executed module and perform an _operation_ on it to produce the _processed output_. This _operation_ is different for every [processing module](../../module-reference/processing-modules/_index.md).
 
 2. Combine the _module input_ and _processed output_ using a [blending operator](../masking-and-blending/blend-modes.md) to produce the _blended output_. If no blending is performed, the output of this step is the same as the _processed output_.
 

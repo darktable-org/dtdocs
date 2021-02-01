@@ -42,7 +42,7 @@ check mark [✓]
 : Choose whether to view any hidden tags that darktable has automatically attached to the selected images.
 
 sort [⥯]
-: Choose whether to sort the _attached tags_ list alphabetically or by the count shown in brackets next to the tag (this count indiates how many of the selected images have that tag attached to them).
+: Choose whether to sort the _attached tags_ list alphabetically or by the count shown in brackets next to the tag (this count indicates how many of the selected images have that tag attached to them).
 
 minus [--]
 : Choose whether or not to show the parent categories of the tag.
@@ -125,8 +125,10 @@ The "edit tag..." operation allows you to change the name of a tag, though you c
 - A tag set as “category” is not exported in `XMP-dc Subject`. However it is exported in `XMP-lr Hierarchical Subject` as this XMP metadata holds the organization of your tags.
 
 - “synonyms” enrich the tag information and are mainly used to assist search engines. For example “juvenile”, “kid” or “youth” can be set as synonyms of “child”. Synonyms can also be used to translate tag names to other languages.
- 
-The "rename path..." operation is only available in the _tree_ view mode, and it shows the number of tagged images which would be impacted by a change to the name of this tag or category. The rename path window lets the user change the full path of tag, including the catagories to which it belongs (categories can be specified using the pipe "|" symbol). This operation is powerful, but please take care as it can have a significant impact on the metadata of your images. The operation is aborted if the requested change causes a conflict with an existing tag.
+
+The "rename path..." operation is only available in the _tree_ view mode, and it shows the number of tagged images which would be impacted by a change to the name of this tag or category. The rename path window lets the user change the full path of the tag, including the categories to which it belongs (categories can be specified using the pipe `|` symbol). This operation is powerful, but please take care as it can have a significant impact on the metadata of your images. The operation is aborted if the requested change causes a conflict with an existing tag.
+
+A quick way to organize the tag structure is to drag and drop the tags. In the _tree_ view mode, you can drag any node or leaf tag and drop it on top of any other node or leaf tag. The first tag and its descendants, if any, become descendants of the second tag. Dragging over a node automatically opens that node. To place a tag at the root level, drag it onto the top of the tagging window. If the requested change causes a conflict with an existing tag, the operation is aborted.
 
 ## attach tag
 
@@ -136,8 +138,9 @@ There are a number of ways to attach an existing tag to a group of selected imag
 - right-click on a tag in the _tag dictionary_ window which will bring up a pop-up menu, then select the “attach tag” menu item.
 - double-click on a tag in the _tag dictionary_ window.
 - right-click on a tag shown in the _attached tags_ view to show a pop-up menu. If some of the selected images do not currently have that tag, the "attach tag to all" menu item will attach that tag to all the selected images.
--  Type into the text box and press the “new” button or Enter. This will create the tag if it doesn't already exist, and attach it to the selected images.
+- Type into the text box and press the "new" button or the Enter key. This will create the tag if it doesn't already exist, and attach it to the selected images.
 - Press Ctrl+T to open a small text box at the bottom of the central view of the lighttable. Type in the name of a tag and press Enter. The tag will be created if it doesn't exist, and the tag will be attached to all the selected images.
+- Drag an image or group of images and drop it onto the desired tag.
 
 When hovering over the images in the ligthtable you can check which tags are attached to the image, either by looking at the _attached tags_ window in the _tagging_ module, or in the _tags_ attribute in the [image information](./image-information.md) module.
 
@@ -167,4 +170,3 @@ The “export” button exports your entire tag dictionary into a text file of y
 To see the images bearing a particular tag in the _tag dictionary_ window, right-click on the tag name and choose "go to tag collection" in the resulting pop-up menu. This opens a collection in the _collect images_ module showing all images containing this tag. You can also select other tags in the _collect images_ module by double-clicking on the collection for the other tag.
 
 To return to the collection that was selected before opening a tag collection select the "go back to work" item from the pop-up menu. This will allow you to return to the original collection, as long ans you haven't selected any other collections in the meantime.
-
