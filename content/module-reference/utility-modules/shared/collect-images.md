@@ -1,7 +1,7 @@
 ---
 title: collect images
 id: collect-images
-applicable-verison: 3.2.1
+applicable-verison: 3.6
 tags:
 view: lighttable, tethering, map
 ---
@@ -19,11 +19,10 @@ The images in a collection can be filtered using the following image attributes:
 ## files
 
 film roll
-: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides).
-Shift double click to switch to corresponding folder.
+: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Double-click while holding Shift to switch to corresponding folder.
 
-folders
-: The folder (file path) where the image file is located. Shift double click to switch to corresponding film roll.
+folder
+: The folder (file path) where the image file is located. Double-click while holding Shift to switch to corresponding film roll.
 
 filename
 : The filename of the image
@@ -31,8 +30,7 @@ filename
 ## metadata
 
 tag
-: Any tag that is attached to the image. Not tagged images are grouped under "not tagged" entry.
-When activated a hierarchical list of known tags is displayed
+: Any tag that is attached to the image. Untagged images are grouped under the "not tagged" entry. When activated, a hierarchical list of known tags is displayed
 
 creator
 : The image's metadata “creator” field
@@ -169,13 +167,13 @@ While it is best to not touch imported files behind darktable's back, this modul
 
 ## preferences
 
-In presets menu the preferences... entry allows you to tweak the behavior of the collect module.
+The "preferences..." option in the presets menu allows you to adjust the behavior of the collect module as follows:
 
-do not set the 'uncategorized' for tag
-: By default an entry 'uncategorized' groups only one level tags (default on).
+do not set the 'uncategorized' for tags
+: Do not set the 'uncategorized' category for tags that do not have children (default off).
 
 tag case sensitivity
-: If sensitive the tags of different case are shown (default insensitive).
+: Set whether tags should be case sensitive or not -- without the `sqlite` ICU extension this will only apply to the 26 latin letters (default insensitive).
 
 number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).
@@ -183,5 +181,5 @@ number of folder levels to show in lists
 sort film rolls by
 : Sort film rolls by either the "folder" (path) or the "id" (roughly equivalent to the date the film rolls were first imported) (default "id").
 
-sort collection recent to older
-: When selecting folders and dates/times, sort items from recent to older (default on).
+sort collections descending
+: Sort the following collections in descending order: "film roll" (when sorted by folder), "folder", date/time (e.g. date/time taken) (default on)
