@@ -112,7 +112,7 @@ There are several ways to create a new tag:
 
 - _Type into the text box and press the “new” button_. Hierarchical tags are created using the pipe symbol “|”. Note that the entered tag is also attached to any selected images.
 
-A number of tags are also generated automatically by dartable (e.g. “darktable|exported” or “darktable|styles|your style”). These help keep track of what actions may have been undertaken on those images. For example, these automatic tags allow you to identify which images have previously been exported, or which images have had styles applied.
+A number of tags are also generated automatically by darktable (e.g. “darktable|exported” or “darktable|styles|your style”). These help keep track of what actions may have been undertaken on those images. For example, these automatic tags allow you to identify which images have previously been exported, or which images have had styles applied.
 
 ## edit/rename tag
 
