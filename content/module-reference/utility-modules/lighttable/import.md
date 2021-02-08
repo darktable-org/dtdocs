@@ -1,7 +1,7 @@
 ---
 title: import
 id: import
-applicable-verison: 3.2.1
+applicable-verison: 3.6
 tags:
 view: lighttable
 ---
@@ -57,7 +57,7 @@ This means that if you delete images from disk after having imported them, darkt
 
 # import from a connected camera
 
-When a camera is detected, it will show up in the device panel after pressing “scan for devices”. If you hover your mouse over the camera tab label, a tooltip will pop up with information about the camera (model, firmware version etc.). Depending on the capabilities of the camera, the following options may be displayed:
+When a camera is detected, it will show up in the device panel automatically. If you hover your mouse over the camera tab label, a tooltip will pop up with information about the camera (model, firmware version etc.). Depending on the capabilities of the camera, the following options may be displayed:
 
 import from camera
 : This will bring up an import dialog, showing any images on camera that can be selected for import into a film roll.
