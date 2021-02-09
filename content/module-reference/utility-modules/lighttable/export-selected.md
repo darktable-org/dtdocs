@@ -1,7 +1,7 @@
 ---
 title: export selected
 id: export-selected
-applicable-verison: 3.4
+applicable-verison: 3.6
 tags: 
 view: lighttable
 ---
@@ -96,14 +96,13 @@ mode
 export
 : Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the "x" icon located close to the progress bar.
 
-metadata
-: Press the icon on the right of the export button to bring up the _edit metadata exportation_ dialog. This dialog allows you to to configure which metadata items are to be embedded into the exported image. See the following section for more details.
+# metadata preferences
 
-# including metadata in the exported image
+The “preferences…” option in the presets menu brings up a dialog where you can configure control what metadata is included within exported files:
 
 ![metadata config](./export-selected/metadata-config.png)
 
-The _edit metadata exportation_ dialog can be used to control what metadata is included within exported files. The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. The following options can be set:
+The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. The following options can be set:
 
 ## general settings
 
