@@ -20,7 +20,7 @@ Otherwise follow the following process to correlate the time of the camera and G
 
 1. Fix the camera time setting for an individual image by manually entering the correct date/time for that image into the "date time" field. A good way is to do this is to take a photograph of a reliable time source. This can be any precise clock or, even better, the time displayed on your GPS device, bearing in mind that GPS devices normally _show_ the local time, even though they _store_ universal time. The difference (offset) between the time entered and the time stored in the image's Exif data will be shown in the "date time offset" field.
 
-2. Press the "lock" button to lock the calculated offset. 
+2. Press the "lock" button to lock the calculated offset.
 
 3. Select all of the images you wish to adjust and apply the calculated offset to those images.
 
@@ -52,4 +52,4 @@ camera time zone
 : Select the camera's time zone. Start typing to show a list of permitted values.
 
 apply GPX track file
-: Apply a GPX track file. Click the corresponding button and navigate to the GPX file. As above you can use Ctrl+Z to undo any unwanted changes.
+: Apply a GPX track file. Click the corresponding button and navigate to the GPX file. As above you can use Ctrl+Z to undo any unwanted changes. Inside the file chooser window, the preview button lists the tracks of the selected gpx file and the following information: track name, start and end date time (local time), number of track points and number of selected images which will be geotagged.
