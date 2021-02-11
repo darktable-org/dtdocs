@@ -35,7 +35,7 @@ Here you can find the modules specific to the map view. From top to bottom:
 : Tag selected images.
 
 [geotagging](../module-reference/utility-modules/shared/geotagging.md)
-: Geo-tag selected images.
+: Apply GPX track data to selected images.
 
 # bottom panel
 
