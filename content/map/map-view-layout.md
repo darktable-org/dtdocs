@@ -34,6 +34,9 @@ Here you can find the modules specific to the map view. From top to bottom:
 [tagging](../module-reference/utility-modules/shared/tagging.md)
 : Tag selected images.
 
+[geotagging](../module-reference/utility-modules/shared/geotagging.md)
+: Geo-tag selected images.
+
 # bottom panel
 
 [filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
