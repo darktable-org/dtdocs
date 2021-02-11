@@ -53,6 +53,8 @@ A single section is provided for each darktable view. Shortcut actions are only 
 
 Shortcut actions for the [processing modules](../module-reference/processing-modules/_index.md) in the darktable view. A section is provided for each processing module.
 
+In addition, a separate "blending" section allows you to control the [masking and blending](../darkroom/masking-and-blending/_index.md) options for the last module that you interacted with.
+
 ### common shortcuts
 
 Every processing module provides the following shortcut actions by default
