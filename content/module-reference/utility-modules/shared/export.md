@@ -1,7 +1,7 @@
 ---
 title: export
 id: export-selected
-applicable-verison: 3.6
+applicable-version: 3.6
 tags: 
 view: lighttable
 ---

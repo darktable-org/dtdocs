@@ -1,7 +1,7 @@
 ---
 title: import
 id: import
-applicable-verison: 3.6
+applicable-version: 3.6
 tags:
 view: lighttable
 ---

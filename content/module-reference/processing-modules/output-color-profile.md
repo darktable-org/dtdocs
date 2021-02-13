@@ -1,7 +1,7 @@
 ---
 title: output color profile
 id: output-color-profile
-applicable-verison: 3.6
+applicable-version: 3.6
 tags: 
 working-color-space: Lab 
 view: darkroom

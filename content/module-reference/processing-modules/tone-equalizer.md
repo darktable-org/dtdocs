@@ -1,7 +1,7 @@
 ---
 title: tone equalizer
 id: tone-equalizer
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 working-color-space: RGB
 view: darkroom

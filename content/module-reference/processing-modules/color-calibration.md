@@ -1,7 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
-applicable-verison: 3.6
+applicable-version: 3.6
 tags:
 working-color-space: RGB
 view: darkroom

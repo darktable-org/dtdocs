@@ -1,7 +1,7 @@
 ---
 title: global tonemap (deprecated)
 id: global-tonemap
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 working-color-space: Lab 
 view: darkroom

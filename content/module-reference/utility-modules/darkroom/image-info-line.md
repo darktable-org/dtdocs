@@ -1,7 +1,7 @@
 ---
 title: image information line
 id: image-info-line
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 view: darkroom
 ---

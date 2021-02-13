@@ -1,7 +1,7 @@
 ---
 title: focus peaking
 id: focus-peaking
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 view: lighttable, darkroom, tethering, map
 ---

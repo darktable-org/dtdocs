@@ -1,7 +1,7 @@
 ---
 title: clipping warning
 id: clipping
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 view: darkroom
 ---

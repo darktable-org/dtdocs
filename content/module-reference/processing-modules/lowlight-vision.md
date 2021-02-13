@@ -1,7 +1,7 @@
 ---
 title: lowlight vision
 id: lowlight-vision
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space: Lab 
 view: darkroom

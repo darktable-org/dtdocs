@@ -1,7 +1,7 @@
 ---
 title: orientation
 id: orientation
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: rotate orientation basic-module-group
 working-color-space: not-applicable (RAW)
 view: darkroom

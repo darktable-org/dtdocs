@@ -1,7 +1,7 @@
 ---
 title: duplicate manager
 id: duplicate-manager
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 view: darkroom
 ---

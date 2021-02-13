@@ -1,7 +1,7 @@
 ---
 title: zone system (deprecated)
 id: zone-system
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 working-color-space: Lab 
 view: darkroom

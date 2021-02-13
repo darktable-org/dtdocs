@@ -1,7 +1,7 @@
 ---
 title: live view
 id: live-view
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 view: tethering
 ---

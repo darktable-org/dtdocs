@@ -1,7 +1,7 @@
 ---
 title: perspective correction
 id: perspective-correction
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space:  
 view: darkroom

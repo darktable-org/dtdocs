@@ -1,7 +1,7 @@
 ---
 title: history stack
 id: history-stack
-applicable-verison: 3.6
+applicable-version: 3.6
 tags: 
 view: lighttable
 ---

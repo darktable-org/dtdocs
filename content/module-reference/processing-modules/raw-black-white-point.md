@@ -1,7 +1,7 @@
 ---
 title: raw black/white point
 id: raw-black-white-point
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space: Not Applicable (RAW) 
 view: darkroom

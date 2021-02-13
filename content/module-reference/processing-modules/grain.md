@@ -1,7 +1,7 @@
 ---
 title: grain
 id: grain
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space: Lab 
 view: darkroom

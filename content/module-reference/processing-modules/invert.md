@@ -1,7 +1,7 @@
 ---
 title: invert (deprecated)
 id: invert
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 working-color-space: Not Applicable (RAW) 
 view: darkroom

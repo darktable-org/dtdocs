@@ -1,7 +1,7 @@
 ---
 title: image information
 id: image-information
-applicable-verison: 3.6
+applicable-version: 3.6
 tags:
 view: lighttable, darkroom, tethering, map, slideshow, print
 ---

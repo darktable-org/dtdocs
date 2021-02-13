@@ -1,7 +1,7 @@
 ---
 title: exposure
 id: exposure
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 
 view: darkroom
