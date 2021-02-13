@@ -1,7 +1,7 @@
 ---
 title: tone curve
 id: tone-curve
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space:  
 view: darkroom
@@ -16,7 +16,7 @@ Activate the color picker to show the picked values in the histogram (Ctrl+click
 
 # module controls
 
-_Please refer to the [curves](../../darkroom/interacting-with-modules/curves.md) section for more details about how to modify curves including the **interpolation method**, **scale for graph** and **preserve colors** controls._
+_Please refer to the [curves](../../darkroom/processing-modules/curves.md) section for more details about how to modify curves including the **interpolation method**, **scale for graph** and **preserve colors** controls._
 
 color spaces
 : Depending on the desired intent, you can apply the tone curve in three different color spaces:

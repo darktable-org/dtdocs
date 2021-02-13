@@ -1,5 +1,5 @@
 ---
-title: the anatomy of a module
+title: the anatomy of a processing module
 id: the-anatomy-of-a-module
 weight: 10
 draft: false

@@ -1,7 +1,7 @@
 ---
 title: color contrast
 id: color-contrast
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 working-color-space: Lab
 view: darkroom

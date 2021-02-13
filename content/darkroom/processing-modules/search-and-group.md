@@ -17,7 +17,7 @@ Click on one of the _module group_ icons above the _search module_ textbox to se
 
 If you click on any module group (including the _active modules_ group) a second time, a complete list of all available modules is shown.
 
-To quickly add a module to a group, right-click on the group icon and select a module from the resulting drop-down list.
+To quickly add a module to a group, right-click on the group icon and select a module from the resulting drop-down list. In addition, a list of "already present modules" is shown at the top of this drop-down and you may click on any item on this list to remove it.
 
 # search 
 

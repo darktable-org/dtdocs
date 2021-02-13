@@ -1,16 +1,14 @@
 ---
-title: export selected
+title: export
 id: export-selected
-applicable-verison: 3.4
+applicable-version: 3.6
 tags: 
 view: lighttable
 ---
 
-Export images that have been selected in the lighttable. 
+Export images that have been selected in the lighttable or the filmstrip of the darkroom view. 
 
 Files can be exported to a file on disk, email, various on-line storage locations, a webalbum, or a book template. 
-
-You can also press Ctrl+E within the darkroom mode to export the currently-edited image using the last settings from this module.
 
 # module controls
 
@@ -70,7 +68,7 @@ set size
 : - _by scale (for file)_: Enter a multiplier to specify by how much the output image should be scaled compared to the input image. For example, entering a value of 0.5 will result in an output image with half the width and height (in pixels) of the original image.
 
 dpi
-: If units of cm or inches are chosen, set the dpi of the output image.
+: If units of cm or inches are chosen, set the dpi of the output image. The dpi will also be stored in the Exif data of the exported image (and will be auto-set to 300 if "in pixels" or "by scale" is chosen).
 
 max size
 : Set the maximum width and height of the exported image(s) in pixels, cm or inches (depending on the selected unit) -- zero means no maximum. Exported images will be constrained so as not to exceed either of these values, while retaining the correct aspect ratio. Set both to zero to export with the original dimensions (after cropping). If the entered values exceed the original dimensions darktable will either export with the original dimensions or upscale the image, depending on the "allow upscaling" parameter.
@@ -91,19 +89,18 @@ style
 : This option lets you choose a [style](./styles.md) which darktable will combine with the existing history stack to generate the output image. These history items are only added temporarily -- the original history stack is not overwritten. You can use this feature to add processing steps and parameters that you want to be applied specifically to images before export. For example you may define a style that adds a stronger level of sharpening when you produce scaled-down JPEG files for the internet or add a certain level of exposure compensation to all of your output images. 
 
 mode
-: When applying a style during export this option defines whether the history stack items of that style replace the original history stack of the image or are appended to it. Technically speaking, in append mode history stack items of the style will constitute separate instances of the respective modules on top of any existing ones (see also [multiple instances](../../../darkroom/interacting-with-modules/multiple-instances.md)). As a consequence the original history stack will remain in effect with the new items being applied in addition. This way you can apply an overall adjustment (e.g. exposure) to a number of exported images while respecting the settings of each individual image.
+: When applying a style during export this option defines whether the history stack items of that style replace the original history stack of the image or are appended to it. Technically speaking, in append mode history stack items of the style will constitute separate instances of the respective modules on top of any existing ones (see also [multiple instances](../../../darkroom/processing-modules/multiple-instances.md)). As a consequence the original history stack will remain in effect with the new items being applied in addition. This way you can apply an overall adjustment (e.g. exposure) to a number of exported images while respecting the settings of each individual image.
 
 export
 : Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the "x" icon located close to the progress bar.
 
-metadata
-: Press the icon on the right of the export button to bring up the _edit metadata exportation_ dialog. This dialog allows you to to configure which metadata items are to be embedded into the exported image. See the following section for more details.
+# metadata preferences
 
-# including metadata in the exported image
+The “preferences…” option in the presets menu brings up a dialog where you can configure control what metadata is included within exported files:
 
 ![metadata config](./export-selected/metadata-config.png)
 
-The _edit metadata exportation_ dialog can be used to control what metadata is included within exported files. The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. The following options can be set:
+The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. The following options can be set:
 
 ## general settings
 

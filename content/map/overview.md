@@ -10,7 +10,7 @@ The map view is where you geo-tag your images.
 
 Map view shows a world map with the currently open image or film roll of images, pinned to their geo-tagged location. This requires that the image was geo-tagged by a camera with that feature. Some newer cameras, including smartphones, are already equipped with GPS receivers. Other cameras may need additional GPS hardware to do this.
 
-Even if your camera doesn't support this feature, there is an alternative method -- darktable can match the Exif time and date data in your image(s) to a separate GPX data tracking file created by a GPS tracker recording your movements. These can be handheld devices or a GPS tracker app on your smartphone. This is all done in the [geotagging](../module-reference/utility-modules/lighttable/geotagging.md) module in the lighttable view.
+Even if your camera doesn't support this feature, there is an alternative method -- darktable can match the Exif time and date data in your image(s) to a separate GPX data tracking file created by a GPS tracker recording your movements. These can be handheld devices or a GPS tracker app on your smartphone. This is all done in the [geotagging](../module-reference/utility-modules/shared/geotagging.md) module, which is available in both the lighttable and map views.
 
 # center map view
 

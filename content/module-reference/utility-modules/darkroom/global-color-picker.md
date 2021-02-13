@@ -1,7 +1,7 @@
 ---
 title: global color picker
 id: global-color-picker
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 view: darkroom
 ---

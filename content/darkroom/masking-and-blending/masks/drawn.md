@@ -56,7 +56,7 @@ The [mask manager](../../../module-reference/utility-modules/darkroom/mask-manag
 # available shapes
 
 brush
-: Start drawing a brush stroke by left-clicking on the image canvas and moving the mouse while keeping the button pressed. The brush stroke is finalized once you release the mouse button. Scroll the mouse to change the shape size, either before you start drawing or at any time during the operation. Likewise you can use the "`[`" and "`]`" keys to decrease/increase brush size, the "`{`" and "`}`" keys to decrease/increase feathering, and the "`<`" and "`>`" keys to decrease/increase opacity.
+: Start drawing a brush stroke by left-clicking on the image canvas and moving the mouse while keeping the button pressed. The brush stroke is finalized once you release the mouse button. Scroll the mouse to change the shape size, either before you start drawing or at any time during the operation. Likewise you can use the "`{`" and "`}`" keys to decrease/increase feathering, and the "`<`" and "`>`" keys to decrease/increase opacity.
 
 : If you have a graphics tablet with pen pressure sensitivity, darktable can apply the recorded pen pressure to certain attributes of the brush stroke. This operation can be controlled in [preferences > darkroom > pen pressure control for brush masks](../../../preferences-settings/darkroom.md).
 

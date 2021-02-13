@@ -1,7 +1,7 @@
 ---
 title: lut 3D
 id: lut-3d
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 
 view: darkroom

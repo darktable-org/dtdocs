@@ -1,7 +1,7 @@
 ---
 title: color zones
 id: color-zones
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space: Lab
 view: darkroom
@@ -10,7 +10,7 @@ masking: true
 
 Selectively adjust the lightness, saturation and hue of pixels based on their current lightness, saturation and hue.
 
-This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (or _saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../darkroom/interacting-with-modules/curves.md).
+This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (or _saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).
 
 In the _color zones_ module, you first need to choose whether you wish to adjust (select) pixels based on their lightness, saturation or hue. Once you have chosen the pixel selection method you can then use three curves, on their respective tabs, to adjust the lightness, saturation and hue of ranges of pixels selected via this method.
 
@@ -54,7 +54,7 @@ hue
 
 : ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png#w33)
 
-The curves work similarly in the lightness-based and saturation-based selection modes as well. See the section on [curves](../../darkroom/interacting-with-modules/curves.md) to see how spline curves work in general.
+The curves work similarly in the lightness-based and saturation-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
 
 In practical use, these examples would probably need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect. 
 
@@ -78,7 +78,7 @@ tabbed controls
 : The module provides tabs with a curve for each of the three channels “lightness”, “saturation”, and “hue”, so that you can adjust these attributes individually based on the pixel selection method (see the _pixel manipulation curves_ section above).
 
 edit by area
-: Control the interaction mode with the curve. This setting is disabled by default, which allows the control points for the curve to be freely placed and dragged. By enabling this setting, the adjustment of the curve falls back to a legacy mode, which functions in a similar to the spline curve controls used in the [wavelets](../../darkroom/interacting-with-modules/wavelets.md) modules.
+: Control the interaction mode with the curve. This setting is disabled by default, which allows the control points for the curve to be freely placed and dragged. By enabling this setting, the adjustment of the curve falls back to a legacy mode, which functions in a similar to the spline curve controls used in the [wavelets](../../darkroom/processing-modules/wavelets.md#spline-controls) modules.
 
  ![mask-icon](./color-zones/icon-mask.png#icon) mask display
 : Enable the _mask display_ to highlight any pixels that have been affected by _color zones_ adjustments in yellow.
@@ -93,5 +93,5 @@ mix
 : Use this parameter to tune the strength of the overall effect.
 
 interpolation method
-: The interpolation is the strategy used to draw a continuous curve through a set of control points. The different interpolation methods are described more fully in the [curves](../../darkroom/interacting-with-modules/curves.md) section.
+: The interpolation is the strategy used to draw a continuous curve through a set of control points. The different interpolation methods are described more fully in the [curves](../../darkroom/processing-modules/curves.md) section.
 

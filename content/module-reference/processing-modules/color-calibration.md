@@ -1,7 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
-applicable-verison: 3.4
+applicable-version: 3.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -10,13 +10,15 @@ masking: true
 
 A fully-featured color-space correction, white balance adjustment and channel mixer. This simple yet powerful module can be used in the following ways:
 
-- To adjust the white balance (chromatic adaptation), working in tandem with the [_white balance_](./white-balance.md) module. In this case, the _white balance_ module performs an initial white balance step (which is still required in order for the [_demosaic_](./demosaic.md) module to work effectively). The _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
+- To adjust the white balance ([chromatic adaptation](#white-balance-in-the-chromatic-adaptation-transformation-cat-tab)), working in tandem with the [_white balance_](./white-balance.md) module. In this case, the _white balance_ module performs an initial white balance step (which is still required in order for the [_demosaic_](./demosaic.md) module to work effectively). The _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
 
-- As a simple RGB channel mixer, adjusting the output R, G and B channels based on the R, G and B input channels, to perform cross-talk color-grading.
+- As a simple RGB [channel mixer](#channel-mixing), adjusting the output R, G and B channels based on the R, G and B input channels, to perform cross-talk color-grading.
 
-- To adjust the color saturation and brightness of the pixels, based on the relative strength of the R, G and B channels of each pixel.
+- To adjust the [color saturation and brightness](#brightness-and-colorfulness-tabs) of the pixels, based on the relative strength of the R, G and B channels of each pixel.
 
-- To produce a greyscale output based on the relative strengths of the R, G and B channels, in a way similar to the response of black and white film to a light spectrum.
+- To produce a [greyscale output](#grey-tab) based on the relative strengths of the R, G and B channels, in a way similar to the response of black and white film to a light spectrum.
+
+- To improve the color accuracy of the input color profiles using a [color checker](#extracting-settings-using-a-color-checker) chart.
 
 # White Balance in the Chromatic Adaptation Transformation (CAT) tab
 
@@ -79,7 +81,7 @@ adaptation
 : The working color space in which the module will perform its chromatic adaptation transform and channel mixing. The following options are provided:
 
 : - _Linear Bradford (1985)_: This is accurate for illuminants close to daylight and is compatible with the ICC v4 standard, but produces out-of-gamut colors for more difficult illuminants.
-: - _CAT16 (2016)_: This is more robust in avoiding imaginary colors while working with large gamut or saturated cyan and purple, and is more accurate than the Bradform CAT in general.
+: - _CAT16 (2016)_: This is the default option and is more robust in avoiding imaginary colors while working with large gamut or saturated cyan and purple. It is more accurate than the Bradform CAT in most cases.
 : - _Non-linear Bradford (1985)_: This can produce better results than the linear version but is unreliable.
 : - _XYZ_: This is the least accurate method and is generally not recommended except for testing and debugging purposes.
 : - _none (disable)_: Disable any adaptation and use the pipeline working RGB space.
@@ -228,7 +230,135 @@ input red/green/blue
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
 
-# Caveats
+# extracting settings using a color checker
+
+Since the channel mixer is essentially an RGB matrix (similar to the [_input color profile_](./input-color-profile.md) used for RAW images) it can be used to improve the color accuracy of the input color profile by computing ad-hoc color calibration settings. 
+
+These computed settings aim to minimize the color difference between the scene reference and the camera recording in a given lighting situation. This is equivalent to creating a generic ICC color profile but here, the profile is instead stored as module settings that can be saved as presets or styles, to be shared and re-used between images. Such profiles are meant to complement and refine the generic input profile but do not replace it.
+
+This feature can assist with:
+
+* handling difficult illuminants, such as low [CRI](https://en.wikipedia.org/wiki/Color_rendering_index) light bulbs, for which a mere white balancing will never suffice,
+* digitizing artworks or commercial products where an accurate rendition of the original colors is required,
+* neutralizing a number of cameras to the same ground-truth, in multi-camera photo sessions, in order to obtain a consistent base look and share the color editing settings with a consistent final look,
+* obtaining a sane color pipeline from the start, nailing white balance and removing any bounced-light color cast at once, with minimal effort and time.
+
+## supported color checker targets
+
+Users are not currently permitted to use custom targets, but a limited number of verified color checkers (from reputable manufacturers) are provided:
+
+- X-Rite / Gretag MacBeth Color Checker 24 (pre- and post-2014),
+- Datacolor SpyderCheckr 24,
+- Datacolor SpyderCheckr 48.
+
+Users are discouraged from obtaining cheap, off-brand, color targets as color constancy between batches cannot possibly be asserted at such prices. Inaccurate color checkers will only defeat the purpose of color calibration and possibly make things worse.
+
+IT7 and IT8 charts are not supported since they are hardly portable and not practical for use on-location for ad-hoc profiles. These charts are better suited for creating generic color profiles, undertaken using a standard illuminant, for example with [Argyll CMS](https://encrypted.pcode.nl/blog/index.html%3Fp=594.html).
+
+---
+
+**Note**: X-Rite changed the formula of their pigments in 2014, which slightly altered the color of the patches. Both formulas are supported in darktable, but you should be careful to choose the correct reference for your target. If in doubt, try both and choose the one that yields the lowest average delta E after calibration.
+
+---
+
+## prequisites
+
+In order to use this feature you will need to take a test shot of a supported color checker chart, on-location, under appropriate lighting conditions:
+
+* frame the chart in the center 50% of the camera's field, to ensure that the image is free of vignetting,
+* ensure that the main light source is far enough from the chart to give an even lighting field over the surface of the chart,
+* adjust the angle between the light, chart and lens to prevent reflections and gloss on the color patches,
+* adjust the camera exposure such that the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space. To be safe, you are advised to bracket your exposure between -1 and +1 EV in matrix metering mode, and pick the closest exposed picture during post-production.
+
+If the lighting conditions are close to a standard D50 to D65 illuminant (direct natural light, no colored bounced light), the color checker shot can be used to produce a generic profile that will be suitable for any daylight illuminant with only a slight adjustment of the white balance.
+
+If the lighting conditions are peculiar and far from standard illuminants, the color checker shot will be only usable as an ad-hoc profile for pictures taken in the same lighting conditions.
+
+
+## usage
+
+The settings used in color calibration depend on the chosen CAT space and on any color settings defined earlier in the pipe within the _white balance_ and _input color profile_ modules. As such, the results of the profiling (e.g. the RGB channel mixing coefficients) are valid only for a rigid set of _CAT space_, _white balance_ and _input color profile_ settings. If you wish to create a generic style with your profile, don't forget that you will need to include the settings from these modules as well.
+
+Use the following process to create your profile preset/style:
+
+1. Enable the [_lens correction_](../module-reference/processing-modules/lens-correction.md) module to correct any vignetting that might mislead the calibration,
+2. On the bottom of the _color calibration_ module, click on the arrow near the _calibrate with a color checker_ label, to show the controls,
+3. Pick the correct model and manufacturer in the _chart_ drop-down,
+4. In the image preview, an overlay of the chart's patches will appear. Drag the corners of the chart so that they match the visual references (dots or crosses) around the target, to compensate for any perspective distortion,
+5. Click the _refresh_ button to compute the profile,
+6. Check the _Profile quality report_. If it is "good", you can click on the _validation_ button. If not, try changing the optimization strategy and refresh the profile again.
+7. Save the profile in a preset or style, or simply copy & paste the module settings to all of the pictures taken under the same lighting conditions, from within the lighttable view or filmstrip.
+
+---
+
+**Note:** You don't _need_ to use the standard matrix in the _input color profile_ module when performing a calibration, but be aware that the "as shot in camera" default white balance will not work properly with any other profile, and that you will need to always use the same input profile whenever you reuse such calibration settings.
+
+---
+
+## reading the profile report
+
+The profile report helps you to assess the quality of the calibration. The settings in color calibration are only a "best fit" optimization and will never be 100% accurate for the whole color spectrum. We therefore need to track "how inaccurate" it is in order to know whether we can trust this profile or not. 
+
+Bad profiles can happen and will do more harm than good if used.
+
+### delta E and the quality report
+
+The [CIE delta E 2000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) (ΔE) is used as a perceptual metric of the error between the reference color of the patches and the color obtained after each step of calibration:
+
+- ΔE = 0 means that there is no error -- the obtained color is exactly the reference color. Unfortunately, this will never happen in practice.
+- ΔE = 2.3 is defined as the Just Noticeable Difference (JND).
+- ΔE < 2.3 means that the average observer will not be able to tell the difference between the expected reference color and the obtained color. This is a satisfactory result.
+- ΔE > 2.3 means that the color difference between the expected reference and the obtained color is noticeable for the average observer. This is unsatisfactory but sometimes unavoidable.
+
+The quality report tracks the average and maximum ΔE at the input of the module (before anything is done), after the chromatic adaptation step (white balance only), and at the output of the module (white balance and channel mixing). At each step, the ΔE should be lower than at the previous step, if everything goes as planned.
+
+### profile data
+
+This comprises the RGB 3×3 matrix and the detected illuminant. These are expressed in the CAT _adaptation_ space defined in the _CAT_ tab and are provided in case you want to export these coefficients to other software. If the detected illuminant is _daylight_ or _black body_, the matrix should be fairly generic and re-usable for other _daylight_ and _black body_ illuminants with the addition of a small white balance adjustment.
+
+### normalization values
+
+These are the settings that you should define, as-is, for the _exposure_ and _black level correction_ parameters in the _[exposure](../module-reference/processing-modules/exposure.md)_ module, in order to obtain the lowest possible error in your profile. This step is optional and is useful only when the utmost precision is required, but beware that it can produce negative RGB values that will be clipped in various places in the pipeline.
+
+### overlay
+
+![color checker](./color-calibration/color-checker.png#w75)
+
+The chart overlay displays a disc, in the center of each color patch, that represents the expected reference value of that patch, projected into the display RGB space. This helps you to visually assess the difference between the reference and the actual color without having to bother with ΔE values. This visual clue will be reliable only if you set the _exposure_ module as instructed in the _normalization values_ of the profile report.
+
+Once the profile has been calibrated, some square patches will be crossed in the background by one or two diagonals:
+
+* patches that are not crossed have ΔE < 2.3 (JND), meaning they are accurate enough that the average observer will be unable to notice the deviation,
+* patches crossed with one diagonal have 2.3 < ΔE < 4.6, meaning that they are mildly inaccurate,
+* patches crossed with two diagonals have ΔE > 4.6 (2 × JND), meaning that they are highly inaccurate.
+
+This visual feedback will help you to set up the optimization trade-off to check which colors are more or less accurate.
+
+## enhancing the profile
+
+Because any calibration is merely a "best fit" optimization (using a weighted least-squares method) it is impossible to have all patches within our ΔE < 2.3 tolerance. Therefore, we will need to compromise.
+
+The _optimize for_ parameter allows you to define an optimization strategy that attempts to increase the profile accuracy in some colors at the expense of others. The following options are available:
+
+- _none_: Don't use an explicit strategy but rely on the implicit stategy defined by the color checker manufacturer. For example, if the color checker has mostly low-saturation patches, the profile will be more accurate for less-saturated colors.
+- _neutral colors_: Give priority to greys and less-saturated colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in highly-saturated colors more than without any profile.
+- _saturated colors_: Give priority to primary colors and highly-saturated colors. This is useful in product and commercial photography, to get brand colors right.
+- _skin and soil colors_, _foliage colors_, _sky and water colors_: Give priority to the chosen hue range. This is useful if the subject of your pictures is clearly defined and has a typical color.
+- _average delta E_: Attempt to make the color error uniform across the color range and minimize the average perceptual error. This is useful for generic profiles.
+- _maximum delta E_: Attempt to minimize outliers and large errors, at the expense of the average error. This is useful to get saturated blues back into line.
+
+No matter what you do, strategies that favor a low average ΔE will usually have a higher maximum ΔE, and vice versa. Also, blues are always the more challenging color range to get correct, so the calibration usually falls back to protecting blues at the expense of everything else, or everything else at the expense of blues.
+
+The ease of obtaining a proper calibration depends on the quality of the scene illuminant (daylight and high CRI should always be favoured), the quality of the primary _input color profile_, the _black point compensation_ set in the _exposure_ module, but first and foremost on the mathematical properties of the camera sensor's filter array.
+
+## profile checking
+
+It is possible to use the _color space check_ button (first on the left, at the bottom of the module) to perform a single ΔE computation of the color checker reference against the output of the _color calibration_ module. This can be used in the following ways:
+
+1. To check the accuracy of a profile calculated in particular conditions against a color checker shot in different conditions.
+2. To evaluate the performance of any color correction performed earlier in the pipe, by setting the _color calibration_ parameters to values that effectively disable it (CAT _adaptation_ to _none_, everything else set to default), and just use the average ΔE as a performance metric.
+
+# caveats
 
 The ability to use standard CIE illuminants and CCT-based interfaces to define the illuminant color depends on sound default values for the standard matrix in the _input color profile_ module as well as reasonable RGB coefficients in the _white balance_ module.
 
@@ -239,4 +369,4 @@ It is possible to alleviate this issue, if you have a computer screen calibrated
 1. Display a white surface on your screen, for example by opening a blank canvas in any photo editing software you like
 2. Take a blurry (out of focus) picture of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and using an aperture between f/5.6 and f/8,
 3. Open the picture in darktable and extract the white balance by using the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
-4. [Save a preset](../darkroom/interacting-with-modules/presets/#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.
+4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.

@@ -1,14 +1,14 @@
 ---
 title: module order
 id: module-order
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 view: darkroom
 ---
 
 Change the order of the [processing modules](../../processing-modules/_index.md) in the darkroom using presets.
 
-When processing an image, the active modules are applied in a specific order, which is shown in the right-hand panel of the darkroom view. This module provides information about the current ordering of the processing modules in the [pixelpipe](../../../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md). The single parameter "current order" can take on the following values:
+When processing an image, the active modules are applied in a specific order, which is shown in the right-hand panel of the darkroom view. This module provides information about the current ordering of the processing modules in the [pixelpipe](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md). The single parameter "current order" can take on the following values:
 
 v3.0
 : This is the default module order for [scene-referred](../../../overview/workflow/edit-scene-referred.md) workflow. 

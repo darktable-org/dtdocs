@@ -1,7 +1,7 @@
 ---
 title: manage module layouts
 id: module-groups
-applicable-verison: 3.4
+applicable-version: 3.4
 tags: 
 view: darkroom
 ---

@@ -43,7 +43,7 @@ description
 : A searchable description for the preset (optional)
 
 auto apply this preset to matching images
-: Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by Ctrl+clicking on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data.
+: Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by Ctrl+clicking on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data (see below).
 
 : For example, if you want a preset to be applied to all images from a specific camera leave all fields at default values except for the model field. Leave all fields unchanged to auto-apply a preset to all images.
 
@@ -52,13 +52,41 @@ auto apply this preset to matching images
 : _The [image information](../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
 
 only show this preset for matching images
-: Check this box to automatically show the preset in the preset menu, using the same set of filters as above.
+: Check this box to automatically show the preset in the preset menu, using the same set of filters.
 
-If you create a preset with the same name as a built-in preset, your newly created preset will override the built-in preset, which will no longer be accessible.
+model
+: A pattern to be matched against the Exif field that describes your camera model; use % as wildcard.
+
+maker
+: A pattern to be matched against the Exif field that describes the maker of your camera; use % as wildcard.
+
+lens
+: A pattern to be matched against the Exif field that describes your lens; use % as wildcard.
+
+ISO
+: Only apply the preset if the ISO value of your image lies within the given range.
+
+exposure
+: Only apply the preset if the exposure time of your image lies within the given range; set + as the upper value to match arbitrarily long exposures.
+
+aperture
+: Only apply the preset if the aperture of your image lies within the given range; set f/0 as the lower value to match arbitrarily open apertures; set f/+ as the upper value to match arbitrarily closed apertures.
+
+focal length
+: Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
+
+format
+: Only apply the preset to certain types of image. Choose from "normal images", "raw", "HDR", "monochrome" and "color".
 
 # managing presets
 
 Both user-created and pre-defined presets can be viewed and managed from within [preferences > presets](../../../preferences-settings/presets.md).
 
+---
+
+**Note:** If you create a user-defined preset with the same name as a built-in preset, your preset will override the built-in version, which will no longer be accessible.
+
 If you delete a preset that has the same name as one of the built-in presets, then your user preset will be deleted, and that preset name will no longer appear in the preset menu at all. The next time you start darktable, the corresponding built-in preset will once again become visible.
+
+---
 

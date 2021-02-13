@@ -30,6 +30,9 @@ From top to bottom:
 [mask manager](../module-reference/utility-modules/darkroom/mask-manager.md)
 : View and edit drawn shapes
 
+[export](../module-reference/utility-modules/shared/export.md)
+: Export selected images to local files or external services.
+
 # right panel
 
 From top to bottom:
@@ -37,10 +40,10 @@ From top to bottom:
 [histogram](../module-reference/utility-modules/shared/histogram.md)
 : A graphical depiction of the image's light levels
 
-[module groups](./interacting-with-modules/search-and-group.md)
+[module groups](./processing-modules/search-and-group.md)
 : Select module groups (if enabled)
 
-[search module](./interacting-with-modules/search-and-group.md)
+[search module](./processing-modules/search-and-group.md)
 : Search for a module (if enabled)
 
 [processing modules](../module-reference/processing-modules/_index.md)
@@ -55,7 +58,7 @@ From top to bottom:
 
 From left to right:
 
-[presets](./interacting-with-modules/presets.md)
+[presets](./processing-modules/presets.md)
 : Quick access menu for module presets. You can manage the contents of this menu by selecting "manage quick presets list..."
 
 [styles](../module-reference/utility-modules/lighttable/styles.md)

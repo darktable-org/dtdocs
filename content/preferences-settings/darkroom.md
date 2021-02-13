@@ -38,7 +38,7 @@ reduce resolution of preview image
 : Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color-picking and masking (default "original").
 
 show right-side buttons in processing module headers
-: Choose whether to show the three buttons (multi-instance, reset, presets) on the right-hand-side of the [module header](../darkroom/interacting-with-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
+: Choose whether to show the three buttons (multi-instance, reset, presets) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
 : - _always_: always show all buttons
 : - _active_: only show the buttons when the mouse is over the module
 : - _dim_: buttons are dimmed when mouse is away

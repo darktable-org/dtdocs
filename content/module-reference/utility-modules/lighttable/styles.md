@@ -1,18 +1,20 @@
 ---
 title: styles
 id: styles
-applicable-verison: 3.2.1
+applicable-version: 3.6
 tags: 
 view: lighttable
 ---
 
-Create named styles from selected images' [history stacks](../../../darkroom/processing-modules-and-pixelpipe/history-stack.md) and apply styles to selected images. 
+Create named styles from selected images' [history stacks](../../../darkroom/pixelpipe/history-stack.md) and apply styles to selected images. 
 
 Styles can either be created within this panel or in the [history stack](../darkroom/history-stack.md) module in the darkroom.
 
 A list of all available styles is displayed at the top of the module. A search field above the list allows you to locate a style by name or description. This module also allows styles to be edited and deleted.
 
 Double-click on a style name to apply that style to all selected images.  A style may also be applied to all selected images by pressing a shortcut key assigned to it (see [preferences > shortcuts](../../../preferences-settings/shortcuts.md)) while in either lighttable or darkroom view.
+
+Remove all styles by clicking on the module reset button.
 
 # module controls
 

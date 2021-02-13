@@ -5,38 +5,15 @@ weight: 130
 draft: false
 ---
 
-This menu gives you an overview of the [presets](../darkroom/interacting-with-modules/presets.md) that are defined for darktable's modules. In this dialog you can select whether a user-defined preset should be auto-applied to matching images. By pressing the “import” button at the bottom of the window you can import a saved preset.
+This menu provides an overview of the [presets](../darkroom/processing-modules/presets.md) that are defined for darktable's modules, and allows you to modify some of their properties.
 
-Pre-defined presets (those that are included by default within darktable) are shown with a lock symbol. Their auto-apply properties cannot be changed.
+Pre-defined presets (those that are included by default within darktable) are shown with a lock symbol. Their properties cannot be changed.
 
-Selecting a user-defined preset and pressing Enter or double-clicking on it will open an edit dialog. This allows the chosen preset to be edited, saved to an external `.dtpreset` file or deleted. Selecting a user-defined preset and pressing the Delete key will delete the preset.
+User-defined presets can be imported from saved `.dtpreset` files using the "import" button at the bottom of the screen. You can export _all_ user-defined presets to a single directory using the "export" button.
 
-auto apply this preset to matching images
-: Activate this checkbutton to automatically apply the preset to newly imported images -- a set of fields is displayed where you can define patterns to be matched against Exif data.
+Delete a preset by selecting it and pressing the Delete key.
 
-only show this preset for matching images
-: Activate this checkbutton to hide the preset in darkroom mode if it does not match the defined patterns.
+Edit a preset's properties by selecting it and pressing Enter or double-clicking. This will open a dialog that allows the preset to be edited, saved to an external `.dtpreset` file or deleted. 
 
-model
-: A pattern to be matched against the Exif field that describes your camera model; use % as wildcard.
-
-maker
-: A pattern to be matched against the Exif field that describes the maker of your camera; use % as wildcard.
-
-lens
-: A pattern to be matched against the Exif field that describes your lens; use % as wildcard.
-
-iso
-: Only apply the preset if the ISO value of your image lies within the given range.
-
-exposure
-: Only apply the preset if the exposure time of your image lies within the given range; set + as the upper value to match arbitrarily long exposures.
-
-aperture
-: Only apply the preset if the aperture of your image lies within the given range; set f/0 as the lower value to match arbitrarily open apertures; set f/+ as the upper value to match arbitrarily closed apertures.
-
-focal length
-: Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
-
-See the [presets](../darkroom/interacting-with-modules/presets.md) section for more information.
+See the [creating and editing presets](../darkroom/processing-modules/presets.md#creating-and-editing-presets) section for more information about the other properties that can be edited in this dialog.
 

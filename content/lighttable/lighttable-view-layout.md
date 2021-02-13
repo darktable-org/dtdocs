@@ -47,10 +47,10 @@ From top to bottom:
 [tagging](../module-reference/utility-modules/shared/tagging.md)
 : Tag selected images.
 
-[geotagging](../module-reference/utility-modules/lighttable/geotagging.md)
+[geotagging](../module-reference/utility-modules/shared/geotagging.md)
 : Import and apply GPX track data to selected images.
 
-[export selected](../module-reference/utility-modules/lighttable/export-selected.md)
+[export](../module-reference/utility-modules/shared/export.md)
 : Export selected images to local files or external services.
 
 # bottom panel

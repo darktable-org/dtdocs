@@ -80,7 +80,7 @@ weight
 - Headers in a file should not exceed level three (###)
 - The primary authoring language is English
 - Assume the reader has the application open while reading the user manual and only include images where they contribute to the explanation of complex functionality
-- Use image callouts if you need to annotate an image (i.e. mark parts of the image with a letter or number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult. See [this page](../darkroom/processing-modules-and-pixelpipe/the-anatomy-of-a-module.md) for an example.
+- Use image callouts if you need to annotate an image (i.e. mark parts of the image with a letter or number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult. See [this page](../darkroom/pixelpipe/the-anatomy-of-a-module.md) for an example.
 - Changes to the content should be proposed via pull request or a similar mechanism
 - Your submissions will be copy edited, don't take it personally
 

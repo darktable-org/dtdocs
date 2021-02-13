@@ -14,4 +14,4 @@ Regions in the image with a high level of sharpness are indicated with red borde
 
 Sometimes pressing W or Ctrl+W may not appear to have any effect -- in such cases, click on the image thumbnail and press the corresponding key again.
 
-If you want the full preview to stay in place without having to hold the W key, you can use sticky preview mode by pressing Alt+W (no focus peaking) or Ctrl+Alt+W (with focus peaking). In sticky preview mode, you can zoom and pan within the image in a similar way to the [culling](./culling.md) mode. Press W again to return to the original view.
+If you want the full preview to stay in place without having to hold the W key, you can use sticky preview mode by pressing F. In sticky preview mode, you can zoom and pan within the image in a similar way to the [culling](./culling.md) mode. Press F or ESC again to return to the original view.

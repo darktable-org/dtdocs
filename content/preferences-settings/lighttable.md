@@ -9,15 +9,6 @@ The following options control functionality in the [lighttable](../lighttable/_i
 
 # general
 
-number of folder levels to show in lists
-: The number of folder levels to show in film roll names, starting from the right (default 1).
-
-sort film rolls by
-: Sort film rolls by either the "folder" (path) or the "id" (roughly equivalent to the date the film rolls were first imported) in the [collect images](../module-reference/utility-modules/shared/collect-images.md) module (default "id").
-
-sort collection recent to older
-: When selecting folders and dates/times within the [collect images](../module-reference/utility-modules/shared/collect-images.md) module, sort items from recent to older (default on).
-
 hide built-in presets for utility modules
 : If enabled, only user-defined presets will be shown in presets menu for utility modules -- built-in presets will be hidden (default off).
 
@@ -36,7 +27,7 @@ rating an image one star twice will not zero out the rating
 show scrollbars for center view
 : Should scrollbars be shown in the center view of the lighttable (default on).
 
-# thumbnails 
+# thumbnails
 
 color manage cached thumbnails
 : If activated, darktable generates thumbnails in a general color space (AdobeRGB) in order to render them independently of the individual monitor. Conversion to the monitor color space is undertaken at display time. If this option is not activated thumbnails are stored directly in a monitor-specific color space at generation time and are subsequently displayed without further corrections (default on).
@@ -48,11 +39,10 @@ high quality thumbnail processing from size
 : If the thumbnails size is greater than this value, it will be processed using the full quality rendering path, which is better but slower (default 720p).
 
 delimiters for size categories
-: Size categories are used to allow different thumbnail overlays to be shown depending on the thumbnail size. A pipe delimited set of values defines at what image sizes the categories change. The default value of "120|400" means that there will be 3 categories of thumbnails: 0-120px, 120-400px and >400px. 
+: Size categories are used to allow different thumbnail overlays to be shown depending on the thumbnail size. A pipe delimited set of values defines at what image sizes the categories change. The default value of "120|400" means that there will be 3 categories of thumbnails: 0-120px, 120-400px and >400px.
 
 pattern for the thumbnail extended overlay text
 : If the user has chosen to show extended overlay text over thumbnail images, this setting allows the user to define what information is displayed. This pattern can use any of the variables defined in the [variables](../special-topics/variables.md) section.
 
 pattern for the thumbnail tooltip (empty to disable)
 : Defines what information is displayed in the tooltip when the mouse hovers over image thumbnails. This pattern can use any of the variables defined in the [variables](../special-topics/variables.md) section.
-

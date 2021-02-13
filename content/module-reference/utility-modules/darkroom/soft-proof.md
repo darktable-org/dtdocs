@@ -1,7 +1,7 @@
 ---
 title: soft proof
 id: soft-proof
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 view: darkroom
 ---

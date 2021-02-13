@@ -9,7 +9,7 @@ author: "people"
 The modules in this reference section are broken down into two types:
 
 [processing modules](./processing-modules/_index.md)
-: These modules are used exclusively in the darkroom view, and each performs its processing operation on the image before passing the image up to the next module for further processing. Together this sequence of processing steps forms the [pixelpipe](../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md).
+: These modules are used exclusively in the darkroom view, and each performs its processing operation on the image before passing the image up to the next module for further processing. Together this sequence of processing steps forms the [pixelpipe](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
 
 [utility modules](./utility-modules/_index.md)
 : These modules may be used in any darktable view. They are not directly involved in processing the pixels of your image; instead they perform other ancillary functions related to managing the image metadata and tags, editing history, modifying overall pixel pipeline order, snapshots and duplicates, image export and so on.
@@ -27,9 +27,9 @@ reset parameters button
 : This normally appears to the right of the module name and is used to reset the state of the module back to its original condition.
 
 presets  menu
-: This normally appears at the far right of the module header. The [presets](../darkroom/interacting-with-modules/presets.md) menu is predominantly used in processing modules, but many of the utility modules allow presets to be defined as well.
+: This normally appears at the far right of the module header. The [presets](../darkroom/processing-modules/presets.md) menu is predominantly used in processing modules, but many of the utility modules allow presets to be defined as well. You can also access this menu by right-clicking on the module header.
  
-Processing modules contain additional elements in their module header, as described in the [darkroom module header](../darkroom/interacting-with-modules/module-header.md) section.
+Processing modules contain additional elements in their module header, as described in the [processing module header](../darkroom/processing-modules/module-header.md) section.
 
 # module resizing
 

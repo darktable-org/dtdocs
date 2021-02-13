@@ -1,14 +1,14 @@
 ---
 title: contrast equalizer
 id: contrast-equalizer
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space:  
 view: darkroom
 masking: 
 ---
 
-This versatile module can be used to achieve a variety of effects, for example, bloom, denoising, clarity, and local contrast enhancement. It works in the [wavelet](../../darkroom/interacting-with-modules/wavelets.md) domain and parameters can be tuned independently for each wavelet detail scale. It operates in CIE LCh color space, which means that it is able to treat luminosity and chromaticity separately.
+This versatile module can be used to achieve a variety of effects, for example, bloom, denoising, clarity, and local contrast enhancement. It works in the [wavelet](../../darkroom/processing-modules/wavelets.md) domain and parameters can be tuned independently for each wavelet detail scale. It operates in CIE LCh color space, which means that it is able to treat luminosity and chromaticity separately.
 
 A number of presets are provided, which should give you a better understanding the full power of this module.
 
@@ -30,7 +30,7 @@ In the background of the curve you will see a number of alternating light and da
 
 The luma tab allows you to adjust the local contrast in the luminance or brightness in the image. It is represented by a white spline that starts off running across the centre of the graph (indicating that no change will be made). Raise or lower the white spline at the left end of the graph to increase or decrease the local contrast of coarse detail in the image. Perform similar adjustments towards the right side of the graph to adjust the local contrast of the fine details in the image. 
 
-When you hover the mouse pointer over the graph, a white circle indicates the radius of influence of the mouse pointer, and this circle can be made larger or smaller with the mouse wheel. When you adjust a control point, the larger the circle, the more the control points either side will be affected by the adjustment. You will see in the background a highlighted region which shows what the spline would look like if you pushed the currently-hovered control point all the way to the top or bottom on the graph. See the screenshot below for examples of these features. For more information see the [wavelets](../../darkroom/interacting-with-modules/wavelets.md) section.
+When you hover the mouse pointer over the graph, a white circle indicates the radius of influence of the mouse pointer, and this circle can be made larger or smaller with the mouse wheel. When you adjust a control point, the larger the circle, the more the control points either side will be affected by the adjustment. You will see in the background a highlighted region which shows what the spline would look like if you pushed the currently-hovered control point all the way to the top or bottom on the graph. See the screenshot below for examples of these features. For more information see the [wavelets](../../darkroom/processing-modules/wavelets.md) section.
 
 Let's look at an example. The following image shows the default state of the contrast equalizer module before any adjustments have been made:
 

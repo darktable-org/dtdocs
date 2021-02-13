@@ -1,7 +1,7 @@
 ---
 title: demosaic
 id: demoasic
-applicable-verison: 3.6.0
+applicable-version: 3.6.0
 tags: 
 working-color-space: Not Applicable (RAW) 
 view: darkroom

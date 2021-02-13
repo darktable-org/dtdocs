@@ -1,7 +1,7 @@
 ---
 title: negadoctor
 id: negadoctor
-applicable-verison: 3.2.1
+applicable-version: 3.2.1
 tags: 
 working-color-space:  
 view: darkroom
@@ -34,7 +34,7 @@ The _working profile_ parameter in darktable's [_input color profile_](input-col
 
 ---
 
-**Note:** if you want to use [_tone equalizer_](tone-equalizer.md) with _negadoctor_, you'll need to move the _tone equalizer_ **after** _negadoctor_ in the [pixelpipe](../../darkroom/processing-modules-and-pixelpipe/the-pixelpipe-and-module-order.md), since the _tone equalizer_ is not designed to work with negatives.
+**Note:** if you want to use [_tone equalizer_](tone-equalizer.md) with _negadoctor_, you'll need to move the _tone equalizer_ **after** _negadoctor_ in the [pixelpipe](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md), since the _tone equalizer_ is not designed to work with negatives.
 
 ---
 
