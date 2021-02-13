@@ -10,8 +10,6 @@ Export images that have been selected in the lighttable or the filmstrip of the 
 
 Files can be exported to a file on disk, email, various on-line storage locations, a webalbum, or a book template. 
 
-You can also press Ctrl+E within the darkroom mode to export the currently-edited image using the current settings from this module.
-
 # module controls
 
 ## storage options
