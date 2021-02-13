@@ -5,7 +5,7 @@ weight: 50
 draft: false
 ---
 
-Three image processing modules ([base curve](../../module-reference/processing-modules/base-curve.md), [tone curve](../../module-reference/processing-modules/tone-curve.md) and [rgb curve](../../module-reference/processing-modules/rgb-curve.md)) use curves to control the tones in the image. These modules have some common features that deserve separate discussion.
+Three processing modules ([base curve](../../module-reference/processing-modules/base-curve.md), [tone curve](../../module-reference/processing-modules/tone-curve.md) and [rgb curve](../../module-reference/processing-modules/rgb-curve.md)) use curves to control the tones in the image. These modules have some common features that deserve separate discussion.
 
 ![curve](./curves/curve.png#w33)
 
@@ -15,7 +15,7 @@ In their default state, curves are straight lines, defined by two anchor nodes a
 
 # curve controls
 
-The following controls are common to two or more of the above image processing modules and are therefore discussed separately here. Please see the individual module documentation for discussion of any additional module-specific controls.
+The following controls are common to two or more of the above processing modules and are therefore discussed separately here. Please see the individual module documentation for discussion of any additional module-specific controls.
 
 interpolation method 
 : _tone curve and rgb curve modules only_
