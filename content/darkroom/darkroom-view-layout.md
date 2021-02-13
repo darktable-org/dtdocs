@@ -30,6 +30,9 @@ From top to bottom:
 [mask manager](../module-reference/utility-modules/darkroom/mask-manager.md)
 : View and edit drawn shapes
 
+[export](../module-reference/utility-modules/shared/export.md)
+: Export selected images to local files or external services.
+
 # right panel
 
 From top to bottom:

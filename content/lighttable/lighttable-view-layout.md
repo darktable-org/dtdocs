@@ -50,7 +50,7 @@ From top to bottom:
 [geotagging](../module-reference/utility-modules/shared/geotagging.md)
 : Import and apply GPX track data to selected images.
 
-[export selected](../module-reference/utility-modules/lighttable/export-selected.md)
+[export](../module-reference/utility-modules/shared/export.md)
 : Export selected images to local files or external services.
 
 # bottom panel

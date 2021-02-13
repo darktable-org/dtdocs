@@ -1,7 +1,7 @@
 ---
 title: tagging
 id: tagging
-applicable-verison: 3.2.1
+applicable-verison: 3.6
 tags: 
 view: lighttable, [darkroom], tethering, map
 ---
@@ -10,7 +10,7 @@ Manage tags attached to images.
 
 Tags provide a means of adding information to images using a keyword dictionary. You can also manage tags as a hierarchical tree, which can be useful when their number becomes large. Only tags at the leaves of the tree add information to an image -- parent tags simply serve as categories and are are used to organise the leaf tags. For example, in the “color|white” tag, “color” is a category for the “white” tag.
 
-Tags are physically stored in [XMP sidecar files](../../../overview/sidecar-files/_index.md) as well as in darktable's library database and can be included in [exported](../lighttable/export-selected.md) images.
+Tags are physically stored in [XMP sidecar files](../../../overview/sidecar-files/_index.md) as well as in darktable's library database and can be included in [exported](./export.md) images.
 
 # module sections
 
@@ -118,7 +118,7 @@ A number of tags are also generated automatically by darktable (e.g. “darktabl
 
 The _tag dictionary_ can be mainained via the "edit tag..." and "rename path..." items in the right-click pop-up menu.
 
-The "edit tag..." operation allows you to change the name of a tag, though you cannot change which category it belongs to (you cannot use the pipe "|" symbol in the tag name field). The command is aborted if you try to enter a tag name that already exists. You can set the _private_ and _category_ flags and define _synonyms_ for the tag (see below). These attributes are recorded in the `XMP-dc Subject` and `XMP-lr Hierarchical Subject` metadata entries, respectively. You can control which tags are included in exports by changing settings in the [export selected](../lighttable/export-selected.md) module.
+The "edit tag..." operation allows you to change the name of a tag, though you cannot change which category it belongs to (you cannot use the pipe "|" symbol in the tag name field). The command is aborted if you try to enter a tag name that already exists. You can set the _private_ and _category_ flags and define _synonyms_ for the tag (see below). These attributes are recorded in the `XMP-dc Subject` and `XMP-lr Hierarchical Subject` metadata entries, respectively. You can control which tags are included in exports by changing settings in the [export](../lighttable/export.md) module.
 
 - A tag set as “private” is, by default, not exported. 
 

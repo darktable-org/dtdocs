@@ -16,4 +16,4 @@ Alternatively you can zoom in and out between 1:1 and "fit to screen" by scrolli
 
 # export
 
-Images are normally exported using the [export selected](../module-reference/utility-modules/lighttable/export-selected.md) module in the [lighttable](../lighttable/_index.md) view. However, you can also export the current image directly from the darkroom by using the shortcut Ctrl+E. The image will be exported using the parameters currently set in the _export selected_ module.
+Images are normally exported using the [export](../module-reference/utility-modules/shared/export.md) module in the [lighttable](../lighttable/_index.md) or [darkroom](../darkroom/_index.md) views. However, you can also export the current image directly from the darkroom by using the shortcut Ctrl+E. The image will be exported using the parameters currently set in the export module.

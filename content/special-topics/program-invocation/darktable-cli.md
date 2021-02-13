@@ -67,7 +67,7 @@ where `<FORMAT>` is the name of the selected output format.
 ---
 
 `--hq <0|1|true|false>`
-: Define whether to use high quality resampling during export (see the [export selected](../../module-reference/utility-modules/lighttable/export-selected.md) module for more details). Defaults to true.
+: Define whether to use high quality resampling during export (see the [export](../../module-reference/utility-modules/shared/export.md) module for more details). Defaults to true.
 
 `--upscale <0|1|true|false>`
 : Define whether allow upscaling during export. Defaults to false.

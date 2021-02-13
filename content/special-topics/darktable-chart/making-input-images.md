@@ -12,7 +12,7 @@ You then open the raw file in darktable and disable most modules, especially [_b
 
 There is a special situation if your camera automatically applies some lens corrections (namely vignetting correction) to the resulting JPEG file. In this case you need to activate the [_lens correction_](../../module-reference/processing-modules/lens-correction.md) module in darktable so that raw processing matches the JPEG in this respect. However, since darktable's vignetting correction may not exactly match the in-camera correction, it is better to disable this correction in-camera if possible.
 
-To output your image go to the [export selected](../../module-reference/utility-modules/lighttable/export-selected.md) module in the lighttable.
+To output your image go to the [export](../../module-reference/utility-modules/shared/export.md) module in the lighttable.
 
 You will need to select “Lab” as the output color profile. This color space is not visible in the combobox by default. You first need to enable it by setting `allow_lab_output` to `TRUE` in `$HOME/.config/darktable/darktablerc`. Alternatively, you can start darktable with:
 

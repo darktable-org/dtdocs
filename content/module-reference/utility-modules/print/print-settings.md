@@ -59,10 +59,10 @@ intent
 : The rendering intent to use when exporting the image. For more information see [rendering intent](../../../special-topics/color-management/rendering-intent.md).
 
 style
-: Choose a style to apply when exporting the image -- defaults to “none”. See the [export selected](../lighttable/export-selected.md) module for a more detailed discussion of applying a style during export.
+: Choose a style to apply when exporting the image -- defaults to “none”. See the [export](../shared/export.md) module for a more detailed discussion of applying a style during export.
 
 mode
-: Whether the chosen style should be appended to the existing history stack or replace it completely. See the [export selected](../lighttable/export-selected.md) module for more details.
+: Whether the chosen style should be appended to the existing history stack or replace it completely. See the [export](../shared/export.md) module for more details.
 
 ## print button
 
