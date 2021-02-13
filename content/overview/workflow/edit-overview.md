@@ -18,7 +18,7 @@ A large number of [processing modules](../../module-reference/processing-modules
 
 # choosing a workflow
 
-When processing an image, we apply a sequence of modules, known as the [pixelpipe](../../darkroom/processing-modules-and-pixelpipe/_index.md). 
+When processing an image, we apply a sequence of modules, known as the [pixelpipe](../../darkroom/pixelpipe/_index.md). 
 
 ![edit-overview](./edit-overview/edit-overview.png#w100)
 

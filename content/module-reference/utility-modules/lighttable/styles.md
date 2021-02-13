@@ -6,7 +6,7 @@ tags:
 view: lighttable
 ---
 
-Create named styles from selected images' [history stacks](../../../darkroom/processing-modules-and-pixelpipe/history-stack.md) and apply styles to selected images. 
+Create named styles from selected images' [history stacks](../../../darkroom/pixelpipe/history-stack.md) and apply styles to selected images. 
 
 Styles can either be created within this panel or in the [history stack](../darkroom/history-stack.md) module in the darkroom.
 

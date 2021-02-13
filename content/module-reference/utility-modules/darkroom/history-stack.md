@@ -6,7 +6,7 @@ tags:
 view: darkroom
 ---
 
-Query and modify the [history stack](../../../darkroom/processing-modules-and-pixelpipe/history-stack.md) of the current darkroom image.
+Query and modify the [history stack](../../../darkroom/pixelpipe/history-stack.md) of the current darkroom image.
 
 This module lists every change of state (activate/de-activate/move/change parameters) for all processing modules that have been modified for the current image. You can select a point in the stack to return to that point in the development history of the image.
 
