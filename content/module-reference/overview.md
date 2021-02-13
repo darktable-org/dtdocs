@@ -27,7 +27,7 @@ reset parameters button
 : This normally appears to the right of the module name and is used to reset the state of the module back to its original condition.
 
 presets  menu
-: This normally appears at the far right of the module header. The [presets](../darkroom/interacting-with-modules/presets.md) menu is predominantly used in processing modules, but many of the utility modules allow presets to be defined as well.
+: This normally appears at the far right of the module header. The [presets](../darkroom/interacting-with-modules/presets.md) menu is predominantly used in processing modules, but many of the utility modules allow presets to be defined as well. You can also access this menu by right-clicking on the module header.
  
 Processing modules contain additional elements in their module header, as described in the [darkroom module header](../darkroom/interacting-with-modules/module-header.md) section.
 
