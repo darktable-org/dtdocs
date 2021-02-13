@@ -68,7 +68,7 @@ set size
 : - _by scale (for file)_: Enter a multiplier to specify by how much the output image should be scaled compared to the input image. For example, entering a value of 0.5 will result in an output image with half the width and height (in pixels) of the original image.
 
 dpi
-: If units of cm or inches are chosen, set the dpi of the output image.
+: If units of cm or inches are chosen, set the dpi of the output image. The dpi will also be stored in the Exif data of the exported image (and will be auto-set to 300 if "in pixels" or "by scale" is chosen).
 
 max size
 : Set the maximum width and height of the exported image(s) in pixels, cm or inches (depending on the selected unit) -- zero means no maximum. Exported images will be constrained so as not to exceed either of these values, while retaining the correct aspect ratio. Set both to zero to export with the original dimensions (after cropping). If the entered values exceed the original dimensions darktable will either export with the original dimensions or upscale the image, depending on the "allow upscaling" parameter.
