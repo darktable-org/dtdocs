@@ -14,7 +14,7 @@ Each change you make to the image in the darkroom is turned into a history stack
 
 On the left panel in darkroom mode is the [history stack](../../module-reference/utility-modules/darkroom/history-stack.md) module, listing the changes you have made, starting from the bottom -- each edit adds a new item to the top of the stack. You can select an earlier point in this history to show how the image looked at that point, for comparison between changes. The stack can be compressed to remove redundant intermediate points in your edits -- when you are happy with what you have done, just compress the history stack. Note that all edits above the selected history entry are permanently deleted when compressing the history stack.
 
-A large number of [processing modules](../../module-reference/processing-modules/_index.md) are shipped with darktable, arranged into [module groups](../../darkroom/interacting-with-modules/search-and-group.md). These groups are accessed via toggle buttons at the top of the right panel, just below the [histogram](../../module-reference/utility-modules/shared/histogram.md).
+A large number of [processing modules](../../module-reference/processing-modules/_index.md) are shipped with darktable, arranged into [module groups](../../darkroom/processing-modules/search-and-group.md). These groups are accessed via toggle buttons at the top of the right panel, just below the [histogram](../../module-reference/utility-modules/shared/histogram.md).
 
 # choosing a workflow
 

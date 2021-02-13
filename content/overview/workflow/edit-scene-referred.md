@@ -21,7 +21,7 @@ Basic image processing in scene-referred workflow requires you, as a minimum, to
 
    Use the exposure slider in the _exposure_ module to adjust the mid-tones in the image to an appropriate brightness level. At this stage, don't worry about highlights and shadows -- these will be handled later.
 
-   The _exposure_ module is enabled by default, and will include an initial exposure boost of +0.5EV to mimic the standard processing of most in-camera JPEGs. The metering systems in cameras vary, and some camera models might need a slightly larger exposure boost (eg. +0.8EV ~ 1.5EV), in which case you can create an auto-apply [preset](../../darkroom/interacting-with-modules/presets.md) as required. The exposure module will detect if the camera's exposure compensation dial was used (see above remarks about ETTR), and will re-adjust the exposure accordingly.
+   The _exposure_ module is enabled by default, and will include an initial exposure boost of +0.5EV to mimic the standard processing of most in-camera JPEGs. The metering systems in cameras vary, and some camera models might need a slightly larger exposure boost (eg. +0.8EV ~ 1.5EV), in which case you can create an auto-apply [preset](../../darkroom/processing-modules/presets.md) as required. The exposure module will detect if the camera's exposure compensation dial was used (see above remarks about ETTR), and will re-adjust the exposure accordingly.
 
    You _can_ tweak the black level in the _exposure_ module  to supply more contrast, but you need to be very careful doing this as you can end up with negative RGB values, which can cause the _filmic rgb_ module to malfunction.
 

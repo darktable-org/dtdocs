@@ -97,7 +97,7 @@ edit
 reset
 : Reset the slider to its default value.
 
-In addition, you can modify the precision of the increase/decrease operations with a keyboard shortcut (_shortcuts > views > darkroom > change keyboard shortcut slider precision_), choosing between fine, normal and coarse. See [module controls](../darkroom/interacting-with-modules/module-controls.md) for more details.
+In addition, you can modify the precision of the increase/decrease operations with a keyboard shortcut (_shortcuts > views > darkroom > change keyboard shortcut slider precision_), choosing between fine, normal and coarse. See [module controls](../darkroom/processing-modules/module-controls.md) for more details.
 
 When performing increase/decrease and dynamic operations on sliders a toast message will appear at the top of the image to indicate the current value of the slider.
 
@@ -115,7 +115,7 @@ If the end of a combobox list is reached, these shortcuts will cycle back to the
 
 ### multiple module instances
 
-It is possible to create [multiple instances](../darkroom/interacting-with-modules/multiple-instances.md) of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations.
+It is possible to create [multiple instances](../darkroom/processing-modules/multiple-instances.md) of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations.
 
 See [preferences > miscellaneous](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
 

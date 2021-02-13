@@ -24,7 +24,7 @@ non-local means
 : Note that this algorithm is quite resource-intensive.
 
 wavelets
-: This algorithm works in the [wavelet](../../darkroom/interacting-with-modules/wavelets.md) domain, and provides a simplified user interface. Wavelet decomposition allows you to adjust the strength of the denoising depending on the coarseness of the noise in the image. This mode can be used in either _Y0U0V0 color mode_ (which allows you to independently control luminance and chroma noise) or _RGB color mode_ (which allows you to independently control noise for each RGB channel).
+: This algorithm works in the [wavelet](../../darkroom/processing-modules/wavelets.md) domain, and provides a simplified user interface. Wavelet decomposition allows you to adjust the strength of the denoising depending on the coarseness of the noise in the image. This mode can be used in either _Y0U0V0 color mode_ (which allows you to independently control luminance and chroma noise) or _RGB color mode_ (which allows you to independently control noise for each RGB channel).
 
 : The wavelet algorithm is less resource-intensive than _non-local means_.
 

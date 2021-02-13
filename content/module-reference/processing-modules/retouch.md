@@ -10,7 +10,7 @@ masking:
 
 Remove unwanted image elements by cloning, healing, blurring and filling using drawn shapes.
 
-This module extends the capabilities of the [_spot removal_](./spot-removal.md) module by including a "heal" tool (based on the heal tool from GIMP) which provides a type of seamless cloning. It can also take advantage of [wavelet decomposition](../../darkroom/interacting-with-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine). These layers can then be selectively retouched before being recombined to produce the output image. Examples of these capabilities are shown in the following sections.
+This module extends the capabilities of the [_spot removal_](./spot-removal.md) module by including a "heal" tool (based on the heal tool from GIMP) which provides a type of seamless cloning. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine). These layers can then be selectively retouched before being recombined to produce the output image. Examples of these capabilities are shown in the following sections.
 
 # clone and heal
 
@@ -64,7 +64,7 @@ The positions of the source and target shapes may then be altered manually.
 
 # retouch with wavelet decomposition
 
-Wavelets allow us to decompose an image into different layers with varying levels of detail, so that we can work on the layers independently and then recombine them at the end. This is particularly useful in portrait photography, where we are able to deal with skin blotches and blemishes on a coarse layer of detail, while leaving the skin texture in a finer layer of detail untouched. The [_wavelets_](../../darkroom/interacting-with-modules/wavelets.md) section provides an example of how wavelets decompose the image into detail layers.
+Wavelets allow us to decompose an image into different layers with varying levels of detail, so that we can work on the layers independently and then recombine them at the end. This is particularly useful in portrait photography, where we are able to deal with skin blotches and blemishes on a coarse layer of detail, while leaving the skin texture in a finer layer of detail untouched. The [_wavelets_](../../darkroom/processing-modules/wavelets.md) section provides an example of how wavelets decompose the image into detail layers.
 
 Through this method, we could for example use the healing tool to paint over a spot that appears in one of the coarse detail layers, while leaving the whiskers in the fine detail layers intact:
 

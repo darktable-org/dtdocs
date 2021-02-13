@@ -369,4 +369,4 @@ It is possible to alleviate this issue, if you have a computer screen calibrated
 1. Display a white surface on your screen, for example by opening a blank canvas in any photo editing software you like
 2. Take a blurry (out of focus) picture of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and using an aperture between f/5.6 and f/8,
 3. Open the picture in darktable and extract the white balance by using the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
-4. [Save a preset](../darkroom/interacting-with-modules/presets/#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.
+4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.

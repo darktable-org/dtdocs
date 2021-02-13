@@ -16,7 +16,7 @@ This module will be enabled by default if the _default pixel workflow_ is set to
 
 # module controls
 
-_Please refer to the [curves](../../darkroom/interacting-with-modules/curves.md) section for more details about how to modify curves including the **scale for graph** and **preserve colors** controls._
+_Please refer to the [curves](../../darkroom/processing-modules/curves.md) section for more details about how to modify curves including the **scale for graph** and **preserve colors** controls._
 
 fusion
 : Trigger the exposure fusion feature (see this [Wikipedia article](https://en.wikipedia.org/wiki/Exposure_Fusion)). This feature allows you to merge the image with one or two copies of itself after applying the current base curve and boosting its exposure by a selected number of EV units. The resulting image is thus a combination of two or three different exposures of the original image. Use this feature to compress the dynamic range of extremely underexposed images or for true HDR input. For best results, use the [_exposure_](./exposure.md) module to apply a suitable adjustment for correctly exposed highlights.
