@@ -22,7 +22,7 @@ film roll
 : The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Click while holding Ctrl+Shift to switch to the corresponding folder. Right-click to remove the collection or tell darktable that its location has changed in the file system.
 
 folder
-: The folder (file path) where the image file is located. Click while holding Ctrl+Shift to switch to the corresponding film roll. Right-click to remove the collection or tell darktable that its location has changed in the file system.
+: The folder (file path) where the image file is located. Click while holding Ctrl+Shift to switch to the corresponding film roll. Right-click to remove the collection or tell darktable that its location has changed in the file system. Double-click to show only the images in the selected folder; Ctrl+click to show only the images from any sub-folders; Shift+click to show the images from the current folder plus all sub-folders.
 
 filename
 : The filename of the image
