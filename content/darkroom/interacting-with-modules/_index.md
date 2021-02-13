@@ -1,5 +1,5 @@
 ---
-title: interacting with modules
+title: processing modules
 id: interacting-with-modules
 weight: 40
 draft: false

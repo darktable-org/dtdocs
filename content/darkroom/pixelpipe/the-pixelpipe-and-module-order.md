@@ -1,5 +1,5 @@
 ---
-title: the pixelpipe and module order
+title: the pixelpipe & module order
 id: the-pixelpipe-and-module-order
 weight: 20
 draft: false
