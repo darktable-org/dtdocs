@@ -36,7 +36,7 @@ Demosaic interpolation algorithms are often prone to produce artifacts, which ar
 
 There are a few cameras whose sensors do not use a Bayer filter. Cameras with an "X-Trans" sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is _Markesteijn 1-pass_, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose _Markesteijn 3-pass_. Though _VNG_ is faster than _Markesteijn 1-pass_ on certain computers, it is more prone to artifacts.
 
-# special algorithms.
+# special algorithms
 
 _passthrough (monochrome)_ is only useful for cameras which have had the color filter array physically removed from the sensor (e.g. scratched off). Demosaic algorithms usually reconstruct the missing color channels by interpolation with data from the neighboring pixels. However, if the color filter array is not present, there is nothing to interpolate, so this algorithm simply sets all the color channels to the same value, resulting in a monochrome image. This method avoids the interpolation artifacts that the standard demosaic algorithms might produce.
 
