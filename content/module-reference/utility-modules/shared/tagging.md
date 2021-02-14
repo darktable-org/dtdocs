@@ -118,7 +118,7 @@ A number of tags are also generated automatically by darktable (e.g. “darktabl
 
 The _tag dictionary_ can be mainained via the "edit tag..." and "rename path..." items in the right-click pop-up menu.
 
-The "edit tag..." operation allows you to change the name of a tag, though you cannot change which category it belongs to (you cannot use the pipe "|" symbol in the tag name field). The command is aborted if you try to enter a tag name that already exists. You can set the _private_ and _category_ flags and define _synonyms_ for the tag (see below). These attributes are recorded in the `XMP-dc Subject` and `XMP-lr Hierarchical Subject` metadata entries, respectively. You can control which tags are included in exports by changing settings in the [export](../lighttable/export.md) module.
+The "edit tag..." operation allows you to change the name of a tag, though you cannot change which category it belongs to (you cannot use the pipe "|" symbol in the tag name field). The command is aborted if you try to enter a tag name that already exists. You can set the _private_ and _category_ flags and define _synonyms_ for the tag (see below). These attributes are recorded in the `XMP-dc Subject` and `XMP-lr Hierarchical Subject` metadata entries, respectively. You can control which tags are included in exports by changing settings in the [export](./export.md) module.
 
 - A tag set as “private” is, by default, not exported. 
 

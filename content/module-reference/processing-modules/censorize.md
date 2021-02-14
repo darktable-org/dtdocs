@@ -14,7 +14,7 @@ Censorize works in linear RGB to apply physically-accurate gaussian blur and gau
 
 Aside from anonymization, this module can also be used for a wide range of creative purposes, for example:
 
-- Combine a simple blur with a multiply [blending mode](../darkroom/masking-and-blending/blend-modes/) to create a realistic bloom (Orton effect).
+- Combine a simple blur with a multiply [blend mode](../../darkroom/masking-and-blending/blend-modes/) to create a realistic bloom (Orton effect).
 - Combine a simple blur with a subtract blending mode and low opacity to create an [unsharp mask](https://en.wikipedia.org/wiki/Unsharp_masking), similar to the [sharpen](../module-reference/processing-modules/sharpen.md) module but in an RGB scene-referred space.
 - Add noise to create artificial grain.
 
@@ -30,7 +30,7 @@ If forensically safe anonymization is required, the only way to achieve this is 
 
 # Workflow
 
-You are advised to leave the module's controls at their default values while you [mask](../darkroom/masking-and-blending/masks/drawn/) the areas of the image that you wish to censorize, in order that the details of the image remain visible.
+You are advised to leave the module's controls at their default values while you [mask](../../darkroom/masking-and-blending/masks/drawn/) the areas of the image that you wish to censorize, in order that the details of the image remain visible.
 
 # Module controls
 

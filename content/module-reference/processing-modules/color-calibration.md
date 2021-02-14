@@ -281,7 +281,7 @@ The settings used in color calibration depend on the chosen CAT space and on any
 
 Use the following process to create your profile preset/style:
 
-1. Enable the [_lens correction_](../module-reference/processing-modules/lens-correction.md) module to correct any vignetting that might mislead the calibration,
+1. Enable the [_lens correction_](./lens-correction.md) module to correct any vignetting that might mislead the calibration,
 2. On the bottom of the _color calibration_ module, click on the arrow near the _calibrate with a color checker_ label, to show the controls,
 3. Pick the correct model and manufacturer in the _chart_ drop-down,
 4. In the image preview, an overlay of the chart's patches will appear. Drag the corners of the chart so that they match the visual references (dots or crosses) around the target, to compensate for any perspective distortion,
@@ -318,7 +318,7 @@ This comprises the RGB 3×3 matrix and the detected illuminant. These are expres
 
 ### normalization values
 
-These are the settings that you should define, as-is, for the _exposure_ and _black level correction_ parameters in the _[exposure](../module-reference/processing-modules/exposure.md)_ module, in order to obtain the lowest possible error in your profile. This step is optional and is useful only when the utmost precision is required, but beware that it can produce negative RGB values that will be clipped in various places in the pipeline.
+These are the settings that you should define, as-is, for the _exposure_ and _black level correction_ parameters in the [_exposure_](./exposure.md) module, in order to obtain the lowest possible error in your profile. This step is optional and is useful only when the utmost precision is required, but beware that it can produce negative RGB values that will be clipped in various places in the pipeline.
 
 ### overlay
 

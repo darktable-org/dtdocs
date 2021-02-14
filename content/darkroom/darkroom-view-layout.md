@@ -40,10 +40,10 @@ From top to bottom:
 [histogram](../module-reference/utility-modules/shared/histogram.md)
 : A graphical depiction of the image's light levels
 
-[module groups](./processing-modules/search-and-group.md)
+[module groups](./organization/module-groups.md)
 : Select module groups (if enabled)
 
-[search module](./processing-modules/search-and-group.md)
+search module
 : Search for a module (if enabled)
 
 [processing modules](../module-reference/processing-modules/_index.md)
