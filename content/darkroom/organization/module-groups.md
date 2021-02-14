@@ -73,7 +73,7 @@ This preset provides a minimal set of modules targeted as a starting point for b
 
 # _previous config_
 
-These groups are available for users who have upgraded from a version of darktable prior to 3.4. Where you have previously set up favourites or altered the _hidden_ flag on modules, these presets contains those customisations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
+These presets are automatically generated for users who have upgraded from a version of darktable prior to 3.4. Where you have previously set up favourites or altered the _hidden_ flag on modules, these presets contains those customisations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
 
 If favourites were created in prior versions these will remain available in an additional group:
 
