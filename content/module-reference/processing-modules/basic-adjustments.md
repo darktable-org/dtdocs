@@ -1,11 +1,17 @@
 ---
-title: basic adjustments
+title: basic adjustments (deprecated)
 id: basic-adjustments
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space:  
 view: darkroom
 masking: 
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [quick access panel](../../darkroom/organization/quick-access-panel.md) instead.**
+
 ---
 
 A convenience module that combines controls from [_exposure_](./exposure.md), [_highlight reconstruction_](./highlight-reconstruction.md), [_color balance_](./color-balance.md) and [_vibrance_](./vibrance.md) into a single module. 

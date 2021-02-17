@@ -1,11 +1,17 @@
 ---
-title: vibrance
+title: vibrance (deprecated)
 id: vibrance
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space: Lab 
 view: darkroom
 masking: true
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [_vibrance rgb_](./vibrance-rgb.md) module instead.**
+
 ---
 
 Saturate and reduce the lightness of the most saturated pixels to make the colors more vivid.
