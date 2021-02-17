@@ -1,7 +1,7 @@
 ---
 title: contrast equalizer
 id: contrast-equalizer
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space:  
 view: darkroom
@@ -16,7 +16,7 @@ A number of presets are provided, which should give you a better understanding t
 
 Each scale of detail can be tweaked independently. In particular, you can adjust the contrast boost and denoise threshold splines for both lightness ("luma') and chromaticity (“chroma”, or color saturation), as well as tune the edge-awareness parameters (“edges”) of the wavelet transform on each detail scale. The luma, chroma and edge-awareness splines are available on separate tabs, and some examples of their use are given in the following sections.
 
-Below the spline graphs on each tab is a _mix_ slider. This can be used to adjust how strong or weak you want the effect of the module to be. This is a not a separate setting stored within the module within it's own right -- it merely provides a convenient way to shift the control points in a coordinated way. If you leave and re-enter the module, the effect of the _mix_ setting will have been integrated into the control point positions, and the _mix_ slider will once again be at the 1.00 position.
+Below the spline graphs on each tab is a _mix_ slider. This can be used to adjust how strong or weak you want the effect of the module to be, as well as allowing you to invert the graph (by using negative _mix_ values). While your mouse is over the spline graph, it will be displayed as if the _mix_ was set to 1.0, to allow for easier editing. When you mouse away the graph will be adjusted to account for the value of the _mix_ parameter.
 
 In the background of the curve you will see a number of alternating light and dark stripes. These represent the levels of detail that are visible at your current zoom scale -- any details without these stripes are too small to be seen your current view. Adjustments to control points within the striped section _may_ produce a visible effect (depending on the strength of the adjustment). Adjustments outside of the striped region _will not_. Zoom in to see higher levels of detail and make adjustments to the detailed areas of the image visible.
 
