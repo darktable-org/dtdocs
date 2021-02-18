@@ -19,7 +19,7 @@ This maintenance screen can be accessed from the _presets_ menu beside the modul
 The left-hand panel lists the currently-defined module layout presets. Those at the top of the list are fixed and cannot be altered. User-defined presets are placed at the bottom of the list.
 
 create
-: To create a new (empty) preset, click on the + button at the bottom of the left-hand panel. Alternatively click on the _duplicate_ button to the right of one of the existing module presets to copy that preset to a new one. The above screenshot shows a new preset named "user defined" which has been created by duplicating the "modules: default" preset.
+: To create a new preset, populated with a minimal list of basic modules, click on the + button at the bottom of the left-hand panel. Alternatively click on the _duplicate_ button to the right of one of the existing module presets to copy that preset to a new one. The above screenshot shows a new preset named "user defined" which has been created by duplicating the "modules: default" preset.
 
 delete
 : Delete a user-defined preset with the X button.
@@ -36,7 +36,7 @@ Change the settings for the selected preset
 At the top of the right panel, the following options can be set
 
 preset name
-: Choose a name for your preset
+: Choose a name for your preset.
 
 show search line
 : Choose whether to display the search bar below the module group icons
