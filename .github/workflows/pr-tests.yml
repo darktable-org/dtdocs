@@ -26,7 +26,7 @@ jobs:
         run: sudo apt update
 
       - name: Build the site
-        run:  hugo -config config.yaml
+        run:  hugo
 
       - name: Install weasyprint
         run: sudo apt install weasyprint
@@ -35,7 +35,7 @@ jobs:
         run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
 
       - name: Start an HTTP server
-        run: cd public && python -m http.server 8080
+        run: cd public && python -m http.server 8080 > /dev/null 2>&1 &
 
       - name: Install linkchecker
         run: sudo apt install python3-pip && sudo pip install LinkChecker
