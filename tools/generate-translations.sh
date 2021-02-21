@@ -21,6 +21,18 @@ if version_gt $required_version $current_version; then
     exit 1
 fi
 
+# Is the script argument correct
+if [ "$1" == "--no-update" ]; then
+    echo "Generating the translated files."
+elif [ "$1" == "--no-translations" ]; then
+    echo "Generating the POT and PO files."
+elif [ "$1" == "--rm-translations" ]; then
+    echo "Removing the translated files."
+else
+    echo "The argument to this script must be one of --no-update, --no-translations' or '--rm-translations'."
+    exit 1
+fi
+
 PROJECT_ROOT=$(cd `dirname $0`/..; pwd)
 cd ${PROJECT_ROOT}
 
@@ -46,9 +58,11 @@ EOF
     for f in  $(find content -type f -name '*.md'); do
 	echo "[type: markdown] $f \$lang:$(dirname $f)/$(basename $f .md).\$lang.md" >> $po4a_conf
     done
-    po4a --verbose $po4a_conf &
+    po4a $1 --verbose $po4a_conf &
 done
 wait
 
 # no need to keep these around
-rm -f po/*.en.po
+if test -f po/*.en.po; then
+    rm -f po/*.en.po
+fi
