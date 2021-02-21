@@ -25,20 +25,23 @@ jobs:
       - name: Update the system
         run: sudo apt update
 
+      - name: Build the site
+        run:  hugo -config config.yaml
+
       - name: Install weasyprint
         run: sudo apt install weasyprint
 
-      - name: Start Hugo's server
-        run:  hugo server --disableFastRender -verbose --config config.yaml &
-
       - name: Build PDF
-        run: weasyprint -v http://localhost:1313/dtdocs/index.html ./static/darktable_user_manual.pdf
+        run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
+
+      - name: Start an HTTP server
+        run: cd public && python -m http.server 8080
 
       - name: Install linkchecker
         run: sudo apt install python3-pip && sudo pip install LinkChecker
 
       - name: Run linkchecker
-        run: linkchecker --check-extern --no-status http://localhost:1313/dtdocs/
+        run: linkchecker --check-extern --no-status http://localhost:8080/
 
       - name: Kill Hugo's server
         run: pkill hugo
