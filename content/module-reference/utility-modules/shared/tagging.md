@@ -2,29 +2,64 @@
 title: tagging
 id: tagging
 applicable-version: 3.6
-tags: 
+tags:
 view: lighttable, [darkroom], tethering, map
 ---
 
 Manage tags attached to images.
 
-Tags provide a means of adding information to images using a keyword dictionary. You can also manage tags as a hierarchical tree, which can be useful when their number becomes large. Only tags at the leaves of the tree add information to an image -- parent tags simply serve as categories and are are used to organise the leaf tags. For example, in the “color|white” tag, “color” is a category for the “white” tag.
+Tags provide a means of adding information to images using a keyword dictionary. You can also manage tags as a hierarchical tree, which can be useful when their number becomes large.
 
 Tags are physically stored in [XMP sidecar files](../../../overview/sidecar-files/_index.md) as well as in darktable's library database and can be included in [exported](./export.md) images.
+
+# definitions
+
+The following definitions assume that you have set up a single tag named `places|France|Nord|Lille`.
+
+tag
+: A tag is a descriptive string that may be attached to an image. A tag can be a single term or a sequence of connected terms forming a path, separated by the pipe symbol. For example, `places|France|Nord|Lille` defines a single tag, with each term in the path forming a subset of those before it. You can attach as many tags to an image as you like.
+
+You can assign properties (name, private, category, synonyms and image order) to a tag.
+
+node
+: Any path that forms part of a tag is a node. In the above example, `places`, `places|France`, `places|France|Nord` and `places|France|Nord|Lille` are all nodes.
+
+free node
+: Any node that is not explicitly defined as a tag is called a free node. In the above example, `places`, `places|France` and `places|France|Nord` are all free nodes. You cannot set any properties, except “name”, for a free node and you cannot add a free node to an image. See the “multiple tags” section below for more information.
+
+category
+: Any tag can be flagged by the user as being a “category”.
+
+# multiple tags
+
+The above definitions considered a simple example – a single tag and its properties. Consider instead the scenario where the following tags are each separately defined in darktable.
+
+`places|France|Nord|Lille`
+`places|France|Nord`
+`places|France`
+`places|England|London`
+
+In this case, these are four pipe-delimited tags. The nodes are `places`, `places|France`, `places|France|Nord`, `places|France|Nord|Lille`, `places|England` and `places|England|London`.
+
+The only free nodes are `places` and `places|England`. Both of these free nodes are also (by implication) categories.
+
+You can attach any of these tags to any image. Any tags attached to an image, except category, can be included when that image is exported (see [export](./export.md) module).
+
+If you attach the `places|France|Nord|Lille` tag to an image, the `places|France|Nord` and `places|France tags` are also implicitly defined against that image (you don’t need to attach them yourself). Note that this is only true here because those additional tags have been separately defined – the `places` node is not included because it has not been separately defined as a tag.
 
 # module sections
 
 The tagging module consists of two sections
 
-1. The upper _attached tags_ section (with the _attach/detatch_ buttons under it)
+1. The upper _attached tags_ section (with the _attach/detach_ buttons under it)
 
-2. The lower _tag dictonary_ section (with the _new/import.../export..._ buttons under it)
+2. The lower _tag dictionary_ section (with the _new/import.../export..._ buttons under it)
 
 ![tagging-overview](./tagging-overview/tagging-overview.png#w33)
 
 ## attached tags section
 
-The _attached tags_ section displays tag(s) attached to image(s) that are 
+The _attached tags_ section displays tag(s) attached to image(s) that are
 
 - currently selected (if the mouse cursor is not hovering over an image on the lighttable); or
 
@@ -55,16 +90,16 @@ The _tag dictionary_ section displays all of the tags that are available in dark
 
 - a check mark [✓] indicates that the tag is attached to all of the selected images
 
-- a minus sign [--] indicates that the tag is attached to at least one of the selected images. If the symbol is next to a category name in the hierarchical _tree_ view, it means that one of the child tags under that category is attached to at least one of the selected images.
+- a minus sign [--] indicates that the tag is attached to at least one of the selected images. If the symbol is next to a node name in the hierarchical _tree_ view, it means that one of the child tags under that node is attached to at least one of the selected images.
 
-- if no indicator symbol is present, this means that the tag is not attached to any of the selected images, or that the category has no child tags attached to any of the selected images.
+- if no indicator symbol is present, this means that the tag is not attached to any of the selected images, or that the node has no child tags attached to any of the selected images.
 
-In the hierarchical _tree_ view, a name in italics represents a category, and not a child tag. Note that categories are just used to organise the tags, and that a category cannot be directly attached to an image or exported.
+In the hierarchical _tree_ view, a name in italics represents either a free node or a category.
 
 Below the _tag dictionary_ list are the following buttons, from left to right:
 
 new
-: Create a new tag, using the name that has been entered into the text entry box at the top of the _tag dictionary_ section. 
+: Create a new tag, using the name that has been entered into the text entry box at the top of the _tag dictionary_ section.
 
 import...
 : Import tags from a Lightroom keyword file.
@@ -77,7 +112,7 @@ plus sign [+] toggle
 
 list/tree [☷]
 : Toggle the display of tags between a straight _list_ view and a hierarchical _tree_ view.
- 
+
 You can adjust the height of the _tag dictionary_ window by holding Ctrl while scrolling with your mouse wheel.
 
 # usage
@@ -88,7 +123,7 @@ The following sections describe the operations that can be performed with tags.
 
 The text entry box (shown under the _attach_/_detach_ buttons) has multiple purposes.
 
-- If the _tag dictionary_ list is in _list_ view mode (rather than _tree_ view mode), then typing the first few characters of a tag will bring up a list of suggestions. You can then scroll down with the arrow keys and press Enter to select one of the suggestions. Pressing Enter a second time will attach it to the selected images. You can also edit the name of the tag before pressing Enter -- in this case the tag will be created if it doesn't already exist in the database. 
+- If the _tag dictionary_ list is in _list_ view mode (rather than _tree_ view mode), then typing the first few characters of a tag will bring up a list of suggestions. You can then scroll down with the arrow keys and press Enter to select one of the suggestions. Pressing Enter a second time will attach it to the selected images. You can also edit the name of the tag before pressing Enter -- in this case the tag will be created if it doesn't already exist in the database.
 
 - Aside from the auto-completion suggestions, typing some partial text into the text entry box allows you filters the set of tags shown in the _tag dictionary_ window to those whose name or synonym matches the entered text. Press Enter to attach a tag with the entered name to the selected images. If that tag name does not yet exist in the database, it will be created before being attached.
 
@@ -118,17 +153,17 @@ A number of tags are also generated automatically by darktable (e.g. “darktabl
 
 The _tag dictionary_ can be mainained via the "edit tag..." and "rename path..." items in the right-click pop-up menu.
 
-The "edit tag..." operation allows you to change the name of a tag, though you cannot change which category it belongs to (you cannot use the pipe "|" symbol in the tag name field). The command is aborted if you try to enter a tag name that already exists. You can set the _private_ and _category_ flags and define _synonyms_ for the tag (see below). These attributes are recorded in the `XMP-dc Subject` and `XMP-lr Hierarchical Subject` metadata entries, respectively. You can control which tags are included in exports by changing settings in the [export](./export.md) module.
+The "edit tag..." operation allows you to change the name of a tag, though you cannot change which node it belongs to (you cannot use the pipe "|" symbol in the tag name field). The command is aborted if you try to enter a tag name that already exists. You can set the _private_ and _category_ flags and define _synonyms_ for the tag (see below). These attributes are recorded in the `XMP-dc Subject` and `XMP-lr Hierarchical Subject` metadata entries, respectively. You can control which tags are included in exports by changing settings in the [export](./export.md) module.
 
-- A tag set as “private” is, by default, not exported. 
+- A tag set as “private” is, by default, not exported.
 
 - A tag set as “category” is not exported in `XMP-dc Subject`. However it is exported in `XMP-lr Hierarchical Subject` as this XMP metadata holds the organization of your tags.
 
 - “synonyms” enrich the tag information and are mainly used to assist search engines. For example “juvenile”, “kid” or “youth” can be set as synonyms of “child”. Synonyms can also be used to translate tag names to other languages.
 
-The "rename path..." operation is only available in the _tree_ view mode, and it shows the number of tagged images which would be impacted by a change to the name of this tag or category. The rename path window lets the user change the full path of the tag, including the categories to which it belongs (categories can be specified using the pipe `|` symbol). This operation is powerful, but please take care as it can have a significant impact on the metadata of your images. The operation is aborted if the requested change causes a conflict with an existing tag.
+The "rename path..." operation is only available in the _tree_ view mode, and it shows the number of tagged images which would be impacted by a change to the name of this node. The rename path window lets the user change the full path of the node, including the nodes to which it belongs (nodes can be specified using the pipe `|` symbol). This operation is powerful, but please take care as it can have a significant impact on the metadata of your images. The operation is aborted if the requested change causes a conflict with an existing tag.
 
-A quick way to organize the tag structure is to drag and drop the tags. In the _tree_ view mode, you can drag any node or leaf tag and drop it on top of any other node or leaf tag. The first tag and its descendants, if any, become descendants of the second tag. Dragging over a node automatically opens that node. To place a tag at the root level, drag it onto the top of the tagging window. If the requested change causes a conflict with an existing tag, the operation is aborted.
+A quick way to organize the tag structure is to drag and drop the nodes. In the _tree_ view mode, you can drag any node and drop it on top of any other node. The first node and its descendants, if any, become descendants of the second node. Dragging over a node automatically opens that node. To place a node at the root level, drag it onto the top of the tagging window. If the requested change causes a conflict with an existing tag, the operation is aborted.
 
 ## attach tag
 
