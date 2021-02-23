@@ -24,7 +24,7 @@ _AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer d
 
 _VNG4_ is better suited for images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.
 
-Demosaic interpolation algorithms are often prone to produce artifacts, which are typically visible as [Moiré patterns](https://en.wikipedia.org/wiki/Moir%C3%A9_pattern) when zooming into the image. On the other hand, the chosen algorithm might handle _pre-existing_ Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances _VNG4_ is often more stable.
+Demosaic interpolation algorithms are often prone to produce artifacts, which are typically visible as [Moiré patterns](https://en.wikipedia.org/wiki/Moire_pattern) when zooming into the image. On the other hand, the chosen algorithm might handle _pre-existing_ Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances _VNG4_ is often more stable.
 
 ---
 
