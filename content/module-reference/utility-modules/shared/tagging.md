@@ -41,13 +41,22 @@ places|France
 places|England|London
 ```
 
-In this case the nodes are "`places`", "`places|France`", "`places|France|Nord`", "`places|France|Nord|Lille`", "`places|England`" and "`places|England|London`".
+In this case the nodes are 
+
+```
+places
+places|France
+places|France|Nord
+places|France|Nord|Lille
+places|England
+places|England|London
+```
 
 The only free nodes are "`places`" and "`places|England`". Both of these free nodes are also (by implication) categories.
 
-You can attach any of these tags to any image. Any tags attached to an image, except category, can be included when that image is exported (see [export](./export.md) module).
+You can attach any of these tags to any image. Any tags attached to an image, except category tags, can be included when that image is [exported](./export.md).
 
-If you attach the "`places|France|Nord|Lille`" tag to an image, the "`places|France|Nord`" and "`places|France`" tags are also implicitly attached to that image (you don’t need to attach them manually). Note that this is only true here because those additional tags have been separately defined -– the "`places`" node is not included because it has not been separately defined as a tag (it is a "free node").
+If you attach the "`places|France|Nord|Lille`" tag to an image, the "`places|France|Nord`" and "`places|France`" tags are also implicitly attached to that image (you don’t need to attach them manually). Note that this is only true here because those additional tags have been separately defined -- the "`places`" node is not included because it is a "free node" (not a tag).
 
 # module sections
 
