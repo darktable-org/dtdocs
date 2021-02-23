@@ -6,12 +6,15 @@ draft: false
 author: "people"
 ---
 
-To translate the darktable documentation, you can either use the [Weblate instance](https://weblate.pixls.us/) or follow the sections below to translate using the traditional PO workflow.
+Translation of the darktable documentation is done via our [Weblate instance](https://weblate.pixls.us/projects/darktable/).
+
+You can either use Weblate's web UI to translate the documentation or download the translation to your computer, edit it, and then upload the changes.
+
 
 # Making a new branch in git
 1. Make a new branch to work on it git.
    For example:
-   `git checkout -b new-translation`
+   `git checkout -b fr-translation-init`
 
 # Adding your language to Hugo
 
@@ -32,15 +35,16 @@ To translate the darktable documentation, you can either use the [Weblate instan
    `touch po/content.fr-fr.po`
 2. Run the script to populate the PO file:
    `cd tools/ && ./generate-translations.sh --no-translations`
-3. Translate the PO file with your translation tool of choice.
-4. Generate the translated files:
+
+# Generating translated files.
+
+1. Generate the translated files:
    `cd tools/ && ./generate-translations.sh --no-update`.
-5. Check the translation by starting hugo's internal server:
+2. Check the translation by starting hugo's internal server:
    `hugo server`
-6. Open a web browser and check the changes. The URL is in the output of the `hugo server` command.
-7. Remove the translated files, as we never check them into git:
+3. Open a web browser and check the changes. The URL is in the output of the `hugo server` command.
+4. Remove the translated files, as we never check them into git:
    `cd tools/ && ./generate-translations.sh --rm-translations`.
-6. Check the translated PO file into git, push it to github, and open a pull request to have your changes accepted.
 
 # Translating website and PDF strings
 
