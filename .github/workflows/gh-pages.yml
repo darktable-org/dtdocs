@@ -26,6 +26,12 @@ jobs:
       - name: Build
         run: hugo
 
+      - name: Install po4a
+        run: sudo apt updadte && sudo apt install po4a
+
+      - name: Generate translated files
+        run: cd tools && bash generate-translations.sh --no-update
+
       - name: Install weasyprint
         run: sudo apt update && sudo apt install weasyprint
 
@@ -37,4 +43,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          force_orphan: true 
+          force_orphan: true
