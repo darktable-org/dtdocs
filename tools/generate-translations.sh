@@ -29,7 +29,7 @@ elif [ "$1" == "--no-translations" ]; then
 elif [ "$1" == "--rm-translations" ]; then
     echo "Removing the translated files."
 else
-    echo "The argument to this script must be one of --no-update, --no-translations' or '--rm-translations'."
+    echo "The argument to this script must be one of '--no-update', '--no-translations', or '--rm-translations'."
     exit 1
 fi
 
