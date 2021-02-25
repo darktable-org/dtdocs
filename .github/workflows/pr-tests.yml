@@ -23,14 +23,8 @@ jobs:
       - name: Generate translated files
         run: cd tools && bash generate-translations.sh --no-update
 
-      - name: Build site
-        run:  hugo --baseURL http://localhost:8080
-
       - name: Build PDF
         run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
 
-      - name: Start an HTTP server
-        run: cd public && python -m http.server 8080 > /dev/null 2>&1 &
-
       - name: Run linkchecker
-        run: linkchecker --check-extern --no-status http://localhost:8080/
+        run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && linkchecker --check-extern --no-status http://localhost:1313/dtdocs/index.html && pkill hugo
