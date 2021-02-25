@@ -13,30 +13,28 @@ jobs:
         with:
           submodules: recursive  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+      - uses: cachix/install-nix-action@v12
         with:
-          hugo-version: '0.79.0'
-          extended: true
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: nix-env -f '<nixpkgs>' -iA hugo yarn python38Packages.weasyprint git linkchecker perlPackages.Po4a
 
-      - name: npm Install
-        run: cd themes/hugo-darktable-docs-theme/assets/ && npm install
-
-      - name: Build
-        run: hugo
-
-      - name: Install po4a
-        run: sudo apt update && sudo apt install po4a
+      - name: Install assets
+        run: cd themes/hugo-darktable-docs-theme/assets/ && yarn install
 
       - name: Generate translated files
         run: cd tools && bash generate-translations.sh --no-update
 
-      - name: Install weasyprint
-        run: sudo apt update && sudo apt install weasyprint
+      - name: Build
+        run: hugo
 
       - name: Build PDF
         run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
+
+      - name: Start an HTTP server
+        run: cd public && python -m http.server 8080 > /dev/null 2>&1 &
+
+      - name: Run linkchecker
+        run: linkchecker --check-extern --no-status http://localhost:8080/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
