@@ -10,8 +10,8 @@ Manipulate the history stack of one or more selected images.
 
 # module controls
 
-copy parts...
-: Copy parts of the history stack of the selected image. A dialog appears within which you may choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on an item to copy that item only and immediately close the dialog.
+selective copy...
+: Copy selected parts of the history stack of the selected image. A dialog appears within which you may choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on an item to copy that item only and immediately close the dialog.
 
 copy
 : Copy the complete history stack from the selected image. If more than one image is selected, the history stack is taken from the image that was selected first.
@@ -28,7 +28,7 @@ copy
 : - [_white balance_](../../processing-modules/white-balance.md)
 : - deprecated modules
 
-: You can override all of these exclusions by using "paste parts..." and choosing which modules to paste to the target image(s).
+: You can override all of these exclusions by using "selective paste..." and choosing which modules to paste to the target image(s).
 
 compress history
 : Generate the shortest history stack that reproduces the current image. If any module appears multiple times in the stack, these occurrences will be _compressed_ into a single step in the history. _Beware, this action can not be undone!_
@@ -36,8 +36,8 @@ compress history
 discard history
 : Physically delete the history stack of the selected images. _Beware, this action can not be undone!_
 
-paste parts...
-: Paste parts of a previously copied history stack onto all selected images. A dialog appears within which you may choose which items from the source history stack to include.
+selective paste...
+: Paste selected parts of a previously copied history stack onto all selected images. A dialog appears within which you may choose which items from the source history stack to include.
 
 paste
 : Paste all items of a copied history stack onto all selected images.
