@@ -24,6 +24,12 @@ jobs:
       - name: Generate translated files
         run: cd tools && bash generate-translations.sh --no-update
 
+      - name: Build epub
+        run: ./tools/build-epub.sh
+
+      - name: Clear
+        run: rm -rf public
+
       - name: Build
         run: hugo
 
@@ -32,6 +38,9 @@ jobs:
 
       - name: Run linkchecker
         run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && linkchecker --check-extern --no-status http://localhost:1313/dtdocs/index.html && pkill hugo
+
+      - name: Copy epub
+        run: mv darktable.epub public
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
