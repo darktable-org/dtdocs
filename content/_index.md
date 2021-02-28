@@ -1,5 +1,5 @@
 ---
-title: darktable 3.6 (development)
+title: "{{ .Site.Title }}"
 id: user-manual
 draft: false
 author: "people"
