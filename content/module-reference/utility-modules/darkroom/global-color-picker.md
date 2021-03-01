@@ -1,7 +1,7 @@
 ---
 title: global color picker
 id: global-color-picker
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 view: darkroom
 ---
@@ -38,5 +38,5 @@ display sample areas on image
 : When this checkbox is ticked, live sample locations are visually indicated on your image. 
 
 restrict histogram to selection
-: When this checkbox is ticked, only the values of the selected area or point are taken into account by the main histogram at the top of the right hand panel. This allows you to see what tonal values are present in a specific area.
+: When this checkbox is ticked, only the values of the selected area or point are taken into account by the main histogram at the top of the right hand panel. This allows you to see what tonal values are present in a specific area. This option applies to both the regular and waveform histograms.
 
