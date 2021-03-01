@@ -24,7 +24,7 @@ jobs:
         run: cd tools && bash generate-translations.sh --no-update
 
       - name: Build PDF
-        run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
+        run: mkdir public && hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
 
       - name: Run linkchecker
         run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && linkchecker --check-extern --no-status http://localhost:1313/dtdocs/index.html && pkill hugo
