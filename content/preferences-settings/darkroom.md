@@ -84,4 +84,4 @@ colorbalance slider block layout
 : (default _list_)
 
 show mask indicator in module headers
-: If enabled, an icon will be shown in the module header to indicate the modules that have a [mask](../darkroom/masking-and-blending/masks/_index.md) applied (default on).
+: If enabled, an icon will be shown in the header of any processing modules that have a [mask](../darkroom/masking-and-blending/masks/_index.md) applied (default on).
