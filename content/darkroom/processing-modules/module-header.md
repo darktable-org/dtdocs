@@ -32,7 +32,7 @@ module name
 : Ctrl+click on a module's name to manually amend its instance name. 
 
 mask indicator
-: This indicator will appear in the header whenever a [mask](../masking-and-blending/masks/_index.md) is active on a module. This option can be switched off in [preferences > darkroom > show mask indicator in module header](../../preferences-settings/darkroom.md#modules).
+: This indicator will appear in the header whenever a [mask](../masking-and-blending/masks/_index.md) is active on a module. This option can be switched off in [preferences > darkroom > show mask indicator in module headers](../../preferences-settings/darkroom.md#modules).
 
 multiple instance menu
 : This drop-down menu allows you to create, delete, move and rename module instances. Middle-click on this icon to directly create a new instance of the module. See the [multiple instances](./multiple-instances.md) section for more information.
