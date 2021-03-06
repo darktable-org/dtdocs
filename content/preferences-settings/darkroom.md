@@ -82,3 +82,6 @@ colorbalance slider block layout
 : - _tabs_: use tabs to switch between the blocks of sliders
 : - _columns_: the blocks of sliders are shown next to each other (in narrow columns)
 : (default _list_)
+
+show mask indicator in module header
+: If enabled, an icon will be shown in the module header to indicate the modules that have a [mask](../darkroom/masking-and-blending/masks/_index.md) applied (default on).
