@@ -7,6 +7,8 @@ draft: false
 
 Presets allow you to store commonly used module settings for future use. Some modules already come with pre-defined presets and you may also define your own. Both internal and user-defined presets can be shown by clicking the _presets menu_ in the [module header](./module-header.md).
 
+Most of the functionality described here applies to processing modules only. However, presets can also be used with some utility modules. When used with utility modules, the functionality to auto-apply or auto-show presets based on image Exif data is not available.
+
 # the presets menu
 
 The presets menu will contain one or more of the following entries depending on what presets are defined or selected for the current module:
@@ -42,7 +44,7 @@ name
 description
 : A searchable description for the preset (optional)
 
-auto apply this preset to matching images
+auto apply this preset to matching images _(processing modules only)_
 : Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by Ctrl+clicking on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data (see below).
 
 : For example, if you want a preset to be applied to all images from a specific camera leave all fields at default values except for the model field. Leave all fields unchanged to auto-apply a preset to all images.
@@ -51,8 +53,12 @@ auto apply this preset to matching images
 
 : _The [image information](../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
 
-only show this preset for matching images
+only show this preset for matching images _(processing modules only)_
 : Check this box to automatically show the preset in the preset menu, using the same set of filters.
+
+# filter criteria
+
+The following criteria can be used to auto-apply or auto-show presets for processing modules.
 
 model
 : A pattern to be matched against the Exif field that describes your camera model; use % as wildcard.
