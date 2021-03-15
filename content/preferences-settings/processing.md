@@ -9,10 +9,18 @@ The following options control how images are processed.
 
 always use LittleCMS 2 to apply output color profile
 : If this option is activated, darktable will use the LittleCMS 2 system library to apply the output color profile instead of its own internal routines. This is significantly slower than the default but might give more accurate results in some cases. 
+
 : If the given ICC is LUT-based or contains both a LUT and a matrix, darktable will use LittleCMS 2 to render the colors regardless of this configuration parameter's value (default off).
 
-pixel interpolator
-: The pixel interpolator used in rotation, lens correction, up-scaling and down-scaling. Options are “bilinear”, “bicubic”, “lanczos2”, “lanczos3” (default).
+pixel interpolator (warp)
+: The pixel interpolator used for rotation, lens correction, liquify, crop and final scaling.
+
+: Whenever we scale or distort an image we have to choose a pixel interpolation algorithm (see [wikipedia](https://en.wikipedia.org/wiki/Image_scaling) for details). For warping modules, darktable offers bilinear, bicubic or lanczos2. In general, bicubic is a safe option for most cases and is the default value.
+
+pixel interpolator (scaling)
+: The pixel interpolator used for scaling. The same options are provided as for the warp modules, but with the addition of lanczos3.
+
+: lanczos3 can cause pixel overshoots leading to artefacts but sometimes gives a more crisp visual appearance. This option is therefore only provided for transforming (scaling) algorithms and is the default value.
 
 3D lut root folder
 : Define the root folder (and sub-folders) containing Lut files used by the [_lut 3D_](../module-reference/processing-modules/lut-3D.md) module
