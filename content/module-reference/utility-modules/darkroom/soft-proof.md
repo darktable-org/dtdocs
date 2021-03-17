@@ -17,7 +17,7 @@ preview display profile
 : Set the color profile for the preview image if you are using a second window.
 
 intent
-: Set the rendering intent for your display –- only available if rendering with LittleCMS2 is activated. See [rendering intent](../../../special-topics/color-management/rendering-intent.md) for a list of available options. This option appears twice -- once for the "display profile" and once for the "preview display profile".
+: Set the rendering intent for your display -- only available if rendering with LittleCMS2 is activated. See [rendering intent](../../../special-topics/color-management/rendering-intent.md) for a list of available options. This option appears twice -- once for the "display profile" and once for the "preview display profile".
 
 softproof profile
 : Set the color profile for soft proofing. Typically these profiles are supplied by your printer or generated during printer profiling.
