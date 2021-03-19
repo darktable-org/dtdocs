@@ -26,7 +26,7 @@ There are many occasions where it makes sense to have a module apply more than o
 
 # managing multiple instances
 
-_Click_ on the _multiple instance menu_ in the [module header](./module-header.md) to display a drop-down menu, with the following options.
+Click on the _multiple instance menu_ in the [module header](./module-header.md) to display a drop-down menu, with the following options. Right-click on the menu icon to create a new instance directly (same action as clicking on the "new instance" option of the menu).
 
 new instance
 : Create a new instance of the current module with all of its parameters reset to default. The 'instance name' is automatically set to a unique integer so that it can be distinguished from its parent.
