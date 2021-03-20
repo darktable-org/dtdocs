@@ -49,6 +49,9 @@ show right-side buttons in processing module headers
 : - _glide_: gradually hide individual buttons as needed
 : (default _always_)
 
+show loading screen between images
+: Show grey loading screen when navigating between images in the darkroom. Switch this option off to just show a simple toast message and leave the previous image in place until the next image is loaded. Note that switching this option off can be very useful to quickly compare duplicate images, however, there might be issues with long loading times (leading you to think the next image has already loaded) and you may observe visual artifacts while the next image is loading (default on).
+
 # modules
 
 display of individual color channels
