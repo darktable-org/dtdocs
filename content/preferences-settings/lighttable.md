@@ -32,11 +32,11 @@ show scrollbars for center view
 color manage cached thumbnails
 : If activated, darktable generates thumbnails in a general color space (AdobeRGB) in order to render them independently of the individual monitor. Conversion to the monitor color space is undertaken at display time. If this option is not activated thumbnails are stored directly in a monitor-specific color space at generation time and are subsequently displayed without further corrections (default on).
 
-don't use embedded preview JPEG but half-size raw
-: If activated, darktable will process the raw image data in order to generate all images in the lighttable. If deactivated, darktable will use the JPEG preview embedded in the raw file until the image has been processed in the darkroom (default off).
+use raw file instead of embedded JPEG from size
+: When generating thumbnails for images that have not yet been processed in the darkroom, if the thumbnail size is greater than this value, generate it by processing the raw image data. If the thumbnail is below this size, use the JPEG preview image embedded in the raw file. Once an image has been processed in the darkroom, thumbnails will always be generated from raw data (you can revert back to the JPEG preview by discarding history). To render thumbnails with the best quality choose "always".
 
 high quality thumbnail processing from size
-: If the thumbnails size is greater than this value, it will be processed using the full quality rendering path, which is better but slower (default 720p).
+: If the thumbnail size is greater than this value and is being generated from raw data, it will be processed using the full quality rendering path, which is better but slower (default 720p). To render thumbnails with the best quality, choose "always".
 
 delimiters for size categories
 : Size categories are used to allow different thumbnail overlays to be shown depending on the thumbnail size. A pipe delimited set of values defines at what image sizes the categories change. The default value of "120|400" means that there will be 3 categories of thumbnails: 0-120px, 120-400px and >400px.
