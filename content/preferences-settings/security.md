@@ -36,3 +36,6 @@ ask before deleting a style
 
 ask before deleting a preset
 : Always ask user before deleting a preset (default on). 
+
+ask before exporting in overwrite mode
+: Always ask before [exporting](../module-reference/utility-modules/shared/export.md) images in overwrite mode.

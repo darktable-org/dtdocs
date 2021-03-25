@@ -28,7 +28,7 @@ on conflict
 
 : - _create unique filename_: Automatically choose a unique new file name by appending an integer to the conflicting filename.
 
-: - _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss. _(**Note:** This dialog is not presented per-file but as a one-off confirmation before the export job starts.)_
+: - _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss -- you can disable this in [preferences > security > ask before exporting in overwrite mode](../../../preferences-settings/security.md). _**Note:** This dialog is not presented per-file but as a one-off confirmation before the export job starts._ 
 
 : - _skip_: Do not export images where the destination filename already exists.
 
