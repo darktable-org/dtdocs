@@ -21,7 +21,7 @@ Modules acting in (_display-referred_) _Lab_ color space have data channels for 
 
 Modules acting in _display-referred RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
 
-Modules acting in _scene-referred RGB_ color space have data channels for g (gray), R, G, B, Jz (luminance component of JzCzhz), Cz (chroma, or saturation, of JzCzhz), and hz (hue of JzCzhz). The JzCzhz color space is a polar representation of the Jzazbz color space, in the same way that LCh is a polar represrntation of the Lab space. However, Jzazbz is much better for high dynamic range images and is less susceptible to hue shifts than Lab space.
+Modules acting in _scene-referred RGB_ color space have data channels for g (gray), R, G, B, Jz (luminance component of JzCzhz), Cz (chroma, or saturation, of JzCzhz), and hz (hue of JzCzhz). The JzCzhz color space is a polar representation of the Jzazbz color space, in the same way that LCh is a polar representation of the Lab space. However, Jzazbz is much better for high dynamic range images and is less susceptible to hue shifts than Lab space.
 
 _See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details about these color spaces._
 
