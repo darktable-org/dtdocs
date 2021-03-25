@@ -35,7 +35,7 @@ color manage cached thumbnails
 use raw file instead of embedded JPEG from size
 : When generating thumbnails for images that have not yet been processed in the darkroom, if the thumbnail size is greater than this value, generate it by processing the raw image data. If the thumbnail is below this size, use the JPEG preview image embedded in the raw file. Once an image has been processed in the darkroom, thumbnails will always be generated from raw data (you can revert back to the JPEG preview by discarding history). To render thumbnails with the best quality choose "always".
 
-high quality thumbnail processing from size
+high quality processing from size
 : If the thumbnail size is greater than this value and is being generated from raw data, it will be processed using the full quality rendering path, which is better but slower (default 720p). To render thumbnails with the best quality, choose "always".
 
 delimiters for size categories
