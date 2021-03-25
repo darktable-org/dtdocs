@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-24 15:54+0200\n"
-"PO-Revision-Date: 2021-03-20 10:19+0000\n"
+"PO-Revision-Date: 2021-03-25 20:10+0000\n"
 "Last-Translator: Michel leblond <michel.leblond62@gmail.com>\n"
 "Language-Team: French <https://weblate.pixls.us/projects/darktable/dtdocs/fr/"
 ">\n"
@@ -22454,102 +22454,191 @@ msgstr ""
 #, no-wrap
 msgid "darktable's memory requirements are high. A simple calculation makes this clear. If you have a 20MPx image then, for precision reasons, darktable will store this internally as a 4 x 32-bit floating point cell for each pixel. Each full image of this size will therefore need about 300MB of memory. As we want to process the image, we will at least need two buffers for each module   one for input and one for output. If we have a more complex module, its algorithm might additionally require several intermediate buffers of the same size. Without further optimization, anything between 600MB and 3GB would be needed merely to store and process image data. On top of that we have darktable's code segment, the code and data of all dynamically linked system libraries, and not to forget, further buffers where darktable stores intermediate images for quick access during interactive work (mip map cache). \n"
 msgstr ""
+"Les besoins en mémoire de darktable sont élevés. Un simple calcul rend cela "
+"clair. Si nous avons une image 20 Mpx, alors, pour des raisons de précision, "
+"darktable stockera en interne chacun de ces pixels sous la forme d'une "
+"cellule à virgule flottante 4 x 32 bits. Chaque image complète de cette "
+"taille aura donc besoin d'environ 300 Mo de mémoire. Comme nous voulons "
+"traiter l'image, nous aurons au moins besoin de deux tampons pour chaque "
+"module, un pour l'entrée et un pour la sortie. Si nous avons un module plus "
+"complexe, son algorithme peut nécessiter plusieurs autres tampons "
+"intermédiaires de même taille. Sans optimisation supplémentaire, entre 600 "
+"Mo et 3 Go seront nécessaires simplement pour stocker et traiter les données "
+"de l'image. En plus de cela, nous avons le segment de code de darktable, le "
+"code et les données de toutes les bibliothèques système liées dynamiquement, "
+"et ne pas oublier, d'autres tampons où darktable stocke des images "
+"intermédiaires pour un accès rapide pendant le travail interactif (cache mip "
+"map). \n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "All in all, darktable needs a minimum of about 4GB of memory to run happily.\n"
 msgstr ""
+"Dans l'ensemble, darktable a besoin d'un minimum d'environ 4 Go de mémoire "
+"pour fonctionner correctement.\n"
 
 #. type: Title #
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "total system memory"
-msgstr ""
+msgstr "mémoire total du système"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "From the above analysis, it is evident that your computer needs a sane memory setup to properly run darktable. We suggest that you have a least 4GB of physical RAM plus 4 to 8GB of additional swap space installed. \n"
 msgstr ""
+"D'après l'analyse ci-dessus, il est évident que votre ordinateur a besoin "
+"d'une configuration de mémoire raisonnable pour exécuter correctement "
+"darktable. Nous vous suggérons de disposer d'au moins 4 Go de RAM physique "
+"et de 4 à 8 Go d'espace d'échange supplémentaire. \n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "Theoretically, you could run darktable with lower amounts of physical RAM and balance this with enough swap space. However, you this could cause your system to thrash, as it reads or writes data pages to and from the hard disk. We have positive reports that this functions well for several users, but it still might get extremely slow for others. A solid-state drive can ease the pain slightly.\n"
 msgstr ""
+"Théoriquement, vous pouvez exécuter darktable avec des quantités inférieures "
+"de RAM et compenser avec suffisamment d'espace de swap. Cependant, cela "
+"pourrait mettre votre système en difficulté, car il utilise le disque dur "
+"pour lire ou écrire des pages de données. Nous avons des rapports positifs "
+"selon lesquels cela fonctionne bien pour certains utilisateurs. Mais pour "
+"d'autres, leur système peut encore rester extrêmement lent. Un disque SSD "
+"peut améliorer légèrement les choses.\n"
 
 #. type: Title #
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "available address space"
-msgstr ""
+msgstr "espace d'adressage disponible"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "Besides the total amount of system memory there is another limiting factor: the available address space of your hardware architecture. How much memory can be addressed by a process depends on the number of address bits your CPU offers. For a CPU with 32-bit address registers, this is 2^32 bytes, which makes a total of 4GB. This is the absolute upper limit of memory that can be used by a process and it constitutes a tight situation for darktable as we have seen above.\n"
 msgstr ""
+"Outre la quantité totale de mémoire système, il existe un autre facteur "
+"limitant : l'espace d'adressage disponible de votre architecture matérielle. "
+"La quantité de mémoire pouvant être adressée par un processus dépend du "
+"nombre de bits d'adresse offerts par votre CPU. Pour une CPU avec des "
+"registres d'adresses 32 bits, c'est 2^32 octets, ce qui fait un total de 4 "
+"Go. C'est la limite supérieure absolue de mémoire qui peut être utilisée par "
+"un processus et cela met darktable dans une situation difficile comme nous "
+"l'avons vu ci-dessus.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "darktable's escape route is called tiling. Instead of processing an image in one big chunk, darktable splits the image into smaller parts for every processing module. This still requires one full input and output buffer, but intermediate buffers can be made small enough to fit everything into the hardware's limits.\n"
 msgstr ""
+"La porte de sortie de darktable s'appelle le tuilage. Pour chaque module de "
+"traitement, au lieu de traiter une image en un seul gros morceau, darktable "
+"la divise en parties plus petites (des tuiles). Cela nécessite encore un "
+"tampon d'entrée et de sortie, mais ces tampons intermédiaires peuvent être "
+"suffisamment petits pour tout faire rentrer dans les limites du matériel.\n"
 
 #. type: Title #
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "memory fragmentation"
-msgstr ""
+msgstr "fragmentation de la mémoire"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "Unfortunately this is not yet the full story. An effect called memory fragmentation can and will hit software that needs to perform extensive memory management. If such a program allocates 5 times 300MB at a time and frees it again, that memory should normally be available for one big 1.5GB allocation afterwards. However this is often not the case. The system's memory allocator may no longer see this area as one contiguous 1.5GB block but as a row of separate 300MB areas. If there is no other free area of 1.5GB available, a subsequent allocation would fail. During a program run this mechanism will take away more and more of the larger memory blocks in favor of smaller ones. darktable's mip map cache allocates several small memory blocks per thumbnail, so this problem is even bigger. For this reason, as of darktable 2.0, 32-bit support is soft-deprecated.\n"
 msgstr ""
+"Malheureusement, ce n’est pas encore la fin de l’histoire. Un effet appelé "
+"fragmentation de la mémoire peut toucher et touchera les logiciels qui "
+"doivent réaliser une gestion étendue de la mémoire. Si un tel programme "
+"alloue 5 fois 300 Mo à la fois et ensuite les libère, cette mémoire devrait "
+"normalement être disponible pour une grande allocation ultérieure de 1,5 Go. "
+"Cependant ce n'est pas souvent le cas. L'allocateur de mémoire du système "
+"peut ne plus voir cette zone comme un bloc contigu de 1,5 Go mais comme une "
+"rangée de blocs séparés de 300 Mo. S'il n'y a pas d'autre zone libre de 1,5 "
+"Go disponible, une allocation ultérieure échouera. Pendant l'exécution d'un "
+"programme, ce mécanisme enlèvera de plus en plus de blocs de mémoire plus "
+"gros au profit de blocs plus petits. Le cache mip map de darktable alloue "
+"plusieurs petits blocs de mémoire par miniature, ce problème est donc encore "
+"plus important. Pour cette raison, à partir de darktable 2.0, la prise en "
+"charge des systèmes 32 bits est obsolète.\n"
 
 #. type: Title #
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "further limitations"
-msgstr ""
+msgstr "autres limitations"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "As if this were not challenging enough, there are further things that might limit darktable's access to memory. On some older boards you need to activate the \"memory mapping\" BIOS option in order to have all physically installed memory enabled. In addition if you are on a 32-bit OS you will probably need a kernel version that has Physical Address Extension (PAE) enabled. This is often but not always the case for Linux. Many distributions deliver different kernels, some with and some without PAE activated; you need to choose the right one. To check if the system is setup correctly, use the command free in a terminal and examine the output. If the output reports less RAM than you have installed, you have an issue needing correction; for example you have 4GB on your board, but your kernel is only seeing 3GB or less. You should consult your BIOS manual and the information about your Linux variant for further help.\n"
 msgstr ""
+"Comme si cela n'était pas suffisant, il y a d’autres choses qui pourraient "
+"limiter votre accès à la mémoire. Sur certaines cartes de fabrication assez "
+"ancienne, vous devez activer l’option BIOS « memory remapping » de manière à "
+"ce que toute la mémoire physique soit activée. Si, de plus, vous avez un "
+"système 32 bits, vous devrez probablement avoir un noyau avec l’option « "
+"Physical Address Extension » (PAE) activée. Ceci est souvent le cas sous "
+"Linux, mais pas toujours. De nombreuses distributions fournissent différents "
+"noyaux, certains avec et d’autres sans PAE activée, il vous faudra choisir "
+"le bon. Pour vérifier que le système est correctement configuré, utilisez la "
+"commande _free_ dans un terminal et examinez la sortie. Si la sortie indique "
+"moins de RAM que celle qui est installée, vous avez alors un problème qui "
+"demande une correction : par exemple, si vous avez 4 Go sur votre carte mais "
+"que votre noyau n'en voit que 3 Go ou moins. Il vous faudra consulter le "
+"manuel de votre BIOS et les informations concernant votre variante de Linux "
+"pour plus d’informations.\n"
 
 #. type: Title #
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "setting up darktable on 32-bit systems"
-msgstr ""
+msgstr "Configurer darktable sur un système 32 bits"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "As we've seen, 32-bit systems are difficult environments for darktable. Still some users are running darktable on them, if the basic requirements in terms of total system memory and the topics mentioned in the paragraphs above are addressed properly.\n"
 msgstr ""
+"Comme nous l'avons vu, les systèmes 32 bits sont des environnements "
+"difficiles pour darktable. Certains les utilisent encore pour exécuter "
+"darktable, quand les exigences de base en termes de mémoire système totale "
+"et les sujets mentionnés dans les paragraphes ci-dessus sont traités "
+"correctement.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "There are several parameters that require adjustment in order to get it running. If you install fresh, darktable will detect your system and set conservative values by default. However, if you upgrade darktable from an older version, chances are you have unfavorable settings in your preferences. The consequences might be darktable aborting due to allocation failures or  very typically  darktable not being able to properly import a new film roll. As a frequent symptom you get skulls displayed instead of thumbnails for many of your pictures.\n"
 msgstr ""
+"Il existe plusieurs paramètres qui nécessitent un ajustement pour le faire "
+"fonctionner. Si vous installez une nouvelle version, darktable détectera "
+"votre système et définira des valeurs prudentes par défaut. Cependant, si "
+"vous mettez à niveau darktable à partir d'une version plus ancienne, il est "
+"probable que vous ayez des paramètres défavorables dans vos préférences. Les "
+"conséquences peuvent être un abandon de darktable en raison d'échecs "
+"d'allocation ou très typiquement darktable ne peut pas importer correctement "
+"une nouvelle pellicule. En tant que symptôme fréquent, vous obtenez pour "
+"beaucoup de vos photos des crânes affichés au lieu des miniatures.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "If this is the case, take a minute to optimize your preference settings. You will find them in [preferences > cpu/gpu/memory](../preferences-settings/cpu-gpu-memory.md). \n"
 msgstr ""
+"Si tel est le cas, prenez une minute pour optimiser vos paramètres de "
+"préférence. Vous les trouverez dans [préférences > cpu / gpu / mémoire"
+"](../preferences-settings/cpu-gpu-memory.md). \n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "Here is a short explanation of the relevant parameters and their proposed settings:\n"
 msgstr ""
+"Voici une brève explication des paramètres pertinents et de leurs réglages "
+"proposés :\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
@@ -22558,6 +22647,13 @@ msgid ""
 "number of background threads\n"
 ": This parameter defines the maximum number of threads that are allowed to run in parallel when importing film rolls or doing other background stuff. For obvious reasons on 32-bit systems you can only have one thread consuming resources at a time. So you need set this parameter to 1; anything higher will kill you.\n"
 msgstr ""
+"nombre de fils d'exécution\n"
+": Ce paramètre définit le nombre maximum de fils d'exécution autorisés à "
+"s'exécuter en parallèle pour l'importation de pellicules ou pour d'autres "
+"tâches d'arrière-plan. Pour des raisons évidentes sur les systèmes 32 bits, "
+"vous ne pouvez avoir qu'un seul fil d'exécution consommant des ressources à "
+"la fois. Vous devez donc définir ce paramètre sur 1 ; toute valeur "
+"supérieure provoquera un plantage.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
@@ -22566,6 +22662,14 @@ msgid ""
 "host memory limit (in MB) for tiling\n"
 ": This parameter tells darktable how much memory (in MB) it should assume is available to store image buffers during module operations. If an image can not be processed within these limits in one chunk, tiling will take over and process the image in several parts, one after the other. Set this to the lowest possible value of 500 as a starting point. You might experiment later whether you can increase it a bit in order to reduce the overhead of tiling.\n"
 msgstr ""
+"mémoire limite (en Mo) pour le tuilage\n"
+": Ce paramètre indique à darktable la quantité de mémoire (en Mo) qu'il doit "
+"supposer disponible pour stocker les tampons d'image pendant les opérations "
+"du module. Si une image ne peut pas être traitée dans ces limites en un seul "
+"bloc, le tuilage prendra le relais et traitera l'image en plusieurs parties, "
+"l'une après l'autre. Fixez ce paramètre à la valeur la plus faible possible, "
+"avec 500 comme point de départ. Vous pourrez par la suite tester si vous "
+"pouvez l’augmenter un peu de manière à réduire la surcharge due au tuilage.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
@@ -22574,6 +22678,12 @@ msgid ""
 "minimum amount of memory (in MB) for a single buffer in tiling\n"
 ": This is a second parameter that controls tiling. It sets a lower limit for the size of intermediate image buffers in megabytes. The parameter is needed to avoid excessive tiling in some cases (for some modules). Set this parameter to a low value of 8. You might tentatively increase it to 16 later.\n"
 msgstr ""
+"quantité minimale de mémoire (en Mo) pour la mémoire-tampon d'une tuile\n"
+": c'est le second paramètre qui contrôle le tuilage. Il définit une limite "
+"basse pour la taille, en mégaoctets, des tampons intermédiaires. Le "
+"paramètre est nécessaire pour éviter un tuilage excessif dans certains cas ("
+"pour certains modules). Fixez ce paramètre à la faible valeur de 8. Vous "
+"pourrez tenter de l’augmenter à 16 par la suite.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
@@ -22582,48 +22692,95 @@ msgid ""
 "memory in megabytes to use for thumbnail cache\n"
 ": This controls how many thumbnails (or mip maps) can be stored in memory at a time. As a starting point set this to something like 256MB. Since darktable 2.0, the cache does allocate a few small buffers per thumbnail in cache, thus causing significant memory fragmentation. As explained before, this poses a problem for 32-bit systems. For this reason, as of darktable 2.0, 32-bit support is soft-deprecated.\n"
 msgstr ""
+"mémoire en mégaoctets à utiliser pour le cache des miniatures\n"
+": Ceci contrôle combien de miniatures (ou mip maps) peuvent être stockées à "
+"la fois en mémoire. Comme point de départ fixez ce nombre à quelque chose "
+"comme 256 MB. Depuis darktable 2.0, le cache doit allouer de petits buffers "
+"pour chaque miniature, causant ainsi une significative fragmentation de la "
+"mémoire. Comme expliqué auparavant, ceci pose problème aux systèmes 32-bits. "
+"Pour cette raison, à partir de darktable 2.0, le support du 32-bits est "
+"déconseillé.\n"
 
 #. type: Title #
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "darktable on 64-bit systems"
-msgstr ""
+msgstr "darktable sur les systèmes 64-bits"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "There's not much to be said here. Of course 64-bit systems also require a sufficient amount of main memory, so the 4GB plus swap recommendation holds true. On the other hand, 64-bit architectures do not suffer from the specific 32-bit limitations like small address space and fragmentation madness.\n"
 msgstr ""
+"Il n'y a plus grand chose à dire ici. Bien sûr, les systèmes 64 bits ont "
+"besoin d’une certaine quantité de mémoire principale, donc la recommandation "
+"de 4 Go plus le swap reste vraie. D’un autre côté, l’architecture 64 bits ne "
+"souffre pas des limitations spécifiques au 32 bits comme l’espace adressable "
+"réduit et le problème de la fragmentation.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "Most modern Intel or AMD 64-bit CPUs will have available address space in the range of several Terabytes. The word modern is relative in this context: all AMD and Intel CPUs introduced since 2003 and 2004, respectively, offer a 64-bit mode. Linux 64-bit has been available for many years.\n"
 msgstr ""
+"Les CPU les plus modernes d’Intel ou AMD 64 bits ont un espace mémoire "
+"adressable dans la plage de quelques téraoctets. Le mot « moderne » est "
+"relatif dans ce contexte : tous les CPU AMD ou Intel introduits depuis 2003 "
+"et 2004 respectivement, offrent un mode 64-bits. Linux 64-bits est "
+"disponible depuis de nombreuses années.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "All relevant Linux distributions give you the choice to install a 32-bit or a 64-bit version with no added cost. You can even run old 32-bit binaries on a 64-bit Linux. The only thing you need to do is invest some time into the migration. In the end we strongly recommend moving to a 64-bit version of Linux. There really is no reason not to.\n"
 msgstr ""
+"Toutes les distributions de Linux concernées vous donnent le choix d’"
+"installer une version 32 bits ou une version 64 bits. Vous pouvez même faire "
+"tourner des binaires 32 bits sous une version 64 bits de Linux. La seule "
+"chose pour laquelle vous devrez passer un peu de temps sera la migration. "
+"Nous recommandons finalement de passer à une version 64 bits de Linux. Il "
+"n'y a vraiment aucune raison de ne pas le faire.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "On a 64-bit system you can safely leave the tiling related configuration parameters at their defaults: host memory limit (in MB) for tiling should have a value of 1500 and minimum amount of memory (in MB) for a single buffer in tiling should be set to 16. If you are migrating from a 32-bit to a 64-bit system you will need to check these settings and manually change them if needed in darktable's preference dialog.\n"
 msgstr ""
+"Sur un système à 64 bits, vous pouvez laisser en toute sécurité les "
+"paramètres de configuration du tuilage à leurs valeurs par défaut : la "
+"mémoire limite (en Mo) pour le tuilage devrait avoir une valeur de 1500 et "
+"la quantité minimale de mémoire (en Mo) pour la mémoire-tampon d'une tuile "
+"devrait être positionné à 16. Au cas où vous seriez en train d’effectuer une "
+"migration depuis un système 32 bits vers un système 64 bits, veuillez "
+"vérifier ce paramétrage et modifiez-le manuellement dans la boîte de "
+"dialogue des préférences de darktable si cela est nécessaire.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "Typically there is no need to restrict oneself in the number of background threads on a 64-bit system. On a multi-processor system a number of two to eight threads can speed up thumbnail generation considerably versus only one thread. The reason is not so much taking maximum advantage of all your CPU cores  darktable's pixelpipe uses all of them in parallel anyway  but hiding I/O latency.\n"
 msgstr ""
+"Typiquement il n'est pas nécessaire de se limiter dans le nombre de fils "
+"d'exécution sur un système 64-bits. Sur un système multi-processeurs un "
+"nombre de fils de deux à huit peut accélérer considérablement la génération "
+"des miniatures par rapport à l'utilisation d'un seul fil. La raison n'est "
+"pas tant de profiter au maximum de tous les cœurs de votre CPU --  de toute "
+"façon, le pipeline graphique de darktable les utilise tous ensemble en "
+"parallèle -- que de cacher la latence des entrées/sorties.\n"
 
 #. type: Plain text
 #: content/special-topics/memory.md
 #, no-wrap
 msgid "One exception is worth mentioning. If you use darktable to process stitched panoramas (e.g. TIFFs as generated by Hugin) these images can reach considerable sizes. Each background thread needs to allocate enough memory to keep one full image plus intermediates and output in its buffers. This may quickly cause even a well equipped 64-bit system to run out of memory. In that case lower the number of background threads to only one.\n"
 msgstr ""
+"Une exception vaut la peine d'être mentionnée. Si vous utilisez darktable "
+"pour traiter des vues panoramiques par assemblage (par exemple des TIFFs "
+"générés par le logiciel Hugin) alors ces images peuvent atteindre des "
+"tailles considérables. Chaque fil d'exécution a besoin d'allouer "
+"suffisamment de mémoire pour garder dans ses tampons une image complète, des "
+"intermédiaires et l'image de sortie. Ceci peut rapidement conduire à un "
+"dépassement de mémoire même avec un système 64 bits bien équipé. Dans ce cas "
+"réduisez à un le nombre de fils d'exécution.\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/darktable-chart/process.md
@@ -25648,49 +25805,100 @@ msgstr ""
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "unbounded colors"
-msgstr ""
+msgstr "couleurs non bornées"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "Screens and most image file formats can only encode RGB intensities confined within a certain range. For example, images encoded on 8 bits can only contain values from 0 to 255, images on 10 bits from 0 to 1023, and so on Graphic standards postulate that the maximum of that range, no matter its actual value, will always represent the maximum brightness that the display medium is able to render, usually between 100 and 160 Cd/m (or nits) depending on the actual standard. We generally call this maximum \"100 % display-referred\". The minimum of the range, encoded 0 no matter the bit-depth used, becomes then \"0 % display-referred\". 100 % encodes pure white, 0 % encodes pure black.\n"
 msgstr ""
+"Les écrans et la plupart des formats de fichiers image ne peuvent encoder "
+"que des intensités RVB confinées dans une certaine plage. Par exemple, les "
+"images encodées sur 8 bits ne peuvent contenir que des valeurs de 0 à 255, "
+"des images sur 10 bits de 0 à 1023, etc. Les standards graphiques postulent "
+"que le maximum de cette plage, quelle que soit sa valeur réelle, "
+"représentera toujours la luminosité maximale que le support d'affichage est "
+"capable de rendre, généralement entre 100 et 160 Cd / m (ou nits). Nous "
+"appelons généralement ce maximum \"100 % relatif à l'affichage\". Le minimum "
+"de la plage, codé 0 quelle que soit la profondeur de bits utilisée, devient "
+"alors \"0 % relatif à l'affichage\". 100 % code le blanc pur, 0 % code le "
+"noir pur.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "This is a limitation for image processing applications, because it means that any pixel lying outside of this range will be clipped to the nearest bound, resulting in non-recoverable loss of data (colors and/or textures).\n"
 msgstr ""
+"Il s'agit d'une limitation pour les applications de traitement d'image, car "
+"cela signifie que tout pixel situé en dehors de cette plage sera tronqué à "
+"la limite la plus proche, entraînant une perte non récupérable de données ("
+"couleurs et/ou textures).\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "For the longest time, image processing software too was bounded to this limitation for technical reasons, and some still is, but now by design choice. As a result, they would clip RGB intensities at 100 % display-referred between image operations.\n"
 msgstr ""
+"Pendant très longtemps, les logiciels de traitement d'image ont également "
+"été assujettis à cette limitation pour des raisons techniques. Certains le "
+"sont encore, mais maintenant c'est par choix lors de leur conception. En "
+"conséquence, ils tronqueront les intensités RVB à 100 % relatif à "
+"l'affichage lors des opérations sur l'image.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "darktable uses floating-point arithmetic inside its color pipeline, which means it can handle any RGB value internally, even those outside the display-referred range, as long as it is positive. Only at the very end of the pipeline, before the image is saved to a file or sent to display, are the RGB values clipped if needed.\n"
 msgstr ""
+"darktable utilise l'arithmétique à virgule flottante dans son pipeline "
+"graphique. Il peut donc gérer en interne n'importe quelle valeur RVB, même "
+"si elle ne se trouve pas dans la plage relative à l'affichage, pourvu "
+"qu'elle soit strictement positive. Ce n'est qu'à la toute fin du pipeline "
+"graphique, avant que l'image ne soit enregistrée dans un fichier ou envoyée "
+"à l'affichage, que les valeurs RVB sont tronquées si cela est nécessaire.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "Pixels that can take values outside of the display range are said to have unbounded colors. One could choose to clamp (i.e. confine) those values to the allowed range at every processing step or choose to carry on with them, and clamp them only at the last step in the pipeline. However, it has been found that processing is less prone to artifacts if the unbounded colors are not clamped but treated just like any other color data.\n"
 msgstr ""
+"On dit que les pixels qui peuvent prendre des valeurs en dehors de la plage "
+"relative à l'affichage ont des couleurs non bornées. À chaque étape du "
+"traitement, on pourrait choisir de confiner ces valeurs dans la plage "
+"autorisée ou choisir de les conserver, et de les tronquer uniquement lors de "
+"la dernière étape du pipeline. Cependant, il a été constaté que le "
+"traitement est moins sujet aux artefacts si les couleurs non bornées ne sont "
+"pas confinées mais traitées comme toutes les autres données de couleur.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "At the end of the pipeline, modules like [_filmic_](../../module-reference/processing-modules/filmic-rgb.md) can help you to remap RGB values to the display-referred range while maximizing the data preservation and avoiding hard clipping, which is usually not visually pleasing.\n"
 msgstr ""
+"À la fin du pipeline graphique, des modules comme [_filmique_](../../module-"
+"reference/processing-modules/filmic-rgb.md) peuvent vous aider à mapper les "
+"valeurs RVB dans la plage relative à l'affichage tout en maximisant la "
+"préservation des données, évitant ainsi l'écrêtage dur qui n'est "
+"généralement pas agréable visuellement.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/unbounded-colors.md
 #, no-wrap
 msgid "However, at all times in the pipeline, you must ensure that you do not create negative RGB values. RGB intensities encode light emissions and negative light does not exist. Those modules which rely on a physical understanding of light to process pixels will fail if they encounter a non-physical light emission. For safety, negative RGB values are still clipped whenever they might make the algorithms fail, but the visual result might look degraded. Negative values can be produced when abusing the _black level_ in [_exposure_](../../module-reference/processing-modules/exposure.md) or the _offset_ in [_color balance_](../../module-reference/processing-modules/color-balance.md) and care should be taken when using these modules.\n"
 msgstr ""
+"Cependant, à tout moment dans le pipeline graphique, vous devez vous assurer "
+"de ne pas créer de valeurs RVB négatives. Les intensités RVB codent les "
+"émissions lumineuses et la lumière négative n'existe pas. Les modules qui, "
+"pour traiter les pixels, reposent sur une interprétation physique de la "
+"lumière échoueront s'ils rencontrent une émission de lumière non physique. "
+"Par prévention, les valeurs RVB négatives sont toujours écrêtées chaque fois "
+"qu'elles peuvent faire échouer les algorithmes, mais le résultat visuel peut "
+"sembler dégradé. Des valeurs négatives peuvent être produites en abusant du "
+"_correction du niveau de noir_ dans le module [_exposition_](../../module-"
+"reference/processing-modules/exposure.md) ou d'_offset_ dans le module ["
+"_balance couleur_](../../module-reference/processing-modules/color-balance."
+"md). Des précautions doivent donc être prises lors de l'utilisation de ces "
+"modules.\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/color-management/rendering-method.md
@@ -25949,11 +26157,11 @@ msgstr ""
 msgid "Most of darktable's actual image processing takes place in a large RGB \"working profile\" space, with some (mostly older) modules internally working in the CIELab 1976 color space (often just called Lab). The final output of the image processing pipeline is once again in an RGB space shaped for either the monitor display or the output file.\n"
 msgstr ""
 "La plus grande partie du traitement d'image de darktable a lieu dans un "
-"grand espace «profil de travail» RVB, avec certains modules (pour la plupart "
-"plus anciens) travaillant en interne dans l'espace colorimétrique CIELab "
-"1976 (souvent simplement appelé Lab). La sortie finale du pipeline graphique "
-"est à nouveau dans un espace RVB adapté soit à un affichage sur un moniteur "
-"soit à un fichier de sortie.\n"
+"grand espace \"profil de travail\" RVB, avec certains modules (pour la "
+"plupart plus anciens) travaillant en interne dans l'espace colorimétrique "
+"CIELab 1976 (souvent simplement appelé \"Lab\"). La sortie finale du "
+"pipeline graphique est à nouveau dans un espace RVB adapté soit à un "
+"affichage sur un moniteur soit à un fichier de sortie.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/color-spaces.md
@@ -25963,7 +26171,7 @@ msgstr ""
 "Ce processus implique que le pipeline graphique comporte deux étapes fixes "
 "de conversion de couleur : [_profil de couleur d'entrée_](../../module-"
 "reference/processing-modules/input-color-profile.md) et [_profil de couleur "
-"de sortie_](.. /../module-reference/processing-modules/output-color-profile."
+"de sortie_](../../module-reference/processing-modules/output-color-profile."
 "md). De plus, il y a l'étape [_dématriçage_](../../module-reference/"
 "processing-modules/demosaic.md) pour les images raw, où les couleurs de "
 "chaque pixel sont reconstruites par interpolation.\n"
@@ -25983,6 +26191,16 @@ msgid ""
 "- up to [_demosaic_](../../module-reference/processing-modules/demosaic.md)\n"
 ": The raw image information does not yet constitute an \"image\" but merely \"data\" about the light captured by the camera. Each pixel carries a single intensity for one single primary color, and camera primaries are very different from primaries used in models of human vision. Bear in mind that some of the modules in this part of the pipe can also act on non-raw input images in RGB format with full information on all three color channels.\n"
 msgstr ""
+"- jusqu'à [_dématriçage_](../../module-reference/processing-modules/demosaic."
+"md)\n"
+": Les informations d'image raw ne constituent pas encore une \"image\" mais "
+"simplement des \"données\" concernant la lumière capturée par le boîtier. "
+"Chaque pixel porte une intensité pour chaque couleur primaire, et les "
+"couleurs primaires du boîtier sont très différentes de celles utilisées dans "
+"les modèles de vision humaine. Gardez à l'esprit que certains des modules de "
+"cette partie du pipeline peuvent également agir sur des images d'entrée non "
+"raw au format RVB ayant des informations complètes sur les trois canaux de "
+"couleur.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/color-spaces.md
@@ -25991,6 +26209,11 @@ msgid ""
 "- between [_demosaic_](../../module-reference/processing-modules/demosaic.md) and [_input color profile_](../../module-reference/processing-modules/input-color-profile.md)\n"
 ": Image is in RGB format within the color space of the specific camera or input file.\n"
 msgstr ""
+"- entre [_dématriçage _](../../module-reference/processing-modules/demosaic."
+"md) et [_profil de couleur d'entrée_](../../module-reference/"
+"processing-modules/input-color-profile.md)\n"
+": L'image est au format RVB dans l'espace colorimétrique du boîtier ou du "
+"fichier d'entrée spécifique.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/color-spaces.md
@@ -25999,6 +26222,14 @@ msgid ""
 "- between [_input color profile_](../../module-reference/processing-modules/input-color-profile.md) and [_output color profile_](../../module-reference/processing-modules/output-color-profile.md)\n"
 ": Image is in the space defined by the selected working profile (linear Rec2020 RGB by default). As darktable processes images in 4x32-bit floating point buffers, we can handle large working color spaces without risking banding or tonal breaks.\n"
 msgstr ""
+"- entre [_profil de couleur d'entrée_](../../module-reference/"
+"processing-modules/input-color-profile.md) et [_profil de couleur de sortie_"
+"](../../module-reference/processing-modules/output-color-profile.md)\n"
+": L'image se trouve dans l'espace défini par le profil de travail "
+"sélectionné (linéaire Rec2020 RVB par défaut). Comme darktable traite les "
+"images dans des tampons à virgule flottante 4x32 bits, nous pouvons gérer de "
+"grands espaces colorimétriques de travail sans risquer des bandes ou des "
+"coupures tonales.\n"
 
 #. type: Plain text
 #: content/special-topics/color-management/color-spaces.md
@@ -26007,6 +26238,10 @@ msgid ""
 "- after [_output color profile_](../../module-reference/processing-modules/output-color-profile.md)\n"
 ": Image is in RGB format as defined by the selected display or output ICC profile.\n"
 msgstr ""
+"- après [_profil de couleur de sortie_](../../module-reference/"
+"processing-modules/output-color-profile.md)\n"
+": L'image est au format RVB tel que défini par l'affichage sélectionné ou le "
+"profil ICC de sortie.\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/color-management/rendering-intent.md
@@ -26151,43 +26386,73 @@ msgstr "Sujets spéciaux"
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "performance optimization"
-msgstr ""
+msgstr "optimisation des performances"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "There are a number of configuration parameters in `$HOME/.config/darktable/darktablerc` that can help to finetune your system's OpenCL performance. Performance in this context mostly means the latency of darktable during interactive work, i.e. how long it takes to reprocess the pixelpipe. For a comfortable workflow it is essential to keep latency low.\n"
 msgstr ""
+"Certains paramètres de configuration dans $HOME/.config/darktable/"
+"darktablerc permettent d’ajuster finement les performances OpenCL de votre "
+"système. Performances, dans ce contexte signifie principalement la latence "
+"de darktable lors du travail interactif. Par exemple le temps qu'il faut "
+"pour retraiter votre pipeline graphique. Afin d’avoir un flux de travail "
+"confortable, il est essentiel de maintenir une faible latence.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "In order to obtain profiling info you need to start darktable from a terminal with `darktable -d opencl -d perf`.\n"
 msgstr ""
+"De manière à obtenir des informations de profilage, démarrez darktable "
+"depuis un terminal avec `darktable -d opencl -d perf`.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "After each reprocessing of the pixelpipe -- caused by module parameter changes, zooming, panning, etc. -- you will see the total time and the time spent in each of the OpenCL kernels. The most reliable value is the total time spent in pixelpipe. Please note that the timings given for each individual module are unreliable when running the OpenCL pixelpipe asynchronously (see opencl\\_async\\_pixelpipe below).\n"
 msgstr ""
+"Après chaque retraitement du pipeline graphique – provoqué par un changement "
+"de paramètre de module, un zoom, un déplacement de panneau, etc. – vous "
+"obtiendrez le temps total et le temps de chacun des noyaux OpenCL. La valeur "
+"la plus fiable est le temps passé dans le pipeline graphique. Veuillez noter "
+"que les temps indiqués pour chaque module individuel sont imprécis lorsque "
+"le pipeline graphique OpenCL est exécuté de manière asynchrone (voir "
+"opencl\\_async\\_pixelpipe ci-dessous).\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "To allow for fast pixelpipe processing with OpenCL it is essential that we keep the GPU busy. Any interrupts or a stalled data flow will add to the total processing time. This is especially important for the small image buffers we need to handle during interactive work. These can be processed quickly by a fast GPU. However, even short-term stalls of the pixelpipe will easily become a bottleneck.\n"
 msgstr ""
+"Afin de permettre un traitement rapide du pipeline graphique avec OpenCL, il "
+"est essentiel de maintenir le GPU occupé. Toute interruption ou flux de "
+"données discontinu augmentera le temps de traitement total. Ceci est "
+"particulièrement important pour les petits tampons d’image que nous devons "
+"gérer rapidement lors du travail interactif. Ils peuvent être traités "
+"rapidement par un GPU rapide. Cependant, même les interruptions courtes du "
+"pipeline graphique deviendront rapidement un goulet d’étranglement.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "On the other hand darktable's performance during file exports is more or less only governed by the speed of our algorithms and the horse-power of your GPU. Short-term stalls will not have a noticeable effect on the total time of an export.\n"
 msgstr ""
+"D’autre part, les performances de darktable lors de l’exportation de "
+"fichiers ne sont plus ou moins influencées que par la vitesse de nos "
+"algorithmes et la puissance de votre GPU. Les courts arrêts d'exécution "
+"n'ont pas d’influence sur la durée totale de l’exportation.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
 #, no-wrap
 msgid "darktable comes with default settings that should deliver a decent GPU performance on most systems. However, if you want to fiddle around a bit by yourself and try to optimize things further, here is a description of the relevant configuration parameters.\n"
 msgstr ""
+"Le paramétrage par défaut de darktable devrait donner des performances GPU "
+"correctes sur la plupart des systèmes. Cependant, si vous désirez bidouiller "
+"un peu afin d’essayer d’améliorer les choses, voici une description des "
+"paramètres de configuration appropriés\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
@@ -26196,6 +26461,18 @@ msgid ""
 "opencl\\_async\\_pixelpipe\n"
 ": This flag controls how often darktable blocks the OpenCL pixelpipe to get a status on success/failure of the kernels that have been run. For optimum latency set this to TRUE, so that darktable runs the pixelpipe asynchronously and tries to use as few interrupts as possible. If you experience OpenCL errors like failing kernels, set the parameter to FALSE. darktable will then interrupt after each module so that you can more easily isolate the problem. Problems have been reported with some older AMD/ATI cards, like the HD57xx, which can produce garbled output if this parameter is set to TRUE. If in doubt, leave it at its default of FALSE.\n"
 msgstr ""
+"opencl\\_async\\_pixelpipe\n"
+": Cet indicateur booléen contrôle la fréquence de blocage du pipeline "
+"graphique OpenCL et récupère un état succès/échec de tous les noyaux ayant "
+"été exécutés. Pour une latence optimisée, fixez-le à VRAI, pour que "
+"darktable traite le pipeline graphique de manière synchrone et essaie "
+"d'utiliser aussi peu d’interruptions que possible. Si vous rencontrez des "
+"erreurs OpenCL, comme des échecs de noyaux, changez ce pa ramètre en FAUX. "
+"darktable va alors s’interrompre après chaque module ainsi vous pourrez "
+"isoler le problème plus facilement. Des problèmes ont été signalés avec "
+"certaines cartes ATI/AMD anciennes comme les HD57xx, qui peuvent produire "
+"une sortie corrompue si ce paramètre a la valeur VRAI. En cas de doute, "
+"laissez-le à sa valeur par défaut FAUX.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
@@ -26204,6 +26481,28 @@ msgid ""
 "opencl\\_number\\_event\\_handles\n"
 ": Event handles are used so that darktable can monitor the success/failure of kernels and profiling info even if the pixelpipe is executed asynchronously. The number of event handles is a limited resource of your OpenCL driver. For sure they can be recycled but there is a limited number that can be used at the same time. Unfortunately, there is no way to find out what the resource limits are, so darktable needs to guess. The default value of 25 is quite conservative. You might want to see if higher values like 100 give better OpenCL performance. If your driver runs out of free handles you will experience failing OpenCL kernels with error code `-5 (CL_OUT_OF_RESOURCES)` or even crashes or system freezes. Reduce the number again if that happens. A value of 0 will block darktable from using any event handles. This will prevent darktable from properly monitoring the success of your OpenCL kernels but saves some driver overhead. The consequence is that any failures will likely lead to garbled output without darktable taking notice. This is only recommended if you know for sure that your system runs rock-solid. You can also set this parameter to -1, which means that darktable assumes no restriction in the number of event handles. This is not recommended.\n"
 msgstr ""
+"opencl\\_number\\_event\\_handles\n"
+": Des gestionnaires d’événements sont utilisés de manière à pouvoir "
+"surveiller le succès ou l’échec des noyaux et pour obtenir des informations "
+"de profilage même si le pipeline graphique tourne de manière asynchrone. Le "
+"nombre de gestionnaires d’événements est une ressource limitée de votre "
+"pilote OpenCL. Bien entendu, ils peuvent être recyclés, mais il n'y en a "
+"qu'un certain nombre qui puissent être utilisés simultanément. "
+"Malheureusement, il n'y a aucun moyen de savoir quelles sont les limites de "
+"ressources ; darktable doit donc estimer. Notre valeur 25 par défaut est "
+"assez prudente. Vous pouvez essayer de voir si des valeurs plus importantes "
+"comme 100 donnent de meilleures performances OpenCL. Si votre pilote n'a pas "
+"assez de gestionnaires libres, vous aurez des échecs de noyaux OpenCL avec "
+"le code `-5 (CL_OUT_OF_RESOURCES)` ou même des plantages ou un système figé. "
+"Réduisez alors ce nombre. Une valeur 0 interdira à darktable d’utiliser un "
+"quelconque gestionnaire d’événements. Ceci empêchera darktable de surveiller "
+"correctement le succès de vos noyaux OpenCL mais évitera une certaine "
+"surcharge des pilotes. Les conséquences sont qu'un échec conduira "
+"probablement à une sortie corrompue sans notification de darktable. Ce n'est "
+"recommandé que si vous êtes certain que votre système tourne solide comme un "
+"roc. Vous pouvez aussi fixer ce paramètre à -1, ce qui signifie que "
+"darktable supposera qu'il n'y a aucune restriction du nombre de "
+"gestionnaires d’événements. Ceci n'est pas recommandé.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
@@ -26212,6 +26511,17 @@ msgid ""
 "opencl\\_synch\\_cache\n"
 ": This parameter, if set to \"true\", will force darktable to fetch image buffers from your GPU after each module and store them in its pixelpipe cache. This is a resource consuming operation, but can make sense depending on your GPU (including if the GPU is rather slow). In this case darktable might in fact save some time when module parameters have changed, as it can go back to some cached intermediate state and reprocess only part of the pixelpipe. In many cases this parameter should be set to \"active module\" (the default), which will only cache the input of the currently focused module.\n"
 msgstr ""
+"opencl\\_synch\\_cache\n"
+": Ce paramètre, s’il est défini à \"vrai\", forcera darktable à aller "
+"chercher, après chaque module, les tampons d’image depuis votre GPU et à les "
+"enregistrer dans le cache du pipeline graphique. C'est une opération qui "
+"consomme beaucoup de ressources, mais elle a du sens en fonction de votre "
+"GPU (même si le GPU est plutôt lent). Dans ce cas, darktable peut en fait "
+"gagner du temps lorsque les paramètres du module ont été modifiés. Car il "
+"peut revenir à des états antérieurs mis en cache et retraiter uniquement une "
+"partie du pipeline graphique. Dans la plupart des cas, ce paramètre peut "
+"être laissé à \"module actif\" (sa valeur par défaut), qui mettra en cache "
+"uniquement l'entrée du module actuellement ciblé.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
@@ -26220,6 +26530,20 @@ msgid ""
 "opencl\\_micro\\_nap\n"
 ": In an ideal case you will keep your GPU busy at 100% when reprocessing the pixelpipe. That's good. On the other hand your GPU may also be needed to do regular GUI updates. It might happen that there is no sufficient time left for this task. The consequence would by a jerky reaction of your GUI on panning, zooming or when moving sliders. To resolve this issue darktable can add small naps into its pixelpipe processing to have the GPU catch some breath and perform GUI related activities. The opencl\\_micro\\_nap parameter controls the duration of these naps in microseconds. You will need to experiment in order to find an optimum value for your system. Values of 0, 100, 500 and 1000 are good starting points to try. The default is 1000.\n"
 msgstr ""
+"opencl\\_micro\\_nap\n"
+": Dans un cas idéal vous garderez votre GPU occupé à 100% lors retraitement "
+"du pipeline graphique. Ceci est une bonne chose. D’autre part votre GPU est "
+"aussi nécessaire pour effectuer régulièrement des mises à jour de l’"
+"interface. Il peut arriver qu'il ne reste plus assez de temps pour cette "
+"tâche. En conséquence, vous aurez un affichage saccadé lors des défilements, "
+"des zooms et des déplacements des curseurs. Pour résoudre ce problème "
+"darktable peut ajouter des petits instants de repos dans le traitement de "
+"son pipeline graphique pour laisser le GPU respirer un peu et faire des "
+"tâches liées à la gestion de l’interface graphique. Le paramètre OpenCL "
+"opencl\\_micro\\_nap contrôle la durée en microsecondes de ces instants de "
+"repos. Vous devrez faire des essais afin de trouver la valeur optimum pour "
+"votre système. Des valeurs 0, 100, 500 et 1000 sont des bons points de "
+"départ à essayer. La valeur par défaut est de 1000.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/performance.md
@@ -26228,102 +26552,210 @@ msgid ""
 "opencl\\_use\\_pinned\\_memory\n"
 ": During tiling huge amounts of memory need to be transferred between host and device. On some devices (namely AMD) direct memory transfers to and from an arbitrary host memory region may give a huge performance penalty. This is especially noticeable when exporting large images. Setting this configuration parameter to TRUE tells darktable to use a special kind of intermediate buffer for host-device data transfers. On some devices this can speed up exporting of large files by a factor of 2 to 3. NVIDIA devices and drivers seem to have a more efficient memory transfer technique even for arbitrary memory regions. As they may not show any performance gain and even may produce garbled output, opencl\\_use\\_pinned\\_memory should be left at its default FALSE for those devices.\n"
 msgstr ""
+"opencl\\_use\\_pinned\\_memory\n"
+": Lors du tuilage, d’énormes quantités de mémoire doivent être transférées "
+"entre hôte et périphérique. Sur certains périphériques (à savoir AMD), les "
+"transferts directs de mémoire vers et depuis une région arbitraire de la "
+"mémoire de l’hôte peuvent entraîner une perte très importante de "
+"performances. On peut le remarquer particulièrement lors de l’exportation de "
+"grosses images. Positionner ce paramètre de configuration VRAI indique à "
+"darktable d’utiliser un type particulier de tampon intermédiaire pour les "
+"transferts de données entre hôte et périphérique. Sur certains "
+"périphériques, ceci peut accélérer l’exportation des gros fichiers d’un "
+"facteur 2 ou 3. Les périphériques et les pilotes NVIDIA semblent avoir une "
+"technique de transfert plus efficace, même pour des régions arbitraires de "
+"la mémoire. Comme ils peuvent ne pas montrer de gain de performance et même "
+"produire des sorties déformées opencl\\_use\\_pinned\\_memory devrait être "
+"laissé à FAUX, pour ces périphériques, sa valeur par défaut.\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "possible problems & solutions"
-msgstr ""
+msgstr "problèmes possibles et solutions"
 
 #. type: Plain text
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "darktable will detect OpenCL run-time errors automatically. On detecting an error, it will then reprocess everything on the CPU. While this will slow down processing it should not affect the end result.\n"
 msgstr ""
+"darktable détecte automatiquement les problèmes d’OpenCL en cours de "
+"fonctionnement. Il effectuera alors le traitement sur le CPU ; seule la "
+"vitesse est affectée et le résutat final ne sera pas impacté.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "There can be various reasons why OpenCL might fail during the initialization phase. OpenCL depends on hardware requirements and on the presence of certain drivers and libraries. In addition all these have to fit in terms of maker model and revision number. If anything does not fit (e.g. your graphics driver -- loaded as a kernel module -- does not match the version of your `libOpenCL.so`) OpenCL support will likely not be available.\n"
 msgstr ""
+"Il y a de nombreuses raison qui font qu’OpenCL peut échouer lors de sa phase "
+"d’initialisation. OpenCL dépend des exigences matérielles et de la présence "
+"de certains pilotes et bibliothèques. De plus tout ceci doit correspondre en "
+"termes de modèle et de numéro de version. Si quelque chose ne correspond pas "
+"(par exemple si votre pilote graphique -- chargé en tant que module du noyau "
+"-- ne correspond pas à la version de votre `libOpenCL.so`) le support d’"
+"OpenCL ne sera probablement pas disponible.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "In this case, the best thing to do is start darktable from a console with `darktable -d opencl`.\n"
 msgstr ""
+"Dans ce cas, la meilleure chose à faire est de démarrer darktable depuis une "
+"console par `darktable -d opencl`.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "This will give additional debugging output about the initialization and use of OpenCL. First, if you find a line that starts with `[opencl_init] FINALLY ...` that should tell you whether OpenCL support is available for you or not. If initialization failed, look at the messages above for anything that reads like `could not be detected` or `could not be created`. Check if there is a hint about where it failed.\n"
 msgstr ""
+"Ceci va donner des informations de débogage supplémentaires concernant l’"
+"initialisation et l’utilisation d’OpenCL. Regardez d’abord si vous voyez une "
+"ligne qui commence par `[opencl_init] FINALLY ...`. Ceci doit vous indiquer "
+"si la prise en charge d’OpenCL est disponible pour vous ou pas. S’il y a un "
+"échec de l’initialisation, regardez dans les messages au-dessus s’il y a "
+"quelque chose qui ressemble à `could not be detected` ou `could not be "
+"created`. Regardez s’il y a une indication de l’endroit où l’échec a eu lieu."
+"\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "Here are a few cases that have been observed in the past:\n"
-msgstr ""
+msgstr "Voici un certain nombre de cas observés dans le passé :\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "darktable states that no OpenCL aware graphics card is detected or that the available memory on your GPU is too low and the device is discarded. In that case you might need to buy a new card, if you really want OpenCL support.\n"
 msgstr ""
+"darktable peut vous indiquer qu’aucune carte graphique prenant en charge "
+"OpenCL n'a été détectée ou que la mémoire disponible sur votre GPU est trop "
+"faible et que la carte ne sera pas utilisée. Dans ce cas, il vous faudra "
+"acheter une nouvelle carte si vous désirez la prise en charge d’OpenCL.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "darktable finds your `libOpenCL.so` but then tell you that it couldn't get a platform. NVIDIA drivers will often give error code -1001 in this case. This happens because `libOpenCL.so` is only a wrapper library. For the real work further vendor-specific libraries need to be loaded. This has failed for some reason. There is a structure of files in `/etc/OpenCL` on your system that `libOpenCL.so` consults to find these libraries. Check if you find something fishy in there and try to fix it. Often the required libraries cannot be found by your system's dynamic loader. Giving full path names might help.\n"
 msgstr ""
+"darktable pourrait trouver votre `libOpenCL.so` mais vous dire ensuite qu'il "
+"ne peut obtenir de plate-forme. Les pilotes NVIDIA donnent souvent un code d’"
+"erreur -1001 dans ce cas. Ceci arrive parce que `libOpenCL.so` n'est qu'un "
+"encapsuleur de bibliothèque. Pour le travail réel, d'autres bibliothèques "
+"spécifiques au fournisseur doivent être chargées. Ceci a échoué pour une "
+"raison quelconque. Il y a une structure de fichiers dans`/etc/OpenCL` sur "
+"votre système que `libOpenCL.so` consulte pour rechercher ces bibliothèques. "
+"Vérifiez que vous n'avez pas quelque chose de louche par là et essayez de le "
+"corriger. Souvent, les bibliothèques ne peuvent pas être trouvées par le "
+"chargeur dynamique de votre système. Donner les noms de chemin complet peut "
+"aider.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "darktable states that a context could not be created. This often indicates a version mismatch between the loaded graphics driver and libOpenCL. Check if you have left-over kernel modules or graphics libraries from an older installation and take appropriate action. When in doubt, perform a clean reinstall of your graphics driver. Sometimes, immediately after a driver update, the loaded kernel driver does not match the newly installed libraries. In this case reboot your system before trying again.\n"
 msgstr ""
+"darktable peut aussi vous indiquer qu'un contexte ne peut être créé. Ceci "
+"indique souvent qu'il y a une incompatibilité de version entre le pilote "
+"graphique chargé et libOpenCL. Vérifiez que vous n'avez pas laissé de "
+"modules du noyau ou de bibliothèques graphiques provenant d’une installation "
+"plus ancienne et prenez les mesures appropriées. En cas de doute, faites une "
+"réinstallation propre de votre pilote graphique. Quelquefois, immédiatement "
+"après une mise à jour de pilote, le module du noyau ne correspond pas aux "
+"bibliothèques nouvellement installées. Dans ce cas, redémarrez votre système."
+"\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "darktable crashes during startup. This can happen if your OpenCL setup is completely broken or if your driver/library contains a severe bug. If you can't fix it, you can still use darktable with option `--disable-opencl`, which will skip the entire OpenCL initialization step.\n"
 msgstr ""
+"Il arrive, dans quelques rares cas, que darktable se plante durant le "
+"démarrage. Ceci peut se produire si votre configuration OpenCL est "
+"complètement cassée ou si un pilote ou une bibliothèque comporte un bogue "
+"sévère. Si vous n'arrivez pas à le corriger, vous pouvez toujours utiliser l’"
+"option de lancement de darktable `--disable-opencl`, qui sautera alors l’"
+"ensemble de la phase d’initialisation d’OpenCL.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "darktable fails to compile its OpenCL source files at run-time. In this case you will see a number of error messages looking like typical compiler errors. This could indicate an incompatibility between your OpenCL implementation and darktable's interpretation of the standard. In that case visit the developers in IRC in `#darktable` on FreeNode or on the developers mailing list at darktable-dev@lists.darktable.org and report the problem. Chances are good that we can help you. Please also report if you see significant differences between CPU and GPU processing of an image.\n"
 msgstr ""
+"darktable peut échouer à compiler ses fichiers source OpenCL lors de l’"
+"exécution. Dans ce cas, vous obtiendrez de nombreux messages d’erreur "
+"semblables à des erreurs typiques de compilateur. Ceci peut indiquer une "
+"incompatibilité entre votre implémentation d’OpenCL et l'interprétation des "
+"normes par darktable. Dans ce cas, prenez contact avec les développeurs sur "
+"IRC dans `#darktable`sur FreeNode ou sur la liste darktable-dev@"
+"lists.darktable.org et signalez le problème. Il y a de bonnes chances que "
+"nous puissions vous aider. Veuillez aussi signaler si vous constatez des "
+"différences significatives entre le traitement CPU et le traitement GPU d’"
+"une image.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/problems-solutions.md
 #, no-wrap
 msgid "A few on-CPU implementations of OpenCL also exist, coming as drivers provided by INTEL or AMD. We have observed that they do not provide any speed gain versus our hand-optimized CPU code. Therefore darktable simply discards these devices by default. This behavior can be changed by setting the configuration variable `opencl_use_cpu_devices` (in `$HOME/.config/darktablerc`) to `TRUE`.\n"
 msgstr ""
+"Il existe aussi quelques implémentation d’OpenCL sur le CPU, disponibles "
+"sous la forme de pilotes fournis par INTEL ou AMD. Nous avons remarqué "
+"qu'ils n’apportaient aucun gain en vitesse comparé à notre code CPU optimisé "
+"à la main. Par conséquent, darktable, par défaut, rejette tout simplement "
+"ces périphériques. Ce comportement peut être modifié en définissant à VRAI "
+"la variable de configuration `opencl_use_cpu_devices` (dans`$HOME/.config/"
+"darktablerc`).\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "multiple devices"
-msgstr ""
+msgstr "multiples périphériques"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "The scheduling of OpenCL devices on most systems can be optimized using the OpenCL scheduling profile settings. However, if your system is equipped with more than one GPU you might want to set the relative device priority manually. To do this you need to select the default scheduling profile and change the settings in the opencl\\_device\\_priority configuration parameter.\n"
 msgstr ""
+"Sur la plupart des systèmes, la planification des périphériques OpenCL peut "
+"être optimisée en utilisant le réglage du profil de planification OpenCL. "
+"Cependant, si votre système est équipé de plus d'un GPU, vous pourriez "
+"souhaiter fixer manuellement la priorité relative des périphériques. Pour ce "
+"faire, vous devez sélectionner le profil de planification par défaut et "
+"définir vos paramètres dans le paramètre de configuration opencl\\_device"
+"\\_priority.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "It is important to understand how darktable uses OpenCL devices. Each processing sequence of an image  to convert an input to the final output using a history stack  is run in a pixelpipe. There are four different types of pixelpipe in darktable. One type is responsible for processing the center image view (or full view) in darkroom mode, another pixelpipe processes the preview image (navigation window). There can be one of each of these two pixelpipes running at any one time  with the full and preview pixelpipes running in parallel. In addition there can be multiple parallel pixelpipes performing file exports as well as multiple parallel pixelpipes generating thumbnails. If an OpenCL device is available darktable dynamically allocates it to one specific pixelpipe for one run and releases it afterwards.\n"
 msgstr ""
+"Il est important de comprendre comment darktable utilise les périphériques "
+"OpenCL. Chaque séquence de traitement d’une image -- pour convertir une "
+"entrée en une sortie finale en utilisant un certain historique -- est "
+"exécutée dans ce qu'on appelle un pipeline graphique. Il y a quatre types de "
+"pipelines graphiques différents dans darktable. Un type est responsable du "
+"traitement de l’image du panneau central (ou vue complète) dans le mode "
+"chambre noire, un autre pipeline graphique traite l’image de "
+"prévisualisation de la fenêtre de navigation. Il peut y avoir une instance "
+"de chacun de ces deux pipelines graphiques en cours d'exécution à un instant "
+"donné -- avec le pipeline graphique de prévisualisation et celui de l’image "
+"complète tournant en parallèle. De plus, il peut y avoir plusieurs pipelines "
+"graphiques tournant en parallèle pour effectuer l’exportation et il peut y "
+"avoir plusieurs pipelines graphiques qui génèrent les miniatures. Si un "
+"dispositif OpenCL est disponible, darktable va l’allouer dynamiquement pour "
+"une exécution à un pipeline graphique spécifique et le libérer ensuite.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "The computational demand varies significantly depending on the type of pixelpipe being executed. The preview image and thumbnails are low resolution and can be processed quickly. Processing the center image view is more demanding. A full export pixelpipe is more demanding still.\n"
 msgstr ""
+"La demande en calcul dépend beaucoup du type de pipeline. Image de "
+"prévisualisation et miniature ont une basse résolution et peuvent être "
+"traitées rapidement. L'image du panneau central est plus gourmande. Le "
+"pipeline réalisant l'exportation complète l'est encore plus.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
@@ -26419,67 +26851,125 @@ msgstr ""
 #: content/special-topics/opencl/background.md
 #, no-wrap
 msgid "the background"
-msgstr ""
+msgstr "le contexte"
 
 #. type: Plain text
 #: content/special-topics/opencl/background.md
 #, no-wrap
 msgid "Processing high resolution images is a demanding task needing a modern computer. Both in terms of memory requirements and CPU power, getting the best out of a typical 15, 20 or 25 Megapixel image can quickly take your computer to its limits.\n"
 msgstr ""
+"Le traitement d’images en haute résolution est une tâche exigeante qui "
+"nécessite un ordinateur moderne. Que ce soit en termes de ressources mémoire "
+"et en termes de puissance du processeur CPU. Tirer le meilleur partie d’une "
+"image typique de 15, 20 ou 25 mégapixels peut rapidement pousser votre "
+"ordinateur à ses limites.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/background.md
 #, no-wrap
 msgid "darktable's requirements are no exception. All calculations are performed on 4 x 32bit floating point numbers. This is slower than ordinary 8 or 16 bit integer algebra, but eliminates all problems of tonal breaks or loss of information.\n"
 msgstr ""
+"Les exigences de darktable ne font pas exception. Tous les calculs se font "
+"en virgule flottante 4x32 bits. Ceci est plus lent que l’algèbre « ordinaire "
+"» en entiers 8 ou 16 bits mais élimine tous les problèmes de ruptures de ton "
+"ou de pertes d’informations.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/background.md
 #, no-wrap
 msgid "A great deal of optimization has been undertaken to make darktable as fast as possible. If you run a current version of darktable on a modern computer, you might not notice any slowness. However, there are conditions and certain modules where you will feel (or hear from the howling of your CPU fan) how much your poor multi-core processor has to struggle.\n"
 msgstr ""
+"De nombreuses optimisations ont été mises en œuvre afin de rendre darktable "
+"aussi rapide que possible. Si vous avez une version actuelle de darktable "
+"sur un système moderne, vous ne devriez pas noter de ralentissement. Il y a "
+"cependant certaines conditions et certains modules où vous ressentirez (ou "
+"entendrez au vrombissement du ventilateur de votre CPU) la manière dont "
+"votre pauvre processeur multi-cœurs est en train de lutter.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/background.md
 #, no-wrap
 msgid "That's where OpenCL comes in. OpenCL allows darktable to take advantage of the enormous power of modern graphics cards. Gamers' demand for highly detailed 3D worlds in modern shooters has fostered GPU development. AMD/ATI, NVIDIA and Co had to put enormous processing power into their GPUs to meet these demands. The result is modern graphics cards with highly parallelized GPUs that can quickly calculate surfaces and textures at high frame rates.\n"
 msgstr ""
+"C'est ici qu’OpenCL arrive. OpenCL nous permet de tirer avantage de l’énorme "
+"puissance des cartes graphiques modernes. Dans les jeux de tir modernes la "
+"demande des joueurs en mondes 3D très détaillés a favorisé le développement "
+"des GPU. Afin de répondre à cette demande, ATI, NVIDIA et Co ont mis une "
+"énorme puissance de traitement dans leurs GPU. On obtient ainsi des cartes "
+"graphiques modernes avec des GPU hautement parallélisées permettant de "
+"calculer rapidement, avec des fréquences d’images élevées, les surfaces et "
+"les textures.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/background.md
 #, no-wrap
 msgid "You are not a gamer and you don't take advantage of that power? Well, then you should at least use it in darktable! For the task of highly parallel floating point calculations modern GPUs are much faster than CPUs. This is especially true when you want to repeat the same few processing steps millions of items. Typical use case: processing of high megapixel images.\n"
 msgstr ""
+"Vous n'êtes pas un joueur et vous ne tirez pas parti de cette puissance ? Et "
+"bien vous pouvez l’utiliser au moins dans darktable ! Pour les tâches "
+"demandant des calculs fortement parallélisés en virgule flottante, les GPU "
+"modernes sont bien plus rapides que les CPU. Ceci est particulièrement vrai "
+"lorsque vous souhaitez répéter les mêmes étapes de traitement sur des "
+"millions d’éléments. Cas typique d’utilisation : traitement d’images "
+"comportant des millions de pixels.\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/amd-ati.md
 #, no-wrap
 msgid "amd/ati devices"
-msgstr ""
+msgstr "périphériques amd/ati"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
 #, no-wrap
 msgid "While NVIDIA devices and most modern AMD/ATI devices will often run out of the box, there is more to do for older AMD/ATI graphics cards, namely those prior to the HD7xxx series. This starts with the fact that those devices will only report part of their total GPU memory to darktable. For a 1GB device this typically amounts to only 512MB, a value which darktable in its standard configuration will refuse as insufficient. In consequence the device will not be used.\n"
 msgstr ""
+"Alors que les cartes NVIDIA et la plupart des cartes AMD/ATI modernes "
+"fonctionnent immédiatement la plupart du temps, il y a un peu plus de "
+"travail à faire pour les cartes graphiques AMD/ATI plus anciennes, c’est-à-"
+"dire celles avant les séries HD7xxx. Ceci commence avec le fait que ces "
+"cartes ne reportent à darktable qu’une partie de la mémoire totale du GPU. "
+"Pour un système possédant 1GB de mémoire, ceci donne typiquement une valeur "
+"de 512MB, une valeur que darktable refuse dans sa configuration standard "
+"parce qu'elle est insuffisante pour exécuter ses tâches. En conséquence le "
+"GPU ne sera pas utilisé.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
 #, no-wrap
 msgid "On the web you might find as a tip to set environment variable `GPU_MAX_HEAP_SIZE` to 100 if this happens. Indeed this will cause the AMD/ATI driver to report the full installed memory to darktable. However, there is a problem. On many (most?) cards this will cause buffers to be allocated on your computer (host) and not on the video card! In this case all memory accesses will need to go through the slow PCIe bus. This will cost you a factor of 10x or more in performance and will render OpenCL useless for you, especially when exporting files.\n"
 msgstr ""
+"Sur le web, vous trouverez peut-être une astuce indiquant de fixer la valeur "
+"de la variable d’environnement `GPU_MAX_HEAP_SIZE` à 100 dans ce cas. Bien "
+"entendu cela fera que le pilote AMD/ATI va signaler toute la mémoire "
+"installée à darktable. Cependant, il y a un problème. Sur de nombreuses ("
+"toutes ?) cartes, ceci va entraîner l’allocation des tampons sur votre "
+"ordinateur (hôte) et non sur la carte vidéo ! Dans ce cas, les accès mémoire "
+"auront besoin de passer par le bus PCI qui est lent. Ceci va vous coûter un "
+"facteur 10 ou davantage dans les performances et rendra OpenCL inutile pour "
+"vous, particulièrement lors de l’exportation de fichiers.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
 #, no-wrap
 msgid "Another environment variable which changes driver behavior is `GPU_MAX_ALLOC_PERCENT`. You could set this to 100 in order to allow memory allocations as high as 1GB on your AMD/ATI card. The problem is that this tends to cause darktable to crash sooner or later.\n"
 msgstr ""
+"Une autre variable d’environnement qui modifie le comportement du pilote est "
+"`GPU_MAX_ALLOC_PERCENT`. Vous pourriez la mettre à 100 de manière à "
+"autoriser des allocations mémoire aussi importantes que 1 Go sur votre carte "
+"AMD/ATI. Le problème est que cela tend à faire planter darktable tôt ou tard."
+"\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
 #, no-wrap
 msgid "Our recommendation is therefore to leave these settings untouched. Often your card will be recognized with 512MB memory and a maximum allocation size of 128MB. There are three configuration parameters which you can set in `$HOME/.config/darktable/darktablerc` to get things running. Here are the details:\n"
 msgstr ""
+"Notre recommandation est de laisser ces paramètres inchangés. Souvent, votre "
+"carte sera reconnue avec 512 Mo de mémoire et une taille maximum d’"
+"allocation de 128 Mo. Il existe trois paramètres de configuration que vous "
+"pouvez assigner dans le fichier `$HOME/.config/darktable/darktablerc`afin "
+"que les choses fonctionnent. En voici les détails :\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
@@ -26488,6 +26978,9 @@ msgid ""
 "opencl\\_memory\\_requirement\n"
 ": Set this parameter to 500 so that darktable will accept your 512MB graphics memory as having sufficient memory.\n"
 msgstr ""
+"opencl\\_memory\\_requirement\n"
+": Définissez ce paramètre à 500 de manière à ce que darktable accepte les "
+"512 Mo de mémoire graphique comme étant une quantité de mémoire suffisante.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
@@ -26496,6 +26989,13 @@ msgid ""
 "opencl\\_memory\\_headroom\n"
 ": This parameter controls how much graphics memory (from that reported by your card) darktable should leave untouched for driver and display use. Since for AMD/ATI devices we can only get half of the available RAM anyway, it's safe to set this to zero so that all of the 512MB can be used by darktable.\n"
 msgstr ""
+"opencl\\_memory\\_headroom\n"
+": Ce paramètre contrôle la quantité de mémoire graphique (parmi celle qui "
+"est reportée par votre carte) que darktable doit laisser libre pour les "
+"pilotes et l’écran. Comme pour les systèmes AMD/ATI nous n'avons, de toutes "
+"manières, que la moitié de la mémoire RAM disponible, on peut mettre cette "
+"valeur à 0. De cette manière, les 512 Mo pourront être utilisés par "
+"darktable.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
@@ -26504,84 +27004,177 @@ msgid ""
 "opencl\\_avoid\\_atomics\n"
 ": Atomic operations in OpenCL are a special method of data synchronization. They are only used in a few kernels. Unfortunately, some (most?) AMD/ATI devices are extremely slow in processing atomics. It's better to process the affected modules on the CPU rather than accepting an ultra-slow GPU codepath. Therefore, set this parameter to TRUE if you experience slow processing of modules like [_shadows and highlights_](../../module-reference/processing-modules/shadows-and-highlights.md), [_monochrome_](../../module-reference/processing-modules/monochrome.md), [_local contrast_](../../module-reference/processing-modules/local-contrast), or [_global tonemap (deprecated)_](../../module-reference/processing-modules/global-tonemap) or if you get intermittent system freezes.\n"
 msgstr ""
+"opencl\\_avoid\\_atomics\n"
+": Les opérations atomiques d’OpenCL sont une manière particulière d’"
+"effectuer la synchronisation de données. Elles ne sont utilisées qu’avec "
+"certains noyaux. Malheureusement, certains (la plupart ?) dispositifs AMD/"
+"ATI sont extrêmement lents dans les opérations atomiques. Il est préférable "
+"de traiter les modules concernés par la CPU plutôt que d’accepter un code "
+"GPU très lent. Définissez ce paramètre à TRUE si vous rencontrez un "
+"traitement lent de modules comme [_ombres et hautes lumières_](../../module-"
+"reference/processing-modules/shadows-and-highlights.md), [_monochrome_"
+"](../../module-reference/processing-modules/monochrome.md), [_contraste "
+"local_](../../module-reference/processing-modules/local-contrast), ou ["
+"_mappage global des tonalités (déprécié)_](../../module-reference/"
+"processing-modules/global-tonemap) ou encore si vous avez des blocages "
+"intermittents du système.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/amd-ati.md
 #, no-wrap
 msgid "These recommendations do not apply to the more recent Radeon HD7xxx series with GCN architecture. Besides being very fast in terms of GPU computing they normally run out of the box, though you might consider trying some of the performance optimization options described in the following section.\n"
 msgstr ""
+"Ces recommandations ne s’appliquent pas aux cartes Radeon plus récentes des "
+"séries HD7xxx avec l’architecture GCN. En plus d’être très rapides en termes "
+"de calcul GPU, elles fonctionnent normalement directement. Vous ne devrez "
+"vous intéresser qu’à quelques options d’optimisation qui sont décrites dans "
+"la section suivante.\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "activating opencl in darktable"
-msgstr ""
+msgstr "activer OpenCL dans darktable"
 
 #. type: Plain text
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "Using OpenCL in darktable requires that your PC is equipped with a suitable graphics card and that it has the required libraries in place. Most modern graphics cards from NVIDIA and AMD come with full OpenCL support. The OpenCL compiler is normally shipped as part of the proprietary graphics driver and is used as a dynamic library called `libOpenCL.so`. This library must be in a folder where it can be found by your system's dynamic linker.\n"
 msgstr ""
+"L’utilisation d’OpenCL dans darktable nécessite que votre PC soit équipé d’"
+"une carte graphique adaptée et que les bibliothèques requises soient "
+"installées. Les cartes graphiques modernes de NVIDIA et d'ATI prennent en "
+"charge complètement OpenCL. Le compilateur OpenCL fait normalement partie du "
+"pilote graphique propriétaire ; il est utilisé sous la forme d'une "
+"bibliothèque dynamique appelée `libOpenCL.so`. Cette bibliothèque doit se "
+"trouver dans un répertoire qui puisse être trouvé par l’éditeur dynamique de "
+"liens de votre système.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "When darktable starts, it will first try to find and load `libOpenCL.so` and, on success, check if the available graphics card comes with OpenCL support. A sufficient amount of graphics memory (1GB+) needs to be available for darktable to take advantage of the GPU. If that check passes, darktable tries to setup its OpenCL environment: a processing context needs to be initialized, a calculation pipeline to be started, OpenCL source code files (extension is `.cl`) needs to be read and compiled and the included routines (called OpenCL kernels) need to be prepared for darktable's modules. If all that completes successfully, the preparation is finished.\n"
 msgstr ""
+"Quand darktable démarre, il va d’abord essayer de trouver et de charger "
+"libOpenCL.so et, en cas de succès, vérifier que la carte graphique "
+"disponible prend en charge OpenCL. Une quantité de mémoire graphique "
+"suffisante (1 Go+) doit être disponible afin de tirer parti du GPU. Si ce "
+"contrôle réussit, darktable va essayer de configurer son environnement "
+"OpenCL : un contexte de traitement doit être initialisé, un pipeline de "
+"calcul doit être démarré. Les fichiers du code source d’OpenCL (d’extension ."
+"cl) doivent être lus et compilés et les routines incluses (appelées noyaux "
+"d’OpenCL) doivent être préparées pour les modules de darktable. Une fois "
+"tout ceci effectué, la préparation est terminée.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "By default OpenCL support is activated in darktable if all the above steps were successful. If you want to de-activate it you can do so in [preferences > cpu/gpu/memory](../../preferences-settings/cpu-gpu-memory.md). This configuration parameter is greyed out if the OpenCL initialization failed.\n"
 msgstr ""
+"Par défaut OpenCL est activé dans darktable si toutes les étapes ci-dessus "
+"se sont terminées avec succès. Si vous désirez le désactiver vous pouvez le "
+"faire dans l'onglet [préférences > cpu/gpu/memory](../../preferences-"
+"settings/cpu-gpu-memory.md). Ce paramètre de configuration vous indique "
+"aussi si l’initialisation d’OpenCL a échoué : il est grisé dans ce cas.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "You can switch OpenCL support off and on at any time without requiring a restart. Depending on the type of modules you are using, you will notice the effect as a general speed-up during interactive work and export. Most modules in darktable can take advantage of OpenCL but not all modules are demanding enough to make a noticeable difference. In order to feel a real difference, use modules like [_shadows and highlights_](../../module-reference/processing-modules/shadows-and-highlights.md), [_sharpen_](../../module-reference/processing-modules/sharpen.md), [_lowpass_](../../module-reference/processing-modules/lowpass.md), [_highpass_](../../module-reference/processing-modules/highpass.md) or even more extreme [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) and [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md).\n"
 msgstr ""
+"Vous pouvez à tout moment activer ou désactiver la prise en charge d’OpenCL, "
+"ce qui aura un effet immédiat. Selon le type des modules que vous utilisez, "
+"vous en remarquerez l’effet comme une accélération générale lors du travail "
+"interactif et lors de l’exportation. La plupart des modules de darktable "
+"peuvent profiter d’OpenCL mais tous ne sont pas suffisamment consommateurs "
+"de ressources pour que la différence puisse être remarquée. Afin de "
+"ressentir une vraie différence, prenez un module comme [_ombres et hautes "
+"lumières_](../../module-reference/processing-modules/shadows-and-highlights."
+"md), [_renforcer la netteté_](../../module-reference/processing-modules/"
+"sharpen.md), [_filtre passe-bas_](../../module-reference/processing-modules/"
+"lowpass.md), [_filtre passe-haut_](../../module-reference/processing-modules/"
+"highpass.md) ou encore plus extrême [_contrast equalizer_](../../module-"
+"reference/processing-modules/contrast-equalizer.md) et [_réduction bruit "
+"(profil)_](../../module-reference/processing-modules/denoise-profiled.md).\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "If you are interested in profiling statistics, you can start darktable with command line parameters `-d opencl -d perf`. After each run of the pixelpipe you will be shown details of processing time for each module plus an even more fine-grained profile for all used OpenCL kernels.\n"
 msgstr ""
+"Si vous êtes intéressé par les valeurs de profilage, vous pouvez lancer "
+"darktable avec les paramètres de la ligne de commande `-d opencl -d perf`. "
+"Après chaque exécution du pipeline graphique, vous allez obtenir l’"
+"allocation détaillée du temps d’exécution de chaque module avec un profil "
+"encore plus fin pour tous les noyaux OpenCL utilisés.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/activate-opencl.md
 #, no-wrap
 msgid "Besides the speed-up you should not see any difference in the results between CPU and GPU processing. Except for some rounding errors, the results are designed to be identical. If, for some reason, darktable fails to properly finish a GPU calculation, it will normally detect the failure and automatically (and transparently) fall back to CPU processing. \n"
 msgstr ""
+"En dehors de l’accélération, vous ne devriez voir aucune différence de "
+"résultats entre le traitement CPU et le traitement GPU. À l’exception des "
+"erreurs d’arrondis, les résultats sont prévus pour être équivalents. Si, "
+"pour une raison quelconque, darktable échoue à terminer proprement un calcul "
+"GPU, il va normalement s’en apercevoir et automatiquement (et de manière "
+"transparente), se replier vers un traitement CPU. \n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/how-opencl-works.md
 #, no-wrap
 msgid "how opencl works"
-msgstr ""
+msgstr "comment travaille opencl"
 
 #. type: Plain text
 #: content/special-topics/opencl/how-opencl-works.md
 #, no-wrap
 msgid "As you can imagine, the hardware architecture of GPUs can vary significantly. There are different manufacturers, and even different generations of GPUs from the same manufacturer may not be comparable. At the same time GPU manufacturers don't normally disclose all the hardware details of their products to the public. One of the consequences of this is the need to use proprietary drivers under Linux, if you want to take full advantage of your graphics card.\n"
 msgstr ""
+"Comme vous pouvez l’imaginer, les architectures matérielles des GPU peuvent "
+"être très différentes. Il y a différents fabricants, et même, pour le même "
+"fabricant, différentes générations de GPU peuvent être différentes. Dans le "
+"même temps, les fabricants de GPU ne rendent pas public tous les détails "
+"matériels de leurs produits. Une des conséquences connues est la nécessité d’"
+"utiliser sous Linux des pilotes propriétaires si vous désirez tirer le "
+"maximum de votre carte graphique.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/how-opencl-works.md
 #, no-wrap
 msgid "Fortunately an industry consortium lead by The Khronos Group has developed an open, standardized interface called OpenCL. It allows your GPU to be used as a numerical processing device. OpenCL offers a C99-like programming language with a strong focus on parallel computing. An application that wants to use OpenCL will need OpenCL source code that it hands over to a hardware specific compiler at run-time. This way the application can use OpenCL on different GPU architectures (even at the same time). All of the hardware secrets are hidden in this compiler and are normally not visible to the user (or the application). The compiled OpenCL code is loaded onto your GPU and  with certain API calls  it is ready to perform calculations for you. \n"
 msgstr ""
+"Heureusement, un consortium industriel dirigé par The Khronos Group a "
+"développé une interface ouverte et standardisée appelée OpenCL. Elle permet "
+"d’utiliser votre GPU comme dispositif de traitement numérique. OpenCL "
+"propose un langage de programmation similaire à C99 qui se concentre "
+"fortement sur le calcul parallèle. Une application qui veut utiliser OpenCL "
+"aura besoin du code source d’OpenCL qui est transmis à un compilateur OpenCL "
+"matériel spécifique lors de l’exécution. De cette manière, l’application "
+"peut utiliser OpenCL avec différentes architectures de GPU (y-compris "
+"simultanément). Tous les secrets matériels sont masqués dans ce compilateur "
+"et ne sont normalement pas visibles par l’utilisateur (ou par l’application)"
+". Le code OpenCL compilé est chargé dans votre GPU et -- avec certains "
+"appels d’API -- il est prêt à effectuer des calculs pour vous. \n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/scheduling-profile.md
 #, no-wrap
 msgid "scheduling profile"
-msgstr ""
+msgstr "profil de planification"
 
 #. type: Plain text
 #: content/special-topics/opencl/scheduling-profile.md
 #, no-wrap
 msgid "darktable can use the CPU and one or several OpenCL capable GPUs. Depending on the relative performance of these devices, users can choose among certain scheduling profiles to optimize performance. This is achieved by setting the configuration parameter [preferences > cpu/gpu/memory > OpenCL scheduling profile](../../preferences-settings/cpu-gpu-memory.md) which offers the following choices:\n"
 msgstr ""
+"darktable peut utiliser le CPU ainsi qu'un ou plusieurs GPUs supportant "
+"OpenCL. En fonction des performances relatives de ces périphériques, les "
+"utilisateurs peuvent choisir parmi différents profils de planifications pour "
+"optimiser les performances. Ceci est fait par le paramètre de configuration ["
+"préférences > cpu/gpu/memory >profil de planification OpenCL"
+"](../../preferences-settings/cpu-gpu-memory.md) qui offre les choix "
+"suivants  :\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/scheduling-profile.md
@@ -26590,6 +27183,15 @@ msgid ""
 "default\n"
 ": If an OpenCL capable GPU is found darktable uses it for processing the center image view while the [navigation preview window](../../module-reference/utility-modules/darkroom/navigation.md) is processed on the CPU in parallel. This is the preferred setting for systems with a reasonably fast CPU and a moderately fast GPU. The exact allocation of devices to the various pixelpipe types can be finetuned with the opencl\\_device\\_priority configuration parameter (see [multiple devices](./multiple-devices.md)).\n"
 msgstr ""
+"défaut\n"
+": Si un GPU supportant OpenCL est trouvé, darktable l'utilise pour traiter "
+"l'image du panneau central pendant que la [fenêtre de prévisualisation"
+"](../../module-reference/utility-modules/darkroom/navigation.md) est traitée "
+"en parallèle par le CPU. Ceci est le réglage préférable pour des systèmes "
+"ayant un CPU raisonnablement rapide et un GPU modérément rapide. L'exacte "
+"allocation des dispositifs aux différents types de pipelines peut être "
+"ajustée avec le paramètre de configuration opencl\\_device\\_priority (voir ["
+"multiples périphériques](./multiple-devices.md)).\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/scheduling-profile.md
@@ -26598,6 +27200,11 @@ msgid ""
 "very fast GPU\n"
 ": With this scheduling profile darktable processes the center image view and the preview window on the GPU sequentially. This is the preferred setting for systems with a GPU that strongly outperforms the CPU.\n"
 msgstr ""
+"GPU très rapide\n"
+": Avec ce profil de planification darktable traite séquentiellement sur le "
+"GPU le panneau central contenant l'image et la fenêtre de prévisualisation. "
+"Ceci est le réglage préférable pour les systèmes qui ont un GPU surpassant "
+"fortement le CPU.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/scheduling-profile.md
@@ -26606,12 +27213,26 @@ msgid ""
 "multiple GPUs\n"
 ": This setting addresses systems with multiple GPUs whose relative performance does not differ significantly. Whenever a processing job is started darktable uses any currently idle GPU but not the CPU. Users of systems with a variety of GPUs will need better control on their relative priority. They would be better off selecting the default profile and fine-tuning their system with the opencl\\_device\\_priority configuration parameter (see [multiple devices](./multiple-devices.md)).\n"
 msgstr ""
+"GPUs multiples\n"
+": Ce réglage est destiné aux systèmes ayant plusieurs GPUs dont les "
+"performances relatives ne diffèrent pas de manière significative. Chaque "
+"fois qu'un travail de traitement est démarré, darktable utilise tout GPU "
+"actuellement inactif mais pas le CPU. Les utilisateurs de systèmes avec une "
+"variété de GPUs auront besoin d'un meilleur contrôle sur la priorité "
+"relative de ceux-ci. Il serait préférable qu'ils choisissent le profil "
+"défaut et affinent leur système avec le paramètre de configuration \\_device"
+"\\_priority (voir [multiples périphériques](./multiple-devices.md)).\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/scheduling-profile.md
 #, no-wrap
 msgid "On first start-up or after any detected change in the GPU configuration of your system darktable tries to identify the best suited profile for you. You can change it at any time in [preferences > cpu/gpu/memory](../../preferences-settings/cpu-gpu-memory.md).\n"
 msgstr ""
+"Au premier démarrage ou après détection d'une modification de la "
+"configuration du GPU de votre système, darktable essaie d'identifier le "
+"profil qui vous convient le mieux. Vous pouvez changer ceci à tout moment "
+"dans l'onglet [préférences > cpu/gpu/mémoire](../../preferences-settings/cpu-"
+"gpu-memory.md) avec effet immédiat .\n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/still-doesnt-work.md
@@ -26653,67 +27274,101 @@ msgstr ""
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "setting up opencl"
-msgstr ""
+msgstr "configurer opencl"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "The huge diversity of systems and the marked differences between OpenCL vendors and driver versions makes it impossible to give an comprehensive overview of how to setup OpenCL. We only can give you an example, in this case for NVIDIA driver version 331.89 on Ubuntu 14.04. We hope that this will serve you as a first impression and will help to solve possible problems of your specific setup.\n"
 msgstr ""
+"La grande diversité des systèmes, les différences marquées entre les "
+"vendeurs OpenCL et les versions de pilotes, ne permettent pas de donner une "
+"vue d'ensemble de la manière de configurer OpenCL. Nous ne pouvons que vous "
+"donner un exemple pour la version du pilote NVIDIA 331.89 sur Ubuntu 14.04. "
+"Nous espérons que cela va vous servir pour une première impression et vous "
+"aidera à résoudre les problèmes éventuels de votre configuration spécifique."
+"\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "The principle OpenCL function flow is like this:\n"
-msgstr ""
+msgstr "Le principe de fonctionnement d'OpenCL ressemble à ceci :\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "`darktable > libOpenCL.so > libnvidia-opencl.so.1 > kernel driver module(s) > GPU`\n"
 msgstr ""
+"`darktable > libOpenCL.so > libnvidia-opencl.so.1 > kernel driver module(s) "
+"> GPU`\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "darktable dynamically loads `libOpenCL.so`, a system library which must be accessible to the system's dynamic loader (`ld.so`).\n"
 msgstr ""
+"darktable charge dynamiquement `libOpenCL.so`, une bibliothèque système qui "
+"doit être accessible au chargeur dynamique du système (`ld.so`).\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "`libOpenCL.so` reads the vendor-specific information file (`/etc/OpenCL/vendors/nvidia.icd`) to find the library which contains the vendor-specific OpenCL implementation.\n"
 msgstr ""
+"`libOpenCL.so`lira le fichier d'informations spécifique au vendeur (`/etc/"
+"OpenCL/vendors/nvidia.icd`) pour trouver la bibliothèque qui contient l’"
+"implémentation OpenCL spécifique au vendeur.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "The vendor-specific OpenCL implementation comes as a library `libnvidia-opencl.so.1` (which in our case is a symbolic link to `libnvidia-opencl.so.331.89`).\n"
 msgstr ""
+"L'implémentation OpenCL spécifique au vendeur est fournie sous forme d'une "
+"bibliothèque `libnvidia-opencl.so.1` qui dans notre cas est un lien "
+"symbolique vers `libnvidia-opencl.so.331.89`).\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "`libnvidia-opencl.so.1` needs to talk to the vendor-specific kernel modules `nvidia` and `nvidia_uvm` via device special files `/dev/nvidia0`, `/dev/nvidiactl`, and `/dev/nvidia-uvm`.\n"
 msgstr ""
+"`libnvidia-opencl.so.1` a besoin de communiquer avec les modules du noyau "
+"spécifiques au vendeur `nvidia` et `nvidia_uvm` via des fichiers spéciaux de "
+"périphériques `/dev/nvidia0`, `/dev/nvidiactl`, et `/dev/nvidia-uvm`.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "At system startup the required device special files (`/dev/nvidia*`) need to be created. If this does not happen on your system by default, the easiest way to set them up and make sure all modules are loaded is by installing the `nvidia-modprobe` package.\n"
 msgstr ""
+"Au démarrage du système les fichiers spéciaux de périphériques requis (`/dev/"
+"nvidia*`) doivent être créés. Si cela ne se produit pas par défaut sur votre "
+"système, le moyen le plus simple pour les définir et pour être sûr que tous "
+"les modules seront chargés est d'installer le paquet `nvidia-modprobe`.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "A user account which needs to make use of OpenCL from within darktable must have read-write access to NVIDIA's device special files. On some systems these files allow world read-write access by default, which avoids permission issues but might be debatable in terms of system security. Other systems restrict the access to a user group, e.g. video. In this case your user account has to be member of that group.\n"
 msgstr ""
+"Un compte utilisateur qui souhaite faire usage d'OpenCL à partir de "
+"darktable doit avoir des droits en lecture et en écriture sur les fichiers "
+"spéciaux de périphériques de NVIDIA. Sur certains systèmes ces fichiers "
+"autorisent par défaut un accès universel en lecture et écriture, ce qui "
+"évite les problèmes de permission mais peut être discutable en termes de "
+"sécurité du système. D'autres systèmes restreignent l'accès aux utilisateurs "
+"d'un groupe, par exemple video. Dans ce cas votre compte utilisateur doit "
+"appartenir à ce groupe.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "To summarise, the packages which needed to be installed in this specific case were:\n"
 msgstr ""
+"En résumé, les paquets qui doivent être installés dans ce cas particulier "
+"sont :\n"
 
 #. type: Fenced code block
 #: content/special-topics/opencl/setting-up.md
@@ -26733,12 +27388,27 @@ msgid ""
 "nvidia-opencl-icd-331 (331.89-0ubuntu1~xedgers14.04.2)\n"
 "opencl-headers (1.2-2013.10.23-1)\n"
 msgstr ""
+"nvidia-331 (331.89-0ubuntu1~xedgers14.04.2)\n"
+"nvidia-331-dev (331.89-0ubuntu1~xedgers14.04.2)\n"
+"nvidia-331-uvm (331.89-0ubuntu1~xedgers14.04.2)\n"
+"nvidia-libopencl1-331 (331.89-0ubuntu1~xedgers14.04.2)\n"
+"nvidia-modprobe (340.24-1)\n"
+"nvidia-opencl-dev:amd64 (5.5.22-3ubuntu1)\n"
+"nvidia-opencl-icd-331 (331.89-0ubuntu1~xedgers14.04.2)\n"
+"nvidia-settings (340.24-0ubuntu1~xedgers14.04.1)\n"
+"nvidia-settings-304 (340.24-0ubuntu1~xedgers14.04.1)\n"
+"nvidia-libopencl1-331 (331.89-0ubuntu1~xedgers14.04.2)\n"
+"nvidia-opencl-dev:amd64 (5.5.22-3ubuntu1)\n"
+"nvidia-opencl-icd-331 (331.89-0ubuntu1~xedgers14.04.2)\n"
+"opencl-headers (1.2-2013.10.23-1)\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "The list of NVIDIA related kernel modules as reported by lsmod is:\n"
 msgstr ""
+"La liste des modules du noyau concernant NVIDIA affichée par la commande "
+"lsmod est :\n"
 
 #. type: Fenced code block
 #: content/special-topics/opencl/setting-up.md
@@ -26747,12 +27417,16 @@ msgid ""
 "nvidia\n"
 "nvidia_uvm\n"
 msgstr ""
+"nvidia\n"
+"nvidia_uvm\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "The list of NVIDIA related device special files (`ls -l /dev/nvidia*`) should read like:\n"
 msgstr ""
+"La liste des fichiers spéciaux de périphériques liés à NVIDIA (obtenue par "
+"la commande `ls -l /dev/nvidia*`) devrait ressembler à ceci :\n"
 
 #. type: Fenced code block
 #: content/special-topics/opencl/setting-up.md
@@ -26762,18 +27436,23 @@ msgid ""
 "crw-rw-rw- 1 root root 195, 255 Jul 28 21:13 /dev/nvidiactl\n"
 "crw-rw-rw- 1 root root 250,   0 Jul 28 21:13 /dev/nvidia-uvm\n"
 msgstr ""
+"crw-rw-rw- 1 root root 195,   0 Jul 28 21:13 /dev/nvidia0\n"
+"crw-rw-rw- 1 root root 195, 255 Jul 28 21:13 /dev/nvidiactl\n"
+"crw-rw-rw- 1 root root 250,   0 Jul 28 21:13 /dev/nvidia-uvm\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/setting-up.md
 #, no-wrap
 msgid "Beware that the major/minor numbers (e.g. `250/0` for `/dev/nvidia-uvm` in this example) may vary depending on your system. \n"
 msgstr ""
+"Méfiez-vous que les numéros majeurs/mineurs (par exemple `250/0` pour `/dev/"
+"nvidia-uvm` dans cet exemple) peuvent varier en fonction de votre système. \n"
 
 #. type: YAML Front Matter: title
 #: content/special-topics/opencl/_index.md
 #, no-wrap
 msgid "opencl"
-msgstr ""
+msgstr "opencl"
 
 #. type: YAML Front Matter: title
 #: content/guides-tutorials/monochrome.md
