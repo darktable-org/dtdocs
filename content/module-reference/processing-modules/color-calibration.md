@@ -349,7 +349,7 @@ The _optimize for_ parameter allows you to define an optimization strategy that 
 
 No matter what you do, strategies that favor a low average ΔE will usually have a higher maximum ΔE, and vice versa. Also, blues are always the more challenging color range to get correct, so the calibration usually falls back to protecting blues at the expense of everything else, or everything else at the expense of blues.
 
-The ease of obtaining a proper calibration depends on the quality of the scene illuminant (daylight and high CRI should always be favoured), the quality of the primary _input color profile_, the _black point compensation_ set in the _exposure_ module, but first and foremost on the mathematical properties of the camera sensor's filter array.
+The ease of obtaining a proper calibration depends on the quality of the scene illuminant (daylight and high CRI should always be favored), the quality of the primary _input color profile_, the _black point compensation_ set in the _exposure_ module, but first and foremost on the mathematical properties of the camera sensor's filter array.
 
 ## profile checking
 
