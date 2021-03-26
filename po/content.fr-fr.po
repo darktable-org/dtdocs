@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-24 15:54+0200\n"
-"PO-Revision-Date: 2021-03-25 20:10+0000\n"
+"PO-Revision-Date: 2021-03-26 12:36+0000\n"
 "Last-Translator: Michel leblond <michel.leblond62@gmail.com>\n"
 "Language-Team: French <https://weblate.pixls.us/projects/darktable/dtdocs/fr/"
 ">\n"
@@ -26728,7 +26728,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "It is important to understand how darktable uses OpenCL devices. Each processing sequence of an image  to convert an input to the final output using a history stack  is run in a pixelpipe. There are four different types of pixelpipe in darktable. One type is responsible for processing the center image view (or full view) in darkroom mode, another pixelpipe processes the preview image (navigation window). There can be one of each of these two pixelpipes running at any one time  with the full and preview pixelpipes running in parallel. In addition there can be multiple parallel pixelpipes performing file exports as well as multiple parallel pixelpipes generating thumbnails. If an OpenCL device is available darktable dynamically allocates it to one specific pixelpipe for one run and releases it afterwards.\n"
 msgstr ""
 "Il est important de comprendre comment darktable utilise les périphériques "
@@ -26762,54 +26762,109 @@ msgstr ""
 #, no-wrap
 msgid "The configuration parameter opencl\\_device\\_priority holds a string with the following structure: `a,b,c.../k,l,m.../o,p,q.../x,y,z...`. Each letter represents one specific OpenCL device. There are four fields in the parameter string separated by a slash, each representing one type of pixelpipe. `a,b,c...` defines the devices that are allowed to process the center image (full) pixelpipe. Likewise devices `k,l,m...` can process the preview pixelpipe, devices `o,p,q...` the export pixelpipes and finally devices `x,y,z...` the thumbnail pixelpipes. An empty field means that no OpenCL device may serve this type of pixelpipe.\n"
 msgstr ""
+"Le paramètre de configuration opencl\\_device\\_priority contient une chaîne "
+"de caractères ayant la structure suivante : "
+"`a,b,c.../k,l,m.../o,p,q.../x,y,z...`. Chaque lettre représente un "
+"périphérique OpenCL spécifique. Il y a quatre champs dans la chaîne des "
+"paramètres séparés par une barre oblique, chacun représente un type de "
+"pipeline graphique. `a,b,c...`définit les périphériques qui seront autorisés "
+"à effectuer le traitement (complet) du pipeline graphique de l’image "
+"centrale. De la même manière, des périphériques comme `k,l,m...` peuvent "
+"traiter le pipeline graphique de prévisualisation, les périphériques "
+"`o,p,q...` le pipeline graphique d’exportation, et finalement les "
+"périphériques `x,y,z...` le pipeline graphique de traitement des miniatures. "
+"Un champ vide signifie qu'aucun périphérique OpenCL ne peut traiter ce type "
+"de pipeline graphique.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "darktable has an internal numbering system, whereby the first available OpenCL device receives the number 0. All further devices are numbered consecutively. This number, together with the device name, is displayed when you start darktable with `darktable -d opencl`. You can specify a device either by number or by name (upper/lower case and whitespace do not matter). If you have more than one device with the same name you need to use the device numbers in order to differentiate them.\n"
 msgstr ""
+"darktable possède un système de numérotation interne, où le premier "
+"périphérique OpenCL disponible recevra le numéro « 0 ». Les périphériques "
+"suivants seront numérotés consécutivement. Ce numéro, utilisé conjointement "
+"avec le nom du périphérique, est affiché lorsque vous démarrez darktable "
+"avec `darktable -d opencl`. Vous pouvez indiquer un dispositif soit par son "
+"numéro, soit par son nom (la casse et les espaces ne sont pas pris en compte)"
+". Si vous avez plus d’un dispositif ayant le même nom vous devrez utiliser "
+"les numéros de périphérique afin de les différencier.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "A device specifier can be prefixed with an exclamation mark `!`, in which case the device is excluded from processing a given pixelpipe. You can also use an asterisk `*` as a wildcard, representing all devices not previously explicitly mentioned in that group.\n"
 msgstr ""
+"Un indicateur de périphérique peut être précédé d’un point d’exclamation `!`"
+", dans ce cas, le périphérique ne pourra pas exécuter ce pipeline graphique. "
+"Vous pouvez aussi utiliser un astérisque`*` comme joker, qui représentera "
+"tous les périphériques non encore mentionnés explicitement dans ce groupe.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "Sequence order within a group matters -- darktable will read the list from left to right and whenever it tries to allocate an OpenCL device to a pixelpipe it will scan the devices in that order, taking the first free device it finds.\n"
 msgstr ""
+"L’ordre dans un groupe a une importance -- darktable va lire la liste de la "
+"gauche vers la droite et lorsqu’il cherche à allouer un périphérique OpenCL "
+"à un pipeline graphique, il va balayer les périphériques dans cet ordre et "
+"prendra le premier périphérique libre qu'il trouvera\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "If a pixelpipe process is about to be started and all GPUs in the corresponding group are busy, darktable automatically processes the image on the CPU by default. You can enforce GPU processing by prefixing the list of allowed GPUs with a plus sign `+`. In this case darktable will not use the CPU but rather suspend processing until the next permitted OpenCL device is available.\n"
 msgstr ""
+"Si un pipeline est sur le point d'être lancé et si tous les GPUs du groupe "
+"correspondant sont occupés, darktable, par défaut, traite automatiquement "
+"l'image sur le CPU. Vous pouvez forcer le traitement sur GPU en préfixant la "
+"liste des GPUs autorisés par un signe plus `+`. darktable n'utilisera pas le "
+"CPU mais suspendra le traitement jusqu'à ce que le premier périphérique "
+"OpenCL soit disponible.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "darktable's default setting for opencl\\_device\\_priority is `*/!0,*/*/*`.\n"
 msgstr ""
+"Le paramétrage par défaut de darktable pour opencl\\_device\\_priority is "
+"`*/!0,*/*/*`.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "Any detected OpenCL device is permitted to process the center view image. The first OpenCL device (0) is not permitted to process the preview pixelpipe. As a consequence, if there is only one GPU available on your system, the preview pixelpipe will always be processed on the CPU, keeping your single GPU exclusively for the more demanding center image view. This is a reasonable setting for most systems. No such restrictions apply to export and thumbnail pixelpipes.\n"
 msgstr ""
+"Tout périphérique OpenCL détecté est autorisé à traiter l'image du panneau "
+"central. Le premier périphérique OpenCL (0) n'est pas autorisé à traiter le "
+"pipeline graphique de prévisualisation. En conséquence, s’il n'y a qu'un "
+"seul GPU sur votre système, le pipeline graphique de prévisualisation sera "
+"toujours traité par le CPU, réservant exclusivement votre unique GPU au "
+"panneau central contenant l’image qui demande davantage de ressources. Ceci "
+"est un paramétrage raisonnable pour la plupart des systèmes. Aucune "
+"restriction de ce type ne s’applique au pipeline de l’exportation et au "
+"pipeline des miniatures.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "The default is a good choice if you have only one device. If you have several devices it forms a reasonable starting point. However, as your devices might have quite different levels of processing power, it makes sense to invest some time to optimize your priority list.\n"
 msgstr ""
+"La valeur par défaut est un bon choix si vous n’avez qu'une carte. Si vous "
+"en avez plusieurs, cela reste un bon point de départ. Cependant, comme vos "
+"cartes peuvent avoir un niveau de puissance de calcul assez différent, cela "
+"vaut le coup de passer un peu de temps à optimiser votre liste de priorités."
+"\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
 #, no-wrap
 msgid "Here is an example. Let's assume we have a system with two devices, a fast Radeon HD7950 and an older and slower GeForce GTS450. darktable (started with `darktable -d opencl`) will report the following devices:\n"
 msgstr ""
+"Voici un exemple. Supposons que nous ayons un système avec deux "
+"périphériques, une Radeon HD7950 rapide et une GeForce GTS450 plus ancienne "
+"et plus lente. darktable (démarré avec `darktable -d opencl`) signalera les "
+"appareils suivants :\n"
 
 #. type: Fenced code block
 #: content/special-topics/opencl/multiple-devices.md
@@ -26822,6 +26877,12 @@ msgid ""
 "[opencl_init]           1       'Tahiti'\n"
 "[opencl_init] FINALLY: opencl is AVAILABLE on this system.\n"
 msgstr ""
+"[opencl_init] successfully initialized.\n"
+"[opencl_init] here are the internal numbers and names of\n"
+"                          OpenCL devices available to darktable:\n"
+"[opencl_init]           0       'GeForce GTS 450'\n"
+"[opencl_init]           1       'Tahiti'\n"
+"[opencl_init] FINALLY: opencl is AVAILABLE on this system.\n"
 
 #. type: Plain text
 #: content/special-topics/opencl/multiple-devices.md
