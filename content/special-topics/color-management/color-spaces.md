@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-darktable's input images are either RGB files (like JPEGs or TIFFs) or camera RAWs. Both store visual information as a combination of primary colours (such as red, green and blue) which together describe a light emission to be later recreated by a display.
+darktable's input images are either RGB files (like JPEGs or TIFFs) or camera RAWs. Both store visual information as a combination of primary colors (such as red, green and blue) which together describe a light emission to be later recreated by a display.
 
 The following image illustrates this concept.
 
