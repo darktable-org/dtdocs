@@ -28,5 +28,5 @@ mode
 : - _RGB, linked channels_: Apply the L-channel curve to all three channels in the RGB color space.
 : - _RGB, independent channels_: R, G and B curves can be adjusted independently.
 
-compensate middle grey
+compensate middle gray
 : Select this to change the histogram display in the module. This option does not alter the processing but may assist when editing the curve.

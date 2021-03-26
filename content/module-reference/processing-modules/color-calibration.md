@@ -16,15 +16,15 @@ A fully-featured color-space correction, white balance adjustment and channel mi
 
 - To adjust the [color saturation and brightness](#brightness-and-colorfulness-tabs) of the pixels, based on the relative strength of the R, G and B channels of each pixel.
 
-- To produce a [greyscale output](#grey-tab) based on the relative strengths of the R, G and B channels, in a way similar to the response of black and white film to a light spectrum.
+- To produce a [grayscale output](#gray-tab) based on the relative strengths of the R, G and B channels, in a way similar to the response of black and white film to a light spectrum.
 
 - To improve the color accuracy of the input color profiles using a [color checker](#extracting-settings-using-a-color-checker) chart.
 
 # White Balance in the Chromatic Adaptation Transformation (CAT) tab
 
-Chromatic adaptation aims to predict how all surfaces in the scene would look if they had been lit by another illuminant. What we actually want to predict, though, is how those surfaces would have looked if they had been lit by the same illuminant as your monitor, in order to make all colors in the scene match the change of illuminant. White balance, on the other hand, aims only at ensuring that whites and greys are really neutral (R = G = B) and doesn’t really care about the rest of the color range. White balance is therefore only a partial chromatic adaptation.
+Chromatic adaptation aims to predict how all surfaces in the scene would look if they had been lit by another illuminant. What we actually want to predict, though, is how those surfaces would have looked if they had been lit by the same illuminant as your monitor, in order to make all colors in the scene match the change of illuminant. White balance, on the other hand, aims only at ensuring that whites and grays are really neutral (R = G = B) and doesn’t really care about the rest of the color range. White balance is therefore only a partial chromatic adaptation.
 
-Chromatic adaptation is controlled within the Chromatic Adaptation Transformation (CAT) tab of the _color calibration_ module. When used in this way the _white balance_ module is still required as it needs to perform a basic white balance operation (connected to the input color profile values). This technical white balancing ("camera reference" mode) is a flat setting that makes greys lit by a standard D65 illuminant look achromatic, and makes the demosaicing process more accurate, but does not perform any perceptual adaptation according to the scene. The actual chromatic adaptation is then performed by the _color calibration_ module, on top of those corrections performed by the _white balance_ and _input color profile_ modules. The use of custom matrices in the _input color profile_ module is therefore discouraged. Additionally, the RGB coefficients in the _white balance_ module need to be accurate in order for this module to work in a predictable way.
+Chromatic adaptation is controlled within the Chromatic Adaptation Transformation (CAT) tab of the _color calibration_ module. When used in this way the _white balance_ module is still required as it needs to perform a basic white balance operation (connected to the input color profile values). This technical white balancing ("camera reference" mode) is a flat setting that makes grays lit by a standard D65 illuminant look achromatic, and makes the demosaicing process more accurate, but does not perform any perceptual adaptation according to the scene. The actual chromatic adaptation is then performed by the _color calibration_ module, on top of those corrections performed by the _white balance_ and _input color profile_ modules. The use of custom matrices in the _input color profile_ module is therefore discouraged. Additionally, the RGB coefficients in the _white balance_ module need to be accurate in order for this module to work in a predictable way.
 
 The _color calibration_ and _white balance_ modules can be automatically applied to perform chromatic adaptation for new edits by setting the chromatic adaptation workflow option ([preferences > processing > auto-apply chromatic adaptation defaults](../../preferences-settings/processing.md)) to "modern". If you prefer to perform all white balancing within the _white balance_ module, a "legacy" option is also available. Neither option precludes the use of other modules such as [_color balance_](./color-balance.md) further down the pixel pipeline for creative color grading.
 
@@ -44,9 +44,9 @@ To achieve this, create an instance of the _color calibration_ module to perform
 
 The default illuminant and color space used by the chromatic adaptation are initialised from the Exif metadata of the RAW file. There are 4 options available in the CAT tab to set these parameters manually:
 
-- Use the color-picker (to the right of the color patch) to select a neutral color from the image or, if one is unavailable, select the entire image. In this case, the algorithm finds the average color within the chosen area and sets that color as the illuminant. This method relies on the "grey-world" assumption, which predicts that the average color of a natural scene will be neutral. This method does not work for artificial scenes, for example those with painted surfaces.
+- Use the color-picker (to the right of the color patch) to select a neutral color from the image or, if one is unavailable, select the entire image. In this case, the algorithm finds the average color within the chosen area and sets that color as the illuminant. This method relies on the "gray-world" assumption, which predicts that the average color of a natural scene will be neutral. This method does not work for artificial scenes, for example those with painted surfaces.
 
-- Select _(AI) detect from edges_, which uses a machine-learning technique to detect the illuminant using the entire image. This algorithm finds the average gradient color over the edges found in the image and sets that color as the illuminant. This method relies on the "grey-edge" assumption, which may fail if large chromatic aberrations are present. As with any edge-detection method, it is sensitive to noise and poorly suited to high-ISO images, but it is very well suited for artificial scenes where no neutral colors are available.
+- Select _(AI) detect from edges_, which uses a machine-learning technique to detect the illuminant using the entire image. This algorithm finds the average gradient color over the edges found in the image and sets that color as the illuminant. This method relies on the "gray-edge" assumption, which may fail if large chromatic aberrations are present. As with any edge-detection method, it is sensitive to noise and poorly suited to high-ISO images, but it is very well suited for artificial scenes where no neutral colors are available.
 
 - Select _(AI) detect from surfaces_, which combines the two previous methods also using the entire image. This algorithm finds the average color within the image, giving greater weight to areas where sharp details are found and colors are strongly correlated. This makes it more immune to noise than the _edge_ variant and more immune to legitimate non-neutral surfaces than the naïve average, but sharp colored textures (like green grass) are likely to make it fail.
 
@@ -91,9 +91,9 @@ illuminant
 
 : - _same as pipeline (D50)_: Do not perform chromatic adaptation in this module instance but perform channel mixing using the selected _adaptation_ color space.
 : - _CIE standard illuminant_: Choose from one of the CIE standard illuminants (daylight, incandescent, fluorescent, equi-energy, or black body), or a non-standard "LED light" illuminant. These values are all pre-computed -- as long as your camera sensor is properly profiled, you can just use them as-is. For illuminants that lie near the Planckian locus, an additional "temperature" control is also provided (see below).
-: - _custom_: If a neutral grey patch is available in the image, the color of the illuminant can be selected using the color picker, or can be manually specified using hue and saturation sliders (in LCh perceptual color space). The color swatch next to the color picker shows the color of the calculated illuminant used in the CAT compensation. The color picker can also be used to restrict the area used for AI detection (below).
-: - _(AI) detect from image surfaces_: This algorithm obtains the average color of image patches that have a high covariance between chroma channels in YUV space and a high intra-channel variance. In other words, it looks for parts of the image that appear as though they should be grey, and discards flat colored surfaces that may be legitimately non-grey. It also discards chroma noise as well as chromatic aberrations.
-: - _(AI) detect from image edges_: Unlike the _white balance_ module's auto-white-balancing which relies on the "grey world" assumption, this method auto-detects a suitable illuminant using the "grey edge" assumption, by calculating the Minkowski p-norm (p = 8) of the laplacian and trying to minimize it. That is to say, it assumes that edges should have the same gradient over all channels (grey edges). It is more sensitive to noise than the previous surface-based detection method.
+: - _custom_: If a neutral gray patch is available in the image, the color of the illuminant can be selected using the color picker, or can be manually specified using hue and saturation sliders (in LCh perceptual color space). The color swatch next to the color picker shows the color of the calculated illuminant used in the CAT compensation. The color picker can also be used to restrict the area used for AI detection (below).
+: - _(AI) detect from image surfaces_: This algorithm obtains the average color of image patches that have a high covariance between chroma channels in YUV space and a high intra-channel variance. In other words, it looks for parts of the image that appear as though they should be gray, and discards flat colored surfaces that may be legitimately non-gray. It also discards chroma noise as well as chromatic aberrations.
+: - _(AI) detect from image edges_: Unlike the _white balance_ module's auto-white-balancing which relies on the "gray world" assumption, this method auto-detects a suitable illuminant using the "gray edge" assumption, by calculating the Minkowski p-norm (p = 8) of the laplacian and trying to minimize it. That is to say, it assumes that edges should have the same gradient over all channels (gray edges). It is more sensitive to noise than the previous surface-based detection method.
 : - _as shot in camera_: Calculate the illuminant based on the white balance settings provided by the camera.
 
 temperature
@@ -129,7 +129,7 @@ These warnings are intended to prevent common and easy mistakes while using the 
 
 # channel mixing
 
-The remainder of this module is a standard channel mixer, allowing you to adjust the output R, G, B, colorfulness, brightness and grey of the module based on the relative strengths of the R, G and B input channels.
+The remainder of this module is a standard channel mixer, allowing you to adjust the output R, G, B, colorfulness, brightness and gray of the module based on the relative strengths of the R, G and B input channels.
 
 Channel mixing is performed in the color space defined by the _adaptation_ control on the CAT tab. For all practical purposes, these CAT spaces are particular RGB spaces tied to human physiology and proportional to the light emissions in the scene, but they still behave in the same way as any other RGB space. The use of any of the CAT spaces can make the channel mixer tuning process easier, due to their connection with human physiology, but it is also possible to mix channels in the RGB working space of the pipeline by setting the _adaptation_ to "none (bypass)". To perform channel mixing in one of the _adaptation_ color spaces without chromatic adaptation, set the _illuminant_ to "same as pipeline (D50)".
 
@@ -211,9 +211,9 @@ input red/green/blue
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant between the input and output images.
 
-# grey tab
+# gray tab
 
-Another very useful application of _color calibration_ is the ability to mix the channels together to produce a greyscale output -- a monochrome image. Select the _grey_ tab, and set the red, green and blue sliders to control how much each channel contributes to the brightness of the output. This is equivalent to the following matrix multiplication:
+Another very useful application of _color calibration_ is the ability to mix the channels together to produce a grayscale output -- a monochrome image. Select the _gray_ tab, and set the red, green and blue sliders to control how much each channel contributes to the brightness of the output. This is equivalent to the following matrix multiplication:
 ```
 GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
                               │ G_in │
@@ -222,10 +222,10 @@ GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
 
 When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. [0.9, 0.3, -0.3]) will make for smooth skin tones, whereas emphasising green (e.g. [0.4, 0.75, -0.15]) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
 
-## grey tab controls
+## gray tab controls
 
 input red/green/blue
-: Choose how much each of the R, G and B channels contribute to the grey level of the output. The image will only be converted to monochrome if the three sliders add up to some non-zero value. Adding more blue will tend to bring out more details, adding more red will tend to smooth skin tones.
+: Choose how much each of the R, G and B channels contribute to the gray level of the output. The image will only be converted to monochrome if the three sliders add up to some non-zero value. Adding more blue will tend to bring out more details, adding more red will tend to smooth skin tones.
 
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
@@ -341,7 +341,7 @@ Because any calibration is merely a "best fit" optimization (using a weighted le
 The _optimize for_ parameter allows you to define an optimization strategy that attempts to increase the profile accuracy in some colors at the expense of others. The following options are available:
 
 - _none_: Don't use an explicit strategy but rely on the implicit stategy defined by the color checker manufacturer. For example, if the color checker has mostly low-saturation patches, the profile will be more accurate for less-saturated colors.
-- _neutral colors_: Give priority to greys and less-saturated colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in highly-saturated colors more than without any profile.
+- _neutral colors_: Give priority to grays and less-saturated colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in highly-saturated colors more than without any profile.
 - _saturated colors_: Give priority to primary colors and highly-saturated colors. This is useful in product and commercial photography, to get brand colors right.
 - _skin and soil colors_, _foliage colors_, _sky and water colors_: Give priority to the chosen hue range. This is useful if the subject of your pictures is clearly defined and has a typical color.
 - _average delta E_: Attempt to make the color error uniform across the color range and minimize the average perceptual error. This is useful for generic profiles.

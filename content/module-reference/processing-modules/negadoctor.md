@@ -72,10 +72,10 @@ The settings on this tab should not be needed for most well-preserved negatives 
 The other case where these color cast corrections may be needed is if the white balance properties of the light used to scan the film negative are significantly different to the light source under which the original film camera took the shot. For example, if you illuminate the film with an LED light, but the original shot was taken under daylight, this may require some additional color cast corrections.
 
 shadows color cast
-: These three sliders allow you to correct for color casts in the shadows by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a neutral grey shadow region requiring correction. Because the shadows sliders can also affect highlights color casts, it is import to finish setting the shadows sliders before moving on to the highlights sliders.
+: These three sliders allow you to correct for color casts in the shadows by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a neutral gray shadow region requiring correction. Because the shadows sliders can also affect highlights color casts, it is import to finish setting the shadows sliders before moving on to the highlights sliders.
 
 highlights white balance
-: These three sliders allow you to correct the white balance in the highlights by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a neutral grey region in the highlights that is not properly balanced.
+: These three sliders allow you to correct the white balance in the highlights by adjusting the _red_, _green_ and _blue_ channels individually. Use the color picker to set the sliders automatically by selecting a neutral gray region in the highlights that is not properly balanced.
 
 ## print properties
 

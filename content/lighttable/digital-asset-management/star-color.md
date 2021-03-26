@@ -30,6 +30,6 @@ Color labels are another way to classify images, and can be used as an alternati
 
 You can set the color labels for a single image by hovering your cursor over the thumbnail and pressing the function keys F1 – F5, which correspond with the labels in the order given above.
 
-To toggle the color labels of one or more images, select the desired images in the lighttable or filmstrip and then press the appropriate shortcut key or click the corresponding color button in the bottom panel. To remove all labels from the selected images, press the grey button.
+To toggle the color labels of one or more images, select the desired images in the lighttable or filmstrip and then press the appropriate shortcut key or click the corresponding color button in the bottom panel. To remove all labels from the selected images, press the gray button.
 
 You can filter images by color label in the [collect images](../../module-reference/utility-modules/shared/collect-images.md) module.

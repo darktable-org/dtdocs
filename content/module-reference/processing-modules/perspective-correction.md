@@ -30,7 +30,7 @@ blue
 yellow
 : Horizontal lines that do not converge
 
-grey
+gray
 : Other lines identified which are not of interest to this module
 
 Lines marked in red or yellow are regarded as outliers and are not taken into account for the automatic fitting step. This outlier elimination involves a statistical process using random sampling which means that each time you press the “get structure” button the color pattern of the lines will look slightly different. 

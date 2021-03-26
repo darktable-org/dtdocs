@@ -95,10 +95,10 @@ algorithms
 The _wavelet decompose_ section centres around a bar graph showing how the image has been decomposed into different detail (scale) layers. The key features of the bar graph are:
 
 - The black square on the left represents the entire non-decomposed image.
-- The grey squares show the various wavelet layers, with fine details to the left, and coarse details to the right.
+- The gray squares show the various wavelet layers, with fine details to the left, and coarse details to the right.
 - The white square on the right represents the residual image (the remainder of the image after the detail layers have been extracted).
-- A light grey dot in a square indicates the currently-selected layer. Click on another square to select a different layer.
-- The light grey bar running along the top indicates which levels of detail are visible at the current zoom level. Zoom in closer to see the finer levels of detail.
+- A light gray dot in a square indicates the currently-selected layer. Click on another square to select a different layer.
+- The light gray bar running along the top indicates which levels of detail are visible at the current zoom level. Zoom in closer to see the finer levels of detail.
 - The triangle at the bottom shows how many layers the image has been decomposed into. Drag the triangle to the right to create more layers. Drag it to the left to decrease the number of layers. By default no wavelet decomposition is performed.
 - The triangle at the top shows the current value of the "merge from" parameter (see below)
 - The orange lines under the squares indicate which layers have retouching edits applied.
@@ -109,7 +109,7 @@ scales
 : Indicates how many detail layers the image has been decomposed into. Zero indicates that no wavelet decomposition has been performed.
 
 current
-: Indicates which layer is currently selected (also marked with the light grey dot on the bar graph).
+: Indicates which layer is currently selected (also marked with the light gray dot on the bar graph).
 
 merge from
 : This setting allows a common edit to be applied to multiple consecutive scales within a group starting from the coarsest scale (not including the residual image) down to the scale selected. For example, if "merge from" is set to 3 and the maximum scale is 5 then all edits that are added to scale 5 will be applied to scales 3 to 5. Edits added to scale 4 will be applied to scales 3 and 4, and edits added to scale 3 will be applied only to scale 3. If you set _merge from_ to 0, then merging is disabled, and all edits apply only to the scale that are defined in. Setting _merge from_ to the highest scale (in this example, 5) would also effectively disable any merging.
@@ -129,7 +129,7 @@ merge from
 : Toggles whether to display the currently-selected wavelet layer on the center image. Selecting this option brings up an additional control -- _preview single scale_.
 
 preview single scale
-: An additional control that allows the black, white and grey points of the wavelet scale preview to be adjusted to make it easier to see. Click the ![auto-levels-icon](./retouch/rt-auto-levels-icon.png#icon) to set them automatically. This does not affect the module's operation -- only the wavelet scale preview.
+: An additional control that allows the black, white and gray points of the wavelet scale preview to be adjusted to make it easier to see. Click the ![auto-levels-icon](./retouch/rt-auto-levels-icon.png#icon) to set them automatically. This does not affect the module's operation -- only the wavelet scale preview.
 
 ![retouch-cut-icon](./retouch/rt-cut-icon.png#icon) cut
 : Place all shapes on the currently-selected layer onto the clipboard so they can be moved to another layer

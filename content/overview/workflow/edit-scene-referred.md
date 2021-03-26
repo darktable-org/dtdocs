@@ -27,13 +27,13 @@ Basic image processing in scene-referred workflow requires you, as a minimum, to
 
 3. Adjust the [_white balance_](../../module-reference/processing-modules/white-balance.md)
 
-   It is important that the white balance is set correctly to form a solid basis for subsequent processing. The camera will normally store the selected white balance setting inside the raw file's metadata, and darktable will use this as a starting point. To get a more accurate white balance, you can either use the color picker to select a neutral grey tone in the image, or you can switch to a different white balance preset from your camera, where available. Fine adjustments to the global white balance are made using the _temperature_ slider and, less often, the _tint_ slider. Moving the _temperature_ slider to the left makes the image cooler (more blue), and moving it to the right makes it warmer (more orange).
+   It is important that the white balance is set correctly to form a solid basis for subsequent processing. The camera will normally store the selected white balance setting inside the raw file's metadata, and darktable will use this as a starting point. To get a more accurate white balance, you can either use the color picker to select a neutral gray tone in the image, or you can switch to a different white balance preset from your camera, where available. Fine adjustments to the global white balance are made using the _temperature_ slider and, less often, the _tint_ slider. Moving the _temperature_ slider to the left makes the image cooler (more blue), and moving it to the right makes it warmer (more orange).
 
    The _white balance_ module is only able to make _global_ adjustments to the white balance of the image. The [_color balance_](../../module-reference/processing-modules/color-balance.md) module, among other things, gives you even more control in cases where a scene was illuminated by multiple light sources at different color temperatures.
 
 4. Adjust the white and black points using the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module
 
-   This module performs tone mapping compression from the high-dynamic-range of the captured image, to the lower dynamic range of the display medium. The mid-grey tone level has already been set (above) with the _exposure_ module. Filmic will propose, on its _scene_ tab, an appropriate white point and black point for the image -- you may need to adjust these for a particular scene. On the _look_ tab you can adjust the midtone contrast and saturation settings if required.
+   This module performs tone mapping compression from the high-dynamic-range of the captured image, to the lower dynamic range of the display medium. The mid-gray tone level has already been set (above) with the _exposure_ module. Filmic will propose, on its _scene_ tab, an appropriate white point and black point for the image -- you may need to adjust these for a particular scene. On the _look_ tab you can adjust the midtone contrast and saturation settings if required.
 
 
 # other recommended modules
@@ -173,7 +173,7 @@ There are a number of modules which are no longer recommended for use within a s
 [_tone curve_](../../module-reference/processing-modules/tone-curve.md)/[rgb curve](../../module-reference/processing-modules/rgb-curve.md)
 : _prefer [color balance](../../module-reference/processing-modules/color-balance.md)_
 
-: These modules are normally used to adjust contrast. Their user interface assumes the mid-grey level is around 50%, but in linear scene-referred space mid-grey is much lower at around 18%. It is better to adjust the contrast in _color balance_ module, where the mid-grey reference point can be set with the _contrast fulcrum_ slider.
+: These modules are normally used to adjust contrast. Their user interface assumes the mid-gray level is around 50%, but in linear scene-referred space mid-gray is much lower at around 18%. It is better to adjust the contrast in _color balance_ module, where the mid-gray reference point can be set with the _contrast fulcrum_ slider.
 
 [_contrast brightness saturation_](../../module-reference/processing-modules/contrast-brightness-saturation.md)
 : _prefer [color balance](../../module-reference/processing-modules/color-balance.md)_

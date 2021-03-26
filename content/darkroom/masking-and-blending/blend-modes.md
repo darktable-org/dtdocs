@@ -7,7 +7,7 @@ draft: false
 
 Blend modes define how the input and output of a module are combined (blended) together before a module's final output is passed to the next module in the pixelpipe. 
 
-Classic blending modes, designed for display-referred RGB (constrained to 0-100%) implicitly define a fulcrum at 50% (grey) or 100% (white) in their algorithms, depending on the blend mode. Because scene-referred is not subject to these restrictions, this fulcrum needs to be explicitly defined by the user when performing blending operations in the "RGB (scene)" color space. The additional _blend fulcrum_ parameter will be presented to the user when using one of these blend modes in this color space. The effect depends on the operator used. For example, values above the fulcrum might be brightened and values below darkened, or vice versa.
+Classic blending modes, designed for display-referred RGB (constrained to 0-100%) implicitly define a fulcrum at 50% (gray) or 100% (white) in their algorithms, depending on the blend mode. Because scene-referred is not subject to these restrictions, this fulcrum needs to be explicitly defined by the user when performing blending operations in the "RGB (scene)" color space. The additional _blend fulcrum_ parameter will be presented to the user when using one of these blend modes in this color space. The effect depends on the operator used. For example, values above the fulcrum might be brightened and values below darkened, or vice versa.
 
 The final output of a module is computed 'per-pixel' as follows:
 
@@ -74,19 +74,19 @@ harmonic mean
 
 # contrast enhancing modes
 
-The following modes are not available in the "RGB (scene)" blending color space as they rely on an assumption of "50% mid grey" which only applies to display-referred and non-linear color spaces.
+The following modes are not available in the "RGB (scene)" blending color space as they rely on an assumption of "50% mid gray" which only applies to display-referred and non-linear color spaces.
 
 overlay
-: This mode combines the "multiply" and "screen" blend modes: The parts of the input where the output is brighter, become brighter; The parts of the image where the output is darker, become darker; Mid-grey is unaffected. This mode is often combined with the [_lowpass_](../../../module-reference/processing-modules/lowpass.md) and [_highpass_](../../../module-reference/processing-modules/highpass.md) modules.
+: This mode combines the "multiply" and "screen" blend modes: The parts of the input where the output is brighter, become brighter; The parts of the image where the output is darker, become darker; Mid-gray is unaffected. This mode is often combined with the [_lowpass_](../../../module-reference/processing-modules/lowpass.md) and [_highpass_](../../../module-reference/processing-modules/highpass.md) modules.
 
 softlight
 : This mode is similar to "overlay", except the results are softer and less bright. As with overlay, it is often combined with the [_lowpass_](../../../module-reference/processing-modules/lowpass.md) and [_highpass_](../../../module-reference/processing-modules/highpass.md) modules.
 
 hardlight
-: This mode is not related to "softlight" in anything but name. Like overlay mode it is a combination of "multiply" and "screen" modes and has a different effect above and below mid-grey. The results with hardlight blend mode tend to be quite intense and usually need to be combined with a reduced opacity.
+: This mode is not related to "softlight" in anything but name. Like overlay mode it is a combination of "multiply" and "screen" modes and has a different effect above and below mid-gray. The results with hardlight blend mode tend to be quite intense and usually need to be combined with a reduced opacity.
 
 vividlight
-: This mode is an extreme version of overlay/softlight. Values darker than mid-grey are darkened; Values brighter than mid-grey are brightened. You will probably need to tone down its effect by reducing the opacity
+: This mode is an extreme version of overlay/softlight. Values darker than mid-gray are darkened; Values brighter than mid-gray are brightened. You will probably need to tone down its effect by reducing the opacity
 
 linearlight
 : This mode is similar to the effect of "vividlight".

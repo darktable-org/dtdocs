@@ -52,7 +52,7 @@ compression level
 : For export formats where _compression_ can be specified, the _compression level_ specifies how much compression to apply. The higher the level, the more the data will be compressed, at the cost of more CPU cycles.
 
 b&w image
-: For TIFF export format, it is possible to save a monochrome image. This setting controls whether the resulting file encodes the shades of grey as separate RGB channels, or as a single greyscale channel. The latter option will reuslt in smaller files.
+: For TIFF export format, it is possible to save a monochrome image. This setting controls whether the resulting file encodes the shades of gray as separate RGB channels, or as a single grayscale channel. The latter option will reuslt in smaller files.
 
 ## global options
 

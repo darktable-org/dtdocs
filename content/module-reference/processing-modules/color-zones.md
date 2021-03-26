@@ -29,7 +29,7 @@ select by lightness
 : ![color zones choose lightness](./color-zones/color-zones-choose-lightness.png#w33)
 
 select by saturation
-: Choose which pixels to manipulate based on their saturation. For example, you may want to tone down the saturation of some already highly saturated pixels, or to change their hue. The following image shows the range of saturation levels that you can choose to operate on, from a completely unsaturated monochrome grey through to the most highly saturated color:
+: Choose which pixels to manipulate based on their saturation. For example, you may want to tone down the saturation of some already highly saturated pixels, or to change their hue. The following image shows the range of saturation levels that you can choose to operate on, from a completely unsaturated monochrome gray through to the most highly saturated color:
 
 : ![color zones choose saturation](./color-zones/color-zones-choose-saturation.png#w33)
 
