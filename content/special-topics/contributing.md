@@ -10,6 +10,28 @@ This page defines the style guide for dtdocs and information about how to contri
 
 It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://raw.githubusercontent.com/darktable-org/dtdocs/master/content/special-topics/contributing.md) to see the source for this page.
 
+The manual structure was carefully considered based on the following critera:
+1. Be comprehensive
+1. Have a consistent and logical structure and every piece of functionality should have its own logical place within that structure
+1. Be as long as necessary but as short as possible
+1. Functionality should be explained once and only once
+1. Images should be included only where necessary to improve understanding of key principles
+1. Be objective
+
+We are generally **not** interested in:
+1. Restructuring the manual 
+1. Switching markup languages
+!. Your detailed workflow tutorial (though we are interested in publishing those on the blogs of either darktable.org or pixls.us)
+
+We are interested in 
+1. Typo corrections 
+1. Clarification of text 
+1. Documentation for new features
+
+We are always extremely interested in hearing about which sections of the manual did not make sense to you and *why* so that we can improve the documentation .
+
+In general, if you wish to make a major change, open an issue and discuss it with the documentation maintainers first. This is to avoid doing work that wouldn't be accepted.
+
 # format
 
 This website is authored in pure markdown, using some extensions. It is initially designed to work with the Hugo SSG but indended to be portable enough that it can be easily rendered with another application if required.
