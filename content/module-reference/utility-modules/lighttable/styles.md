@@ -16,6 +16,8 @@ Double-click on a style name to apply that style to all selected images.  A styl
 
 Remove all styles by clicking on the module reset button.
 
+Please note that styles also include the active state of each module. You can use this to create your own default settings, which you can then activate on-demand. Simply set your desired defaults for each module, disable the module, and save the style.
+
 # module controls
 
 create duplicate
