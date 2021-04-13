@@ -9,6 +9,8 @@ Presets allow you to store commonly used module settings for future use. Some mo
 
 Most of the functionality described here applies to processing modules only. However, presets can also be used with some utility modules. When used with utility modules, the functionality to auto-apply or auto-show presets based on image Exif data is not available.
 
+Please note that, for processing modules, the saved preset also includes the active state of the module. You can use this to create your own default settings, which you can activate on-demand. Simply set your desired defaults, disable the module, and save the preset.
+
 # the presets menu
 
 The presets menu will contain one or more of the following entries depending on what presets are defined or selected for the current module:
