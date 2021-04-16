@@ -15,16 +15,28 @@ jobs:
       - uses: cachix/install-nix-action@v12
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - run: nix-env -f '<nixpkgs>' -iA hugo yarn python38Packages.weasyprint git linkchecker perlPackages.Po4a
+      - run: nix-shell --run 'echo "Installed nix dependencies"'
 
       - name: Install assets
-        run: cd themes/hugo-darktable-docs-theme/assets/ && yarn install
+        run: nix-shell --run 'cd themes/hugo-darktable-docs-theme/assets/ && yarn install'
 
       - name: Generate translated files
-        run: cd tools && bash generate-translations.sh --no-update
+        run: nix-shell --run 'cd tools && bash generate-translations.sh --no-update'
+
+      - name: Build epub
+        run: nix-shell --run './tools/build-epub.sh'
+
+      - name: Clear
+        run: nix-shell --run 'rm -rf public'
+
+      - name: Build
+        run: nix-shell --run 'hugo'
 
       - name: Build PDF
-        run: mkdir public && hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo
+        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo'
 
       - name: Run linkchecker
-        run: hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && linkchecker --check-extern --no-status http://localhost:1313/dtdocs/index.html && pkill hugo
+        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && linkchecker --check-extern --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
+
+      - name: Copy epub
+        run: nix-shell --run 'mv darktable_user_manual.epub public'
