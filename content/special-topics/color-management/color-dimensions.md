@@ -8,7 +8,7 @@ author: "people"
 
 This section defines the perceptual properties of color, both conceptually and quantitatively, in order to characterize and quantify the creative and corrective adjustments made on color in the software.
 
-# Definitions
+# definitions
 
 Color properties like "saturation", "brightness" or "lightness" have passed to common usage but are largely misused and often used to mean different things. In color science, each of these terms has a precise meaning.
 
@@ -52,7 +52,7 @@ saturation
 
 Colors can be described in many different color spaces, but no matter the color space, they need at least 3 components: some metric of luminance or brightness, and 2 metrics of chromaticity (hue and chroma, or opponent color coordinates).
 
-# Illustrations
+# illustrations
 
 While the previous definitions are useful to give a meaning to the words, they don't tell us what we should be looking at. The following charts show luminance, lightness, chroma, brilliance/brightness and saturation varying from a "0" base color and how the resulting colors degrade:
 
@@ -76,7 +76,7 @@ On both charts above, lightness, chroma, saturation and brilliance are drawn in 
 
 ---
 
-# Color dimensions and gamut
+# color dimensions and gamut
 
 The gamut is the volume of colors that a certain color space can encompass and encode. It is important to note that, once converted to perceptual spaces, the gamut of any RGB space is not uniform along hues.
 
@@ -90,7 +90,7 @@ This shows that increasing the chroma (displacement over the horizontal axis) of
 
 Many gamut issues, at export, are actually user-induced and the result of harsh chroma enlarging. For that reason, using brightness-saturation color models may be safer.
 
-# Color dimensions and complementary colors
+# color dimensions and complementary colors
 
 Cyan, magenta, yellow (CMY) are complementary colors of red, green, blue (RGB). However, the complementary CMY spaces computed from RGB spaces are not perceptualy complementary. To show this, we create a CMY space from sRGB, where cyan has sRGB coordinates (0, 1, 1), magenta (1, 0, 1) and yellow (1, 1, 0), and display it in a lightness-chroma space:
 
@@ -102,6 +102,6 @@ By comparing with the hue slices of the primary colors in the previous section, 
 
 This is one more reason to avoid using HSL/HSV spaces (derived from RGB spaces) to perform color editing -- since these RGB spaces are not perceptually uniform in the first place, the resulting HSV/HSL spaces are not uniform either. While RGB spaces have some merit based on their connection to physical light, any process involving hue should go directly to perceptual spaces.
 
-# Color dimensions and settings
+# color dimensions and settings
 
 Many pieces of software, including darktable, call any settings that affect chroma "saturation" (for example, in color balance, "contrast/brightness/saturation"). This is a symptom of software trying to be accessible to non-professionals by using a common language. This is misleading, since saturation does exist and is quite different from chroma. In addition, many video specifications improperly call chroma "saturation". Whenever darktable reuses such specifications, it uses the incorrect term from the specification rather than the proper color dimension term.
