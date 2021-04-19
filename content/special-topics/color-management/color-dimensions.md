@@ -42,13 +42,13 @@ brilliance
 saturation
 : The colorfulness of an area judged in proportion to its brightness. [^7]
 
-[^1]: <https://cie.co.at/eilvterm/17-22-067>
-[^2]: <https://cie.co.at/eilvterm/17-21-050>
-[^3]: <https://cie.co.at/eilvterm/17-22-063>
-[^4]: <https://cie.co.at/eilvterm/17-22-059>
-[^5]: <https://cie.co.at/eilvterm/17-22-074>
-[^6]: <https://doi.org/10.1002/col.20128>
-[^7]: <https://cie.co.at/eilvterm/17-22-073>
+[^1]: CIE definition of _hue_: <https://cie.co.at/eilvterm/17-22-067>
+[^2]: CIE definition of _luminance_: <https://cie.co.at/eilvterm/17-21-050>
+[^3]: CIE definition of _brightness_: <https://cie.co.at/eilvterm/17-22-063>
+[^4]: CIE definition of _lightness_: <https://cie.co.at/eilvterm/17-22-059>
+[^5]: CIE definition of _chroma_: <https://cie.co.at/eilvterm/17-22-074>
+[^6]: Article about _brilliance_ (paywall): <https://doi.org/10.1002/col.20128>
+[^7]: CIE definition of _saturation_: <https://cie.co.at/eilvterm/17-22-073>
 
 Colors can be described in many different color spaces, but no matter the color space, they need at least 3 components: some metric of luminance or brightness, and 2 metrics of chromaticity (hue and chroma, or opponent color coordinates).
 
