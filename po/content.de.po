@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2021-02-23 22:26-0800\n"
-"PO-Revision-Date: 2021-04-19 11:54+0000\n"
+"PO-Revision-Date: 2021-04-19 20:47+0000\n"
 "Last-Translator: Peter Schlaufer <peter@schlaufer.ch>\n"
 "Language-Team: German <https://weblate.pixls.us/projects/darktable/dtdocs/de/"
 ">\n"
@@ -9719,6 +9719,10 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid ": This control is only provided for illuminants that lie near the Planckian locus and provides fine-adjustment along that locus. For other illuminants the concept of \"color temperature\" doesn't make sense, so no temperature slider is provided.\n"
 msgstr ""
+": Diese Einstellung gibt es nur für Leuchtkörper, die nahe bei dem "
+"Planckschen Locus liegen und er gibt eine feine Einstellmöglichkeit entlang "
+"diesem Locus. Für andere Leuchtkörper macht das Konzept der \"Farbtemperatur"
+"\", so ist da auch kein Temperatur-Regler vorhanden.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
@@ -9727,6 +9731,9 @@ msgid ""
 "hue\n"
 ": For custom white balance, set the _hue_ of the illuminant color in LCh color space, derived from CIE Luv space.\n"
 msgstr ""
+"Farbton\n"
+": Für selbstbestimmten Weißabgleich, setze den _Farbton_ der Leuchtkörper-"
+"Farbe in LCh Farbraum, abgewandelt vom CIE Luv Raum.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
@@ -9735,6 +9742,9 @@ msgid ""
 "chroma\n"
 ": For custom white balance, set the _chroma_ (or saturation) of the illuminant color in LCh color space, derived from CIE Luv space.\n"
 msgstr ""
+"Chroma\n"
+": Für selbstbestimmten Weißabgleich, setze den _Chroma_ (oder Sättigung) der "
+"Leuchtkörper-Farbe in LCh Farbraum, abgewandelt vom CIE Luv Raum.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
@@ -9743,6 +9753,21 @@ msgid ""
 "gamut compression\n"
 ":  Most camera sensors are slightly sensitive to invisible UV wavelengths, which are recorded on the blue channel and produce \"imaginary\" colors. Once corrected by the input color profile, these colors will end up out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet with positive values in the working color space) and produce visual artifacts in gradients. The chromatic adaptation may also push other valid colors out of gamut, at the same time pushing any already out-of-gamut colors even further out of gamut. _Gamut compression_ uses a perceptual, non-destructive, method to attempt to compress the saturation while preserving the luminance as-is and the hue as close as possible, in order to fit the whole image into the gamut of the pipeline working color space. One example where this feature is very useful is for scenes containing blue LED lights, which are often quite problematic and can result in ugly gamut clipping in the final image.\n"
 msgstr ""
+"Gamutkompression\n"
+": die meisten Kamerasensoren sind leicht empfindlich für unsichtbares UV "
+"Wellenlängen, welche im Blau-Kanal gespeichert werden und \"imaginäre\" "
+"Farben erzeugen. Einmal korrigiert mit dem Input Farb-Profil, sind diese "
+"Farben außerhalb des Gamut ((können also nicht mit irgendeiner Farbe als RGB "
+"Kombination mit positiven Werten im Farbraum dargestellt werden) und "
+"produzieren sichtbare Artefakte. Die chromatische Adaption wird also auch "
+"andere sichtbare Farben aus dem Gamutbereich befördern und solche, die schon "
+"da sind noch weiter raus aus dem Gamut. _Gamutkompression_ benutzt eine "
+"wahrnehmende, nicht zerstörende Methode und versucht die Sättigung zu "
+"komprimieren ohne die Helligkeit und die Farbtöne zu verändern, um das ganze "
+"Bild in den Gamut zu befördern innerhalb der Pipeline des Farbraumes. Ein "
+"Beispiel, wo diese Eigenschaften sehr nützlich sind, ist eine Szene mit LED "
+"Lichtern, die oft sehr problematisch sind und in hässlichem Gamut-Beschnitt "
+"im fertigen Bild resultieren.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
@@ -9751,54 +9776,91 @@ msgid ""
 "clip negative RGB from gamut\n"
 ": Remove any negative RGB values (set them to zero). This helps to deal with bad black level as well as the blue channel clipping issues that may occur with blue LED lights.\n"
 msgstr ""
+"Beschneide negativen RGB vom Gamut\n"
+": Entferne jeglichen negative RGB werte (setze sie auf null). Das hilft mit "
+"dem Schwarzwert umzugehen wie auch mit dem Beschnitt des Blau-Kanals, ev. "
+"aus blauem LED Licht.\n"
 
 #. type: Title ##
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "CAT warnings"
-msgstr ""
+msgstr "CAT Warnungen"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "The chromatic adaptation in this module relies on a number of assumptions about the earlier processing steps in the pipeline in order to work correctly, and it can be easy to inadvertently break these assumptions in subtle ways. To help you to avoid these kind of mistakes, the _color calibration_ module will show warnings in the following circumstances.\n"
 msgstr ""
+"Das Modul chromatische Adaption hängt von einer Anzahl Voraussetzungen aus "
+"früheren Entwicklungsschritten in der Pipeline ab, um richtig zu arbeiten, "
+"und diese können leicht und unbeabsichtigt gebrochen werden. Um dir zu "
+"helfen, diese Art Fehler zu vermeiden zeigt das Modul _Farbkalibrierung_ in "
+"folgenden Fällen Warnungen an:\n"
 
 #. type: Bullet: '- '
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "If the _color calibration_ module is set up to perform chromatic adaptation but the _white balance_ module is not set to \"camera reference\", warnings will be shown in both modules. These errors can be resolved either by setting the _white balance_ module to \"camera reference\" or by disabling chromatic adaptation in the _color calibration_ module. Note that some sensors may require minor corrections within the _white balance_ module in which case these warnings can be ignored.\n"
 msgstr ""
+"Wenn das Modul _Farbkalibrierung_ eine chromatische Adaption machen soll, "
+"aber das Modul _Weißabgleich_ nicht auf \"Kameraeinstellungen\" gesetzt ist, "
+"werden in den beiden Modulen Warnungen angezeigt. Diese Fehler können "
+"beseitigt werden entweder, indem das Modul _Weißabgleich_ auf "
+"\"Kameraeinstellungen\" gesetzt wird, oder durch Sperren der chromatischen "
+"Adaption im Modul _Farbkalibrierung_. Beachte, dass gewisse Sensoren weniger "
+"Korekturen erfordern innerhalb des Moduls _Weißabgleich_, in solchen Fällen "
+"können die Warnungen ignoriert werden.\n"
 
 #. type: Bullet: '- '
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "If two or more instances of _color calibration_ have been created, each attempting to perform chromatic adaptation, an error will be shown on the second instance. This could be a valid use case (for instance where masks have been set up to apply different white balances to different non-overlapping areas of the image) in which case the warnings can be ignored. For most other cases, chromatic adaptation should be disabled in one of the instances to avoid double-corrections.\n"
 msgstr ""
+"Wenn zwei oder mehr Instanzen von _Farbkalibrierung_ kreiert wurden, von "
+"denen jeder versucht eine chromatische Adaption durchzuführen, wird in der "
+"zweiten Instanz ein Fehler angezeigt. Das könnte ein echter Fall (z.B. wo "
+"Masken eingesetzt wurden, um verschiedene Weißabgleiche an zwei nicht "
+"überlappenden Teilen des Bildes), in einem solchen Fall kann die Warnung "
+"ignoriert werden. Für die meisten anderen Fälle, chromatische Adaption "
+"sollte gesperrt werden in einer der Instanzen, um Doppel-Korrekturen zu "
+"vermeiden.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "  By default, if an instance of the _color calibration_ module is already performing chromatic adaptation, each new instance you create will automatically have its adaptation set to \"none (bypass)\" to avoid this \"double-correction\" error.\n"
 msgstr ""
+"  Im Normalfall, wenn eine Instanz des Moduls _Farbkalibrierung_ bereits "
+"eine chromatische Adaption durchführt, wird jede zusätzliche Instanz "
+"automatisch ihre Adaption auf \"keine (Bypass)\" gesetzt bekommen, um diesen "
+"\"Doppelkorrektur Fehler zu vermeiden.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "The chromatic adaptation modes in _color calibration_ can be disabled by either setting the _adaptation_ to \"none (bypass)\" or setting the _illuminant_ to \"same as pipeline (D50)\" in the CAT tab.\n"
 msgstr ""
+"Die Modi chromatische Adaption in _Farbkalibrierung_ können entweder durch "
+"Setzen von _Adaption_ auf \"keine (Bypass)\" oder den _Leuchtkörper_ auf "
+"\"gleich wie Pipeline (D50) in der CAT Kolonne, gesperrt werden.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "These warnings are intended to prevent common and easy mistakes while using the automatic default presets in the module in a typical RAW editing workflow. When using custom presets and some specific workflows, such as editing film scans or JPEGs, these warnings can and should be ignored.\n"
 msgstr ""
+"Diese Warnungen sind vorgesehen, um gewöhnliche und leichte Fehler zu "
+"vermeiden mit der Benutzung von Standard Voreinstellungen im Modul im "
+"typischen RAW Arbeitsablauf. Bei der Benutzung von Standard-Voreinstellungen "
+"und einigen spezifischen Arbeitsabläufen, wie Film bearbeiten oder scannen "
+"von JPEGs, können und sollten diese Warnungen ignoriert werden.\n"
 
 #. type: Title #
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "channel mixing"
-msgstr ""
+msgstr "Kanal mixen"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
@@ -9811,18 +9873,42 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid "Channel mixing is performed in the color space defined by the _adaptation_ control on the CAT tab. For all practical purposes, these CAT spaces are particular RGB spaces tied to human physiology and proportional to the light emissions in the scene, but they still behave in the same way as any other RGB space. The use of any of the CAT spaces can make the channel mixer tuning process easier, due to their connection with human physiology, but it is also possible to mix channels in the RGB working space of the pipeline by setting the _adaptation_ to \"none (bypass)\". To perform channel mixing in one of the _adaptation_ color spaces without chromatic adaptation, set the _illuminant_ to \"same as pipeline (D50)\".\n"
 msgstr ""
+"Kanal mixen wird durchgeführt im Farbraum mit der Einstellung _Anpassung_ in "
+"der CAT Kolonne. Für alle praktischen Absichten, sind diese CAT Räume "
+"besondere RGB Räume gebunden an menschliche Physiologie und proportional zur "
+"Licht-Emission der Szene, aber sie können immer noch wie in jedem anderen "
+"RGB Raum sein. Irgendeinen der CAT Räume zu nutzen kann den Prozess des "
+"Kanal-mixens leichter machen, wegen deren Verbindung zur menschlichen "
+"Physiologie, aber es ist auch möglich Kanäle im RGB Raum der Pipeline zu "
+"mixen mit Setzen der _Adaption_ zu \"keine(Bypass)\". Um Kanal Mixen in "
+"einem der _Adaptions_ Farbräume ohne chromatische Adaption zu erreichen, "
+"setze den _Leuchtkörper_ auf \"gleich wie Pipeline (D50).\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "**Note**: The actual colors of the CAT or RGB primaries used for the channel mixing, projected to sRGB display space, are painted in the background of the RGB sliders, so you can get a sense of the color shift that will result from your altered settings.\n"
 msgstr ""
+"**Beachte**: Die aktuellen Farben der CAT oder RGB Ursprünge, die für das "
+"Kanal-Mixen gebraucht werden und für den sRGB Ausgabe Raum bestimmt sind, "
+"werden im Hintergrund der RGB Regler gezeigt, sodass du ein Gefühl der "
+"Farbänderung, die aus den geänderten Einstellungen resultieren, erhältst.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
 msgid "Channel mixing is a process that defines a boosting/muting factor for each channel as a ratio of all the original channels. Instead of entering a single flat correction that ties the output value of a channel to its input value (for example, `R_output = R_input × correction`), the correction to each channel is dependent on the input of _all_ of the channels for each pixel (for example, `R_output = R_input × R_correction + G_input × G_correction + B_input × B_correction`). Thus a pixel's channels contribute to each other (a process known as \"cross-talk\") which is equivalent to rotating the primary colors of the color space in 3D. This is, in effect, digital simulation of physical color filters.\n"
 msgstr ""
+"Kanal Mixen ist ein Prozess der einen Verstärkungs-/Minderungs-Faktor für "
+"jeden Kanal als Verhältnis aller ursprünglichen Kanäle definiert. An Stelle "
+"der Eingabe einer einzelnen flachen Korrektur, die den Output-Wert jedes "
+"Kanals mit dem Input-Wert verknüpft (z.B., `R_Output = R_Input × Korrektur`)"
+", ist die Korrektur jedes Kanals abhängig zum Input _aller_ Kanäle jedes "
+"Pixels (z.B. `R_Output = R_Input × R_Korrektur + G_Input × G_Korrektur + "
+"B_Input × B_Korrektur`). so kann der Kanal eines Pixels an jedes andere "
+"beitragen (ein Prozess, den man \"Cross-Talk\" nennt), was gleichbedeutend "
+"ist zum Rotieren der Primärfarben des Farbraumes im 3D Raum. Das ist im "
+"Effekt, eine digitale Simulation von physischen Farbfiltern.\n"
 
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
