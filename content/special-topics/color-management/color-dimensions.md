@@ -17,7 +17,7 @@ There are two frameworks within which color properties may be analyzed and descr
 - A scene-linear, physiological, framework, that mostly focuses on the response of the retina cone cells, using color spaces such as CIE XYZ 1931 or CIE LMS 2006,
 - A perceptual, psychological, framework that stacks the brain's corrections on top of the retina signal, using color spaces such as CIE Lab 1976, CIE Luv 1976, CIE CAM 2016 and JzAzBz (2017).
 
-These two frameworks provide us with metrics and dimensions to analyze color and allow us to change some of its properties while preserving others unchanged. 
+These two frameworks provide us with metrics and dimensions to analyze color and allow us to change some of its properties while preserving others. 
 
 The following 7 dimensions of color are used by darktable:
 
