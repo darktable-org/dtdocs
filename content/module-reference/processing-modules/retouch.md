@@ -10,7 +10,7 @@ masking:
 
 Remove unwanted image elements by cloning, healing, blurring and filling using drawn shapes.
 
-This module extends the capabilities of the [_spot removal_](./spot-removal.md) module by including a "heal" tool (based on the heal tool from GIMP) which provides a type of seamless cloning. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine). These layers can then be selectively retouched before being recombined to produce the output image. Examples of these capabilities are shown in the following sections.
+This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module by including a "heal" tool (based on the heal tool from GIMP) which provides a type of seamless cloning. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine). These layers can then be selectively retouched before being recombined to produce the output image. Examples of these capabilities are shown in the following sections.
 
 # clone and heal
 

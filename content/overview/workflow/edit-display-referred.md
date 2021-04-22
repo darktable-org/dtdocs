@@ -30,7 +30,7 @@ noise reduction
 : As with the _scene-referred_ workflow, the best starting point for noise reduction is the [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md) module.  Similarly, you may also choose to use [_raw denoise_](../../module-reference/processing-modules/raw-denoise.mf), [_surface blur_](../../module-reference/processing-modules/surface-blur.md), [_astrophoto denoise_](../../module-reference/processing-modules/astrophoto-denoise.md), or the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module.
 
 fixing spots
-: As with the _scene-referred_ workflow, you can use the [_retouch_](../../module-reference/processing-modules/retouch.md), [_spot removal_](../../module-reference/processing-modules/spot-removal.md) and [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md) modules to correct artifacts in your image.
+: As with the _scene-referred_ workflow, you can use the [_retouch_](../../module-reference/processing-modules/retouch.md) and [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md) modules to correct artifacts in your image.
 
 geometrical corrections
 : As with the _scene-referred_ workflow you can use the [_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md), [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md) and [_lens correction_](../../module-reference/processing-modules/lens-correction.md) modules to correct distortions and crop your image.
