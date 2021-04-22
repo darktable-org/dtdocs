@@ -1,11 +1,17 @@
 ---
-title: spot removal
+title: spot removal (deprecated)
 id: spot-removal
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space:  
 view: darkroom
 masking: 
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the "cloning" tool in the [_retouch_](./retouch.md) module instead.**
+
 ---
 
 Correct areas of an image (the target) using details from another area of the image (the source).
