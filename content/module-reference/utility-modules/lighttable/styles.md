@@ -38,7 +38,7 @@ remove
 : Delete the selected style, without any further prompt.
 
 import
-: Import a previously saved style. Styles are stored as XML files with the extension `.dtstyle`.
+: Import a previously saved style. Styles are stored as XML files with the extension `.dtstyle`. If a style already exists, you will be asked whether or not you wish to overwrite.
 
 export
 : Save the selected style to disk as a `.dtstyle` file. This allows styles to be published and shared with other users.
