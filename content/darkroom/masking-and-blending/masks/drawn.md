@@ -53,6 +53,10 @@ use same shapes as
 
 The [mask manager](../../../module-reference/utility-modules/darkroom/mask-manager.md) module can be used to manage your drawn shapes. This module also allows you to group and combine drawn masks using set operators (union, intersection, difference, exclusion).
 
+# shape distortions
+
+In order to ensure a consistent co-ordinate system, when you place a shape on the image, it is actually drawn on the original RAW file. This shape then passes up through the pixelpipe before finally being drawn on the screen. This means that, if you have any enabled any distorting modules (such as lens correction), drawn shapes may appear distorted on the screen and in the final image. This can lead, for example, to circles being rendered as ellipses and gradient lines becoming curved. If you need to create a more accurate shape (to overcome these distortions) it is recommended that you avoid using the simple shapes (circles / ellipses) in favor of the path shape (which can be drawn using more points, reducing distortions). Gradient lines can be curved to overcome the simple distortions introduced by lens correction.
+
 # available shapes
 
 circle
