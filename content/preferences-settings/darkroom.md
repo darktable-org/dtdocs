@@ -30,9 +30,9 @@ show scrollbars for center view
 demosaicing for zoomed out darkroom mode
 : Choose how to demosaic images in the darkroom view when not viewing the image at 1:1 zoom scale
 : - _always bilinear (fast)_ is fastest, but not as sharp
-: - _at most PPG (reasonable)_ uses PPG + interpolation modes
+: - _at most RCD (reasonable)_ uses RCD + interpolation modes. X-Trans sensors will use VNG as the middle-ground setting.
 : - _full (possibly slow)_ will use exactly the settings for full-size export 
-: (default "_at most ppg (reasonable)_"). 
+: (default "_at most RCD (reasonable)_"). 
 
 reduce resolution of preview image
 : Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color-picking and masking (default "original").
