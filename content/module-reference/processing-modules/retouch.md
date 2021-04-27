@@ -1,7 +1,7 @@
 ---
 title: retouch
 id: retouch
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space: rgb
 view: darkroom
@@ -88,7 +88,7 @@ shapes
 : Click the _show and edit shapes_ button (![retouch-shapes-icon](./retouch/rt-shapes-icon.png#icon)) to show all existing shapes for the currently-selected wavelet scale (see below) and edit them.
 
 algorithms
-: Choose a retouching algorithm: clone, heal, fill or blur (see above for details).
+: Choose a retouching algorithm: clone, heal, fill or blur (see above for details). Ctrl+click to change the algorithm used for the currently-selected shape. Shift+click to set the default algorithm -- this default will be used each time you use the module on a new image or reset module parameters.
 
 ## wavelet decompose
 
