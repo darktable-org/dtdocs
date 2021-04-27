@@ -90,7 +90,7 @@ gradient
 
 : Click on the image canvas to define the position of the line that defines 50% opacity. Dotted lines indicate the distance beyond which the opacity is 100% and 0%. Between these dotted lines the opacity changes linearly. 
 
-: The line has two anchor nodes which you can drag to change the rotation of the gradient.
+: The line has two anchor nodes which you can drag to change the rotation of the gradient. You can also set the rotation angle when placing the gradient shape by clicking and dragging to place the shape.
 
 : Gradient lines can also be curved by scrolling close to the center line. This can be useful to counteract the distortion caused by the [_lens correction_](../../../module-reference/processing-modules/lens-correction.md) module. 
 
