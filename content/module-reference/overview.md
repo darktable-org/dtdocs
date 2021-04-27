@@ -33,5 +33,13 @@ Processing modules contain additional elements in their module header, as descri
 
 # module resizing
 
-Some modules contain lists of infomation which can grow as more entries are added. To help manage screen real-estate, it is possible to shrink or expand the number of entries that are displayed in the list of a module. Place the mouse over an entry in the list, and hold Ctrl while scrolling your mouse wheel to increase or reduce the number of entries that are shown. If the list contains more entries that can be shown at one time, a scrollbar will appear to the right of the list, so that you can access the hidden entries.
+## utility modules
+
+Some utility modules contain lists of infomation which can grow as more entries are added. To help manage screen real-estate, it is possible to increase or the number of entries that can be displayed before a scroll bar is added. Place the mouse over an entry in the list, and hold Ctrl while scrolling your mouse wheel to increase or reduce the maximum number of entries. If the list contains more entries than this maximum, a scrollbar will appear to the right of the list, so that you can access the hidden entries.
+
+Please note that it is not possible to extend these areas beyond the number of entries currently shown. If you attempt to do so using Ctrl+scroll, the maximum available size _will_ increase, and a toast message will appear informing you of the new maximum number of entries. However, the module itself will not be resized until its content exceeds the stored maximum.
+
+## processing modules
+
+Some processing modules contain drawn graphical elements that can take up too much or too little screen space depending on the width of your side panels. These drawing areas usually default to a 16:9 aspect ratio and can be similarly resized by hovering over them and holding Ctrl while scrolling.
 
