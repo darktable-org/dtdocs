@@ -18,11 +18,13 @@ These color filters are commonly arranged in a mosaic pattern known as a Bayer f
 
 Darktable offers several demosaic algorithms, each with it's own characteristics. The differences between them are often very subtle and might only be visible while pixel-peeping. However, as the program works on a pixel-by-pixel basis and demosaic generates the base data for the other modules, the choice of the algorithm can have a visually significant effect on the quality of very fine details in the image. This can include the appearance of false maze patterns as well as how well colored edges are rendered.
 
-_PPG_ is darktable's default demosaic algorithm. It is fast, but other algorithms generally yield better results.
+The following algorithms are avaliable for sensors with Bayer filters:
 
-_AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_.
+- _PPG_ used to be darktable's default demosaic algorithm. It is fast, but other algorithms generally yield better results.
 
-_VNG4_ is better suited for images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.
+- _AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_. Since _RCD_ now offers similar performance to _PPG_ it is now the default algorithm.
+
+- _VNG4_ is better suited for images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.
 
 Demosaic interpolation algorithms are often prone to produce artifacts, which are typically visible as [Moiré patterns](https://en.wikipedia.org/wiki/Moire_pattern) when zooming into the image. On the other hand, the chosen algorithm might handle _pre-existing_ Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances _VNG4_ is often more stable.
 
