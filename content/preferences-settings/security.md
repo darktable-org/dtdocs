@@ -7,17 +7,17 @@ draft: false
 
 The following options allow the user to switch on warnings when certain activities are undertaken.
 
-ask before removing images from database
-: Always ask the user before any image is removed from the database (default on).
+ask before removing images from darktable
+: Always ask the user before any image is removed from darktable's database, without deleting the image/xmp file (default on).
 
-ask before erasing images from disk
+ask before deleting images from disk
 : Always ask the user before any image file is deleted (default on).
 
 ask before discarding history stack
 : Always ask the user before the history stack of an image is discarded (default on).
 
-send files to trash when erasing images
-: Instead of physically deleting images from disk put them into the system's trash bin (default on).
+try to use trash when deleting images
+: Instead of physically deleting images from disk, attempt to put them into the system's trash bin (default on).
 
 ask before moving images from film roll folder
 : Always ask the user before any image file is moved (default on).
