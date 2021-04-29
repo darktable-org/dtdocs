@@ -10,7 +10,7 @@ masking: true
 
 ---
 
-**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [_vibrance rgb_](./vibrance-rgb.md) module instead.**
+**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the vibrance control in the [_color balance rgb_](./color-balance-rgb.md) module instead.**
 
 ---
 
