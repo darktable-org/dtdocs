@@ -6,6 +6,7 @@ tags:
 working-color-space: RGB
 view: darkroom
 masking: true
+include_toc: true
 ---
 
 A fully-featured color-space correction, white balance adjustment and channel mixer. This simple yet powerful module can be used in the following ways:
@@ -235,7 +236,7 @@ normalize channels
 
 # extracting settings using a color checker
 
-Since the channel mixer is essentially an RGB matrix (similar to the [_input color profile_](./input-color-profile.md) used for RAW images) it can be used to improve the color accuracy of the input color profile by computing ad-hoc color calibration settings. 
+Since the channel mixer is essentially an RGB matrix (similar to the [_input color profile_](./input-color-profile.md) used for RAW images) it can be used to improve the color accuracy of the input color profile by computing ad-hoc color calibration settings.
 
 These computed settings aim to minimize the color difference between the scene reference and the camera recording in a given lighting situation. This is equivalent to creating a generic ICC color profile but here, the profile is instead stored as module settings that can be saved as presets or styles, to be shared and re-used between images. Such profiles are meant to complement and refine the generic input profile but do not replace it.
 
@@ -300,7 +301,7 @@ Use the following process to create your profile preset/style:
 
 ## reading the profile report
 
-The profile report helps you to assess the quality of the calibration. The settings in color calibration are only a "best fit" optimization and will never be 100% accurate for the whole color spectrum. We therefore need to track "how inaccurate" it is in order to know whether we can trust this profile or not. 
+The profile report helps you to assess the quality of the calibration. The settings in color calibration are only a "best fit" optimization and will never be 100% accurate for the whole color spectrum. We therefore need to track "how inaccurate" it is in order to know whether we can trust this profile or not.
 
 Bad profiles can happen and will do more harm than good if used.
 
