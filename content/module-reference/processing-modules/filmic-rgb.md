@@ -6,6 +6,7 @@ tags:
 working-color-space: RGB
 view: darkroom
 masking: true
+include_toc: true
 ---
 Remap the tonal range of an image by reproducing the tone and color response of classic film.  This module can be used either to expand or to contract the dynamic range of the scene into the dynamic range of the display.
 
@@ -261,7 +262,7 @@ auto-adjust hardness
 : By default, this setting is enabled, and _filmic rgb_ will automatically calculate the power function (aka "gamma") to be applied on the output transfer curve. If this setting is disabled, a _hardness_ slider will appear on the _look_ tab so that value can be manually set.
 
 iterations of high-quality reconstruction
-: Use this setting to increase the number of passes of the _filmic rgb_ highlight reconstruction algorithm. More iterations means more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping. 
+: Use this setting to increase the number of passes of the _filmic rgb_ highlight reconstruction algorithm. More iterations means more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping.
 
 : The default reconstruction works on separate RGB channels and has only one iteration applied, whereas the _high quality_ reconstruction uses a different algorithm that works on RGB ratios (which is a way of breaking down chromaticity from luminance) and can use several iterations to graduately propagate colors from neighbouring pixels in clipped areas. However, if too many iterations are used, the reconstruction can denegenerate, which will result in far colors being improperly inpainted into clipped objects (color bleeding), such as white clouds being inpainted with blue sky, or the sun disc shot through trees being inpainted with leaf green.
 
