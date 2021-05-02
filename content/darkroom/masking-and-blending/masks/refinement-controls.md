@@ -7,6 +7,11 @@ draft: false
 
 When a parametric or drawn mask is active, several additional sliders are shown which allow the mask to be further refined.
 
+details threshold
+: Details refinement increases or decreases the opacity of the mask depending on the amount of detail in the corresponding part of the image. Use the slider to select either areas with lots of detail (slider is positive) or areas that are flat and lacking in detail (negative). The default is zero, which effectively bypasses the refinement.
+
+**Note:** all the data used for the detail mask refinement is taken from the demosaicer stage in the processing pipeline, not from current image content (which would be the case when defining filtering criteria for a parametric mask). None the development steps coming after the demosaic step will have any effect on calculating the detail mask.
+
 feathering guide
 : Mask feathering smooths a drawn or parametric mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending), depending on whether you select "input image" or "output image" in the “feathering guide” combobox. Feathering is particularly sensitive to this choice when used with edge-modifying modules (modules for sharpening or blurring an image).
 
