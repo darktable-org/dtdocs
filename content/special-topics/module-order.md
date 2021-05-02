@@ -36,6 +36,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [**exposure**](../module-reference/processing-modules/exposure.md)
 2. [local tone mapping (deprecated)](../module-reference/processing-modules/tone-mapping.md)
 2. [tone equalizer](../module-reference/processing-modules/tone-equalizer.md)
+2. [crop](../module-reference/processing-modules/crop.md)
 2. [graduated density](../module-reference/processing-modules/graduated-density.md)
 2. [unbreak input profile](../module-reference/processing-modules/unbreak-input-profile.md)
 2. _legacy equalizer_
@@ -115,6 +116,7 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [orientation](../module-reference/processing-modules/orientation.md)
 2. [crop and rotate](../module-reference/processing-modules/crop-rotate.md)
 2. [tone equalizer](../module-reference/processing-modules/tone-equalizer.md)
+2. [crop](../module-reference/processing-modules/crop.md)
 2. [graduated density](../module-reference/processing-modules/graduated-density.md)
 2. [**BASE CURVE**](../module-reference/processing-modules/base-curve.md)  -- default transition between scene-referred and diaplay-refered space
 2. [surface blur](../module-reference/processing-modules/surface-blur.md)
