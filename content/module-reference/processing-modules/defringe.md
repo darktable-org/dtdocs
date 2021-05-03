@@ -1,11 +1,17 @@
 ---
-title: defringe
+title: defringe (deprecated)
 id: defringe
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space: Lab 
 view: darkroom
 masking: true
+---
+
+---
+
+**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [_chromatic aberrations_](./chromatic-aberrations.md) module instead.**
+
 ---
 
 Remove color fringing, which often results from Longitudinal Chromatic Aberrations (LCA), also known as Axial Chromatic Aberrations.
