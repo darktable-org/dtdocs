@@ -13,7 +13,7 @@ Correct chromatic aberrations.
 # workflow 
 
 To obtain the best result, you are advised to proceed as follows:
-- Attenuate the chromatic aberrations as much as possible in the [lens correction](./lens-correction.md) module using the TCA sliders.
+- Attenuate the chromatic aberrations as much as possible in the [_lens correction_](./lens-correction.md) module using the TCA sliders.
 - Increase the strength slider in this module to better see its effect.
 - Increase the radius until the chromatic aberrations disappear. If this is insufficient, try enabling the "very large chromatic aberrations" setting.
 - Choose the guide that gives the best result in term of sharpness and artifacts.
