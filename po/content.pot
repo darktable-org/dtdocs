@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2021-04-17 23:57-0700\n"
+"POT-Creation-Date: 2021-05-05 18:46-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,6 +167,7 @@ msgstr ""
 #: content/module-reference/processing-modules/color-mapping.md
 #: content/module-reference/processing-modules/contrast-brightness-saturation.md
 #: content/module-reference/processing-modules/exposure.md
+#: content/module-reference/processing-modules/crop.md
 #: content/module-reference/processing-modules/rgb-curve.md
 #: content/module-reference/processing-modules/color-reconstruction.md
 #: content/module-reference/processing-modules/chromatic-aberrations.md
@@ -177,6 +178,7 @@ msgstr ""
 #: content/module-reference/processing-modules/tone-mapping.md
 #: content/module-reference/processing-modules/basic-adjustments.md
 #: content/module-reference/processing-modules/defringe.md
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
 #: content/module-reference/processing-modules/velvia.md
 #: content/module-reference/processing-modules/contrast-equalizer.md
 #: content/module-reference/processing-modules/filmic-rgb.md
@@ -207,7 +209,6 @@ msgstr ""
 #: content/module-reference/processing-modules/input-color-profile.md
 #: content/module-reference/processing-modules/color-look-up-table.md
 #: content/module-reference/processing-modules/rgb-levels.md
-#: content/module-reference/processing-modules/vibrance-rgb.md
 #: content/module-reference/processing-modules/base-curve.md
 #: content/module-reference/processing-modules/color-balance.md
 #: content/module-reference/processing-modules/raw-denoise.md
@@ -2013,6 +2014,7 @@ msgstr ""
 
 #. type: Title #
 #: content/module-reference/utility-modules/shared/tagging.md
+#: content/special-topics/color-management/color-dimensions.md
 #, markdown-text, no-wrap
 msgid "definitions"
 msgstr ""
@@ -2980,7 +2982,7 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid ""
 "import\n"
-": Import a previously saved style. Styles are stored as XML files with the extension `.dtstyle`.\n"
+": Import a previously saved style. Styles are stored as XML files with the extension `.dtstyle`. If a style already exists, you will be asked whether or not you wish to overwrite.\n"
 msgstr ""
 
 #. type: Plain text
@@ -3368,8 +3370,8 @@ msgstr ""
 #: content/module-reference/utility-modules/lighttable/selected-image.md
 #, markdown-text, no-wrap
 msgid ""
-"delete/trash\n"
-": Eliminate the selected images from the darktable database and remove any associated XMP sidecar files. If no duplicates of the selected image remain in the darktable database, the image file itself is also deleted. You can control whether this action irrevocably deletes the images or puts them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.\n"
+"delete / delete (trash)\n"
+": Eliminate the selected images from the darktable database and remove any associated XMP sidecar files. If no duplicates of the selected image remain in the darktable database, the image file itself is also deleted. You can control whether this action irrevocably deletes the images or attempts to put them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.\n"
 msgstr ""
 
 #. type: Plain text
@@ -4434,6 +4436,7 @@ msgstr ""
 
 #. type: Title ##
 #: content/module-reference/utility-modules/_index.md
+#: content/module-reference/overview.md
 #: content/preferences-settings/shortcuts.md
 #, markdown-text, no-wrap
 msgid "utility modules"
@@ -4519,7 +4522,28 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/overview.md
 #, markdown-text, no-wrap
-msgid "Some modules contain lists of infomation which can grow as more entries are added. To help manage screen real-estate, it is possible to shrink or expand the number of entries that are displayed in the list of a module. Place the mouse over an entry in the list, and hold Ctrl while scrolling your mouse wheel to increase or reduce the number of entries that are shown. If the list contains more entries that can be shown at one time, a scrollbar will appear to the right of the list, so that you can access the hidden entries.\n"
+msgid "Some utility modules contain lists of infomation which can grow as more entries are added. To help manage screen real-estate, it is possible to increase or the number of entries that can be displayed before a scroll bar is added. Place the mouse over an entry in the list, and hold Ctrl while scrolling your mouse wheel to increase or reduce the maximum number of entries. If the list contains more entries than this maximum, a scrollbar will appear to the right of the list, so that you can access the hidden entries.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/overview.md
+#, markdown-text, no-wrap
+msgid "Please note that it is not possible to extend these areas beyond the number of entries currently shown. If you attempt to do so using Ctrl+scroll, the maximum available size _will_ increase, and a toast message will appear informing you of the new maximum number of entries. However, the module itself will not be resized until its content exceeds the stored maximum.\n"
+msgstr ""
+
+#. type: YAML Front Matter: title
+#: content/module-reference/overview.md
+#: content/module-reference/processing-modules/_index.md
+#: content/preferences-settings/shortcuts.md
+#: content/darkroom/processing-modules/_index.md
+#, markdown-text, no-wrap
+msgid "processing modules"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/overview.md
+#, markdown-text, no-wrap
+msgid "Some processing modules contain drawn graphical elements that can take up too much or too little screen space depending on the width of your side panels. These drawing areas usually default to a 16:9 aspect ratio and can be similarly resized by hovering over them and holding Ctrl while scrolling.\n"
 msgstr ""
 
 #. type: YAML Front Matter: title
@@ -4746,12 +4770,11 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/vibrance.md
 #, markdown-text, no-wrap
-msgid "**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [_vibrance rgb_](./vibrance-rgb.md) module instead.**\n"
+msgid "**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the vibrance control in the [_color balance rgb_](./color-balance-rgb.md) module instead.**\n"
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/vibrance.md
-#: content/module-reference/processing-modules/vibrance-rgb.md
 #, markdown-text, no-wrap
 msgid "Saturate and reduce the lightness of the most saturated pixels to make the colors more vivid.\n"
 msgstr ""
@@ -5154,16 +5177,22 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/demosaic.md
 #, markdown-text, no-wrap
-msgid "_PPG_ is darktable's default demosaic algorithm. It is fast, but other algorithms generally yield better results.\n"
+msgid "The following algorithms are avaliable for sensors with Bayer filters:\n"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
 #: content/module-reference/processing-modules/demosaic.md
 #, markdown-text, no-wrap
-msgid "_AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_.\n"
+msgid "_PPG_ used to be darktable's default demosaic algorithm. It is fast, but other algorithms generally yield better results.\n"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
+#: content/module-reference/processing-modules/demosaic.md
+#, markdown-text, no-wrap
+msgid "_AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_. Since _RCD_ now offers similar performance to _PPG_ it is now the default algorithm.\n"
+msgstr ""
+
+#. type: Bullet: '- '
 #: content/module-reference/processing-modules/demosaic.md
 #, markdown-text, no-wrap
 msgid "_VNG4_ is better suited for images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.\n"
@@ -5569,6 +5598,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid "Whenever the user interface of this module is in focus, the full uncropped image will be shown, overlaid with crop handles and optional guiding lines.\n"
 msgstr ""
@@ -5581,6 +5611,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid "Resize the crop by dragging the border and corner handles. Move the crop rectangle by clicking and dragging. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.\n"
 msgstr ""
@@ -5658,6 +5689,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ""
 "aspect\n"
@@ -5670,24 +5702,28 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ": You can also enter any other ratio after opening the combobox by typing it in the form of “x:y” or as a decimal (e.g. \"0.5\" to apply a ratio of 2:1). \n"
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ": If you want to add an aspect ratio to the pre-defined drop-down list you can do this by including a line of the form \"`plugins/darkroom/clipping/extra_aspect_ratios/foo=x:y`\" in darktable's configuration file `$HOME/.config/darktable/darktablerc`. Here “`foo`” defines the name of the new aspect ratio and “`x`” and “`y`” the corresponding numerical values (`x` and `y` must be integers).\n"
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ": Finally, the button beside the aspect combobox allows you to switch between portrait and landscape orientation if you have selected a rectangular aspect ratio.\n"
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid "**Note:** When resizing an image in freehand mode you may retain the currently-set aspect ratio by holding Shift while dragging on any of the resize controls.\n"
 msgstr ""
@@ -5702,6 +5738,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ""
 "guides flip\n"
@@ -5716,12 +5753,14 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid "These sliders allow you to directly set how much of the image to crop from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.\n"
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ""
 "left\n"
@@ -5730,6 +5769,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ""
 "right\n"
@@ -5738,6 +5778,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ""
 "top\n"
@@ -5746,6 +5787,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/crop-rotate.md
+#: content/module-reference/processing-modules/crop.md
 #, markdown-text, no-wrap
 msgid ""
 "bottom\n"
@@ -6226,6 +6268,56 @@ msgstr ""
 #: content/module-reference/processing-modules/exposure.md
 #, markdown-text, no-wrap
 msgid "**Note:** Do not use the black level correction to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This can cause problems with some modules later in the pixelpipe. Instead, use a tone mapping curve to add density to the blacks (e.g. use the _relative black exposure_ slider on the _scene_ tab of [filmic rgb](filmic-rgb.md), or establish a deeper toe in [base curve](base-curve.md)).\n"
+msgstr ""
+
+#. type: YAML Front Matter: title
+#: content/module-reference/processing-modules/crop.md
+#, no-wrap
+msgid "crop"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid "Crop an image using on-screen guides. This module appears later in the pipeline than the [_crop & rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are recommended to use the _crop & rotate_ module to perform rotation and keystone correction (if required), and then perform final creative cropping using this module.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid "![screen controls](./crop/screen-controls.png#w75)\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid "The _crop_ module controls are split between two sections as follows:\n"
+msgstr ""
+
+#. type: Title ##
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid "crop settings"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid ""
+"guides\n"
+": Overlay standard compositional guide lines on the image while cropping. When selecting \"golden mean\", some additional options become available in an \"extra\" drop-down. When selecting \"grid\", you can choose the number of lines and subdivisions.\n"
+msgstr ""
+
+#. type: Title ##
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid "margins"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/crop.md
+#, markdown-text, no-wrap
+msgid "As this section is rarely used, it is collapsed by default.\n"
 msgstr ""
 
 #. type: YAML Front Matter: title
@@ -6889,6 +6981,14 @@ msgstr ""
 msgid "The brightness and colorfulness (color saturation) of pixels in an image can also be adjusted based on the R, G and B input channels. This uses the same basic algorithm that the [_filmic rgb_](filmic-rgb.md) module uses for tone mapping (which preserves RGB ratios) and for midtones saturation (which massages them).\n"
 msgstr ""
 
+#. type: Plain text
+#: content/module-reference/processing-modules/color-calibration.md
+#, markdown-text, no-wrap
+msgid ""
+"saturation algorithm\n"
+": This control allows you to upgrade the saturation algorithm to the new 2021 version, for edits produced prior to darktable 3.6 -- it will not appear for edits that already use the latest version.\n"
+msgstr ""
+
 #. type: Title ##
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
@@ -6993,7 +7093,7 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
-msgid "Since the channel mixer is essentially an RGB matrix (similar to the [_input color profile_](./input-color-profile.md) used for RAW images) it can be used to improve the color accuracy of the input color profile by computing ad-hoc color calibration settings. \n"
+msgid "Since the channel mixer is essentially an RGB matrix (similar to the [_input color profile_](./input-color-profile.md) used for RAW images) it can be used to improve the color accuracy of the input color profile by computing ad-hoc color calibration settings.\n"
 msgstr ""
 
 #. type: Plain text
@@ -7197,7 +7297,7 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/color-calibration.md
 #, markdown-text, no-wrap
-msgid "The profile report helps you to assess the quality of the calibration. The settings in color calibration are only a \"best fit\" optimization and will never be 100% accurate for the whole color spectrum. We therefore need to track \"how inaccurate\" it is in order to know whether we can trust this profile or not. \n"
+msgid "The profile report helps you to assess the quality of the calibration. The settings in color calibration are only a \"best fit\" optimization and will never be 100% accurate for the whole color spectrum. We therefore need to track \"how inaccurate\" it is in order to know whether we can trust this profile or not.\n"
 msgstr ""
 
 #. type: Plain text
@@ -7470,32 +7570,73 @@ msgstr ""
 msgid "Correct chromatic aberrations.\n"
 msgstr ""
 
-#. type: Plain text
+#. type: Title #
 #: content/module-reference/processing-modules/chromatic-aberrations.md
 #, markdown-text, no-wrap
-msgid "As this module operates on non-demosaiced raw data, the underlying model assumes an uncropped photographic image as input. It is therefore likely to fail when you zoom in, as it is only able to operate on the visible portion of the image. The module will therefore be bypassed at high zoom levels, and a \"bypassed\" message will appear at the top of the module. This limitation only applies to interactive work and not to the final export. \n"
-msgstr ""
-
-#. type: Plain text
-#: content/module-reference/processing-modules/chromatic-aberrations.md
-#, markdown-text, no-wrap
-msgid "This module currently only works for images recorded with a Bayer sensor (the sensor used in the majority of cameras). It will not apply any corrections to photos that have been identified as monochrome (see [developing monochrome images](../../guides-tutorials/monochrome.md) for more information).\n"
+msgid "workflow "
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/chromatic-aberrations.md
 #, markdown-text, no-wrap
 msgid ""
-"iterations\n"
-": The number of iterations. For most images, \"twice\" is sufficient, and is the default value. Occasionally, increasing this control can give better results.\n"
+"To obtain the best result, you are advised to proceed as follows:\n"
+"1. Attenuate the chromatic aberrations as much as possible in the [_lens correction_](./lens-correction.md) module using the TCA sliders.\n"
+"2. Increase the strength slider in this module to better see its effect.\n"
+"3. Increase the radius until the chromatic aberrations disappear. If this is insufficient, try enabling the \"very large chromatic aberrations\" setting.\n"
+"4. Choose the guide that gives the best result in term of sharpness and artifacts.\n"
+"5. Reduce the strength to avoid washing out the colors too much.\n"
 msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/chromatic-aberrations.md
 #, markdown-text, no-wrap
 msgid ""
-"avoid colorshift\n"
-": If the module causes purple tinting, tick this box to apply a correction.\n"
+"For more complicated cases you could also try the following:\n"
+"- Use several instances with different correction modes -- for example, a first instance in \"brighten only\" mode, and a second in \"darken only\" mode.\n"
+"- Use several instances with low strength to correct the chromatic aberrations a little at a time without degrading colors too much.\n"
+"- Use the module with parametric or drawn masks.\n"
+"- Use RGB red, green and blue blend modes to restrict the effect to a particular channel.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"guide\n"
+": The color channel that will be used as a reference for the correction.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"radius\n"
+": The radius of the effect. Increase until chromatic aberrations are eliminated. This is the most important slider of the module.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"strength\n"
+": This slider acts as a safeguard and can help to preserve colorful areas that do not suffer from chromatic aberrations. Increase for stronger correction, decrease for stronger preservation.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"correction mode\n"
+": Allows you to restrict the effect to brighten or darken pixels only. For full control, this can be used in combination with R, G, B blend modes and multiples instances.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"very large chromatic aberrations\n"
+": Makes the algorithm iterative to help in reducing very large chromatic aberrations.\n"
 msgstr ""
 
 #. type: YAML Front Matter: title
@@ -8018,7 +8159,13 @@ msgstr ""
 #. type: YAML Front Matter: title
 #: content/module-reference/processing-modules/defringe.md
 #, no-wrap
-msgid "defringe"
+msgid "defringe (deprecated)"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/defringe.md
+#, markdown-text, no-wrap
+msgid "**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [_chromatic aberrations_](./chromatic-aberrations.md) module instead.**\n"
 msgstr ""
 
 #. type: Plain text
@@ -8067,6 +8214,46 @@ msgstr ""
 msgid ""
 "threshold\n"
 ": The threshold over which the edge of a pixel is counted as a “fringe”. Try lowering this value if there is not enough fringe detected and increasing it if too many pixels are desaturated.\n"
+msgstr ""
+
+#. type: YAML Front Matter: title
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
+#, no-wrap
+msgid "raw chromatic aberrations"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid "Correct chromatic aberrations of raw images.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid "As this module operates on non-demosaiced raw data, the underlying model assumes an uncropped photographic image as input. It is therefore likely to fail when you zoom in, as it is only able to operate on the visible portion of the image. The module will therefore be bypassed at high zoom levels, and a \"bypassed\" message will appear at the top of the module. This limitation only applies to interactive work and not to the final export. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid "This module currently only works for images recorded with a Bayer sensor (the sensor used in the majority of cameras). It will not apply any corrections to photos that have been identified as monochrome (see [developing monochrome images](../../guides-tutorials/monochrome.md) for more information).\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"iterations\n"
+": The number of iterations. For most images, \"twice\" is sufficient, and is the default value. Occasionally, increasing this control can give better results.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/raw-chromatic-aberrations.md
+#, markdown-text, no-wrap
+msgid ""
+"avoid colorshift\n"
+": If the module causes purple tinting, tick this box to apply a correction.\n"
 msgstr ""
 
 #. type: YAML Front Matter: title
@@ -8946,7 +9133,7 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid ""
 "iterations of high-quality reconstruction\n"
-": Use this setting to increase the number of passes of the _filmic rgb_ highlight reconstruction algorithm. More iterations means more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping. \n"
+": Use this setting to increase the number of passes of the _filmic rgb_ highlight reconstruction algorithm. More iterations means more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping.\n"
 msgstr ""
 
 #. type: Plain text
@@ -9880,6 +10067,18 @@ msgid ""
 msgstr ""
 
 #. type: YAML Front Matter: title
+#: content/module-reference/processing-modules/color-balance-rgb.md
+#, no-wrap
+msgid "color balance rgb"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/color-balance-rgb.md
+#, markdown-text, no-wrap
+msgid "This is a placeholder page\n"
+msgstr ""
+
+#. type: YAML Front Matter: title
 #: content/module-reference/processing-modules/retouch.md
 #, no-wrap
 msgid "retouch"
@@ -9894,7 +10093,7 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/retouch.md
 #, markdown-text, no-wrap
-msgid "This module extends the capabilities of the [_spot removal_](./spot-removal.md) module by including a \"heal\" tool (based on the heal tool from GIMP) which provides a type of seamless cloning. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine). These layers can then be selectively retouched before being recombined to produce the output image. Examples of these capabilities are shown in the following sections.\n"
+msgid "This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module by including a \"heal\" tool (based on the heal tool from GIMP) which provides a type of seamless cloning. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine). These layers can then be selectively retouched before being recombined to produce the output image. Examples of these capabilities are shown in the following sections.\n"
 msgstr ""
 
 #. type: Title #
@@ -10118,7 +10317,7 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid ""
 "algorithms\n"
-": Choose a retouching algorithm: clone, heal, fill or blur (see above for details).\n"
+": Choose a retouching algorithm: clone, heal, fill or blur (see above for details). Ctrl+click to change the algorithm used for the currently-selected shape. Shift+click to set the default algorithm -- this default will be used each time you use the module on a new image or reset module parameters.\n"
 msgstr ""
 
 #. type: Title ##
@@ -10741,14 +10940,6 @@ msgstr ""
 msgid ""
 "compression\n"
 ": The percentage of total (mid-tone) lightness range that is not affected by color toning. This compresses the effect on the shadows and highlights while preserving the mid-tones.\n"
-msgstr ""
-
-#. type: YAML Front Matter: title
-#: content/module-reference/processing-modules/_index.md
-#: content/preferences-settings/shortcuts.md
-#: content/darkroom/processing-modules/_index.md
-#, markdown-text, no-wrap
-msgid "processing modules"
 msgstr ""
 
 #. type: YAML Front Matter: title
@@ -12393,20 +12584,6 @@ msgid ""
 msgstr ""
 
 #. type: YAML Front Matter: title
-#: content/module-reference/processing-modules/vibrance-rgb.md
-#, no-wrap
-msgid "vibrance rgb"
-msgstr ""
-
-#. type: Plain text
-#: content/module-reference/processing-modules/vibrance-rgb.md
-#, markdown-text, no-wrap
-msgid ""
-"amount\n"
-": The amount of vibrance to apply to the image.\n"
-msgstr ""
-
-#. type: YAML Front Matter: title
 #: content/module-reference/processing-modules/base-curve.md
 #, no-wrap
 msgid "base curve"
@@ -12463,7 +12640,13 @@ msgstr ""
 #. type: YAML Front Matter: title
 #: content/module-reference/processing-modules/spot-removal.md
 #, no-wrap
-msgid "spot removal"
+msgid "spot removal (deprecated)"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/spot-removal.md
+#, markdown-text, no-wrap
+msgid "**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the \"cloning\" tool in the [_retouch_](./retouch.md) module instead.**\n"
 msgstr ""
 
 #. type: Plain text
@@ -13841,7 +14024,7 @@ msgstr ""
 #. type: Plain text
 #: content/preferences-settings/presets.md
 #, markdown-text, no-wrap
-msgid "User-defined presets can be imported from saved `.dtpreset` files using the \"import\" button at the bottom of the screen. You can export _all_ user-defined presets to a single directory using the \"export\" button.\n"
+msgid "User-defined presets can be imported from exported `.dtpreset` files using the \"import\" button at the bottom of the screen. You can export _all_ user-defined presets to a single directory using the \"export\" button.\n"
 msgstr ""
 
 #. type: Plain text
@@ -13853,7 +14036,7 @@ msgstr ""
 #. type: Plain text
 #: content/preferences-settings/presets.md
 #, markdown-text, no-wrap
-msgid "Edit a preset's properties by selecting it and pressing Enter or double-clicking. This will open a dialog that allows the preset to be edited, saved to an external `.dtpreset` file or deleted. \n"
+msgid "Edit a preset's properties by selecting it and pressing Enter or double-clicking. This will open a dialog that allows the preset to be edited, exported to an external `.dtpreset` file or deleted. \n"
 msgstr ""
 
 #. type: Plain text
@@ -14162,9 +14345,9 @@ msgid ""
 "demosaicing for zoomed out darkroom mode\n"
 ": Choose how to demosaic images in the darkroom view when not viewing the image at 1:1 zoom scale\n"
 ": - _always bilinear (fast)_ is fastest, but not as sharp\n"
-": - _at most PPG (reasonable)_ uses PPG + interpolation modes\n"
+": - _at most RCD (reasonable)_ uses RCD + interpolation modes. X-Trans sensors will use VNG as the middle-ground setting.\n"
 ": - _full (possibly slow)_ will use exactly the settings for full-size export \n"
-": (default \"_at most ppg (reasonable)_\"). \n"
+": (default \"_at most RCD (reasonable)_\"). \n"
 msgstr ""
 
 #. type: Plain text
@@ -14386,15 +14569,15 @@ msgstr ""
 #: content/preferences-settings/security.md
 #, markdown-text, no-wrap
 msgid ""
-"ask before removing images from database\n"
-": Always ask the user before any image is removed from the database (default on).\n"
+"ask before removing images from darktable\n"
+": Always ask the user before any image is removed from darktable's database, without deleting the image/xmp file (default on).\n"
 msgstr ""
 
 #. type: Plain text
 #: content/preferences-settings/security.md
 #, markdown-text, no-wrap
 msgid ""
-"ask before erasing images from disk\n"
+"ask before deleting images from disk\n"
 ": Always ask the user before any image file is deleted (default on).\n"
 msgstr ""
 
@@ -14410,8 +14593,8 @@ msgstr ""
 #: content/preferences-settings/security.md
 #, markdown-text, no-wrap
 msgid ""
-"send files to trash when erasing images\n"
-": Instead of physically deleting images from disk put them into the system's trash bin (default on).\n"
+"try to use trash when deleting images\n"
+": Instead of physically deleting images from disk, attempt to put them into the system's trash bin (default on).\n"
 msgstr ""
 
 #. type: Plain text
@@ -15670,7 +15853,7 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid ""
 "fixing spots\n"
-": As with the _scene-referred_ workflow, you can use the [_retouch_](../../module-reference/processing-modules/retouch.md), [_spot removal_](../../module-reference/processing-modules/spot-removal.md) and [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md) modules to correct artifacts in your image.\n"
+": As with the _scene-referred_ workflow, you can use the [_retouch_](../../module-reference/processing-modules/retouch.md) and [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md) modules to correct artifacts in your image.\n"
 msgstr ""
 
 #. type: Plain text
@@ -15915,8 +16098,8 @@ msgstr ""
 #: content/overview/workflow/edit-scene-referred.md
 #, markdown-text, no-wrap
 msgid ""
-"[_retouch_](../../module-reference/processing-modules/retouch.md) / [_spot removal_](../../module-reference/processing-modules/spot-removal.md) / [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md)\n"
-": Sometimes you will need to remove spots caused by sensor dirt. The new _retouch_ and the older _spot removal_ modules are at hand for this and can also correct other disturbing elements like skin blemishes. If your camera has stuck pixels or tends to produce hot pixels at high ISO values or longer exposure times, take a look at the _hot pixels_ module for automatic correction.\n"
+"[_retouch_](../../module-reference/processing-modules/retouch.md) / [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md)\n"
+": Sometimes you will need to remove spots caused by sensor dirt. The _retouch_ module is at hand for this and can also correct other disturbing elements like skin blemishes. If your camera has stuck pixels or tends to produce hot pixels at high ISO values or longer exposure times, take a look at the _hot pixels_ module for automatic correction.\n"
 msgstr ""
 
 #. type: Plain text
@@ -17297,7 +17480,7 @@ msgstr ""
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
-msgid "You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../module-reference/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G. Images generated by duplicating an existing image are automatically grouped. Similarly, if you import multiple images with the same base name, but different extensions (eg. `IMG_1234.CR2` and `IMG_1234.JPG`), these images will automatically form a group.\n"
+msgid "You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../module-reference/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G. Images generated by duplicating an existing image are automatically grouped. Similarly, if you import multiple images from the same directory, having the same base name, but different extensions (eg. `IMG_1234.CR2` and `IMG_1234.JPG`), these images will automatically form a group.\n"
 msgstr ""
 
 #. type: Plain text
@@ -18702,7 +18885,31 @@ msgstr ""
 #. type: Plain text
 #: content/darkroom/masking-and-blending/masks/raster.md
 #, markdown-text, no-wrap
-msgid "You can choose a raster mask from the combobox. Raster masks can be identified by the name of the module against which they were originally generated. Raster masks can only be selected from modules that are currently active in the pixelpipe. If a module is subsequently deactivated its raster mask can no longer be used.\n"
+msgid "You can choose a raster mask from the combobox. Raster masks can be identified by the name of the module against which they were originally generated. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/darkroom/masking-and-blending/masks/raster.md
+#, markdown-text, no-wrap
+msgid "**Note:** Raster masks are generated as part of a module's internal processing. Once a module's processing is complete its mask then becomes available to subsequent modules in the pixelpipe. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/darkroom/masking-and-blending/masks/raster.md
+#, markdown-text, no-wrap
+msgid "This has two implications:\n"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: content/darkroom/masking-and-blending/masks/raster.md
+#, markdown-text, no-wrap
+msgid "Raster masks cannot be generated by disabled modules since they do not participate in pixelpipe processing. As soon as you disable a module, its mask is no longer available for use.\n"
+msgstr ""
+
+#. type: Bullet: '2. '
+#: content/darkroom/masking-and-blending/masks/raster.md
+#, markdown-text, no-wrap
+msgid "Raster masks are passed _up_ the pixelpipe after module processing. They can only be used by modules that come later in the pipe than the generating module.\n"
 msgstr ""
 
 #. type: YAML Front Matter: title
@@ -18834,6 +19041,20 @@ msgstr ""
 #: content/darkroom/masking-and-blending/masks/refinement-controls.md
 #, markdown-text, no-wrap
 msgid "When a parametric or drawn mask is active, several additional sliders are shown which allow the mask to be further refined.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/darkroom/masking-and-blending/masks/refinement-controls.md
+#, markdown-text, no-wrap
+msgid ""
+"details threshold\n"
+": This control allows you to alter the opacity of the mask depending on the amount of detail in the image. Use this slider to select either areas with lots of detail (positive values) or areas that are flat and lacking in detail (negative values). The default (zero) effectively bypasses details refinement. This is mostly useful to apply sharpening and blurring effects that ignore out-of-focus (bokeh) regions or, on the contrary, sharpen only blurry parts, to prevent over-sharpening of in-focus regions.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/darkroom/masking-and-blending/masks/refinement-controls.md
+#, markdown-text, no-wrap
+msgid "**Note:** The data used for the detail mask refinement is taken from the demosaic stage in the processing pipeline, and not from module input (which is used for the other parametric mask criteria). None of the processing modules after demosaic will have any effect on the detail mask.\n"
 msgstr ""
 
 #. type: Plain text
@@ -19079,6 +19300,18 @@ msgstr ""
 #. type: Title #
 #: content/darkroom/masking-and-blending/masks/drawn.md
 #, markdown-text, no-wrap
+msgid "shape distortions"
+msgstr ""
+
+#. type: Plain text
+#: content/darkroom/masking-and-blending/masks/drawn.md
+#, markdown-text, no-wrap
+msgid "In order to ensure a consistent co-ordinate system, when you place a shape on the image, it is actually drawn on the original RAW file. This shape then passes up through the pixelpipe before finally being drawn on the screen. This means that, if you have any enabled any distorting modules (such as lens correction), drawn shapes may appear distorted on the screen and in the final image. This can lead, for example, to circles being rendered as ellipses and gradient lines becoming curved. If you need to create a more accurate shape (to overcome these distortions) it is recommended that you avoid using the simple shapes (circles / ellipses) in favor of the path shape (which can be drawn using more points, reducing distortions). Gradient lines can be curved to overcome the simple distortions introduced by lens correction.\n"
+msgstr ""
+
+#. type: Title #
+#: content/darkroom/masking-and-blending/masks/drawn.md
+#, markdown-text, no-wrap
 msgid "available shapes"
 msgstr ""
 
@@ -19173,7 +19406,7 @@ msgstr ""
 #. type: Plain text
 #: content/darkroom/masking-and-blending/masks/drawn.md
 #, markdown-text, no-wrap
-msgid ": The line has two anchor nodes which you can drag to change the rotation of the gradient.\n"
+msgid ": The line has two anchor nodes which you can drag to change the rotation of the gradient. You can also set the rotation angle when placing the gradient shape by clicking and dragging to place the shape.\n"
 msgstr ""
 
 #. type: Plain text
@@ -22495,7 +22728,7 @@ msgstr ""
 #. type: Bullet: '2. '
 #: content/special-topics/module-order.md
 #, markdown-text, no-wrap
-msgid "[chromatic aberrations](../module-reference/processing-modules/chromatic-aberrations.md)\n"
+msgid "[raw chromatic aberrations](../module-reference/processing-modules/raw-chromatic-aberrations.md)\n"
 msgstr ""
 
 #. type: Bullet: '2. '
@@ -22544,6 +22777,12 @@ msgstr ""
 #: content/special-topics/module-order.md
 #, markdown-text, no-wrap
 msgid "[lens correction](../module-reference/processing-modules/lens-correction.md)\n"
+msgstr ""
+
+#. type: Bullet: '2. '
+#: content/special-topics/module-order.md
+#, markdown-text, no-wrap
+msgid "[chromatic aberrations](../module-reference/processing-modules/chromatic-aberrations.md)\n"
 msgstr ""
 
 #. type: Bullet: '2. '
@@ -22604,6 +22843,12 @@ msgstr ""
 #: content/special-topics/module-order.md
 #, markdown-text, no-wrap
 msgid "[tone equalizer](../module-reference/processing-modules/tone-equalizer.md)\n"
+msgstr ""
+
+#. type: Bullet: '2. '
+#: content/special-topics/module-order.md
+#, markdown-text, no-wrap
+msgid "[crop](../module-reference/processing-modules/crop.md)\n"
 msgstr ""
 
 #. type: Bullet: '2. '
@@ -23977,6 +24222,273 @@ msgstr ""
 #: content/special-topics/color-management/_index.md
 #, no-wrap
 msgid "color management"
+msgstr ""
+
+#. type: YAML Front Matter: title
+#: content/special-topics/color-management/color-dimensions.md
+#, no-wrap
+msgid "darktable's color dimensions"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "This section defines the perceptual properties of color, both conceptually and quantitatively, in order to characterize and quantify the creative and corrective adjustments made on color in the software.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Color properties like \"saturation\", \"brightness\" or \"lightness\" have passed to common usage but are largely misused and often used to mean different things. In color science, each of these terms has a precise meaning.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "There are two frameworks within which color properties may be analyzed and described:\n"
+msgstr ""
+
+#. type: Bullet: '- '
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "A scene-linear, physiological, framework, that mostly focuses on the response of the retina cone cells, using color spaces such as CIE XYZ 1931 or CIE LMS 2006,\n"
+msgstr ""
+
+#. type: Bullet: '- '
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "A perceptual, psychological, framework that stacks the brain's corrections on top of the retina signal, using color spaces such as CIE Lab 1976, CIE Luv 1976, CIE CAM 2016 and JzAzBz (2017).\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "These two frameworks provide us with metrics and dimensions to analyze color and allow us to change some of its properties while preserving others. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "The following 7 dimensions of color are used by darktable:\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"hue\n"
+": An attribute of visual perception in which an area appears to be similar to one of the colors red, yellow, green, or blue, or to a combination of adjacent pairs of these colors considered in a closed ring. [^1] Hue is a shared property between the perceptual and scene-linear frameworks.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"luminance\n"
+": The density of luminous intensity with respect to a projected area in a specified direction at a specified point on a real or imaginary surface. [^2] Luminance is a property of scene-referred frameworks, and is expressed by the Y channel of the CIE XYZ 1931 space.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"brightness\n"
+": An attribute of visual perception according to which an area appears to emit, transmit or reflect more or less light. [^4]\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"lightness\n"
+": The brightness of an area judged relative to the brightness of a similarly illuminated area that appears to be white or highly transmitting. [^3] Lightness is the perceptual, non-linear homologue of luminance (roughly equal to the cubic root of luminance Y). Lightness is expressed by the L channel in CIE Lab and Luv 1976 and the J channel in JzAzBz.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"chroma\n"
+": The colorfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears gray, white or highly transmitting. [^5] _Warning: chroma is not short for chrominance, which is the color part of a video signal (the Cb and Cr channels in YCbCr, for example)._\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"brilliance\n"
+": The brightness of an area judged relative to the brightness of its surroundings. [^6]\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"saturation\n"
+": The colorfulness of an area judged in proportion to its brightness. [^7]\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"[^1]: CIE definition of _hue_: <https://cie.co.at/eilvterm/17-22-067>\n"
+"[^2]: CIE definition of _luminance_: <https://cie.co.at/eilvterm/17-21-050>\n"
+"[^3]: CIE definition of _brightness_: <https://cie.co.at/eilvterm/17-22-063>\n"
+"[^4]: CIE definition of _lightness_: <https://cie.co.at/eilvterm/17-22-059>\n"
+"[^5]: CIE definition of _chroma_: <https://cie.co.at/eilvterm/17-22-074>\n"
+"[^6]: Article about _brilliance_ (paywall): <https://doi.org/10.1002/col.20128>\n"
+"[^7]: CIE definition of _saturation_: <https://cie.co.at/eilvterm/17-22-073>\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Colors can be described in many different color spaces, but no matter the color space, they need at least 3 components: some metric of luminance or brightness, and 2 metrics of chromaticity (hue and chroma, or opponent color coordinates).\n"
+msgstr ""
+
+#. type: Title #
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "illustrations"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "While the previous definitions are useful to give a meaning to the words, they don't tell us what we should be looking at. The following charts show luminance, lightness, chroma, brilliance/brightness and saturation varying from a \"0\" base color and how the resulting colors degrade:\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "![swatches](./color-dimensions/swatches.png)\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "(Lightness + Chroma) or (Brilliance/Brightness + Saturation) are two different ways to encode the same reality. They are both orthogonal spaces that can be converted from one to another by a simple rotation of the base. This means that chroma evolves at constant lightness, saturation evolves at constant brilliance/brightness, and vice versa:\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "![lightness and chroma to brilliance and saturation](./color-dimensions/lightness-chroma-to-brilliance-saturation.png)\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "The lines of equal chroma are vertical (following the patches grid), meaning that chroma has the same direction for all colors in the gamut (see below). However, the lines of equal saturation are oblique (drawn dashed on the graph) and all go from black though each color patch, meaning their directions are particular to each color.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Increasing the chroma will therefore move all colors uniformly away from the central gray axis horizontally, while increasing the saturation will close or open the angle of the oblique dashed lines like a flower.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Similarly, increasing the lightness will move all colors uniformly up from the horizontal axis, while increasing brilliance/brightness will move them along the lines of equal saturation.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "On both charts above, lightness, chroma, saturation and brilliance are drawn in the JzAzBz color space, which is a perceptual color space suited for an HDR signal, and is used in parametric masks and the color balance RGB module. Luminance is drawn in the CIE XYZ 1931 color space, and represents the effect of an exposure compensation. It shows the same behaviour as brilliance, except that the step size is not perceptually scaled.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "**Note**: In this section, _brilliance_ and _brightness_ are used simultaneously to describe the same dimension. In all rigor, brightness is an absolute metric, while brilliance is the brightness of some surface relative to the brightness of its surroundings (that is, how much a surface \"pops\" out of its surroundings and looks fluorescent). But in image editing, increasing the brightness of some surface will indeed increase its brilliance too, so the term _brilliance_ is prefered in darktable's user interface for clarity and in reference to its visual effect.\n"
+msgstr ""
+
+#. type: Title #
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "color dimensions and gamut"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "The gamut is the volume of colors that a certain color space can encompass and encode. It is important to note that, once converted to perceptual spaces, the gamut of any RGB space is not uniform along hues.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "The following examples show the gamut volume of the sRGB space on hue slices containing the primary red, green and blue lights of the sRGB space, over a lightness-chroma plane with a uniform scale:\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"![sRGB-red](./color-dimensions/sRGB-red.png)\n"
+"![sRGB-green](./color-dimensions/sRGB-green.png)\n"
+"![sRGB-blue](./color-dimensions/sRGB-blue.png)\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "This shows that increasing the chroma (displacement over the horizontal axis) of some quantity can be safe for some hues at some lightness, but can push other hue-lightness coordinates way out of gamut. For example, we have much more margin in green or magenta than in cyan.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Many gamut issues, at export, are actually user-induced and the result of harsh chroma enlarging. For that reason, using brightness-saturation color models may be safer.\n"
+msgstr ""
+
+#. type: Title #
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "color dimensions and complementary colors"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Cyan, magenta, yellow (CMY) are complementary colors of red, green, blue (RGB). However, the complementary CMY spaces computed from RGB spaces are not perceptualy complementary. To show this, we create a CMY space from sRGB, where cyan has sRGB coordinates (0, 1, 1), magenta (1, 0, 1) and yellow (1, 1, 0), and display it in a lightness-chroma space:\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid ""
+"![sRGB-cyan](./color-dimensions/sRGB-cyan.png)\n"
+"![sRGB-magenta](./color-dimensions/sRGB-magenta.png)\n"
+"![sRGB-yellow](./color-dimensions/sRGB-yellow.png)\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "By comparing with the hue slices of the primary colors in the previous section, it is easy to see not only that the gamuts don't have the same shapes, but that the colors do not match.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "This is one more reason to avoid using HSL/HSV spaces (derived from RGB spaces) to perform color editing -- since these RGB spaces are not perceptually uniform in the first place, the resulting HSV/HSL spaces are not uniform either. While RGB spaces have some merit based on their connection to physical light, any process involving hue should go directly to perceptual spaces.\n"
+msgstr ""
+
+#. type: Title #
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "color dimensions and settings"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/color-management/color-dimensions.md
+#, markdown-text, no-wrap
+msgid "Many pieces of software, including darktable, call any settings that affect chroma \"saturation\" (for example, in color balance, \"contrast/brightness/saturation\"). This is a symptom of software trying to be accessible to non-professionals by using a common language. This is misleading, since saturation does exist and is quite different from chroma. In addition, many video specifications improperly call chroma \"saturation\". Whenever darktable reuses such specifications, it uses the incorrect term from the specification rather than the proper color dimension term.\n"
 msgstr ""
 
 #. type: YAML Front Matter: title
