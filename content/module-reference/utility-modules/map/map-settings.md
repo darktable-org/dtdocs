@@ -13,6 +13,9 @@ Select preferred map data from various providers. Some will provide additional l
 map source
 : Choose the provider to source map information from.
 
+max polygon points
+: The [find location](/../find-location.md) module doesn't display polygon larger than this value for performance reason. Usually a country polygon counts between 50.000 and 150.000 points.
+
 show OSD
 : Choose whether to display the OSD controls on top-left of the center view.
 
