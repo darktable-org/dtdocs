@@ -10,7 +10,7 @@ A graphical depiction of the developed image's light levels.
 
 ![histogram](./histogram/histogram.png#w33)
 
-Move the mouse over the panel to show buttons to adjust the display. The leftmost button cycles the mode between a "regular" and a waveform-style histogram. The next button controls how the data for the current mode is displayed. The three rightmost colored squares are toggles which enable or disable the display of the red, green and blue color channels.  
+Move the mouse over the panel to show buttons to adjust the display. The leftmost button cycles the mode between a "regular" histogram, a waveform-style histogram, and a vectorscope. The next button controls how the data for the current mode is displayed. In the case of regular and waveform histograms, the three rightmost colored squares are toggles which enable or disable the display of the red, green and blue color channels.
 
 When the mouse is over the histogram panel, scrolling with the mouse while holding down the Ctrl key will change the height of the panel. You can show/hide the histogram entirely with a keyboard shortcut (default Ctrl+Shift+H).
 
@@ -28,11 +28,11 @@ Click the second-to-leftmost button on the panel to toggle between a logarithmic
 
 ![histogram-waveform](./histogram/histogram-waveform.png#w33)
 
-The waveform scope includes spatial data about the image. The y-axis represents the distribution of pixels by lightness for each channel. The x-axis represents the distribution of this data across the x-axis of the image. The lightness of each point of the waveform represents the number of pixels at that position.  
+The waveform scope includes spatial data about the image. The y-axis represents the distribution of pixels by lightness for each channel. The x-axis represents the distribution of this data across the x-axis of the image. The lightness of each point of the waveform represents the number of pixels at that position.
 
-The thick dotted horizontal line at the top of the waveform histogram represents 100% lightness. Any channel displayed above that line may be clipped in the resulting image. The thinner dotted horizontal line represents 50% lightness. The bottom of the scope represents 0% lightness.  
+The thick dotted horizontal line at the top of the waveform histogram represents 100% lightness. Any channel displayed above that line may be clipped in the resulting image. The thinner dotted horizontal line represents 50% lightness. The bottom of the scope represents 0% lightness.
 
-As with the "regular" histogram, it is possible to selectively display red, green, and blue channels, or (the default) all three of them.  
+As with the "regular" histogram, it is possible to selectively display red, green, and blue channels, or (the default) all three of them.
 
 See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histograms-and-waveforms/) for more on darktable's waveform scope.
 
@@ -40,13 +40,21 @@ See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histogram
 
 ![histogram-parade](./histogram/histogram-parade.png#w33)
 
-This shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side. When in waveform mode, clicking the second-to-leftmost button on the panel toggles between waveform (overlaid) and RGB parade rendering of the data.  
+This shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side. When in waveform mode, clicking the second-to-leftmost button on the panel toggles between waveform (overlaid) and RGB parade rendering of the data.
 
 The RGB parade can be useful for matching the intensities of the red, green, and blue channels. It can also help with understanding the differences between and individual qualities of each channel.
 
+# vectorscope
+
+This shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. The distance from the center of the graph represents chroma. The center is neutral. The angle of points around the center represents their hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph color also represents color "volume": the more frequently a color is used, the lighter its representation on the graph.
+
+The vectorscope can describe the image in either the [CIELUV](https://en.wikipedia.org/wiki/CIELUV) or [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) colorspace. Clicking the second-to-leftmost button on the panel cycles between u*v* and AzBz. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+
+The graph includes a "hue ring" representing the maximum chromas of the current histogram profile, including the RGB primaries/secondaries. It is colored to represent these hues. Note that the hue ring does not serve as a gamut guide, as a color can be within the hue ring, yet out of gamut due to its darkness/lightness. The vectorscope does not have a "skin tone line", which is an inevitably flawed generalization.
+
 # exposure adjustment
 
-The histogram can be used to directly alter the _exposure_ and _black level_ of the [_exposure_](../../processing-modules/exposure.md) module.
+The "regular" and waveform-style histograms can be used to directly alter the _exposure_ and _black level_ of the [_exposure_](../../processing-modules/exposure.md) module.
 
 For the regular histogram, click towards the right hand side of the histogram and then drag right to increase or drag left to decrease the exposure. In a similar manner you can control the black level by clicking and dragging in the left hand side.
 
@@ -56,6 +64,6 @@ Scrolling in the appropriate area -- rather than dragging -- will also adjust ex
 
 # histogram profile
 
-The image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest.
+The image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the histogram is shown in the soft proof profile.
 
 As the histogram runs at the end of the preview pixelpipe, it receives data in display color space. If you are using a display color space which is not "well behaved" (this is common for a device profile), then colors which are outside of the gamut of the display profile may be clipped or distorted.
