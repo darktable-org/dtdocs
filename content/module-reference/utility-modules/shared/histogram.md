@@ -46,11 +46,13 @@ The RGB parade can be useful for matching the intensities of the red, green, and
 
 # vectorscope
 
-This shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. The distance from the center of the graph represents chroma. The center is neutral. The angle of points around the center represents their hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph color also represents color "volume": the more frequently a color is used, the lighter its representation on the graph.
+![histogram-vectorscope](./histogram/histogram-vectorscope.png#w33)
 
-The vectorscope can describe the image in either the [CIELUV](https://en.wikipedia.org/wiki/CIELUV) or [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) colorspace. Clicking the second-to-leftmost button on the panel cycles between u*v* and AzBz. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+This shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. The distance from the center of the graph represents chroma and the angle represents hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph represents color "volume" by rendering the more frequently used colors in lighter tones.
 
-The graph includes a "hue ring" representing the maximum chromas of the current histogram profile, including the RGB primaries/secondaries. It is colored to represent these hues. Note that the hue ring does not serve as a gamut guide, as a color can be within the hue ring, yet out of gamut due to its darkness/lightness. The vectorscope does not have a "skin tone line", which is an inevitably flawed generalization.
+The vectorscope can describe the image in either the [CIELUV](https://en.wikipedia.org/wiki/CIELUV) or [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) colorspace. Clicking the second-to-leftmost button on the panel cycles between u\*v\* and AzBz. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+
+The graph includes a "hue ring" representing the maximum chromas of the current histogram profile. The RGB primaries/secondaries are marked by circles. Note that the hue ring is not a gamut guide, as a color can be within the hue ring, yet out of gamut due to its darkness/lightness. The vectorscope does not have a "skin tone line", which is an inevitably flawed generalization.
 
 # exposure adjustment
 
