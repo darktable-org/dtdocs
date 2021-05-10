@@ -215,6 +215,6 @@ The “export” button exports your entire tag dictionary into a text file of y
 
 ## navigation
 
-To see the images bearing a particular tag in the _tag dictionary_ window, right-click on the tag name and choose "go to tag collection" in the resulting pop-up menu. This opens a collection in the _collect images_ module showing all images containing this tag. You can also select other tags in the _collect images_ module by double-clicking on the collection for the other tag.
+To see the images bearing a particular tag in the _tag dictionary_ window, right-click on the tag name and choose "go to tag collection" in the resulting pop-up menu. This opens a collection in the [create collection](./create-collection.md) module showing all images containing this tag. You can also select other tags in the _create collection_ module by double-clicking on the collection for the other tag.
 
 To return to the collection that was selected before opening a tag collection select the "go back to work" item from the pop-up menu. This will allow you to return to the original collection, as long ans you haven't selected any other collections in the meantime.

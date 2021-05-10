@@ -13,7 +13,7 @@ From top to bottom:
 [import](../module-reference/utility-modules/lighttable/import.md)
 : Import images from the filesystem or a connected camera.
 
-[collect images](../module-reference/utility-modules/shared/collect-images.md)
+[create collection](../module-reference/utility-modules/shared/create-collection.md)
 : Filter the images displayed in the lighttable center panel -- also used to control the images displayed in the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) and [timeline](../../module-reference/utility-modules/lighttable/timeline.md) modules.
 
 [recently used collections](../module-reference/utility-modules/shared/recent-collections.md)
