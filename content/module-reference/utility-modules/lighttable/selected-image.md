@@ -1,7 +1,7 @@
 ---
 title: selected images
 id: selected-image 
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 view: lighttable
 ---
@@ -15,10 +15,10 @@ The module controls are spread over two tabs, one for manipulating the image fil
 ## images tab
 
 remove
-: Remove the selected images from the darktable database. Removed images can no longer be viewed or edited within darktable but the image files remain on the filesystem along with any XMP sidecar files. As darktable keeps the XMP files up-to-date with your latest development history, you can later fully restore your work by re-importing the images.
+: Remove the selected images from the darktable library without deleting them. Removed images can no longer be viewed or edited within darktable but the image files remain on the filesystem along with any XMP sidecar files. As darktable keeps the XMP files up-to-date with your latest development history, you can later fully restore your work by re-importing the images.
 
 delete / delete (trash)
-: Eliminate the selected images from the darktable database and remove any associated XMP sidecar files. If no duplicates of the selected image remain in the darktable database, the image file itself is also deleted. You can control whether this action irrevocably deletes the images or attempts to put them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
+: Remove the selected images from the darktable library and remove any associated XMP sidecar files. If no duplicates of the selected image remain in the darktable library, the image file itself is also deleted. You can control whether this action irrevocably deletes the images or attempts to put them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
 
 move
 : Physically move selected images (the image file plus all associated XMP sidecar files) to another filesystem folder. If an image with the given filename already exists in the target folder the source image will not be moved.
@@ -30,7 +30,7 @@ create hdr
 : Create a high dynamic range image from the selected images, and store it as a new source file in DNG format. Images need to be properly aligned, which implies that they have been taken on a sturdy tripod. You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable will only create HDR images from raw files.
 
 duplicate
-: Create a virtual copy of the selected images within darktable. This allows you to test different edits on the same image, for example. Duplicate images share the same parent input file, but each have their own XMP sidecar file and separate entry in darktable's database.
+: Create a virtual copy of the selected images within darktable. This allows you to test different edits on the same image, for example. Duplicate images share the same parent input file, but each have their own XMP sidecar file and separate entry in darktable's library database.
 
 rotation
 : Perform a clockwise or counter-clockwise rotation on the selected images. The third button resets the image rotation to the value stored in the image's Exif data. This feature is directly linked to the [_orientation_](../../../module-reference/processing-modules/orientation.md) processing module -- adjustments made here are automatically converted into a history stack item for that module.
