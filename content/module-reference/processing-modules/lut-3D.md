@@ -10,9 +10,9 @@ masking: true
 
 A 3D LUT is a tridimensional table which is used to transform a given RGB value into another RGB value, and is normally used for film simulation and color grading.
 
-This module accepts `.cube`, `.3dl`, `.png` (haldclut) and `.gmz` files. The uncompressed 3D LUT data are not saved in the database or the XMP file, but are instead saved to the 3D LUT file path inside the 3D LUT root folder. This means that it is important to back up your 3D LUT folder properly. Sharing an image with its XMP is useless if the recipient doesn't also have the same 3D LUT file in their own 3D LUT folder.
+This module accepts `.cube`, `.3dl`, `.png` (haldclut) and `.gmz` files. The uncompressed 3D LUT data is not saved in the database or the XMP file, but is instead saved to the 3D LUT file path inside the 3D LUT root folder. It is therefore important to back up your 3D LUT folder properly -- sharing an image with its XMP is pointless if the recipient doesn't also have the same 3D LUT file in their own 3D LUT folder.
 
-The format `.gmz` is only available when GMIC is installed. That's a compressed format. It can hold a full library of LUTs. That's the only format which allows to save the LUT data in database or XMP files.
+The format `.gmz` a compressed format that is only available when GMIC is installed. This format can hold a full library of LUTs and LUT data loaded from this type of file can be saved to the database and XMP files.
 
 # module controls
 
