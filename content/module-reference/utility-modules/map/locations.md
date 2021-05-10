@@ -10,7 +10,7 @@ Create areas or locations and organize them as hierarchical tags. The pipe â€œ|â
 
 A location is shown as a shape on the map when selected. Initially each location will be represented as a square or circle and can be changed to a rectangle or ellipse by adjusting the shape's width and/or height.
 
-A location can also be created from an openstreetmap region (city/country) polygon. To achieve this, first make sure the _max polygon points_ parameter is large enough (some country polygons use more than 150,000 points). Then select the desired location in the [find location](./find-location.md) module. When the corresponding region shape is displayed, a polygon symbol becomes available in the "shape" control (see below). Select it to create the new location.
+A location can also be created from an OpenStreetMap region (city/country) polygon. To achieve this, first make sure the _max polygon points_ parameter is large enough (some country polygons use more than 150,000 points). Then select the desired location in the [find location](./find-location.md) module. When the corresponding region shape is displayed, a polygon symbol becomes available in the "shape" control (see below). Select it to create the new location.
 
 Each location is stored as tag entry under the geotagging collection in [collect images](../shared/collect-images.md) module.
 
