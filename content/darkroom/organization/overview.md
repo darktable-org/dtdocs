@@ -22,7 +22,7 @@ Click on the icons at the top of this panel to reveal, from left to right,
 : One or more groups of processing modules. These groups are user-defined but some default groupings are provided as presets.
 
 [presets menu](./manage-module-layouts.md)
-: A menu that allows you to access stored module layout presets and create your own (via the "manage presets.." option).
+: A menu that allows you to access stored module layout presets and create your own (via the "manage presets.." option). You can also directly access the "manage presets" dialog by Ctrl+clicking on the presets menu.
 
 Click once on a module group icon (including the active group) to show only the modules in that group. Click a second time to show all available modules.
 
