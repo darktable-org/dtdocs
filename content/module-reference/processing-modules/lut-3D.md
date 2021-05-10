@@ -1,7 +1,7 @@
 ---
 title: lut 3D
 id: lut-3d
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -12,7 +12,7 @@ A 3D LUT is a tridimensional table which is used to transform a given RGB value 
 
 This module accepts `.cube`, `.3dl`, `.png` (haldclut) and `.gmz` files. The uncompressed 3D LUT data is not saved in the database or the XMP file, but is instead saved to the 3D LUT file path inside the 3D LUT root folder. It is therefore important to back up your 3D LUT folder properly -- sharing an image with its XMP is pointless if the recipient doesn't also have the same 3D LUT file in their own 3D LUT folder.
 
-The format `.gmz` a compressed format that is only available when GMIC is installed. This format can hold a full library of LUTs and LUT data loaded from this type of file can be saved to the database and XMP files.
+The compressed format `.gmz` is only available when GMIC is installed. This format can hold a full library of LUTs and LUT data loaded from this type of file can be saved to the database and XMP files.
 
 # module controls
 
