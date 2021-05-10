@@ -8,7 +8,7 @@ view: lighttable, tethering
 
 A graphical depiction of the developed image's light levels.
 
-![histogram](./histogram/histogram.png#w33)
+![histogram](./histogram/histogram.png#w50)
 
 Move the mouse over the panel to show buttons to adjust the display. The leftmost button cycles the mode between a "regular" histogram, a waveform-style histogram, and a vectorscope. The next button controls how the data for the current mode is displayed. In the case of regular and waveform histograms, the three rightmost colored squares are toggles which enable or disable the display of the red, green and blue color channels.
 
@@ -18,7 +18,7 @@ For the purposes of speed, the histogram display is calculated from the image pr
 
 # the "regular" histogram
 
-![histogram-regular](./histogram/histogram-regular.png#w33)
+![histogram-regular](./histogram/histogram-regular.png#w50)
 
 This shows the distribution of pixels by lightness for each color channel channel. In its default state, data for all three RGB color channels is displayed. The x-axis runs from 0% to 100% lightness for each channel. The y-axis gives the count of pixels with the given lightness.
 
@@ -26,7 +26,7 @@ Click the second-to-leftmost button on the panel to toggle between a logarithmic
 
 # waveform
 
-![histogram-waveform](./histogram/histogram-waveform.png#w33)
+![histogram-waveform](./histogram/histogram-waveform.png#w50)
 
 The waveform scope includes spatial data about the image. The y-axis represents the distribution of pixels by lightness for each channel. The x-axis represents the distribution of this data across the x-axis of the image. The lightness of each point of the waveform represents the number of pixels at that position.
 
@@ -38,7 +38,7 @@ See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histogram
 
 # rgb parade
 
-![histogram-parade](./histogram/histogram-parade.png#w33)
+![histogram-parade](./histogram/histogram-parade.png#w50)
 
 This shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side. When in waveform mode, clicking the second-to-leftmost button on the panel toggles between waveform (overlaid) and RGB parade rendering of the data.
 
@@ -46,13 +46,22 @@ The RGB parade can be useful for matching the intensities of the red, green, and
 
 # vectorscope
 
-![histogram-vectorscope](./histogram/histogram-vectorscope.png#w33)
+![histogram-vectorscope](./histogram/histogram-vectorscope.png#w50)
 
-This shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. The distance from the center of the graph represents chroma and the angle represents hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph represents color "volume" by rendering the more frequently used colors in lighter tones.
+This shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. The distance from the center of the graph represents chroma and the angle represents hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph represents color "volume" by rendering the more frequently used colors in the image in lighter tones.
 
-The vectorscope can describe the image in either the [CIELUV](https://en.wikipedia.org/wiki/CIELUV) or [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) colorspace. Clicking the second-to-leftmost button on the panel cycles between u\*v\* and AzBz. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+The vectorscope chroma scale can either be linear or logarithmic. Click the second-to-leftmost button on the panel to toggle this.
 
-The graph includes a "hue ring" representing the maximum chromas of the current histogram profile. The RGB primaries/secondaries are marked by circles. Note that the hue ring is not a gamut guide, as a color can be within the hue ring, yet out of gamut due to its darkness/lightness. The vectorscope does not have a "skin tone line", which is an inevitably flawed generalization.
+The vectorscope can describe the image in either the [CIELUV](https://en.wikipedia.org/wiki/CIELUV) or [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) colorspace. Clicking the third-to-leftmost button on the panel cycles between u\*v\* and AzBz. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+
+The graph includes a "hue ring" representing the maximum chroma of each hue (in bounded RGB) of the current histogram profile. The RGB primaries/secondaries are marked by circles.
+
+## caveats
+
+- The hue ring is not a [gamut check](../darkroom/gamut/), as a color can be within the hue ring, yet out of gamut due to its darkness/lightness.
+- When adjusting an image based upon a color checker, faster and more accurate results will come from using [calibrate with a color checker](../../processing-modules/color-calibration/#extracting-settings-using-a-color-checker) in the _color calibration_ module.
+- The vectorscope does not have a "skin tone line", which is a flawed generalization rather than a universal standard.
+- The vectorscope represents a colorimetric encoding of an image, which inevitably diverges from a viewer's perception of the image.
 
 # exposure adjustment
 
