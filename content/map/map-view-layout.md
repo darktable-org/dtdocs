@@ -9,7 +9,7 @@ author: "people"
 # left panel
 These modules are identical to the lighttable view. From top to bottom:
 
-[create collection](../module-reference/utility-modules/shared/create-collection.md)
+[collections](../module-reference/utility-modules/shared/collections.md)
 : Filter the list of images displayed in the map view.
 
 [recently used collections](../module-reference/utility-modules/shared/recent-collections.md)

@@ -1,6 +1,6 @@
 ---
-title: create collection
-id: create-collection
+title: collections
+id: collections
 applicable-version: 3.6
 tags:
 view: lighttable, tethering, map
@@ -141,7 +141,7 @@ select by value
 
 You can combine multiple filters together to create more complex collections of images using a series of rules. A rule is a combination of a filter critera along with a logical operation that defines how that criteria is combined with any previous rules.
 
-Click on the ![collect-expander-icon](./create-collection/collect-expander.png#icon) button (to the right of the search field) to open a menu with the following options:
+Click on the ![collect-expander-icon](./collections/collect-expander.png#icon) button (to the right of the search field) to open a menu with the following options:
 
 clear this rule
 : Remove the current rule – or reset to default if this is the only rule defined.
@@ -155,11 +155,11 @@ add more images
 exclude images
 : Add a new rule, which is combined with the previous rule(s) in a logical EXCEPT operation. Images that are selected by the new criteria are excluded from the collection.
 
-The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![collect-and-icon](./create-collection/collect-and.png#icon) symbol, OR by the ![collect-or-icon](./create-collection/collect-or.png#icon) symbol, and EXCEPT by the ![collect-except-icon](./create-collection/collect-except.png#icon) symbol. Clicking on any of these icons allows you to change the logical operation for that rule.
+The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![collect-and-icon](./collections/collect-and.png#icon) symbol, OR by the ![collect-or-icon](./collections/collect-or.png#icon) symbol, and EXCEPT by the ![collect-except-icon](./collections/collect-except.png#icon) symbol. Clicking on any of these icons allows you to change the logical operation for that rule.
 
 ## updating the folder path of moved images
 
-While it is best to not touch imported files behind darktable's back, this module can help you recover from situations when you have moved or renamed image folders after importing them. The create collection module has a feature that allows you to update darktable's library database with the new folder location. The process is as follows:
+While it is best to not touch imported files behind darktable's back, this module can help you recover from situations when you have moved or renamed image folders after importing them. The collections module has a feature that allows you to update darktable's library database with the new folder location. The process is as follows:
 
 1. Set the _image attribute_ combobox to "folder" or "film roll".
 1. The original film roll or folder name will be displayed with strikethrough formatting to emphasize that it can not be located.
@@ -167,7 +167,7 @@ While it is best to not touch imported files behind darktable's back, this modul
 
 ## preferences
 
-The "preferences..." option in the presets menu allows you to adjust the behavior of the create collection module as follows:
+The "preferences..." option in the presets menu allows you to adjust the behavior of the collections module as follows:
 
 do not set the 'uncategorized' for tags
 : Do not set the 'uncategorized' category for tags that do not have children (default off).

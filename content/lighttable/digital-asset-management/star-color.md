@@ -32,4 +32,4 @@ You can set the color labels for a single image by hovering your cursor over the
 
 To toggle the color labels of one or more images, select the desired images in the lighttable or filmstrip and then press the appropriate shortcut key or click the corresponding color button in the bottom panel. To remove all labels from the selected images, press the gray button.
 
-You can filter images by color label in the [create collection](../../module-reference/utility-modules/shared/create-collection.md) module.
+You can filter images by color label in the [collections](../../module-reference/utility-modules/shared/collections.md) module.

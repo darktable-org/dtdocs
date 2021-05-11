@@ -12,8 +12,8 @@ The following options control functionality in the [lighttable](../lighttable/_i
 hide built-in presets for utility modules
 : If enabled, only user-defined presets will be shown in presets menu for utility modules -- built-in presets will be hidden (default off).
 
-use single-click in the create collection module
-: Enable "single click" mode in the [create collection](../module-reference/utility-modules/shared/create-collection.md) module, which allows ranges to be selected (default off).
+use single-click in the collections module
+: Enable "single click" mode in the [collections](../module-reference/utility-modules/shared/collections.md) module, which allows ranges to be selected (default off).
 
 expand a single utility module at a time
 : Controls how utility modules are expanded. If this option is enabled, expanding a module by clicking collapses any other currently expanded panel. If you want to expand a panel without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default off).

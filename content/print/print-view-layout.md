@@ -12,7 +12,7 @@ The [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) below t
 
 # left panel
 
-[create collection](../module-reference/utility-modules/shared/create-collection.md)
+[collections](../module-reference/utility-modules/shared/collections.md)
 : Filter the list of images displayed in the lighttable.
 
 [image information](../module-reference/utility-modules/shared/image-information.md)
