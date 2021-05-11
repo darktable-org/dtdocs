@@ -233,8 +233,9 @@ places
     Austria
         Vienna
 ```
+In both examples four tags are created: `places`, `places|Austria`, `places|Austria|Graz` and `places|Austria|Vienna`. In the first example `places|Austria` is set as a category.
 
-In both examples `places|Austria` will be a category, but the Lightroom file will create the additional tag "places". Be aware that (re-)importing a Lightroom tag text file format will add all the parent tags as separate items to the tag list.
+Note: if the second example is imported after the first one, `places|Austria` remains a category.
 
 ## export…
 
