@@ -234,6 +234,8 @@ places
 
 In both examples `places|Austria` is set as a category. Due to "every line a tag" the Lightroom style will create an additional tag `places`. Be aware that (re-)importing a Lightroom tag text file will create additional tags for every parent tag.
 
+In both styles one can define __synonyms__ by enclosing them in curly brackets `{}`. Every synonym must be on its own line following the original tag. There can be no empty lines inbetween.
+
 ## export…
 
 The “export” button exports your entire tag dictionary into a text file in the Lightroom tag text file format.
