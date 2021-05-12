@@ -229,13 +229,10 @@ Lightroom tag text file format
 places
     [Austria]
         Graz
-places
-    Austria
         Vienna
 ```
-In both examples four tags are created: `places`, `places|Austria`, `places|Austria|Graz` and `places|Austria|Vienna`. In the first example `places|Austria` is set as a category.
 
-Note: if the second example is imported after the first one, `places|Austria` remains a category.
+In both examples `places|Austria` is set as a category. Due to "every line a tag" the Lightroom style will create an additional tag `places`. Be aware that (re-)importing a Lightroom tag text file will create additional tags for every parent tag.
 
 ## export…
 
