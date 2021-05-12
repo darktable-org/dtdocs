@@ -12,4 +12,4 @@ The most basic kind of collection is a film roll, which contains all of the imag
 
 You can easily construct other kinds of collection based on various image attributes (Exif data, filename, tags etc.) in the [collections](../../module-reference/utility-modules/shared/collections.md) module. Multiple criteria can be logically combined to narrow or extend your collection.
 
-darktable retains a list of the most recently used collections for quick access. These can be selected from the [recent collections](../../module-reference/utility-modules/shared/recent-collections.md)) module.
+darktable retains a list of the most recently used collections for quick access. These can be selected in the [recent collections](../../module-reference/utility-modules/shared/recent-collections.md) module.
