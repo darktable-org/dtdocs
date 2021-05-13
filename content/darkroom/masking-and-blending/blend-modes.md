@@ -17,6 +17,14 @@ final_output = (1.0 - opacity) * module_input + opacity * blended_output
 
 where the `blended_output` is a combination of the input and output images, depending on the blend mode (below), and the `opacity` is defined 'per-pixel' by a combination of the mask and global opacity parameter.
 
+The "reverse" action on the blending mode effectively reverses the roles of the input and output images in the 'per-pixel' computation:
+
+```
+final_output = (1.0 - opacity) * module_output + opacity * blended_input
+```
+
+where the `blended_input` is a combination of the output and input images, depending on the blend mode below where _output_ and _input_ image references are reversed. This implies also that a 0% opacity outputs an image that is identical to the output image of the module.
+
 # normal modes
 
 normal
@@ -34,27 +42,15 @@ addition
 subtract
 : Subtract the pixel value of the _output_ from the _input_. When blending in the "RGB (scene)" color space, the pixel values of the output image are multiplied by a value proportional to the "blend fulcrum". Pixel values less than 0 are set to 0.
 
-subtract reverse
-: _only available in the "RGB (scene)" color space_
-: Subtract the pixel value of the _input_ from the _output_. In this case, the "blend fulcrum" parameter of the "RGB (scene)" color space is applied to the input image.
-
 multiply
 : Multiply the pixel values of the input and output together. When blending in display-referred color spaces, pixel values are between 0 and 1.0, the final output will be clamped and will always be darker. When blending in the "RGB (scene)" color space, this value is further multiplied by a value proportional to the "blend fulcrum". In this case, values may be greater than 1.0 and therefore brighten the base image. This may have other side-effects, such as updating the white point in the filmic module.
 
 : Multiply blending simulates an optical variable density filter, where the density is defined by the output of the module. It has many applications, from blooming and local contrast enhancements (when used with a blur or low-pass filter) to dodging/burning and global contrast enhancements (when used with exposure). The fulcrum sets the output intensity threshold between darkening and brightening (any RGB value below fulcrum will darken).
 
-multiply reverse
-: _only available in the "RGB (scene)" color space_
-: This mode works in the same way as the "multiply" mode except that in the `final_output` equation given at the top of this page, the `module_input` parameter is replaced with `module_output` (the output of the module before blending is applied).
-
 divide
 : Divide the pixel values of the input by the output. When blending in the "RGB (scene)" color space, the pixel values of the output image are multiplied by a value proportional to the "blend fulcrum".
 
 : Since this is the inverse of the multiply mode, it will darken where multiply brightens and vice versa. Everything else works in essentially the same way.
-
-divide reverse
-: _only available in the "RGB (scene)" color space_
-: Divide the pixel values of the _output_ by the _input_. In this case, the "blend fulcrum" parameter of the "RGB (scene)" color space is applied to the input image.
 
 screen
 : _not available in the "RGB (scene)" color space_
@@ -117,13 +113,13 @@ Lab color
 The following are available when blending in RGB color spaces only.
 
 RGB red channel
-: Mix the "red" channel from the input and output images, while taking the other channels unaltered from the input image.
+: Mix the "red" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "red" channel from the output image is multiplied by a value proportional to the "blend fulcrum". 
 
 RGB green channel
-: Mix the "green" channel from the input and output images, while taking the other channels unaltered from the input image.
+: Mix the "green" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "green" channel from the output image is multiplied by a value proportional to the "blend fulcrum". 
 
 RGB blue channel
-: Mix the "blue" channel from the input and output images, while taking the other channels unaltered from the input image.
+: Mix the "blue" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "blue" channel from the output image is multiplied by a value proportional to the "blend fulcrum". 
 
 # HSV channels
 

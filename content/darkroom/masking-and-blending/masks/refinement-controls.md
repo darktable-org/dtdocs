@@ -13,7 +13,11 @@ details threshold
 **Note:** The data used for the detail mask refinement is taken from the demosaic stage in the processing pipeline, and not from module input (which is used for the other parametric mask criteria). None of the processing modules after demosaic will have any effect on the detail mask.
 
 feathering guide
-: Mask feathering smooths a drawn or parametric mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending), depending on whether you select "input image" or "output image" in the “feathering guide” combobox. Feathering is particularly sensitive to this choice when used with edge-modifying modules (modules for sharpening or blurring an image).
+: Mask feathering smooths a drawn or parametric mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending), and may happen before or after the mask blurring, depending on what is selected in the “feathering guide” combobox. Feathering is particularly sensitive to the choice of guide image when used with edge-modifying modules (modules for sharpening or blurring an image).
+: - _output before blur_: feathering is guided using the _output_ image of the module and happens _before_ the mask is blurred
+: - _input before blur_: feathering is guided using the _input_ image of the module and happens _before_ the mask is blurred
+: - _output after blur_: feathering is guided using the _output_ image of the module and happens _after_ the mask has been blurred
+: - _input after blur_: feathering is guided using the _input_ image of the module and happens _after_ the mask has been blurred
 
 feathering radius
 : Adjust the strength of the feathering effect. Feathering works best if the mask's edges already approximately match some edges in the guiding image. The larger the “feathering radius” the better the feathering algorithm can align the mask to more distant edges. If this radius is too large, however, the feathered mask may overshoot (cover regions that the user wants to exclude). Feathering is disabled when the feathering radius is set to 0.
