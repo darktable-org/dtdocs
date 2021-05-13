@@ -10,65 +10,62 @@ Manage the layout and grouping of processing modules and the quick access panel.
 
 ![manage module layouts](./manage-module-layouts/manage-module-layouts.png#w100)
 
-This maintenance screen can be accessed from the _presets_ menu beside the module search box or module group icons (below the histogram in the darkroom view).
+This maintenance screen can be accessed from the _presets_ menu beside the module search box or module group icons (below the histogram in the darkroom view). Ctrl+click on the preset menu to open this screen directly.
+
+Settings are automatically saved when you exit the screen. Click _reset_ to abandon any changes made in the current session.
 
 # module controls
 
-## preset list (left panel)
+## global controls
 
-The left-hand panel lists the currently-defined module layout presets. Those at the top of the list are fixed and cannot be altered. User-defined presets are placed at the bottom of the list.
+The following global controls are available in the top panel of the screen.
 
-create
-: To create a new preset, populated with a minimal list of basic modules, click on the + button at the bottom of the left-hand panel. Alternatively click on the _duplicate_ button to the right of one of the existing module presets to copy that preset to a new one. The above screenshot shows a new preset named "user defined" which has been created by duplicating the "modules: default" preset.
+preset
+: Select an existing module group preset.
 
-delete
-: Delete a user-defined preset with the X button.
+remove
+: Remove the current preset (user-defined presets only).
+
+duplicate
+: Duplicate the current preset with a new name. The above screenshot shows a new preset named "user defined", which has been created by duplicating the "modules: default" preset.
 
 rename
-: Rename a preset using the text entry box at the top of the right-hand panel. Right-click to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
+: Rename the current preset (user-defined presets only). Right-click to bring up a menu that can be used to copy, paste, select all, delete or insert an emoji).
 
-## preset settings (right panel)
-
-Change the settings for the selected preset
-
-### global controls
-
-At the top of the right panel, the following options can be set
-
-preset name
-: Choose a name for your preset.
+new
+: Create a new preset with a minimal list of modules.
 
 show search line
 : Choose whether to display the search bar below the module group icons
 
 show quick access panel
-: Choose whether to display the quick access panel. If checked, a new entry will appear in the bottom-right panel.
+: Choose whether to display the quick access panel. If checked, a new entry will appear in the bottom-right panel to allow you to add/remove widgets.
 
-## quick access & module groups
+auto-apply this preset
+: Module group presets can be automatically applied based on the type of image being worked on. The check box indicates whether this preset currently has any auto-apply rules. Click on the gear icon to amend the auto-apply settings. See [presets](../processing-modules/presets.md) for details.
 
-The bottom section of the right-hand panel allows you to create and amend module groups for the selected preset.
+## module groups
+
+The bottom panel of the screen allows you to alter the quick access panel and module groups for the selected preset (user-defined presets only).
 
 add a group
-: Click on the + sign beside the "module groups" header to add a new group. 
+: Click on the + sign beside the "module groups" label to add a new group. 
 
 remove a group
-: Remove a group by clicking on the X button beside the header of that module group.
+: Remove a group by clicking on the X button beside the group name.
 
 add a module/widget
-: Add a module to a group, or a widget to the quick access panel, by clicking the + sign below the group name. Select the required module/widget from the list that appears. 
+: Add a module to a group, or a widget to the quick access panel, by clicking the + sign below the group name. Select the required module/widget from the displayed list. 
 
 remove a module/widget
 : Remove a module from a group, or a widget from the quick access panel, by clicking the X beside the module/widget name.
 
 change a group's icon
-: Change the icon assigned to a group by clicking on the existing group icon and selecting a new one from the drop-down list.
+: Change the icon assigned to a group by clicking on the existing group icon and selecting a new one from the displayed list.
 
 change the group order
-: Change order the groups are displayed in by clicking on the < and > buttons beside the group headers.
+: Change order in which the groups are displayed by clicking on the < and > buttons below the group names.
 
 rename a group
-: Rename a module group using the text entry box at the top of the module list. Right-click to bring up a menu which can be used to copy, paste, select all, delete or insert an emoji)
-
-Settings will be automatically saved when you exit the screen. Click _reset_ to reset the settings to the start of your editing session.
-
+: Rename a module group by clicking on the group name and typing. Right-click to bring up a menu that can be used to copy, paste, select all, delete or insert an emoji)
 
