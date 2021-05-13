@@ -31,18 +31,18 @@ auto-apply chromatic adaptation defaults
 auto-apply pixel workflow defaults
 : Choose which modules and module order to apply to new images by default:
 
-- _scene-referred_ workflow is based on linear RGB modules. Selecting this option will automatically enable [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) and [_exposure_](../module-reference/processing-modules/exposure.md) modules will set the pixelpipe order to the (scene-referred) order defined for darktable 3.0 and later. 
+- _scene-referred_ workflow (default) is based on modules working in a linear RGB color space. Selecting this option will automatically enable the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) and [_exposure_](../module-reference/processing-modules/exposure.md) modules and will set the pixelpipe order to the (scene-referred) order defined for darktable 3.0 and later. 
 
   The _exposure_ module will include an automatic adjustment of +0.5 EV to adjust the mid-gray to match that of the majority of SLR cameras. This adjustment can be overridden with an automatically-applied preset if the default produces consistently dark images for your camera. 
 
   Finally, this setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used to protect highlights in the image or Expose To The Right (ETTR) to optimally make use of the sensor's dynamic range.
 
-- _display-referred_ (default) workflow is based on Lab modules and is the legacy mode from darktable 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module and set the pixelpipe order to the legacy (display-referred) order used by default up to version 2.6.
+- _display-referred_ workflow is based on modules working in the Lab color space and is the legacy mode from darktable 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module and set the pixelpipe order to the legacy (display-referred) order used by default up to version 2.6.
 
-- _none_ will not enable any modules by default and will set the pixelpipe to the (scene-referred) order defined for darktable 3.0 and later.
+- _none_ will not enable any workflow modules by default and will set the pixelpipe to the (scene-referred) order defined for darktable 3.0 and later.
 
 auto-apply per camera basecurve presets
-: Use the per-camera basecurve by default instead of the generic manufacturer one if there is one available. This should only be used in conjunction with the _display referred_ workflow defined above (default off).
+: Use the per-camera basecurve by default instead of the generic manufacturer one if there is one available. This should only be used in conjunction with the _display-referred_ workflow defined above (default off).
 
 auto-apply sharpen
 : Auto-apply the sharpen module to new images by default. This option is not recommended on cameras without a low-pass filter. (default on, requires a restart).
