@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2021-02-23 22:26-0800\n"
-"PO-Revision-Date: 2021-05-19 14:18+0000\n"
+"PO-Revision-Date: 2021-05-19 14:58+0000\n"
 "Last-Translator: Peter Schlaufer <peter@schlaufer.ch>\n"
 "Language-Team: German <https://weblate.pixls.us/projects/darktable/dtdocs/de/"
 ">\n"
@@ -22480,55 +22480,100 @@ msgstr "Seitenwagen Dateien und nicht destruktive Bearbeitung"
 #: content/overview/sidecar-files/sidecar.md
 #, no-wrap
 msgid "sidecar files"
-msgstr ""
+msgstr "Seitenwagen Dateien"
 
 #. type: Plain text
 #: content/overview/sidecar-files/sidecar.md
 #, markdown-text, no-wrap
 msgid "darktable is a non-destructive image editor and opens all images in read-only mode. Any data created within darktable (metadata, tags, and image processing steps) are stored in separate `.XMP` _sidecar_ files. These files allow darktable to store information about the images as well as the full editing history without touching the original raw files. When you import an image into darktable for the first time, an XMP file is automatically generated (XMP generation can be disabled in [preferences > storage](../../preferences-settings/storage.md) but this is not recommended in normal use).\n"
 msgstr ""
+"Bei darktable handelt es sich um einen nicht-destruktiven Bildeditor. Dies "
+"bedeutet, dass darktable Bilder schreibgeschützt öffnet. Alle neu "
+"hinzugefügten Metadaten, Tags und Parameter von Bildoperationen (der "
+"„Verlauf“) werden in separaten `.XMP` _Seitenwagen- (auch Begleitdateien)_, "
+"gespeichert. Die Begleitdateien ermöglichen es, Informationen über die "
+"Bilder sowie die gesamte Bearbeitungshistorie zu speichern, ohne die "
+"ursprünglichen Rohdateien zu verändern. Wird ein Bild zum ersten Mal in "
+"darktable importiert, so wird automatisch eine XMP-Datei erzeugt. (XMP "
+"Erzeugung kann ausgeschaltet werden in [darktable-Voreinstellungen > "
+"Speicherung](../../preferences-settings/storage.md), das kann aber für den "
+"Normalgebrauch nicht empfohlen werden).\n"
 
 #. type: Plain text
 #: content/overview/sidecar-files/sidecar.md
 #, markdown-text, no-wrap
 msgid "For a given source image, multiple editing versions, called _duplicates_, can co-exist, sharing the same input (raw) data but each having their own metadata, tags and processing steps. Each duplicate is represented by a separate XMP sidecar file (with a filename constructed in the form `<basename>_nn.<extension>.xmp`, where `nn` represents the version number of that edit). Information for the initial edit – the “duplicate” with version number zero  – is stored in the sidecar file `<basename>.<extension>.xmp`. The version number of each duplicate is displayed in the [image information](../../module-reference/utility-modules/shared/image-information.md) module in each of darktable's views.\n"
 msgstr ""
+"Für dasselbe Raw-Foto können mehrere Bearbeitungsversionen, sogenannte "
+"_Duplikate_, nebeneinander existieren die jeweils eigene Metadaten, Tags und "
+"Verlauf haben können. Jedes Duplikat wird durch eine separate XMP-"
+"Begleitdatei mit einem Dateinamen in der Form `<basename>_nn.<extension>.xmp`"
+", dargestellt werden, wobei `nn` die (mindestens zweistellige) "
+"Versionsnummer dieser Bearbeitungsversion darstellt. Die Informationen für "
+"die erste Bearbeitung - das „Duplikat“ mit der Versionsnummer null – werden "
+"in der Begleitdatei  `<basename>.<extension>.xmp` gespeichert. Die "
+"Versionsnummer eines Duplikats wird im Fenster des Moduls [Bildinformationen"
+"](../../module-reference/utility-modules/shared/image-information.md), das "
+"in jeder der darktable-Ansicht angezeigt wird.\n"
 
 #. type: Plain text
 #: content/overview/sidecar-files/sidecar.md
 #, markdown-text, no-wrap
 msgid "Sidecar files are automatically synchronized with your work without the need to press a “save” button. When backing up your data, make sure you also retain the XMP files, as these are needed to fully reconstruct your work in case of a disaster.\n"
 msgstr ""
+"Begleitdateien synchronisieren sich automatisch während Ihrer Arbeit, ohne "
+"dass eine Speichern-Taste gedrückt werden muss. Bei einem Backup Ihrer Daten "
+"ist auch darauf zu achten die XMP-Dateien zu sichern, da diese benötigt "
+"werden, um Ihre Arbeit im Katastrophenfall vollständig zu rekonstruieren.\n"
 
 #. type: Plain text
 #: content/overview/sidecar-files/sidecar.md
 #, markdown-text, no-wrap
 msgid "In addition to the sidecar files, darktable keeps all image-related data in its library database for fast access. An image can only be viewed and edited from within darktable if its data is loaded in the library database. This happens automatically when you first [import](../../module-reference/utility-modules/lighttable/import.md) an image. If an image is subsequently re-imported, the database will be updated from the data in the XMP file.\n"
 msgstr ""
+"Zusätzlich zu den Begleitdateien hält darktable alle bildbezogenen Daten in "
+"seiner Datenbank für einen schnellen Zugriff bereit. Ein Bild kann nur dann "
+"von darktable aus betrachtet und bearbeitet werden, wenn seine Daten in die "
+"Datenbank geschrieben werden. Dies geschieht automatisch beim ersten [Import"
+"](../../module-reference/utility-modules/lighttable/import.md) eines Bildes. "
+"Wenn ein Bild zu einem späteren Zeitpunkt erneut importiert wird, dann wird "
+"die Datenbank mit Daten aktualisiert, die darktable in den Begleitdateien "
+"findet, die zu diesem Bild gehören.\n"
 
 #. type: Plain text
 #: content/overview/sidecar-files/sidecar.md
 #, markdown-text, no-wrap
 msgid "Once an image has been imported into darktable, the database entries take precedence over the XMP file. Subsequent changes to the XMP file by any other software are not visible to darktable -- such changes will be overwritten the next time darktable synchronizes the file. On request darktable can be configured to search for updated XMP files at startup, offering a choice to update the database or overwrite the XMP file where changes are identified. This configuration can also be changed in [preferences > storage](../../preferences-settings/storage.md).\n"
 msgstr ""
+"Wenn ein Bild einmal in darktable importiert wurde, nehmen die Dateibank-"
+"Einträge Vorrang über die XMP Daten. Nachträgliche Änderungen an den XMP "
+"Dateien durch eine andere Software sind in darktable nicht sichtbar -- "
+"solche Daten werden bei der nächsten Synchronisation von darktable "
+"überschrieben. Auf Forderung kann darktable so konfiguriert werden, dass es "
+"beim Aufstarten nach geänderten XMP Dateien sucht und damit eine Wahl bietet "
+"die Datenbank aufzudatieren oder die XMP Dateien zu überschreiben. Diese "
+"Konfiguration kann geändert werden in [darktable-Voreinstellungen>Sichern"
+"](../../preferences-settings/storage.md).\n"
 
 #. type: YAML Front Matter: title
 #: content/overview/user-interface/screen-layout.md
 #, no-wrap
 msgid "screen layout"
-msgstr ""
+msgstr "Bildschirm Aufbau"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
 #, markdown-text, no-wrap
 msgid "The layout of all views is similar and consists of a center area with panels at the edges: \n"
 msgstr ""
+"Der Aufbau ist bei allen Ansichten ähnlich und besteht aus einem zentralen "
+"Teil mit Schaltmöglichkeiten an den Seiten: \n"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
 #, markdown-text, no-wrap
 msgid "![screen-layout](./screen-layout/screen-layout.png#w100)\n"
-msgstr ""
+msgstr "![screen-layout](./screen-layout/screen-layout.png#w100)\n"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
@@ -22537,6 +22582,9 @@ msgid ""
 "1. center area\n"
 ": Contains information and functionality specific to the current view.\n"
 msgstr ""
+"1. Mittelteil\n"
+": Enthält Informationen und Funktionen, die spezifisch für die gegenwärtige "
+"Ansicht sind.\n"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
@@ -22545,6 +22593,8 @@ msgid ""
 "2. left panel\n"
 ": Contains modules primarily used to provide information.\n"
 msgstr ""
+"2. Schaltpult links\n"
+": Enthält Module, die zur Hauptsache Informationen vorsehen.\n"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
@@ -22553,6 +22603,8 @@ msgid ""
 "3. right panel\n"
 ": Contains modules primarily used for image processing.\n"
 msgstr ""
+"3. Schaltpult rechts\n"
+": Enthält Module, zur Hauptsache für die Bildbearbeitung.\n"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
@@ -22561,6 +22613,10 @@ msgid ""
 "4. top banner\n"
 ": Contains information about the current darktable version and allows you to switch between views. Also used by some modules to show hints and messages.\n"
 msgstr ""
+"4. Oberes Banner\n"
+": Enthält Informationen über die gegenwärtige Version von darktable und "
+"erlaubt zwischen den Ansichten umzuschalten. Bei einigen Modulen werden hier "
+"auch Hinweise und Nachrichten angezeigt.\n"
 
 #. type: Plain text
 #: content/overview/user-interface/screen-layout.md
