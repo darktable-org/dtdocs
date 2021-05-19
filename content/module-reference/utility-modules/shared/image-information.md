@@ -10,6 +10,8 @@ This module displays the information embedded within an image's Exif data as wel
 
 When hovering with the mouse over image thumbnails, the module's data is automatically updated to show information about the image currently under the mouse cursor.
 
+When several images are selected, and the focus is not on a single image, the module displays the information only if every image share the same data. If data are different, a _\<various values\>_ text is displayed.
+
 # preferences
 
 The “preferences…” option in the presets menu brings up a dialog with a list of all of the fields that are available for display.
