@@ -57,7 +57,7 @@ contrast
 
 : The fulcrum has a value of 18.45% by default, which is consistent with the current scene-referred workflow and should fit most use cases (assuming that global brightness has been fixed as recommended using the [_exposure_](./exposure.md) module).
 
-: The contrast algorithm gives natural results that mimic the central part of the [_filmic_](./filmic-rgb.md) contrast curve. However, it will also increase the image's dynamic range, which may void _filmic_ settings in the pipe. For global contrast adjustments, the [_tone equalizer_](./tone-equalizer.md) should be preferred, and the this module's contrast slider is be best used with masks, for example for selective corrections over the foreground or background.
+: The contrast algorithm gives natural results that mimic the central part of the contrast curve of analog film. However, it will also increase the image's dynamic range, which may void _filmic_ settings in the pipe. For global contrast adjustments, the [_tone equalizer_](./tone-equalizer.md) should be preferred, and the this module's contrast slider is be best used with masks, for example for selective corrections over the foreground or background.
 
 ### linear chroma grading
 
