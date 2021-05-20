@@ -6,47 +6,48 @@ weight: 30
 author: "people"
 ---
 
-The _scene-referred_ workflow places an emphasis on performing image processing in the linear scene-referred part of the pixelpipe. This helps to reduce artifacts and color shifts that can result from processing non-linear pixel values and, by decoupling the image processing from the characteristics of a specific display, it makes it easier to adapt your work in the future to new display media, such as high dynamic range displays.
+_Scene-referred_ workflow assumes that most image processing will be performed in the linear scene-referred part of the pixelpipe. This helps to reduce the artifacts and color shifts that can result from processing non-linear pixel values and, by decoupling the image processing from the characteristics of a specific display, it makes it easier to adapt your work in the future to new display media, such as high dynamic range displays.
 
-This being the recommended way to process images in versions 3.0 and above, this section will provide a much more comprehensive overview than the next section on the _display-referred_ workflow.
+Scene-referred workflow is now the recommended way to use darktable and, as such, this section provides a much more comprehensive overview than the next section on the _display-referred_ workflow.
 
 # basic steps
 Basic image processing in scene-referred workflow requires you, as a minimum, to consider the following steps in order to render a reasonable image on your display:
 
 1. Capture an image
 
-   Use your camera to take a properly exposed image. Normally you can rely on the camera's metering and automatic exposure features. However, for some scenes you may need to use the camera's exposure compensation dial or manual settings to get an optimal exposure. In general, you want to make the exposure in camera as bright as possible without clipping the highlights. This is known as "exposing to the right" (ETTR), and it ensures you take best advantage of the sensor's dynamic range. Many cameras have features like "zebras" or "blinkies" to warn you when you are in danger of clipping.
+   Use your camera to take a properly exposed image. Normally you can rely on the camera's metering and automatic exposure features. However, for some scenes you may need to use the camera's exposure compensation dial or manual settings to obtain an optimal exposure. In general, it is best to make the exposure in camera as bright as possible without clipping the highlights. This is known as "exposing to the right" (ETTR), and makes full use of your sensor's entire dynamic range. Many cameras have features like "zebras" or "blinkies" to warn you when you are in danger of clipping.
 
 2. Adjust mid-tones using the [_exposure_](../../module-reference/processing-modules/exposure.md) module
 
    Use the exposure slider in the _exposure_ module to adjust the mid-tones in the image to an appropriate brightness level. At this stage, don't worry about highlights and shadows -- these will be handled later.
 
-   The _exposure_ module is enabled by default, and will include an initial exposure boost of +0.5EV to mimic the standard processing of most in-camera JPEGs. The metering systems in cameras vary, and some camera models might need a slightly larger exposure boost (eg. +0.8EV ~ 1.5EV), in which case you can create an auto-apply [preset](../../darkroom/processing-modules/presets.md) as required. The exposure module will detect if the camera's exposure compensation dial was used (see above remarks about ETTR), and will re-adjust the exposure accordingly.
+   The _exposure_ module is enabled by default, and will include an initial exposure boost of +0.5EV to mimic the standard processing of most in-camera JPEGs. The metering systems in cameras vary, and some camera models might need a slightly larger exposure boost (eg. +0.8EV ~ 1.5EV), in which case you can create an auto-applied [preset](../../darkroom/processing-modules/presets.md) as required. The exposure module will detect if the camera's exposure compensation dial was used (see above remarks about ETTR), and will re-adjust the exposure accordingly.
 
-   You _can_ tweak the black level in the _exposure_ module  to supply more contrast, but you need to be very careful doing this as you can end up with negative RGB values, which can cause the _filmic rgb_ module to malfunction.
+   You _can_ adjust the black level in the _exposure_ module  to supply more contrast, but you need to be very careful doing this as you can end up with negative RGB values, which can cause the _filmic rgb_ module to malfunction.
 
 3. Adjust the [_white balance_](../../module-reference/processing-modules/white-balance.md)
 
-   It is important that the white balance is set correctly to form a solid basis for subsequent processing. The camera will normally store the selected white balance setting inside the raw file's metadata, and darktable will use this as a starting point. To get a more accurate white balance, you can either use the color picker to select a neutral gray tone in the image, or you can switch to a different white balance preset from your camera, where available. Fine adjustments to the global white balance are made using the _temperature_ slider and, less often, the _tint_ slider. Moving the _temperature_ slider to the left makes the image cooler (more blue), and moving it to the right makes it warmer (more orange).
+   It is important that the white balance is set correctly to form a solid basis for subsequent processing. The camera normally stores the chosen white balance setting inside the raw file's metadata, and darktable will use this as a starting point. To obtain a more accurate white balance, you can either use the color picker to select a neutral gray tone in the image, or you can switch to a different white balance preset from your camera, where available. Fine adjustments to the global white balance are made using the _temperature_ slider and, less often, the _tint_ slider. Moving the _temperature_ slider to the left makes the image cooler (more blue), and moving it to the right makes it warmer (more orange).
 
    The _white balance_ module is only able to make _global_ adjustments to the white balance of the image. The [_color balance_](../../module-reference/processing-modules/color-balance.md) module, among other things, gives you even more control in cases where a scene was illuminated by multiple light sources at different color temperatures.
 
+   _Note: More advanced white balance controls are now available using the [_color calibration_](../../module-reference/processing-modules/color-calibration.md) module._
+
 4. Adjust the white and black points using the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module
 
-   This module performs tone mapping compression from the high-dynamic-range of the captured image, to the lower dynamic range of the display medium. The mid-gray tone level has already been set (above) with the _exposure_ module. Filmic will propose, on its _scene_ tab, an appropriate white point and black point for the image -- you may need to adjust these for a particular scene. On the _look_ tab you can adjust the midtone contrast and saturation settings if required.
-
+   This module performs tone mapping compression from the high-dynamic-range of the captured image, to the lower dynamic range of the display medium. The mid-gray tone level has already been set (above) with the _exposure_ module. Filmic will suggest, on its _scene_ tab, an appropriate white point and black point for the image -- you may need to adjust these for a particular scene. On the _look_ tab you can adjust the midtone contrast and saturation settings if required.
 
 # other recommended modules
-In addition to the basic modules described above, you may want to consider using the following modules to make your image look even prettier. These modules are known to work well with the scene-referred workflow:
+In addition to the basic modules described above, you may want to consider using the following modules to make your image look even better. These modules are known to work well with the scene-referred workflow:
 
 [_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) / [_perspective correction_](../../module-reference/processing-modules/perspective-correction.md)
-: Quite frequently you want to only show part of the captured scene in your image, e.g. to take away some disturbing feature close to the frame. In other cases, the horizon in the image may need levelling, or there may be perspective distortions. All of this can be corrected with full manual control in the _crop and rotate_ module. For a fully automatic correction of perspective distortions you may alternatively visit the _perspective correction_ module.
+: You will often want to only show part of the captured scene in your image, e.g. to take away some disturbing feature close to the frame. In other cases, the horizon in the image may need levelling, or there may be perspective distortions. All of this can be corrected with full manual control in the _crop and rotate_ module. For a fully automatic correction of perspective distortions you may alternatively use the _perspective correction_ module.
 
 [_retouch_](../../module-reference/processing-modules/retouch.md) / [_hot pixels_](../../module-reference/processing-modules/hot-pixels.md)
-: Sometimes you will need to remove spots caused by sensor dirt. The _retouch_ module is at hand for this and can also correct other disturbing elements like skin blemishes. If your camera has stuck pixels or tends to produce hot pixels at high ISO values or longer exposure times, take a look at the _hot pixels_ module for automatic correction.
+: Sometimes you will need to remove spots caused by sensor dirt or to clone out unwanted features. The _retouch_ module is at hand for this and can also correct other disturbing elements like skin blemishes. If your camera has stuck pixels or tends to produce hot pixels at high ISO values or longer exposure times, take a look at the _hot pixels_ module for automatic correction.
 
-[_color balance_](../../module-reference/processing-modules/color-balance.md)
-: This is a versatile module that can be used to further adjust the contrast and saturation of an image, and can also be used to perform color grading (e.g. emulate "orange and teal" grading used in hollywood films, remove redness in skin tones, adjust for uneven color balance in shadows/midtones/highlights, etc.). The [_color zones_](../../module-reference/processing-modules/color-zones.md) module can also be helpful in some cases where you are unable to achieve the desired effect using the _color balance_ module.
+[_color balance rgb_](../../module-reference/processing-modules/color-balance-rgb.md)
+: This is a versatile module that can be used to further adjust the contrast and saturation of an image, and can also be used to perform color grading (e.g. emulate "orange and teal" grading used in hollywood films, remove redness in skin tones, adjust for uneven color balance in shadows/midtones/highlights, etc.). The [_color zones_](../../module-reference/processing-modules/color-zones.md) module can also be helpful in some cases where you are unable to achieve the desired effect using the _color balance rgb_ module.
 
 [_tone equalizer_](../../module-reference/processing-modules/tone-equalizer.md)
 : Use this module to perform "dodging and burning" operations and recover detail in the shadows and highlights. This module generates a mask to average out the luminance in different parts of the image, and the equalizer allows you to selectively increase and decrease luminance levels using that mask. It is recommended that you first check the mask is set up appropriately, then you can use the sliders or the spline curve to adjust the various brightness levels. You can also place the mouse cursor over different parts of the image to see the EV level of the mask at that point, and then use the mouse wheel to adjust the brightness of that EV level accordingly.
@@ -57,7 +58,7 @@ In addition to the basic modules described above, you may want to consider using
 : A more versatile but also more complex technique is to use the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is very useful for making adjustments where spatial dimension plays a role. It has a number of pre-defined presets that may be helpful as a starting point in understanding this module.
 
 [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md)
-: The _denoise (profiled)_ module is usually your best option for reducing noise in an image. This module offers an almost “single-click” solution to remove noise. From a user perspective the effect only depends on camera type and ISO value, both derived from Exif data. All other settings are taken from a database of noise profiles that the darktable team has collected -- now covering well above 300 popular camera models. The simplest way to use this module is _non-local means (auto)_ mode. The wavelet feature of this module is also quite effective against color noise. It is recommended that you use this module at 100% zoom so that you can accurately see the effects of your changes.
+: The _denoise (profiled)_ module is usually your best option for reducing noise in an image. This module offers an almost “single-click” solution to remove noise. From a user perspective the effect only depends on camera type and ISO value, both derived from Exif data. All other settings are taken from a database of noise profiles that the darktable team has compiled -- now covering well over 300 camera models. The simplest way to use this module is _non-local means (auto)_ mode. The wavelet feature of this module is also quite effective against color noise. It is recommended that you use this module at 100% zoom so that you can accurately see the effects of your changes.
 
 : Other modules that allow for image denoising include [_raw denoise_](../../module-reference/processing-modules/raw-denoise.mf), [_surface blur_](../../module-reference/processing-modules/surface-blur.md), [_astrophoto denoise_](../../module-reference/processing-modules/astrophoto-denoise.md), and the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module, which is based on wavelets. If your camera is not yet supported by _denoise (profiled)_, _astrophoto denoise_ is probably the most convenient alternative, as it allows you to treat color and luminance noise separately.
 
@@ -94,7 +95,7 @@ There are some modules for which there is not yet an alternative that is well-su
 There are also a number of artistic effect modules available in darktable. To name just a few:
 
 - Use the [_watermark_](../../module-reference/processing-modules/watermark.md) module to add an individual watermark to your image.
-- Use the [_grain_](../../module-reference/processing-modules/grain.md) module to simulate the typical noise of classical analogue photos.
+- Use the [_grain_](../../module-reference/processing-modules/grain.md) module to simulate the typical noise of analog photos.
 - Use the [_color mapping_](../../module-reference/processing-modules/color-mapping.md) module to transfer the look and feel of one color image onto another.
 - Use the [_lowlight vision_](../../module-reference/processing-modules/lowlight-vision.md) module to simulate human vision making low light pictures look closer to reality.
 - Use the [_graduated density_](../../module-reference/processing-modules/graduated-density.md) filter to add a neutral or colored gradient to your image for exposure and color correction.
@@ -103,7 +104,7 @@ Please see the [processing module reference](../../module-reference/processing-m
 
 # modules to avoid
 
-There are a number of modules which are no longer recommended for use within a scene-referred workflow. This doesn't mean they can't be used, but they can produce undesirable effects when their sliders are pushed too far, and there are better alternatives. In each case, the preferred alternative module is listed along with a brief explanation.
+There are a number of modules that are no longer recommended for use within a scene-referred workflow. This doesn't mean they can't be used, but they can produce undesirable effects when their sliders are pushed too far, and there are better alternatives. In each case, the preferred alternative module is listed along with a brief explanation.
 
 [_local tone mapping (deprecated)_](../../module-reference/processing-modules/tone-mapping.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md)_

@@ -6,9 +6,9 @@ weight: 40
 author: "people"
 ---
 
-This is a legacy mode which is retained to provide backward-compatibility with edits in older darktable versions, and to allows users to continue with their former way of working without forcing them to use the newer _scene-referred_ workflow. 
+This is a legacy mode which is retained to provide backward-compatibility with edits in older darktable versions, and to allow users to continue with their former way of working without forcing them to use the newer _scene-referred_ workflow. It is not recommended for new edits.
 
-The _display-referred_ workflow places more emphasis on performing image processing in the non-linear _display-referred_ part of the [pixelpipe](../../darkroom/pixelpipe/_index.md). By default it uses the [_base curve_](../../module-reference/processing-modules/base-curve.md) module to tone map images from the linear _scene-referred_ space into _display-referred_ space, although other tone-mapping tools (such as the [_tone curve_](../../module-reference/processing-modules/tone-curve) module) can also be used. Many modules are moved later in the pipeline (after this tone mapping transition) so that they work with gamma-encoded (_display-referred_) pixel values rather than linearly-encoded (_scene-referred_) pixel values. 
+_Display-referred_ workflow assumes that most image processing will be performed in the non-linear _display-referred_ part of the [pixelpipe](../../darkroom/pixelpipe/_index.md). By default it uses the [_base curve_](../../module-reference/processing-modules/base-curve.md) module to tone map images from the linear _scene-referred_ space into _display-referred_ space, although other tone-mapping tools (such as the [_tone curve_](../../module-reference/processing-modules/tone-curve) module) can also be used. Many modules are placed later in the pipeline (after this tone mapping transition) so that they work with gamma-encoded (_display-referred_) pixel values rather than linearly-encoded (_scene-referred_) pixel values. 
 
 Most of the basic steps required to develop images under the _display-referred_ workflow are quite similar to the _scene-referred_ workflow. The main differences lie in the choice of modules, and the order in which they appear in the pixelpipe.  To see the difference in the ordering of the modules between the _display-referred_ and _scene-referred_ workflows, please refer to the [default module order](../../special-topics/module-order.md) section.
 
@@ -19,7 +19,7 @@ Most of the basic steps required to develop images under the _display-referred_ 
 ---
 
 white balance
-: The [_white balance_](../../module-reference/processing-modules/white-balance.md) module works the same as in _scene-referred_ workflow and, by default, uses the white balance coefficients provided by the camera. If this does not give acceptable results, use the camera presets or take the white balance from a neutral spot in your image. The temperature slider can be used to make the image "warmer" or "cooler". More advanced color grading is better left to other modules, as discussed later.
+: The [_white balance_](../../module-reference/processing-modules/white-balance.md) module works the same as in _scene-referred_ workflow and, by default, uses the white balance coefficients provided by the camera. If this does not give acceptable results, use the camera presets or take the white balance from a neutral spot in your image. The temperature slider can be used to make the image "warmer" or "cooler". More advanced color grading is better left to other modules.
 
 exposure correction
 : The [_exposure_](../../module-reference/processing-modules/exposure.md) module works the same as in _scene-referred_ mode, but the way you use it is a little different. In _display-referred_ mode, you need to make sure you don't blow out your highlights too much, and use the [_base curve_](../../module-reference/processing-modules/base-curve.md) module to adjust the middle tones if needed.
