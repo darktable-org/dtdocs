@@ -7,9 +7,9 @@ draft: false
 
 The basic element of image processing in darktable is the [processing module](../../module-reference/processing-modules/). In order to process a raw image a number of such modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in darktable is analagous to that of an _adjustment layer_ in that both make an incremental adjustment to the image, building on top of the adjustments that came before.
 
-darktable also provides [utility modules](../../module-reference/utility-modules/), however these are not directly involved in image processing, and instead provide a GUI that allows you to manage your images, tag them, export them and so on.
+[Utility modules](../../module-reference/utility-modules/) are also provided by darktable, however these are not directly involved in image processing, instead providing a GUI that allows you to manage your images, tag them, export them etc.
 
-Every processing module executes independently in a similar manner:
+Every processing module acts independently of the others, but all modules perform their processing in a similar manner:
 
 ![module anatomy](./the-anatomy-of-a-module/module-anatomy.png#w100)
 

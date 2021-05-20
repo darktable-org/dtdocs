@@ -12,16 +12,16 @@ There are two main elements which control how individual masks are combined: the
 The "combine masks" combobox contains the following options, defining how the drawn and parametric masks will be combined:
 
 exclusive
-: A straightforward method of combining masks is by multiplying together the individual pixel values from each of the component masks. 
+: A straightforward method of combining masks, exclusive mode multiplies together the individual pixel values from each of the component masks. 
 
-: For a given pixel, the final mask will have value of 0 if _any_ of the individual masks are 0 at that location and it will only have a value of 1.0 if _all_ masks have a value of 1.0 at that location. This method of combination is known as _exclusive_. 
+: For a given pixel, the final mask will have value of 0 if _any_ of the individual masks are 0 at that location and it will only have a value of 1.0 if _all_ masks have a value of 1.0 at that location. 
 
 : Any individual mask can _exclude_ a pixel by setting its value to 0, regardless of what the other masks do. Once a pixel is excluded by a mask there is no way for another mask to include it again.
 
 inclusive
-: An alternative method of combining masks is to first invert each individual mask (subtract its value from 1.0), multiply the inverted masks together, and finally invert the combined mask once again. 
+: Inclusive mode first inverts each individual mask (subtracts its value from 1.0), multiplies the inverted masks together, and finally inverts the combined mask once again. 
 
-: For a given pixel, the final mask will have a value of 1.0 if _any_ of the individual masks are 1.0 at that location and it will only have a value of 0 if _all_ masks have a value of 0 at that location. This method of combination is known as _inclusive_. 
+: For a given pixel, the final mask will have a value of 1.0 if _any_ of the individual masks are 1.0 at that location and it will only have a value of 0 if _all_ masks have a value of 0 at that location. 
 
 : Any individual mask can _include_ a pixel by setting its value to 1.0, regardless of what the other masks do. Once a pixel is fully included by a mask (its value is 1.0) there is no way for another mask to exclude it again.
 
@@ -30,15 +30,15 @@ exclusive and inclusive inverted modes
 
 : Toggling the polarity button of a mask inverts its values (subtracts the original value from 1.0).
 
-: Finally within the “combine masks” combobox you may select the _exclusive & inverted_ or _inclusive & inverted_ options. Each of these options is equivalent to the _exclusive_ and _inclusive_ modes described above but with a final step that inverts the resulting mask.
+: Finally within the “combine masks” combobox you may select the _exclusive & inverted_ or _inclusive & inverted_ options. Each of these options is equivalent to the _exclusive_ and _inclusive_ modes, respectively, but with a final step that inverts the resulting mask.
 
 # typical use cases
 
 inclusive mode
-: For this mode you set the “combine masks” combobox to inclusive mode and make sure that all polarity buttons of all the individual channels and of the drawn mask are set to negative (-). Your starting point is a mask where all pixels have a value of zero, i.e. no pixel is selected. You now adjust the parametric mask sliders to bring more and more pixels into the selection or you draw shapes on the canvas to select specific areas of your image.
+: For this mode you set the “combine masks” combobox to inclusive mode and make sure that all polarity buttons of all the individual channels and of the drawn mask are set to negative (-). Your starting point is a mask where all pixels have a value of zero (no pixel is selected). You now adjust the parametric mask sliders to bring more and more pixels into the selection or you draw shapes on the canvas to select specific areas of your image.
 
 exclusive mode
-: In the opposite case you set the “combine masks” combobox to exclusive mode and make sure that all polarity buttons are set to positive (+). Your starting point is a mask with all values at 1.0, i.e. all pixels selected. You now adjust the parametric mask sliders to exclude parts of your image as needed or directly draw shapes on the canvas to exclude those areas.
+: In the opposite case you set the “combine masks” combobox to exclusive mode and make sure that all polarity buttons are set to positive (+). Your starting point is a mask with all values at 1.0 (all pixels are selected). You now adjust the parametric mask sliders to exclude parts of your image as needed or directly draw shapes on the canvas to exclude those areas.
 
 For your convenience the parametric masks GUI provides a toggle button that inverts all channel polarities and toggles between inclusive and exclusive mode in the “combine masks” combobox.
 

@@ -16,4 +16,4 @@ Click on the icon to the right of the module name to open the full version of th
 
 Currently only some widgets may be added to this panel (check boxes, sliders, comboboxes) -- more complex widgets such as curves are not supported.
 
-If any module has [multiple instances](../processing-modules/multiple-instances.md) enabled you will no longer be able to manage that module's widgets through the quick access panel.
+If any module has [multiple instances](../processing-modules/multiple-instances.md) enabled you will no longer be able to manage that module's widgets through the quick access panel and will have to use the full module interface.

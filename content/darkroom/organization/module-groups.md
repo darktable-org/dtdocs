@@ -15,32 +15,32 @@ All of these presets (with the exception of _modules: deprecated_ and _search on
 This preset contains all modules, sorted according to the traditional module groupings used prior to darktable 3.4, as follows:
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
-: A minimal set of modules normally required to render a presentable image.
+: The minimal set of modules normally required to render a presentable image.
 
 ![module-group-tone-icon](./manage-module-layouts/module-group-tone-icon.png#icon) tone modules
-: Other modules relating to tone levels and contrast
+: Other modules related to tone levels and contrast.
 
 ![module-group-color-icon](./manage-module-layouts/module-group-color-icon.png#icon) color modules
-: Modules relating to color grading and color profiles
+: Modules related to color grading and color profiles.
 
 ![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png#icon) corrective modules
-: Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, etc..
+: Modules related to correcting problems such as lens distortions, sensor noise, sharpening, etc.
 
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
-: Includes special effects such as retouch, liquify, bloom, sharpen, etc..
+: "Special effect" modules such as retouch, liquify, bloom, sharpen, etc.
 
 # _modules: default_
 
-This preset is the default module group layout from darktable 3.4 onwards and consists of a new simplified set of module groups, as follows:
+This preset is the default module group layout from darktable 3.4 onwards and consists of a simplified set of module groups, as follows:
 
 ![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png#icon) technical modules
-: Modules that deal with technical issues relating to the physics of sensors and denoising, lenses and associated corrections, color profiles, dynamic range and tone mapping, and recovering from damage to the image by physical limitations (hot pixels, clipped highlights, etc.)
+: Modules that deal with technical issues relating to the physics of sensors and denoising, lenses and associated corrections, color profiles, dynamic range and tone mapping, and recovering from damage to the image by physical limitations (hot pixels, clipped highlights, etc.).
 
 ![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png#icon) grading modules
-: Modules concerned with primary (corrective) and secondary (creative) subjective corrections of colors and tones
+: Modules concerned with primary (corrective) and secondary (creative) corrections of colors and tones.
 
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
-: "Special effect" modules such as retouch, liquify, bloom, sharpen, etc..
+: "Special effect" modules such as retouch, liquify, bloom, sharpen, etc.
 
 # _workflow: scene-referred_ & _workflow: display-referred_
 
@@ -53,14 +53,14 @@ These presets define groups of modules relevant to the [scene-referred](../../ov
 : Modules relating to color grading and color saturation.
 
 ![module-group-correct-icon](./manage-module-layouts/module-group-correct-icon.png#icon) corrective modules
-: Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, retouching, etc..
+: Modules relating to correcting problems relating to lens distortions, sensor noise, sharpening, retouching, etc.
 
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
-: Includes special effects such as watermarks, framing, vignetting, etc..
+: "Special effect" modules such as watermark, framing, vignetting, etc.
 
 # _workflow: beginner_
 
-This preset provides a minimal set of modules targeted as a starting point for beginners. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with additional modules. 
+This preset provides a minimal set of modules targeted as a starting point for beginners. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with other modules. 
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply a basic tone mapping via base curve or basic adjustments.
@@ -69,7 +69,7 @@ This preset provides a minimal set of modules targeted as a starting point for b
 : Modules dealing with creative tone and color grading.
 
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
-: Includes special effects such as retouch, sharpen, watermarks, etc..
+: "Special effect" modules such as retouch, sharpen, watermark, etc.
 
 # _previous config_
 

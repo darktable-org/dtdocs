@@ -12,7 +12,7 @@ Manage the layout and grouping of processing modules and the quick access panel.
 
 This maintenance screen can be accessed from the _presets_ menu beside the module search box or module group icons (below the histogram in the darkroom view). Ctrl+click on the preset menu to open this screen directly.
 
-Settings are automatically saved when you exit the screen. Click _reset_ to abandon any changes made in the current session.
+Settings are automatically saved when you exit the screen. Click _reset_ to abandon any changes made in the current editing session.
 
 # module controls
 
@@ -27,19 +27,19 @@ remove
 : Remove the current preset (user-defined presets only).
 
 duplicate
-: Duplicate the current preset with a new name. The above screenshot shows a new preset named "user defined", which has been created by duplicating the "modules: default" preset.
+: Duplicate the current preset with a new name. The above example shows a new preset named "user defined", which has been created by duplicating the "modules: default" preset.
 
 rename
 : Rename the current preset (user-defined presets only). Right-click to bring up a menu that can be used to copy, paste, select all, delete or insert an emoji).
 
 new
-: Create a new preset with a minimal list of modules.
+: Create a new preset containing a minimal list of modules.
 
 show search line
 : Choose whether to display the search bar below the module group icons
 
 show quick access panel
-: Choose whether to display the quick access panel. If checked, a new entry will appear in the bottom-right panel to allow you to add/remove widgets.
+: Choose whether to display the quick access panel. If checked, a new entry will appear in the bottom panel to allow you to add or remove widgets.
 
 auto-apply this preset
 : Module group presets can be automatically applied based on the type of image being worked on. The check box indicates whether this preset currently has any auto-apply rules. Click on the gear icon to amend the auto-apply settings. See [presets](../processing-modules/presets.md) for details.
@@ -64,7 +64,7 @@ change a group's icon
 : Change the icon assigned to a group by clicking on the existing group icon and selecting a new one from the displayed list.
 
 change the group order
-: Change order in which the groups are displayed by clicking on the < and > buttons below the group names.
+: Change the order in which the groups are displayed by clicking on the < and > buttons below the group names.
 
 rename a group
 : Rename a module group by clicking on the group name and typing. Right-click to bring up a menu that can be used to copy, paste, select all, delete or insert an emoji)

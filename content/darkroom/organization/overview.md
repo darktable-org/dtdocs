@@ -30,5 +30,5 @@ You can change which widgets appear in the quick access panel, and which modules
 
 # search
 
-Below the module group icons is the search bar, which you can use to access any of the processing modules, regardless of whether they are currently in a group. Some modules have additional tags stored against them, which will also be queried when searching.
+Below the module group icons is the search bar, which you can use to access any of the processing modules, regardless of whether they are currently in a group. Some modules have additional tags stored against them that will also be queried when searching.
 

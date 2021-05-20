@@ -5,12 +5,14 @@ weight: 40
 draft: false
 ---
 
+This section describes how to interact with processing module controls.
+
 # sliders
 
 Sliders offer five different methods of interaction, depending on the level of control you require.
 
 left-click
-: Click anywhere in the slider area to set the value. You can also click and drag to change it. You don't have to aim for the triangle or even the line - you can click anywhere in the entire height of the slider including the label.
+: Click anywhere in the slider area to set the value. You can also click and drag to change it. You don't have to aim for the triangle or even the line -- you can click anywhere in the entire height of the slider, including the label.
 
 mouse wheel
 : Hover over the slider with your mouse, then use your mouse wheel to adjust the value.
@@ -25,12 +27,12 @@ right-click
 
 : A bent line extending from the triangular marker moves with your mouse. The closer your mouse pointer is to the triangular marker the coarser the control you have over the value; the further away from the triangular marker the finer your control. Left-click with your mouse to accept the new value and and hide the pop-up.
 
-: Alternatively you can type in a new value using your keyboard and commit by hitting the enter key. You may even supply the new value in the form of an arithmetic expression which darktable will calculate for you – the previous value is referenced as “x”.
+: Alternatively you can type in a new value using your keyboard and commit by hitting the Enter key. You may even supply the new value in the form of an arithmetic expression which darktable will calculate for you -- the previous value is referenced as “x”.
 
 double-click
-: You can double-click on a slider or its label to reset to the default value.
+: Double-click on a slider or its label to reset to the default value.
 
-In addition, the precision of mouse-wheel and arrow key-adjustments can be altered:
+In addition, the precision of mouse-wheel and arrow-key adjustments can be altered:
 
  - hold down the Shift key while adjusting to _increase_ the step size by a factor of 10. 
  - hold down the Ctrl key while adjusting to _decrease_ the step size by a factor of 10.
@@ -44,12 +46,12 @@ darkroom/ui/scale_precise_step_multiplier=0.1
 
 # comboboxes
 
-Click on a combobox to open a list of available options which you can click to select. Occasionally the selection list will open close to the bottom or top of the screen meaning that only some of the items are visible -- simply scroll with your mouse wheel to bring up the full list. Alternatively, you can also use the mouse wheel and keyboard arrow keys to select an option, or start typing to filter the combobox entries.
+Click on a combobox to show a list of available options which you can click to select. Occasionally the selection list will open close to the bottom or top of the screen meaning that only some of the items are visible -- simply scroll with your mouse wheel to bring up the full list. Alternatively, you can also use the mouse wheel and keyboard arrow keys to select an option, or start typing to filter the combobox entries.
 
 # color pickers
 
-A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png#icon) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by clicking on the color picker icon. Ctrl+click on the icon to activate area mode.
+A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png#icon) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by clicking on the color picker icon. Area mode is activated with Ctrl+click.
 
 # keyboard shortcuts
 
-Module parameters can also be amended with keyboard shortcuts. See [preferences > shortcuts](../../preferences-settings/shortcuts.md) for more information.
+Module parameters can also be adjusted using keyboard shortcuts. See [preferences > shortcuts](../../preferences-settings/shortcuts.md) for more information.

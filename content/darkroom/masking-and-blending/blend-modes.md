@@ -5,9 +5,9 @@ weight: 20
 draft: false
 ---
 
-Blend modes define how the input and output of a module are combined (blended) together before a module's final output is passed to the next module in the pixelpipe. 
+Blend modes define how the input and output of a module are combined (blended) together before the module's final output is passed to the next module in the pixelpipe. 
 
-Classic blending modes, designed for display-referred RGB (constrained to 0-100%) implicitly define a fulcrum at 50% (gray) or 100% (white) in their algorithms, depending on the blend mode. Because scene-referred is not subject to these restrictions, this fulcrum needs to be explicitly defined by the user when performing blending operations in the "RGB (scene)" color space. The additional _blend fulcrum_ parameter will be presented to the user when using one of these blend modes in this color space. The effect depends on the operator used. For example, values above the fulcrum might be brightened and values below darkened, or vice versa.
+Classic blending modes, designed for display-referred RGB (constrained to 0-100%), implicitly define a fulcrum at 50% (gray) or 100% (white) in their algorithms, depending on the blend mode. Because scene-referred is not subject to these restrictions, this fulcrum needs to be explicitly defined by the user when performing blending operations in the "RGB (scene)" color space. The additional _blend fulcrum_ parameter will be presented to the user when using one of these blend modes in this color space. The effect depends on the operator used. For example, values above the fulcrum might be brightened and values below darkened, or vice versa.
 
 The final output of a module is computed 'per-pixel' as follows:
 
@@ -15,20 +15,20 @@ The final output of a module is computed 'per-pixel' as follows:
 final_output = (1.0 - opacity) * module_input + opacity * blended_output
 ```
 
-where the `blended_output` is a combination of the input and output images, depending on the blend mode (below), and the `opacity` is defined 'per-pixel' by a combination of the mask and global opacity parameter.
+where the `blended_output` is a combination of the input and output images, depending on the blend mode (below), and the `opacity` is defined 'per-pixel' by a combination of the mask and global opacity parameter. An opacity of 0% outputs an image that is identical to the input image of the module.
 
-The "reverse" action ![blend-reverse](./blend-modes/blend-reverse.png#icon) effectively reverses the roles of the input and output images in the 'per-pixel' computation:
+The "reverse" button ![blend-reverse](./blend-modes/blend-reverse.png#icon) effectively reverses the roles of the input and output images in the 'per-pixel' computation:
 
 ```
 final_output = (1.0 - opacity) * module_output + opacity * blended_input
 ```
 
-where the `blended_input` is a combination of the output and input images, depending on the blend mode below where _output_ and _input_ image references are reversed. This implies also that a 0% opacity outputs an image that is identical to the output image of the module.
+where the `blended_input` is a combination of the output and input images, depending on the blend mode below where _output_ and _input_ image references are reversed. In "reversed" blend modes, an opacity of 0% outputs an image that is identical to the _output_ image of the module.
 
 # normal modes
 
 normal
-: The most commonly used blend mode, "normal" simply mixes input and output to an extent determined by the opacity parameter. This mode is commonly used to reduce the strength of a module's effect by reducing the opacity. This is also usually the blend mode of choice when applying a module's effect selectively with masks. This mode is also known as the "over" Porter-Duff alpha blending operator (see [Alpha compositing](https://en.wikipedia.org/wiki/Alpha_compositing) for more details).
+: The most commonly used blend mode, "normal" simply mixes input and output to an extent determined by the opacity parameter. This mode is commonly used to reduce the strength of a module's effect by reducing the opacity. This is also usually the blend mode of choice when applying a module's effect selectively with masks. This mode is also known as the "over" Porter-Duff alpha blending operator (see [alpha compositing](https://en.wikipedia.org/wiki/Alpha_compositing) for more details).
 
 normal bounded
 : _not available in the "RGB (scene)" color space_
