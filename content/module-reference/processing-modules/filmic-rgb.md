@@ -1,7 +1,7 @@
 ---
 title: filmic rgb
 id: filmic-rgb
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -177,7 +177,7 @@ If you see the orange warning indicator at either end of the S-curve, corrective
 
 - ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
 
-- setting one or both of the contrast settings on the _filmic rgb_ _options_ tab to _hard_.
+- setting one or both of the contrast settings on the _filmic rgb_ _options_ tab to _safe_ or _hard_.
 
 If the _target black luminence_ setting on the _display_ tab is non-zero, this can also make it difficult for _filmic rgb_ to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the _display_ section to understand the implications of this.
 
@@ -250,10 +250,10 @@ preserve chrominance
 : There is no "right" choice for the norm, and the appropriate choice depends strongly on the image to which it is applied - you should experiment and decide for yourself which setting gives the most pleasing result with the fewest artifacts.
 
 contrast in highlights
-: This control selects the desired curvature at the highlights end of the _filmic rgb_ spline curve. Selecting _hard_ (default) places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the highlights. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the highlights.
+: This control selects the desired curvature at the highlights end of the _filmic rgb_ spline curve. The default setting (_safe_) is guaranteed not to over- or under-shoot but has quite muted contrast near white. Selecting _hard_ places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the highlights. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the highlights.
 
 contrast in shadows
-: This control selects the desired curvature at the shadows end of the _filmic rgb_ spline curve. Selecting _hard_ (default) places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the shadows. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the shadows.
+: This control selects the desired curvature at the shadows end of the _filmic rgb_ spline curve. The default setting (_safe_) is guaranteed not to over- or under-shoot but has quite muted contrast near black. Selecting _hard_ places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the shadows. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the shadows.
 
 use custom middle-gray values
 : Enabling this setting makes the _middle-gray luminance_ slider visible on the _scene_ tab. With this new edition of _filmic rgb_, it is now recommended to use the _exposure_ module to set the middle-gray level, so this setting is disabled by default (and the _middle-gray luminance slider_ is hidden).
