@@ -6,7 +6,7 @@ weight: 20
 author: "people"
 ---
 
-The layout of all views is similar and consists of a center area with panels at the edges: 
+The layout of all darktable views is similar and consists of a center area with panels at the edges: 
 
 ![screen-layout](./screen-layout/screen-layout.png#w100)
 
@@ -20,7 +20,7 @@ The layout of all views is similar and consists of a center area with panels at 
 : Contains modules primarily used for image processing.
 
 4. top banner
-: Contains information about the current darktable version and allows you to switch between views. Also used by some modules to show hints and messages.
+: Contains information about the current darktable version and allows you to switch between views. Also used by some modules to show additional hints and messages.
 
 5. [top panel](./top-panel.md)
 : Provides access to global settings and shortcuts
@@ -35,14 +35,14 @@ The layout of all views is similar and consists of a center area with panels at 
 
 The left, right and filmstrip/timeline panels can be resized by dragging their inner borders. 
 
-Each of the panels can be expanded or collapsed by pressing a triangle located at the outside edge of the panel. Panel visibility can also be adjusted using keyboard shortcuts, as follows:
+Each of the panels can be expanded or collapsed by pressing the triangle located at the outside edge of the panels. Panel visibility can also be adjusted using keyboard shortcuts, as follows:
 
 ```
 TAB             Temporarily expand the centre view to fill the whole window. 
                 Press again to return to the previous view.
 F11             Toggle fullscreen mode
 Shift+Ctrl+t    Toggle the top panel (between the image and the top banner)
-Shift+Ctrl+b    Toggle the bottom panel (beween the image and the filmstrip/timeline if shown)
+Shift+Ctrl+b    Toggle the bottom panel (beween the image and the filmstrip/timeline, if shown)
 Shift+Ctrl+l    Toggle the left panel
 Shift+Ctrl+r    Toggle the right panel
 Ctrl+f          Toggle the filmstrip/timeline
@@ -51,6 +51,6 @@ b               Toggle all borders and panel-collapse controls
 ```
 ---
 
-**Note:** Size and visibility of panels are stored independently for each view.
+**Note:** The size and visibility of the panels are stored independently for each view.
 
 ---
