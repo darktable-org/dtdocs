@@ -6,15 +6,15 @@ weight: 40
 author: "people"
 ---
 
-Star ratings and color labels help you to sort and rank images according to your own criteria. An image's star rating and its color labels can be displayed over thumbnails in the lighttable view and filmstrip module.
+Star ratings and color labels help you to sort and rank images according to your own criteria. An image's star rating and color labels can be displayed over thumbnails in the lighttable view and filmstrip module.
 
 # star ratings
 
-You can give an image a rating from zero to five stars. The quality criteria which lead to a rating are up to you. Whenever you import images, each image receives a default rating which you can define in [preferences > import](../../../preferences-settings/import.md).  You can also mark an image as “rejected”.
+You can give an image a rating from zero to five stars. Whenever you import images, each image receives a default rating which you can define in the [import](../../../module-reference/utility-modules/lighttable/import.md) module.  You can also mark an image as “rejected”.
 
 There are several ways to change a rating. While hovering the cursor over an image thumbnail, you can press a number key 0 – 5 to define the number of stars, or press R to “reject” an image. This is probably the fastest way to rate your images on first inspection of a film roll.
 
-You can also directly click on the star icons that are overlayed on the thumbnails. Click the x to reject. 
+You can also directly click on the star icons that are overlayed on the thumbnails or in the bottom panel. Click the x to reject. 
 
 As Rejecting an image removes the currently-applied star rating, you can undo the rejection by clicking x or pressing R again.
 
@@ -26,7 +26,7 @@ You can filter images by star rating in the [top panel](../../overview/user-inte
 
 # color labels
 
-Color labels are another way to classify images, and can be used as an alternative to star ratings or work alongside star ratings. Each image can carry any combination of one or more color labels in red, yellow, green, blue, and purple.
+Color labels are another way to classify images, and can be used as an alternative to star ratings or to work alongside them. Each image can carry any combination of one or more color labels (red, yellow, green, blue, or purple).
 
 You can set the color labels for a single image by hovering your cursor over the thumbnail and pressing the function keys F1 – F5, which correspond with the labels in the order given above.
 

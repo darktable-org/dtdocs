@@ -17,13 +17,13 @@ From top to bottom:
 : Filter the images displayed in the lighttable center panel -- also used to control the images displayed in the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) and [timeline](../../module-reference/utility-modules/lighttable/timeline.md) modules.
 
 [recently used collections](../module-reference/utility-modules/shared/recent-collections.md)
-: View recently used collections of images
+: View recently used collections of images.
 
 [image information](../module-reference/utility-modules/shared/image-information.md)
-: Display image information
+: Display image information.
 
 [lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md) (optional)
-: Install lua scripts
+: Install lua scripts.
 
 # right panel
 
@@ -60,19 +60,19 @@ From top to bottom:
 From left to right:
 
 [star ratings](./digital-asset-management/star-color.md)
-: Apply star ratings to images
+: Apply star ratings to images.
 
 [color labels](./digital-asset-management/star-color.md)
-: Apply color categories to images
+: Apply color categories to images.
 
 [mode selector](./lighttable-modes/_index.md)
-: Choose lighttable mode using the dropdown
+: Choose a lighttable mode.
 
 [zoom](./lighttable-modes/filemanager.md)
-: Use the slider to change the size of thumbnails
+: Adjust the size of thumbnails.
 
 ![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png#icon) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
-: Click to enable focus-peaking mode
+: Highlight the parts of the image that are in focus.
 
 ![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png#icon) [set display profile](../special-topics/color-management/display-profile.md)
-: Click to choose display profiles
+: Set the display profile of your monitor(s).

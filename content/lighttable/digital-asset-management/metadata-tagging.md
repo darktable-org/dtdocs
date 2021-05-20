@@ -10,12 +10,8 @@ darktable allows you to store additional information about your images to allow 
 
 # metadata
 
-Metadata (e.g. title, description) is free-format text that usually differs for each image.
-
-See the [metadata editor](../../module-reference/utility-modules/shared/metadata-editor.md) module for details of how to add metadata to images.
+Metadata (e.g. title, description) is free-format text that usually differs for each image. You can add metadata to images in the [metadata editor](../../module-reference/utility-modules/shared/metadata-editor.md) module.
 
 # tagging
 
-Tags are usually shared between multiple images and are used to categorise and group them.
-
-See the [tagging](../../module-reference/utility-modules/shared/tagging.md) module for details of how to add tags to images.
+Tags are usually shared between multiple images and are used to categorise and group them. You can add tags to images in the [tagging](../../module-reference/utility-modules/shared/tagging.md) module.

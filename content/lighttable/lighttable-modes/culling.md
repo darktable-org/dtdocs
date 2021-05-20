@@ -6,7 +6,7 @@ weight: 30
 author: "people"
 ---
 
-Culling mode allows you to display images side by side to easily compare them. 
+Culling mode allows you to display images side by side for easy comparison.
 
 # controls
 
@@ -20,7 +20,7 @@ navigate
 
 # modes
 
-There are two different ways to define how many images are shown at the same time: “fixed” and “dynamic”. Switch between these methods while in culling mode by pressing the "<" key.
+There are two different culling modes, which define how many images are shown at the same time: “fixed” and “dynamic”. Switch between these while in culling mode by pressing the "<" key.
 
 fixed mode
 : The number of images displayed is always the same, independent of the selection length. This number can be set with a slider on the bottom panel.

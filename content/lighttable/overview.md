@@ -10,7 +10,7 @@ The lighttable view allows you to view and manage your image collection.
 
 The centre view contains thumbnails of your images -- how they are displayed depends on which [mode](./lighttable-modes/_index.md) you are working in.
 
-While the mouse is over an image thumbnail or images are selected, there are a number of actions you can perform:
+While the mouse is over an image thumbnail or images are selected, there are a number of actions you can perform with keyboard shortcuts:
 
 ```
 0 – 5      set the rating of the image 
