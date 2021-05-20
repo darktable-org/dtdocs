@@ -33,7 +33,7 @@ mask opacity
 : The strength of the module's effect is determined by the mask's local opacity. Feathering and blurring the mask may reduce the opacity of the original mask. The “mask opacity” slider allows you to readjust the mask opacity to compensate. If the mask opacity is decreased (negative slider values) less opaque parts are affected more strongly. Conversely, if the mask opacity is increased (positive slider values) more opaque parts are affected more strongly. As a consequence, completely opaque portions of the mask always remain opaque and completely transparent portions always remain transparent. This is to ensure that regions that have been fully excluded from or included in a module's effect (by setting the mask's opacity to 0% or 100%) remain fully excluded or included.
 
 mask contrast
-: This slider increases or decreases the mask contrast. This allows you to adjust the transition the between opaque and transparent parts of the mask.
+: This slider increases or decreases the mask contrast. This allows you to adjust the transition between the opaque and transparent parts of the mask.
 
 ![eye icon](./refinement-controls/icon-eye.png#icon) temporarily switch off mask
 : Sometimes it is useful to visualize a module's effect without the mask being active. Click on this icon to temporarily deactivate the mask (the selected blend mode and global opacity remain in effect).
