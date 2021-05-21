@@ -8,7 +8,9 @@ view: darkroom
 masking: true
 ---
 
-Color balance RGB is an advanced module which brings color-grading tools from cinematography into the photographic scene-referred pipeline. It is not suited for beginners with no prior knowledge of color theory, who might want to stick to the _global chroma_ and _global vibrance_ settings until they have a good understanding of the [dimensions of color](../../special-topics/color-management/color-dimensions.md).
+An advanced module which brings color-grading tools from cinematography into the photographic scene-referred pipeline. 
+
+This module is not suitable for beginners with no prior knowledge of color theory, who might want to stick to the _global chroma_ and _global vibrance_ settings until they have a good understanding of the [dimensions of color](../../special-topics/color-management/color-dimensions.md).
 
 # introduction
 
