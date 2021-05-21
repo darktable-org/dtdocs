@@ -8,7 +8,9 @@ view: darkroom
 masking: true
 ---
 
-A generic color look up table implemented in Lab space. The input is a list of source and target points and the complete mapping is interpolated using splines. The resulting look up tables (LUTs) are editable by hand and can be created using the darktable-chart utility to match given input (such as hald-cluts and RAW/JPEG with in-camera processing pairs). See [using darktable-chart](../../special-topics/darktable-chart/_index.md) for details.
+A generic color look up table implemented in Lab space. 
+
+The input to this module is a list of source and target points and the complete mapping is interpolated using splines. The resulting look up tables (LUTs) are editable by hand and can be created using the darktable-chart utility to match given input (such as hald-cluts and RAW/JPEG with in-camera processing pairs). See [using darktable-chart](../../special-topics/darktable-chart/_index.md) for details.
 
 # module controls
 
@@ -22,8 +24,8 @@ color board
 interaction
 : To modify the color mapping, you can change the source and target colors, though the main use is to change the target colors.
 
-: Start with an appropriate palette of source colors (either from the presets menu or from a style you have downloaded). You can then change the lightness (L), green-red (a), blue-yellow (b), or saturation \(c\) of the patches' target values via sliders.
+: Start with an appropriate palette of source colors (either from the presets menu or from a style you have downloaded). You can then change the lightness (L), green-red (a), blue-yellow (b), or saturation \(c\) of the patches' target values with the sliders.
 
 : To change the source color of a patch you can select a new color from your image by using the color picker and Shift+click on the patch you want to replace.
 
-: Double-click a patch to reset it; Right-click a patch to delete it; Shift+click on empty space to add a new patch (with the currently picked color as source color).
+: Double-click a patch to reset it; Right-click a patch to delete it; Shift+click on empty space to add a new patch (with the currently picked color as the source).
