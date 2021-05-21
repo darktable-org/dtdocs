@@ -8,15 +8,17 @@ view: darkroom
 masking: true
 ---
 
-Create a soft bloom over the image. This module works by blurring the highlights and then blending them with the original image.
+Create a soft bloom effect. 
+
+This module works by blurring the highlights and then blending the result with the original image.
 
 # module controls
 
 size
-: The spacial extent of the bloom effect
+: The spacial extent of the bloom effect.
 
 threshold
-: The threshold for the increase in brightness
+: The threshold for the brightness increase.
 
 strength
-: The strength of the overlighting for the effect
+: The strength of the overlighting.
