@@ -10,32 +10,32 @@ masking: true
 
 Selectively adjust the lightness, saturation and hue of pixels based on their current lightness, saturation and hue.
 
-This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (or _saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).
+This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (_saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).
 
-In the _color zones_ module, you first need to choose whether you wish to adjust (select) pixels based on their lightness, saturation or hue. Once you have chosen the pixel selection method you can then use three curves, on their respective tabs, to adjust the lightness, saturation and hue of ranges of pixels selected via this method.
+You first need to choose whether you wish to adjust (select) pixels based on their lightness, saturation or hue. You can then use three curves, on their respective tabs, to adjust the lightness, saturation and hue of ranges of pixels selected via this method.
 
 # pixel selection method
 
 The _color zones_ module offers three different methods for selecting which pixels you want to adjust. They are:
 
 select by hue (default)
-: Choose which pixels to manipulate based on their hue. For example, you may want to darken a blue sky, or to change a red porche into a yellow one. The following image shows the full range of hues that you can choose to operate on:
+: Select pixels to manipulate based on their hue. For example, you may want to darken a blue sky, or to change a red porche into a yellow one. The following image shows the full range of hues that you can choose to operate on:
 
 : ![color zones choose hue](./color-zones/color-zones-choose-hue.png#w33)
 
 select by lightness
-: Choose which pixels to manipulate based on their lightness. For example, you may want to make your shadows brighter (which is like doing a sort of tone mapping), or to make your highlights a little more yellow in hue. The following image shows the range of lightness levels that you can choose to operate on, from dark to light:
+: Select pixels to manipulate based on their lightness. For example, you may want to make your shadows brighter, or to make your highlights more yellow. The following image shows the range of lightness levels that you can choose to operate on, from dark to light:
 
 : ![color zones choose lightness](./color-zones/color-zones-choose-lightness.png#w33)
 
 select by saturation
-: Choose which pixels to manipulate based on their saturation. For example, you may want to tone down the saturation of some already highly saturated pixels, or to change their hue. The following image shows the range of saturation levels that you can choose to operate on, from a completely unsaturated monochrome gray through to the most highly saturated color:
+: Select pixels to manipulate based on their saturation. For example, you may want to tone down the saturation of some already highly saturated pixels, or to change their hue. The following image shows the range of saturation levels that you can choose to operate on, from a completely unsaturated monochrome gray through to the most highly saturated color:
 
 : ![color zones choose saturation](./color-zones/color-zones-choose-saturation.png#w33)
 
 # pixel manipulation curves
 
-Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizonal axis of the pixel manipulation curves. There are three tabs, each with their own curve for manipulating either the hue, lightness or saturation. 
+Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizonal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, saturation, hue). 
 
 If, for example, you were to choose to _select by hue_ (the default), the horizontal axis (below the manipulation curves) would show the range of hues you can work with, and the three pixel manipulation curves would appears as follows:
 
@@ -50,48 +50,46 @@ saturation
 : ![color zones adjust saturation](./color-zones/color-zones-adjust-saturation.png#w33)
 
 hue
-: By adjusting the hue curve up or down in a given (hue) location, you can shift the hue of pixels matching hues where the curve has been raised or lowered, respectively, allowing you to replace one color with another. In the example below, a pink toy in an image has been changed to blue:
+: By adjusting the hue curve up or down in a given (hue) location, you can shift the hue of pixels matching hues where the curve has been raised or lowered, allowing you to replace one color with another. In the example below, a pink toy in an image has been changed to blue:
 
 : ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png#w33)
 
-The curves work similarly in the lightness-based and saturation-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
+The curves work similarly in the lightness- and saturation-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
 
-In practical use, these examples would probably need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect. 
+Note that these examples are somewhat contrived in order to illustrate the module's usage. In practical use, they would likely need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect. 
 
 # range selection
 
-When adjusting the pixel manipulation curves, it can sometimes be difficult to judge exactly where on the horizontal axis pixels will fall. Just above the curve are a pair of color pickers that can be used to help identify where to make your adjustments, and they can even assist further by automatically setting up some initial control points for you.
+When adjusting the pixel manipulation curves, it can sometimes be difficult to judge exactly where on the horizontal axis pixels will fall. To the right of the tab controls are a pair of color pickers that can be used to assist with this.
 
-If you click the color picker on the left and then choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you Ctrl+click on the same color picker you can choose a rectangular area from the image -- the range of values represented within that rectangular will be shaded vertically, with a similar dark line showing the median value.
+If you click the left-hand color picker and choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you Ctrl+click on the same color picker you can choose a rectangular area from the image -- the range of values represented within the selected rectangle will be shaded vertically, with a similar dark line showing the median value.
 
-If you click on the color picker on the right, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, at the start, median and end of the highlighted range (see below). Simply drag on the center notde to push up or pull down the curve within that selected range. 
-
-If you hold Ctrl while selecting a region using the right-hand color picker, the auto-generated curve nodes will be automatically pushed up in the selected range. You can then fine-tune by dragging on the individual nodes. If you hold Shift while selecting a region, the curve will instead be pushed down in the selected range.
+If you click on the right-hand color picker, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, representing the highlighted range (see below). Simply drag on the center node to raise or lower the curve within the selected range. Alternatively, hold Ctrl while selecting a range to automatically create a positive curve (push up the selected range) or hold Shift while selecting to create a negative curve (pushed down). 
 
 ![color zones overview](./color-zones/color-zones-overview.png#w33)
 
 # module controls
 
-Here is a summary of all the settings available in the _color zones_ module:
+The following controls are available in the _color zones_ module:
 
-tabbed controls
-: The module provides tabs with a curve for each of the three channels “lightness”, “saturation”, and “hue”, so that you can adjust these attributes individually based on the pixel selection method (see the _pixel manipulation curves_ section above).
+lightness, saturation & hue tabs
+: Each tab displays a pixel manipulation curve to allow you to alter “lightness”, “saturation”, or “hue” based on the pixel selection method.
 
 edit by area
-: Control the interaction mode with the curve. This setting is disabled by default, which allows the control points for the curve to be freely placed and dragged. By enabling this setting, the adjustment of the curve falls back to a legacy mode, which functions in a similar to the spline curve controls used in the [wavelets](../../darkroom/processing-modules/wavelets.md#spline-controls) modules.
+: Choose how to interact with the curve. This setting is disabled by default, allowing the control points for the curve to be freely placed. Check the box to fall back to the legacy "edit by area" mode, which functions in a similar way to the spline curve controls used in [wavelet](../../darkroom/processing-modules/wavelets.md#spline-controls) modules.
 
  ![mask-icon](./color-zones/icon-mask.png#icon) mask display
-: Enable the _mask display_ to highlight any pixels that have been affected by _color zones_ adjustments in yellow.
+: Enable the _mask display_ to highlight pixels that have been affected by _color zones_ adjustments in yellow.
 
 select by
-: Define the horizontal axis, i.e. the range of values to work on. You can choose between “lightness”, “saturation”, and “hue” (default). Changing this parameter resets any defined curve to a straight horizontal line. If you want to work on multiple ranges, you'll need to use multiple instances of the _color zones_ module.
+: Define the horizontal axis (the range of values to work on). You can choose between “lightness”, “saturation”, and “hue” (the default). Changing this parameter resets all pixel manipulation curves to their default state (horizontal straight lines). If you want to work on multiple ranges, you need to create additional instances of the module.
 
 process mode
-: Choose between a “smooth” (default) or “strong” processing mode, which alters the final effect.
+: Choose between a “smooth” (default) or “strong” processing mode. The default mode is less likely to cause artifacts.
 
 mix
 : Use this parameter to tune the strength of the overall effect.
 
 interpolation method
-: The interpolation is the strategy used to draw a continuous curve through a set of control points. The different interpolation methods are described more fully in the [curves](../../darkroom/processing-modules/curves.md) section.
+: Define how the curve is interpolated using the user-defined control points. See the [curves](../../darkroom/processing-modules/curves.md) section for more details.
 
