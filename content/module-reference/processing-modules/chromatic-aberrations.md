@@ -10,6 +10,8 @@ masking: true
 
 Correct chromatic aberrations.
 
+In contrast to the [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) module, this module does not require raw data as input.
+
 # workflow 
 
 To obtain the best result, you are advised to proceed as follows:
