@@ -10,16 +10,16 @@ masking: true
 
 A versatile tool for adjusting the image's color balance. 
 
-This module can be used to revert parasitic color casts or to enhance the visual atmosphere of an image using color grading, a popular technique in the cinema industry.
+This module can be used to revert parasitic color casts or to enhance the visual atmosphere of an image using color grading, a popular technique in the cinema industry. For scene-referred workflow, you should consider using the improved [_color balance rgb_](./color-balance-rgb.md) module instead.
 
 # overview
-The _color balance_ module allows you to shift colors selectively by luminance range: shadows, mid-tones, and highlights. It does so using two different methods:
+The _color balance_ module allows you to shift colors selectively by luminance range (shadows, mid-tones, and highlights). It can do this using two different methods:
 
 lift, gamma, gain
-: the classic method, which allows a more separated control of shadows versus highlights.
+: The classic method, which allows a more separated control of shadows versus highlights.
 
 slope, offset, power
-: the new standard defined by the American Society of Cinematographers Color Decision List (ASC CDL) and more suited to scene-referred editing.
+: The new standard defined by the American Society of Cinematographers Color Decision List (ASC CDL) and more suited to scene-referred editing.
 
 The _master_ settings affect the whole image. They are not available in _lift, gamma, gain (sRGB)_ mode. The slider ranges are limited to usual values ([50%; 150%] for saturation, [-50%; 50%] for contrast), but higher and lower values can be defined via keyboard input after right-clicking on the corresponding slider.
 
@@ -53,7 +53,7 @@ color control sliders
 
 : _RGBL_ controls allow direct access to the RGB parameters that will be sent to the algorithm and internally adjusted in XYZ luminance, depending on the mode used. They are the only ones stored in darktable's development history.
 
-: _HSL_ controls allow a more intuitive control, but are only an interface: the hues and saturations are computed dynamically from and to the RGB parameters and never stored. During the HSL to RGB conversion, the HSL lightness is always assumed to be 50%, so the RGB parameters are always balanced to avoid lightness changes. However, during the RGB to HSL conversion, the HSL lightness is not corrected.
+: _HSL_ controls are more intuitive, but are only an interface: the hues and saturations are computed dynamically from and to the RGB parameters and never stored. During the HSL to RGB conversion, the HSL lightness is always assumed to be 50%, so the RGB parameters are always balanced to avoid lightness changes. However, during the RGB to HSL conversion, the HSL lightness is not corrected.
 
 : As a consequence, editing in RGB, then in HSL, then again in RGB will not retain the original RGB parameters, but will normalize them so their HSL lightness is 50%. The difference is barely noticeable in most cases, especially using the modes that already correct the RGB parameters internally in XYZ luminance.
 
@@ -75,16 +75,16 @@ shadows, mid-tones, highlights
 
 ---
 
-**Note:** The shadows, mid-tones and highlights sliders can take up a great deal of space in the _color balance_ module. The overall layout of these sliders can therefore be cycled through three different layouts by clicking on the title _shadows, mid-tones, highlights_. You can also set the default layout via a setting in [preferences > darkroom > colorbalance slider block layout](../../preferences-settings/darkroom.md).
+**Note:** The shadows, mid-tones and highlights sliders can take up a great deal of space in the _color balance_ module. The overall layout of these sliders can therefore be cycled through three different layouts by clicking on the _shadows, mid-tones, highlights_ heading. You can also set the default layout with [preferences > darkroom > colorbalance slider block layout](../../preferences-settings/darkroom.md).
 
 ---
 
 optimize luma
 : The color-picker beside the optimize luma label will select the whole image and optimize the factors for shadows, mid-tones and highlights so that the average luminance of the image is 50% Lab, the maximum is 100% and the minimum is 0%, at the output of this module. This is essentially histogram normalization, similar to that performed by the [_levels_](./levels.md) module. The optimizer is only really accurate when used in _slope, offset, power_ mode.
 
-: If you want more control, you can define three control patches by using the color pickers beside each factor slider to sample luminance in selected areas. The shadows color picker samples the minimum luminance, the mid-tones color picker samples the average, and the highlights color picker samples the maximum luminance. The most sensitive parameter is the mid-tones factor, since selecting a slightly different area can lead to dramatic parameter changes. Using the factors color pickers alone, without triggering the luma optimization, will allow you to perform adjustments without general optimization, but each parameter is always computed taking the other two into account. Once patches are selected, the label changes to read “optimize luma from patches”. To reset one patch, you can just redo the selection. Patches are not saved in the parameters and are retained only during the current session.
+: If you want more control, you can define three control patches by using the color pickers beside each factor slider to sample luminance in selected areas. The _shadows_ color picker samples the minimum luminance, the _mid-tones_ color picker samples the average luminance, and the _highlights_ color picker samples the maximum luminance. The most sensitive parameter is the mid-tones factor, since selecting a slightly different area can lead to dramatic parameter changes. Using the factors color pickers alone, without triggering the luma optimization, will allow you to perform adjustments without general optimization, but each parameter is always computed taking the other two into account. Once patches are selected, the label changes to read “optimize luma from patches”. To reset one patch, you can just redo the selection. Patches are not saved in the parameters and are retained only during the current session.
 
-: It is important to note that the luminance adjustment targets only the output of the _color balance_ module and does not account for other luminance adjustments performed in modules coming later in the pixelpipe (e.g. [_filmic rgb_](./filmic-rgb.md), [_tone curve_](./tone-curve.md), [_color zones_](./color-zones.md), [_levels_](./levels.md)). Using the _color balance_ to remap the luminance globally on the image is not recommended because it does not preserve the original colors, and modules such as [_tone curve_](./tone-curve.md) or [_filmic rgb_](./filmic-rgb.md) are better suited for this purpose. Luminance adjustments in _color balance_ are better suited for local correction, in combination with color adjustments, for color-grading with masks.
+: It is important to note that the luminance adjustment targets only the output of the _color balance_ module and does not account for adjustments performed in other modules later in the pixelpipe (e.g. [_filmic rgb_](./filmic-rgb.md), [_tone curve_](./tone-curve.md), [_color zones_](./color-zones.md), [_levels_](./levels.md)). Using the _color balance_ module to remap the luminance globally on the image is not recommended because it does not preserve the original colors -- modules such as [_tone curve_](./tone-curve.md) or [_filmic rgb_](./filmic-rgb.md) are better suited for this purpose. Luminance adjustments in _color balance_ are better performed, in combination with color adjustments, using masks.
 
 neutralize colors
 : In an image where some areas are exposed to direct sunlight and some areas are exposed to reflected light (shadows), or where several artificial light sources are present simultaneously, shadows and highlights often have different color temperatures. These images are particularly difficult to correct since no general white balance will match all the colors at once. The color neutralization optimizer aims at helping you find the complementary color for shadows, midtones, and highlights so that all the color casts are reverted, and the average color of the image is a neutral gray.
@@ -93,6 +93,6 @@ neutralize colors
 
 : For night and events photography, this will most likely fail and you will need to manually input the sampling areas with the color-pickers beside each hue slider. For the highlights sample, use a color exposed to spotlights that should be neutral white or light gray. For the shadows sample, use a color exposed to ambient light that should be neutral black or dark gray. For the mid-tones sample, use a color exposed by both ambient and spotlights.
 
-: The success of the optimization depends on the quality of the samples. Not every set of samples will converge to a good solution and you need to ensure that the color patches you choose are really a neutral color in real life. In many cases the optimizer will output the correct hue but an excessive saturation that will need some extra tweaking. In some cases, no valid optimization will be delivered and you will need to reset the saturation parameters and start over, or simply stop after the patches selection. Notice that in the auto-optimization the maximum saturation is 25%, which might not be enough in very few cases but will avoid inconsistent results in most.
+: The success of the optimization depends on the quality of the samples. Not every set of samples will converge to a good solution and you need to ensure that the color patches you choose are really a neutral color in real life. In many cases the optimizer will output the correct hue but an excessive saturation that will need some extra tweaking. In some cases, no valid optimization will be delivered and you will need to reset the saturation parameters and start over, or simply stop after the patches selection. Note that in the auto-optimization, the maximum saturation is 25%, which might not be enough in very few cases but will avoid inconsistent results in most.
 
 : If you select color patches from the hue color pickers without triggering the optimization, the software will only perform one round of optimization and then stop. This allows you to control each luminance range separately and avoid divergence of the solution in corner cases. The hue and saturation corrections are computed taking into account the two other luminance ranges and three factors, and will always output the complementary color of the selected area. If you want to reinforce the color of the area instead, you can then add 180° to the computed hue. Once patches are selected, the label changes to read “neutralize colors from patches”. To reset one patch you can just redo the selection. Patches are not saved in the parameters and are retained only during the current session. The parameters found by the automatic neutralization are accurate only in _slope, offset, power_ mode, but can work to some extent in _lift, gamma, gain_ mode too.
