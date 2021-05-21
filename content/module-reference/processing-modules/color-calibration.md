@@ -9,7 +9,9 @@ masking: true
 include_toc: true
 ---
 
-A fully-featured color-space correction, white balance adjustment and channel mixer module. This simple yet powerful module can be used in the following ways:
+A fully-featured color-space correction, white balance adjustment and channel mixer module. 
+
+This simple yet powerful module can be used in the following ways:
 
 - To adjust the white balance ([chromatic adaptation](#white-balance-in-the-chromatic-adaptation-transformation-cat-tab)), working in tandem with the [_white balance_](./white-balance.md) module. Here, the _white balance_ module makes some initial adjustments (required for the [_demosaic_](./demosaic.md) module to work effectively), and the _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
 
