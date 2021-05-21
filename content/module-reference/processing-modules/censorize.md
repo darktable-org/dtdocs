@@ -8,13 +8,13 @@ view: darkroom
 masking: true
 ---
 
-Degrade parts of the image in an aesthetically pleasing way, to anonymize people/objects or hide body parts to comply with social media censorship.
+Degrade parts of the image in an aesthetically pleasing way, in order to anonymize people/objects or hide body parts.
 
-Censorize works in linear RGB to apply physically-accurate gaussian blur and gaussian luminance noise.
+Censorize works in linear RGB color space to apply a physically-accurate gaussian blur and gaussian luminance noise.
 
 Aside from anonymization, this module can also be used for a wide range of creative purposes, for example:
 
-- Combine a simple blur with a multiply [blend mode](../../darkroom/masking-and-blending/blend-modes/) to create a realistic bloom (Orton effect).
+- Combine a simple blur with a multiply [blend mode](../../darkroom/masking-and-blending/blend-modes.md) to create a realistic bloom (Orton effect).
 - Combine a simple blur with a subtract blending mode and low opacity to create an [unsharp mask](https://en.wikipedia.org/wiki/Unsharp_masking), similar to the [sharpen](./sharpen.md) module but in an RGB scene-referred space.
 - Add noise to create artificial grain.
 
@@ -30,7 +30,7 @@ If forensically safe anonymization is required, the only way to achieve this is 
 
 # workflow
 
-You are advised to leave the module's controls at their default values while you [mask](../../darkroom/masking-and-blending/masks/drawn/) the areas of the image that you wish to censorize, in order that the details of the image remain visible.
+You are advised to leave the module's controls at their default values while you [mask](../../darkroom/masking-and-blending/masks/drawn.md) the areas of the image that you wish to censorize, in order that the details of the image remain visible.
 
 # module controls
 
