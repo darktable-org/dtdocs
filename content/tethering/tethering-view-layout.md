@@ -9,23 +9,23 @@ author: "people"
 # left panel
 
 [image information](../module-reference/utility-modules/shared/image-information.md)
-: Display image information
+: Display image information.
 
 # right panel
 
 From top to bottom:
 
 [histogram](../module-reference/utility-modules/shared/histogram.md)
-: The histogram for the current image
+: The histogram for the current image.
 
 [session](../module-reference/utility-modules/tethering/session.md)
-: Session settings
+: Session settings.
 
 [live view](../module-reference/utility-modules/tethering/live-view.md)
-: Live view settings
+: Live view settings.
 
 [camera settings](../module-reference/utility-modules/tethering/camera-settings.md)
-: Camera settings
+: Camera settings.
 
 [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md)
 : Edit metadata for selected images.
@@ -38,7 +38,7 @@ From top to bottom:
 From left to right:
 
 [star ratings](../lighttable/digital-asset-management/star-color.md)
-: Apply star ratings to images
+: Apply star ratings to images.
 
 [color labels](../lighttable/digital-asset-management/star-color.md)
-: Apply color categories to images
+: Apply color categories to images.
