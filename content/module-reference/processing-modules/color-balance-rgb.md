@@ -25,9 +25,9 @@ Primary color-grading is best left to the [_color calibration_](./color-calibrat
 
 # general principles
 
-The _color balance RGB_ module is an improvement over the [American Society of Cinematographers Color Decision List](https://en.wikipedia.org/wiki/ASC_CDL) (ASC CDL), and uses alpha masks to allow the effect to be properly split between shadows and highlights. The classic CDL acts on the entire luminance range, and each of its parameters is given more weight on some parts only as a side-effect of the mathematics.
+The _color balance RGB_ module is an improvement over the [American Society of Cinematographers Color Decision List](https://en.wikipedia.org/wiki/ASC_CDL) (ASC CDL), and uses alpha masks to allow the effect to be properly split between shadows and highlights. The classic CDL acts on the entire luminance range, and each of its parameters is given more weight on some parts of the image only as a side-effect of the mathematics.
 
-This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_), in a linear RGB color space designed specifically for color-grading, which exhibits a uniform spacing of perceptual hues while retaining a physically-scaled luminance[^1]. The perceptual part of the module (_saturation_ and _brilliance_) works in the JzAzBz[^2] color space, which provides a perceptual scaling of both lightness and chromaticity suitable for HDR images. Both color spaces ensure that saturation and chroma changes take place at constant hue, which is not the case for many other saturation operators in darktable (notably in the older [_color balance_](./color-balance.md) module).
+This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_), in a linear RGB color space designed specifically for color-grading. This color space exhibits a uniform spacing of perceptual hues while retaining a physically-scaled luminance[^1]. The perceptual part of the module (_saturation_ and _brilliance_) works in the JzAzBz[^2] color space, which provides a perceptual scaling of both lightness and chromaticity suitable for HDR images. Both color spaces ensure that saturation and chroma changes take place at constant hue, which is not the case for most other saturation operators in darktable (notably in the older [_color balance_](./color-balance.md) module).
 
 [^1]: Richard A. Kirk, Chromaticity coordinates for graphic arts based on CIE 2006 LMS with even spacing of Munsell colours, 2019. <https://doi.org/10.2352/issn.2169-2629.2019.27.38>
 
@@ -57,23 +57,23 @@ contrast
 
 : The fulcrum has a value of 18.45% by default, which is consistent with the current scene-referred workflow and should fit most use cases (assuming that global brightness has been fixed as recommended using the [_exposure_](./exposure.md) module).
 
-: The contrast algorithm gives natural results that mimic the central part of the contrast curve of analog film. However, it will also increase the image's dynamic range, which may void _filmic_ settings in the pipe. For global contrast adjustments, the [_tone equalizer_](./tone-equalizer.md) should be preferred, and the this module's contrast slider is be best used with masks, for example for selective corrections over the foreground or background.
+: The contrast algorithm gives natural results that mimic the central part of the contrast curve of analog film. However, it will also increase the image's dynamic range, which may void _filmic_ settings in the pipe. For global contrast adjustments, you should normally use the [_tone equalizer_](./tone-equalizer.md) module -- the _color balance RGB_ contrast slider is best used with masks, e.g. for selective corrections over the foreground or background.
 
 ### linear chroma grading
 
-Linear chroma grading affects the chroma dimension proportionally to its input value, at constant hue and luminance. It does this globally, with a flat coefficient (using the _global chroma_), and on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Linear chroma grading affects the chroma dimension proportionally to its input value, at constant hue and luminance. It does this globally, with a flat coefficient (using the _global chroma_), as well as on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ### perceptual saturation grading
 
-Perceptual chroma grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue. It does this globally, with a flat coefficient (using the _global saturation_), and on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Perceptual chroma grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ### perceptual brilliance grading
 
-Perceptual brilliance grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue, and in a direction orthogonal to the saturation. Its effect is close to that of changing exposure, but scaled perceptually. It does this globally, with a flat coefficient (using the _global saturation_), and on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Perceptual brilliance grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue, and in a direction orthogonal to the saturation. Its effect is close to that of changing exposure, but scaled perceptually. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ## 4 ways tab
 
-Each of the settings in the 4 ways tab is composed of the same three components which define a color using independent coordinates:
+Each of the settings in the 4 ways tab is composed of the same three components, which define a color using independent coordinates:
 
 1. _luminance_,
 2. _hue_,
@@ -81,19 +81,19 @@ Each of the settings in the 4 ways tab is composed of the same three components 
 
 Color input like this defines a color shift applied to the image globally or over the specified luminance range.
 
-Each hue slider has a color-picker, which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g skin redness), since shifting the color to the opponent cast actually neutralizes it.
+Each hue slider has a color-picker, which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it.
 
 ### global offset
 
-This is equivalent to the ASC CDL _offset_ and falls back to adding a constant RGB value to all pixels, quite like the _black offset_ in the _exposure_ module. This does not use masking.
+This is equivalent to the ASC CDL _offset_ and falls back to adding a constant RGB value to all pixels, quite like the _black offset_ in the _exposure_ module. This control does not use masking.
 
 ### shadows lift
 
-This is conceptually equivalent to the _lift_ from _lift/gamma/gain_, although implemented differently, and falls back to multiplying a constant RGB value to the masked pixels. It is applied on the _shadows_ mask.
+This is conceptually equivalent to the _lift_ from _lift/gamma/gain_, although implemented differently, and falls back to multiplying the masked pixels by a constant RGB value. It is applied using the _shadows_ mask.
 
 ### highlights gain
 
-This is equivalent to the ASC CDL _slope_, and falls back to multiplying a constant RGB value to the masked pixels. It is applied on the _highlights_ mask.
+This is equivalent to the ASC CDL _slope_, and falls back to multiplying a the masked pixels by a constant RGB value. It is applied using the _highlights_ mask.
 
 ### global power
 
@@ -101,11 +101,11 @@ This is equivalent to the ASC CDL _power_, and falls back to applying a constant
 
 ## masks tab
 
-This tab defines auxiliary controls for the previous tabs. Masking controls typically don't require any user modification since the defaults are calibrated to suit most needs and fulfil the scene-referred pixel pipeline expectations. You should only need to change these settings in specific scenarios.
+This tab defines auxiliary controls for the previous tabs. Masking controls typically don't require any user modification since the defaults are calibrated to suit most needs and fulfil the normal scene-referred pixel pipeline expectations. You should only need to change these settings in specific scenarios.
 
 ### luminance ranges
 
-The graphs show the opacity (on the _y_ axis) of the 3 luminance masks relative to the pixel luminance (on the _x_ axis). The darkest curve represents the _shadows_ mask, the brightest represents the _highlights_ mask, and the third curve represents the _midtones_.
+The graphs show the opacity (on the _y_ axis) of the 3 luminance masks relative to the pixel luminance (on the _x_ axis). The darkest curve represents the _shadows_ mask, the brightest represents the _highlights_ mask, and the third curve represents the _midtones_ mask.
 
 Only the _shadows_ and _highlights_ masks can be controlled directly -- the _midtones_ mask is computed indirectly from the others and acts as an adjustment variable.
 
@@ -113,14 +113,14 @@ shadows fall-off
 : Control the softness or hardness of the transition from fully opaque (100%) to fully transparent (0%) for the shadows mask.
 
 mask middle-gray fulcrum
-: Set the luminance value where all three masks have 50% opacity. In practice, this is used to define how the image is split between shadows and highlights.
+: Set the luminance value where all three masks have 50% opacity. In practice, this is used to define how the image is separated into shadows and highlights.
 
 highlights fall-off
 : Control the softness or hardness of the transition from fully opaque (100%) to fully transparent (0%) for the highlights mask.
 
-For each of these settings, a mask button, provided to the right of the slider, displays the appropriate mask (shadows, midtones, highlights), overlayed as a checker board, for direct preview.
+For each of these settings, a mask button, provided to the right of the slider, displays the appropriate mask (shadows, midtones, highlights), overlayed as a checker board. The still-visible area of the image (not hidden by the mask) is the area that will be affected by the shadows, midtones and highlights sliders in the other tabs.
 
-All mask previews display the output of the module, including any color changes made, so you can also use them while editing, to see only the affected part of the image.
+All mask previews display the output of the module, including any color changes made, so you can also activate them while editing, to see only the affected part of the image.
 
 Luminance masks are computed at the input of the module, which means that they are insensitive to any luminance changes made inside the module.
 
@@ -138,7 +138,7 @@ contrast gray fulcrum
 
 ### mask preview settings
 
-These settings are used only when one of the mask previews is displayed, by clicking the mask buttons in the _luminance ranges_ section. These settings are saved globally in darktable, so will be applied to all subsequent images unless changed.
+These settings apply to the mask previews, displayed by clicking the mask buttons in the _luminance ranges_ section. These settings are saved globally, so will be applied to all subsequent images unless changed.
 
 checker board color 1 and 2
 : Set the two colors for the background checker board mask underlay. You can set them to opponent colors of the current image to aid legibility.
@@ -154,7 +154,7 @@ As described in the [dimensions of color](../../special-topics/color-management/
 
 In practice, you should use the chroma setting if you want to preserve the scene-linarity of the light emission and/or keep the luminance unchanged. However, these changes might affect some hues more heavily than others, due to the fact that the color space is not fully perceptually-scaled.
 
-Saturation is closer to the effect of mixing white paint with some base color. Reducing the saturation of red will degrade it to pink, while reducing its chroma will degrade to a gray shade at the same luminance. It is perhaps a more intuitive way to interact with color, due to its connection with painting.
+Saturation is closer to the effect of mixing white paint with some base color. Reducing the saturation of red will degrade it to pink, while reducing its chroma will degrade to a gray shade at the same luminance. Saturation is perhaps a more intuitive way to interact with color, due to its connection with painting.
 
 Choosing one or the other is mostly a matter of deciding where on the (lightness, chroma) graph you want to push your colors, and where they are to begin with. To reach pastel colors, saturation is the way to go. To reach laser-like colors (almost monochromatic), at the risk of looking synthetic, chroma is the way to go.
 
@@ -175,7 +175,7 @@ There are several ways to change the contrast in _color balance RGB_, either loc
 - in [_perceptual brilliance grading_](#perceptual-brilliance-grading), add brilliance in the highlights and remove brilliance in the shadows to produce to a luminance contrast boost,
 - in the [_4 ways_](#4-ways-tab) tab, set the _shadows lift_ luminance to negative values and the _highlights gain_ luminance to positive values, which also produces a luminance contrast boost.
 
-The difference between these methods is how the effect will be weighted relative to the input of the module. You are advised to do the the majority of luminance contrast adjustments in the _filmic_ and _tone equalizer_ modules, and then undertake final changes in _color balance RGB_ while looking at the colors.
+The difference between these methods is how the effect will be weighted relative to the input of the module. You are advised to do the the majority of luminance contrast adjustments in the _filmic_ and _tone equalizer_ modules, and then undertake final changes in _color balance RGB_ while examining the colors.
 
 ## internal processing
 
@@ -196,6 +196,6 @@ The following is the internal order of operations within the module:
 
 # caveats
 
-Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while darktable uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between both spaces. The result will therefore be a slighly tinted black & white image. If your intent is to get a real B&W using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
+Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while darktable uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between these spaces. The result will therefore be a slighly tinted black & white image. If your intent is to get a real black & white image using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
 
-This module has the gamut-mapping (against pipeline RGB) permanently enabled. This means that if your original image contains some largely out-of-gamut colors to start with, simply enabling _color balance RGB_ with no particular setting will slightly alter its colors. This is probably for the best.
+This module has its gamut-mapping (against pipeline RGB) permanently enabled. This means that if your original image contains some largely out-of-gamut colors to start with, simply enabling _color balance RGB_ with no particular setting will slightly alter its colors. This is probably for the best.
