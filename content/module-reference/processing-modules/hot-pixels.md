@@ -24,4 +24,4 @@ detect by 3 neighbours
 : Extend the detection of hot pixels -- regard a pixel as hot if a minimum of only three (instead of four) neighbor pixels deviate by more than the threshold level.
 
 mark fixed pixels
-: Visually mark the corrected pixels on the image and display a count of hot pixels that have been fixed
+: Visually mark the corrected pixels on the image and display a count of hot pixels that have been fixed.
