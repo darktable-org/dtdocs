@@ -10,7 +10,7 @@ masking:
 
 ---
 
-**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_color calibration_](./color-calibration.md) module instead.**
+**Please note that this module is deprecated from darktable 3.4 and should no longer be used for new edits. Please use the [_color calibration_](./color-calibration.md) module instead.**
 
 ---
 

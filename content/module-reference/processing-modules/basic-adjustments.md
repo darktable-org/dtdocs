@@ -10,7 +10,7 @@ masking:
 
 ---
 
-**Please note that this module is deprecated in darktable 3.6 and should no longer be used for new edits. Please use the [quick access panel](../../darkroom/organization/quick-access-panel.md) instead.**
+**Please note that this module is deprecated from darktable 3.6 and should no longer be used for new edits. Please use the [quick access panel](../../darkroom/organization/quick-access-panel.md) instead.**
 
 ---
 

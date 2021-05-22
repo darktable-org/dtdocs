@@ -10,7 +10,7 @@ masking: true
 
 ---
 
-**Please note that this module is deprecated in darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) or multiple instances of the [_exposure_](./exposure.md) module with [parametric masks](../../darkroom/masking-and-blending/masks/parametric.md) to narrow down on a zone.**
+**Please note that this module is deprecated from darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) or multiple instances of the [_exposure_](./exposure.md) module with [parametric masks](../../darkroom/masking-and-blending/masks/parametric.md) to narrow down on a zone.**
 
 ---
 
