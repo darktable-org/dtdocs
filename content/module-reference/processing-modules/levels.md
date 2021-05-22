@@ -15,9 +15,9 @@ The levels tool offers two modes of operation:
 manual
 : The levels tool shows a histogram of the image, and displays three bars with handles. Drag the handles to modify the black, middle-gray and white points in absolute values of image lightness (the L value from Lab).
 
-: Moving the black and white bars to match the left and right borders of the histogram will make the output image span the full available tonal range. This will increase the image's contrast. 
+: Moving the black and white bars to match the left and right borders of the histogram will make the output image span the full available tonal range, increasing the image's contrast. 
 
-: Moving the middle bar will modify the middle-gray tones. Shifting it left will make the image look brighter, shifting it right will make it darker. This is often referred to as changing the image's gamma.
+: Moving the middle bar will modify the middle-gray tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
 : Three color pickers are available for sampling the black, white and gray points from the image. The "auto" button auto-adjusts the black and white point and puts the gray point exactly in the mean between them.
 
