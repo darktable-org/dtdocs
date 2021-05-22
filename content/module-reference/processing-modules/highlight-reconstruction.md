@@ -27,7 +27,7 @@ For highlight reconstruction to be effective you need to also apply a negative E
 
 ---
 
-**Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be useful to disable _highlight reconstruction_ so that filmic has more information to work with.
+**Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be useful to disable the _highlight reconstruction_ module so that filmic has more information to work with.
 
 ---
 
