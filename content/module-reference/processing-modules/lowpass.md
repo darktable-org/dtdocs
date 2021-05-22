@@ -15,10 +15,10 @@ This module is primarily intended to be used in combination with a [blend mode](
 # module controls
 
 radius
-: The radius of the blur
+: The radius of the blur.
 
 soften with
-: The blur algorithm to use
+: The blur algorithm to use:
 : - _gaussian blur_: Blur all image channels (L, a, b)
 : - _bilateral filter_: Blur the L channel only, while preserving edges
 
