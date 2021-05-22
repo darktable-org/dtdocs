@@ -23,20 +23,18 @@ reconstruct in LCh
 reconstruct color
 : Use an algorithm that transfers color information from unclipped surroundings into the clipped highlights. This method works very well on areas with homogeneous colors and is especially useful on skin tones with smoothly fading highlights. Please note that this method can produce maze-like artifacts on highlights behind high-contrast edges, for example well-exposed fine structures in front of an overexposed background.
 
----
-
 For highlight reconstruction to be effective you need to also apply a negative EV correction in the [exposure](./exposure.md) module
 
 ---
 
-When using the highlight reconstruction included with the [filmic rgb](./filmic-rgb.md) module it may be useful to disable this module so that filmic has more information to work with.
+**Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be useful to disable _highlight reconstruction_ so that filmic has more information to work with.
 
 ---
 
 # module controls
 
 method
-: Choose the method for highlight reconstruction (see above)
+: The method used to reconstruct highlights (see above).
 
 clipping threshold
 : Manually adjust the clipping threshold against magenta highlights. You shouldn't need to adjust this.
