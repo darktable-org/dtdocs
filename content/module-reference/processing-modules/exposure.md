@@ -21,13 +21,13 @@ automatic (RAW images only)
 # module controls
 
 mode
-: Choose the mode of operation (automatic/manual)
+: Choose the mode of operation (automatic/manual).
 
 compensate camera exposure (manual mode)
-: Automatically remove the camera exposure bias (taken from the image's Exif data)
+: Automatically remove the camera exposure bias (taken from the image's Exif data).
 
 exposure (manual mode)
-: Increase (move to the right) or decrease (move to the left) the exposure value (EV)
+: Increase (move to the right) or decrease (move to the left) the exposure value (EV).
 
 clipping threshold (manual mode)
 : Define what percentage of bright values are to be clipped in the calculation of the _exposure_ and _black level correction_. Use the color picker to sample a portion of the image to be used for this calcuation.
@@ -43,6 +43,6 @@ black level correction (manual and automatic modes)
 
 ---
 
-**Note:** Do not use the black level correction to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This can cause problems with some modules later in the pixelpipe. Instead, use a tone mapping curve to add density to the blacks (e.g. use the _relative black exposure_ slider on the _scene_ tab of [filmic rgb](filmic-rgb.md), or establish a deeper toe in [base curve](base-curve.md)).
+**Note:** Do not use the black level correction to add more density in blacks as this can clip near-black colors out of gamut by generating negative RGB values. This can cause problems with some modules later in the pixelpipe. Instead, use a tone mapping curve to add density to the blacks. For example, you can use the _relative black exposure_ slider on the _scene_ tab of the [filmic rgb](filmic-rgb.md#scene) module, or establish a deeper toe in the [base curve](base-curve.md) module.
 
 ---
