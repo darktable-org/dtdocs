@@ -1,7 +1,7 @@
 ---
 title: crop & rotate
 id: crop-rotate
-applicable-version: 3.2.1
+applicable-version: 3.6
 tags: 
 working-color-space:  
 view: darkroom
@@ -14,7 +14,9 @@ Whenever the user interface of this module is in focus, the full uncropped image
 
 ![screen controls](./crop-rotate/screen-controls.png#w75)
 
-Resize the crop by dragging the border and corner handles. Move the crop rectangle by clicking and dragging. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
+Resize the crop by dragging the border and corner handles.
+
+Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
 
 ---
 
@@ -40,9 +42,9 @@ keystone
 : - _horizontal_: Limit the correction to horizontal lines
 : - _full_: Correct horizontal and vertical lines at the same time
 
-: Depending on the selected correction type you will see two or four straight adjustment lines overlaid on your image. Two red circles on every line allow you to modify the line positions with your mouse. Each line additionally carries a “symmetry” button. If activated (and highlighted in red) all movements of the affected line will be mirrored by the opposite line.
+: Depending on the selected correction type you will see two or four straight adjustment lines overlaid on your image. Two red circles on each line allow you to modify the line positions with your mouse. Each line additionally carries a “symmetry” button. If activated (and highlighted in red) all movements of the affected line will be mirrored by the opposite line.
 
-: In order to correct perspective distortions, you need to find suitable horizontal and/or vertical features in your image and align the adjustment lines with them. When finished, press the “OK” button, located close to the center of your image. The image will be corrected immediately. You can at any time come back and refine your corrections by selecting “correction applied” in the keystone combobox.
+: In order to correct perspective distortions, you need to find suitable horizontal and/or vertical features in your image and align the adjustment lines with them. When finished, press the “OK” button located close to the center of the image -- corrections will be applied immediately. You can return to the module and refine your corrections by selecting “correction applied” in the keystone combobox.
 
 ![keystone set](./crop-rotate/keystone-set.png#w25#inline) ![keystone applied](./crop-rotate/keystone-applied.png#w25#inline)
 
@@ -51,7 +53,7 @@ automatic cropping
 
 aspect
 : Set the aspect ratio of the crop, constraining the width:height ratio of the crop rectangle to the chosen aspect. Many common numerical ratios are pre-defined. A few special aspect ratios deserve explanation:
-: - _freehand_: Crop without any ratio restrictions. 
+: - _freehand_: Crop without any restrictions 
 : - _original image_: Retain the aspect ratio of the original image
 : - _square_: Constrains the aspect ratio to be 1:1
 : - _golden cut_: The golden ratio (1.62:1)

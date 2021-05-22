@@ -8,23 +8,27 @@ view: darkroom
 masking: 
 ---
 
-Crop an image using on-screen guides. This module appears later in the pipeline than the [_crop & rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are recommended to use the _crop & rotate_ module to perform rotation and keystone correction (if required), and then perform final creative cropping using this module.
+Crop an image using on-screen guides. This module appears later in the pipeline than the [_crop & rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are advised to use the _crop & rotate_ module to perform rotation and keystone correction (if required), and then perform final creative cropping with this module.
 
-Whenever the user interface of this module is in focus, the full uncropped image will be shown, overlaid with crop handles and optional guiding lines.
+Whenever this module is in focus, the full uncropped image will be shown, overlaid with crop handles and optional guiding lines.
 
 ![screen controls](./crop/screen-controls.png#w75)
 
-Resize the crop by dragging the border and corner handles. Move the crop rectangle by clicking and dragging. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
+Resize the crop by dragging the border and corner handles.
+
+Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
+
+If you intend to use the [_retouch_](./retouch.md) module, you are recommended to use this module for rotation and/or keystone correction only, performing creative cropping in the [_crop_](./crop.md) module. This process ensures that the entire image is available for source spots in _retouch_, since the _crop_ module is placed after _retouch_ in the pixelpipe.
 
 # module controls
 
-The _crop_ module controls are split between two sections as follows:
+The _crop_ module controls are split into two sections as follows:
 
 ## crop settings
 
 aspect
 : Set the aspect ratio of the crop, constraining the width:height ratio of the crop rectangle to the chosen aspect. Many common numerical ratios are pre-defined. A few special aspect ratios deserve explanation:
-: - _freehand_: Crop without any ratio restrictions. 
+: - _freehand_: Crop without any restrictions 
 : - _original image_: Retain the aspect ratio of the original image
 : - _square_: Constrains the aspect ratio to be 1:1
 : - _golden cut_: The golden ratio (1.62:1)
