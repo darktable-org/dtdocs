@@ -31,17 +31,17 @@ yellow
 : Horizontal lines that do not converge
 
 gray
-: Other lines identified which are not of interest to this module
+: Other lines that are not of interest to this module
 
-Lines marked in red or yellow are regarded as outliers and are not taken into account for the automatic fitting step. This outlier elimination involves a statistical process using random sampling which means that each time you press the “get structure” button the color pattern of the lines will look slightly different. 
+Lines marked in red or yellow are regarded as outliers and are not taken into account during the automatic fitting step. This outlier elimination involves a statistical process using random sampling which means that each time you press the “get structure” button the color pattern of the lines will look slightly different. 
 
 You can manually change the status of line segments: Left-Click on a line to select it (turn the color to green or blue) and Right-click to deselect it (turn the color to red or yellow). If you keep the mouse button pressed, you can use a sweeping action to select/deselect multiple lines in a row. The size of the select/deselect brush can be changed with the mouse wheel. Hold down the Shift key and keep the left or right mouse button pressed while dragging to select or deselect all lines in the chosen rectangular area.
 
-Click on one of the “automatic fit” icons (see below) to initiate an optimization process which finds the best suited module parameters based on the detected structure. The image and the overlaid lines are then displayed with perspective corrections applied.
+Click on one of the “automatic fit” icons (see below) to initiate an optimization process, which finds the best suited module parameters based on the detected structure. The image and the overlaid lines are then displayed with perspective corrections applied.
 
 # module controls
 
-Once the initial image analysis is done, the following controls can be used to perform the perspective corrections.
+Once the initial image analysis is complete, the following controls can be used to perform the perspective corrections.
 
 rotation
 : Control the rotation of the image around its center to correct for a skewed horizon.
@@ -53,19 +53,19 @@ lens shift (vertical)
 : Correct converging vertical lines (i.e. to make the _green_ lines parallel). In some cases you can obtain a more natural looking image if you correct vertical distortions to an 80 ~ 90% level rather than to the maximum extent. To do this, reduce the correction slider after having performed the automatic correction.
 
 shear
-: Shear the image along one of its diagonals. This is needed when correcting vertical and horizontal perspective distortions simultaneously.
+: Shear the image along one of its diagonals. This is required when correcting vertical and horizontal perspective distortions simultaneously.
 
 guides
 : When activated, a grid is overlaid on the image to help you judge the quality of the correction.
 
 automatic cropping
-: When activated, this feature crops the image to remove any black areas at the edges of the image caused by a distortion correction. You can either crop to the “largest area”, or to the largest rectangle that maintains the original aspect ratio (“original format”). In the latter case you can manually adjust the automatic cropping result: click in the clip region and move it around. The size of the region is modified automatically to exclude any black corners.
+: When activated, this feature crops the image to remove any black areas at the edges caused by the distortion correction. You can either crop to the “largest area”, or to the largest rectangle that maintains the original aspect ratio (“original format”). In the latter case you can manually adjust the automatic cropping result by clicking in the clip region and moving it around. The size of the region is modified automatically to exclude any black areas.
 
 lens model
-: This parameter controls the lens focal length, camera crop factor and aspect ratio that will be used by the correction algorithm. If set to “generic” a lens focal length of 28mm on a 35mm full-frame camera is assumed. If set to “specific”, the focal length and crop factor can be set manually using the sliders provided.
+: This parameter controls the lens focal length, camera crop factor and aspect ratio that used by the correction algorithm. If set to “generic” a lens focal length of 28mm on a 35mm full-frame camera is assumed. If set to “specific”, the focal length and crop factor can be set manually using the sliders provided.
 
 focal length
-: If the _lens model_ is set to "specific", set the lens focal length. The default value is taken from the Exif data of the image, and can be overridden by adjusting the slider manually.
+: If the _lens model_ is set to "specific", set the lens focal length. The default value is taken from the image's Exif data, and can be overridden by adjusting the slider manually.
 
 crop factor
 : If the _lens model_ is set to "specific", set the camera crop factor. You will normally need to set this value manually.
@@ -79,9 +79,9 @@ automatic fit
 get structure
 : Click on the ![structure-icon](./perspective-correction/icon-get-structure.png#icon) icon to (re-)analyze the image for suitable line segments. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
 
-: Click on the ![cross-icon](./perspective-correction/icon-cross.png#icon)icon to discard any structural information collected during previous analysis steps.
+: Click on the ![cross-icon](./perspective-correction/icon-cross.png#icon) icon to discard any structural information collected during any previous structural analysis.
 
-: Click on the ![eye-icon](./perspective-correction/icon-eye.png#icon) icon to toggle the display of line segments identified by any previous structural analysis.
+: Click on the ![eye-icon](./perspective-correction/icon-eye.png#icon) icon to show or hide the line segments identified by any previous structural analysis.
 
 # examples
 
@@ -89,7 +89,7 @@ Here is an image with a skewed horizon and converging lines caused by directing 
 
 ![prespective-correction-example-before](./prespective-correction/perspective-correction-example-before.png#w66)
 
-Here is the image after having corrected for vertical and horizontal perspective distortions. Note the framing by the automatic cropping feature and the still-visible overlay of structural lines:
+Here is the image after having corrected for vertical and horizontal perspective distortions. Note the framing adjustment made by the automatic cropping feature and the still-visible overlay of structural lines:
 
 ![prespective-correction-example-after](./prespective-correction/perspective-correction-example-after.png#w66)
 
