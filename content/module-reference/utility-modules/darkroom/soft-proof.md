@@ -11,7 +11,7 @@ Click the icon on the right of the bottom panel to activate the soft proof displ
 Right-click on the icon to open a dialog with the following configuration parameters. For each of these parameters, the list of available profiles is read from `$DARKTABLE/share/darktable/color/out` and `$HOME/.config/darktable/color/out` (where `$DARKTABLE` represents darktable's installation directory and `$HOME` your home directory).
 
 display profile
-: Set the color profile for the display. The option “system display profile” is the preferred setting when working with a calibrated display. The profile is taken either from your system's color manager or from your X display server. The method darktable uses to detect your system display profile can be changed in [preferences > miscellaneous](../../../preferences-settings/miscellaneous.md). For more information see [display profile](../../../special-topics/color-management/display-profile.md).
+: Set the color profile for the display. The option “system display profile” is the preferred setting when working with a calibrated display. The profile is taken either from your system's color manager or from your X display server. The method darktable uses to detect your system display profile can be changed in [preferences > miscellaneous](../../../preferences-settings/miscellaneous.md). For more information see the [display profile](../../../special-topics/color-management/display-profile.md) section.
 
 preview display profile
 : Set the color profile for the preview image if you are using a second window.
