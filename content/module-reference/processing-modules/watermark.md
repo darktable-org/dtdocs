@@ -10,7 +10,7 @@ masking: true
 
 Render a vector-based overlay onto your image. Watermarks are standard SVG documents and can be designed using [Inkscape](http://www.inkscape.org/).
 
-The SVG processor of darktable can also substitute strings within the SVG document, which allows you to include image dependent information in the watermark.
+The SVG processor in darktable can also substitute strings within the SVG document, allowing image-dependent information to be included in the watermark.
 
 User-designed watermarks should be placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
 
@@ -52,7 +52,7 @@ $(DATE.SHORT_MONTH)           Current system time month localized (Jan, Feb, .. 
 $(DATE.LONG_MONTH)            Current system time month localized (January, February, .. December)
 $(DATE.SHORT_YEAR)            Current system time year (abbreviated)
 $(DATE.LONG_YEAR)             Current system time year
-$(EXIF.MAKER)                 The maker of camera model
+$(EXIF.MAKER)                 The maker of the camera
 $(EXIF.MODEL)                 The camera model
 $(EXIF.LENS)                  The specific lens used
 $(Xmp.dc.creator)             The creator string
@@ -70,7 +70,7 @@ $(GPS.LOCATION)               All three coordinates (latitude, longitude, elevat
 # module controls
 
 marker
-: Choose the watermark to apply. You can use the reload button to update the list to include any newly-added watermarks.
+: Choose the watermark to apply. Use the reload button to update the list to include any newly-added watermarks.
 
 text
 : A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
@@ -79,13 +79,13 @@ text color
 : The color of the text. Click on the colored field to open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.
 
 text font
-: The font to use (default "DejaVu Sans Book"). Clicking on the field opens a dialog box which shows the fonts available on your system. Fonts can be searched by name and a preview of each available font is shown next to the font name. You may specify your own sample text.
+: The font to use (default "DejaVu Sans Book"). Click on the field to open a dialog box showing the fonts available on your system. Fonts can be searched by name and a preview is shown next to the font name. You may specify your own sample text.
 
 opacity
 : The opacity of the watermark's rendering.
 
 scale
-: Scale the watermark pixel-independently.
+: The scale of the watermark, with respect to the option selected in the "scale on" parameter.
 
 rotate
 : The rotation angle of the watermark.
