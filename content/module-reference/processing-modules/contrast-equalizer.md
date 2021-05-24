@@ -8,6 +8,8 @@ view: darkroom
 masking: 
 ---
 
+Adjust luminance and chroma contrast in the wavelet domain.
+
 This versatile module can be used to achieve a variety of effects, including bloom, denoise, clarity, and local contrast enhancement. 
 
 It works in the [wavelet](../../darkroom/processing-modules/wavelets.md) domain and its parameters can be tuned independently for each wavelet detail scale. The module operates in CIE LCh color space and so is able to treat luminosity and chromaticity independently.
