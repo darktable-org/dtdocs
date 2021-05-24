@@ -8,9 +8,9 @@ author: "people"
 
 The tethering view allows you to capture images directly into darktable from a connected camera.
 
-To use the tethering feature you need to connect your camera to your PC using a USB cable. Your computer might ask to mount or view the connected camera. _Do not mount or view the camera_. If your camera is mounted or viewed automatically, you will need to “unmount/eject” the camera before darktable can access it. This unlocks the camera so that darktable can take control of it -- darktable will then re-lock the camera so that it cannot be used by other applications.
+To use the tethering feature you first need to connect your camera to your PC using a USB cable. Your computer might ask to mount or view the connected camera. _Do not mount or view the camera_. If your camera is mounted or viewed automatically, you will need to “unmount/eject” the camera before darktable can access it. This unlocks the camera so that darktable can take control of it -- darktable will then re-lock the camera so that it cannot be used by other applications.
 
-After the USB cable is connected, look at the [import](../module-reference/utility-modules/lighttable/import.md) module in the [lighttable](../lighttable/_index.md) view. If your camera is not visible in this module, click the “scan devices” button and it should appear with two functions available: “import from camera” and “tethered shoot”. Click “tethered shoot” to enter the tethering view.
+After the USB cable is connected, go to the [import](../module-reference/utility-modules/lighttable/import.md) module in the [lighttable](../lighttable/_index.md) view. If your camera is available for use, a new section should appear in the import module containing the name of your camera and a "mount camera" button. Click this button to connect your camera and two additional buttons will appear: “import from camera” and “tethered shoot”. Click “tethered shoot” to enter the tethering view.
 
 darktable uses [gphoto2](https://github.com/gphoto/gphoto2) to interface with your camera. If you have problems finding the connected camera as described above, check the [troubleshooting](./troubleshooting.md) section in this chapter to verify that your camera has tethering support.
 
