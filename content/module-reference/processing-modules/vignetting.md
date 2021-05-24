@@ -21,10 +21,10 @@ Vignetting is a modification of the brightness and saturation at the borders of 
 # module controls
 
 scale
-: The radius of the vignetting area
+: The radius of the vignetting area.
 
 fall-off strength
-: The progressiveness of the fall-off. Higher values will cause a steeper transition.
+: The progressiveness of the fall-off. Higher values cause a steeper transition.
 
 brightness
 : The intensity of brightening (positive values) or darkening (negative values).
@@ -36,13 +36,13 @@ horizontal/vertical center
 : Shift the center of the vignetting area horizontally/vertically.
 
 shape
-: The shape of the vignetting effect. The default value of 1 creates a circular or elliptical area. Smaller values will shift the shape to being more square; higher values turn it into a cross-like shape.
+: The shape of the vignetting effect. The default value of 1 creates a circular or elliptical area. Smaller values shift the shape to being more square; higher values turn it into a cross-like shape.
 
 automatic ratio
-: Automatically adjust the width/height ratio of the vignetting area to match the aspect ratio of the underlying image. The vignetting area will typically become elliptical.
+: Automatically adjust the width/height ratio of the vignetting area to match the aspect ratio of the underlying image. This typically causes the vignetting area to become elliptical.
 
 width/height ratio
 : Manually adjust the width/height ratio of the vignetting area.
 
 dithering
-: Activate random noise dithering to alleviate banding artifacts caused by vignette gradients. Select “8-bit output” to prevent banding on monitor display and for JPEGs. When set to “16-bit output”, only a little dithering will be applied, just strong enough to compensate for banding on the fine grained 16-bit level. It is now recommended that you instead use the [_dithering_](./dithering.md) module to alleviate banding artifacts.
+: Activate random noise dithering to alleviate banding artifacts caused by vignette gradients. Select “8-bit output” to prevent banding on monitor display and for JPEGs. When set to “16-bit output”, only a small amount of dithering is applied, just strong enough to compensate for banding on the fine grained 16-bit level. It is now recommended that you instead use the [_dithering_](./dithering.md) module to alleviate banding artifacts.
