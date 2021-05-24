@@ -8,7 +8,7 @@ view: darkroom
 masking: 
 ---
 
-Negadoctor allows you to process a scanned film negative. 
+Process scanned film negatives. 
 
 You can obtain an image of a negative using a film scanner, or by photographing it against a white light (e.g. a light table or computer monitor) or off-camera flash.
 
