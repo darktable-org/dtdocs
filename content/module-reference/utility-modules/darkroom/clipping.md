@@ -8,6 +8,8 @@ view: darkroom
 
 When an image is sent to a display device, each pixel is normally represented as a set of 3 numbers, representing the intensity of the red, green and blue primary colors in the output color space. Because the output color space is usually closely related to hardware with physical limations, there is a maximum permitted value for the [R,G,B] channels, representing the maximum available intensity for that color space. Similarly, there is also a minimum value below which pixel values will be mapped to zero. When we try to convert from a larger color space to the final output color space, any values exceeding this maximum will be clamped to the maximum value, and any values below the minimum will be clamped to zero. This process is called "clipping" and it will lead to lost detail, or "incorrect" colors for any pixels with clipped channels.
 
+Click the ![clipping warning](./clipping/clipping-icon.png#icon) icon to enable the clipping warning.
+
 There are two ways in which a pixel might become clipped when represented in the output color space.
 
 - _luminance clipping_: This can occur when a pixel is too bright to be represented in the output color space. The pixel luminance is calculated as a weighted average of the [R,G,B] channels. If this average exceeds the maximum allowed value, it is an indication of over-exposure. The overall luminance of a pixel can also be too dark to be represented by an [R,G,B] value in the output color space, in which case it will simply be shown as black. We normally deal with luminance clipping by carefully adjusting tone mappings and exposure levels.
@@ -18,8 +20,6 @@ The "clipping warning" module is used to highlight those pixels that cannot be a
 
 As the clipping warning runs at the end of the preview pixelpipe, it receives data in display color space then converts it to histogram color space. If you are using a display color space that is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile will clip or distort.
 
-![clipping-menu](./clipping/clipping-menu.png#w33)
-
 The clipping warning module, described here, warns you about clipping caused by image processing and the limitations of the output color space. It should not be confused with the following similar tools:
 
 - The [raw overexposed warning](./raw-overexposed.md) indicates where pixels in the original raw file are clipped due to physical limitations in the dynamic range of the camera sensor. This module highlights information that was permanently lost at the point of image capture, and you need to deal with it as best you can using highlight recovery techniques.
@@ -27,6 +27,8 @@ The clipping warning module, described here, warns you about clipping caused by 
 - The [gamut check](./gamut.md) module also provides information about clipping arising from image processing. It is based on the external littleCMS library, and is more or less equivalent to the _full gamut_ mode in the clipping warning module. The downsides of the gamut check module are that it doesn't allow you to distinguish between clipping caused by luminance and gamut mapping, and it is much slower than the clipping warning indicator.
 
 # module controls
+
+Right-click on the clipping icon to show the following options:
 
 clipping preview mode
 : Choose the type of clipping that you want to highlight:
