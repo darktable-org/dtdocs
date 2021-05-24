@@ -21,11 +21,11 @@ custom
 
 ---
 
-**Note:** changing the order of modules in the pixelpipe is not a cosmetic change to the presentation of the GUI -- it has real consequences on how the image will be processed. Please do not change the order of the modules unless you have a specific technical reason and understand why this is required from an image processing perspective.
+**Note:** changing the order of modules in the pixelpipe is not a cosmetic change to the presentation of the GUI -- it has real consequences to how the image will be processed. Please do not change the order of the modules unless you have a specific technical reason and understand why this is required from an image processing perspective.
 
 ---
 
-It is possible to reset the module order back to the v3.0 default order by clicking on the _reset parameters_ icon on the _module order_ header. You can also use the _presets menu_ to change the ordering to either v3.0 default or to legacy ordering.
+It is possible to reset the module order back to the v3.0 default order by clicking on the _reset parameters_ icon on the _module order_ header. You can also use the _presets menu_ to change the order to either v3.0 (default) or legacy.
 
-For a list of the default module orders, please refer to the [default module order](../../../special-topics/module-order.md) section.
+For full details of the default module orders, please refer to the [default module order](../../../special-topics/module-order.md) section.
 
