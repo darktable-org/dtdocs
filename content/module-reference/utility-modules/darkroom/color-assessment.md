@@ -6,6 +6,8 @@ tags:
 view: darkroom
 ---
 
+Assess colors and brightness in your image using ISO 12646:2008 recommended viewing conditions.
+
 When developing an image, the way we perceive brightness, contrast and saturation is influenced by the surrounding ambient conditions. If an image is displayed against a dark background, as with the default theme in darktable, this can have the a number of adverse effects on our perception of that image:
 
 - Exaggeration of the perceived exposure makes the image seems brighter than it really is. This is nicely illustrated by the [Adelson checkerboard shadow effect](https://en.wikipedia.org/wiki/Checker_shadow_illusion).

@@ -6,6 +6,8 @@ tags:
 view: darkroom
 ---
 
+Store development snapshots and compare with the current edit.
+
 A snapshot is a stored bitmap of the center image in the darkroom view. Snapshots can be taken at any point in the development process and later overlaid onto the current center view. This allows you to undertake a side by side comparison (by default left=snapshot, right=active edit) while you are tuning parameters of a module. This can also be combined with the [history stack](./history-stack.md) module to compare a snapshot against different stages of development. 
 
 To take a snapshot, click on the _take snapshot_ button. Above the button you will see a list of the snapshots that have been taken for this editing session. The name of each snapshot reflects the name of the module selected in the history stack and its position at the time the snapshot was taken.
