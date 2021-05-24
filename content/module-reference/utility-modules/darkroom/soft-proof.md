@@ -6,7 +6,7 @@ tags:
 view: darkroom
 ---
 
-Click the icon on the right of the bottom panel to activate the soft proof display mode on your image. Soft proof allows you to preview your image rendered using a printer profile to see how colors will end up on the final print. You can also activate soft proof with the keyboard shortcut Ctrl+S. A message “soft proof" on the bottom left of your image tells you that you are in soft proof display mode.
+Click the ![soft proof](./soft-proof/soft-proof-icon.png#icon) icon to activate the soft proof display mode on your image. This allows you to preview your image rendered using a printer profile to see how colors will end up on the final print. You can also activate soft proof with the keyboard shortcut Ctrl+S. A message “soft proof" on the bottom left of your image tells you that you are in soft proof display mode.
 
 Right-click on the icon to open a dialog with the following configuration parameters. For each of these parameters, the list of available profiles is read from `$DARKTABLE/share/darktable/color/out` and `$HOME/.config/darktable/color/out` (where `$DARKTABLE` represents darktable's installation directory and `$HOME` your home directory).
 
