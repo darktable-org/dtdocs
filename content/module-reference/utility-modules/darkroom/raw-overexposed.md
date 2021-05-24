@@ -8,7 +8,7 @@ view: darkroom
 
 This option provides an on-screen overlay highlighting any areas of your raw input image with clipped color channels. Clipped color channels imply an overexposed image with loss of information in the affected areas. Some of this information may be recoverable using the [_highlight reconstruction_](../../processing-modules/highlight-reconstruction.md), [_color reconstruction_](../../processing-modules/color-reconstruction.md) or [_filmic rgb_](../../processing-modules/filmic-rgb.md) modules.
 
-Click on the icon to show/hide the warning overlay. Right-click on the icon to open a dialog containing the following configuration parameters. 	
+Click on the ![raw overexposed](./raw-overexposed/raw-overexposed-icon.png#icon) icon to show/hide the warning overlay. Right-click on the icon to open a dialog containing the following configuration parameters. 	
 
 mode
 : Choose how to mark clipped areas:
