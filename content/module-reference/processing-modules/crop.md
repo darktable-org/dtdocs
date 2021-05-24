@@ -8,7 +8,9 @@ view: darkroom
 masking: 
 ---
 
-Crop an image using on-screen guides. This module appears later in the pipeline than the [_crop & rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are advised to use the _crop & rotate_ module to perform rotation and keystone correction (if required), and then perform final creative cropping with this module.
+Crop an image using on-screen guides. 
+
+This module appears later in the pipeline than the [_crop & rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are advised to use the _crop & rotate_ module to perform rotation and keystone correction (if required), and then perform final creative cropping with this module.
 
 Whenever this module is in focus, the full uncropped image will be shown, overlaid with crop handles and optional guiding lines.
 
