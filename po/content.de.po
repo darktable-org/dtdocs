@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2021-02-23 22:26-0800\n"
-"PO-Revision-Date: 2021-05-24 11:46+0000\n"
+"PO-Revision-Date: 2021-05-24 16:11+0000\n"
 "Last-Translator: Peter Schlaufer <peter@schlaufer.ch>\n"
 "Language-Team: German <https://weblate.pixls.us/projects/darktable/dtdocs/de/"
 ">\n"
@@ -24789,12 +24789,19 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid "`darktable.gui.action_images` is a table containing all the images of interest. darktable will act on selected images if any image is selected, and on the image under the mouse if no image is selected. This function makes it easy to follow darktable's UI logic in lua.\n"
 msgstr ""
+"`darktable.gui.action_images` ist eine Tabelle, die alle Bilder von "
+"Interesse enthält. darktable agiert hier auf angewählte Bilder, wenn es "
+"solche hat und auf die Bilder unter der Maus, wenn es keine ausgewählten "
+"hat. Diese Funktion macht es einfach darktable's UI Logik in lua zu folgen.\n"
 
 #. type: Plain text
 #: content/lua/simple-shortcut.md
 #, markdown-text, no-wrap
 msgid "If you select an image and press your shortcut a couple of times, it will work correctly at first but when you have reached five stars, darktable will start showing the following error on the console: \n"
 msgstr ""
+"Wenn du ein Bild auswählst und deine Tastenkombination mehrere Male drückst, "
+"wird diese zuerst richtig funktionieren, aber wenn du 5 Sterne erreicht "
+"hast, wird sie den folgenden Fehler auf dem Gerät anzeigen: \n"
 
 #. type: Fenced code block
 #: content/lua/simple-shortcut.md
@@ -24809,12 +24816,24 @@ msgid ""
 "      LUA ERROR : rating too high : 6\n"
 "  ]]>\n"
 msgstr ""
+"<![CDATA[\n"
+"LUA ERROR : rating too high : 6\n"
+"stack traceback:\n"
+"   [C]: in ?\n"
+"   [C]: in function '__newindex'\n"
+"  ./configdir/luarc:10: in function <./configdir/luarc:7>\n"
+"      LUA ERROR : rating too high : 6\n"
+"  ]]>\n"
 
 #. type: Plain text
 #: content/lua/simple-shortcut.md
 #, markdown-text, no-wrap
 msgid " This is lua's way of reporting errors. We have attempted to set a rating of 6 to an image, but a rating can only go as high as 5. It would be trivial to add a check, but let's go the complicated way and catch the error instead:\n"
 msgstr ""
+" Das ist die Art, wie Lua Fehler rapportiert. Wir haben versucht eine "
+"Wertung von 6 an ein Bild zu vergeben, aber eine Wertung kann nur bis 5 "
+"gehen. Es würde einfach sein, eine Kontrolle einzubauen, aber gehen wir doch "
+"stattdessen den komplizierteren Weg:\n"
 
 #. type: Fenced code block
 #: content/lua/simple-shortcut.md
@@ -24833,48 +24852,83 @@ msgid ""
 "    end\n"
 "end,\"Increase the rating of an image\")\n"
 msgstr ""
+"darktable.register_event(\"shortcut\",function(event,shortcut)\n"
+"    local images = darktable.gui.action_images\n"
+"    for _,v in pairs(images) do\n"
+"      result,message = pcall(function()\n"
+"        v.rating = v.rating + 1\n"
+"        end)\n"
+"      if not result then\n"
+"        darktable.print_error(\"could not increase rating of image \"..\n"
+"          tostring(v)..\" : \"..message)\n"
+"      end\n"
+"    end\n"
+"end,\"Erhöhe die Bewertung eines Bildes\")\n"
 
 #. type: Plain text
 #: content/lua/simple-shortcut.md
 #, markdown-text, no-wrap
 msgid "`pcall` will run its first argument and catch any exception thrown by it. If there is no exception it will return `true` plus any result returned by the function; if there is an exception it will return `false` and the error message of the exception. We simply test these results and print them to the console.\n"
 msgstr ""
+"`pcall` wird das erste Argument durchprüfen und jede Abweichung feststellen. "
+"Falls es keine Abweichung findet, wird es `true` zurückgeben plus jedes "
+"Resultat, das die Funktion ergibt; wenn es eine Abweichung gibt, wird `false`"
+" und die Fehlermeldung der Abweichung. Die Resultate des Tests werden auf "
+"dem Gerät ausgedruckt.\n"
 
 #. type: Plain text
 #: content/lua/overview.md
 #, markdown-text, no-wrap
 msgid "Lua scripts can be used to define actions for darktable to perform when an event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.\n"
 msgstr ""
+"Lua Skripte können auch Aktionen für darktable definieren, die im Falle "
+"eines Vorkommnisses ausgelöst werden. Ein Beispiel dafür könnte sein ein "
+"externes Programm aufzurufen, um zusätzliche Bearbeitungsschritte außerhalb "
+"von darktable anzuwenden.\n"
 
 #. type: Plain text
 #: content/lua/overview.md
 #, markdown-text, no-wrap
 msgid "[Lua](http://www.lua.org/) is an independent project founded in 1993, providing a powerful, fast, lightweight, embeddable scripting language. Lua is widely used by many open source applications, in commercial programs, and for games programming.\n"
 msgstr ""
+"[Lua](http://www.lua.org/) ist ein unabhängiges Projekt, das 1993 gegründet "
+"wurde, und ist eine mächtige, schnelle und leichtgewichtige, einsetzbare "
+"Skript-Sprache. Lua wird in vielen Open Source Anwendungen, in kommerziellen "
+"Programmen und auch für Spiele-Programmierung gebraucht\n"
 
 #. type: Plain text
 #: content/lua/overview.md
 #, markdown-text, no-wrap
 msgid "darktable uses Lua version 5.3. Describing the principles and syntax of Lua is beyond the scope of this usermanual. For a detailed introduction see the [Lua reference manual](http://www.lua.org/manual/5.3/manual.html).\n"
 msgstr ""
+"darktable braucht die Lua Version 5.3. Die Beschreibung der Prinzipien und "
+"der Syntax von Lua ist außerhalb des Umfanges dieses Handbuches. Für eine "
+"detaillierte Einführung siehe das [Lua reference manual](http://www.lua.org/"
+"manual/5.3/manual.html).\n"
 
 #. type: Plain text
 #: content/lua/overview.md
 #, markdown-text, no-wrap
 msgid "The following sections will provide you with a brief introduction to how Lua scripts can be used within darktable.\n"
 msgstr ""
+"Die folgenden Abschnitte zeigen dir eine kurze Einführung, wie Lua Skripte "
+"in darktable genutzt werden können.\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/sharing-scripts.md
 #, no-wrap
 msgid "sharing scripts"
-msgstr ""
+msgstr "Skripte teilen"
 
 #. type: Plain text
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "So far, all of our lua code has been in _luarc_. That's a good way to develop your script but not very practical for distribution. We need to make this into a proper lua module. To do that, we save the code in a separate file (`scp-storage.lua` in this case):\n"
 msgstr ""
+"Bis jetzt waren alle Lua Codes in _luarc_. Das war ein guter Weg, um dir ein "
+"Skript zu entwickeln, aber weniger praktikabel für eine Weitergabe. Das "
+"müssen in einem eigens dafür bestimmten Lua Modul. Um das zu machen, sichern "
+"wir den Code in eine separate Datei (`scp-storage.lua` für diesen Fall):\n"
 
 #. type: Fenced code block
 #: content/lua/sharing-scripts.md
@@ -24929,66 +24983,142 @@ msgid ""
 "    scp_path,\n"
 "})\n"
 msgstr ""
+"--[[\n"
+"SCP STORAGE\n"
+"a simple storage to export images via scp\n"
+"\n"
+"AUTHOR\n"
+"Jérémy Rosen (jeremy.rosen@enst-bretagne.fr)\n"
+"\n"
+"INSTALLATION\n"
+"* copy this file in $CONFIGDIR/lua/ where CONFIGDIR\n"
+"is your darktable configuration directory\n"
+"* add the following line in the file $CONFIGDIR/luarc\n"
+"  require \"scp-storage\"\n"
+"\n"
+"USAGE\n"
+"* select \"Export via SCP\" in the storage selection menu\n"
+"* set the target directory\n"
+"* export your images\n"
+"\n"
+"LICENSE\n"
+"GPLv2\n"
+"\n"
+"]]\n"
+"darktable = require \"darktable\"\n"
+"darktable.configuration.check_version(...,{2,0,0})\n"
+"\n"
+"local scp_path = darktable.new_widget(\"entry\"){\n"
+"  tooltip =\"Complete path to copy to. Can include user and hostname\",\n"
+"  text = \"\",\n"
+"  reset_callback = function(self) self.text = \"\" end\n"
+"}\n"
+"\n"
+"darktable.register_storage(\"scp_export\",\"Export via scp\",\n"
+"  function( storage, image, format, filename,\n"
+"     number, total, high_quality, extra_data)\n"
+"    if coroutine.yield(\"RUN_COMMAND\",\"scp \"..filename..\" \"..\n"
+"      scp_path.text\n"
+"    ) then\n"
+"      darktable.print_error(\"scp failed for \"..tostring(image))\n"
+"    end\n"
+"    end,\n"
+"    nil, --finalize\n"
+"    nil, --supported\n"
+"    nil, --initialize\n"
+"    darktable.new_widget(\"box\") {\n"
+"    orientation =\"horizontal\",\n"
+"    darktable.new_widget(\"label\"){label = \"target SCP PATH \"},\n"
+"    scp_path,\n"
+"})\n"
 
 #. type: Plain text
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "darktable will look for scripts (following the normal lua rules) in the standard directories plus `$CONFIGDIR/lua/*.lua`. So our script can be called by simply adding `require \"scp-storage\"` in the _luarc_ file. A couple of extra notes...\n"
 msgstr ""
+"darktable wird Skripte suchen (den normalen Lua Regeln folgend) in den "
+"Standardverzeichnissen plus `$CONFIGDIR/lua/*.lua`. So kann unser Skript "
+"aufgerufen werden indem man einfach an die Datei anfügt `require \"scp-"
+"storage\"` in the _luarc_ file. Einige extra Bemerkungen...\n"
 
 #. type: Bullet: '- '
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "The function `darktable.configuration.check_version` will check compatibility for you. The \"`...`\" will turn into your script's name and `{2,0,0}` is the API version you have tested your script with. You can add multiple API versions if you update your script for multiple versions of darktable.\n"
 msgstr ""
+"Die Funktion `darktable.configuration.check_version` wird die Kompatibilität "
+"überprüfen. Das \"`...`\" wird in den Namen des Skriptes gewandelt und "
+"`{2,0,0}` ist die API Version, mit der du das Skript geprüft hast. Du kannst "
+"mehrere Versionen von API dazufügen, wenn du dein Skript für mehrere "
+"Versionen von darktable auf datierst.\n"
 
 #. type: Bullet: '- '
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "Make sure to declare all your functions as `local` so as not to pollute the general namespace.\n"
 msgstr ""
+"Stelle sicher, alle Funktionen als `local` zu deklarieren, um die generelle "
+"Namensgebung nicht zu belasten.\n"
 
 #. type: Bullet: '- '
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "Make sure you do not leave debug prints in your code -- `darktable.print_error` in particular allows you to leave debug prints in your final code without disturbing the console.\n"
 msgstr ""
+"Stelle sicher keine Debug-Ausdrucke in deinem Code -- `darktable.print_error`"
+" im Detail erlaubt es dir Debug-Ausdrucke in deinem gültigen Code zu "
+"belassen, ohne das Gerät zu stören.\n"
 
 #. type: Bullet: '- '
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "You are free to choose any license for your script but scripts that are uploaded on darktable's website need to be GPLv2.\n"
 msgstr ""
+"Du bist frei jede Lizenz für deine Skripts zu wählen, aber Skripte, die auf "
+"die darktable Webseite hochgeladen werden, müssen GPLv2 sein.\n"
 
 #. type: Plain text
 #: content/lua/sharing-scripts.md
 #, markdown-text, no-wrap
 msgid "Once you have filled all the fields, checked your code, you can upload it to our script page [here](https://github.com/darktable-org/lua-scripts).\n"
 msgstr ""
+"Wenn du alle Felder gefüllt hast, deinen Code überprüft hast, dann kannst du "
+"dein Skript auf unsere Seite hochladen [hier](https://github.com/"
+"darktable-org/lua-scripts)\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/darktable-from-lua.md
 #, no-wrap
 msgid "using darktable from a lua script"
-msgstr ""
+msgstr "Arbeiten mit darktable von einem Lua Skript"
 
 #. type: Plain text
 #: content/lua/darktable-from-lua.md
 #, markdown-text, no-wrap
 msgid "_Warning: This feature is very experimental. It is known that several elements don't yet work in library mode. Careful testing is highly recommended._\n"
 msgstr ""
+"_Warnung: Diese Möglichkeit ist sehr experimentell. Es ist bekannt, dass "
+"mehrere Elemente bis jetzt im Library Modus nicht funktionieren. Ein "
+"vorsichtiges Testen ist sehr empfohlen._\n"
 
 #. type: Plain text
 #: content/lua/darktable-from-lua.md
 #, markdown-text, no-wrap
 msgid "The lua interface allows you to use darktable from any lua script. This will load darktable as a library and provide you with most of the lua API (darktable is configured headless, so the functions relating to the user interface are not available).\n"
 msgstr ""
+"Die Lua Schnittstelle erlaubt es dir darktable von jedem Lua Skript aus zu "
+"nutzen. Das wird dann darktable als Library laden und das Meiste von Lua API "
+"(darktable ist ohne Titelzeile, so die Funktionen, die sich auf die "
+"Nutzerschnittstelle beziehen, sind nicht vorhanden)\n"
 
 #. type: Plain text
 #: content/lua/darktable-from-lua.md
 #, markdown-text, no-wrap
 msgid "As an example, the following program will print the list of all images in your library:\n"
 msgstr ""
+"Als Beispiel, das folgende Programm wird eine Liste aller Bilder in deiner "
+"Bibliothek ausdrucken:\n"
 
 #. type: Fenced code block
 #: content/lua/darktable-from-lua.md
@@ -25012,36 +25142,68 @@ msgid ""
 "   print(tostring(v))\n"
 "end\n"
 msgstr ""
+"#!/usr/bin/env lua\n"
+"package = require \"package\"\n"
+"package.cpath=package.cpath..\";./lib/darktable/lib?.so\"\n"
+"\n"
+"dt = require(\"darktable\")(\n"
+"\"--library\", \"./library.db\",\n"
+"\"--datadir\", \"./share/darktable\",\n"
+"\"--moduledir\", \"./lib/darktable\",\n"
+"\"--configdir\", \"./configdir\",\n"
+"\"--cachedir\",\"cachedir\",\n"
+"\"--g-fatal-warnings\")\n"
+"\n"
+"require(\"darktable.debug\")\n"
+"\n"
+"for k,v in ipairs(dt.database) do\n"
+"   print(tostring(v))\n"
+"end\n"
 
 #. type: Plain text
 #: content/lua/darktable-from-lua.md
 #, markdown-text, no-wrap
 msgid "Note the third line that points to the location of the `libdarktable.so` file.\n"
 msgstr ""
+"Beachte die dritte Linie, die auf die Datei von `libdarktable.so` zeigt.\n"
 
 #. type: Plain text
 #: content/lua/darktable-from-lua.md
 #, markdown-text, no-wrap
 msgid "Also note that the call to require returns a function that can be called only once and allows you to set darktable's command line parameter. The `:memory:` parameter to `--library` is useful here if you don't want to work on your personal library.\n"
 msgstr ""
+"Beachte auch, dass der Aufruf, um Returns zu verlangen, eine Funktion, die "
+"nur einmal aufgerufen werden kann und es dir erlaubt die darktable "
+"Kommandolinien Parameter zu setzen. Der Parameter `:memory:` zu `--library` "
+"ist hier sehr nützlich, wenn du nicht auf deiner persönlichen Library "
+"arbeiten willst.\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/exporting-images.md
 #, no-wrap
 msgid "exporting images with lua"
-msgstr ""
+msgstr "Bilder mit Lua exportieren"
 
 #. type: Plain text
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "So far we have learned to use lua to adapt darktable to our particular workflow. Let's look now at how to use lua to easily export images to an online service. If you are able to upload an image to a service via the command line then you can use lua to integrate this into darktable's user interface.\n"
 msgstr ""
+"Bis jetzt haben wir gelernt Lua dazu zu nutzen, um darktable an unseren "
+"Arbeitsablauf anzupassen. Nun möchten wir schauen, wie wir Lua dazu nutzen, "
+"um Bilder einfach an einen Online Service zu exportieren. Wenn du Bilder via "
+"die Kommandozeile an einen Bilder-Service hochladen kannst, dann kannst Lua "
+"dazu nutzen, um das in die Schnittstelle von darktable zu integrieren.\n"
 
 #. type: Plain text
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "In this next example we will use lua to export via `scp`. A new storage type will appear in darktable's UI which will export images to a remote target via the copy mechanism in `ssh`.\n"
 msgstr ""
+"In diesem nächsten Beispiel verwenden wir Lua, um über `scp` zu exportieren. "
+"Ein neuer Speicher erscheint in der Benutzeroberfläche von darktable, der "
+"Bilder über den Kopiermechanismus von `ssh` an ein entferntes Ziel "
+"exportiert.\n"
 
 #. type: Fenced code block
 #: content/lua/exporting-images.md
@@ -25063,102 +25225,172 @@ msgid ""
 "    end\n"
 "end)\n"
 msgstr ""
+"darktable = require \"darktable\"\n"
+"\n"
+"darktable.preferences.register(\"scp_export\",\"export_path\",\n"
+"  \"string\",\"target SCP path\",\n"
+"  \"Complete path to copy to. Can include user and hostname\",\"\")\n"
+"\n"
+"darktable.register_storage(\"scp_export\",\"Export via scp\",\n"
+"  function( storage, image, format, filename,\n"
+"     number, total, high_quality, extra_data)\n"
+"    if not darktable.control.execute(\"scp \"..filename..\" \"..\n"
+"      darktable.preferences.read(\"scp_export\",\n"
+"         \"export_path\",\"string\")) then\n"
+"      darktable.print_error(\"scp failed for \"..tostring(image))\n"
+"    end\n"
+"end)\n"
 
 #. type: Plain text
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "`darktable.preferences.register` will add a new preference to darktable's preferences menu, `scp_export` and `export_path` allow us to uniquely identify our preference. These fields are reused when we read the value of the preference. The `string` field tells the lua engine that the preference is a string. It could also be an integer, a filename or any of the types detailed in the API manual relating to `types_lua_pref_type` . We then have the label for the preference in the preference menu, the tooltip when hovering over the value and a default value.\n"
 msgstr ""
+"`darktable.preferences.register` wird eine neue Präferenz in darktables "
+"Präferenzen-Menü hinzufügen; `scp_export` und `export_path` erlauben es uns "
+"unsere Präferenz genau zu definieren. Diese Felder werden wieder gebraucht, "
+"wenn wir den Wert der Präferenz lesen. Das Feld `string` sagt dem Lua-"
+"Programm, dass die Präferenz ein String ist. Es könnte auch ein Integer "
+"sein, ein Dateiname oder irgendeiner der Typen, die im API Handbuch zu "
+"`types_lua_pref_type` detailliert sind. Dann haben wir das Label für die "
+"Präferenz im Menü Präferenz, den Cursor beim Darüberfahren über den Wert und "
+"den Standard Wert.\n"
 
 #. type: Plain text
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "`darktable.register_storage` is the call that actually registers a new storage type. The first argument is a name for the storage type, the second is the label that will be displayed in the UI and last is a function to call on each image. This function has a lot of parameters, but `filename` is the only one we use in this example. It contains the name of a temporary file where the image was exported by darktable's engine.\n"
 msgstr ""
+"`darktable.register_storage` ist der Aufruf, der wirklich einen neuen "
+"Speichertypen registriert. Das erste Argument ist ein Name für den Speicher "
+"Typ, das zweite ist das Label, das in der UI angezeigt wird und das letzte "
+"ist eine Funktion jedes Bild aufzurufen. Diese Funktion hat viele Parameter, "
+"aber `filename` ist der einzige, den wir für dieses Beispiel nutzen. Es "
+"beinhaltet den Namen einer temporären Datei, wohin das Bild mit darktable "
+"exportiert wurde.\n"
 
 #. type: Plain text
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "This code will work but it has a couple of limitations. This is just a simple example after all:\n"
 msgstr ""
+"Dieser Code wird funktionieren, aber er hat sehr viele Nachteile. Das ist "
+"eben nur ein einfaches Beispiel:\n"
 
 #. type: Bullet: '- '
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "We use preferences to configure the target path. It would be nicer to add an element to the export UI in darktable. We will detail how to do that in the next section\n"
 msgstr ""
+"Wir nutzen Präferenzen, um den Zielpfad zu konfigurieren. Es wäre besser ein "
+"Element hinzuzufügen, um den Export UI in darktable. Wie das gemacht wird, "
+"werden wir im nächsten Abschnitt detaillieren.\n"
 
 #. type: Bullet: '- '
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "We do not check the returned value of `scp`. That command might fail, in particular if the user has not correctly set the preference.\n"
 msgstr ""
+"Wir überprüfen den returnierten Wert von `scp`. Dieses Kommando könnte nicht "
+"funktionieren, insbesondere, wenn der Nutzer die Präferenz nicht korrekt "
+"gesetzt hat.\n"
 
 #. type: Bullet: '- '
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "This script can't read input from the user. The remote `scp` must use password-less copy. `scp` can't be provided a password easily, so we will leave it that way\n"
 msgstr ""
+"Dieses Skript kann den Input des Nutzers nicht lesen. Das remote `scp` muss "
+"passwort-leere Kopien nutzen. `scp` kann nicht leicht ein Passwort "
+"beigegeben werden, also lassen wir es dabei bewenden.\n"
 
 #. type: Bullet: '- '
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "There is no message displayed once the example is done, only the progress bar on the lower left side tells the user that the job is done.\n"
 msgstr ""
+"Es wird keine Meldung gezeigt, wenn das Beispiel einmal durchgeführt ist, "
+"nur der Fortschrittsbalken unten links zeigt an, dass der Job erledigt ist.\n"
 
 #. type: Bullet: '- '
 #: content/lua/exporting-images.md
 #, markdown-text, no-wrap
 msgid "We use `coroutine.yield` to call an external program. The normal `os.execute` would block other lua codes from happening.\n"
 msgstr ""
+"Wir nutzen `coroutine.yield`, um ein externes Programm aufzurufen. Das "
+"normale `os.execute` würde andere Lua Codes an der Ausführung blockieren.\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/api.md
 #, no-wrap
 msgid "lua API"
-msgstr ""
+msgstr "Lua API"
 
 #. type: Plain text
 #: content/lua/api.md
 #, markdown-text, no-wrap
 msgid "darktable's Lua API is documented in its own manual with a detailed description of all data structures and functions. You can download the API manual from [here](https://www.darktable.org/resources/).\n"
 msgstr ""
+"Das Lua API von darktable ist in einem eigenen Handbuch mit einer "
+"detaillierten Beschreibung aller Dateistrukturen und Funktionen. Du kannst "
+"das API Handbuch herunterladen von [hier](https://www.darktable.org/"
+"resources/).\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/calling-from-dbus.md
 #, no-wrap
 msgid "calling lua from dbus"
-msgstr ""
+msgstr "Aufruf von Lua vom dbus"
 
 #. type: Plain text
 #: content/lua/calling-from-dbus.md
 #, markdown-text, no-wrap
 msgid "It is possible to send a lua command to darktable via its DBus interface. The method `org.darktable.service.Remote.Lua` takes a single string parameter which is interpreted as a lua command. The command will be executed in the current lua context and should return either nil or a string. The result will be passed back as the result of the DBus method.\n"
 msgstr ""
+"Es ist möglich einen Lua Befehl an darktable via dessen DBus-Schnittstelle "
+"zu senden. Die Methode `org.darktable.service.Remote.Lua` nimmt einen "
+"einzigen String Parameter der als Lua Befehl interpretiert wird. Dieser "
+"Befehl wird ausgeführt im gegenwärtigen Lua Kontext und sollte entweder null "
+"oder einen String zurückgeben. Das Resultat wird zurückgegeben als Resultat "
+"der DBus Methode.\n"
 
 #. type: Plain text
 #: content/lua/calling-from-dbus.md
 #, markdown-text, no-wrap
 msgid "If the Lua call results in an error, the DBus method call will return an error `org.darktable.Error.LuaError` with the lua error message as the message attached to the DBus error. \n"
 msgstr ""
+"Wenn der Lua Aufruf in einen Fehler resultiert die DBus Methode wird einen "
+"Fehler `org.darktable.Error.LuaError` mit der Lua Fehlermeldung als die "
+"Meldung an den DBus Fehler gebunden. \n"
 
 #. type: YAML Front Matter: title
 #: content/lua/building-ui-elements.md
 #, no-wrap
 msgid "building user interface elements"
-msgstr ""
+msgstr "Der Bau von Schnittstellen Elementen"
 
 #. type: Plain text
 #: content/lua/building-ui-elements.md
 #, markdown-text, no-wrap
 msgid "Our previous example was a bit limited. In particular the use of a preference for the export path wasn't very nice. We can do better than that by adding elements to the user interface in the export dialog.\n"
 msgstr ""
+"Unser voriges Beispiel war etwas limitiert. Insbesondere der Gebrauch einer "
+"Präferenz für den Export-Pfad war nicht wirklich sehr gut. Das können wir "
+"besser mit dem Hinzufügen von Schnittstellenelementen im Export-Dialog.\n"
 
 #. type: Plain text
 #: content/lua/building-ui-elements.md
 #, markdown-text, no-wrap
 msgid "UI elements are created via the `darktable_new_widget` function. This function takes a type of widget as a parameter and returns a new object corresponding to that widget. You can then set various fields in that widget to set its parameters. You will then use that object as a parameter to various functions that will add it to the darktable UI. The following simple example adds a lib in the lighttable view with a simple label\n"
 msgstr ""
+"UI Elemente werden mit der `darktable_new_widget` Funktion kreiert. Diese "
+"Funktion nimmt einen Typ von Grafikobjekt als Parameter und gibt ein neues "
+"Objekt zurück, das mit diesem Grafikobjekt korrespondiert. Du kannst dann "
+"verschiedene Felder in dieses Grafikobjekt setzen, um dessen Parameter zu "
+"setzen. Dann wirst du dieses Objekt als Parameter zu verschiedenen "
+"Funktionen zuweisen und es dem darktable UI zuteilen. Das folgende einfache "
+"Beispiel fügt einen lib der Ansicht Leuchttisch hinzu mit einem einfachen "
+"Label.\n"
 
 #. type: Fenced code block
 #: content/lua/building-ui-elements.md
@@ -25171,12 +25403,23 @@ msgid ""
 "    [dt.gui.views.lighttable] = {\"DT_UI_CONTAINER_PANEL_LEFT_CENTER\",20},\n"
 "    },my_label)\n"
 msgstr ""
+"local my_label = darktable.new_widget(\"label\")\n"
+"my_label.label = \"Hello, world !\"\n"
+"\n"
+"dt.register_lib(\"test\",\"test\",false,{\n"
+"    [dt.gui.views.lighttable] = {\"DT_UI_CONTAINER_PANEL_LEFT_CENTER\",20},\n"
+"    },my_label)\n"
 
 #. type: Plain text
 #: content/lua/building-ui-elements.md
 #, markdown-text, no-wrap
 msgid "There is a nice syntactic trick to make UI elements code easier to read and write. You can call these objects as functions with a table of key values as an argument. This allows the following example to work. It creates a container widget with two sub-widgets: a label and a text entry field.\n"
 msgstr ""
+"Es gibt einen netten syntaktischen Trick, um das Lesen und Schreiben von UI-"
+"Element-Code zu erleichtern. Sie können diese Objekte als Funktionen mit "
+"einer Tabelle von Schlüsselwerten als Argument aufrufen. Damit kann das "
+"folgende Beispiel funktionieren. Es erstellt ein Container-Widget mit zwei "
+"Sub-Widgets. Ein Label und ein Texteingabefeld.\n"
 
 #. type: Fenced code block
 #: content/lua/building-ui-elements.md
@@ -25188,12 +25431,18 @@ msgid ""
 "      darktable.new_widget(\"entry\"){ tooltip = \"please enter text here\" }\n"
 "   }\n"
 msgstr ""
+"   local my_widget = darktable.new_widget(\"box\"){\n"
+"      orientation = \"horizontal\",\n"
+"      darktable.new_widget(\"label\"){ label = \"here => \" },\n"
+"      darktable.new_widget(\"entry\"){ tooltip = \"please enter text here\" }"
+"\n"
+"   }\n"
 
 #. type: Plain text
 #: content/lua/building-ui-elements.md
 #, markdown-text, no-wrap
 msgid "Now that we know that, let's improve our script a bit.\n"
-msgstr ""
+msgstr "Da wir das jetzt wissen, verbessern wir unser Skript ein wenig.\n"
 
 #. type: Fenced code block
 #: content/lua/building-ui-elements.md
@@ -25225,18 +25474,47 @@ msgid ""
 "    scp_path,\n"
 "})\n"
 msgstr ""
+"darktable = require \"darktable\"\n"
+"\n"
+"local scp_path = darktable.new_widget(\"entry\"){\n"
+"  tooltip =\"Complete path to copy to. Can include user and hostname\",\n"
+"  text = \"\",\n"
+"  reset_callback = function(self) self.text = \"\" end\n"
+"}\n"
+"\n"
+"darktable.register_storage(\"scp_export\",\"Export via scp\",\n"
+"  function( storage, image, format, filename,\n"
+"     number, total, high_quality, extra_data)\n"
+"    if not darktable.control.execute(scp \"..filename..\" \"..\n"
+"      scp_path.text\n"
+"    ) then\n"
+"      darktable.print_error(\"scp failed for \"..tostring(image))\n"
+"    end\n"
+"    end,\n"
+"    nil, --finalize\n"
+"    nil, --supported\n"
+"    nil, --initialize\n"
+"    darktable.new_widget(\"box\") {\n"
+"    orientation =\"horizontal\",\n"
+"    darktable.new_widget(\"label\"){label = \"target SCP PATH \"},\n"
+"    scp_path,\n"
+"})\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/printing-labeled-images.md
 #, no-wrap
 msgid "printing labeled images"
-msgstr ""
+msgstr "Markierte Bilder drucken"
 
 #. type: Plain text
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "This first example showed us the very basics of lua and allowed us to check that everything is working properly. Let's do something a little bit more complex. Let's try to print the list of images that have a \"red\" label attached to them. But first of all, what is an image?\n"
 msgstr ""
+"Dieses erste Beispiel zeigte uns die Grundlagen von Lua und erlaubte uns zu "
+"überprüfen, ob alles richtig funktioniert. Lass uns etwas Komplizierteres "
+"machen. Versuchen wir, die Liste der Bilder auszudrucken, die mit einem "
+"roten Etikett versehen sind. Aber zunächst einmal, was ist ein Bild?\n"
 
 #. type: Fenced code block
 #: content/lua/printing-labeled-images.md
@@ -25246,24 +25524,43 @@ msgid ""
 "local debug = require \"darktable.debug\"\n"
 "print(darktable.debug.dump(darktable.database[1]))\n"
 msgstr ""
+"local darktable = require \"darktable\"\n"
+"local debug = require \"darktable.debug\"\n"
+"print(darktable.debug.dump(darktable.database[1]))\n"
 
 #. type: Plain text
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "Running the code above will produce a lot of output. We will look at it in a moment, but first let's look at the code itself.\n"
 msgstr ""
+"Das Ausführen des obigen Codes erzeugt eine Menge Output. Wir werden es uns "
+"gleich anschauen, aber zuerst schauen wir uns den Code selbst an.\n"
 
 #. type: Plain text
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "We know about `require darktable`. Here, we need to separately `require darktable.debug` which is an optional section of the API that provides helper functions to help debug lua scripts.\n"
 msgstr ""
+"Wir wissen, über `require darktable`. Hier benötigen wir separat `require "
+"darktable.debug`, was ein optionaler Abschnitt der API ist, der "
+"Hilfsfunktionen zur Verfügung stellt, um Lua-Skripte zu debuggen.\n"
 
 #. type: Plain text
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "`darktable.database` is a table provided by the API that contains all images in the database (currently visible or not, duplicate or not...). Each entry in the database is an image object. Image objects are complex objects that allow you to manipulate your image in various ways (it is all documented in the `types_dt_lua_image_t` section of the API manual). To display our images, we use `darktable.debug.dump` which is a function that will take anything as its parameter and recursively dump its content. Since images are complex objects that indirectly reference other complex objects, the resulting output is huge. Below is a cut down example of the output.\n"
 msgstr ""
+"`darktable.database` ist eine von der API bereitgestellte Tabelle, die alle "
+"Bilder in der Datenbank enthält (aktuell sichtbar oder nicht, dupliziert "
+"oder nicht...). Jeder Eintrag in der Datenbank ist ein Bildobjekt. "
+"Bildobjekte sind komplexe Objekte, die es Ihnen ermöglichen, Ihr Bild auf "
+"verschiedene Weise zu manipulieren (alles ist im Abschnitt "
+"`types_dt_lua_image_t` des API-Handbuchs dokumentiert). Um unsere Bilder "
+"anzuzeigen, verwenden wir `darktable.debug.dump`, eine Funktion, die alles "
+"als Parameter nimmt und den Inhalt rekursiv ausgibt. Da es sich bei Bildern "
+"um komplexe Objekte handelt, die indirekt auf andere komplexe Objekte "
+"verweisen, ist das Ergebnis enorm. Unten sehen Sie ein Beispiel für die "
+"Ausgabe.\n"
 
 #. type: Fenced code block
 #: content/lua/printing-labeled-images.md
@@ -25322,12 +25619,69 @@ msgid ""
 "   copy (function): toplevel.film.2.copy\n"
 "   group_leader (userdata,dt_lua_image_t): .toplevel\n"
 msgstr ""
+"toplevel (userdata,dt_lua_image_t) : /images/100.JPG\n"
+"   publisher (string) : \"\"\n"
+"   path (string) : \"/images\"\n"
+"   move (function)\n"
+"   exif_aperture (number) : 2.7999999523163\n"
+"   rights (string) : \"\"\n"
+"   make_group_leader (function)\n"
+"   exif_crop (number) : 0\n"
+"   duplicate_index (number) : 0\n"
+"   is_raw (boolean) : false\n"
+"   exif_iso (number) : 200\n"
+"   is_ldr (boolean) : true\n"
+"   rating (number) : 1\n"
+"   description (string) : \"\"\n"
+"   red (boolean) : false\n"
+"   get_tags (function)\n"
+"   duplicate (function)\n"
+"   creator (string) : \"\"\n"
+"   latitude (nil)\n"
+"   blue (boolean) : false\n"
+"   exif_datetime_taken (string) : \"2014:04:27 14:10:27\"\n"
+"   exif_maker (string) : \"Panasonic\"\n"
+"   drop_cache (function)\n"
+"   title (string) : \"\"\n"
+"   reset (function)\n"
+"   create_style (function)\n"
+"   apply_style (function)\n"
+"   film (userdata,dt_lua_film_t) : /images\n"
+"      1 (userdata,dt_lua_image_t): .toplevel\n"
+"      [......]\n"
+"   exif_exposure (number) : 0.0062500000931323\n"
+"   exif_lens (string) : \"\"\n"
+"   detach_tag (function): toplevel.film.2.detach_tag\n"
+"   exif_focal_length (number) : 4.5\n"
+"   get_group_members (function): toplevel.film.2.get_group_members\n"
+"   id (number) : 1\n"
+"   group_with (function): toplevel.film.2.group_with\n"
+"   delete (function): toplevel.film.2.delete\n"
+"   purple (boolean) : false\n"
+"   is_hdr (boolean) : false\n"
+"   exif_model (string) : \"DMC-FZ200\"\n"
+"   green (boolean) : false\n"
+"   yellow (boolean) : false\n"
+"   longitude (nil)\n"
+"   filename (string) : \"100.JPG\"\n"
+"   width (number) : 945\n"
+"   attach_tag (function): toplevel.film.2.attach_tag\n"
+"   exif_focus_distance (number) : 0\n"
+"   height (number) : 648\n"
+"   local_copy (boolean) : false\n"
+"   copy (function): toplevel.film.2.copy\n"
+"   group_leader (userdata,dt_lua_image_t): .toplevel\n"
 
 #. type: Plain text
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "As we can see, an image has a large number of fields which provide all sort of information about it. Here, we are interested in the \"red\" label. This field is a boolean, and the documentation tells us that it can be written. We now just need to find all images with that field and print them out:\n"
 msgstr ""
+"Wie wir sehen können, hat ein Bild eine große Anzahl von Feldern, die alle "
+"möglichen Informationen darüber liefern. Wir interessieren uns für das rote "
+"Etikett. Dieses Feld ist ein boolesches Feld, und die Dokumentation sagt "
+"uns, dass es geschrieben werden kann. Jetzt müssen wir nur noch alle Bilder "
+"mit diesem Feld finden und ausdrucken.:\n"
 
 #. type: Fenced code block
 #: content/lua/printing-labeled-images.md
@@ -25340,48 +25694,72 @@ msgid ""
 "  end\n"
 "end\n"
 msgstr ""
+"darktable = require \"darktable\"\n"
+"for _,v in ipairs(darktable.database) do\n"
+"  if v.red then\n"
+"    print(tostring(v))\n"
+"  end\n"
+"end\n"
 
 #. type: Plain text
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "This code should be quite simple to understand at this point, but it contains a few interesting aspects of lua that are worth highlighting:\n"
 msgstr ""
+"Dieser Code sollte an dieser Stelle recht einfach zu verstehen sein, aber er "
+"enthält ein paar interessante Aspekte über Lua, die es wert sind, "
+"hervorgehoben zu werden:\n"
 
 #. type: Bullet: '- '
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "`ipairs` is a standard lua function that will iterate through all numeric indices of a table. We use it here because darktable's database has non-numeric indices which are functions to manipulate the database itself (adding or deleting images, for example).\n"
 msgstr ""
+"`ipairs` ist eine Standard-Lua-Funktion, die durch alle numerischen Indizes "
+"einer Tabelle iteriert. Wir benutzen es hier, weil die Datenbank von "
+"darktable nicht-numerische Indizes hat, die Funktionen sind, um die "
+"Datenbank selbst zu manipulieren (z. B. Bilder hinzufügen oder löschen).\n"
 
 #. type: Bullet: '- '
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "Iterating through a table will return both the key and the value used. It is conventional in lua to use a variable named “`_`” to store values that we don't care about.\n"
 msgstr ""
+"Das Iterieren durch eine Tabelle gibt sowohl den Schlüssel als auch den "
+"verwendeten Wert zurück. Es ist in Lua üblich, eine Variable mit dem Namen "
+"“`_`” zu verwenden, um Werte zu speichern, die uns egal sind.\n"
 
 #. type: Bullet: '- '
 #: content/lua/printing-labeled-images.md
 #, markdown-text, no-wrap
 msgid "Note that we use the standard lua function `tostring` here and not the darktable specific `darktable.debug.dump`. The standard function will return a name for the object whereas the debug function will print the content. The debug function would be too verbose here. Once again, it is a great debug tool but it should not be used for anything else.\n"
 msgstr ""
+"Beachte, dass wir hier die Standard-Lua-Funktion `tostring` verwenden und "
+"nicht die darktable-spezifische `darktable.debug.dump`. Die Standardfunktion "
+"gibt einen Namen für das Objekt, während die Debug-Funktion den Inhalt "
+"druckt. die Debug-Funktion würde hier zu weitschweifig sein, um sie hier zu "
+"zeigen. Nochmals, es ist ein großartiges Debug -Werkzeug und sollte nicht "
+"anderweitig genutzt werden.\n"
 
 #. type: YAML Front Matter: title
 #: content/lua/_index.md
 #, no-wrap
 msgid "Scripting with Lua"
-msgstr ""
+msgstr "Skripten mit Lua"
 
 #. type: Plain text
 #: content/lua/_index.md
 #, markdown-text, no-wrap
 msgid "darktable comes with a versatile scripting interface language for functionality enhancement.\n"
 msgstr ""
+"darktable hat eine vielseitige Skript-Sprache, um Funktionalitäten zu "
+"fördern.\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/digital-asset-management/film-rolls.md
 #, no-wrap
 msgid "film rolls"
-msgstr ""
+msgstr "Filmrollen"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/film-rolls.md
