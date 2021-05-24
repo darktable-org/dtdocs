@@ -11,7 +11,7 @@ Manipulate the history stack of one or more selected images.
 # module controls
 
 selective copy...
-: Copy selected parts of the history stack of the selected image. A dialog appears within which you may choose which items from the history stack to include. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on an item to copy that item only and immediately close the dialog.
+: Copy parts of the history stack from the selected image. A dialog appears from which you may choose the items to copy from the history stack. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on a history item to copy that item only and immediately close the dialog.
 
 copy
 : Copy the complete history stack from the selected image. If more than one image is selected, the history stack is taken from the image that was selected first.
@@ -31,34 +31,32 @@ copy
 : You can override all of these exclusions by using "selective paste..." and choosing which modules to paste to the target image(s).
 
 compress history
-: Generate the shortest history stack that reproduces the current image. If any module appears multiple times in the stack, these occurrences will be _compressed_ into a single step in the history. _Beware, this action can not be undone!_
+: Compress the history stack of the selected image. If any module appears multiple times in the history stack, these occurrences will be _compressed_ into a single step in the history. _Beware: this action can not be undone!_
 
 discard history
-: Physically delete the history stack of the selected images. _Beware, this action can not be undone!_
+: Physically delete the history stack of the selected images. _Beware: this action can not be undone!_
 
 selective paste...
-: Paste selected parts of a previously copied history stack onto all selected images. A dialog appears within which you may choose which items from the source history stack to include.
+: Paste parts of a copied history stack onto all selected images. A dialog appears from which you may choose the items to paste from the source history stack.
 
 paste
 : Paste all items of a copied history stack onto all selected images.
 
 mode
-: This setting defines how the paste actions behave when applied to an image that already has a history stack. In simple terms the “overwrite” mode deletes the previous history stack before pasting, whereas “append” will concatenate the two history stacks together.
+: This setting defines how the paste actions behave when applied to an image that already has a history stack. In simple terms the “overwrite” mode deletes the previous history stack before pasting, whereas “append”  concatenates the two history stacks together.
 
 : A copied history stack can have multiple entries of the same module (with the same name or different names) and pasting behaves differently for these entries in append and overwrite modes. 
 
-: In _append_ mode, for each copied module of the source image, if there is a module in the destination image with the same name it will be replaced. If there is no such module, a new instance will be created. In both cases the pasted instance is placed on top of the history stack. If a particular module appears multiple times in either history stack only the last occurrence of that module will be processed.
+: In _append_ mode, for each module in the copied history stack, if there is a module in the destination image with the same name it will be replaced. If there is no such module, a new instance will be created. In both cases the pasted instance is placed on top of the history stack. If a particular module appears multiple times in either history stack only the last occurrence of that module will be processed.
 
-: In _overwrite_ mode the behavior is the same except that the history of the destination image is deleted before the paste operation commences. The “copy all”/“paste all” actions in this mode will precisely duplicate the entire history stack of the source image onto the destination (including any duplicate occurrences).
+: In _overwrite_ mode the behavior is the same except that the history of the destination image is deleted before the paste operation commences. The “copy all”/“paste all” actions in this mode will precisely duplicate the copied history stack to the destination images (including any duplicate occurrences).
 
 ---
 
 Notes
-: - Automatic module presets are only added to an image when it is first opened in the darkroom. If you use _overwrite_ mode to paste history stack entries to images that haven't previously been opened in the darkroom then the next time that image is opened in the darkroom, automatic presets will be applied to the image. It may therefore seem as if the “overwrite” mode did not accurately duplicate the existing history stack, but in this case, those automatic modules were added subsequently.
-
+: - Automatic module presets are only added to an image when it is first opened in the darkroom or its history stack is discarded. If you use _overwrite_ mode to paste history stack entries to images that haven't previously been opened in the darkroom then the next time that image is opened in the darkroom, automatic presets will be applied to the image. It may therefore seem as if the “overwrite” mode did not accurately duplicate the existing history stack, but in this case, those automatic modules were added subsequently.
 
 : - The _append_ mode allows you to later reconstruct your pre-existing history stack (because previous history items are retained in the stack of the destination image). However, in “overwrite” mode all previous edits are irrevocably lost.
-
 
 : - The _mode_ setting is retained when you quit darktable -- if you change it for a one-off copy and paste, make sure to change it back again.
 
