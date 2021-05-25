@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2021-02-23 22:26-0800\n"
-"PO-Revision-Date: 2021-05-24 16:11+0000\n"
+"PO-Revision-Date: 2021-05-25 22:14+0000\n"
 "Last-Translator: Peter Schlaufer <peter@schlaufer.ch>\n"
 "Language-Team: German <https://weblate.pixls.us/projects/darktable/dtdocs/de/"
 ">\n"
@@ -25766,288 +25766,491 @@ msgstr "Filmrollen"
 #, markdown-text, no-wrap
 msgid "The basic element for organizing images in darktable is called a film roll – a kind of virtual folder. Whenever you [import](../../module-reference/utility-modules/lighttable/import.md) images from the filesystem, the images are organized in a film roll whose name is derived from the name of their parent folder. Re-importing a folder will add any new images to the existing film roll; images already present in the film roll are not reimported (though the contents of their XMP sidecar files are reloaded into the library database).\n"
 msgstr ""
+"Das Grundelement für die Organisation von Bildern in darktable heißt "
+"Filmrolle, eine Art virtueller Ordner. Beim [Importieren](../../module-"
+"reference/utility-modules/lighttable/import.md) von Bildern werden diese in "
+"einer Filmrolle organisiert, deren Name sich aus dem Namen des "
+"Festplattenordners ableitet. Wird ein bereits importiertes Verzeichnis "
+"erneutes importiert, werden nur die neuen Bilder zur bestehenden Filmrolle "
+"hinzugefügt, bereits vorgängig importierte Bilder werden nicht wieder "
+"importiert (obwohl deren Inhalte der XMP-Dateien werden in die Datenbank "
+"gespeichert).\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/film-rolls.md
 #, markdown-text, no-wrap
 msgid "**Note:** Importing images in darktable does not physically copy them to another location: _importing images will not back up your files_.\n"
 msgstr ""
+"**Beachte:** Importieren von Bildern in darktable bedeutet nicht Kopieren "
+"der Bilder an einen anderen Ort. _Das Importieren eines Ordners in darktable "
+"entspricht daher keinem Backup dieses Ordners_.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the last recently used thumbnails is stored in a file on disk and loaded into memory at startup. The size of this cache can be adjusted in [preferences > cpu/gpu/memory](../../../preferences-settings/cpu-gpu-memory.md).\n"
 msgstr ""
+"Jedes Bild in der angewählten Sammlung wird durch ein Vorschaubild in der "
+"Ansicht Leuchttisch und im Modul Filmstreifen angezeigt. Ein "
+"Zwischenspeicher (Cache) der zuletzt gebrauchten Vorschaubilder wird "
+"errichtet auf der Festplatte und wird beim Aufstarten in den Arbeitsspeicher "
+"geladen. Die Größe dieses Cache kann in den [darktable-Voreinstellungen>CPU/"
+"GPU/Speicher](../../../preferences-settings/cpu-gpu-memory.md) angepasst "
+"werden.\n"
 
 #. type: Title #
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "thumbnail creation"
-msgstr ""
+msgstr "Erstellung der Vorschaubilder"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "Thumbnails are created whenever an image is imported into darktable for the first time, after an image has been modified in the darkroom, or when revisiting an image whose thumbnail is no longer available.\n"
 msgstr ""
+"Die Vorschaubilder werden immer dann erstellt, wenn darktable ein Bild zum "
+"ersten Mal importiert, wenn ein Bild in der Dunkelkammer verändert wurde "
+"oder wenn ein „altes“ Bild, dessen Thumbnail nicht mehr verfügbar ist, "
+"erneut aufgerufen wird.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "When an image is imported into darktable for the first time darktable can either try to extract an embedded thumbnail from the input image (most raw files contain these, usually in JPEG format) or process the raw image itself using default settings. You can define how darktable obtains its thumbnails in [preferences > lighttable](../../../preferences-settings/lighttable.md).\n"
 msgstr ""
+"Wenn ein Bild zum ersten Mal in darktable importiert wird, kann darktable "
+"versuchen ein eingebettetes Vorschaubild des Input-Bildes zu extrahieren ("
+"die meisten RAW-Dateien enthalten diese, normalerweise im Format JPEG) oder "
+"dann sie bearbeiten das RAW-Bild mit Standard-Einstellungen. Du kannst "
+"bestimmen, wie darktable diese Vorschaubilder bezieht in den [darktable-"
+"Voreinstellungen>Leuchttisch](../../../preferences-settings/lighttable.md).\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "Extracting an embedded thumbnail from the input image has the advantage of being very fast. However, these thumbnails have been generated by the raw converter of the camera and do not represent darktable's “view” of that image. You will notice the difference as soon as you open the image in the darkroom mode, at which point darktable replaces the lighttable's thumbnail with its own internally processed version.\n"
 msgstr ""
+"Das Extrahieren eines eingebetteten Vorschaubildes aus den Raw-Daten hat den "
+"Vorteil, dass diese sehr schnell geschieht. Diese Vorschaubilder wurden "
+"jedoch vom Raw-Konverter der Kamera erzeugt und unterscheiden sich von der "
+"\"Darstellung\" des darktable-Bildes. Der Unterschied wird sichtbar, sobald "
+"das Bild in der Dunkelkammer geöffnet wird. darktable ersetzt dann das "
+"eingebettete Vorschaubild durch ein eigenes.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "After importing a new film roll darktable automatically generates thumbnails for new images as they are needed. When importing a large set of new images, thumbnail generation can slow down navigation in the lighttable view. Alternatively you may terminate darktable and generate the thumbnail cache separately by running the [darktable-generate-cache](../../special-topics/program-invocation/darktable-generate-cache.md) binary. This program will generate all missing thumbnails in one go.\n"
 msgstr ""
+"Nach dem Importieren einer neuen Filmrolle wird darktable die Vorschaubilder "
+"für neue Bilder nach Bedarf generieren. Bei einer größeren Anzahl neuer "
+"Bilder verlangsamt dies die Navigation innerhalb des Leuchttisches, da bei "
+"der Navigation durch die Bilder die neuen Miniaturansichten erst erzeugt "
+"werden müssen. Alternativ kann darktable beendet und das Programm [darktable-"
+"generate-cache](../../special-topics/program-invocation/darktable-generate-"
+"cache.md) gestartet werden. Dieses Programm generiert alle fehlenden "
+"Vorschaubilder in einem Durchgang.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "As the thumbnail cache has a pre-defined maximum size it will eventually get filled up. If new thumbnails are subsequently added, old thumbnails are dropped from the cache. However, darktable will keep all thumbnails on disk if the corresponding disk backend option is activated in [preferences > cpu/gpu/memory](../../../preferences-settings/cpu-gpu-memory.md). Access to the thumbnails in this secondary cache is slower than the primary cache, but still much faster than reprocessing thumbnails from scratch. The size of the secondary cache is limited only by available disk space.\n"
 msgstr ""
+"Da der Cache für die Vorschaubilder eine vordefinierte Größe hat, wird "
+"dieser unter Umständen voll. Wenn dann neue Vorschaubilder dazugefügt "
+"werden, dann werden alte Vorschaubilder aus dem Cache geworfen. Jedoch wird "
+"darktable alle Vorschaubilder auf der Festplatte, wenn diese Option in den "
+"[darktable-Voreinstellungen](../../../preferences-settings/cpu-gpu-memory.md)"
+". Zugang zu diesen Vorschaubildern in diesem zweiten Cache ist jedoch "
+"langsamer als im ersten Cache, aber immer noch, als diese Vorschaubilder zu "
+"generieren. Die Größe des zweiten Caches ist nur durch den freien "
+"Speicherplatz der Festplatte limitiert.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "Thumbnails are never removed from the secondary cache. You can manually clean the secondary cache by recursively deleting all images in the `$HOME/.cache/darktable/mipmaps-xyz.d` folder (where `xyz` denotes an alphanumeric identifier of the cache). After clearing the secondary cache you can simply allow darktable to re-generate thumbnails as needed, or you can generate all thumbnails in one go with [`darktable-generate-cache`](../../special-topics/program-invocation/darktable-generate-cache.md).\n"
 msgstr ""
+"Miniaturansichten werden nie aus dem sekundären Cache gelöscht. Falls Sie "
+"diesen bereinigen wollen, kann dies manuell durchgeführt werden, indem alle "
+"Bilder rekursiv im Ordner `$HOME/.cache/darktable/mipmaps-xyz.d` gelöscht "
+"werden, wobei es sich bei `xyz` um eine alphanumerische Kennung des Caches "
+"handelt. Anschließend lassen Sie darktable die Vorschaubilder nach Bedarf "
+"neu generieren, oder Sie generieren alle Vorschaubilder in einem Rutsch mit "
+"[`darktable-generate-cache`](../../special-topics/program-invocation/"
+"darktable-generate-cache.md).\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "If you choose not to activate the disk backend and select too small a cache size you may observe adverse effects: Continuous regeneration of thumbnails when you navigate your collection, flickering of thumbnail images, or darktable may even become unresponsive. A good choice of cache size is 512MB or higher (see [memory](../../../special-topics/memory.md) for more information).\n"
 msgstr ""
+"Wenn du den Festplattencache nicht aktivierst und eine zu kleine Cache-Größe "
+"wählen, kann es zu unerwünschten Effekten kommen. Kontinuierliche "
+"Regeneration von Vorschaubildern, wenn Sie sich in Ihrer Sammlung bewegen, "
+"das Flackern von Vorschaubildern oder gar das Einfrieren von darktable sind "
+"typische Symptome. Eine gute Wahl der Cache-Größe ist 512MB oder höher ("
+"siehe [Speicher](../../../special-topics/memory.md) für zusätzliche "
+"Informationen).\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "All thumbnails are fully color managed if the corresponding option is activated in [preferences > lighttable](../../../preferences-settings/lighttable.md). Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information on color management see the [color management](../../../special-topics/color-management/_index.md) section.\n"
 msgstr ""
+"Alle Vorschaubilder sind gänzlich Farb- verwaltet, falls die entsprechende "
+"Option aktiviert ist in den[darktable-Voreinstellungen>Leuchttisch"
+"](../../../preferences-settings/lighttable.md). Farben werden am Bildschirm "
+"genau angezeigt, wenn dein System richtig aufgesetzt ist und das richtige "
+"Monitor-Profil an darktable gegeben wird. Für zusätzliche Informationen über "
+"Farbverwaltung siehe den Abschnitt [Farb-Verwaltung](../../../special-topics/"
+"color-management/_index.md).\n"
 
 #. type: Title #
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "skulls"
-msgstr ""
+msgstr "Totenköpfe"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "If for some reason darktable is unable to generate a thumbnail, it displays an image of a skull (![skull icon](./thumbnails/skull.png#icon)). Don't panic!\n"
 msgstr ""
+"Wenn darktable aus irgendeinem Grund nicht in der Lage ist, ein Vorschaubild "
+"zu erzeugen, zeigt es einen Totenkopf an (![skull icon](./thumbnails/skull."
+"png#icon)). Keine Panik!\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "There are three main reasons that this could happen:\n"
-msgstr ""
+msgstr "Hierfür gibt es drei wesentliche Gründe.\n"
 
 #. type: Bullet: '- '
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "_Missing Image File_: darktable remembers all images ever imported, as long as they have not been removed from your database. If darktable wants to create a thumbnail but is not able to open the input file, a skull is displayed instead. Users are advised to remove images from the database using the [selected images](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script `purge_non_existing_images.sh` from darktable's toolset to clean-up your database.\n"
 msgstr ""
+"Eine mögliche Ursache ist eine _vermisstes Bild-Datei_: darktable erinnert "
+"sich an alle Bilder, die je importiert wurden, solange diese nicht umbenannt "
+"oder physisch vom Dateiverzeichnis gelöscht wurden. Falls darktable ein "
+"Vorschaubild erstellen möchte, aber nicht in der Lage ist, die Eingabedatei "
+"zu öffnen, wird stattdessen ein Totenkopf angezeigt. Es wird empfohlen, "
+"Bilder aus der Datenbank zu entfernen mit dem Modul [Ausgewählte Bilder"
+"](../../../module-reference/utility-modules/lighttable/selected-image.md), "
+"bevor diese auch von der Festplatte entfernt werden. Alternativ kann "
+"gelegentlich das Skript `purge_non_existing_images.sh` aus dem Werkzeugsatz "
+"von darktable ausgeführt werden, um die Datenbank zu bereinigen.\n"
 
 #. type: Bullet: '- '
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "_Invalid Image Format_: While the extension of an image may seem to be supported by darktable, its contents could be either an unsupported image format or a corrupt file. \n"
 msgstr ""
+"_Nicht unterstütztes Bild-Format_: Obwohl scheinbar die Endung eines Bildes "
+"von darktable unterstützt wird, kann es sein, dass es ein nicht "
+"unterstütztes Format oder eine beschädigte Datei ist. \n"
 
 #. type: Bullet: '- '
 #: content/lighttable/digital-asset-management/thumbnails.md
 #, markdown-text, no-wrap
 msgid "_Memory shortage_: If darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with suboptimal settings, especially on a 32-bit system. See [memory](../../../special-topics/memory.md) for more information.\n"
 msgstr ""
+"_Speicher-Mangel_: Wenn für darktable der Speicher bei der Erzeugung eines "
+"Vorschaubildes knapp wird, werden Sie gewarnt und ein Totenkopf wird "
+"angezeigt – dies kann passieren, wenn darktable mit suboptimalen "
+"Einstellungen ausgeführt wird, insbesondere auf einem 32-Bit-System. Siehe "
+"[Speicher](../../../special-topics/memory.md) für zusätzliche Informationen."
+"\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/digital-asset-management/grouping.md
 #, no-wrap
 msgid "image grouping"
-msgstr ""
+msgstr "Bildgruppierung"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "Grouping images helps to improve the structure and clarity of your image collection when displayed in lighttable view.\n"
 msgstr ""
+"Das Gruppieren von Bildern im Leuchttisch ermöglicht eine Strukturierung der "
+"Bilder und verbessert die Übersichtlichkeit Ihrer Bildsammlung.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../module-reference/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G. Images generated by duplicating an existing image are automatically grouped. Similarly, if you import multiple images with the same base name, but different extensions (eg. `IMG_1234.CR2` and `IMG_1234.JPG`), these images will automatically form a group.\n"
 msgstr ""
+"Bilder können zu einer Gruppe zusammengefasst werden, indem die zu "
+"gruppierenden Bilder ausgewählt und im Eingabefeld \"gruppieren\" im Modul ["
+"ausgewählte Bilder](../../../module-reference/utility-modules/lighttable/"
+"selected-image.md) oder die Tastenkombination Ctrl+G drücken. Ausgewählte "
+"Bilder innerhalb einer Gruppe können über die Schaltfläche\"Gruppe auflösen\""
+" oder der Tastenkombination Shift+Ctrl+G aus der Gruppe entfernt werden. "
+"Bilder, die durch Duplizieren eines vorhandenen Bildes erzeugt werden, "
+"kommen automatisch in die gleiche Gruppe. Importierte Bilder mit gleichem "
+"Dateinamen und unterschiedlicher Erweiterung (z. B. `IMG_1234.CR2` und "
+"`IMG_1234.JPG`) bilden automatisch eine Gruppe.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "Images which are members of a group are labeled with a (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) symbol in their thumbnails.\n"
 msgstr ""
+"Bilder, die einer Gruppe angehören, werden mit einem Label (![top "
+"panel_grouping icon](./grouping/top-panel_grouping.png#icon)) im "
+"Vorschaubild versehen.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "The \"group\" button (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) in the top panel of the lighttable view toggles grouping mode on and off. If grouping is off, each image is displayed as an individual thumbnail. If grouping is on, images of a group are collapsed, and are represented by a single thumbnail image. This displayed thumbnail is called the group head. If you press the (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) symbol in the group's thumbnail, only this group is expanded. If you then expand another group, the first group collapses. To collapse an expanded group again, just click again on the (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) symbol of its group head.\n"
 msgstr ""
+"Der Button \"gruppierte Bilder einblenden\" (![top panel_grouping icon](./"
+"grouping/top-panel_grouping.png#icon)) in der oberen Leiste in der Ansicht "
+"Leuchttisch, kann den Modus gruppieren ein- und ausschalten. Wenn gruppieren "
+"ausgeschaltet ist, wird jedes Bild als einzelnes Vorschaubild angezeigt. "
+"Wenn gruppieren eingeschaltet ist, werden die Bilder einer Gruppe "
+"verschachtelt, und nur durch ein Vorschaubild repräsentiert. Das gezeigte "
+"Vorschaubild wird der Kopf der Gruppe, wenn du das Symbol (![top "
+"panel_grouping icon](./grouping/top-panel_grouping.png#icon)) drückst, dann "
+"wird nur diese Gruppe ausgeklappt. Wenn du dann eine andere Gruppe "
+"ausklappst, dann wird die erste Gruppe eingeklappt. Um auch diese Gruppe "
+"einzuklappen, klicke ein weiteres Mal auf das Symbol (![top panel_grouping "
+"icon](./grouping/top-panel_grouping.png#icon)) im Kopf der Gruppe.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "An expanded group in the filemanager mode of lighttable view is indicated by an orange frame which appears as soon as your mouse pointer hovers over one of the images. This frame surrounds all images in the group.\n"
 msgstr ""
+"Eine aufgeklappte Gruppe im Dateimanager-Modus des Leuchttisches wird durch "
+"einen orangefarbenen Rahmen angezeigt. Dieser erscheint, sobald der "
+"Mauszeiger über einem der gruppierten Bilder steht. Dieser Rahmen geht rund "
+"um alle Bilder der Gruppe.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "You can define which image constitutes the group head, while in an expanded view of a group, by clicking on the (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) symbol of the desired image. That symbol is shown only if grouping mode is enabled, so to change the group head, you need to first enable group mode, then expand the group you want to change and finally click the (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) symbol on the desired image.  To determine which image is the group leader, hover over the (![top panel_grouping icon](./grouping/top-panel_grouping.png#icon)) and a popup will identify the group leader.\n"
 msgstr ""
+"Du kannst das Kopfbild der Gruppe bestimmen, wenn du in einer ausgeklappten "
+"Gruppe auf das Symbol (![top panel_grouping icon](./grouping/top-"
+"panel_grouping.png#icon)) des gewünschten Bildes klickst. Dieses Symbol ist "
+"nur sichtbar, wenn der Modus gruppiert eingeschaltet ist, um also das "
+"Kopfbild zu ändern, musst du zuerst den Modus gruppieren einschalten, dann "
+"die Gruppe ausklappen und als letztes das Symbol (![top panel_grouping "
+"icon](./grouping/top-panel_grouping.png#icon)) beim gewünschten Bild "
+"klicken. Um nachzuschauen, welches Bild das Kopfbild ist, kannst du mit der "
+"Maus über das Icon (![top panel_grouping icon](./grouping/top-panel_grouping."
+"png#icon)) fahren, dann wird ein Popup das Kopfbild anzeigen.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "If you collapse an image group and then enter darkroom mode (e.g. by double-clicking on the thumbnail), the group head image will be opened for developing.\n"
 msgstr ""
+"Wenn eine Bildgruppe zusammengeklappt und in die Dunkelkammer gewechselt ("
+"z.B. durch Doppelklick auf das Vorschaubild) wird, so wird der Gruppenkopf "
+"für die Entwicklung geöffnet.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "Image groups are also a convenient way to protect an existing history stack against unintentional changes. Suppose you have just finalized an image and want to protect its current version: Simply select the image, click “duplicate” in the selected images panel, and make sure that grouping is switched on and that the group is collapsed. Now, whenever you open the image group again in darkroom, only the group head will be altered. The underlying duplicate remains unchanged.\n"
 msgstr ""
+"Bildgruppen sind eine bequeme Möglichkeit, einen bestehenden Verlauf vor "
+"unbeabsichtigten Änderungen zu schützen. Angenommen, du hast gerade ein Bild "
+"fertig entwickelt und möchtest dessen aktuelle Version schützen. Dann wähle "
+"das zu schützende Bild aus und erstelle über \"duplizieren\" im Bedienfeld "
+"ausgewählte Bilder ein Duplikat des Bildes. Zuvor muss sichergestellt sein, "
+"dass der Gruppieren-Modus eingeschaltet ist und die Gruppe zugeklappt ist. "
+"Wird nun die Bildgruppe in der Dunkelkammer geöffnet, so wird nur der "
+"Gruppenkopf geändert. Das zugrundeliegende Duplikat bleibt unverändert.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/grouping.md
 #, markdown-text, no-wrap
 msgid "**Note:** “duplicating images” only generates a copy of an image's history stack, stored in another small XMP file. There is still only one raw file.\n"
 msgstr ""
+"**Beachte:** Das „Duplizieren“ von Bildern hat nur eine Kopie des Verlauf-"
+"Stapels zur Folge, der in einer anderen XMP-Datei gespeichert wird. Es ist "
+"also weiterhin nur eine RAW-Datei vorhanden.\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/digital-asset-management/metadata-tagging.md
 #, no-wrap
 msgid "metadata and tagging"
-msgstr ""
+msgstr "Metadaten und Verschlagworten"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/metadata-tagging.md
 #, markdown-text, no-wrap
 msgid "darktable allows you to store additional information about your images to allow them to be more easily searched and grouped. This information is stored in darktable's database and XMP sidecar files and can also be included within exported images.\n"
 msgstr ""
+"darktable erlaubt es zusätzliche Informationen über deine Bilder zu "
+"speichern, sie können so einfacher gruppiert und gesucht werden. Diese "
+"Informationen werden in der Datenbank von darktable in XMP "
+"Seitenwagendateien gespeichert und können auch an Dateien, die exportiert "
+"mitgegeben werden.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/metadata-tagging.md
 #, markdown-text, no-wrap
 msgid "Metadata (e.g. title, description) is free-format text that usually differs for each image.\n"
 msgstr ""
+"Metadaten (z.B. Titel, Beschreibung) sind Freiformat-Text, die im Normalfall "
+"anders sind für jedes Bild.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/metadata-tagging.md
 #, markdown-text, no-wrap
 msgid "See the [metadata editor](../../module-reference/utility-modules/shared/metadata-editor.md) module for details of how to add metadata to images.\n"
 msgstr ""
+"Siehe das Modul [metadata editor](../../module-reference/utility-modules/"
+"shared/metadata-editor.md) für zusätzliche Informationen und, wie Metadaten "
+"an Bilder angehängt werden können.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/metadata-tagging.md
 #, markdown-text, no-wrap
 msgid "Tags are usually shared between multiple images and are used to categorise and group them.\n"
 msgstr ""
+"Tags werden im Normalfall in mehreren Bildern geteilt und werden zur "
+"Kategorisierung und Gruppierung genutzt.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/metadata-tagging.md
 #, markdown-text, no-wrap
 msgid "See the [tagging](../../module-reference/utility-modules/shared/tagging.md) module for details of how to add tags to images.\n"
 msgstr ""
+"Siehe das Modul [Verschlagwortung](../../module-reference/utility-modules/"
+"shared/tagging.md) für zusätzliche Informationen und wie Schlagworte (Tags) "
+"Bildern zugewiesen werden.\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/digital-asset-management/_index.md
 #, no-wrap
 msgid "digital asset management"
-msgstr ""
+msgstr "Digital Asset Management"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/digital-asset-management/star-color.md
 #, no-wrap
 msgid "star ratings & color labels"
-msgstr ""
+msgstr "Bewertungen mit Sternen und Farbmarkierungen"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "Star ratings and color labels help you to sort and rank images according to your own criteria. An image's star rating and its color labels can be displayed over thumbnails in the lighttable view and filmstrip module.\n"
 msgstr ""
+"Mit Bewertungen und Farbmarkierungen können Bilder nach eigenen Kriterien "
+"sortiert und geordnet werden. Die Bewertung sowie die farbige Markierung "
+"eines Bildes werden innerhalb des Vorschaubildes und im Filmstreifen "
+"angezeigt.\n"
 
 #. type: Title #
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "star ratings"
-msgstr ""
+msgstr "Sterne Bewertung"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "You can give an image a rating from zero to five stars. The quality criteria which lead to a rating are up to you. Whenever you import images, each image receives a default rating which you can define in [preferences > import](../../../preferences-settings/import.md).  You can also mark an image as “rejected”.\n"
 msgstr ""
+"Du kannst einem Bild eine Bewertung von null bis fünf Sternen geben. Die "
+"Kriterien für die Bewertung liegen alleine bei dir. Schon beim Import können "
+"an jedes Bild eine Standard-Bewertung vergeben werden, die du in den "
+"[darktable-Voreistellungen>Import](../../../preferences-settings/import.md) "
+"definieren kannst. Du kannst ein Bild auch als zurückgewiesen markieren.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "There are several ways to change a rating. While hovering the cursor over an image thumbnail, you can press a number key 0 – 5 to define the number of stars, or press R to “reject” an image. This is probably the fastest way to rate your images on first inspection of a film roll.\n"
 msgstr ""
+"Es gibt mehrere Möglichkeiten eine Bewertung zu ändern. Wenn Sie mit dem "
+"Mauszeiger über ein Vorschaubild fahren, kann mit den Zifferntasten 0 – 5 "
+"die Anzahl der Sterne vergeben werden oder mit der R Taste als \"abgelehnt\" "
+"markieren. Dies ist wahrscheinlich der schnellste Weg zur Bewertung von "
+"Bildern bei der ersten Inspektion einer neuen Filmrolle.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "You can also directly click on the star icons that are overlayed on the thumbnails. Click the x to reject. \n"
 msgstr ""
+"Du kannst auch direkt auf das entsprechende Sterne-Icon klicken, das auf den "
+"Vorschaubildern überlagert ist. Klicke x um es zurückzuweisen. \n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "As Rejecting an image removes the currently-applied star rating, you can undo the rejection by clicking x or pressing R again.\n"
 msgstr ""
+"Da ein Bild zurückzuweisen, die dem Bild gegebene Sterne-Bewertung entfernt, "
+"kannst du die Zurückweisung widerrufen mit klicken von x oder mit dem "
+"Drücken der Taste R.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "Similarly you can click the first star for a second time to reset the image rating to unranked, or zero stars. This behavior can be changed in [preferences > lighttable](../../../preferences-settings/lighttable.md).\n"
 msgstr ""
+"Gleichermaßen kannst du den ersten Stern drücke, um das Bild als unbewertet "
+"zurückzusetzen oder null Sterne. Diese Möglichkeit kann angepasst werden in "
+"den [darktable-Voreinstellungen > lighttable](../../../preferences-settings/"
+"lighttable.md).\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "To rate multiple images at once, select those images in the lighttable or filmstrip and then press the appropriate shortcut key, or click the desired star rating in the bottom panel of the lighttable view. \t\n"
 msgstr ""
+"Um mehrere Bilder auf einmal zu bewerten, wählen Sie diese Bilder in der "
+"Ansicht Leuchttisch oder dem Filmstreifen aus und drücken dann die Taste für "
+"Ihre Bewertung oder klicken auf die gewünschte Bewertung in der Fußleiste "
+"des Leuchttischs. \t\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "You can filter images by star rating in the [top panel](../../overview/user-interface/top-panel.md).\n"
 msgstr ""
+"Die Filterung und Sortierung der Bilder der Sterne-Bewertung wird in der ["
+"oberen Leiste](../../overview/user-interface/top-panel.md).\n"
 
 #. type: Title #
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "color labels"
-msgstr ""
+msgstr "Farbmarkierungen"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "Color labels are another way to classify images, and can be used as an alternative to star ratings or work alongside star ratings. Each image can carry any combination of one or more color labels in red, yellow, green, blue, and purple.\n"
 msgstr ""
+"Die Farbmarkierung ist eine weitere Möglichkeit Bilder zu sortieren. Diese "
+"kann alternativ oder neben der Bewertung (Sterne) verwendet werden. Jedes "
+"Bild kann eine beliebige Kombination aus einem oder mehreren "
+"Farbmarkierungen in den Farben Rot, Gelb, Grün, Blau und Violett erhalten.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
 #, markdown-text, no-wrap
 msgid "You can set the color labels for a single image by hovering your cursor over the thumbnail and pressing the function keys F1 – F5, which correspond with the labels in the order given above.\n"
 msgstr ""
+"Sie können die Farbmarkierungen für ein einzelnes Bild einstellen, indem Sie "
+"mit dem Cursor über das Vorschaubild fahren und die Funktionstasten F1 - F5 "
+"drücken, die den Beschriftungen in der oben angegebenen Reihenfolge "
+"entsprechen.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/star-color.md
@@ -26060,6 +26263,8 @@ msgstr ""
 #, markdown-text, no-wrap
 msgid "You can filter images by color label in the [collect images](../../module-reference/utility-modules/shared/collect-images.md) module.\n"
 msgstr ""
+"Du kannst Bilder mit Farbmarkierungen filtern im Modul [Bilder sammeln"
+"](../../module-reference/utility-modules/shared/collect-images.md).\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/digital-asset-management/collections.md
@@ -26072,24 +26277,36 @@ msgstr "Sammlungen"
 #, markdown-text, no-wrap
 msgid "A collection is a set of images defined by a specific combination of selection criteria. The most basic kind of collection is a film roll, which contains all of the images that have been imported from a specific folder on disk.\n"
 msgstr ""
+"Eine Sammlung ist eine Gruppe von Bildern, die durch eine bestimmte "
+"Kombination von Selektionskriterien definiert ist. Die grundlegendste Art "
+"der Sammlung ist eine Filmrolle, die alle Bilder umfasst, die von einem "
+"bestimmten Ordner der Festplatte importiert wurden.\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/collections.md
 #, markdown-text, no-wrap
 msgid "You can easily construct other kinds of collections based on various image attributes (Exif data, filename, tags etc.). Multiple criteria can be logically combined to narrow or extend your collection (see [collect images](../../module-reference/utility-modules/shared/collect-images.md)).\n"
 msgstr ""
+"Es können auch ganz einfach andere Arten von Sammlungen erstellen werden, "
+"die auf verschiedenen Bildattributen wie Exif-Daten, Dateinamen, Tags usw. "
+"basieren. Um Ihre Sammlung zu verfeinern oder zu erweitern können mehrere "
+"Kriterien logisch kombiniert werden (siehe [Bilder sammeln](../../module-"
+"reference/utility-modules/shared/collect-images.md)).\n"
 
 #. type: Plain text
 #: content/lighttable/digital-asset-management/collections.md
 #, markdown-text, no-wrap
 msgid "darktable keeps a list of the most recently used collections for quick access (see [recent collections](../../module-reference/utility-modules/shared/recent-collections.md)).\n"
 msgstr ""
+"darktable behält eine Liste der kürzlich genutzten Sammlungen für einen "
+"Schnellzugriff (siehe [kürzlich benutzte Sammlungen](../../module-reference/"
+"utility-modules/shared/recent-collections.md)).\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/lighttable-view-layout.md
 #, no-wrap
 msgid "lighttable view layout"
-msgstr ""
+msgstr "Ansicht Leuchttisch Layout"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26098,6 +26315,9 @@ msgid ""
 "[import](../module-reference/utility-modules/lighttable/import.md)\n"
 ": Import images from the filesystem or a connected camera.\n"
 msgstr ""
+"[Import](../module-reference/utility-modules/lighttable/import.md)\n"
+": Importiert Bilder von einem Verzeichnis oder einer angeschlossenen Kamera."
+"\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26106,6 +26326,12 @@ msgid ""
 "[collect images](../module-reference/utility-modules/shared/collect-images.md)\n"
 ": Filter the images displayed in the lighttable center panel -- also used to control the images displayed in the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) and [timeline](../../module-reference/utility-modules/lighttable/timeline.md) modules.\n"
 msgstr ""
+"[Bilder sammeln](../module-reference/utility-modules/shared/collect-images."
+"md)\n"
+": Filtere die angezeigten Bilder in der Hauptansicht der Ansicht Leuchttisch "
+"-- aber auch für die Bilder in den Modulen [Filmstreifen](../module-"
+"reference/utility-modules/shared/filmstrip.md) und [Zeitleiste](../../module-"
+"reference/utility-modules/lighttable/timeline.md).\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26114,6 +26340,9 @@ msgid ""
 "[recently used collections](../module-reference/utility-modules/shared/recent-collections.md)\n"
 ": View recently used collections of images\n"
 msgstr ""
+"[kürzlich benutzte Sammlungen](../module-reference/utility-modules/shared/"
+"recent-collections.md)\n"
+": Zeigt die kürzlich benutzten Sammlungen von Bildern.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26122,6 +26351,9 @@ msgid ""
 "[lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md) (optional)\n"
 ": Install lua scripts\n"
 msgstr ""
+"[lua scripts installer](../module-reference/utility-modules/lighttable/lua-"
+"scripts-installer.md) (optional)\n"
+": Installiere Lua Skripte\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26130,6 +26362,8 @@ msgid ""
 "[select](../module-reference/utility-modules/lighttable/select.md)\n"
 ": Select images in the lighttable using simple criteria.\n"
 msgstr ""
+"[Zeige](../module-reference/utility-modules/lighttable/select.md)\n"
+": Zeige Bilder im Leuchttisch, ausgewählt nach einfachen Kriterien.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26138,6 +26372,9 @@ msgid ""
 "[selected images(s)](../module-reference/utility-modules/lighttable/selected-image.md)\n"
 ": Perform actions on selected images.\n"
 msgstr ""
+"[ausgewählte Bilder](../module-reference/utility-modules/lighttable/selected-"
+"image.md)\n"
+": Führe Aktionen an ausgewählten Bildern durch.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26146,6 +26383,9 @@ msgid ""
 "[history stack](../module-reference/utility-modules/lighttable/history-stack.md)\n"
 ": Manipulate the history stack of selected images.\n"
 msgstr ""
+"[Verlaufssstapel](../module-reference/utility-modules/lighttable/history-"
+"stack.md)\n"
+": Manipuliere den Verlaufsstapel von ausgewählten Bildern.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26154,6 +26394,9 @@ msgid ""
 "[styles](../module-reference/utility-modules/lighttable/styles.md)\n"
 ": Store an image's history stack as a named style and apply it to other images.\n"
 msgstr ""
+"[Stile](../module-reference/utility-modules/lighttable/styles.md)\n"
+": Sichere den Verlaufsstapel eines -bildes als einen Stil mit Namen, um ihn "
+"an andere Bilder anhängen zu können.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26162,6 +26405,8 @@ msgid ""
 "[geotagging](../module-reference/utility-modules/shared/geotagging.md)\n"
 ": Import and apply GPX track data to selected images.\n"
 msgstr ""
+"[Geotagging](../module-reference/utility-modules/shared/geotagging.md)\n"
+": Importiere und wende GPX Trackdaten an ausgewählte Bilder.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26171,12 +26416,17 @@ msgid ""
 "[export](../module-reference/utility-modules/shared/export.md)\n"
 ": Export selected images to local files or external services.\n"
 msgstr ""
+"[ausgewählte exportieren](../module-reference/utility-modules/shared/export."
+"md)\n"
+": Exportiere ausgewählte Bilder an lokale Ordner oder externe Anwendungen.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
 #, markdown-text, no-wrap
 msgid "![lighttable-bottom-panel](./lighttable-view-layout/lighttable-bottom-panel.png#w100)\n"
 msgstr ""
+"![lighttable-bottom-panel](./lighttable-view-layout/lighttable-bottom-panel."
+"png#w100)\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26185,6 +26435,8 @@ msgid ""
 "[star ratings](./digital-asset-management/star-color.md)\n"
 ": Apply star ratings to images\n"
 msgstr ""
+"[Sterne Bewertung](./digital-asset-management/star-color.md)\n"
+": Füge eine Sternebewertung an Bildern zu.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26193,6 +26445,8 @@ msgid ""
 "[color labels](./digital-asset-management/star-color.md)\n"
 ": Apply color categories to images\n"
 msgstr ""
+"[Farbmarkierung](./digital-asset-management/star-color.md)\n"
+": Füge eine Farbmarkierung an Bildern zu.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26201,6 +26455,8 @@ msgid ""
 "[mode selector](./lighttable-modes/_index.md)\n"
 ": Choose lighttable mode using the dropdown\n"
 msgstr ""
+"[Modus wählen](./lighttable-modes/_index.md)\n"
+": Wähle den Modus des Leuchttisches aus dem Dropdown\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26209,6 +26465,8 @@ msgid ""
 "[zoom](./lighttable-modes/filemanager.md)\n"
 ": Use the slider to change the size of thumbnails\n"
 msgstr ""
+"[Zoom](./lighttable-modes/filemanager.md)\n"
+": Nutze diesen Schieber um die Größe der Vorschaubilder einzustellen.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26217,6 +26475,10 @@ msgid ""
 "![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png#icon) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode\n"
 ": Click to enable focus-peaking mode\n"
 msgstr ""
+"![Icon Fokus](./lighttable-view-layout/lighttable-bottom-panel_focus."
+"png#icon) Schalte den Modus [Fokuserkennung](../module-reference/"
+"utility-modules/shared/focus-peaking.md)\n"
+": Klicke hier um die Fokuserkennung einzuschalten.\n"
 
 #. type: Plain text
 #: content/lighttable/lighttable-view-layout.md
@@ -26225,24 +26487,35 @@ msgid ""
 "![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png#icon) [set display profile](../special-topics/color-management/display-profile.md)\n"
 ": Click to choose display profiles\n"
 msgstr ""
+"![Anzeige-Icon](./lighttable-view-layout/lighttable-bottom-panel_display."
+"png#icon) [Anzeigeprofil setzen](../special-topics/color-management/display-"
+"profile.md)\n"
+": Klick um Anzeigeprofile auszuwählen.\n"
 
 #. type: Plain text
 #: content/lighttable/overview.md
 #, markdown-text, no-wrap
 msgid "The lighttable view allows you to view and manage your image collection.\n"
 msgstr ""
+"In der Ansicht Leuchttisch kannst du deine Bildersammlung sichten und "
+"verwalten.\n"
 
 #. type: Plain text
 #: content/lighttable/overview.md
 #, markdown-text, no-wrap
 msgid "The centre view contains thumbnails of your images -- how they are displayed depends on which [mode](./lighttable-modes/_index.md) you are working in.\n"
 msgstr ""
+"Die Hauptansicht zeigt die Vorschaubilder deiner Bilder -- wie diese "
+"dargestellt werden hängt von gewählten [Modus](./lighttable-modes/_index.md) "
+"ab.\n"
 
 #. type: Plain text
 #: content/lighttable/overview.md
 #, markdown-text, no-wrap
 msgid "While the mouse is over an image thumbnail or images are selected, there are a number of actions you can perform:\n"
 msgstr ""
+"Während sich die Maus über einem Bildrahmen befindet, gibt es eine Reihe "
+"weiterer Aktionen die ausgeführt werden können:\n"
 
 #. type: Fenced code block
 #: content/lighttable/overview.md
@@ -26258,6 +26531,15 @@ msgid ""
 "W          fully zoom into the current image while the key is pressed\n"
 "Ctrl+W     fully zoom into the current image and show areas in focus\n"
 msgstr ""
+"0 – 5 \tsetzt die Bewertung des Bildes; \n"
+" wenn ein Bild eine 1 hat, gilt es als unbewertet\n"
+"R bewertet das Bild als zurückgewiesen\n"
+"F1 – F3 \tsetzt eine Farbmarkierung für das Bild\n"
+"Ctrl+C \tkopiert den Verlaufsstapel des Bildes\n"
+"Ctrl+V \twende den kopierten Verlaufsstapel auf das Bild an\n"
+"D \töffnet das Bild in der Dunkelkammer\n"
+"W \tzeige eine Vollbildansicht des Bildes\n"
+"Ctrl+W zoomt voll in das Bild hinein und zeigt die Bildteile im Fokus.\n"
 
 #. type: YAML Front Matter: title
 #: content/lighttable/lighttable-modes/full-preview.md
