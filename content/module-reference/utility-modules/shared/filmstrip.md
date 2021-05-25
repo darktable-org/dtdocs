@@ -6,7 +6,7 @@ tags:
 view: lighttable, darkroom, tethering, map, print
 ---
 
-The filmstrip can be used to quickly switch between images in any darktable view. The images shown are the same as displayed in the lighttable view and are defined by the currently-selected collection.
+The filmstrip can be used to quickly switch between images in any darktable view. The images shown are the same as those displayed in the lighttable view and are defined by the currently-selected collection.
 
 ![filmstrip](./filmstrip/filmstrip.png)
 
@@ -14,9 +14,9 @@ The filmstrip can be switched on and off using the shortcut Ctrl+F. The height o
 
 Quickly navigate through the images in the filmstrip by scrolling with the mouse. In the darkroom you can change the photo currently being processed by clicking on another image in the filmstrip.
 
-In the darkroom, the image currently being processed is selected and highlighted. Use Mouse over to select any other image from the filmstrip (in order to act on it with a keyboard shortcut) without changing the image being processed.
+In the darkroom, the image currently being processed is selected and highlighted. Hover over an image on the filmstrip with your mouse to select it (in order to act on it with a keyboard shortcut) without changing the image being processed.
 
-If you wish to select multiple images in the filmstrip, use Alt+click to select the first image and then Ctrl+click to add to or remove images from the selection or Shift+click select a range of images.
+If you wish to select multiple images in the filmstrip, use Alt+click to select the first image, followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
 
 The following shortcuts are available to select images in the filmstrip or to perform actions on the selected images:
 
@@ -35,4 +35,4 @@ Alt+Ctrl+C     selectively copy the history stack
 Alt+Ctrl+V     selectively paste from the copied history stack
 ```
 
-See the lighttable's [history stack](../lighttable/history-stack.md) documentation for more details of the copy and paste functionality.
+See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.
