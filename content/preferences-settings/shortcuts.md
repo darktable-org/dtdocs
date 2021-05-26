@@ -9,7 +9,7 @@ Much of the functionality of darktable can be accessed via shortcuts using the k
 
 Many important shortcut actions are provided with default key combinations, but most must be manually configured by the user. Any key may be used for a keyboard shortcut, and may be combined with the Shift, Control or Alt modifier keys (or any combination thereof).
 
-When you open the _shortcuts_ tab you are initially presented with a hierarchical list of all actions that can be applied with a keyboard shortcut. At the top of this hierarchy is a short list of key _categories_ which are defined below.
+When you open the _shortcuts_ tab you are initially presented with a hierarchical list of all actions that can be applied with a keyboard shortcut. At the top of this hierarchy is a short list of key [_categories_](#shortcut-categories) defined below.
 
 # add or amend a shortcut
 
@@ -41,9 +41,9 @@ Keyboard shortcuts are categorized within a hierarchical list so that they can e
 
 ## global
 
-Shortcut actions in this section are applicable to all darktable views.
+Shortcut actions in this category are applicable to all darktable views.
 
-If you have created any user-defined styles, these will be available as actions within a "styles" sub-section.
+If you have created any user-defined styles, these will be available as global actions within a "styles" sub-section.
 
 ## views
 
@@ -51,42 +51,42 @@ A single section is provided for each darktable view. Shortcut actions are only 
 
 ## processing modules
 
-Shortcut actions for the [processing modules](../module-reference/processing-modules/_index.md) in the darktable view. A section is provided for each processing module.
+Shortcut actions in this category apply to [processing modules](../module-reference/processing-modules/_index.md) in the darkroom view. A section is provided for each processing module.
 
-In addition, a separate "blending" section allows you to control the [masking and blending](../darkroom/masking-and-blending/_index.md) options for the last module that you interacted with.
+In addition, a separate "blending" section allows you to control the [masking and blending](../darkroom/masking-and-blending/_index.md) options for the currently active module.
 
 ### common shortcuts
 
-Every processing module provides the following shortcut actions by default
+Every processing module provides the following shortcut actions by default:
 
 enable module
-: Enable or disable the module, regardless of whether it is currently visible
+: Enable or disable the module, regardless of whether it is currently visible.
 
 show module
-: Expand or collapse the module. If the module is not currently displayed on the screen, darktable will switch to an appropriate module group (if applicable) before displaying it
+: Expand or collapse the module. If the module is not currently displayed on the screen, darktable will switch to an appropriate module group before displaying it.
 
 focus module
-: Cause the module to receive or lose focus.
+: Cause the module to receive or lose focus. This can activate on-screen guides or controls for that module (for example you can focus the crop module to show the crop guides and unfocus it to commit settings).
 
 reset module parameters
-: Reset the module to its default state
+: Reset the module to its default state.
 
 show preset menu
-: Show the presets menu for the module
+: Show the presets menu for the module.
 
 presets
-: An expandable category which lists all currently-defined presets for the module as possible actions.  It will not be shown if there are no presets.
+: An expandable category that lists all currently-defined presets for the module as possible actions.  This option will not be shown if there are no presets for a given module.
 
 For comboboxes and sliders, some standard shortcut actions are provided, as described in the following sections.
 
-In addition, other module-specific controls will be provided with their own shortcut actions.
+In addition, other module-specific controls may be provided with their own shortcut actions.
 
 ### sliders
 
 All sliders in processing modules can be adjusted via keyboard shortcuts, regardless of whether the module is currently shown or enabled. The following shortcut actions are provided as standard for each slider:
 
 increase/decrease
-: Separate shortcuts which allow you to increase or decrease the slider's value by a single step.
+: Separate shortcuts that allow you to increase or decrease the slider's value by a single step.
 
 dynamic
 : A single shortcut that can be used in combination with the mouse scroll wheel to increase and decrease slider values.
@@ -97,19 +97,19 @@ edit
 reset
 : Reset the slider to its default value.
 
-In addition, you can modify the precision of the increase/decrease operations with a keyboard shortcut (_shortcuts > views > darkroom > change keyboard shortcut slider precision_), choosing between fine, normal and coarse. See [module controls](../darkroom/processing-modules/module-controls.md) for more details.
+In addition, you can modify the precision of the increase/decrease operations with a keyboard shortcut (shortcuts > views > darkroom > change keyboard shortcut slider precision), choosing between fine, normal and coarse. See [module controls](../darkroom/processing-modules/module-controls.md) for more details.
 
-When performing increase/decrease and dynamic operations on sliders a toast message will appear at the top of the image to indicate the current value of the slider.
+When performing increase/decrease and dynamic operations on sliders a toast message will appear at the top of the image to indicate the adjusted value of the slider.
 
 ### comboboxes
 
 As with sliders, all comboboxes in processing modules can be adjusted via keyboard shortcuts. The following shortcut actions are provided as standard for each combobox:
 
 next/previous
-: Separate shortcuts which allow you to change to the next or previous entry in the combobox
+: Separate shortcuts that allow you to change to the next or previous entry in the combobox.
 
 dynamic
-: A single shortcut that can be used in combination with the mouse scroll wheel to change to the next/previous entry in the combobox
+: A single shortcut that can be used in combination with the mouse scroll wheel to change to the next/previous entry in the combobox.
 
 If the end of a combobox list is reached, these shortcuts will cycle back to the beginning of the list. Similarly, if the beginning of the list is reached the shortcuts will cycle to the end. 
 
@@ -117,11 +117,11 @@ If the end of a combobox list is reached, these shortcuts will cycle back to the
 
 It is possible to create [multiple instances](../darkroom/processing-modules/multiple-instances.md) of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations.
 
-See [preferences > miscellaneous](./miscellaneous.md) for some additional settings that allow you to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
+Some additional settings are provided in [preferences > miscellaneous](./miscellaneous.md) to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
 
 ## utility modules
 
-Shortcut actions for the [utility modules](../module-reference/utility-modules/_index.md). These are modules that are not used for image processing and may appear on any panel. Some utility modules can be used in multiple views.
+Shortcut actions in this category apply to [utility modules](../module-reference/utility-modules/_index.md). These modules are not used for image processing and may appear in any view. Some utility modules can be used in multiple views.
 
 As with processing modules, some shortcut actions are provided by default for each module:
 
