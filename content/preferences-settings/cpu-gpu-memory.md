@@ -8,10 +8,10 @@ draft: false
 This preference tab contains mostly performance-related settings:
 
 memory in megabytes to use for thumbnail cache
-: In order to speed-up the display of film rolls, darktable stores image thumbnails in a cache file on disk (primary cache) and loads it into memory at startup. This setting controls the size of the cache in megabytes. It needs a restart if changed (default 256MB).
+: In order to speed up the display of film rolls, darktable stores image thumbnails in a cache on disk (primary cache) and loads it into memory at startup. This setting controls the size of the cache in megabytes. Needs a restart if changed (default 256MB).
 
 enable disk backend for thumbnail cache
-: If activated, darktable stores all thumbnails on disk as a secondary cache, and thereby keeps thumbnails accessible if they get dropped from the primary cache. This needs more disk space but speeds up the [lighttable](../lighttable/_index.md) view as it avoids reprocessing of thumbnails (default on).
+: If activated, darktable stores all thumbnails on disk as a secondary cache, and thereby keeps thumbnails accessible if they are dropped from the primary cache. This needs more disk space but speeds up the [lighttable](../lighttable/_index.md) view as it avoids the reprocessing of thumbnails (default on).
 
 enable disk backend for full preview cache
 : If enabled, darktable writes full preview images to disk (`.cache/darktable/`) when evicted from the memory cache. Note that this can take a lot of storage (several gigabytes for 20k images) and darktable will never delete cached images. It's safe to delete these manually if you want. Enabling this option will greatly improve lighttable performance when zooming an image in full preview mode (default off).
