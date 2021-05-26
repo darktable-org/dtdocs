@@ -6,4 +6,6 @@ tags:
 view: tethering
 ---
 
-This module gives you control of your camera's live view mode. Functionality such as focus setting, rotation, adding guides and overlays are supported.
+Control your camera's live view mode. 
+
+Functionality such as focus setting, rotation, adding guides and overlays are supported.
