@@ -10,17 +10,19 @@ A graphical depiction of the developed image's light levels.
 
 ![histogram](./histogram/histogram.png#w50)
 
-Move the mouse over the panel to show buttons to adjust the display. The leftmost button cycles the mode between a "regular" histogram, a waveform-style histogram, and a vectorscope. The next button controls how the data for the current mode is displayed. In the case of regular and waveform histograms, the three rightmost colored squares are toggles which enable or disable the display of the red, green and blue color channels.
+Move the mouse over the panel to show buttons that allow you to adjust the display. The leftmost button cycles the mode between a "regular" histogram, a waveform-style histogram, and a vectorscope. The next button controls how the data for the current mode is displayed. In the case of regular and waveform histograms, the three rightmost colored squares are toggles that enable or disable the display of the red, green and blue color channels.
 
-When the mouse is over the histogram panel, scrolling with the mouse while holding down the Ctrl key will change the height of the panel. You can show/hide the histogram entirely with a keyboard shortcut (default Ctrl+Shift+H).
+When the mouse is over the histogram panel, scroll with the mouse while holding down the Ctrl key to change the height of the panel. You can show/hide the histogram entirely with a keyboard shortcut (default Ctrl+Shift+H).
 
-For the purposes of speed, the histogram display is calculated from the image preview (the image which is displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
+For performance reasons, the histogram display is calculated from the image preview (the image displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass more time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
 
 # the "regular" histogram
 
 ![histogram-regular](./histogram/histogram-regular.png#w50)
 
-This shows the distribution of pixels by lightness for each color channel channel. In its default state, data for all three RGB color channels is displayed. The x-axis runs from 0% to 100% lightness for each channel. The y-axis gives the count of pixels with the given lightness.
+The regular histogram shows the distribution of pixels by lightness for each color channel channel. 
+
+In its default state, data for all three RGB color channels is displayed. The x-axis runs from 0% to 100% lightness for each channel. The y-axis gives the count of pixels with the given lightness.
 
 Click the second-to-leftmost button on the panel to toggle between a logarithmic and a linear rendering of the y-axis data.
 
@@ -28,11 +30,15 @@ Click the second-to-leftmost button on the panel to toggle between a logarithmic
 
 ![histogram-waveform](./histogram/histogram-waveform.png#w50)
 
-The waveform scope includes spatial data about the image. The y-axis represents the distribution of pixels by lightness for each channel. The x-axis represents the distribution of this data across the x-axis of the image. The lightness of each point of the waveform represents the number of pixels at that position.
+The waveform scope also includes spatial data about the image. 
 
-The thick dotted horizontal line at the top of the waveform histogram represents 100% lightness. Any channel displayed above that line may be clipped in the resulting image. The thinner dotted horizontal line represents 50% lightness. The bottom of the scope represents 0% lightness.
+The x-axis of the waveform represents the x-axis of the image -- the right-hand side of the waveform represents the right-hand side of the image and the left-hand side of the waveform represents the left-hand side of the image. 
 
-As with the "regular" histogram, it is possible to selectively display red, green, and blue channels, or (the default) all three of them.
+The y-axis represents the distribution of pixels by lightness for each channel -- the dotted line at the top represents 100% lightness (values above this may be clipped), the dotted line in the middle represents 50% lightness, and the bottom of the waveform represents 0% lightness. 
+
+The brightness of each point on the waveform represents the number of pixels at the given position (the x-axis) having the given lightness (the y-axis).
+
+As with the "regular" histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
 
 See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histograms-and-waveforms/) for more on darktable's waveform scope.
 
@@ -40,7 +46,9 @@ See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histogram
 
 ![histogram-parade](./histogram/histogram-parade.png#w50)
 
-This shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side. When in waveform mode, clicking the second-to-leftmost button on the panel toggles between waveform (overlaid) and RGB parade rendering of the data.
+The rgb parade scope shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side. 
+
+When in waveform mode, clicking the second-to-leftmost button on the panel toggles between waveform (overlaid) and RGB parade rendering of the data.
 
 The RGB parade can be useful for matching the intensities of the red, green, and blue channels. It can also help with understanding the differences between and individual qualities of each channel.
 
@@ -48,7 +56,9 @@ The RGB parade can be useful for matching the intensities of the red, green, and
 
 ![histogram-vectorscope](./histogram/histogram-vectorscope.png#w50)
 
-This shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. The distance from the center of the graph represents chroma and the angle represents hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph represents color "volume" by rendering the more frequently used colors in the image in lighter tones.
+The vectorscope shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. 
+
+The distance from the center of the graph represents chroma and the angle represents hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph represents color "volume" by rendering the more frequently used colors in the image in lighter tones.
 
 The vectorscope chroma scale can either be linear or logarithmic. Click the second-to-leftmost button on the panel to toggle this.
 
@@ -67,14 +77,14 @@ The graph includes a "hue ring" representing the maximum chroma of each hue (in 
 
 The "regular" and waveform-style histograms can be used to directly alter the _exposure_ and _black level_ of the [_exposure_](../../processing-modules/exposure.md) module.
 
-For the regular histogram, click towards the right hand side of the histogram and then drag right to increase or drag left to decrease the exposure. In a similar manner you can control the black level by clicking and dragging in the left hand side.
+For the regular histogram, click towards the right-hand side of the histogram and then drag right to increase or drag left to decrease the exposure. In a similar manner you can control the black level by clicking and dragging in the left-hand side.
 
-For waveform-style scopes, dragging the upper portion of the histogram up/down will increase/decrease exposure. Dragging the lower portion up/down will increase/decrease the black level.  
+For waveform-style scopes, dragg the upper portion of the histogram up/down to increase/decrease exposure. Dragg the lower portion up/down to increase/decrease the black level.  
 
-Scrolling in the appropriate area -- rather than dragging -- will also adjust exposure and black point. Double-click in the histogram to reset the exposure module's parameters to their defaults.
+You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point. Double-click in the histogram to reset the exposure module's parameters to their defaults.
 
 # histogram profile
 
-The image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the histogram is shown in the soft proof profile.
+Image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the histogram is shown in the soft proof profile.
 
-As the histogram runs at the end of the preview pixelpipe, it receives data in display color space. If you are using a display color space which is not "well behaved" (this is common for a device profile), then colors which are outside of the gamut of the display profile may be clipped or distorted.
+As the histogram runs at the end of the preview pixelpipe, it receives data in display color space. If you are using a display color space that is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile may be clipped or distorted.
