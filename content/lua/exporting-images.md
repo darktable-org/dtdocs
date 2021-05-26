@@ -8,7 +8,7 @@ author: "people"
 
 So far we have learned to use lua to adapt darktable to our particular workflow. Let's look now at how to use lua to easily export images to an online service. If you are able to upload an image to a service via the command line then you can use lua to integrate this into darktable's user interface.
 
-In this next example we will use lua to export via `scp`. A new storage type will appear in darktable's UI which will export images to a remote target via the copy mechanism in `ssh`.
+In this next example we will use lua to export via `scp`. A new storage type will appear in darktable's UI that will export images to a remote target via the copy mechanism in `ssh`.
 
 ```
 darktable = require "darktable"
@@ -34,13 +34,13 @@ end)
 
 This code will work but it has a couple of limitations. This is just a simple example after all:
 
-- We use preferences to configure the target path. It would be nicer to add an element to the export UI in darktable. We will detail how to do that in the next section
+- We use preferences to configure the target path. It would be nicer to add an element to the export UI in darktable. We will detail how to do that in the next section.
 
 - We do not check the returned value of `scp`. That command might fail, in particular if the user has not correctly set the preference.
 
-- This script can't read input from the user. The remote `scp` must use password-less copy. `scp` can't be provided a password easily, so we will leave it that way
+- This script can't read input from the user. The remote `scp` must use password-less copy -- `scp` can't be provided with a password easily, so we will leave it that way.
 
-- There is no message displayed once the example is done, only the progress bar on the lower left side tells the user that the job is done.
+- There is no message displayed once the example is done, only the progress bar on the lower left side tells the user that the job is complete.
 
 - We use `coroutine.yield` to call an external program. The normal `os.execute` would block other lua codes from happening.
 

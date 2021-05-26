@@ -20,13 +20,13 @@ darktable.register_event("shortcut",hello_shortcut,
        "A shortcut that prints its parameters")
 ```
 
-Now start darktable, go to  "preferences > shortcuts > lua > A shortcut that prints its parameters", assign a shortcut and try it. You should see a nice message printed on the screen.
+Now start darktable, go to "preferences > shortcuts > lua > A shortcut that prints its parameters", assign a shortcut and try it. You should see a nice message printed on the screen.
 
-Let's look at the code in detail. We first define a function which takes two strings as input parameters. The first one is the type of event that is triggered ( "shortcut" ) and the second one is the name of the shortcut ( "A shortcut that prints its parameters" ). The function itself calls `darktable.print`, which will print the message as an overlay in the main window.
+Let's look at the code in detail. We first define a function that takes two strings as input parameters. The first one is the type of event triggered ("shortcut") and the second is the name of the shortcut ("A shortcut that prints its parameters"). The function itself calls `darktable.print`, which will print the message as an overlay in the main window.
 
-Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering a shortcut event, then we give the callback to call and last, we give the string to use to describe the shortcut in the preferences window.
+Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering a shortcut event, then we give the callback to call and finally, we give the string to use to describe the shortcut in the preferences window.
 
-Let's try a shortcut that is a little more interactive. This one will look at the images the user is currently interested in (selected or moused-over) and increase their rating.
+Let's try a shortcut that is a little more interactive. This one will look at the images the user is currently interested in (selected or moused-over) and increase their rating:
 
 ```
 darktable = require "darktable"
@@ -77,4 +77,4 @@ darktable.register_event("shortcut",function(event,shortcut)
 end,"Increase the rating of an image")
 ```
 
-`pcall` will run its first argument and catch any exception thrown by it. If there is no exception it will return `true` plus any result returned by the function; if there is an exception it will return `false` and the error message of the exception. We simply test these results and print them to the console.
+`pcall` will run its first argument and catch any exception thrown by it. If there is no exception it will return `true` plus any result returned by the function. If there is an exception it will return `false` and the error message of the exception. We simply test these results and print them to the console.

@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-This first example showed us the very basics of lua and allowed us to check that everything is working properly. Let's do something a little bit more complex. Let's try to print the list of images that have a "red" label attached to them. But first of all, what is an image?
+The first example showed us the very basics of lua and allowed us to check that everything was working properly. Now let's do something a little bit more complex. Let's try to print a list of images that have a "red" label attached to them. But first of all, what is an image?
 
 ```
 local darktable = require "darktable"
@@ -18,7 +18,7 @@ Running the code above will produce a lot of output. We will look at it in a mom
 
 We know about `require darktable`. Here, we need to separately `require darktable.debug` which is an optional section of the API that provides helper functions to help debug lua scripts.
 
-`darktable.database` is a table provided by the API that contains all images in the database (currently visible or not, duplicate or not...). Each entry in the database is an image object. Image objects are complex objects that allow you to manipulate your image in various ways (it is all documented in the `types_dt_lua_image_t` section of the API manual). To display our images, we use `darktable.debug.dump` which is a function that will take anything as its parameter and recursively dump its content. Since images are complex objects that indirectly reference other complex objects, the resulting output is huge. Below is a cut down example of the output.
+`darktable.database` is a table provided by the API that contains all images in the library database. Each entry in the database is an image object. Image objects are complex objects that allow you to manipulate your image in various ways (all documented in the `types_dt_lua_image_t` section of the API manual). To display our images, we use `darktable.debug.dump` which is a function that will take anything as its parameter and recursively dump its content. Since images are complex objects that indirectly reference other complex objects, the resulting output is huge. Below is a cut down example of the output.
 
 ```
 toplevel (userdata,dt_lua_image_t) : /images/100.JPG
@@ -75,7 +75,7 @@ toplevel (userdata,dt_lua_image_t) : /images/100.JPG
    group_leader (userdata,dt_lua_image_t): .toplevel
 ```
 
-As we can see, an image has a large number of fields which provide all sort of information about it. Here, we are interested in the "red" label. This field is a boolean, and the documentation tells us that it can be written. We now just need to find all images with that field and print them out:
+As we can see, an image has a large number of fields that provide all sort of information about it. Here, we are interested in the "red" label. This field is a boolean, and the documentation tells us that it can be written. We now just need to find all images with that field and print them out:
 
 ```
 darktable = require "darktable"
@@ -92,6 +92,6 @@ This code should be quite simple to understand at this point, but it contains a 
 
 - Iterating through a table will return both the key and the value used. It is conventional in lua to use a variable named “`_`” to store values that we don't care about.
 
-- Note that we use the standard lua function `tostring` here and not the darktable specific `darktable.debug.dump`. The standard function will return a name for the object whereas the debug function will print the content. The debug function would be too verbose here. Once again, it is a great debug tool but it should not be used for anything else.
+- Note that we use the standard lua function `tostring` here and not the darktable-specific `darktable.debug.dump`. The standard function will return a name for the object whereas the debug function will print the content. The debug function would be too verbose here. Once again, it is a great debug tool but it should not be used for anything else.
 
 

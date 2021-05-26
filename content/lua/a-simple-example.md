@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-Let's start with a simple example which will print some code on the console. Create a file called `luarc` in darktable's configuration directory (usually `$HOME/.config/darktable/`) and add the following line to it:
+Let's start with a simple example that will print some code on the console. Create a file called `luarc` in darktable's configuration directory (usually `$HOME/.config/darktable/`) and add the following line to it:
 
 ```
 print("Hello World !")
