@@ -141,7 +141,7 @@ file naming pattern
 keep this window open
 : Keep the window open after the import is complete, allowing multiple imports but with different naming options.
 
-Most of these options are can also be set in [preferences > import](../../../../preferences-settings/import.md). See this section for more information about the available variables.
+Most of these options can also be set in [preferences > import](../../../../preferences-settings/import.md). See this section for more information about the available variables.
 
 ## copy & import from camera
 
