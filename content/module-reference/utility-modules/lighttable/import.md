@@ -104,7 +104,7 @@ ignore JPEG images
 The "add to library" button allows you to add one or more existing images to the darktable library from the local filesystem. This process does not copy or move images but merely adds their details to the library database and creates XMP sidecar files for them.
 
 select only new pictures
-: Tick this box to restrict the _initial_ selection (when the dialog is loaded) to only those images that have not already been loaded into the darktable library. If you attempt to reload existing images into the darktable library, data for those images will be reloaded from the XMP sidecar files. An button is also available at the bottom of the dialog to select only "new" images for the currently-selected folder.
+: Tick this box to restrict the _initial_ selection (when the dialog is loaded) to only those images that have not already been loaded into the darktable library. If you attempt to reload existing images into the darktable library, data for those images will be reloaded from the XMP sidecar files. A button is also available at the bottom of the dialog to select only "new" images for the currently-selected folder.
 
 ---
 
