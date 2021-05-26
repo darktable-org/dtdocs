@@ -5,11 +5,11 @@ weight: 30
 draft: false
 ---
 
-This tab contains a number of default settings for the lighttable [import](../module-reference/utility-modules/lighttable/import.md) module.
+Control default file naming conventions used when [importing](../module-reference/utility-modules/lighttable/import.md) images.
 
 # session options
 
-These options define a naming pattern to organize images on disk when importing from a connected camera and when taking photos in the [tethering](../tethering/_index.md) view.
+The following options define the default naming pattern for use in the "copy & import" or "copy & import from camera" options in the import module, or when taking photos in the [tethering](../tethering/_index.md) view.
 
 The naming pattern consists of three parts: a base part defining the parent folder, a session part defining a sub directory (which is specific to the individual import session), and a file name part defining the filename structure for each imported image.
 
