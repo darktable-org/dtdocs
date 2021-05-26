@@ -8,4 +8,4 @@ view: tethering
 
 Control your camera's live view mode. 
 
-Functionality such as focus setting, rotation, adding guides and overlays are supported.
+Functionality such as focus control, rotation, guides and overlays are supported.
