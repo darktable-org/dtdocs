@@ -15,10 +15,10 @@ darktable supports variable substitution in a number of modules and preference s
 
 # available variables
 
-The following variables are available, though they may not all be available in all contexts:
+The following variables are available, though they may not all be applicable in every context:
 
 ```
-$(ROLL_NAME)               roll of the input image
+$(ROLL_NAME)               film roll of the input image
 $(FILE_FOLDER)             folder containing the input image
 $(FILE_NAME)               basename of the input image
 $(FILE_EXTENSION)          extension of the input image
@@ -26,9 +26,9 @@ $(ID)                      the image id
 $(VERSION)                 the duplicate version number
 $(VERSION_IF_MULTI)        same as $(VERSION) but null string if only one version exists
 $(VERSION_NAME)            version name from metadata
-$(SEQUENCE)                a sequence number within export job
-$(MAX_WIDTH)               maximum image width to limit within export session
-$(MAX_HEIGHT)              maximum image height to limit within export session
+$(SEQUENCE)                a sequence number within an export job
+$(MAX_WIDTH)               maximum image width limit within export session
+$(MAX_HEIGHT)              maximum image height limit within export session
 $(YEAR)                    year at date of export
 $(MONTH)                   month at date of export
 $(DAY)                     day at date of export
@@ -50,7 +50,7 @@ $(EXIF_FOCUS_DISTANCE)     Exif focus distance
 $(LONGITUDE)               longitude
 $(LATITUDE)                latitude
 $(ELEVATION)               elevation
-$(STARS)                   star rating
+$(STARS)                   star rating (text only)
 $(RATING_ICONS)            star rating (using star characters)
 $(LABELS)                  colorlabels (text only)
 $(LABELS_ICONS)            colorlabels (using colored bullet characters)
@@ -85,23 +85,36 @@ The following string replacement functions are provided, where `var` is one of t
 
 ```
 $(var-default)                   If var is empty, return "default"
+
 $(var+alt_value)                 If var is set, return "alt_value" else return empty string
+
 $(var:offset)                    Return var starting from offset 
                                  If offset is negative count from the end of the string
+
 $(var:offset:length)             Starting from offset, return at most length characters of var
                                  If offset is negative the length is counted from the end of var
                                  If length is negative this indicates the end of the result, 
                                   counted from the end of var, and not an actual length
+
 $(var#pattern)                   Remove "pattern" from the start of var 
+
 $(var%pattern)                   Remove "pattern" from the end of var 
+
 $(var/pattern/replacement)       Replace the first occurrence of "pattern" in var with "replacement"
                                  If "replacement" is empty then "pattern" will be removed
+
 $(var//pattern/replacement)      Replace all occurrences of "pattern" in var with "replacement"
                                  If "replacement" is empty then "pattern" will be removed
+
 $(var/#pattern/replacement)      If var starts with "pattern then "pattern" is replaced with "replacement" 
+
 $(var/%pattern/replacement)      If var ends with "pattern" then "pattern" is replaced with "replacement" 
+
 $(var^)                          Make the first character of var uppercase
+
 $(var^^)                         Make all characters of var uppercase
+
 $(var,)                          Make the first character of var lowercase
+
 $(var,,)                         Make all characters of var lowercase
 ```
