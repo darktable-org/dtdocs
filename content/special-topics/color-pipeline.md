@@ -6,13 +6,13 @@ draft: false
 author: "people"
 ---
 
-Most image processing applications come from the 1990s and/or inherit a 1990s workflow. These applications processed images encoded with 8 bit unsigned integers because it was more memory and computationally efficient. However, due to the use of an integer format (which implies rounding errors) they had to apply a "gamma" (essentially a transfer function applying a power 1/2.2 or 1/2.4 to encode the RGB values) and increase the bit-depth in the low-lights in order to reduce rounding errors there (humans are very sensitive to low-light details). The 8 bit integer formats are also technically limited to the 0-255 range. Anything outside of this range overflows and is clipped to the nearest bound.
+Most image processing applications come from the 1990s and/or inherit a 1990s workflow. These applications processed images encoded with 8 bit unsigned integers because it was more memory- and computationally-efficient. However, due to the use of an integer format (which implies rounding errors) they had to apply a "gamma" (essentially a transfer function applying a power 1/2.2 or 1/2.4 to encode the RGB values) and increase the bit-depth in the low-lights in order to reduce rounding errors there (humans are very sensitive to low-light details). The 8 bit integer formats are also technically limited to the 0-255 range. Anything outside of this range overflows and is clipped to the nearest bound.
 
 These workflows, using bounded RGB representations and possibly non-linear transforms to encode RGB signals, are called "display-referred". They rely on the assumption that the image has been prepared for display at an early stage in the processing pipeline, and embed hard-coded assumptions about the RGB values of black, middle-gray and white. Most of the image-processing algorithms used in these workflows have been tuned around these assumptions. For example, the darken and lighten blending modes expect a middle-gray encoded at 50% (or 128 in integer encoding).
 
 Unfortunately the non-linear scaling, which is mandatory to make the integer encoding work, breaks the natural relationships between pixel values. Hue and saturation change in unpredictable ways, and value relationships between neighbouring pixels are dilated or compressed such that gradients are also altered unpredictably.
 
-Display-referred pipelines therefore break optical filters (lens blurring or deblurring), alpha compositing (which rely on optical and geometrical definitions of occlusion), colors and gradients (local relationships between chrominance and luminance of pixels). They also don't scale well to HDR images, which led to the development of many questionable local and global tonemapping methods and the infamous 2010s "HDR look".
+Display-referred pipelines therefore break optical filters (lens blurring or deblurring), alpha compositing (which relies on optical and geometrical definitions of occlusion), colors and gradients (local relationships between chrominance and luminance of pixels). They also don't scale well to HDR images, which led to the development of many questionable local and global tonemapping methods and the infamous 2010s "HDR look".
 
 Modern computers are not tied to the same computational limitations as those from the 1990s, and can work on pixels whose values are completely unbounded (from 0 up to +infinity) and encoded as real numbers (using floating point formats). These possibilities enable what we call a "scene-referred" workflow, in which pixels can retain their original radiometric relationships along almost the entire processing pipe. In scene-referred workflow, pixels are prepared for display only at the last stage of the pipeline, in the display transform. This means that the RGB values of the pixels are kept proportional to the intensity of the light emission recorded by the camera on the scene, enabling accurate alpha compositing and optical filter emulations, while also scaling to any dynamic range through the same algorithm (SDR as well as HDR).
 
@@ -26,7 +26,7 @@ The _filmic_ module's view transform, introduced in darktable 2.6, was the first
 
 Starting in darktable 3.2, users could choose between two workflows that defined consistent default settings, modules and pipeline order for both _display-referred_ and _scene-referred_ processing.
 
-In darktable 3.4, a full scene-referred masking and blending option has been introduced, allowing masks to be defined for pixel values above 100% and using only unbounded blending operators.
+In darktable 3.4, a full scene-referred masking and blending option was introduced, allowing masks to be defined for pixel values above 100% and using only unbounded blending operators.
 
 Switching to _scene-referred_ is a cognitive leap for most experienced users, who are used thinking in display-referred ways. In a display-referred workflow, it is customary to anchor the white value and let tone adjustments revolve around that point, trying to maximize brightness while avoiding clipping. In a scene-referred workflow, white and black values are fluid and adapted to the output medium. It is advised that users anchor middle-gray (which will be preserved as-is for any output medium) and let the view transform (_filmic_) dilate or contract the dynamic range around that point. Because 10 bit HDR white is 4 times as bright as 8 bit SDR white, any rigid definition of "white" becomes irrelevant. But anchoring for middle-gray is actually more convenient, since it keeps the average brightness of the picture unchanged through the view transform.
 
@@ -34,7 +34,7 @@ Some modules (_levels_, _rgb levels_, _tone curve_, _rgb curve_) are inherently 
 
 Similarly, blending modes such as overlay, linear light, soft light, hard light, darken, brighten, etc. all have hard-coded thresholds that internally expect display-referred non-linear encoding.
 
-In darktable 3.4, hovering the cursor over a module header shows a tooltip detailing the color spaces, ranges and encodings that the module expects, uses and produces. Here are the definitions of the terms used:
+In darktable 3.4 and above, hovering the cursor over a module header shows a tooltip detailing the color spaces, ranges and encodings that the module expects, uses and produces. Here are the definitions of the terms used:
 
 linear
 : Pixel values are proportional to the scene radiometric emission, in a way that enables accurate emulation of physical filters.
