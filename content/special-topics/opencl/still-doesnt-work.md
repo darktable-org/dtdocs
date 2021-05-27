@@ -14,4 +14,4 @@ If nothing else helps, the best option is probably to start darktable with
 
 `darktable --disable-opencl`
 
-In the end there is nothing in darktable which only runs on GPU. Don't let the lack of OpenCL discourage you -- darktable's CPU code is also highly optimized for performance!
+In the end there is nothing in darktable that only runs on GPU. Don't let the lack of OpenCL discourage you -- darktable's CPU code is also highly optimized for performance!
