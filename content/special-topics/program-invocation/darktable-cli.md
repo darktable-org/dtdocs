@@ -43,7 +43,7 @@ The user must supply an input filename and an output filename. All other paramet
 : The optional name of an XMP sidecar file containing the history stack data to be applied during export. If this option is not provided darktable will search for an XMP file that belongs to the given input file(s).
 
 `<output file or folder>`
-: The name of the output file or destination folder. The export file format is derived from the file extension or from `--out-ext` option. You can also use a number of [variables](../variables.md) in the output filename. For obvious reasons this parameter is mandatory if you use the program on an image folder containing multiple images. If you specify output folder it is recommended that you also specify the file format with `--out-ext`.
+: The name of the output file or destination folder. The export file format is derived from the file extension or from the `--out-ext` option. You can also use a number of [variables](../variables.md) in the output filename. For obvious reasons this parameter is mandatory if you use the program on an image folder containing multiple images. If you specify output folder it is recommended that you also specify the file format with `--out-ext`.
 
 `--width <max width>`
 : Limit the width of the exported image to the given number of pixels.
@@ -67,7 +67,7 @@ where `<FORMAT>` is the name of the selected output format.
 ---
 
 `--hq <0|1|true|false>`
-: Define whether to use high quality resampling during export (see the [export](../../module-reference/utility-modules/shared/export.md) module for more details). Defaults to true.
+: Define whether to use high quality resampling during export (see the [export](../../module-reference/utility-modules/shared/export.md) module reference for more details). Defaults to true.
 
 `--upscale <0|1|true|false>`
 : Define whether allow upscaling during export. Defaults to false.
@@ -88,13 +88,13 @@ where `<FORMAT>` is the name of the selected output format.
 : Specify input file or folder, can be used multiple times. This option cannot be combined with `<input file or folder>`.
 
 `--icc-type <type>`
-: Specify the ICC profile type, which is the same as specifying `output profile` in `output color profile` module. Defaults to "image specified". Use `--help icc-type` to obtain a list of the supported types. See [output color profile](../../module-reference/processing-modules/output-color-profile) for a more detailed description of the available options.
+: Specify the ICC profile type, which is the same as specifying the "output profile" in the [_output color profile_](../../module-reference/processing-modules/output-color-profile.md) module. Defaults to "image specified". Use `--help icc-type` to obtain a list of the supported types. See the _output color profile_ module reference for a more detailed description of the available options.
 
 `--icc-file <file>` 
-: Specify ICC profile filename. Defaults to an empty filename.
+: Specify the ICC profile filename. Defaults to an empty filename.
 
 `--icc-intent <intent>` 
-: Specify rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
+: Specify the rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
 
 `--verbose`
 : Enables verbose output.
@@ -103,7 +103,7 @@ where `<FORMAT>` is the name of the selected output format.
 : Prints usage and exits. If `option` is specified, additionally prints usage for the given option.
 
 `--core <darktable options>`
-: All command line parameters following `--core` are passed to the darktable core and handled as standard parameters. See the [darktable binary](./darktable.md) section for a detailed description.
+: All command line parameters following `--core` are passed to the darktable core and handled as standard parameters. See the [`darktable binary`](./darktable.md) section for a detailed description.
 
 
 
