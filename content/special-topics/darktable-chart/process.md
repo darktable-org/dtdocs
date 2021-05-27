@@ -6,13 +6,13 @@ draft: false
 author: "people"
 ---
 
-If all of the required settings in the “source image” and “reference values” tabs are ready you can move on to the “process” tab.
+If all of the required settings in the "source image" and "reference values" tabs are ready you can move on to the “process” tab.
 
 ![process](./process/darktable-chart-process.png#w75)
 
-First, you need to tell `darktable-chart` which of the patches represents the gray ramp. In the screenshot displayed above, the gray ramp is positioned in the lower part of the color reference chart, denoted as “GS00...GS23”.
+First, you need to tell `darktable-chart` which of the patches represents the gray ramp. In the screenshot displayed above, the gray ramp is positioned in the lower part of the color reference chart, denoted as "GS00...GS23".
 
-The “number of final patches” input defines how many editable color patches the resulting style will use within the [_color look up table_](../../module-reference/processing-modules/color-look-up-table.md) module.
+The "number of final patches" input defines how many editable color patches the resulting style will use within the [_color look up table_](../../module-reference/processing-modules/color-look-up-table.md) module.
 
 Click the “process” button to start the calculation.
 
