@@ -32,7 +32,7 @@ If for some reason darktable is unable to generate a thumbnail, it displays an i
 	
 There are three main reasons that this could happen:
 
-- _Missing image file_: darktable remembers all images it has ever imported, as long as they have not been removed from your database. If darktable wants to create a thumbnail but is not able to open the input file, a skull is displayed instead. Users are advised to remove images from the database using the [selected images](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script `purge_non_existing_images.sh` from darktable's toolset to clean-up your database.
+- _Missing image file_: darktable remembers all images it has ever imported, as long as they have not been removed from your database. If darktable wants to create a thumbnail but is not able to open the input file, a skull is displayed instead. Users are advised to remove images from the database using the [selected images](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script [`purge_non_existing_images.sh`](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) from darktable's toolset to clean-up your database.
 
 - _Invalid image format_: While the extension of an image may seem to be supported by darktable, its contents could be either an unsupported image format or a corrupt file. 
 
