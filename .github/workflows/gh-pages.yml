@@ -21,20 +21,20 @@ jobs:
       - name: Install assets
         run: nix-shell --run 'cd themes/hugo-darktable-docs-theme/assets/ && yarn install'
 
-      - name: Generate translated files
-        run: nix-shell --run 'cd tools && bash generate-translations.sh --no-update'
-
       - name: Build epub
         run: nix-shell --run './tools/build-epub.sh'
 
       - name: Clear
         run: nix-shell --run 'rm -rf public'
 
-      - name: Build
-        run: nix-shell --run 'hugo'
-
       - name: Build PDF
         run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo'
+
+      - name: Generate translated files
+        run: nix-shell --run 'cd tools && bash generate-translations.sh --no-update'
+
+      - name: Build
+        run: nix-shell --run 'hugo'
 
       - name: Run linkchecker
         run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && linkchecker --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
