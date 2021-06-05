@@ -28,7 +28,7 @@ jobs:
         run: nix-shell --run 'rm -rf public'
 
       - name: Build PDF
-        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo'
+        run: nix-shell --run 'mkdir public && hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 5 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo'
 
       - name: Generate translated files
         run: nix-shell --run 'cd tools && bash generate-translations.sh --no-update'
