@@ -277,7 +277,7 @@ In order to use this feature you will need to take a test shot of a supported co
 * frame the chart in the center 50% of the camera's field, to ensure that the image is free of vignetting,
 * ensure that the main light source is far enough from the chart to give an even lighting field over the surface of the chart,
 * adjust the angle between the light, chart and lens to prevent reflections and gloss on the color patches,
-* adjust the camera exposure such that the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space. To be safe, you are advised to bracket your exposure between -1 and +1 EV in matrix metering mode, and pick the closest exposed picture during post-production.
+* for the best quality profile you should capture an image with the appropriate brightness. To achieve this, take a few bracketed images (between -1 and +1 EV) of your color checker and load them into darktable, ensuring that all modules between _color calibration_ and _output color profile_ are disabled. Choose the image where the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space (use the global color picker). This step is not strictly necessary -- alternatively you can take a single image and apply the exposure compensation as recommended in the profile report.
 
 If the lighting conditions are close to a standard D50 to D65 illuminant (direct natural light, no colored bounced light), the color checker shot can be used to produce a generic profile that will be suitable for any daylight illuminant with only a slight adjustment of the white balance.
 
