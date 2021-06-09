@@ -58,7 +58,7 @@ This mapping is defined in three steps, each handled in a separate tab in the in
 
  - The [_options_](#options) tab includes some optional advanced settings and parameters.
 
-_filmic rgb_ tends tends to compress local contrast, so after you have finished adjusting settings here, you may wish to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance_](color-balance.md) module, and perhaps to further adjust the tones using the [_tone equalizer_](tone-equalizer.md).
+_filmic rgb_ tends tends to compress local contrast, so after you have finished adjusting settings here, you may wish to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance rgb_](color-balance-rgb.md) module, and perhaps to further adjust the tones using the [_tone equalizer_](tone-equalizer.md).
 
 The ranges of _filmic rgb_'s sliders are limited to typical and safe values, but you can enter values outside of these limits by right-clicking and entering values with the keyboard.
 
@@ -214,6 +214,8 @@ middle tones saturation (previously _extreme luminance saturation_)
 
 : Please note that this desaturation strategy has changed compared to previous versions of _filmic rgb_ (which provided a different slider control labelled _extreme luminance saturation_). You can revert to the previous desaturation behaviour by selecting "v3 (2019)" in the _color science_ setting on the [_options_](#options) tab.
 
+: This control is set to 0 by default and it is now recommended that saturation is handled earlier in the pipeline. A preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
+
 ## display
 
 The parameters in this tab should rarely require adjustment.
@@ -235,6 +237,7 @@ target white luminance
 
 color science
 : This setting defaults to _v5 (2021)_ for new images, and defines the algorithms used by the _filmic rgb_ module (such as the extreme luminance desaturation strategy). To revert to the behaviour of previous versions of _filmic rgb_, set this parmaeter to _v3 (2019)_ or _v4 (2020)_. If you have previously made edits to an image using older versions of _filmic rgb_, this will already be set to one of these versions in order to provide backward compatibility for those edits.
+w
 
 preserve chrominance
 : Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
