@@ -237,7 +237,6 @@ target white luminance
 
 color science
 : This setting defaults to _v5 (2021)_ for new images, and defines the algorithms used by the _filmic rgb_ module (such as the extreme luminance desaturation strategy). To revert to the behaviour of previous versions of _filmic rgb_, set this parmaeter to _v3 (2019)_ or _v4 (2020)_. If you have previously made edits to an image using older versions of _filmic rgb_, this will already be set to one of these versions in order to provide backward compatibility for those edits.
-w
 
 preserve chrominance
 : Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
