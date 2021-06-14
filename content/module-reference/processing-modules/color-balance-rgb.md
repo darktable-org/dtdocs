@@ -37,7 +37,7 @@ This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_
 
 The _color balance RGB_ module expects a scene-referred linear input and produces a scene-referred RGB output, which may or may not be linear, depending on the module settings (_contrast_ and _power_ will delinearize the output).
 
-At its output, _color balance RGB_ checks that the graded colors fit inside the pipeline RGB color space (Rec 2020 by default) and applies a soft chroma clipping at constant luminance and hue. This prevents the out-of-gamut colors that can quickly be produced when increasing chroma and saturation.
+At its output, _color balance RGB_ checks that the graded colors fit inside the pipeline RGB color space (Rec 2020 by default) and applies a soft saturation clipping at constant hue, aiming at retargeting out-of-gamut color to the nearest in-gamut color by scaling both chroma and lightness. This prevents the chroma and saturation settings from pushing colors outside of the valid range and allows to safely use more drastic adjustements.
 
 _Note that this module abides by the CIE definitions of chroma and saturation, as explained in the [dimensions of color](../../special-topics/color-management/color-dimensions.md) section._
 
@@ -201,3 +201,7 @@ The following is the internal order of operations within the module:
 Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while darktable uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between these spaces. The result will therefore be a slighly tinted black & white image. If your intent is to get a real black & white image using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
 
 This module has its gamut-mapping (against pipeline RGB) permanently enabled. This means that if your original image contains some largely out-of-gamut colors to start with, simply enabling _color balance RGB_ with no particular setting will slightly alter its colors. This is probably for the best.
+
+The maximum saturation allowed in the pipeline working RGB space is recorded for each hue when initializing the module, and is later cached in a LUT (look-up table) to save performance. If the working profile is later changed, it does not notify the _color balance RGB_ which will not update its hue/saturation LUT. To force a LUT update, you can simply change a setting of the _color balance RGB_, then change it back. It is not recommended to change the working RGB space half-way in an editing, as it could result is unexpected chroma and hue changes.
+
+For performance, the non-linear conversions from and to the working RGB space are bypassed, which means the internal colorimetry will be wrong if using non-linear color spaces. Notice there is no reason to use non-linear spaces as working RGB since they make alpha blending more challenging for no benefit.
