@@ -8,7 +8,7 @@ view: lighttable, tethering, map
 
 Filter the images shown in the lighttable view and filmstrip panel using image attributes. This set of filtered images is known as a _collection_.
 
-All images imported into darktable are stored in darktable's library database, along with attributes describing each image. A collection may be  defined by applying filtering rules to these attributes, thus creating a subset of images to display in the lighttable view and the filmstrip module.
+Importing images into darktable stores information about them (filename, path, Exif data, data from XMP sidecar files etc.) in darktable's library database. A collection may be  defined by applying filtering rules to these attributes, thus creating a subset of images to display in the lighttable view and the filmstrip module.
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
 
