@@ -270,7 +270,7 @@ IT7 and IT8 charts are not supported since they are hardly portable and not prac
 
 ---
 
-## prequisites
+## prerequisites
 
 In order to use this feature you will need to take a test shot of a supported color checker chart, on-location, under appropriate lighting conditions:
 
