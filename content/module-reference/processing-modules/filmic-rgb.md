@@ -141,7 +141,7 @@ The _scene-referred_ workflow forces a black level correction of --0.0002, in th
 
 ## reconstruct
 
-This tab provides controls that blend transisitons between unclipped and clipped areas within an image and can also help to reconstruct colors from adjacent pixels. It is designed to handle spotlights that could not possibly be unclipped when taking the shot (such as naked light bulbs or the sun disc in the frame) and aims at diffusing their edges as film would do. It is not designed to recover large areas of clipped pixels or in-paint missing parts of the image.
+This tab provides controls that blend transitions between unclipped and clipped areas within an image and can also help to reconstruct colors from adjacent pixels. It is designed to handle spotlights that could not possibly be unclipped when taking the shot (such as naked light bulbs or the sun disc in the frame) and aims at diffusing their edges as film would do. It is not designed to recover large areas of clipped pixels or in-paint missing parts of the image.
 
 It can sometimes be useful to disable the [_highlight reconstruction_](./highlight-reconstruction.md) module in order to provide additional data to the reconstruction algorithm (_highlight reconstruction_ clips highlight data by default). You should note that this can lead to magenta highlights, which will need to be handled with the _gray/colorful details_ slider.
 
