@@ -22,4 +22,4 @@ darktable --conf allow_lab_output=true
 
 Then select “PFM (float)” as the output format and press “export” to generate the source image file.
 
-You can prodce the corresponding reference (target) image from the JPEG in a similar way. This time you will need to disable all modules and export with the “Lab” output color profile in “PFM (float)” format.
+You can produce the corresponding reference (target) image from the JPEG in a similar way. This time you will need to disable all modules and export with the “Lab” output color profile in “PFM (float)” format.
