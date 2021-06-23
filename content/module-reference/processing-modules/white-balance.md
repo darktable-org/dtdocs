@@ -24,7 +24,7 @@ White balance is not intended as a "creative" module -- its primary goal is is t
 
 ## scene illuminant temp
 
-This section provides scene-illuminanant _temperature_ and _tint_ controls to adjust the white balace of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders. 
+This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balace of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders. 
 
 temperature
 : Set the color temperature in kelvin.
