@@ -112,10 +112,22 @@ chroma
 
 gamut compression
 :  Most camera sensors are slightly sensitive to invisible UV wavelengths, which are recorded on the blue channel and produce "imaginary" colors. Once corrected by the input color profile, these colors will end up out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet with positive values in the working color space) and produce visual artifacts in gradients. The chromatic adaptation may also push other valid colors out of gamut, at the same time pushing any already out-of-gamut colors even further out of gamut. 
-: _Gamut compression_ uses a perceptual, non-destructive, method to attempt to compress the saturation while preserving the luminance as-is and the hue as close as possible, in order to fit the whole image into the gamut of the pipeline working color space. One example where this feature is very useful is for scenes containing blue LED lights, which are often quite problematic and can result in ugly gamut clipping in the final image.
+: _Gamut compression_ uses a perceptual, non-destructive, method to attempt to compress the chroma while preserving the luminance as-is and the hue as close as possible, in order to fit the whole image into the gamut of the pipeline working color space. One example where this feature is very useful is for scenes containing blue LED lights, which are often quite problematic and can result in ugly gamut clipping in the final image.
 
 clip negative RGB from gamut
-: Remove any negative RGB values (set them to zero). This helps to deal with bad black level as well as the blue channel clipping issues that may occur with blue LED lights.
+: Remove any negative RGB values (set them to zero). This helps to deal with bad black level as well as the blue channel clipping issues that may occur with blue LED lights. This option is destructive for color (it may change the hue) but ensures a valid RGB output no matter what. It should never be disabled unless you want to take care of the gamut mapping manually and understand what you are doing. In that case, in _exposure_ module, use the _black level correction_ to get rid of any negative RGB (RGB means light, which is energy, which should always be a positive quantity), then increase the _gamut compression_ until no solid black patches remain in the image. Proper denoising may help getting rid of noticeably odd RGB values too. Notice this approach may still be insufficient to recover some deep and luminous blue shades. 
+
+---
+
+**Note 1**: It has been reported that some OpenCL drivers don't play well when negative RGB are present in the pixel pipeline, because many pixel operators use logarithms and power functions (_filmic_, _color balance_, all the CIE Lab <-> CIE XYZ color space conversions), which are not defined for negative numbers. Although the inputs are sanitized before sensitive operations, it is not enough for some OpenCL drivers, which will output isolated `NaN`. These `NaN` will be spread later by local filters (blurring and sharpening operations, like _sharpness_, _local contrast_, _contrast equalizer_, _low pass_, _high pass_, _surface blur_, and _filmic_ highlights reconstruction), resulting in large black, grey or white squares.
+
+In all these cases, you **must** enable the clipping of negative RGB values in the _color calibration_ module.
+
+**Note 2**: A common case for failure of the color algorithms in _color calibration_ (especially the gamut compression) is pixels that have a luminance value of 0 (Y channel of the CIE 1931 XYZ space), but non-zero chromaticity values (X and Z channels of the CIE 1931 XYZ space). This case is a numerical oddity that matches no physical reality (a pixel with no luminance should have no chromaticity too), will produce a division by zero in xyY and Yuv color spaces, and will create `NaN` RGB values as a result. This issue is **not** corrected inside _color calibration_ because it is a symptom of a bad input profiling and/or a bad black point level, and needs to be addressed manually either by adjusting the input color profile with the channel mixer or in the _exposure_ module _black level correction_.
+
+---
+
+
 
 ## CAT warnings
 
