@@ -11,7 +11,7 @@ A module's output data can optionally be reprocessed (combined) with its input d
 
 Each blend mode is further controlled by the _opacity_ parameter (having a value between 0% and 100%) which defines how much the input and output images contribute to the final result. Typically an opacity of 0% outputs an image which is identical to the input image (the module has no effect) whereas an opacity of 100% delivers the maximum effect of the module.
 
-This opacity can be the same for every pixel (using the global opacity slider), in which case blending acts uniformily over the entire image. Alternatively the opacity values can vary depending on the properties or location of each pixel. This local modification of opacity is called a _mask_. Masks provide the user with fine control over which parts of an image are affected by a module and to what extent. The user may choose to activate a [drawn mask](./masks/drawn.md), a [parametric mask](./masks/parametric.md) or a [combination](./masks/drawn-and-parametric.md). 
+This opacity can be the same for every pixel (using the global opacity slider), in which case blending acts uniformly over the entire image. Alternatively the opacity values can vary depending on the properties or location of each pixel. This local modification of opacity is called a _mask_. Masks provide the user with fine control over which parts of an image are affected by a module and to what extent. The user may choose to activate a [drawn mask](./masks/drawn.md), a [parametric mask](./masks/parametric.md) or a [combination](./masks/drawn-and-parametric.md). 
 
 Blending and masking functionality is controlled via a group of icons located at the bottom of each applicable module. 
 

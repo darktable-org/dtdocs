@@ -79,7 +79,7 @@ The "regular" and waveform-style histograms can be used to directly alter the _e
 
 For the regular histogram, click towards the right-hand side of the histogram and then drag right to increase or drag left to decrease the exposure. In a similar manner you can control the black level by clicking and dragging in the left-hand side.
 
-For waveform-style scopes, dragg the upper portion of the histogram up/down to increase/decrease exposure. Dragg the lower portion up/down to increase/decrease the black level.  
+For waveform-style scopes, drag the upper portion of the histogram up/down to increase/decrease exposure. Drag the lower portion up/down to increase/decrease the black level.  
 
 You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point. Double-click in the histogram to reset the exposure module's parameters to their defaults.
 
