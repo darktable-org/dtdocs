@@ -27,7 +27,7 @@ _See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details abo
 
 Two sliders can be shown for each associated data channel: one that works on the _input data_ that the module receives and one that works on the _output data_ that the module produces prior to blending. The sliders for the output data channels are hidden by default and can be shown using the _show output channels_ option in the blending menu.
 
-The _boost factor_ slider allows the range of values targetted by the parametric mask sliders to be extended. It may be used in scene referred editing, where luminance values may extend beyond 100%, to target highlights. This slider is only available for channels where it is meaningful.
+The _boost factor_ slider allows the range of values targeted by the parametric mask sliders to be extended. It may be used in scene referred editing, where luminance values may extend beyond 100%, to target highlights. This slider is only available for channels where it is meaningful.
 
 ![input and output sliders](./parametric/input-output-sliders.png#w33)
 
