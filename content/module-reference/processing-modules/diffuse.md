@@ -98,16 +98,16 @@ radius
 ## diffusion directionnality
 
 1st order anisotropy
-: the direction of diffusion of the low-frequency wavelets layers relatively to the orientation of the gradient. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: the direction of diffusion of the low-frequency wavelets layers relatively to the orientation of the gradient of the low-frequency. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
 
 2nd order anisotropy
-: the direction of diffusion of the low-frequency wavelets layers relatively to the orientation of the gradient of gradient. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: the direction of diffusion of the low-frequency wavelets layers relatively to the orientation of the gradient of the high-frequency. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
 
 3rd order anisotropy
-: the direction of diffusion of the high-frequency wavelets layers relatively to the orientation of the gradient. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: the direction of diffusion of the high-frequency wavelets layers relatively to the orientation of the gradient of the low-frequency. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
 
 4rd order anisotropy
-: the direction of diffusion of the high-frequency wavelets layers relatively to the orientation of the gradient of gradient. Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: the direction of diffusion of the high-frequency wavelets layers relatively to the orientation of the gradient of the high-frequency Zero is isotrope, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
 
 ## edges management
 
@@ -124,3 +124,36 @@ edge threshold
 
 luminance masking threshold
 : useful if you want to inpaint highlights. For values greater than 0%, the diffusion will only happen in regions which luminance is greater than this setting.
+
+# workflow
+
+The difficulty of this module is that its results can be entirely different depending on the values set as parameters, but these have no intuitive link to everyday's life. Users are expected to be overwhelmed, unless they are already familiar with Fourier partial derivative equations. We propose here a method to get into the using without the burden of having to understand the theory.
+
+## starting from presets
+
+The provided presets have been tuned by the developer and tested on a range of pictures for typical purposes. The easiest way is simply to use them, and slightly tweak them:
+
+* when the preset effect seems too strong, decrease the number of iterations,
+* if edge artifacts appear, increase the edge sensitivity to protect edges better,
+* if debluring start catching valid blurry parts (bokeh), reduce the radius,
+* fine-tune the _sharpness_ the way you like it.
+
+## starting from scratch
+
+The default settings are entirely neutral and will do nothing to your image. The spirit of the module is that each order will affect the texture of the image in a particular way.
+
+Start tuning the first order parameters (speed and anisotropy) to get a first base. Then, adjust the radius. This will affect coarser textures (either blur or sharpen them). Remember the first order acts on the low-frequency of the wavelets scales and follows the direction parallel or perpendicular to the gradient of the low-frequencies.
+
+Then start tuning the second order parameters (speed and anisotropy). The second order also acts on the low-frequency of the wavelet scales but follows the direction parrallel or perpendicular to the gradient of the high-frequencies, which can either be the direction of maximal sharpness or of noise. This can be used to reduce noise (using the second order in diffusion mode, with positive values) when you used the first order in sharpening mode (with negative values).
+
+These two steps can be done zoomed-out. Remember that, while great care has been given to make the algorithm visual result fairly scale-invariant, the preview will be exact only when zoomed 1:1. In any case, anything happening at pixel level (radius < 2px) will not be visible for zoom levels lower than 50%.
+
+At this point, you may want to tweak the edge sensitivity to take care of edge artifacts that may happen. In theory, diffusing in the isophote direction ensures diffusion is contained inside edges, but this is not enough when corners and sharp convex shapes are present in the image.
+
+When the edge sensitivity is satisfying, usually the result is a lot softened. In most cases, it will be necessary, at this point, to increase the number of iterations to compensate. This will come at a performance cost so tread carefully with the performance/quality trade-off depending on your hardware. If you can't increase the number of iterations, you will have to increase the diffusing speed.
+
+The last remaining step is to fine-tune the third and fourth order, which take care of the high-frequencies of each wavelet scale. The settings there will need to be a lot more gentle than for the first and second orders, as noise can blow-up really fast.
+
+The third order follows the gradient or isophote direction of the low-frequency layer, so this can be used to guide the high-frequency diffusion in a direction that is more likely to be legitimate regarding real edges (and less prone to catch noise).
+
+The fourth order follows the gradient or isophote direction of the high-frequency layer and is more likely to catch noise. Diffusing on the fourth order is the best way to reduce noise without affecting sharpness too much, either as a stand-alone denoiser, or as a regularization step in a deblurring process.
