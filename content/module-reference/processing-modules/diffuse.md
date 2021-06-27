@@ -159,4 +159,3 @@ The last remaining step is to fine-tune the third and fourth order, which take c
 The third order follows the gradient or isophote direction of the low-frequency layer, so this can be used to guide the high-frequency diffusion in a direction that is more likely to be legitimate regarding real edges (and less prone to catch noise).
 
 The fourth order follows the gradient or isophote direction of the high-frequency layer and is more likely to catch noise. Diffusing on the fourth order is the best way to reduce noise without affecting sharpness too much, either as a stand-alone denoiser, or as a regularization step in a deblurring process.
-: This control is useful if you want to inpaint highlights. For values greater than 0%, the diffusion will only happen in regions with a luminance greater than this setting.
