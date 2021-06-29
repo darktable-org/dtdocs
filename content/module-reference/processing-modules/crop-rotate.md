@@ -83,14 +83,14 @@ guides flip
 These sliders allow you to directly set how much of the image to crop from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.
 
 left
-: The percentance of the image that should be cropped from the left side.
+: The percentage of the image that should be cropped from the left side.
 
 right
-: The percentance of the image that should be cropped from the right side.
+: The percentage of the image that should be cropped from the right side.
 
 top
-: The percentance of the image that should be cropped from the the top.
+: The percentage of the image that should be cropped from the the top.
 
 bottom
-: The percentance of the image that should be cropped from the bottom.
+: The percentage of the image that should be cropped from the bottom.
 
