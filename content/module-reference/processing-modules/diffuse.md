@@ -129,43 +129,43 @@ luminance masking threshold
 
 # workflow
 
-The difficulty of this module is that its results can be entirely different depending on the values set as parameters, but these have no intuitive link to everyday's life. Users are expected to be overwhelmed, unless they are already familiar with Fourier partial derivative equations. We propose here a method to get into the using without the burden of having to understand the theory.
+The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial derivative equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
 
 ## starting from presets
 
-The provided presets have been tuned by the developer and tested on a range of pictures for typical purposes. The easiest way is simply to use them, and slightly tweak them:
+The provided presets have been tuned by the developer and tested on a range of pictures for typical purposes. The easiest way is simply to start from the presets, and then tweak them as needed:
 
-* when the preset effect seems too strong, decrease the number of iterations,
-* if edge artifacts appear, increase the edge sensitivity to protect edges better,
-* if debluring start catching valid blurry parts (bokeh), reduce the radius,
-* fine-tune the _sharpness_ the way you like it.
+- if the effect seems too strong, decrease the number of iterations,
+- if edge artifacts appear, increase the edge sensitivity,
+- if debluring starts to affect valid blurry parts (bokeh), reduce the radius,
+- fine-tune the _sharpness_ to your taste.
 
 ## starting from scratch
 
 The default settings are entirely neutral and will do nothing to your image. The spirit of the module is that each order will affect the texture of the image in a particular way.
 
-Start tuning the first order parameters (speed and anisotropy) to get a first base. Then, adjust the radius. This will affect coarser textures (either blur or sharpen them). Remember the first order acts on the low-frequency of the wavelets scales and follows the direction parallel or perpendicular to the gradient of the low-frequencies.
+Start by tuning the first order parameters (speed and anisotropy) to get an initial base. Then adjust the radius. This will affect coarser textures (either blur or sharpen them). Remember that the first order acts on the low frequencies of the wavelet scale and follows a direction parallel or perpendicular to the gradient of the low frequencies.
 
-Then start tuning the second order parameters (speed and anisotropy). The second order also acts on the low-frequency of the wavelet scales but follows the direction parrallel or perpendicular to the gradient of the high-frequencies, which can either be the direction of maximal sharpness or of noise. This can be used to reduce noise (using the second order in diffusion mode, with positive values) when you used the first order in sharpening mode (with negative values).
+Next, start to tune the second order parameters (speed and anisotropy). The second order also acts on the low frequencies of the wavelet scale but this time follows a direction parallel or perpendicular to the gradient of the _high_ frequencies, which can either be the direction of maximal sharpness or of noise. This can be used to reduce noise (using the second order in diffusion mode, with positive values) when you used the first order in sharpening mode (with negative values).
 
-These two steps can be done zoomed-out. Remember that, while great care has been given to make the algorithm visual result fairly scale-invariant, the preview will be exact only when zoomed 1:1. In any case, anything happening at pixel level (radius < 2px) will not be visible for zoom levels lower than 50%.
+These two steps can be performed on the zoomed-out image. Remember that, while great care has been taken to make the algorithm's visual result fairly scale-invariant, the preview will be exact only when zoomed 1:1. In any case, anything happening at pixel level (radius < 2px) will not be visible for zoom levels lower than 50%.
 
-At this point, you may want to tweak the edge sensitivity to take care of edge artifacts that may happen. In theory, diffusing in the isophote direction ensures diffusion is contained inside edges, but this is not enough when corners and sharp convex shapes are present in the image.
+At this point, you may want to tweak the edge sensitivity to take care of any edge artifacts. In theory, diffusing in the isophote direction ensures that diffusion is contained inside edges, but this is not sufficient when corners and sharp convex shapes are present in the image.
 
-When the edge sensitivity is satisfying, usually the result is a lot softened. In most cases, it will be necessary, at this point, to increase the number of iterations to compensate. This will come at a performance cost so tread carefully with the performance/quality trade-off depending on your hardware. If you can't increase the number of iterations, you will have to increase the diffusing speed.
+When the the edge sensitivity control has been adjusted to produce satisfying results, the image usually becomes quite soft. In most cases it will be necessary, at this point, to increase the number of iterations in order to compensate. This will come with a performance penalty so tread carefully with the performance/quality trade-off depending on your hardware. If you can't increase the number of iterations, you will have to increase the diffusing speed.
 
-The last remaining step is to fine-tune the third and fourth order, which take care of the high-frequencies of each wavelet scale. The settings there will need to be a lot more gentle than for the first and second orders, as noise can blow-up really fast.
+The final step is to fine-tune the third and fourth order, which take care of the high frequencies of each wavelet scale. You will need to be a lot more gentle with these settings than for the first and second orders, as they can cause noise to blow-up really fast.
 
-The third order follows the gradient or isophote direction of the low-frequency layer, so this can be used to guide the high-frequency diffusion in a direction that is more likely to be legitimate regarding real edges (and less prone to catch noise).
+The third order follows the gradient or isophote direction of the low frequency layer, so can be used to guide the high frequency diffusion in a direction that is more likely to be legitimate regarding real edges (and less prone to catch noise).
 
-The fourth order follows the gradient or isophote direction of the high-frequency layer and is more likely to catch noise. Diffusing on the fourth order is the best way to reduce noise without affecting sharpness too much, either as a stand-alone denoiser, or as a regularization step in a deblurring process.
+The fourth order follows the gradient or isophote direction of the high frequency layer and is more likely to catch noise. Diffusing on the fourth order is the best way to reduce noise without affecting sharpness too much, either as a stand-alone denoiser, or as a regularization step in a deblurring process.
 
-# notices and warnings
+# notes and warnings
 
-When setting a deblurring algorithm, always remember that the most glorious pages of the history of photography have been written by lenses that were not remotely as sharp as today's lenses. Although the current trend is to build and sell increasingly sharper lenses and have software apply insane amounts of sharpening on top, this fashion does not lead to better imagery and makes the retouching process more tedious. Soft focus and a bit of bluriness have some poetic merits too, which surgically aseptized HD pictures may fail to convey.
+When setting a deblurring algorithm, try to bear in mind that the most glorious pages in the history of photography have been written by lenses that were not remotely as sharp as those available today. Although the current trend is to build and sell increasingly sharper lenses and have software apply insane amounts of sharpening on top, this fashion does _not_ lead to better imagery and makes the retouching process more tedious. Soft focus and a bit of blurriness have some poetic merits too, which surgically sanitized HD pictures may fail to convey.
 
-It is to be noted that global contrast (using simple tone curves or black/white levels) also affect our perception of sharpness, which is quite different from optical sharpness (optical resolution). Actually, human eyes are only sensible to local contrast, that may come from optical sharpness (e.g absence of diffusion -- thin edges) as well as from amplified tonal transitions. If some global tone mapping is in place to increase the contrast, the image will look immediately sharper. If a tone mapping is used to decrease the contrast instead, the image will look blurier. In none of these cases the actual edges of objects are affected in any way, and the perceptual consequences are pure illusion.
+It should be noted that global contrast (using simple tone curves or black/white levels) also affects our perception of sharpness, which is quite different from optical sharpness (optical resolution). Human eyes are only sensitive to local contrast, which may come from optical sharpness (e.g absence of diffusion -- thin edges) as well as from amplified tonal transitions. If some global tone mapping is in place to increase the contrast, the image will look sharper. If a tone mapping is used to decrease the contrast, the image will look more blurry. In none of these cases are the actual edges of objects affected in any way, and the perceptual consequences are pure illusion.
 
-Part of the aging process is losing eyesight. The amount of sharpening that people over 50 may find pleasing will not be the same as people in their 20. It is worth considering sharpening to get a plausible result (that matches your everyday perception) rather than a pleasing result (that may look good only to people having the same eyesight as yours).
+Part of the aging process is a loss of eyesight. The amount of sharpening that people over 50 may find pleasing will not be the same as for people in their 20s. It is worth considering sharpening to obtain a _plausible_ result (matching your everyday perception) rather than a _pleasing_ result (that may look good only to people with the same eyesight as yours).
 
-Finally, assessing the sharpness of images zoomed at 1:1 (100%) or more is a foolish task. In museums, exhibitions and even on screen, general audience looks at pictures as a whole, not with a magnifying glass. Moreover, most practical uses of photographs rarely exceed a resolution of 3000×2000 pixels (roughly a 300 DPI print at A4/letter dimensions), which means, for 24 Mpx sensors, a downscaling by a factor of 4. When looking 1:1 at a 24 Mpx file, you actually look at an image that will never exist. Sharpening at pixel level, in this context, is a pure loss of time and CPU cycles.
+Finally, assessing the sharpness of images zoomed to 1:1 (100%) or more is a foolish task. In museums, exhibitions and even on screen, the general audience looks at pictures as a whole, not with a magnifying glass. Moreover, most practical uses of photographs rarely exceed a resolution of 3000×2000 pixels (roughly a 300 DPI print at A4/letter dimensions) which, for 24 Mpx sensors, means downscaling by a factor of 4. When examining a 24 Mpx file at 1:1, you are actually looking at an image that will never exist. Sharpening at pixel level, in this context, is a waste of time and CPU cycles.
