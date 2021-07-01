@@ -131,6 +131,10 @@ luminance masking threshold
 
 The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial derivative equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
 
+## general advice
+
+In case you intend on deblurring, always start by properly correctiong the chromatic aberrations and the noise in the image, since the deblurring may increase them. In that case, it is also important that you don't have clipped black pixels in your image, which can be corrected with the _black level correction_ of the _exposure_ module.
+
 ## starting from presets
 
 The provided presets have been tuned by the developer and tested on a range of pictures for typical purposes. The easiest way is simply to start from the presets, and then tweak them as needed:
@@ -138,6 +142,8 @@ The provided presets have been tuned by the developer and tested on a range of p
 - if the effect seems too strong, decrease the number of iterations,
 - if edge artifacts appear, increase the edge sensitivity,
 - if debluring starts to affect valid blurry parts (bokeh), reduce the radius,
+- if debluring seems correct in bright areas but excessive in dark areas, increase the edges _threshold_,
+- if debluring clips black pixels, lower the _black level correction_ in _exposure_ module,
 - fine-tune the _sharpness_ to your taste.
 
 ## starting from scratch
