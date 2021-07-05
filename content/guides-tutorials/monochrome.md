@@ -28,7 +28,7 @@ When importing an image, there are a number of properties that can be used to in
 
 - When processing a raw file, one of the first steps is to [_demosaic_](../module-reference/processing-modules/demosaic.md) the image. If you set the _demosaicing method_ to "passthrough (monochrome)", this discards color information during the demosaicing process, and darktable will flag the image as monochrome. 
 
-  **Note:** You should only use this for images taken on a camera where the Bayer filter has been removed.
+  **Note:** You should only use this for images taken on a camera where the color filter array has been removed.
 
 - After you have imported the image, you can manually flag an image as monochrome (or not) using the _metadata_ tab on the lighttable's [selected images](../module-reference/utility-modules/lighttable/selected-image.md) module,
 
