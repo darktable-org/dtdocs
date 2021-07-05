@@ -32,7 +32,6 @@ The following resources can provide a deeper understanding of the functionality 
 Some other YouTube channels with recent content on using darktable are:
 
 - [Bruce Williams Photography](https://www.youtube.com/user/audio2u)
-- [Rico Richardson](https://www.youtube.com/channel/UC126kKAgMILMnVIi7HvQGlw)
 - [Boris Hajdukovic](https://www.youtube.com/user/s7habo)
 
 For help and support, you can also ask questions on the main discussion forums at [discuss.pixls.us](https://discuss.pixls.us/).
