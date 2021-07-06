@@ -207,11 +207,38 @@ It is possible to completely remove a tag from all images (whether selected or n
 - right-click on a tag in the _tag dictionary_ window, to show a pop-up menu, and choose "delete tag".
 - right-click on a branch node in the _tag dictionary_ window, to show a pop-up menu, and choose "delete node" to delete the selected node together with any child nodes.
 
-## import / export
+## import…
 
-The “import” button allows you to choose a text file (which must comply with the Lightroom tag text file format) and import its content. If a tag in the imported file already exists, its properties will be updated, otherwise a new tag will be created.
+The “import” button allows you to choose a text file and import its content. If a tag in the imported file already exists, its properties will be updated, otherwise a new tag will be created.
 
-The “export” button exports your entire tag dictionary into a text file of your choice (Lightroom tag text file format).
+The import parser creates a separate tag for _every line_ in the file. A line enclosed in square brackets `[]` will be stored as a __category__ in darktable. Two basic line formats are understood:
+
+darktable tag format
+: The tag hierarchy is written in a single line where nodes are separated by the pipe symbol.
+
+```
+places|Austria|Graz
+places|Austria|Vienna
+[places|Austria]
+```
+
+Lightroom tag text file format
+: The tag hierarchy is written in multiple lines where each node is indented further by tabs.
+
+```
+places
+    [Austria]
+        Graz
+        Vienna
+```
+
+In both examples `places|Austria` is set as a category. Due to "every line a tag" the Lightroom style will create an additional tag `places`. Be aware that (re-)importing a Lightroom tag text file will create additional tags for every parent tag.
+
+In both styles one can define __synonyms__ by enclosing them in curly brackets `{}`. Every synonym must be on its own line following the original tag. There can be no empty lines inbetween.
+
+## export…
+
+The “export” button exports your entire tag dictionary into a text file in the Lightroom tag text file format.
 
 ## navigation
 
