@@ -84,7 +84,7 @@ adaptation
 : The working color space in which the module will perform its chromatic adaptation transform and channel mixing. The following options are provided:
 
 : - _Linear Bradford (1985)_: This is accurate for illuminants close to daylight and is compatible with the ICC v4 standard, but produces out-of-gamut colors for more difficult illuminants.
-: - _CAT16 (2016)_: This is the default option and is more robust in avoiding imaginary colors while working with large gamut or saturated cyan and purple. It is more accurate than the Bradform CAT in most cases.
+: - _CAT16 (2016)_: This is the default option and is more robust in avoiding imaginary colors while working with large gamut or saturated cyan and purple. It is more accurate than the Bradford CAT in most cases.
 : - _Non-linear Bradford (1985)_: This can sometimes produce better results than the linear version but is unreliable.
 : - _XYZ_: This is the least accurate method and is generally not recommended except for testing and debugging purposes.
 : - _none (disable)_: Disable any adaptation and use the pipeline working RGB space.
