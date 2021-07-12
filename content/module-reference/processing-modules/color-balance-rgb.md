@@ -177,7 +177,7 @@ There are several ways to change the contrast in _color balance RGB_, either loc
 - in [_perceptual brilliance grading_](#perceptual-brilliance-grading), add brilliance in the highlights and remove brilliance in the shadows to produce to a luminance contrast boost,
 - in the [_4 ways_](#4-ways-tab) tab, set the _shadows lift_ luminance to negative values and the _highlights gain_ luminance to positive values, which also produces a luminance contrast boost.
 
-The difference between these methods is how the effect will be weighted relative to the input of the module. You are advised to do the the majority of luminance contrast adjustments in the _filmic_ and _tone equalizer_ modules, and then undertake final changes in _color balance RGB_ while examining the colors.
+The difference between these methods is how the effect will be weighted relative to the input of the module. You are advised to do the majority of luminance contrast adjustments in the _filmic_ and _tone equalizer_ modules, and then undertake final changes in _color balance RGB_ while examining the colors.
 
 ## internal processing
 
