@@ -58,7 +58,7 @@ This mapping is defined in three steps, each handled in a separate tab in the in
 
  - The [_options_](#options) tab includes some optional advanced settings and parameters.
 
-_filmic rgb_ tends tends to compress local contrast, so after you have finished adjusting settings here, you may wish to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance rgb_](color-balance-rgb.md) module, and perhaps to further adjust the tones using the [_tone equalizer_](tone-equalizer.md).
+_filmic rgb_ tends to compress local contrast, so after you have finished adjusting settings here, you may wish to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance rgb_](color-balance-rgb.md) module, and perhaps to further adjust the tones using the [_tone equalizer_](tone-equalizer.md).
 
 The ranges of _filmic rgb_'s sliders are limited to typical and safe values, but you can enter values outside of these limits by right-clicking and entering values with the keyboard.
 
