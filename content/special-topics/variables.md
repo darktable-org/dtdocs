@@ -65,7 +65,7 @@ $(PUBLISHER)               publisher from metadata
 $(RIGHTS)                  rights from metadata
 $(TAGS)                    tags list (Xmp.dc.Subject)
 $(CATEGORYn(category))     tag name of level n [0,9] of selected category (or tag)
-$(SIDECAR_TEXT)            content of the text sidecar file (if any)
+$(SIDECAR_TXT)             content of the text sidecar file (if any)
 $(PICTURES_FOLDER)         pictures folder
 $(HOME)                    home folder
 $(DESKTOP)                 desktop folder
