@@ -14,7 +14,7 @@ Please do all translation work through Weblate. We will not accept pull requests
 
 
 # Making a new branch in git
-1. Make a new branch to work on it git.
+1. Make a new branch to work on it in git.
    For example:
    `git checkout -b fr-translation-init`
 
