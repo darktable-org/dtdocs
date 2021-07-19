@@ -27,7 +27,7 @@ copy
 : Physically copy selected images (the image file plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder it will not be overwritten – instead a new duplicate will be generated with the same history stack as the source image.
 
 create hdr
-: Create a high dynamic range image from the selected images, and add the result to the library as a new image DNG format. Images need to be properly aligned, which implies that they have been taken on a sturdy tripod. You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable can only create HDR images from raw files.
+: Create a high dynamic range image from the selected images, and add the result to the library as a new image in DNG format. Images need to be properly aligned, which implies that they have been taken on a sturdy tripod. You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable can only create HDR images from raw files.
 
 duplicate
 : Create duplicates of the selected images within darktable. Duplicate images share the same image file, but each duplicate has its own XMP sidecar file and a separate entry in darktable's library database. This allows you to test different edits on the same image.
