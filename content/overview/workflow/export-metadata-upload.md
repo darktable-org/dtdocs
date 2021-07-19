@@ -12,7 +12,7 @@ Images are exported using the [export](../../module-reference/utility-modules/sh
 
 When exporting images in darktable, there are two basic questions you need to answer:
 
-- _Where shall I send the exported images?_ Most often you will choose to write the files to a folder on your local disk, but other options include writing them to a LaTeX photo book template or sending them to another program such as [Hugin](http://hugin.sourceforge.net/) (for panarama stitching) or [GIMP](https://www.gimp.org/) (for further editing).
+- _Where shall I send the exported images?_ Most often you will choose to write the files to a folder on your local disk, but other options include writing them to a LaTeX photo book template or sending them to another program such as [Hugin](http://hugin.sourceforge.net/) (for panorama stitching) or [GIMP](https://www.gimp.org/) (for further editing).
 
 - _In what format shall I save the exported images?_ This covers not only the image file format (JPEG, PNG, TIFF, OpenEXR etc.) but also the quality, compression, resolution, picture profile settings and which metadata to embed in the exported image.
 
