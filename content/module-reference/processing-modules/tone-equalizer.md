@@ -38,7 +38,7 @@ display exposure mask
 This tab splits the brightness of the guided mask into nine zones (from --8 to 0 EV) and allows you to alter each zone independently. This is a simplified interface and is used to generate the same tone adjustment curve as shown in the [_advanced_](#advanced-tab) tab.
 
 --8 EV ... 0 EV
-: Each slider adjusts the exposure of all pixels where the _guided mask_ has the the given brightness. If the mask's histogram is evenly spread over the entire tonal range, sliders towards the top generally affect the shadows, whereas sliders towards the bottom generally affect the highlights. You can check the spread of the histogram within the [_advanced_](#advanced-tab) tab.
+: Each slider adjusts the exposure of all pixels where the _guided mask_ has the given brightness. If the mask's histogram is evenly spread over the entire tonal range, sliders towards the top generally affect the shadows, whereas sliders towards the bottom generally affect the highlights. You can check the spread of the histogram within the [_advanced_](#advanced-tab) tab.
 
 ## advanced tab
 
