@@ -114,7 +114,7 @@ middle-gray luminance (hidden by default)
 
 ---
 
-**Note:** You are not advised use this control to set middle-gray, hence it is now hidden by default. You should instead use the _exposure_ module to set the middle-gray level (see [_usage_](#usage), above). However, if you wish to make this slider visible, you can enable it with the _use custom mid-gray values_ checkbox in the [_options_](#options) tab.
+**Note:** You are not advised to use this control to set middle-gray, hence it is now hidden by default. You should instead use the _exposure_ module to set the middle-gray level (see [_usage_](#usage), above). However, if you wish to make this slider visible, you can enable it with the _use custom mid-gray values_ checkbox in the [_options_](#options) tab.
 
 ---
 
