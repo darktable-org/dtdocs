@@ -49,7 +49,7 @@ film stock
 
 ## film properties
 
-This tab contains a number of basic settings. If, after adjusting these settings, your image is still not quite as you would like it, you can make further adjustments on the the [_corrections_](#corrections) tab. These are technical settings, and serve a similar purpose to the _scene_ tab in the [_filmic rgb_](filmic-rgb.md) module, in that they adjust the black and white points and hence define the dynamic range of the negative.
+This tab contains a number of basic settings. If, after adjusting these settings, your image is still not quite as you would like it, you can make further adjustments on the [_corrections_](#corrections) tab. These are technical settings, and serve a similar purpose to the _scene_ tab in the [_filmic rgb_](filmic-rgb.md) module, in that they adjust the black and white points and hence define the dynamic range of the negative.
 
 color of the film base
 : Sample an area of the base film stock from your scan. This is the area just outside of the image (an unexposed part of the film). If you are working with black and white negatives, you can leave this slider at its default value (white). If working on color film, click the color picker to the right of the color bar, which will create a bounding box covering about 98% of your image. Then, click and drag across an area of your negative which contains only unexposed film stock. This will automatically calculate values for the _D min_ slider(s). It is likely at this point that your image will still look too dark, but you can correct this later.

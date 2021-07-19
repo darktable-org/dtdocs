@@ -62,7 +62,7 @@ As in the luma tab, the chroma tab also has a denoising spline at the bottom of 
 
 The basic wavelet _à trous_ transform has been enhanced in the _contrast equalizer_ to be "edge-aware", which can help to reduce the gradient reversals and halo artifacts that the basic algorithm can produce. The _edges_ tab does not directly act on the edges in an image; rather it adjusts the edge awareness feature of the wavelet transform. If you have not adjusted the luma or chroma splines, adjusting the edge awareness spline will have no effect.
 
-To see the sorts of artifacts that the _edges_ curve tries to combat, here is an example taken from the the original paper "Edge-Optimized À-Trous Wavelets for Local Contrast Enhancement with Robust Denoising" (Hanika, Damertz and Lensch 2011): 
+To see the sorts of artifacts that the _edges_ curve tries to combat, here is an example taken from the original paper "Edge-Optimized À-Trous Wavelets for Local Contrast Enhancement with Robust Denoising" (Hanika, Damertz and Lensch 2011): 
 
 ![contrast-equalizer-edge](./contrast-equalizer/contrast-equalizer-edge.png#w75)
 

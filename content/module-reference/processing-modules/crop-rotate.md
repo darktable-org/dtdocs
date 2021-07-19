@@ -89,7 +89,7 @@ right
 : The percentage of the image that should be cropped from the right side.
 
 top
-: The percentage of the image that should be cropped from the the top.
+: The percentage of the image that should be cropped from the top.
 
 bottom
 : The percentage of the image that should be cropped from the bottom.
