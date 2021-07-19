@@ -20,7 +20,7 @@ For performance reasons, the histogram display is calculated from the image prev
 
 ![histogram-regular](./histogram/histogram-regular.png#w50)
 
-The regular histogram shows the distribution of pixels by lightness for each color channel channel. 
+The regular histogram shows the distribution of pixels by lightness for each color channel. 
 
 In its default state, data for all three RGB color channels is displayed. The x-axis runs from 0% to 100% lightness for each channel. The y-axis gives the count of pixels with the given lightness.
 
