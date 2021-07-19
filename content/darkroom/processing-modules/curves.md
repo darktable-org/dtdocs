@@ -46,6 +46,6 @@ scale for graph
 
 : By default, a “linear” scale is used (defined by a scale factor of 0). This scale uses evenly spaced abscissa and ordinates axes.
 
-: A logarithmic scale will compress the high values and dilate the low values, on both the abcissa and the axis of ordinates, so that the nodes in lowlights get more space on the graph and can be controlled more clearly.
+: A logarithmic scale will compress the high values and dilate the low values, on both the abscissa and the axis of ordinates, so that the nodes in lowlights get more space on the graph and can be controlled more clearly.
 
 : Increase the 'scale for graph' slider to set the base of the logarithm used to scale the axes. This allows you to control the amount of compression/dilation operated by the scale. If you draw purely exponential or logarithmic functions from identity lines, setting this value defines the base of such functions.

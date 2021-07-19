@@ -63,8 +63,8 @@ When setting up the guided mask you will need to strike a balance between obtain
 
 Displaying the guided mask while while making these adjustments will help you to understand these controls and better judge the quality of the mask.
 
-luminence estimator
-: Choose the method by which the luminence of a pixel will be estimated when mapping it to a mask intensity value (default _RGB euclidean norm_).
+luminance estimator
+: Choose the method by which the luminance of a pixel will be estimated when mapping it to a mask intensity value (default _RGB euclidean norm_).
 
 preserve details
 : Choose the smoothing algorithm used to blur the mask: 
