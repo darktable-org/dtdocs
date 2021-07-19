@@ -154,7 +154,7 @@ checker board size
 
 As described in the [dimensions of color](../../special-topics/color-management/color-dimensions.md) section, saturation and chroma roam the (lightness, chroma) plane in different directions. In addition, the chroma of _color balance RGB_ uses a scene-referred linear space, while the saturation uses a perceptual space, which rescales color for even spacing.
 
-In practice, you should use the chroma setting if you want to preserve the scene-linarity of the light emission and/or keep the luminance unchanged. However, these changes might affect some hues more heavily than others, due to the fact that the color space is not fully perceptually-scaled.
+In practice, you should use the chroma setting if you want to preserve the scene-linearity of the light emission and/or keep the luminance unchanged. However, these changes might affect some hues more heavily than others, due to the fact that the color space is not fully perceptually-scaled.
 
 Saturation is closer to the effect of mixing white paint with some base color. Reducing the saturation of red will degrade it to pink, while reducing its chroma will degrade to a gray shade at the same luminance. Saturation is perhaps a more intuitive way to interact with color, due to its connection with painting.
 
