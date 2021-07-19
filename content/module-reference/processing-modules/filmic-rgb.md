@@ -187,7 +187,7 @@ If you see the orange warning indicator at either end of the S-curve, corrective
 
 - setting one or both of the contrast settings on the [_options_](#options) tab to _safe_ or _hard_.
 
-If the _target black luminence_ setting on the [_display_](#display) tab is non-zero, this can also make it difficult for _filmic rgb_ to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the [_display_](#display) section to understand the implications of this.
+If the _target black luminance_ setting on the [_display_](#display) tab is non-zero, this can also make it difficult for _filmic rgb_ to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the [_display_](#display) section to understand the implications of this.
 
 contrast
 : The _filmic_ S-curve is created by computing the position of virtual nodes from the module parameters and interpolating them. This is similar to how the tone curve module operates, but here, the nodes cannot be moved manually. The curve is split into three parts -- a middle linear part, and two extremities that transition smoothly from the slope of the middle part to the ends of the exposure range.
@@ -223,7 +223,7 @@ The parameters in this tab should rarely require adjustment.
 target black luminance
 : The destination parameters set the target luminance values used to remap the tones. The default parameters should work 99% of the time, the remaining 1% being when you output in linear RGB space (REC709, REC2020) for media handling log-encoded data. These settings should therefore be used with caution because darktable does not allow separate pipelines for display preview and file output.
 
-: The target black luminance parameter sets the ground-level black of the target medium. By default it is set to the minimum non-zero value that can be encoded by the available number of bits in the ouput color space. Reducing it to zero means that some non-zero luminences will be mapped to 0 in the output, potentially losing some detail in the very darkest parts of the shadows. Increasing this slider will produce raised, faded blacks that can provide something of a "retro" look.
+: The target black luminance parameter sets the ground-level black of the target medium. By default it is set to the minimum non-zero value that can be encoded by the available number of bits in the ouput color space. Reducing it to zero means that some non-zero luminances will be mapped to 0 in the output, potentially losing some detail in the very darkest parts of the shadows. Increasing this slider will produce raised, faded blacks that can provide something of a "retro" look.
 
 target middle-gray
 : This is the middle-gray of the output medium that is used as a target for the S-curve's central node. On gamma-corrected media, the actual gray is computed with the gamma correction (middle-gray^(1/gamma)), so a middle-gray parameter of 18% with a gamma of 2.2 gives an actual middle-gray target of 45.87%.
