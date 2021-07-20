@@ -114,7 +114,7 @@ There are a number of modules that are no longer recommended for use within a sc
 [_global tonemap (deprecated)_](../../module-reference/processing-modules/global-tonemap.md)
 : _prefer [filmic rgb](../../module-reference/processing-modules/filmic-rgb.md)_
 
-: This module tries to deal with HDR images using the Lab color space, which is not well suited for high dyanamic ranges. The _filmic rgb_ module operates in a linear space and can easily scale over a wide range of input values from the scene and fit them into the narrower dynamic range demanded by display and printing devices.
+: This module tries to deal with HDR images using the Lab color space, which is not well suited for high dynamic ranges. The _filmic rgb_ module operates in a linear space and can easily scale over a wide range of input values from the scene and fit them into the narrower dynamic range demanded by display and printing devices.
 
 [_shadows and highlights_](../../module-reference/processing-modules/shadows-and-highlights.md)
 : _prefer [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md)_
