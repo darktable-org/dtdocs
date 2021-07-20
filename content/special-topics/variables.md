@@ -27,8 +27,12 @@ $(VERSION)                 the duplicate version number
 $(VERSION_IF_MULTI)        same as $(VERSION) but null string if only one version exists
 $(VERSION_NAME)            version name from metadata
 $(SEQUENCE)                a sequence number within an export job
-$(MAX_WIDTH)               maximum image width limit within export session
-$(MAX_HEIGHT)              maximum image height limit within export session
+$(SENSOR_WIDTH)		   width of RAW data in pixels (shown in parentheses in [_image information_](../module-reference/utility-modules/shared/image-information.md) )
+$(SENSOR_HEIGHT)	   height of RAW data in pixels
+$(MAX_WIDTH)               processable image width at the start of the pixelpipe
+$(MAX_HEIGHT)              image height at the start of the pixelpipe (shown as Width in [_image information_](../module-reference/utility-modules/shared/image-information.md) )
+$(EXPORT_WIDTH)		   image width in pixels after cropping, perspective correction, and other distortions
+$(EXPORT_HEIGHT)	   image height in pixels after cropping, perspective correction, and other distortions
 $(YEAR)                    year at date of export
 $(MONTH)                   month at date of export
 $(DAY)                     day at date of export
