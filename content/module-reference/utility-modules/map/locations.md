@@ -28,7 +28,7 @@ show all
 ## actions on the locations list
 
 click
-: Select or de-select a location. If the location is not currently visible on the map, the map is automatically centred on that location.
+: Select or de-select a location. If the location is not currently visible on the map, the map is automatically centered on that location.
 
 Ctrl+click
 : Edit the name of the location. Press Enter to save changes or Esc to close the editing window without saving.
