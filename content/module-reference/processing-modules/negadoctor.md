@@ -18,7 +18,7 @@ If the image of the negative was obtained using a digital camera, then in order 
 
 - When taking the photograph, adjust the exposure to fully utilise the entire dynamic range of your camera sensor -- i.e. "expose-to-the-right", so that the histogram in your camera touches the right hand side without clipping the image.
 
-- Ensure the white balance is correctly set up to compensate for the light source used to illuminate the negative. You can take a profiling picture of the light source with no film negative in front of it, and then use the "spot" feature in the [_white balance_](./white-balance.md) module to obtain a reference white-balance setting. This reference white balance setting can then be made into a style or simply pasted onto the images taken from your film negatives.
+- Ensure the white balance is correctly set up to compensate for the light source used to illuminate the negative. You can take a profiling picture of the light source with no film negative in front of it, and then use the "from image area" feature in the [_white balance_](./white-balance.md) module to obtain a reference white-balance setting. This reference white balance setting can then be made into a style or simply pasted onto the images taken from your film negatives.
 
 - Apply the standard or enhanced camera matrix in the [_input color profile_](./input-color-profile.md) module.
 
