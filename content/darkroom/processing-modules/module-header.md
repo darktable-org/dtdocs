@@ -43,4 +43,4 @@ reset
 presets menu
 : This menu allows you to apply, create and edit module presets. See the [presets](./presets.md) section for more information.
 
-The visibility of the four icons to the right of the module name can be controlled in [preferences > darkroom > show right-side buttons in darkroom module headers](../../preferences-settings/darkroom.md#modules).
+The visibility of the four icons to the right of the module name can be controlled in [preferences > darkroom > show right-side buttons in processing module headers](../../preferences-settings/darkroom.md#modules).
