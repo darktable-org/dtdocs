@@ -163,7 +163,7 @@ While it is best to not touch imported files behind darktable's back, this modul
 
 1. Set the _image attribute_ combobox to "folder" or "film roll".
 1. The original film roll or folder name will be displayed with ~~strikethrough~~ formatting to emphasize that it can not be located.
-1. Right-click on the folder or film roll name, select “search filmroll...” or “search folder...”, and then select the new location of the folder.
+1. Right-click on the folder or film roll name, select “search filmroll...”, and then select the new location of the folder.
 
 ## preferences
 
