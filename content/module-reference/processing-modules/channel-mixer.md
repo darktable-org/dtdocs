@@ -34,7 +34,7 @@ If, for example, you've been provided with a matrix to transform from one color 
 - set the destination to _green_ then set the Gr, Gg & Gb values using the red, green and blue sliders 
 - set the destination to _blue_ then set the Br, Bg & Bb values using the red, green and blue sliders 
 
-By default, _channel mixer_ just copies the input [R G B] channels straight over to the matching output channels. This is equivalent to multiplying by the identify matrix:
+By default, _channel mixer_ just copies the input [R G B] channels straight over to the matching output channels. This is equivalent to multiplying by the identity matrix:
 
 ```
 ┌ R_out ┐     ┌ 1  0  0 ┐      ┌ R_in ┐
