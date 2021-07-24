@@ -11,7 +11,7 @@ ask before removing images from darktable
 : Always ask before removing an image from darktable's library database, where the image/xmp file is retained (default on).
 
 ask before deleting images from disk
-: Always ask before deleting an image any image file (default on).
+: Always ask before deleting an image file (default on).
 
 ask before discarding history stack
 : Always ask before discarding the history stack of an image (default on).
