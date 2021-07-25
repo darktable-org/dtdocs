@@ -8,7 +8,7 @@ author: "people"
 
 This troubleshooting guide can be used to verify whether or not your camera can be used with tethering. This is done using the same ([gphoto2](https://github.com/gphoto/gphoto2)) tool that darktable uses to interface with your camera.
 
-Before you start, you first need to find your camera port name. Usually the port "`usb:`" is sufficient and is therefore used the following guide.
+Before you start, you first need to find your camera port name. Usually the port "`usb:`" is sufficient and is therefore used in the following guide.
 
 # is your camera detected?
 
