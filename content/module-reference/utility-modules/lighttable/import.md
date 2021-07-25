@@ -143,6 +143,8 @@ keep this window open
 
 Most of these options can also be set in [preferences > import](../../../../preferences-settings/import.md). See this section for more information about the available variables.
 
+For example, in all lines above, images are imported following current date. For those who want to use images dates (so EXIF ones), just add the `EXIF_` before each date part to have variables like `$(EXIF_YEAR)`, `$(EXIF_MONTH)`, `$(EXIF_DAY)`, etc.
+
 ## copy & import from camera
 
 This option copies files from a connected camera to the local filesystem and then adds the copied images to the darktable library. It provides the same naming options as the "copy & import" dialog but does not allow places or folders to be selected. 
