@@ -22,7 +22,7 @@ If your image already shows the correct date/time and carries the UTC time stamp
 
 Otherwise follow the following process to correlate the time of the images and GPS track files
 
-1. Fix the camera time setting for a single image by manually entering the correct date/time for that image into the _date/time_ field. A good way is to do this accurately is to take a photograph of a reliable time source. This can be any precise clock or, even better, the time displayed on your GPS device (bearing in mind that GPS devices normally _show_ the local time, even though they _store_ universal time). The difference (offset) between the time entered and the time stored in the image's Exif data will be shown in the _date/time offset_ field.
+1. Fix the camera time setting for a single image by manually entering the correct date/time for that image into the _date/time_ field. A good way to do this accurately is to take a photograph of a reliable time source. This can be any precise clock or, even better, the time displayed on your GPS device (bearing in mind that GPS devices normally _show_ the local time, even though they _store_ universal time). The difference (offset) between the time entered and the time stored in the image's Exif data will be shown in the _date/time offset_ field.
 
 2. Press the _lock_ button to lock the calculated offset in the module.
 
