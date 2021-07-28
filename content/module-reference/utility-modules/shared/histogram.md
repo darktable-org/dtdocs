@@ -18,7 +18,7 @@ For performance reasons, scopes are calculated from the image preview (the image
 
 # the "regular" histogram
 
-![histogram-regular](./histogram/histogram-regular.png#w50)
+!["regular" histogram](./histogram/histogram-regular.png#w50)
 
 The regular histogram shows the distribution of pixels by lightness for each color channel.
 
@@ -30,7 +30,7 @@ The three rightmost colored buttons toggle the display of the red, green and blu
 
 # waveform
 
-![histogram-waveform](./histogram/histogram-waveform.png#w50)
+![waveform scope (horizontal)](./histogram/histogram-waveform.png#w50)
 
 The waveform scope shows data akin to the waveform, with the addition of spatial data about the image.
 
@@ -40,6 +40,8 @@ The y-axis represents the distribution of pixels by lightness for each channel -
 
 The brightness of each point on the waveform represents the number of pixels at the given position (the x-axis) having the given lightness (the y-axis).
 
+![waveform scope (vertical)](./histogram/histogram-waveform-vertical.png#w50)
+
 Clicking the second-to-leftmost button on the panel toggles between a horizontal and a vertical waveform. In the vertical waveform, the y-axis of the plot represents the y-axis of the image. The x-axis represents the distribution of pixels by lightness. The vertical waveform can be useful for portrait-format images, or simply to understand an image in a different way.
 
 As with the histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
@@ -48,9 +50,11 @@ See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histogram
 
 # rgb parade
 
-![histogram-parade](./histogram/histogram-parade.png#w50)
+![rgb parade (horizontal)](./histogram/histogram-parade.png#w50)
 
 The RGB parade scope shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side.
+
+![rgb parade (vertical)](./histogram/histogram-parade-vertical.png#w50)
 
 As with the waveform, clicking the second-to-leftmost button on the panel toggles between horizontal and vertical processing of the image data.
 
@@ -58,7 +62,7 @@ The RGB parade can be useful for matching the intensities of the red, green, and
 
 # vectorscope
 
-![histogram-vectorscope](./histogram/histogram-vectorscope.png#w50)
+![vectorscope](./histogram/histogram-vectorscope.png#w50)
 
 The vectorscope shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. 
 
