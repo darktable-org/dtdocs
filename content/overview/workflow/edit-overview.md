@@ -8,7 +8,14 @@ author: "people"
 
 This section will guide you through the basics of developing an image in the [darkroom](../../darkroom/_index.md) view, where an arsenal of modules is at hand to help you reach your creative goals. Many other raw processing applications try to present an image approximating the jpeg file produced by the camera, however the philosophy behind darktable is to do minimal pre-processing and provide the user with a neutral image onto which they can apply their creative vision.
 
-To begin, open an image in the darkroom by double clicking its thumbnail in the [lighttable](../../lighttable/_index.md) view. 
+As an example, see the 3 images below. The first image is the JPEG file produced by the camera. The second image is a raw file opened by darktable, with just the default modules applied -- notice how the image looks somewhat flat and neutral. The third image is the sort of image you might get by following the steps in this workflow page.
+
+![edit-overview_ooc](./edit-overview/edit-overview_ooc.jpg#w33#inline)
+![edit-overview_flat](./edit-overview/edit-overview_flat.jpg#w33#inline)
+![edit-overview_edited](./edit-overview/edit-overview_edited.jpg#w33#inline)
+
+
+To begin editing an image, open it in the darkroom by double clicking its thumbnail in the [lighttable](../../lighttable/_index.md) view. 
 
 In the darkroom mode, you see a list of modules to the right hand side of the screen. Each module performs one processing step to bring an image from raw format into an image that can be seen on the screen or printed. The processing steps are performed in the order shown in the module list, starting at the bottom of the list and moving up to the top, like a stack of building blocks where each block builds on the processing done by the modules below. The order in which the modules are applied is important to provide a correctly processed image.
 
