@@ -31,8 +31,8 @@ R              reject image
 Ctrl+D         duplicate image
 Ctrl+C         copy the full history stack
 Ctrl+V         paste all of the copied history stack
-Alt+Ctrl+C     selectively copy the history stack
-Alt+Ctrl+V     selectively paste from the copied history stack
+Ctrl+Shift+C   selectively copy the history stack
+Ctrl+Shift+V   selectively paste from the copied history stack
 ```
 
 See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.
