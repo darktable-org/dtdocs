@@ -14,6 +14,7 @@ As an example, see the 3 images below. The first image is the JPEG file produced
 ![edit-overview_flat](./edit-overview/edit-overview_flat.jpg#w33#inline)
 ![edit-overview_edited](./edit-overview/edit-overview_edited.jpg#w33#inline)
 
+**Note:** when importing images into darktable, the initial thumbnails on the lighttable are normally taken from jpeg previews embedded into the raw file by the camera (in the example above, this corresponds to the left hand image). When you first open an image for editing in the darkroom, your image under edit will be generated out of the raw data, so don't be surprised when if resembles more the middle image shown above. Once you complete your edits and exit the darkroom, the lighttable thumbnail will then be based on your edited image, and so it will resemble the third image shown above.
 
 To begin editing an image, open it in the darkroom by double clicking its thumbnail in the [lighttable](../../lighttable/_index.md) view. 
 
