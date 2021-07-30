@@ -145,6 +145,8 @@ Click on the "add" button to add a metadata entry to the list.
 
 The formulas allow you virtually define all the metadata you need to qualify your images in tagging and export the values in the XMP or IPTC tags of your choice. The exported tags can be different from one export to the next depending on the destination of the images. Tags and Categories are displayed separately in image information.
 
+To prevent exporting a specific metadata, just add it to the list and let the formula empty.
+
 _Remember that a tag set up as a category is never exported._
 
 ## examples
