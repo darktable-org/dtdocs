@@ -24,7 +24,7 @@ Thumbnails are never removed from the secondary cache. You can manually clean th
 
 If you choose not to activate the disk backend and select too small a cache size, darktable may become unresponsive, you may experience continuous regeneration of thumbnails when you navigate your collection or flickering of thumbnail images. A good choice of cache size is 512MB or higher (see [memory](../../../special-topics/memory.md) for more information).
 
-All thumbnails are fully color managed if the corresponding option is activated in [preferences > lighttable > thumbnails](../../../preferences-settings/lighttable.md#thumbnails). Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
+All thumbnails are fully color managed. Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
 
 # skulls
 
