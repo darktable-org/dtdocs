@@ -255,7 +255,7 @@ preserve chrominance
 
 : - _RGB power norm_ is the sum of the cubes of the R, G, and B channels, divided by the sum of their squares (R³ + G³ + B³)/(R² + G² + B²). It is usally a good compromise between the max RGB and the luminance Y values.
 
-: - _RGB euclidean norm_ has the property of being RGB-space-agnostic, so it will yeild the same results regardless which working color profile is used. It weighs more heavily on highlights than the power norm and gives more highlights desaturation, and is probably the closest to a color film look.
+: - _RGB euclidean norm_ has the property of being RGB-space-agnostic, so it will yeild the same results regardless of which working color profile is used. It weighs more heavily on highlights than the power norm and gives more highlights desaturation, and is probably the closest to a color film look.
 
 : There is no "right" choice for the norm, and the appropriate choice depends strongly on the image to which it is applied. You are advised to experiment and decide for yourself which setting gives the most pleasing result with the fewest artifacts.
 
