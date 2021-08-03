@@ -148,8 +148,9 @@ The formulas allow you virtually define all the metadata you need to qualify you
 _Remember that a tag set up as a category is never exported._
 
 ## tips
-To prevent exporting a specific metadata, add it to the list and let the formula empty.
-To force exporting a specific exif metadata even if exif data are disabled, add it to the list and enter `=` into the formula.
+
+- To prevent a specific metadata field from being exported, add it to the list and leave the formula empty.
+- To force a specific exif metadata field to be exported when exif export is disabled, add it to the list and enter `=` into the formula.
 
 ## examples
 
