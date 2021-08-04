@@ -60,7 +60,7 @@ apply GPX track file (lighttable view only)
 
 # module controls (map view)
 
-gpx files
+gpx file
 : The path of the gpx file selected.
 
 track list
