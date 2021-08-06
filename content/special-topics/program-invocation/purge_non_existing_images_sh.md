@@ -37,7 +37,7 @@ The available options are:
 
 2. For Windows systems, you will normally need the MSYS2 environment to be installed, as described in the [instructions for building darktable in a Windows environment](https://github.com/darktable-org/darktable/blob/master/packaging/windows/BUILD.md). If you installed darktable using the standard Windows installer package, the location of the script would normally be something like: `C:\Program Files\darktable\share\darktable\tools\purge_non_existing_images.sh`.
 
-3. For macOS systems, the Terminal application provides a shell, and the `sqlite3` client is provided by the operating system by default. If darktable was installed using an application bundle from a dmg image, then the default location for the script would be `/Applications/darktable.app/Contents/Resources/share/darktable/tools/purge_non_existing_iamges.sh`
+3. For macOS systems, the Terminal application provides a shell, and the `sqlite3` client is provided by the operating system by default. If darktable was installed using an application bundle from a dmg image, then the default location for the script would be `/Applications/darktable.app/Contents/Resources/share/darktable/tools/purge_non_existing_images.sh`
 
 4. The delete operation can't be undone. It is therefore strongly recommended that you take a backup of the database before purging any entries.
 
