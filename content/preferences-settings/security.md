@@ -7,7 +7,7 @@ draft: false
 
 Control whether warning messages are shown before undertaking certain activities.
 
-ask before removing images from darktable
+ask before removing images from the library
 : Always ask before removing an image from darktable's library database, where the image/xmp file is retained (default on).
 
 ask before deleting images from disk
