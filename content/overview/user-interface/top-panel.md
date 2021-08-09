@@ -27,7 +27,7 @@ sort by
 : Expand or collapse [grouped images](../../lighttable/digital-asset-management/grouping.md).
 
 ![top panel_overlays icon](./top-panel/top-panel_overlays.png#icon) thumbnail overlays
-: Define what information is overlaid on to thumbnails in the lighttable/filmstrip/timeline.
+: Define what information is overlaid on to thumbnails in the lighttable/filmstrip.
 : You can define different settings depending on the thumbnail size. See [preferences > lighttable](../../preferences-settings/lighttable.md#thumbnails) for details of how size delimiters are set.
 
 ![top panel_help icon](./top-panel/top-panel_help.png#icon) context-sensitive help
