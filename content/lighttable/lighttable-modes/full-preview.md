@@ -12,6 +12,4 @@ Pressing and holding Ctrl+W fully zooms into the image and also identifies any r
 
 Regions in the image with a high level of sharpness are indicated with red borders. If no such regions are found, any regions of moderate sharpness are identified with a blue border. Note that this is not the same as the [focus peaking](../../module-reference/utility-modules/shared/focus-peaking.md) indicator, which is another way to identifying areas of sharpness within an image.
 
-Sometimes pressing W or Ctrl+W may not appear to have any effect -- in such cases, click on the image thumbnail and press the corresponding key again.
-
 If you want the full preview to stay in place without having to hold the W key, you can enable sticky preview mode by pressing F. In sticky preview mode, you can zoom and pan within the image in a similar way to the [culling](./culling.md) mode. Press F or ESC to return to the original view.
