@@ -1,7 +1,7 @@
 ---
 title: import
 id: import
-applicable-version: 3.6
+applicable-version: 3.8
 tags:
 view: lighttable
 ---
@@ -15,7 +15,7 @@ See [supported file formats](../../../overview/supported-file-formats.md) for mo
 The following buttons are shown in the module's UI by default:
 
 [add to library](#add-to-library) 
-: Add existing images to the darktable library without copying or moving files.
+: Add existing images to the darktable library without copying or moving files. If you only add a single image to the library it will be automatically loaded in the darkroom.
 
 [copy & import](#copy--import) 
 : Create copies of images from the filesystem and then add those copies to the darktable library.
