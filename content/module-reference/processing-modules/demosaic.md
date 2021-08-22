@@ -1,7 +1,7 @@
 ---
 title: demosaic
 id: demoasic
-applicable-version: 3.6
+applicable-version: 3.8
 tags: 
 working-color-space: Not Applicable (RAW) 
 view: darkroom
@@ -18,15 +18,17 @@ Color filters are commonly arranged in a mosaic pattern known as a Bayer filter 
 
 Darktable offers several demosaic algorithms, each with it's own characteristics. The differences between them are often very subtle and might only be visible while pixel-peeping. However, as the program works on a pixel-by-pixel basis and demosaic generates the base data for the other modules, the choice of the algorithm can have a visually significant effect on the quality of very fine details in the image. This can include the appearance of false maze patterns as well as the rendering quality of colored edges.
 
+Demosaic interpolation algorithms are often prone to produce artifacts, typically visible as [Moiré patterns](https://en.wikipedia.org/wiki/Moire_pattern) when zooming into the image. The chosen algorithm might handle _pre-existing_ Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances _VNG4_ and _LMMSE_ are often more stable.
+
 The following demosaic algorithms are avaliable for sensors with Bayer filters:
 
 - _PPG_ used to be darktable's default demosaic algorithm. It is fast, but other algorithms generally yield better results.
 
 - _AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_. Since _RCD_ now offers similar performance to _PPG_, but with better results, it is now the default algorithm.
 
-- _VNG4_ is better suited for images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.
+- _LMMSE_ is better suited for use on low ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artefacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms. Use with care on Raw images with heavy chroma noise.
 
-Demosaic interpolation algorithms are often prone to produce artifacts, typically visible as [Moiré patterns](https://en.wikipedia.org/wiki/Moire_pattern) when zooming into the image. On the other hand, the chosen algorithm might handle _pre-existing_ Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances _VNG4_ is often more stable.
+- _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.
 
 ---
 
@@ -67,6 +69,9 @@ method
 
 edge threshold (_PPG_ only)
 : The threshold for an additional median pass. Defaults to “0” which disables median filtering.
+
+lmmse refine (_LMMSE_ only)
+: Refinement steps for use with the LMMSE demosaic algorithm. Median steps average the output. Refinement steps add some recalculation of red and blue channels.
 
 color smoothing
 : Activate a number of additional color smoothing passes. Defaults to “off”.
