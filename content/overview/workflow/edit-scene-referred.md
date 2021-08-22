@@ -35,7 +35,7 @@ Basic image processing in scene-referred workflow requires you, as a minimum, to
 
 4. Adjust the white and black points using the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module
 
-   This module performs tone mapping compression from the high-dynamic-range of the captured image, to the lower dynamic range of the display medium. The mid-gray tone level has already been set (above) with the _exposure_ module. Filmic will suggest, on its _scene_ tab, an appropriate white point and black point for the image -- you may need to adjust these for a particular scene. On the _look_ tab you can adjust the midtone contrast and saturation settings if required.
+   This module performs tone mapping compression from the high-dynamic-range of the captured image, to the lower dynamic range of the display medium. The mid-gray tone level has already been set (above) with the _exposure_ module. Filmic will suggest, on its _scene_ tab, an appropriate white point and black point for the image -- you may need to adjust these for a particular scene. On the _look_ tab you can adjust the mid-tone contrast and saturation settings if required.
 
 # other recommended modules
 In addition to the basic modules described above, you may want to consider using the following modules to make your image look even better. These modules are known to work well with the scene-referred workflow:

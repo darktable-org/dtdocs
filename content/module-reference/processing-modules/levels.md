@@ -17,7 +17,7 @@ manual
 
 : Moving the black and white bars to match the left and right borders of the histogram will make the output image span the full available tonal range, increasing the image's contrast. 
 
-: Moving the middle bar will modify the middle-gray tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
+: Moving the middle bar will modify the mid-tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
 : Three color pickers are available for sampling the black, white and gray points from the image. The "auto" button auto-adjusts the black and white point and puts the gray point exactly in the mean between them.
 

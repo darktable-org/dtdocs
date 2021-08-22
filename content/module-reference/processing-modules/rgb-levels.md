@@ -14,7 +14,7 @@ The rgb levels tool shows a histogram of the image, and displays three bars with
 
 Moving the black and white bars to match the left and right borders of the histogram will make the output image span the full available tonal range. This will increase the image's contrast. 
 
-Moving the middle bar will modify the middle-gray tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
+Moving the middle bar will modify the mid-tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
 Three color pickers are available for sampling the black, white and gray points from the image. 
 

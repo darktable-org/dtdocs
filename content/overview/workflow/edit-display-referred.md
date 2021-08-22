@@ -22,7 +22,7 @@ white balance
 : The [_white balance_](../../module-reference/processing-modules/white-balance.md) module works the same as in _scene-referred_ workflow and, by default, uses the white balance coefficients provided by the camera. If this does not give acceptable results, use the camera presets or take the white balance from a neutral spot in your image. The temperature slider can be used to make the image "warmer" or "cooler". More advanced color grading is better left to other modules.
 
 exposure correction
-: The [_exposure_](../../module-reference/processing-modules/exposure.md) module works the same as in _scene-referred_ mode, but the way you use it is a little different. In _display-referred_ mode, you need to make sure you don't blow out your highlights too much, and use the [_base curve_](../../module-reference/processing-modules/base-curve.md) module to adjust the middle tones if needed.
+: The [_exposure_](../../module-reference/processing-modules/exposure.md) module works the same as in _scene-referred_ mode, but the way you use it is a little different. In _display-referred_ mode, you need to make sure you don't blow out your highlights too much, and use the [_base curve_](../../module-reference/processing-modules/base-curve.md) module to adjust the mid-tones if needed.
 
 : While you can use the _exposure_ module to tweak the black level to supply more contrast, you need to be very careful doing this as you can end up with negative RGB values. It is better to increase the contrast by adjusting the toe of the _base curve_, however this can be a little fiddly and it is one of the reasons why the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module was introduced to darktable. 
 

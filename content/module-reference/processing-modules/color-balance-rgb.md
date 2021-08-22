@@ -63,15 +63,15 @@ contrast
 
 ### linear chroma grading
 
-Linear chroma grading affects the chroma dimension proportionally to its input value, at constant hue and luminance. It does this globally, with a flat coefficient (using the _global chroma_), as well as on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Linear chroma grading affects the chroma dimension proportionally to its input value, at constant hue and luminance. It does this globally, with a flat coefficient (using the _global chroma_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ### perceptual saturation grading
 
-Perceptual chroma grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Perceptual chroma grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ### perceptual brilliance grading
 
-Perceptual brilliance grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue, and in a direction orthogonal to the saturation. Its effect is close to that of changing exposure, but scaled perceptually. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _midtones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Perceptual brilliance grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue, and in a direction orthogonal to the saturation. Its effect is close to that of changing exposure, but scaled perceptually. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ## 4 ways tab
 
@@ -107,9 +107,9 @@ This tab defines auxiliary controls for the previous tabs. Masking controls typi
 
 ### luminance ranges
 
-The graphs show the opacity (on the _y_ axis) of the 3 luminance masks relative to the pixel luminance (on the _x_ axis). The darkest curve represents the _shadows_ mask, the brightest represents the _highlights_ mask, and the third curve represents the _midtones_ mask.
+The graphs show the opacity (on the _y_ axis) of the 3 luminance masks relative to the pixel luminance (on the _x_ axis). The darkest curve represents the _shadows_ mask, the brightest represents the _highlights_ mask, and the third curve represents the _mid-tones_ mask.
 
-Only the _shadows_ and _highlights_ masks can be controlled directly -- the _midtones_ mask is computed indirectly from the others and acts as an adjustment variable.
+Only the _shadows_ and _highlights_ masks can be controlled directly -- the _mid-tones_ mask is computed indirectly from the others and acts as an adjustment variable.
 
 shadows fall-off
 : Control the softness or hardness of the transition from fully opaque (100%) to fully transparent (0%) for the shadows mask.
@@ -120,7 +120,7 @@ mask middle-gray fulcrum
 highlights fall-off
 : Control the softness or hardness of the transition from fully opaque (100%) to fully transparent (0%) for the highlights mask.
 
-For each of these settings, a mask button, provided to the right of the slider, displays the appropriate mask (shadows, midtones, highlights), overlayed as a checker board. The still-visible area of the image (not hidden by the mask) is the area that will be affected by the shadows, midtones and highlights sliders in the other tabs.
+For each of these settings, a mask button, provided to the right of the slider, displays the appropriate mask (shadows, mid-tones, highlights), overlayed as a checker board. The still-visible area of the image (not hidden by the mask) is the area that will be affected by the shadows, mid-tones and highlights sliders in the other tabs.
 
 All mask previews display the output of the module, including any color changes made, so you can also activate them while editing, to see only the affected part of the image.
 

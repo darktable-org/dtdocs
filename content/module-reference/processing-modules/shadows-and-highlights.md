@@ -28,7 +28,7 @@ radius
 : The radius of the blurring filter used by the algorithm. Higher values give softer transitions between shadows and highlights but might introduce halos. Lower values will reduce the size of halos but may lead to an artificial look. The bilateral filter is much less prone to halo artifacts.
 
 compress
-: Control how strongly the effect extends to the midtones. High values limit the effect to only the extreme shadows and highlights. Lower values also cause adjustments to the midtones. At 100% this module has no visible effect as only absolute black and absolute white are affected.
+: Control how strongly the effect extends to the mid-tones. High values limit the effect to only the extreme shadows and highlights. Lower values also cause adjustments to the mid-tones. At 100% this module has no visible effect as only absolute black and absolute white are affected.
 
 shadows color adjustment
 : Control the color saturation adjustment made to shadows. High values cause saturation enhancements on lightened shadows. Low values cause desaturation on lightened shadows. It is normally safe to leave this at its default of 100%. This gives a natural saturation boost on shadows – similar to what you would expect in nature if shadows were to receive more light.
