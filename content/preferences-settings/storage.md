@@ -24,7 +24,13 @@ how many snapshots to keep
 # xmp
 
 write sidecar file for each image
-: XMP files provide a redundant method of saving the changes you have made to an image, independently of darktable's database. XMP files can later be re-imported into a different database, preserving your changes to the image. It's strongly recommended that you leave this option activated so that you don't lose data if your database becomes corrupted. Backing up your raw file plus the accompanying XMP file will allow you to fully restore your work (default on).
+: XMP files provide a redundant method of saving the changes that you have made to an image, in addition to the changes saved to darktable's database. This option allows you to choose when to write these files. Choose from:
+
+: - _never_: Don't write XMP files. This can be useful if you are running multiple version of darktable for development/testing purposes but is not normally recommended
+: - _on import_: An XMP file will be written as soon as you add an image to darktable's library and will be subsequently updated each time you edit it
+: - _after edit_: An XMP file will be written the first time you perform an edit on an image and will be updated on each subsequent edit. Importing will not generate an XMP file by default.
+
+: It's strongly recommended that you choose either "on import" or "after edit". XMP files provide a useful fail-safe so that you don't lose data if your database becomes corrupted. Backing up your raw file plus the accompanying XMP file will allow you to fully restore your work at a later date by re-importing your edit history back into darktable (default "on import").
 
 store xmp tags in compressed format
 : Entries in XMP tags can get rather large and may exceed the available space to store the history stack in some output files on export. This option allows binary XMP tags to be compressed in order to save space. Available options are “never”, “always”, and “only large entries” (default).
