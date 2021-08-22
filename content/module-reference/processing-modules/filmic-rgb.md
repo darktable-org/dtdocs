@@ -164,13 +164,13 @@ display highlight reconstruction mask
 
 These controls allow you to balance the trade-offs between the various reconstruction algorithms.
 
-structure/texture
+structure ↔ texture
 : Use this to control whether the reconstruction algorithm should favor painting in a smooth color gradient (structure), or trying to reconstruct the texture using sharp details extracted from unclipped pixel data (texture). By default, the control is in the middle at 0%, which favors both strategies equally. If you have lots of areas where all three channels are clipped, there is no texture detail available to reconstruct, so it is better to move the slider to the left to favor color reconstruction. If you have lots of areas where only one or two channels are clipped, then there may be some texture detail in the unclipped channel(s), and moving the slider to the right will place more emphasis on trying to reconstruct texture using this unclipped data.
 
-bloom/reconstruct
+bloom ↔ reconstruct
 : Use this to control whether the algorithm tries to reconstruct sharp detail in the clipped areas (reconstruct), or apply a blur that approximates the blooming effect you get with traditional film (bloom). By default, this is set to 100%, which tries to maximise the sharpness of the detail in the clipped areas. Move this slider to the left if you want to introduce more blur in these areas. Introducing more blur will usually tend to darken the highlights as a by-product, which may lead to a more colorful reconstruction.
 
-gray/colorful details
+gray ↔ colorful details
 : Use this to control whether the algorithm favors the recovery of monochromatic highlights (gray) or colorful details. Move the slider to the right if you want more color in the highlights. Move the slider to the left if you want to reduce the saturation of the highlights. It can be helpful to reduce the saturation in the highlights if you see start seeing magenta or out-of-gamut colors.
 
 ## look
@@ -202,11 +202,11 @@ hardness (previously _target power factor function_)
 : This parameter is the power function applied to the output transfer function, and it is often improperly called the _gamma_ (which can mean too many things in imaging applications, so we should stop using that term). It is used to raise or compress the mid-tones to account for display non-linearities or to avoid quantization artifacts when encoding in 8 bit file formats. This is a common operation when applying ICC color profiles (except for linear RGB spaces, like REC 709 or REC 2020, which have a linear “gamma” of 1.0). However, at the output of _filmic rgb_, the signal is logarithmically encoded, which is not something ICC color profiles know to handle. As a consequence, if we let them apply a gamma of 1/2.2 on top, it will result in a double-up, which would cause the middle-gray to be remapped to 76% instead of 45% as it should in display-referred space.
 
 latitude
-: The latitude is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the [_scene_](#scene) tab (white relative exposure minus black relative exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. It is usually advisable to keep the latitude as large as possible, while avoiding clipping. If clipping is observed, you can compensate by either decreasing the latitude, shifting the latitude interval with the _shadow/highlights balance_ parameter, or decreasing the contrast.
+: The latitude is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the [_scene_](#scene) tab (white relative exposure minus black relative exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. It is usually advisable to keep the latitude as large as possible, while avoiding clipping. If clipping is observed, you can compensate by either decreasing the latitude, shifting the latitude interval with the _shadow ↔ highlights balance_ parameter, or decreasing the contrast.
 
 : The latitude also defines the range of luminances that are not desaturated at the extremities of the luminance range (See _mid-tones saturation_).
 
-shadows/highlight balance
+shadows ↔ highlights balance
 : By default, the latitude is centered in the middle of the dynamic range. If this produces clipping at one end of the curve, the balance parameter allows you to slide the latitude along the slope, towards the shadows or towards the highlights. This allows more room to be given to one extremity of the dynamic range than to the other, if the properties of the image demand it.
 
 mid-tones saturation (previously _extreme luminance saturation_)
