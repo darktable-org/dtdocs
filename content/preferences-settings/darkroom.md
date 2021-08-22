@@ -88,3 +88,6 @@ show right-side buttons in processing module headers
 
 show mask indicator in module headers
 : If enabled, an icon will be shown in the header of any processing modules that have a [mask](../darkroom/masking-and-blending/masks/_index.md) applied (default on).
+
+prompt for name on addition of new instance
+: If enabled, when creating a new instance of a processing module, a prompt will be immediately displayed allowing you to set a name for the new instance (default off).
