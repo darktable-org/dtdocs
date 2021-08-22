@@ -1,7 +1,7 @@
 ---
 title: tone curve
 id: tone-curve
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 working-color-space:  
 view: darkroom

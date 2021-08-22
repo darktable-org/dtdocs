@@ -1,7 +1,7 @@
 ---
 title: color zones
 id: color-zones
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 working-color-space: Lab
 view: darkroom
