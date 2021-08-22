@@ -58,7 +58,7 @@ This particular implementation can simulate natural diffusion, using what is cal
 
 ## speed
 
-Depending how fluid the environnement is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion typology_](#diffusion-typology) section of the module.
+Depending how fluid the environnement is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion speed_](#diffusion-speed) section of the module.
 
 When performing reconstruction (denoising, deblurring, dehazing), it is advisable to use smaller speeds for better accuracy. This prevents numerical overshoots (and therefore degeneration of the solution) and may require more iterations. For small numbers of iterations, higher speeds may be used. Note that large blurs need many iterations for proper reconstruction, so the speed should be adjusted to avoid degenerating the solution.
 
@@ -68,7 +68,7 @@ All speeds are added (first to fourth orders), and the sums "`first order + seco
 
 Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighours.
 
-Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _radius_ parameter.
+Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _max radius_ parameter.
 
 Regardless of the diffusion, a _sharpness_ parameter allows you to increase or decrease the details at each scale, much like the spline controls of the _contrast equalizer_. Along with the _edge sensitivity_ slider, this provides the same features as the _contrast equalizer_ module (_luma_ and _edges_ tabs) but in a scene-referred RGB space.
 
@@ -79,21 +79,24 @@ Regardless of the diffusion, a _sharpness_ parameter allows you to increase or d
 iterations
 : The number of times the algorithm should run on top of itself. High values slow the module down but allow more accurate reconstructions, provided that the diffusion speeds are low enough.
 
-radius
-: The maximal distance of diffusion, expressed in pixels of the full-resolution image.
+max radius
+: The maximal distance of diffusion, expressed in pixels of the full-resolution image. High values diffuse further, at the expense of computation time. Low values diffuse closer. If you plan to denoise, the max radius should be approximately the width of your lens blur.
 
-## diffusion typology
+central radius
+: The main scale of the diffusion. Zero causes the diffusion to act more heavily on fine details (used for deblurring and denoising). Non-zero values define the size of details to be heavily diffused (used to increase local contrast).
 
-1st order (gradient)
+## diffusion speed
+
+1st order speed (gradient)
 : The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _1st order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
 
-2nd order (laplacian)
+2nd order speed (laplacian)
 : The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _2nd order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
 
-3rd order (gradient of laplacian)
+3rd order speed (gradient of laplacian)
 : The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _3nd order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
 
-4th order (laplacian of laplacian)
+4th order speed (laplacian of laplacian)
 : The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _4th order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
 
 ## diffusion directionality
