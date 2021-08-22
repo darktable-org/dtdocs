@@ -16,7 +16,7 @@ Please note that, for processing modules, the saved preset also includes the act
 The presets menu will contain one or more of the following entries depending on the presets that are defined or selected for the current module:
 
 preset list
-: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold**.
+: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold** and with a small check mark beside it.
 
 edit this preset
 : If a preset has been selected, edit the selected preset (see below).
