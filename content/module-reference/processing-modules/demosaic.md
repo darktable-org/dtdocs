@@ -26,9 +26,9 @@ The following demosaic algorithms are avaliable for sensors with Bayer filters:
 
 - _AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_. Since _RCD_ now offers similar performance to _PPG_, but with better results, it is now the default algorithm.
 
-- _LMMSE_ is better suited for use on low ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artefacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms. Use with care on Raw images with heavy chroma noise.
+- _LMMSE_ is better suited for use on high ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artefacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms. 
 
-- _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details.
+- _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details and can sometimes add local color shifts. VNG is no longer really recommended -- for most images, other available algorithms usually provide better results.
 
 ---
 
@@ -71,7 +71,7 @@ edge threshold (_PPG_ only)
 : The threshold for an additional median pass. Defaults to “0” which disables median filtering.
 
 lmmse refine (_LMMSE_ only)
-: Refinement steps for use with the LMMSE demosaic algorithm. Median steps average the output. Refinement steps add some recalculation of red and blue channels.
+: Refinement steps for use with the LMMSE demosaic algorithm. Median steps average the output. Refinement steps add some recalculation of red and blue channels. While the refinement options work well for luma noise, they may decrease quality on images with heavy chroma noise.
 
 color smoothing
 : Activate a number of additional color smoothing passes. Defaults to “off”.
