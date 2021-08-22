@@ -1,7 +1,7 @@
 ---
 title: global color picker
 id: global-color-picker
-applicable-version: 3.6
+applicable-version: 3.8
 tags: 
 view: darkroom
 ---
@@ -17,7 +17,7 @@ As the global color picker runs at the end of the preview pixelpipe, it receives
 # module controls
 
 point/area mode
-: The global color picker can be activated in point or area mode by clicking or Ctrl+clicking on the color picker icon, respectively. In point mode only a small spot under your cursor is taken as a sample. In area mode darktable samples the area within a drawn rectangle.
+: The global color picker can be activated in point or area mode by clicking or Ctrl+clicking on the color picker icon, respectively (you can also right-click to enable area mode). In point mode only a small spot under your cursor is taken as a sample. In area mode darktable samples the area within a drawn rectangle.
 
 mean/min/max
 : If samples are taken in area mode, darktable will calculate mean, minimum and maximum color channel values. This combobox allows you to select which of those are displayed. For obvious statistical reasons mean, min and max are identical for the single sample of point mode.

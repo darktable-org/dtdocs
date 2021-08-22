@@ -12,7 +12,7 @@ A classic digital photography tool to alter the tones of an image's using curves
 
 This module is very similar to the [_rgb curve_](./rgb-curve.md) module but works in Lab color space.
 
-Activate the color picker to show the picked values on the displayed histogram (Ctrl+click to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the graph.
+Activate the color picker to show the picked values on the displayed histogram (Ctrl+click or right-click to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the graph.
 
 # module controls
 

@@ -62,7 +62,7 @@ Note that these examples are somewhat contrived in order to illustrate the modul
 
 When adjusting the pixel manipulation curves, it can sometimes be difficult to judge exactly where on the horizontal axis pixels will fall. To the right of the tab controls are a pair of color pickers that can be used to assist with this.
 
-If you click the left-hand color picker and choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you Ctrl+click on the same color picker you can choose a rectangular area from the image -- the range of values represented within the selected rectangle will be shaded vertically, with a similar dark line showing the median value.
+If you click the left-hand color picker and choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you Ctrl+click or right-click on the same color picker you can choose a rectangular area from the image -- the range of values represented within the selected rectangle will be shaded vertically, with a similar dark line showing the median value.
 
 If you click on the right-hand color picker, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, representing the highlighted range (see below). Simply drag on the center node to raise or lower the curve within the selected range. Alternatively, hold Ctrl while selecting a range to automatically create a positive curve (push up the selected range) or hold Shift while selecting to create a negative curve (pushed down). 
 
