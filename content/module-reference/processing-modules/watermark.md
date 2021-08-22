@@ -1,20 +1,22 @@
 ---
 title: watermark
 id: watermark
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 working-color-space: RGB
 view: darkroom
 masking: true
 ---
 
-Render a vector-based overlay onto your image. Watermarks are standard SVG documents and can be designed using [Inkscape](http://www.inkscape.org/).
+Render a vector-based overlay onto your image. Watermarks are standard SVG documents and can be designed using [Inkscape](http://www.inkscape.org/). 
 
-The SVG processor in darktable can also substitute strings within the SVG document, allowing image-dependent information to be included in the watermark.
+You can also use bitmap (PNG) images.
+
+The SVG processor in darktable can also substitute strings within an SVG document, allowing image-dependent information to be included in the watermark.
 
 User-designed watermarks should be placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
 
-The following is a list of variable strings that are supported for substitution within the SVG document. 
+The following is a list of variable strings that are supported for substitution within an SVG document. 
 
 In addition to this list you can also use the variable strings defined in the [variables](../../special-topics/variables.md) section.
 
@@ -70,7 +72,7 @@ $(GPS.LOCATION)               All three coordinates (latitude, longitude, elevat
 # module controls
 
 marker
-: Choose the watermark to apply. Use the reload button to update the list to include any newly-added watermarks.
+: Choose the watermark to apply. Use the reload button to update the list to include any newly-added watermarks. The extension of the file (png/svg) is shown in brackets.
 
 text
 : A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
