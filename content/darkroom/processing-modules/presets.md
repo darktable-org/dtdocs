@@ -84,11 +84,11 @@ focal length
 : Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
 
 format
-: Only apply the preset to certain types of image. Check a box to include files matching a criterion; uncheck the box to exclude those files. Choose from "normal images", "raw", "HDR", "monochrome" and "color".
+: Only apply the preset to certain types of image. Check a box to include files matching a criterion; uncheck the box to exclude those files. Choose from "raw", "non-raw", "HDR", "monochrome" and "color".
 
 ---
 
-**Note**: If you deselect both "raw" and "normal images" the filter will not apply to any files (since all supported files are either normal images or raw files). Similarly if you deselect both "monochrome" and "color". 
+**Note**: If you deselect both "raw" and "non-raw" the filter will not apply to any files (since all supported files are either raw or non-raw). Similarly if you deselect both "monochrome" and "color". 
 
 ---
 
