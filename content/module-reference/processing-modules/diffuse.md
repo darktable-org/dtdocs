@@ -48,27 +48,27 @@ Since the process is physical, even its glitches may be used for creative purpos
 
 ## time
 
-Diffusion is a time-dependent process: the more time it has, the farther the particles can spread. In this module, time is simulated by the number of iterations (the number of times the algorithm runs on top of itself). More iterations can make reconstruction (deblurring, denoising, dehazing) more accurate if properly set, but can also make it degenerate.
+Diffusion is a time-dependent process: the more time it has, the further the particles can spread. In this module, time is simulated using the number of iterations (the number of times the algorithm runs on top of itself). More iterations can make reconstruction (deblurring, denoising, dehazing) more accurate if properly set, but can also cause it to degenerate.
 
 ## direction
 
-Natural diffusion usually takes place from spots with a high potential (high energy or high concentration of particles) to spots with a low potential (low energy or low concentration of particles). In an image, this means that diffusion always occurs from the brightest pixels to the darkest.
+Natural diffusion usually takes place from points with a high potential (high energy or high concentration of particles) to those with a low potential (low energy or low concentration of particles). In an image, this means that diffusion always occurs from the brightest pixels to the darkest.
 
-This particular implementation can simulate natural diffusion, using what is called an isotropic diffusion (all directions have the same weight, like heat diffusion), but can also force a weighted direction parallel to the gradients (forcing diffusion across object edges and creating ghost edges), or a weighted direction perpendicular to the gradient, called isophote (forcing diffusion to be contained inside edges, like in a droplet of watercolor). The relative weight of each direction (gradient and isophote) is user-defined and can by found in the [_diffusion directionality_](#diffusion-directionality) section.
+This particular implementation can simulate natural diffusion, using what is called an isotropic diffusion (all directions have the same weight, like heat diffusion), but can also force a weighted direction parallel to the gradients (forcing diffusion across object edges and creating ghost edges), or a weighted direction perpendicular to the gradients, called isophote (forcing diffusion to be contained inside edges, like in a droplet of watercolor). The relative weight of each direction (gradient and isophote) is user-defined and can by found in the [_diffusion directionality_](#diffusion-directionality) section of the module.
 
 ## speed
 
-Depending how fluid the environnement is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion typology_](#diffusion-typology) section.
+Depending how fluid the environnement is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion typology_](#diffusion-typology) section of the module.
 
-When performing reconstruction (denoising, deblurring, dehazing), it is advisable to use small speeds for better accuracy. This prevents numerical overshoots and therefore degeneration of the solution, and may require more iterations. For small numbers of iterations, higher speeds may be used. Note that large blurs need many iterations for proper reconstruction, so the speed should be adjusted to avoid degenerating the solution.
+When performing reconstruction (denoising, deblurring, dehazing), it is advisable to use smaller speeds for better accuracy. This prevents numerical overshoots (and therefore degeneration of the solution) and may require more iterations. For small numbers of iterations, higher speeds may be used. Note that large blurs need many iterations for proper reconstruction, so the speed should be adjusted to avoid degenerating the solution.
 
 All speeds are added (first to fourth orders), and the sums "`first order + second order`" and "`third order + fourth order`" should never exceed ±100%.
 
 ## scale
 
-Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 closest neighours.
+Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighours.
 
-Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so we can diffuse at different scales. The maximal scale of diffusion is defined by the _radius_ parameter.
+Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _radius_ parameter.
 
 Regardless of the diffusion, a _sharpness_ parameter allows you to increase or decrease the details at each scale, much like the spline controls of the _contrast equalizer_. Along with the _edge sensitivity_ slider, this provides the same features as the _contrast equalizer_ module (_luma_ and _edges_ tabs) but in a scene-referred RGB space.
 
@@ -77,7 +77,7 @@ Regardless of the diffusion, a _sharpness_ parameter allows you to increase or d
 ## diffusion properties
 
 iterations
-: The number of times the algorithm should run on top of itself. High values slow the module down but allow more accurate reconstructions provided the diffusion speeds are low enough.
+: The number of times the algorithm should run on top of itself. High values slow the module down but allow more accurate reconstructions, provided that the diffusion speeds are low enough.
 
 radius
 : The maximal distance of diffusion, expressed in pixels of the full-resolution image.
@@ -124,8 +124,7 @@ edge threshold
 ## diffusion spatiality
 
 luminance masking threshold
-: This control is useful if you want to inpaint highlights. For values greater than 0%, the diffusion will only happen in regions with a luminance greater than this setting.
-
+: This control is useful if you want to in-paint highlights. For values greater than 0%, the diffusion will only occur in regions with a luminance greater than this setting.
 
 # workflow
 
@@ -133,11 +132,11 @@ The main difficulty with this module is that while its output can vary dramatica
 
 ## general advice
 
-In case you intend on deblurring, always start by properly correctiong the chromatic aberrations and the noise in the image, since the deblurring may increase them. In that case, it is also important that you don't have clipped black pixels in your image, which can be corrected with the _black level correction_ of the _exposure_ module.
+If you intend to deblur your image using this module, always start by properly correctiong any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don't have clipped black pixels in your image. These can be corrected with the _black level correction_ of the [_exposure_](./exposure.md) module.
 
-## starting from presets
+## starting with presets
 
-The provided presets have been tuned by the developer and tested on a range of pictures for typical purposes. The easiest way is simply to start from the presets, and then tweak them as needed:
+The provided presets have been tuned by the developer and tested on a range of images for typical purposes. The easiest way is simply to start from the presets, and then tweak them as needed:
 
 - if the effect seems too strong, decrease the number of iterations,
 - if edge artifacts appear, increase the edge sensitivity,
@@ -148,7 +147,7 @@ The provided presets have been tuned by the developer and tested on a range of p
 
 ## starting from scratch
 
-The default settings are entirely neutral and will do nothing to your image. The spirit of the module is that each order will affect the texture of the image in a particular way.
+The module's default settings are entirely neutral and will do nothing to your image. The spirit of the module is that each order affects the texture of the image in a particular way.
 
 Start by tuning the first order parameters (speed and anisotropy) to get an initial base. Then adjust the radius. This will affect coarser textures (either blur or sharpen them). Remember that the first order acts on the low frequencies of the wavelet scale and follows a direction parallel or perpendicular to the gradient of the low frequencies.
 
@@ -168,10 +167,10 @@ The fourth order follows the gradient or isophote direction of the high frequenc
 
 # notes and warnings
 
-When setting a deblurring algorithm, try to bear in mind that the most glorious pages in the history of photography have been written by lenses that were not remotely as sharp as those available today. Although the current trend is to build and sell increasingly sharper lenses and have software apply insane amounts of sharpening on top, this fashion does _not_ lead to better imagery and makes the retouching process more tedious. Soft focus and a bit of blurriness have some poetic merits too, which surgically sanitized HD pictures may fail to convey.
+When setting a deblurring algorithm, try to bear in mind that the most glorious pages in the history of photography have been written using lenses that were not remotely as sharp as those available today. Although the current trend is to build and sell increasingly sharp lenses and have software apply insane amounts of sharpening on top, this fashion does _not_ lead to better imagery and makes the retouching process more tedious. Soft focus and a bit of blurriness have some poetic merits too, which surgically-sanitized HD images may fail to convey.
 
 It should be noted that global contrast (using simple tone curves or black/white levels) also affects our perception of sharpness, which is quite different from optical sharpness (optical resolution). Human eyes are only sensitive to local contrast, which may come from optical sharpness (e.g absence of diffusion -- thin edges) as well as from amplified tonal transitions. If some global tone mapping is in place to increase the contrast, the image will look sharper. If a tone mapping is used to decrease the contrast, the image will look more blurry. In none of these cases are the actual edges of objects affected in any way, and the perceptual consequences are pure illusion.
 
 Part of the aging process is a loss of eyesight. The amount of sharpening that people over 50 may find pleasing will not be the same as for people in their 20s. It is worth considering sharpening to obtain a _plausible_ result (matching your everyday perception) rather than a _pleasing_ result (that may look good only to people with the same eyesight as yours).
 
-Finally, assessing the sharpness of images zoomed to 1:1 (100%) or more is a foolish task. In museums, exhibitions and even on screen, the general audience looks at pictures as a whole, not with a magnifying glass. Moreover, most practical uses of photographs rarely exceed a resolution of 3000×2000 pixels (roughly a 300 DPI print at A4/letter dimensions) which, for 24 Mpx sensors, means downscaling by a factor of 4. When examining a 24 Mpx file at 1:1, you are actually looking at an image that will never exist. Sharpening at pixel level, in this context, is a waste of time and CPU cycles.
+Finally, assessing the sharpness of images zoomed to 1:1 (100%) or more is a foolish task. In museums, exhibitions and even on screen, the general audience looks at images as a whole, not with a magnifying glass. Moreover, in most practical uses, photographs rarely exceed a resolution of 3000×2000 pixels (roughly a 300 DPI print at A4/letter dimensions) which, for 24 Mpx sensors, means downscaling by a factor of 4. When examining a 24 Mpx file at 1:1, you are actually looking at an image that will never exist. Sharpening at pixel level, in this context, is a waste of time and CPU cycles.
