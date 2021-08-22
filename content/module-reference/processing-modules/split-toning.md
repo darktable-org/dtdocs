@@ -20,5 +20,5 @@ shadows and highlights color
 balance
 : The ratio of toning between shadows and highlights. When set to 50%, half of the lightness range in image is used for shadows toning and the other half for highlights toning.
 
-compression
+compress
 : The percentage of total (mid-tone) lightness range that is not affected by color toning. This compresses the effect on the shadows and highlights while preserving the mid-tones.
