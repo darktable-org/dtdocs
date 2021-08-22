@@ -45,13 +45,12 @@ prefer unmasked instances
 selection order
 : After applying the above rules, apply the shortcut to the first or last instance remaining (default "last instance").
 
-# other
+# map / geolocalisation view
 
-do not show april 1st game
-: Don't show a game when opening darktable on April 1st (default on). 
+pretty print the image location
+: Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on). 
 
-password storage backend to use
-: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”. 
+# slideshow view
 
-executable for playing audio files
-: Define an external program which is used in the lighttable view to play audio files that some cameras record to keep notes for images (default “aplay”). 
+waiting time before each picture in slideshow
+: The number of seconds before displaying the next image (default 5) in the [slideshow view](../slideshow/_index.md).
