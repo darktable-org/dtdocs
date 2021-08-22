@@ -179,9 +179,9 @@ At its most basic level, you can think of the R, G and B tabs of the _color cali
 
 If, for example, you've been provided with a matrix to transform from one color space to another, you can enter the matrix coefficients into the _channel mixer_ as follows:
 
-- select the _red_ tab and then set the Rr, Rg & Rb values using the red, green and blue input sliders
-- select the _green_ tab and then set the Gr, Gg & Gb values using the red, green and blue input sliders
-- select the _blue_ tab and then set the Br, Bg & Bb values using the red, green and blue input sliders
+- select the _R_ tab and then set the Rr, Rg & Rb values using the R, G and B input sliders
+- select the _G_ tab and then set the Gr, Gg & Gb values using the R, G and B input sliders
+- select the _B_ tab and then set the Br, Bg & Bb values using the R, G and B input sliders
 
 By default, the mixing function in _color calibration_ just copies the input [R G B] channels straight over to the matching output channels. This is equivalent to multiplying by the identity matrix:
 
@@ -191,17 +191,17 @@ By default, the mixing function in _color calibration_ just copies the input [R 
 └ B_out ┘     └ 0  0  1 ┘      └ B_in ┘
 ```
 
-For a more intuitive understanding of how the mixing sliders on the red, greeen and blue tabs behave, consider the following:
+For a more intuitive understanding of how the mixing sliders on the R, G and B tabs behave, consider the following:
 
-- for the _red_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more red. Moving the slider to the left will make those areas more cyan.
-- for the _green_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more green. Moving the slider to the left will make those areas more magenta.
-- for the _blue_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more blue. Moving the slider to the left will make those areas more yellow.
+- for the _R_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "red". Moving the slider to the left will make those areas more "cyan".
+- for the _G_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "green". Moving the slider to the left will make those areas more "magenta".
+- for the _B_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "blue". Moving the slider to the left will make those areas more "yellow".
 
 ## R, G and B tab controls
 
 The following controls are shown for each of the R, G and B tabs:
 
-input red/green/blue
+input R/G/B
 : Choose how much the input R, G and B channels influence the output channel relating to the tab concerned.
 
 normalize channels
@@ -216,35 +216,35 @@ saturation algorithm
 
 ## colorfulness tab controls
 
-input red/green/blue
-: Adjust the color saturation of pixels, based on the R, G and B channels of those pixels. For example, adjusting the _input red_ slider will affect the color saturation of pixels containing a lot of red more than pixels containing only a small amount of red.
+input R/G/B
+: Adjust the color saturation of pixels, based on the R, G and B channels of those pixels. For example, adjusting the _input R_ slider will affect the color saturation of pixels containing a lot of "R" more than pixels containing only a small amount of "R".
 
 normalize channels
 : Select this checkbox to try to keep the overall saturation constant between the input and output images.
 
 ## brightness tab controls
 
-input red/green/blue
-: Adjust the brightness of certain colors in the image, based on the R, G and B channels of those colors. For example, adjusting the _input red_ slider will affect the brightness of colors containing a lot of R channel much more than colors containing only a small amount of R channel. When darkening/brightening a pixel, the ratio of the R, G and B channels for that pixel is maintained, in order to preserve the hue.
+input R/G/B
+: Adjust the brightness of certain colors in the image, based on the R, G and B channels of those colors. For example, adjusting the _input R_ slider will affect the brightness of colors containing a lot of R channel much more than colors containing only a small amount of R channel. When darkening/brightening a pixel, the ratio of the R, G and B channels for that pixel is maintained, in order to preserve the hue.
 
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant between the input and output images.
 
 # gray tab
 
-Another very useful application of _color calibration_ is the ability to mix the channels together to produce a grayscale output -- a monochrome image. Select the _gray_ tab, and set the red, green and blue sliders to control how much each channel contributes to the brightness of the output. This is equivalent to the following matrix multiplication:
+Another very useful application of _color calibration_ is the ability to mix the channels together to produce a grayscale output -- a monochrome image. Select the _gray_ tab, and set the R, G and B sliders to control how much each channel contributes to the brightness of the output. This is equivalent to the following matrix multiplication:
 ```
 GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
                               │ G_in │
                               └ B_in ┘
 ```
 
-When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on red (e.g. [0.9, 0.3, -0.3]) will make for smooth skin tones, whereas emphasising green (e.g. [0.4, 0.75, -0.15]) will bring out more detail. In both cases the blue channel is reduced to avoid emphasising unwanted skin texture.
+When dealing with skin tones, the relative weights of the three channels will affect the level of detail in the image. Placing more weight on R (e.g. [0.9, 0.3, -0.3]) will make for smooth skin tones, whereas emphasising G (e.g. [0.4, 0.75, -0.15]) will bring out more detail. In both cases the B channel is reduced to avoid emphasising unwanted skin texture.
 
 ## gray tab controls
 
-input red/green/blue
-: Choose how much each of the R, G and B channels contribute to the gray level of the output. The image will only be converted to monochrome if the three sliders add up to some non-zero value. Adding more blue will tend to bring out more details, adding more red will tend to smooth skin tones.
+input R/G/B
+: Choose how much each of the R, G and B channels contribute to the gray level of the output. The image will only be converted to monochrome if the three sliders add up to some non-zero value. Adding more B will tend to bring out more details, adding more R will tend to smooth skin tones.
 
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
