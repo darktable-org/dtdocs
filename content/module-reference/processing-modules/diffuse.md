@@ -40,7 +40,7 @@ Since the process is physical, even its glitches may be used for creative purpos
 
 ---
 
-**Note:** This module is highly resource-intensive, as it is actually an anisotropic, multiscale, partial-derivative equation solver. The module's runtime increases with the number of iterations and OpenCL is therefore strongly recommended.
+**Note:** This module is highly resource-intensive, as it is actually an anisotropic, multiscale, partial differential equation solver. The module's runtime increases with the number of iterations and OpenCL is therefore strongly recommended.
 
 ---
 
@@ -131,7 +131,7 @@ luminance masking threshold
 
 # workflow
 
-The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial derivative equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
+The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
 
 ## general advice
 
