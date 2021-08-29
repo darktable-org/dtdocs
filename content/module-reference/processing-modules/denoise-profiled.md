@@ -1,7 +1,7 @@
 ---
 title: denoise (profiled)
 id: denoise-profiled
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 working-color-space:  
 view: darkroom
@@ -23,7 +23,7 @@ non-local means
 
 : Note that this algorithm is quite resource-intensive.
 
-wavelets
+wavelets (default)
 : This algorithm works in the [wavelet](../../darkroom/processing-modules/wavelets.md) domain, and provides a simplified user interface. Wavelet decomposition allows you to adjust the denoise strength depending on the coarseness of the noise in the image. This mode can be used in either _Y0U0V0 color mode_ (which allows you to independently control luminance and chroma noise) or _RGB color mode_ (which allows you to independently control noise for each RGB channel).
 
 : The wavelet algorithm is less resource-intensive than _non-local means_.
@@ -60,8 +60,6 @@ adjust autoset parameters (auto modes only)
 
 strength
 : Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal-to-noise ratio. It's mostly a matter of taste -- whether you prefer a low noise level at the cost of fine details, or you accept more noise to better preserve fine detail. 
-
-: In _wavelets_ mode, the default value of this slider may not be sufficient. If you do not set a high enough strength, then adjusting the wavelet curves above it will not have a large enough effect. You are therefore advised to set a reasonably high strength, and than make fine adjustments on the wavelet curves. Don't hesitate to right-click and enter a higher value if the default soft limit for this slider is insufficient.
 
 preserve shadows (advanced mode only)
 : Lower this control to denoise the shadows more agressively. Usually, as noise increases, you will need to decrease this parameter.
