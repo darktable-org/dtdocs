@@ -2,7 +2,7 @@
 title: print settings
 id: print-settings
 applicable-version: 3.2.1
-tags: 
+tags:
 view: print
 ---
 
@@ -25,7 +25,7 @@ intent
 : The print rendering intent (“perceptual”, “relative colorimetric”, “saturation” or “absolute colorimetric”). See [rendering intent](../../../special-topics/color-management/rendering-intent.md) for more details.
 
 black point compensation
-: Whether to adjust the black point of the output profile, which is often lighter than the input profile. This should be “on” when the _intent_ is set to “relative colorimetric”. 
+: Whether to adjust the black point of the output profile, which is often lighter than the input profile. This should be “on” when the _intent_ is set to “relative colorimetric”.
 
 ## page
 
@@ -41,6 +41,14 @@ units
 margins
 : Set each margin separately, or all together by clicking on the middle “lock” button.
 
+display grid
+: Select the grid size using the entry (number being expressed in the currently selected unit). Tick the option to display the grid on the canvas.
+
+snap to grid
+: Help setting the image areas by snapping them to the grid for proper alignment.
+
+## image layout
+
 image width/height
 : This information field displays the actual image width and height (given with the selected units) on the paper.
 
@@ -48,7 +56,22 @@ scale factor
 : This information field displays the scaling of the image to fit on the paper. If this value is less than 1 the image is down-scaled, otherwise it is up-scaled. This is an important factor to watch -- a value that is too large (up-scale) may result in a low quality print. The corresponding dpi (dots per inch) is also displayed.
 
 alignment
-: Select the alignment of the image on the paper.
+: Select the alignment of the image on its area.
+
+new image area button
+: Create a new image area. Drag and drop on the canvas to place it. If the option snap to grid is activated the area will easily be aligned on the grid lines. An image can be placed into this area by dragging it from the filmstrip and dropping it on the new area.
+
+delete image area button
+: Remove the currently selected image area from the composition.
+
+clear layout button
+: Remove all the image areas letting the canvas empty.
+
+The four entries following represent the position of currently selected area on the page. The top/left corner on the first line and the width/height of the area on the second line.
+
+When hovering an image area the position and size are displayed. It is also possible to grab the side and corner of the area to change the size or to drag the whole area to change its position.
+
+The page layout can be recorded using a preset.
 
 ## print settings
 
@@ -66,4 +89,4 @@ mode
 
 ## print button
 
-When clicked, the image is exported using the selected options and sent to the printer.
+When clicked, the images are exported using the selected options, then composed on the page and finally sent to the printer.
