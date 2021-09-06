@@ -16,6 +16,8 @@ This module accepts `.cube`, `.3dl`, `.png` (haldclut) and `.gmz` files. Uncompr
 
 The compressed format `.gmz` is only available when GMIC is installed. This format can hold a full library of LUTs, and LUT data loaded from this type of file _can_ be saved to the database and XMP files.
 
+CAUTION: the module clips all values outside [0,1]. You may have to reduce the values range before applying.
+
 # usage
 
 A common usage of LUTs in darktable is color grading or film look simulation. For this reason the module is placed by default after filmic and should be applied on neutral image (without specific look).
