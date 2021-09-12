@@ -21,7 +21,7 @@ Modules acting in (_display-referred_) _Lab_ color space have data channels for 
 
 Modules acting in _display-referred RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
 
-Modules acting in _scene-referred RGB_ color space have data channels for g (gray), R, G, B, Jz (luminance component of JzCzhz), Cz (chroma, or saturation, of JzCzhz), and hz (hue of JzCzhz). The JzCzhz color space is a polar representation of the Jzazbz color space, in the same way that LCh is a polar representation of the Lab space. However, Jzazbz is much better for high dynamic range images and is less susceptible to hue shifts than Lab space.
+Modules acting in _scene-referred RGB_ color space have data channels for g (gray), R, G, B, Jz (luminance component of JzCzhz), Cz (chroma, or saturation, of JzCzhz), and hz (hue of JzCzhz). The g (gray) value is calculated as a weighted average of the R, G & B channels, the exact weightings depending on the working color space being used. The JzCzhz color space is a polar representation of the Jzazbz color space, in the same way that LCh is a polar representation of the Lab space. Like the L in Lab color space, the Jz is a representation of the luminosity of a pixel that aligns with how we perceive brightness. However, the Jzazbz color space is much better for high dynamic range images and is less susceptible to hue shifts than Lab space.
 
 _See [Wikipedia](https://en.wikipedia.org/wiki/Color_space) for more details about these color spaces._
 
@@ -33,7 +33,7 @@ The _boost factor_ slider allows the range of values targeted by the parametric 
 
 ## inspecting data channels & masks
 
-Press the letter C while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in graycale values or in false colors depending on the setting in [preferences > darkroom > display of individual color channels](../../../preferences-settings/darkroom.md). 
+Press the letter C while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in gray-scale values or in false colors depending on the setting in [preferences > darkroom > display of individual color channels](../../../preferences-settings/darkroom.md). 
 
 Press the letter M to see the resulting mask for that slider overlaid on the image. 
 
