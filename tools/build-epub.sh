@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OUTPUT=epub
 HUGO_DIR=public-${OUTPUT}

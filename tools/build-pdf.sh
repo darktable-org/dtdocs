@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OUTPUT=pdf
 HUGO_DIR=public-${OUTPUT}
