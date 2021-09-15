@@ -11,6 +11,7 @@ pkgs.mkShell {
     pkgs.perlPackages.Po4a
     pkgs.python38Packages.weasyprint
     pkgs.linkchecker
+    pkgs.zip
   ];
   shellHook = ''
     PROJECTDIR=`pwd`
