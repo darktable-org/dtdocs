@@ -6,7 +6,7 @@ weight: 40
 author: "people"
 ---
 
-darktable is a non-destructive editor, which means that all changes are recorded in the library database (with a backup stored in an XMP sidecar file), and the original Raw file is left untouched. You therefore need to [export](LINK) images in order to bake your edits into an output file that can be distributed outside of darktable.
+darktable is a non-destructive editor, which means that all changes are recorded in the library database (with a backup stored in an XMP sidecar file), and the original Raw file is left untouched. You therefore need to [export](../../module-reference/utility-modules/shared/export.md) images in order to bake your edits into an output file that can be distributed outside of darktable.
 
 The export module offers many options, but by far the most common use is to “save a developed raw image as a JPEG”. You can either export the currently-edited image directly from the darkroom view or select one or more images from the lighttable view and export them all at once. 
 
