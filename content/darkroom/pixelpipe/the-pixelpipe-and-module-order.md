@@ -21,21 +21,29 @@ The order in which modules are executed within the pixelpipe has been carefully 
 
 One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md) setting.
 
-The main difference between these two workflows is that _display-referred_ operates primarily in the low-dynamic-range of the user's screen, whereas _scene-referred_ operates in the high-dynamic range of the original RAW file. The transition between _scene-referred_ and _display-referred_ is usually performed by a _tone mapping_ module which takes the high-dynamic-range input from the camera and compresses it to fit the dynamic range of the output medium.
+The following diagram should help you to understand the difference:
+
+![scene-referred and display-referred modules](./the-pixelpipe-and-module-order/scene-display-workflows.png)
+
+1. _Scene-referred_ modules process linear data that is proportional to the amount of light collected by the camera at the scene. The dynamic range of an image in the scene-referred section of the pixelpipe is often larger than that of the display medium. 
+
+2. At some point in the pixelpipe, these pixel values are compressed by a non-linear tone mapping operation, into a smaller dynamic range more suitable for display on a monitor or a print.
+
+3. The remaining modules operate in this non-linear _display-referred_ section of the pixelpipe to produce the final output image.
 
 ## display-referred workflow
 
 Prior to version 3.0 darktable's workflow was _display-referred_ (auto-apply pixel workflow defaults = "display-referred") and this option is still provided as a legacy mode. In this workflow, the [_base curve_](../../../module-reference/processing-modules/base-curve.md) or [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) module performs tone mapping early in the pixelpipe and most other darktable modules operate on image data in the compressed _display-referred_ space.
 
-This worfklow enables the legacy (pre-darktable-3.0) module order and automatically switches on the [_base curve_](../../../module-reference/processing-modules/base-curve.md) module for new images.
+Selecting the display-referred worfklow enables the legacy (pre-darktable-3.0) module order and automatically switches on the [_base curve_](../../../module-reference/processing-modules/base-curve.md) module for new images.
 
 Pixel data within the _display-referred_ space is non-linear and is not a physically realistic representation of the original scene. This can lead to various artifacts with some modules, hence the creation of the (now default) _scene-referred_ workflow.
 
 ## scene-referred workflow
 
-_Scene-referred_ workflow (auto-apply pixel workflow defaults = "scene-referred") was introduced as part of darktable 3.0. The module order was entirely rearranged to place the [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) and [_base curve_](../../../module-reference/processing-modules/base-curve.md) tone mapping modules much later in the pixelpipe. This means that most pixel operations now operate in _linear rgb_ space with only a few modules remaining within the non-linear _display-referred_ space. Within this workflow it is now recommended that the majority of image processing takes place using the modules up to and including [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md). Operations in this section of the pixelpipe, being truly linear, are much more physically realistic and produce fewer artifacts.
+_Scene-referred_ workflow (auto-apply pixel workflow defaults = "scene-referred") was introduced as part of darktable 3.0. The module order was entirely rearranged to place the [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) and [_base curve_](../../../module-reference/processing-modules/base-curve.md) tone mapping modules much later in the pixelpipe. This means that most modules now operate in _linear rgb_ space with only a few modules remaining within the non-linear _display-referred_ space. Within this workflow it is now recommended that the majority of image processing takes place using the modules up to and including [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md). Operations in this section of the pixelpipe, being truly linear, are much more physically realistic and produce fewer artifacts.
 
-This workflow enables the _v3.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
+Selecting the scene-referred workflow enables the _v3.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
 
 # changing module order
 
