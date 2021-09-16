@@ -10,6 +10,12 @@ masking: true
 
 Modify the global image saturation to give the image a tint or as an alternative method to split-tone the image.
 
+---
+
+_**Note:** You are now recommended to use the [color balance rgb](./color-balance-rgb.md) module for color modifications._
+
+---
+
 # module controls
 
 color board

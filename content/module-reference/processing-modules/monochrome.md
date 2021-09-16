@@ -12,6 +12,8 @@ Quickly convert an image to black & white using a variable color filter.
 
 To use this module, first reduce the filter size (to concentrate its effect) and move it across the hue palette to find the best filter value for your desired image rendition. Then gradually expand the filter to include more hues and achieve more natural tonality.
 
+Although this module appears easier to use, better results can usually be obtained by using the film emulation presets in the [_color calibration_](./color-calibration.md) module.
+
 ---
 
 **Note:** Under certain conditions, especially highly saturated blue light sources in the frame, this module may produce black pixel artifacts. Use the gamut clipping option of the [_input color profile_](./input-color-profile.md) module to mitigate this issue.

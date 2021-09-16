@@ -14,6 +14,12 @@ This module works in CIE LCh color space, which separates pixels into _lightness
 
 You first need to choose whether you wish to adjust (select) pixels based on their lightness, saturation or hue. You can then use three curves, on their respective tabs, to adjust the lightness, saturation and hue of ranges of pixels selected via this method.
 
+---
+
+_**Note:** This module should be used with care, as transitions between colors may not be graceful. As an alternative you are advised to use the [color balance rgb](./color-balance-rgb.md) module with a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md)._
+
+---
+
 # pixel selection method
 
 The _color zones_ module offers three different methods for selecting which pixels you want to adjust. They are:

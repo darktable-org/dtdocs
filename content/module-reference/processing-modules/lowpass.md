@@ -12,6 +12,12 @@ Apply a low pass filter (for example, a Gaussian blur) to the image, while contr
 
 This module is primarily intended to be used in combination with a [blend mode](../../darkroom/masking-and-blending/blend-modes.md). For example, try using the _local contrast mask_ preset with the _overlay_ blend mode.
 
+---
+
+_**Note:** This module performs blurs in Lab color space, and is therefore no longer recommended. You are advised to instead use the [contrast equalizer](./contrast-equalizer.md) module for blurring or the [tone equalizer](./tone-equalizer.md) module for dynamic range compression._
+
+---
+
 # module controls
 
 radius

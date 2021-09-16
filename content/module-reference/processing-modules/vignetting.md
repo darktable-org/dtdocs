@@ -18,6 +18,10 @@ Vignetting is a modification of the brightness and saturation at the borders of 
 
 ---
 
+_**Also note:** This module can produce unnatural-looking results and should be used with care. You may be better to use the [exposure](./exposure.md) module with an [elliptical mask](../../darkroom/masking-and-blending/masks/drawn.md) with a large transition area, perhaps also adding the [color balance rgb](./color-balance-rgb.md) module with the same mask to reduce saturation at the edges._
+
+---
+
 # module controls
 
 scale
