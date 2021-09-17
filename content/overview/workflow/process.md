@@ -75,7 +75,7 @@ One of the first things people notice when switching from lighttable to darkroom
 
 Most Raw software goes to great lengths to reproduce the look of standard camera JPEGs out of the box. While this can be useful (if you only want to make very minor adjustments to the camera's rendition of an image) we assume that you are using a Raw editor to make the image your own, and that the camera does not know how to do this. Certainly, if you are using the ETTR techniques mentioned above, the camera JPEG will rarely be close to how you want the final image to look. 
 
-The default settings in darktable are therefore intended to provide you with a useful _starting point_ for further editing and nothing more. _We do not intend to change this_.
+The default settings in darktable are therefore intended to provide you with a neutral _starting point_ for further editing and nothing more. _We do not intend to change this_.
 
 ## module groups
 
