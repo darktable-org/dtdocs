@@ -6,7 +6,7 @@ weight: 30
 author: "people"
 ---
 
-This section is intended to get you comfortable processing images in the darkroom view using a _scene-referred_ workflow. You are advised to follow the guidelines verbatim up to the end of the [_image processing in 3 modules_](#image-processing-in-3-modules) section and then choose other areas to learn as-and-when you need to use those techniques in your images. 
+This section is intended to get you comfortable processing images in the darkroom view using a _scene-referred_ workflow. You are advised to follow the guidelines provided below, up to the end of the [_image processing in 3 modules_](#image-processing-in-3-modules) section and then choose other areas to learn as-and-when you need to use those techniques in your images. 
 
 # getting started
 
