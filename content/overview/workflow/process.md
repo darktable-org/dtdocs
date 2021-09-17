@@ -169,7 +169,7 @@ Use the [_retouch_](../../module-reference/processing-modules/retouch.md) module
 
 ### remove atmospheric haze
 
-There are two methods for removing atmospheric haze in darktable -- you can either use the [haze removal](../../module-reference/processing-modules/haze-removal.md) module or the "dehaze" preset in the [_diffuse or sharpen_](../../module-reference/processing-modules/diffuse.md) module.
+There are two methods for removing atmospheric haze in darktable. The [haze removal](../../module-reference/processing-modules/haze-removal.md) module provides a much simpler interface, but the "dehaze" preset in the [_diffuse or sharpen_](../../module-reference/processing-modules/diffuse.md) module can provide more flexibility when needed.
 
 ## creative adjustments
 
