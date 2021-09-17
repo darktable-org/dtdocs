@@ -13,3 +13,5 @@ The export module offers many options, but by far the most common use is to “s
 Choose which images you want to export (if you are in the lighttable view), open the export module, set _target storage_ to "file on disk" and select a location to save your images -- by default, they will be exported to a "darktable" directory within the directory that contains your Raw file(s). Choose a "file format" of JPEG and keep the default settings. 
 
 Finally, click the "export" button to save your processed images in the selected location.
+
+_**Note:** While JPEG is useful for most purposes, if you wish to perform further edits in a raster editor like GIMP or Krita, it is normally better to export in tiff format._
