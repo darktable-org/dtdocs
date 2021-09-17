@@ -14,7 +14,7 @@ This module works by increasing the contrast around edges and thereby enhancing 
 
 ---
 
-_**Note:** The USM algorithm used in this module performs blurs in Lab color space, and is therefore no longer recommended. You are advised to instead use the presets offered by the [contrast equalizer](./contrast-equalizer.md) module for deblurring or the [local contrast](./local-contrast.md) module for general sharpness._
+_**Note:** The USM algorithm used in this module performs blurs in Lab color space, which can produce undesirable effects, and is therefore no longer recommended. You are advised to instead use the presets offered by the [contrast equalizer](./contrast-equalizer.md) module for deblurring or the [local contrast](./local-contrast.md) module for general sharpness._
 
 ---
 

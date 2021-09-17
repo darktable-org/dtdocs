@@ -12,7 +12,7 @@ Resaturate pixels in a weighted manner that gives more weight to blacks, whites 
 
 ---
 
-_**Note:** You are now recommended to use the [color balance rgb](./color-balance-rgb.md) module for color modifications._
+_**Note:** This module causes hue and brightness shifts that can be difficult to manage. You are now recommended to use the [color balance rgb](./color-balance-rgb.md) module for color modifications._
 
 ---
 

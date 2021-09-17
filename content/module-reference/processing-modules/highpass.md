@@ -14,7 +14,7 @@ This module is primarily intended to be used in combination with a [_blend mode_
 
 ---
 
-_**Note:** This module performs blurs in Lab color space, and is therefore no longer recommended. You are advised to instead use the [contrast equalizer](./contrast-equalizer.md) module for fine sharpness or the [local contrast](./local-contrast.md) module for general sharpness._
+_**Note:** This module performs blurs in Lab color space, which can result in undesirable effects, and is therefore no longer recommended. You are advised to instead use the [contrast equalizer](./contrast-equalizer.md) module for fine sharpness or the [local contrast](./local-contrast.md) module for general sharpness._
 
 ---
 

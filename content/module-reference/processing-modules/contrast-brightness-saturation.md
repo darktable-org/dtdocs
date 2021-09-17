@@ -14,7 +14,7 @@ All module controls default to a neutral position (zero) and provide the ability
 
 ---
 
-_**Note:** You are now recommended to use the [color balance rgb](./color-balance-rgb.md) module for these corrections._
+_**Note:** This module works in Lab color space and better tools are now availalbe. You are now recommended to use the [color balance rgb](./color-balance-rgb.md) module for these corrections._
 
 ---
 
