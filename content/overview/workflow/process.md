@@ -122,7 +122,7 @@ As a general rule, you should begin with the basic steps outlined in the previou
 
 ### color calibration
 
-Traditional white balance correction attempts to ensure that whites and grays are really neutral (R = G = B) and doesn’t really try to manage the impact on other colors. The [_CAT tab of the color calibration module_](../../module-reference/processing-modules/color-calibration.md#white-balance-in-the-chromatic-adaptation-transformation-cat-tab) extends this treatment to handle the remainder of the color range. As with traditional white balance controls you can select a patch of neutral gray in your image to calculate the white balance, or use a selection of other automatic and manual methods. The default settings use the white balance from the image's Exif data and are usually sufficient.
+Traditional white balance correction attempts to ensure that whites and grays are really neutral (R = G = B) and doesn’t really try to manage the impact on other colors. The [_CAT tab of the color calibration module_](../../module-reference/processing-modules/color-calibration.md#white-balance-in-the-chromatic-adaptation-transformation-cat-tab) extends this treatment to handle the remainder of the color range and works in a color space designed specifically for chromatic (color) adaptation. As with traditional white balance controls you can select a patch of neutral gray in your image to calculate the white balance, or use a selection of other automatic and manual methods. The default settings use the white balance from the image's Exif data and are usually sufficient.
 
 ### correct lens distortions
 
