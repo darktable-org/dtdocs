@@ -35,7 +35,7 @@ _Enter preferences by clicking on the gear icon in the [top panel](../user-inter
 
 Most processing software uses a traditional temperature/tint model for adjusting the white balance of an image. In darktable, the [color calibration module](../../module-reference/processing-modules/color-calibration.md) provides a much more robust and flexible approach, allowing you to explicitly define the color of the light source. This is particularly useful for scenes illuminated by artificial lighting.
 
-Please note that the [white balance](../../module-reference/processing-modules/white-balance.md) module is still enabled in this approach, but its settings should not usually be altered.
+Please note that the [white balance](../../module-reference/processing-modules/white-balance.md) module is still enabled in this approach, but its settings normally should not be altered.
 
 ---
 Set [preferences > processing > auto-apply chromatic aberration defaults](../../preferences-settings/processing.md) to "modern" now.
