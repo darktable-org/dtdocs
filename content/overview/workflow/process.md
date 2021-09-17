@@ -59,6 +59,8 @@ In the darkroom view, you will see a list of [processing modules](../../darkroom
 
 On the left hand side is the [history stack](../../module-reference/utility-modules/darkroom/history-stack.md) (you may need to expand the module), which shows the order in which adjustments were made to the controls of the various modules. This allows you to undo changes by reverting to an earlier step in the history stack. You will see that a number of modules are applied automatically -- these are needed in order to generate a legible image from the Raw data.
 
+It is important to understand the distinction between the order of the modules on the right-hand-side of the screen (which represents the order in which modules are _executed_) and the order of the modules in the history stack (which represents the order in which modules were _modified_).
+
 To the top right is the [histogram](../../module-reference/utility-modules/shared/histogram.md) which shows the spread of tones/colors in your image.
 
 ---
