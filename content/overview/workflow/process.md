@@ -92,25 +92,37 @@ The following basic adjustments are fundamental to scene-referred editing and wi
 
 As you will be adjusting the tones and colors of the image, start by enabling [color assessment mode](../../module-reference/utility-modules/darkroom/color-assessment.md) (press Ctrl+B) and perform the following edits on the zoomed-out image while in this mode.
 
-1. **Set overall image brightness**: First, set the overall (average) brightness of the image (the mid-gray point) by adjusting the _exposure_ slider in the [_exposure_](../../module-reference/processing-modules/exposure.md) module. This is a purely artistic setting and should be defined based on your intent -- for example, for a high-key image you will set the average brightness to be lighter than for a low-key image. The color assessment mode provides you with two reference points to assist with this by surrounding the image with a white frame against a middle-gray background.
+1. **Set overall image brightness**: First, set the overall (average) brightness of the image (the mid-gray point) by adjusting the _exposure_ slider in the [_exposure_](../../module-reference/processing-modules/exposure.md) module. This is a purely artistic setting and should be defined based on your intent -- for example, for a high-key image you will set the average brightness to be lighter than for a low-key image. The color assessment mode provides you with two reference points to assist with this by surrounding the image with a white frame against a middle-gray background. 
 
    At this point, don't worry if the brightest parts of your image lose detail -- this can be recovered in the next step.
+
+   ---
+
+   _**Note:** The [lens correction](#correct-lens-distortions) module can also affect the image brightness so you may want to consider enabling it before adjusting exposure._
+
+   ---
 
 2. **Set white and black points**: The next two steps use the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module to define how the tones in your image will be mapped to the dynamic range of your display. Start by setting the _white_ and _black_ relative exposure sliders in the [_scene tab_](../../module-reference/processing-modules/filmic-rgb.md#scene). These are purely technical settings, defining white and black relative to the mid-gray point you set in the previous step. If your image contains tones you want to treat as pure white or pure black you can use the color pickers beside the sliders to set these values (using the maximum and minimum brightness of the image). Otherwise set the values manually using the color assessment frames as a reference.
 
 3. **Adjust the contrast**: Now move to the [_look tab_](../../module-reference/processing-modules/filmic-rgb.md#look) in _filmic rgb_ (for now we will skip the [_reconstruct tab_](../../module-reference/processing-modules/filmic-rgb#reconstruct)). Enable the [_look only_ view](../../module-reference/processing-modules/filmic-rgb.md#graphic-display) at the top of the module to see a representation of the filmic tone curve, which consists of a straight section in the middle (used to set the contrast of the mid-tones) and curved sections at the top and bottom (where the shadows and highlights are compressed to fit the dynamic range of the display). 
 
-   The _contrast_ slider changes the slope of the straight section (the mid-tone image contrast), the _latitude_ slider changes its length and the _shadows/highlights balance_ slider changes its position. There is a lot of give-and-take involved here -- if you want to increase the contrast of the mid-tones, you must sacrifice contrast in the shadows/highlights and vice versa. Experiment with these sliders to understand how they affect the image.
+   The _contrast_ slider changes the slope of the straight section (the mid-tone image contrast), the _latitude_ slider changes its length and the _shadows/highlights balance_ slider changes its position. There is a lot of give-and-take involved here -- if you want to increase the contrast of the mid-tones, you must sacrifice contrast in the shadows/highlights and vice versa. The default settings of this module are tuned to work for the majority of images but you should experiment with these sliders to understand how they affect the image.
    
----
+   ---
 
-  Note: The highlight compression in the filmic rgb module can cause detail to be lost in the highlights. You can mitigate this to some extent by reducing the _white relative exposure_, adjusting the _shadows/highlights balance_ or changing the _contrast in highlights_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options). The [_tone equalizer_](../../module-reference/processing-modules/tone-equalizer.md) module can also be used to reduce the relative brightness of the sky.
+   _**Note:** The highlight compression in the filmic rgb module can cause detail to be lost in the highlights. You can mitigate this to some extent by reducing the _white relative exposure_, adjusting the _shadows/highlights balance_ or changing the _contrast in highlights_ setting in the [options tab](../../module-reference/processing-modules/filmic-rgb.md#options). The [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) module can also be used to reduce the relative brightness of the sky._
 
----
+   ---
 
 4. **Color preservation**: The tone mapping in the filmic module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear. 
 
-5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required.
+5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required. 
+
+   ---
+
+   _**Note:** This guide assumes that the white balance of the image has been correctly captured by your camera. If this is not the case, you may need to make some corrections in the [color calibration](#color-calibration) module first._
+
+   ---
 
 You can now switch off _color assessment mode_ by pressing Ctrl+B again.
 
@@ -125,6 +137,8 @@ As a general rule, you should begin with the basic steps outlined in the previou
 ### color calibration
 
 Traditional white balance correction attempts to ensure that whites and grays are really neutral (R = G = B) and doesn’t really try to manage the impact on other colors. The [_CAT tab of the color calibration module_](../../module-reference/processing-modules/color-calibration.md#white-balance-in-the-chromatic-adaptation-transformation-cat-tab) extends this treatment to handle the remainder of the color range and works in a color space designed specifically for chromatic (color) adaptation. As with traditional white balance controls you can select a patch of neutral gray in your image to calculate the white balance, or use a selection of other automatic and manual methods. The default settings use the white balance from the image's Exif data and are usually sufficient.
+
+If you need to make adjustments in the _color calibration_ module, you may want to also revisit any saturation corrections you made earlier in the _color balance rgb_ module.
 
 ### correct lens distortions
 
