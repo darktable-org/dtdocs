@@ -1,7 +1,7 @@
 ---
 title: print settings
 id: print-settings
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags:
 view: print
 ---
@@ -42,7 +42,7 @@ margins
 : Set each margin separately, or all together by clicking on the middle “lock” button.
 
 display grid
-: Select the grid size using the entry (number being expressed in the currently selected unit). Tick the option to display the grid on the canvas.
+: Select the grid size using the entry field (expressed in the currently selected unit). Tick the option to display the grid on the canvas.
 
 snap to grid
 : Help setting the image areas by snapping them to the grid for proper alignment.
@@ -59,17 +59,17 @@ alignment
 : Select the alignment of the image on its area.
 
 new image area button
-: Create a new image area. Drag and drop on the canvas to place it. If the option snap to grid is activated the area will easily be aligned on the grid lines. An image can be placed into this area by dragging it from the filmstrip and dropping it on the new area.
+: Create a new image area. Drag and drop on the canvas to place it. If the option snap to grid is activated the area can be easily aligned to the grid lines. An image can be placed into this area by dragging it from the filmstrip and dropping it on the new area.
 
 delete image area button
 : Remove the currently selected image area from the composition.
 
 clear layout button
-: Remove all the image areas letting the canvas empty.
+: Remove all the image areas leaving the canvas empty.
 
-The four entries following represent the position of currently selected area on the page. The top/left corner on the first line and the width/height of the area on the second line.
+The following four fields represent the position of currently selected area on the page -- the top/left corner on the first line and the width/height of the area on the second line.
 
-When hovering an image area the position and size are displayed. It is also possible to grab the side and corner of the area to change the size or to drag the whole area to change its position.
+When hovering an image area its position and size are displayed. It is also possible to grab the side and corner of the area to change the size or to drag the whole area to change its position.
 
 The page layout can be recorded using a preset.
 
@@ -89,4 +89,4 @@ mode
 
 ## print button
 
-When clicked, the images are exported using the selected options, then composed on the page and finally sent to the printer.
+When clicked, the images are first exported using the selected options, then composed on the page and finally sent to the printer.
