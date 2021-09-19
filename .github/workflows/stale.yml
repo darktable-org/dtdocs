@@ -1,0 +1,28 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/stale@v4
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'This issue has not had any activity in the past 60 days and will be closed in 365 days if not updated.'
+        stale-pr-message: 'This pull request has not had any activity in the past 60 days and will be closed in 365 days if not updated. Please verify it has no conflicts with the master branch and rebase if needed. Please add a comment if you need help or give permission to other people to finish your work.'
+        close-issue-message: 'This issue has not had any activity in the past year and has therefore been closed.'
+        close-pr-message: 'This pull reguest has not had any activity in the past year has therefore been closed.'
+        stale-issue-label: 'no-issue-activity'
+        stale-pr-label: 'no-pr-activity'
+        days-before-stale: 60
+        days-before-close: 365
+        remove-stale-when-updated: true
+        exempt-all-milestones: true
+        exempt-pr-labels: 'wip'
+        exempt-issue-labels: 'wip'
+        operations-per-run: 500
