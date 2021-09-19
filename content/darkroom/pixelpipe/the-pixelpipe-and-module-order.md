@@ -19,9 +19,11 @@ The order of the pixelpipe is represented graphically by the order in which modu
 
 The order in which modules are executed within the pixelpipe has been carefully chosen to give the best output quality. In previous versions of darktable it was not possible to change the module order. However, there are a number of very specific use cases where the movement of some modules within the pixelpipe is advised.
 
-One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md) setting.
+One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md) setting. Finally, in version 3.6, _scene-referred_ workflow is now the official recommended (and default) way to use darktable.
 
-The following diagram should help you to understand the difference:
+_Scene-referred_ workflow attempts to perform as many operations as possible in a linear RGB color space, only compressing the tones to fit the output medium (with a non-linear tone mapping) at the end of the pixelpipe. This has the advantage of being a much more physically-realistic space to do transformations than the traditional _display-referred_ workflow, which attempts to perform operations in a non-linear _perceptual_ color space. Honoring physical, rather than perceptual, realism makes it much easier to produce predictable processing algorithms with a minimum of artifacts.
+
+The following diagram should help you to understand the difference between these workflows:
 
 ![scene-referred and display-referred modules](./the-pixelpipe-and-module-order/scene-display-workflows.png)
 
