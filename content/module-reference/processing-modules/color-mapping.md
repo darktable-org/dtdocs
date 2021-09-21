@@ -25,7 +25,7 @@ acquire as source/target
 : Press these buttons to generate color clusters for the source and target image, respectively. The processing takes a few seconds during which the GUI will be unresponsive.
 
 number of clusters
-: The number of color clusters to use. If you change this parameter all collected color clusters are reset and must be re-acquired.
+: The number of color clusters to use. This should roughly correlate to the number of dominant colors in the image. The clusters are acquired through a statistical sampling process to represent the colors that occur most commonly throughout the image. The random nature of the sampling process means that you might get different results each time you acquire the clusters, especially if you have a larger number of clusters and/or a complex color palette in the image. If you change this parameter all the collected color clusters are reset and must be re-acquired.
 
 color dominance
 : This parameter controls the mapping between source and target clusters. At the minimum value, the mapping is based on color proximity. This typically leads to very subtle effects on the target image. At the maximum value, the mapping is based on the relative weight of the color clusters – dominant colors of the source image are mapped to dominant colors of the target image. This typically leads to a very strong effect. Intermediate values incrementally shift between these extremes.
