@@ -12,7 +12,7 @@ Modify the tonal range of the shadows and highlights of an image by enhancing lo
 
 ---
 
-_**Note:** This module performs blurs in Lab color space, which can result in a number of issues, including halos, high local contrast in highlights and hue shifts towards blue in the shadows. You are advised to use the [tone equalizer](./tone-equalizer.md) module instead._
+_**Note:** This module performs blurs in Lab color space, which can result in a number of issues, including halos, high local contrast in highlights, and hue shifts towards blue in the shadows. Instead, use the [tone equalizer](./tone-equalizer.md) module instead._
 
 ---
 

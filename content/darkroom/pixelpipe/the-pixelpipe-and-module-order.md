@@ -19,9 +19,9 @@ The order of the pixelpipe is represented graphically by the order in which modu
 
 The order in which modules are executed within the pixelpipe has been carefully chosen to give the best output quality. In previous versions of darktable it was not possible to change the module order. However, there are a number of very specific use cases where the movement of some modules within the pixelpipe is advised.
 
-One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md) setting. Finally, in version 3.6, _scene-referred_ workflow is now the official recommended (and default) way to use darktable.
+One of the main reasons to change the module order came about with darktable version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md) setting. Starting with version 3.6, _scene-referred_ workflow is now the official recommended (and default) way to use darktable.
 
-_Scene-referred_ workflow attempts to perform as many operations as possible in a linear RGB color space, only compressing the tones to fit the output medium (with a non-linear tone mapping) at the end of the pixelpipe. This has the advantage of being a much more physically-realistic space to do transformations than the traditional _display-referred_ workflow, which attempts to perform operations in a non-linear _perceptual_ color space. Honoring physical, rather than perceptual, realism makes it much easier to produce predictable processing algorithms with a minimum of artifacts.
+The _scene-referred_ workflow attempts to perform as many operations as possible in a linear RGB color space, only compressing the tones to fit the output medium (with a non-linear tone mapping) at the end of the pixelpipe. This has the advantage of being a more physically-realistic space to do transformations than the traditional _display-referred_ workflow, which attempts to perform operations in a non-linear _perceptual_ color space. Honoring the physical realism (rather than the perceptual realism) makes it much easier to produce predictable processing algorithms with a minimum of artifacts.
 
 The following diagram should help you to understand the difference between these workflows:
 
@@ -29,9 +29,9 @@ The following diagram should help you to understand the difference between these
 
 1. _Scene-referred_ modules process linear data that is proportional to the amount of light collected by the camera at the scene. The dynamic range of an image in the scene-referred section of the pixelpipe is often larger than that of the display medium. 
 
-2. At some point in the pixelpipe, these pixel values are compressed by a non-linear tone mapping operation, into a smaller dynamic range more suitable for display on a monitor or a print.
+2. At some point in the pixelpipe, these pixel values are compressed by a non-linear tone mapping operation into a smaller dynamic range more suitable for display on a monitor or a print.
 
-3. The remaining modules operate in this non-linear _display-referred_ section of the pixelpipe to produce the final output image.
+3. The remaining modules operate in the non-linear _display-referred_ section of the pixelpipe to produce the final output image.
 
 ## display-referred workflow
 

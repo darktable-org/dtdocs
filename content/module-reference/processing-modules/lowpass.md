@@ -14,7 +14,7 @@ This module is primarily intended to be used in combination with a [blend mode](
 
 ---
 
-_**Note:** This module performs blurs in Lab color space, which can produce undesirable effects, and is therefore no longer recommended. You are advised to instead use the [contrast equalizer](./contrast-equalizer.md) module for blurring or the [tone equalizer](./tone-equalizer.md) module for dynamic range compression._
+_**Note:** This module performs blurs in Lab color space, which can produce undesirable effects, and is no longer recommended. Instead, use the [contrast equalizer](./contrast-equalizer.md) module for blurring or the [tone equalizer](./tone-equalizer.md) module for dynamic range compression._
 
 ---
 

@@ -16,7 +16,7 @@ You first need to choose whether you wish to adjust (select) pixels based on the
 
 ---
 
-_**Note:** This module should be used with care, as transitions between colors may not be graceful. As an alternative you are advised to use the [color balance rgb](./color-balance-rgb.md) module with a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md)._
+_**Note:** This module should be used with care, as transitions between colors may not be graceful. Instead, use the [color balance rgb](./color-balance-rgb.md) module with a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md)._
 
 ---
 

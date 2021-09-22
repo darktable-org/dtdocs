@@ -12,7 +12,7 @@ Modify the global image saturation to give the image a tint or as an alternative
 
 ---
 
-_**Note:** You are now recommended to use the [color balance rgb](./color-balance-rgb.md) module for color modifications._
+_**Note:** Use the [color balance rgb](./color-balance-rgb.md) module for color modifications._
 
 ---
 
