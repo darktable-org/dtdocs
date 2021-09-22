@@ -10,7 +10,7 @@ darktable is a non-destructive editor, which means that all changes are recorded
 
 1. Choose an export scenario.
 
-  The export module offers many options, but by far the most common use is to “save a developed raw image as a JPEG”. You can either export the currently-edited image directly from the darkroom view or select one or more images from the lighttable view and export them all at once. 
+   The export module offers many options, but by far the most common use is to “save a developed raw image as a JPEG”. You can either export the currently-edited image directly from the darkroom view or select one or more images from the lighttable view and export them all at once. 
 
 2. Select which images to export (if you are in the lighttable view), open the export module, set _target storage_ to "file on disk" and select a location to save your images -- by default, they will be exported to a "darktable" directory within the directory that contains your Raw file(s). Choose a "file format" of JPEG and keep the default settings. 
 
