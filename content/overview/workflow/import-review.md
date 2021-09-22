@@ -9,7 +9,7 @@ author: "people"
 Before you can do anything in darktable you must first add some images files to the library using the [import](../../module-reference/utility-modules/lighttable/import.md) module in the [lighttable view](../../lighttable/_index.md). This will create entries for your images in darktable's library database so that it can keep track of the changes you make. There are three ways to import images, each accessible through buttons in the import module:
 
 add to library
-: This option adds images to the library without copying or moving them -- your original files will stay in their current location and will not be altered. On import, darktable will read the metadata from the image files and any accompanying [XMP sidecar file](../../overview/sidecar-files/_index.md). If an image has already been added to the database, any updates you have made to the sidecar file will be loaded.
+: This option adds images to the library without copying or moving -- your original files will stay in their current location and will not be altered. On import, darktable will read the metadata from the image files and any accompanying [XMP sidecar file](../../overview/sidecar-files/_index.md). If an image has already been added to the database, any updates you have made to the sidecar file will be loaded.
 
 copy & import
 : Copies the images to the storage llocation (following the file naming pattern defined in [preferences > import](../../preferences-settings/import.md)), then adds the _copied_ images to the library -- the original images are not changed or moved.
