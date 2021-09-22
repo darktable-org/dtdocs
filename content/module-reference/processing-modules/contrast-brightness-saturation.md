@@ -12,6 +12,12 @@ A very basic tool for adjusting the _contrast_, _brightness_ and _saturation_ of
 
 All module controls default to a neutral position (zero) and provide the ability to increase or decrease the relevant parameter
 
+---
+
+_**Note:** This module works in Lab color space and is prone to halos. Instead, use the [color balance rgb](./color-balance-rgb.md) module._
+
+---
+
 # module controls
 
 contrast

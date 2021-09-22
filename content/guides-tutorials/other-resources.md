@@ -6,6 +6,8 @@ weight: 120
 author: "people"
 ---
 
+For help and support with using darktable you are encouraged to ask questions on the main discussion forums at [discuss.pixls.us](https://discuss.pixls.us/).
+
 The official places to obtain information concerning darktable are the following:
 
 - [darktable.org](https://darktable.org/)
@@ -34,4 +36,3 @@ Some other YouTube channels with recent content on using darktable are:
 - [Bruce Williams Photography](https://www.youtube.com/user/audio2u)
 - [Boris Hajdukovic](https://www.youtube.com/user/s7habo)
 
-For help and support, you can also ask questions on the main discussion forums at [discuss.pixls.us](https://discuss.pixls.us/).

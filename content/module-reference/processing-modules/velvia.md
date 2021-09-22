@@ -10,6 +10,12 @@ masking: true
 
 Resaturate pixels in a weighted manner that gives more weight to blacks, whites and less saturated pixels. 
 
+---
+
+_**Note:** This module causes hue and brightness shifts that can be difficult to manage. Instead, use the [color balance rgb](./color-balance-rgb.md) module for color modifications._
+
+---
+
 # module controls
 
 strength

@@ -12,6 +12,12 @@ Sharpen the details in the image using a standard UnSharp Mask (USM).
 
 This module works by increasing the contrast around edges and thereby enhancing the _impression_ of sharpness of an image. This module is applied to the L channel in Lab color space.
 
+---
+
+_**Note:** The USM algorithm used in this module performs blurs in Lab color space, which can produce undesirable effects, and is no longer recommended. Instead use the presets offered by the [contrast equalizer](./contrast-equalizer.md) module for deblurring or the [local contrast](./local-contrast.md) module for general sharpness._
+
+---
+
 # module controls
 
 radius
