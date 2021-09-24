@@ -61,3 +61,18 @@ There are two themes for the darktable documentation: one for the HTML website a
 3. Translate the content of the new yaml file.
 4. Check the translated PO file into git, push it to github, and open a pull request to have your changes accepted.
 5. Repeat the last four steps for the other themes, `themes/hugo-darktable-docs-epub-theme` and `themes/hugo-darktable-docs-pdf-theme`.
+
+# Integrating new translations from Weblate
+
+The following assumes that you're git working directory is clean, that you have API access to the Weblate instance, that you've configured the Weblate git repo as a remote in your local `dtdocs` git repo, and that `wlc`, the Weblate command line client, is configured.
+
+1. Commit any changes in Weblate: `wlc commit darktable/dtdocs`
+2. Lock the Weblate project to prevent further changes: `wlc lock darktable/dtdocs`
+3. In your local `dtdocs` git repo, create a new branch: `git checkout -b po-updates`
+4. Update the Weblate remote: `git remote update weblate`
+5. Merge the Weblate changes into your locally created branch: `git merge weblate/master`
+6. Squash all the Weblate commits, sincce there are so many: `git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))`
+7. State the changed PO files: `git add -A`
+8. Commit the PO files: `git commit -m "Update with the PO files from weblate."`
+9. Create a Pull Request in Github.
+10. After the Pull Request is accepted, reset the Weblate repo to match the `dtdocs` repo: `wlc reset darktable/dtdocs`
