@@ -52,7 +52,7 @@ Do the following steps to generate the website files from a translation.
 4. Remove the translated files, as we never check them into git:
    `cd tools/ && ./generate-translations.sh --rm-translations`.
 
-# Translating website and PDF strings
+# Translating website, epub, and PDF strings
 
 There are two themes for the darktable documentation: one for the HTML website and one for the PDF. You'll need to translate the strings for both.
 
@@ -60,4 +60,4 @@ There are two themes for the darktable documentation: one for the HTML website a
 2. Copy content of the file `en.yaml` and name the new file `<your language>.yaml`.
 3. Translate the content of the new yaml file.
 4. Check the translated PO file into git, push it to github, and open a pull request to have your changes accepted.
-5. Repeat the last four steps for the other theme, `themes/hugo-darktable-docs-pdf-theme`.
+5. Repeat the last four steps for the other themes, `themes/hugo-darktable-docs-epub-theme` and `themes/hugo-darktable-docs-pdf-theme`.
