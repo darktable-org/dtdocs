@@ -27,10 +27,10 @@ mean/min/max
 color swatch / color values
 : A color swatch representing the sampled point or area is displayed alongside numerical values. Clicking on the swatch will toggle on/off a much larger swatch for easier viewing.
 
-: The global color picker works in display RGB color space. Select "Lab" to translate these numerical values into Lab color space. Beware that Lab values are approximated here. Depending on the display color profile there may be some deviations from the actual values.
+: The global color picker works in display RGB color space, though you may choose (by selecting from the drop-down) to translate these numerical values into another color space. Beware that values in other color spaces are approximated here -- depending on the display color profile there may be some deviations from the actual values.
 
 live samples
-: The sampled colors (in either area or point mode) can be stored as live samples by pressing the “add” button. A color swatch and numerical values will be shown for each stored sample. You can select which numerical value (mean, min, max) is to be displayed and whether the display should be in RGB or Lab color space.
+: The sampled colors (in either area or point mode) can be stored as live samples by pressing the "add" button. A color swatch and numerical values will be shown for each stored sample. You can change the numerical value (mean, min, max) and color space to display.
 
 : Newly created live samples are not locked. If you change your image processing those changes will be reflected in the live samples. This can be used to see how an altered parameter affects different parts of the image. Clicking on a live sample's color swatch locks it and a lock symbol is displayed. Further image changes will then no longer affect the sample. You can use this to compare two live samples by locking just one of them, thus providing a before and after comparison.
 
