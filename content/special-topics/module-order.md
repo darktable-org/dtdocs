@@ -52,7 +52,6 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [lowpass](../module-reference/processing-modules/lowpass.md)
 2. [highpass](../module-reference/processing-modules/highpass.md)
 2. [sharpen](../module-reference/processing-modules/sharpen.md)
-2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. _color transfer (deprecated)_
 2. [color mapping](../module-reference/processing-modules/color-mapping.md)
 2. [channel mixer (deprecated)](../module-reference/processing-modules/channel-mixer.md)
@@ -66,6 +65,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [**FILMIC RGB**](../module-reference/processing-modules/filmic-rgb.md) _-- transition from scene-referred to display-referred space_
 2. [contrast brightness saturation](../module-reference/processing-modules/contrast-brightness-saturation.md)
 2. [tone curve](../module-reference/processing-modules/tone-curve.md)
+2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [levels](../module-reference/processing-modules/levels.md)
 2. [shadows and highlights](../module-reference/processing-modules/shadows-and-highlights.md)
 2. [zone system (deprecated)](../module-reference/processing-modules/zone-system.md)
@@ -157,6 +157,7 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [contrast brightness saturation](../module-reference/processing-modules/contrast-brightness-saturation.md)
 2. [zone system (deprecated)](../module-reference/processing-modules/zone-system.md)
 2. [tone curve](../module-reference/processing-modules/tone-curve.md)
+2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [levels](../module-reference/processing-modules/levels.md)
 2. [rgb levels](../module-reference/processing-modules/rgb-levels.md)
 2. [rgb curve](../module-reference/processing-modules/rgb-curve.md)
@@ -166,7 +167,6 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [lowpass](../module-reference/processing-modules/lowpass.md)
 2. [highpass](../module-reference/processing-modules/highpass.md)
 2. [grain](../module-reference/processing-modules/grain.md)
-2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [color contrast](../module-reference/processing-modules/color-contrast.md)
 2. [**output color profile**](../module-reference/processing-modules/output-color-profile.md)
 2. [channel mixer (deprecated)](../module-reference/processing-modules/channel-mixer.md)
