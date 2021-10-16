@@ -1,7 +1,7 @@
 ---
 title: histogram
 id: histogram
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 view: lighttable, tethering
 ---
@@ -70,7 +70,7 @@ The distance from the center of the graph represents chroma and the angle repres
 
 The vectorscope chroma scale can either be linear or logarithmic. Click the second-to-leftmost button on the panel to toggle this.
 
-The vectorscope can describe the image in either the [CIELUV](https://en.wikipedia.org/wiki/CIELUV) or [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) colorspace. Clicking the third-to-leftmost button on the panel cycles between u\*v\* and AzBz. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+The vectorscope can describe the image in the [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) colorspace. Clicking the third-to-leftmost button on the panel cycles between u\*v\*, AzBz and RYB. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
 
 The graph includes a "hue ring" representing the maximum chroma of each hue (in bounded RGB) of the current histogram profile. The RGB primaries/secondaries are marked by circles.
 
