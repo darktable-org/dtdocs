@@ -42,6 +42,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. _legacy equalizer_
 2. [**input color profile**](../module-reference/processing-modules/input-color-profile.md)
 2. [color calibration](../module-reference/processing-modules/color-calibration.md)
+2. [diffuse or sharpen](../module-reference/processing-modules/diffuse.md)
 2. [censorize](../module-reference/processing-modules/censorize.md)
 2. [negadoctor](../module-reference/processing-modules/negadoctor.md)
 2. [astrophoto denoise](../module-reference/processing-modules/astrophoto-denoise.md)
@@ -128,6 +129,7 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [haze removal](../module-reference/processing-modules/haze-removal.md)
 2. [**input color profile**](../module-reference/processing-modules/input-color-profile.md)
 2. [color calibration](../module-reference/processing-modules/color-calibration.md)
+2. [diffuse or sharpen](../module-reference/processing-modules/diffuse.md)
 2. [censorize](../module-reference/processing-modules/censorize.md)
 2. [negadoctor](../module-reference/processing-modules/negadoctor.md)
 2. [basic adjustments (deprecated)](../module-reference/processing-modules/basic-adjustments.md)
