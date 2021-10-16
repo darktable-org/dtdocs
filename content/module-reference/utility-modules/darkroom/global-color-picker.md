@@ -36,9 +36,9 @@ live samples
 
 : If you hover the mouse over the "delete" button of one of the live sample entries, the selected region for that sample will be highlighted in the image preview.
 
-display sample areas on image
-: When this checkbox is ticked, live sample locations are visually indicated on the image. 
+display samples on image/vectorscope
+: When this checkbox is ticked, live sample locations are visually indicated on the image and the vectorscope view of the [histogram](../shared/histogram.md#vectorscope) module.
 
-restrict histogram to selection
-: When this checkbox is ticked, only the values of the selected area or point are taken into account by the main histogram at the top of the right hand panel. This allows you to see what tonal values are present in the selected area. This option applies to both the regular and waveform histograms.
+restrict scope to selection
+: When this checkbox is ticked, only the values of the selected area or point are taken into account by the regular and waveform views of the [histogram](../shared/histogram.md) module. This allows you to see what tonal values are present in the selected area.
 
