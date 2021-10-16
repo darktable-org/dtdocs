@@ -44,7 +44,7 @@ This preset is the default module group layout from darktable 3.4 onwards and co
 
 # _workflow: scene-referred_ & _workflow: display-referred_
 
-These presets define groups of modules relevant to the [scene-referred](../../overview/workflow/edit-display-referred.md) and [display-referred](../../overview/workflow/edit-scene-referred.md) workflows, sorted into groups as shown below:
+These presets define groups of modules relevant to the [scene-referred and display-referred workflows](../pixelpipe/the-pixelpipe-and-module-order.md#module-order-and-workflows), sorted into groups as shown below:
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply tone mappings and contrast as appropriate to the workflow.
