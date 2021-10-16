@@ -40,5 +40,5 @@ display samples on image/vectorscope
 : When this checkbox is ticked, live sample locations are visually indicated on the image and the vectorscope view of the [histogram](../shared/histogram.md#vectorscope) module.
 
 restrict scope to selection
-: When this checkbox is ticked, only the values of the selected area or point are taken into account by the regular and waveform views of the [histogram](../shared/histogram.md) module. This allows you to see what tonal values are present in the selected area.
+: When this checkbox is ticked, only the values of the selected area or point are taken into account by the regular and waveform views of the [histogram](../shared/histogram.md) module. This allows you to see what tonal values are present in the selected area. When using a color picker in a processing module, this option restricts the histogram to the picked area from the processing module instead of the global color picker.
 
