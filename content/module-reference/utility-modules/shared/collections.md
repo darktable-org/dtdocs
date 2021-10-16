@@ -1,7 +1,7 @@
 ---
 title: collections
 id: collections
-applicable-version: 3.6
+applicable-version: 3.8
 tags:
 view: lighttable, tethering, map
 ---
@@ -32,17 +32,17 @@ filename
 tag
 : Any tag that is attached to the image. Untagged images are grouped under the "not tagged" entry. When activated, a hierarchical list of known tags is displayed
 
-creator
-: The image's metadata “creator” field.
-
-publisher
-: The image's metadata “publisher” field.
-
 title
 : The image's metadata “title” field.
 
 description
 : The image's metadata “description” field.
+
+creator
+: The image's metadata “creator” field.
+
+publisher
+: The image's metadata “publisher” field.
 
 rights
 : The image's metadata “rights” field.
@@ -50,8 +50,14 @@ rights
 notes
 : The image's metadata "notes" field.
 
+version name
+: The image's metadata "version name" field.
+
+rating
+: The image's star rating
+
 color label
-: Any color label attached to the image (“red”, “yellow”, “green”, “blue”, “purple”).
+: Any color label attached to the image ("red", "yellow", "green", "blue", "purple").
 
 geotagging
 : The geo location of the image (see [locations](../map/locations.md)).
