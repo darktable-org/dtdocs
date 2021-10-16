@@ -127,7 +127,7 @@ override todays's date
 : Enter a valid date/time (in `YYYY-MM-DD[Thh:mm:ss]` format) if you want to override the current date/time used when expanding the variables `$(YEAR)`, `$(MONTH)`, `$(DAY)`, `$(HOUR)`, `$(MINUTE)` and `$(SECONDS)`. Leave the field empty otherwise.
 
 base directory naming pattern
-: The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`).
+: The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`). Click on the icon beside the input field to choose a directory manually.
 
 sub directory naming pattern
 : The sub directory part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).
