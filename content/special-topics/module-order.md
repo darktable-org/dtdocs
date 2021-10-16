@@ -63,9 +63,9 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [base curve](../module-reference/processing-modules/base-curve.md)
 2. _filmic (legacy)_
 2. [**FILMIC RGB**](../module-reference/processing-modules/filmic-rgb.md) _-- transition from scene-referred to display-referred space_
+2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [contrast brightness saturation](../module-reference/processing-modules/contrast-brightness-saturation.md)
 2. [tone curve](../module-reference/processing-modules/tone-curve.md)
-2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [levels](../module-reference/processing-modules/levels.md)
 2. [shadows and highlights](../module-reference/processing-modules/shadows-and-highlights.md)
 2. [zone system (deprecated)](../module-reference/processing-modules/zone-system.md)
@@ -154,10 +154,10 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [monochrome](../module-reference/processing-modules/monochrome.md)
 2. filmic (legacy)
 2. [filmic rgb](../module-reference/processing-modules/filmic-rgb.md)
+2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [contrast brightness saturation](../module-reference/processing-modules/contrast-brightness-saturation.md)
 2. [zone system (deprecated)](../module-reference/processing-modules/zone-system.md)
 2. [tone curve](../module-reference/processing-modules/tone-curve.md)
-2. [lut 3D](../module-reference/processing-modules/lut-3D.md)
 2. [levels](../module-reference/processing-modules/levels.md)
 2. [rgb levels](../module-reference/processing-modules/rgb-levels.md)
 2. [rgb curve](../module-reference/processing-modules/rgb-curve.md)
