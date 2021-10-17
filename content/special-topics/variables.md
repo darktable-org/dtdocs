@@ -27,12 +27,16 @@ $(VERSION)                 the duplicate version number
 $(VERSION_IF_MULTI)        same as $(VERSION) but null string if only one version exists
 $(VERSION_NAME)            version name from metadata
 $(SEQUENCE)                a sequence number within an export job
-$(SENSOR_WIDTH)            width of RAW data in pixels (shown in parentheses in the image information module)
-$(SENSOR_HEIGHT)           height of RAW data in pixels (shown in parentheses in the image information module)
-$(MAX_WIDTH)               processable image width at the start of the pixelpipe
-$(MAX_HEIGHT)              image height at the start of the pixelpipe (shown as Width in the image information module)
-$(EXPORT_WIDTH)            image width in pixels after cropping, perspective correction, and other distortions
-$(EXPORT_HEIGHT)           image height in pixels after cropping, perspective correction, and other distortions
+$(SENSOR_WIDTH)            width of RAW data in pixels before RAW crop
+$(SENSOR_HEIGHT)           height of RAW data in pixels before RAW crop
+$(RAW_WIDTH)               width of RAW data in pixels after RAW crop
+$(RAW_HEIGHT)              height of RAW data in pixels after RAW crop
+$(CROP_WIDTH)              image width in pixels at the end of the pixelpipe, but before export resize
+$(CROP_HEIGHT)             image height in pixels at the end of the pixelpipe, but before export resize
+$(EXPORT_WIDTH)            image width in pixels at the end of the pixelpipe and after export resize
+$(EXPORT_HEIGHT)           image height in pixels at the end of the pixelpipe and after export resize
+$(MAX_WIDTH)               maximum width entered in export module
+$(MAX_HEIGHT)              maximum height entered in export module
 $(YEAR)                    year at date of export
 $(MONTH)                   month at date of export
 $(DAY)                     day at date of export
