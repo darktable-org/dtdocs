@@ -10,7 +10,7 @@ masking:
 
 Crop an image using on-screen guides. 
 
-This module appears later in the pipeline than the deprecated [_crop & rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are advised to use the [_rotation and perspective_](./rotation-perspective.md) module to perform rotation and perspective correction (if required), and then perform final creative cropping with this module.
+This module appears later in the pipeline than the deprecated [_crop and rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are advised to use the [_rotation and perspective_](./rotation-perspective.md) module to perform rotation and perspective correction (if required), and then perform final creative cropping with this module.
 
 Whenever this module is in focus, the full uncropped image will be shown, overlaid with crop handles and optional guiding lines.
 
