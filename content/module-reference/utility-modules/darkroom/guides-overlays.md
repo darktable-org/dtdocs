@@ -26,7 +26,7 @@ Tick the box to show guide overlays whenever the module is active. Click the ico
 
 # global guide overlay settings
 
-Please note that, while you can choose to switch guide overlays on and off either globally or locally, the type of overlays are stored globally and cannot be set differently for each module.
+Please note that, while you can choose to switch guide overlays on and off either globally or locally, the following settings are stored globally and cannot be set independently for each module.
 
 type
 : The type of compositional guide lines to display.
