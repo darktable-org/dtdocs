@@ -1,11 +1,17 @@
 ---
-title: crop & rotate
+title: crop & rotate (deprecated)
 id: crop-rotate
 applicable-version: 3.8
 tags: 
 working-color-space:  
 view: darkroom
 masking: 
+---
+
+---
+
+**Please note that this module is deprecated from darktable 3.8 and should no longer be used for new edits. Please use the [_crop_](./crop.md) module to crop the image and the [_rotation and perspective_](./rotation-perspective.md) module to perform rotation and keystone correction.**
+
 ---
 
 Crop, rotate, and correct perspective distortions using on-screen guides.

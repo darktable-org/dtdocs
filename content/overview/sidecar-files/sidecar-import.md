@@ -21,7 +21,7 @@ This migration happens automatically when entering the darkroom view, provided t
 
 At present, darktable is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding darktable module in parentheses):
 
-- crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md))
+- crop & rotate ([_crop & rotate_](../../module-reference/processing-modules/crop-rotate.md))
 - black level ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - exposure ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - vignette ([_vignetting_](../../module-reference/processing-modules/vignetting.md))
