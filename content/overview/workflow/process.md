@@ -175,7 +175,7 @@ A better alternative is to disable _highlight reconstruction_ and instead use th
 
 ### adjust angle and perspective
 
-The [_rotation and perspective_](../../module-reference/processing-modules/perspective-correction.md) module can be used to adjust the angle of the image or to simulate the functionality of a tilt/shift lens by altering the perspective, making converging horizontal and/or vertical lines parallel (keystone correction). This latter technique is most commonly used for architectural photography. If you just want to correct the angle of the horizon you can do this by right-clicking and dragging along the horizon line.
+The [_rotation and perspective_](../../module-reference/processing-modules/rotation-perspective.md) module can be used to adjust the angle of the image or to simulate the functionality of a tilt/shift lens by altering the perspective, making converging horizontal and/or vertical lines parallel (keystone correction). This latter technique is most commonly used for architectural photography. If you just want to correct the angle of the horizon you can do this by right-clicking and dragging along the horizon line.
 
 ### remove spots and unwanted objects
 
