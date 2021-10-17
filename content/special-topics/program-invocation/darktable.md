@@ -29,6 +29,7 @@ darktable [-d {all,cache,camctl,camsupport,control,dev,
           [--noiseprofiles <noiseprofiles json file>]
           [--d-signal <signal>]
           [--d-signal-act <all,raise,connect,disconnect,print-trace>]
+          [--enforce-tiling]
           [--conf <key>=<value>]
           [-t <num openmp threads>]
 ```
@@ -43,6 +44,9 @@ All parameters are optional. In most cases darktable should be started without a
 
 `--d-signal-act <all,raise,connect,disconnect,print-trace>`
 : If `-d signal` or `-d all` is specified, specify the signal action to debug using this option.
+
+`--enforce-tiling`
+: Force tiling to be used, even on systems with plenty of memory (for easier debugging of tiling issues).
 
 `<input file>|<image folder>`
 : Optionally supply the name of an image file or folder. If a filename is given darktable starts in darkroom view with that file opened. If a folder is given darktable starts in lighttable view with the content of that folder as the current collection.
