@@ -1,7 +1,7 @@
 ---
 title: retouch
 id: retouch
-applicable-version: 3.6
+applicable-version: 3.8
 tags: 
 working-color-space: rgb
 view: darkroom
@@ -171,4 +171,8 @@ blur radius
 
 mask opacity
 : Alter the opacity of the mask associated with the currently-selected shape. An opacity of 1.0 indicates that the shape is completely opaque and the module's effect is fully applied, whereas a value less than 1.0 indicates that the effect applied by the shape is blended with the underlying image to the degree indicated by the slider.
+
+## show guides
+
+Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
 

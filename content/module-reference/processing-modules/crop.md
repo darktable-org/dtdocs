@@ -1,7 +1,7 @@
 ---
 title: crop
 id: crop
-applicable-version: 3.6
+applicable-version: 3.8
 tags: 
 working-color-space:  
 view: darkroom
@@ -45,12 +45,6 @@ aspect
 
 ---
 
-guides
-: Overlay standard compositional guide lines on the image while cropping. When selecting "golden mean", some additional options become available in an "extra" drop-down. When selecting "grid", you can choose the number of lines and subdivisions.
-
-guides flip
-: If the chosen guidelines are not symmetrical relative to the image frame, you can flip them on the horizontal, vertical or both axes.
-
 ## margins
 
 These sliders allow you to directly set how much of the image to crop from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.
@@ -69,3 +63,6 @@ top
 bottom
 : The percentage of the image that should be cropped from the bottom.
 
+## guides
+
+Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.

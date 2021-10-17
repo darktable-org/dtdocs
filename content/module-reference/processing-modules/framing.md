@@ -1,7 +1,7 @@
 ---
 title: framing
 id: framing
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 working-color-space: RGB 
 view: darkroom
@@ -34,3 +34,7 @@ frame line offset
 
 border color / frame line color
 : A pair of color selectors which allow the border and frame line colors to be defined. Clicking on the colored field will open a color selector dialog which offers a choice of commonly-used colors, or allows you to define a color in RGB color space. You can also activate a color picker to take a color probe from the image.
+
+show guides
+: Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
+

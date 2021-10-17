@@ -1,7 +1,7 @@
 ---
 title: crop & rotate
 id: crop-rotate
-applicable-version: 3.6
+applicable-version: 3.8
 tags: 
 working-color-space:  
 view: darkroom
@@ -72,11 +72,8 @@ aspect
 
 ---
 
-guides
-: Overlay standard compositional guide lines on the image while cropping. 
-
-guides flip
-: If the chosen guidelines are not symmetrical relative to the image frame, you can flip them on the horizontal, vertical or both axes.
+show guides
+: Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
 
 ## margins tab
 

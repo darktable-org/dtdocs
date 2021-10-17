@@ -30,3 +30,7 @@ transform
 
 ![flip vertically](./orientation/flip-vertical.png#icon) flip vertically
 : Flip the image (mirror) vertically
+
+show guides
+: Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
+

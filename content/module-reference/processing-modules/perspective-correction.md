@@ -1,7 +1,7 @@
 ---
 title: perspective correction
 id: perspective-correction
-applicable-version: 3.2.1
+applicable-version: 3.8
 tags: 
 working-color-space:  
 view: darkroom
@@ -82,6 +82,10 @@ get structure
 : Click on the ![cross-icon](./perspective-correction/icon-cross.png#icon) icon to discard any structural information collected during any previous structural analysis.
 
 : Click on the ![eye-icon](./perspective-correction/icon-eye.png#icon) icon to show or hide the line segments identified by any previous structural analysis.
+
+
+show guides
+: Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
 
 # examples
 
