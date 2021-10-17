@@ -10,7 +10,7 @@ masking: false
 
 ---
 
-**Please note that this module is deprecated from darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) module or the [_exposure_](./exposure.md) module with a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md).**
+**Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.4 and should no longer be used for new edits. Please use the [_tone equalizer_](./tone-equalizer.md) module or the [_exposure_](./exposure.md) module with a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md).**
 
 ---
 

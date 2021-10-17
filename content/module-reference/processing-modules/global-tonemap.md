@@ -10,7 +10,7 @@ masking: true
 
 ---
 
-**Please note that this module is deprecated from darktable 3.4 and should no longer be used for new edits. Please use the [_filmic rgb_](./filmic-rgb.md) module instead.**
+**Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.4 and should no longer be used for new edits. Please use the [_filmic rgb_](./filmic-rgb.md) module instead.**
 
 ---
 

@@ -10,7 +10,7 @@ masking:
 
 ---
 
-**Please note that this module is deprecated from darktable 3.6 and should no longer be used for new edits. Please use the "cloning" tool in the [_retouch_](./retouch.md) module instead.**
+**Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the "cloning" tool in the [_retouch_](./retouch.md) module instead.**
 
 ---
 
