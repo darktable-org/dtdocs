@@ -10,7 +10,7 @@ masking:
 
 ---
 
-**Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.8 and should no longer be used for new edits. Please use the [_crop_](./crop.md) module to crop the image and the [_rotation and perspective_](./rotation-perspective.md) module to perform rotation and keystone correction.**
+**Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.8 and should no longer be used for new edits. Please use the [_crop_](./crop.md) module to crop the image and the [_rotate and perspective_](./rotate-perspective.md) module to perform rotation and keystone correction.**
 
 ---
 
@@ -24,7 +24,7 @@ Resize the crop by dragging the border and corner handles.
 
 Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
 
-If you intend to use the [_retouch_](./retouch.md) module, you are recommended to use _rotation and perspective_ for rotation and/or keystone correction only, performing creative cropping in the [_crop_](./crop.md) module. This process ensures that the entire image is available for source spots in _retouch_, since the _crop_ module is placed after _retouch_ in the pixelpipe.
+If you intend to use the [_retouch_](./retouch.md) module, you are recommended to use _rotate and perspective_ for rotation and/or keystone correction only, performing creative cropping in the [_crop_](./crop.md) module. This process ensures that the entire image is available for source spots in _retouch_, since the _crop_ module is placed after _retouch_ in the pixelpipe.
 
 ---
 

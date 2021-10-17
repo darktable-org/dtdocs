@@ -1,6 +1,6 @@
 ---
-title: rotation and perspective
-id: rotation-perspective
+title: rotate and perspective
+id: rotate-perspective
 applicable-version: 3.8
 tags: 
 working-color-space:  
@@ -26,17 +26,17 @@ The first step is to obtain details about the horizontal and/or vertical structu
 
 ### manually draw structure lines
 
-Click on the ![draw-structure-lines-icon](./rotation-perspective/icon-draw-structure-lines.png#icon) icon to enable line drawing mode and then click-and-drag on the image to draw lines that you wish to become horizontal or vertical. The module will automatically detect whether the lines are horizontal or vertical and color them green or blue, respectively. Draw as many lines as you wish (the more lines, the better the fit mechanism will work) and then click on one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn lines at any time. Edit a line by clicking and dragging on the line or the end nodes, and right-click a line to delete it. Once you are happy with your changes, re-select a "fit" icon to complete the process.
+Click on the ![draw-structure-lines-icon](./rotate-perspective/icon-draw-structure-lines.png#icon) icon to enable line drawing mode and then click-and-drag on the image to draw lines that you wish to become horizontal or vertical. The module will automatically detect whether the lines are horizontal or vertical and color them green or blue, respectively. Draw as many lines as you wish (the more lines, the better the fit mechanism will work) and then click on one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn lines at any time. Edit a line by clicking and dragging on the line or the end nodes, and right-click a line to delete it. Once you are happy with your changes, re-select a "fit" icon to complete the process.
 
 ### manually define a perspective rectangle
 
-Click on the ![draw-structure-rectangle-icon](./rotation-perspective/icon-draw-structure-rectangle.png#icon)icon to enable perspective rectangle drawing mode. This will draw a rectangle on the screen and you can grab and move the corners of the rectangle so that the left and right sides fall on lines you wish to make vertical, and the top and bottom fall on lines you wish to make horizontal. Once you are happy with your rectangle, click one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn rectangle at any time. Once you are happy with your changes, re-select a "fit" icon to complete the process.
+Click on the ![draw-structure-rectangle-icon](./rotate-perspective/icon-draw-structure-rectangle.png#icon)icon to enable perspective rectangle drawing mode. This will draw a rectangle on the screen and you can grab and move the corners of the rectangle so that the left and right sides fall on lines you wish to make vertical, and the top and bottom fall on lines you wish to make horizontal. Once you are happy with your rectangle, click one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn rectangle at any time. Once you are happy with your changes, re-select a "fit" icon to complete the process.
 
 This method is similar to how "keystone" correction works in the [_crop and rotate_](./crop-rotate.md) module.
 
 ### automatically detect structure
 
-Click the ![get-structure-icon](./rotation-perspective/icon-get-structure.png#icon) icon to analyze the image for structural elements -- darktable will automatically detect and evaluate line elements. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines. 
+Click the ![get-structure-icon](./rotate-perspective/icon-get-structure.png#icon) icon to analyze the image for structural elements -- darktable will automatically detect and evaluate line elements. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines. 
 
 Only lines that form a set of vertical or horizontal converging lines are used for subsequent processing steps. Line segments are displayed as overlays on the image canvas, with the type of line identified by color as follows:
 
@@ -65,7 +65,7 @@ Once you are happy with the detected lines, select a "fit" icon to complete the 
 
 Once you are happy with the identified horizontal and vertical lines, using one of the methods above, click on one of the "fit" icons to automatically set the module's parameters based on the defined structure. The image and the overlaid lines are then displayed with perspective corrections applied.
 
-You may choose to automatically apply just the vertical corrections ![vertical-icon](./rotation-perspective/icon-vertical.png#icon), just the horizontal corrections ![horizontal-icon](./rotation-perspective/icon-horizontal.png#icon), or both together ![both-icon](./rotation-perspective/icon-both.png#icon). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
+You may choose to automatically apply just the vertical corrections ![vertical-icon](./rotate-perspective/icon-vertical.png#icon), just the horizontal corrections ![horizontal-icon](./rotate-perspective/icon-horizontal.png#icon), or both together ![both-icon](./rotate-perspective/icon-both.png#icon). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
 
 ## rotate
 
@@ -116,11 +116,11 @@ show guides
 
 Here is an image with a skewed horizon and converging lines caused by directing the camera upwards:
 
-![prespective-correction-example-before](./rotation-perspective/perspective-correction-example-before.png#w66)
+![prespective-correction-example-before](./rotate-perspective/perspective-correction-example-before.png#w66)
 
 Here is the image after having corrected for vertical and horizontal perspective distortions using automatic structure detection. Note the framing adjustment made by the automatic cropping feature and the still-visible overlay of structural lines:
 
-![prespective-correction-example-after](./rotation-perspective/perspective-correction-example-after.png#w66)
+![prespective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
 
 
 
