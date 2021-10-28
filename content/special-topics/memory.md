@@ -36,7 +36,7 @@ As we've seen, 32-bit systems are difficult environments for darktable. Still so
 
 There are several parameters that require adjustment in order to get it running. If you install fresh, darktable will detect your system and set conservative values by default. However, if you upgrade darktable from an older version, chances are you have unfavorable settings in your preferences. The consequences might be darktable aborting due to allocation failures or – very typically – darktable not being able to properly import a new film roll. As a frequent symptom you get skulls displayed instead of thumbnails for many of your pictures.
 
-If this is the case, take a minute to optimize your preference settings. You will find them in [preferences > cpu/gpu/memory](../preferences-settings/cpu-gpu-memory.md). 
+If this is the case, take a minute to optimize your preference settings. You will find them in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory). 
 
 Here is a short explanation of the relevant parameters and their proposed settings:
 

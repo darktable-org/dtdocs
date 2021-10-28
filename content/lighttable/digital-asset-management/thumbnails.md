@@ -6,7 +6,7 @@ weight: 30
 author: "people"
 ---
 
-Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup. The size of this cache can be adjusted in [preferences > cpu/gpu/memory](../../../preferences-settings/cpu-gpu-memory.md).
+Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup. The size of this cache can be adjusted in [preferences > processing > cpu/gpu/memory](../../../preferences-settings/processing#cpu--gpu--memory).
 
 # thumbnail creation
 
@@ -18,7 +18,7 @@ Extracting an embedded thumbnail from the input image is usually very fast. Howe
 
 After import darktable automatically generates thumbnails for new images as they are needed. When importing a large set of new images, thumbnail generation can slow down navigation in the lighttable view. Alternatively you may terminate darktable and generate the thumbnail cache separately by running [`darktable-generate-cache`](../../special-topics/program-invocation/darktable-generate-cache.md). This program will generate all missing thumbnails in one go.
 
-As the thumbnail cache has a pre-defined maximum size it will eventually get filled up. If new thumbnails are subsequently added, old thumbnails are dropped from the cache. However, darktable will keep all thumbnails on disk if the corresponding disk backend option is activated in [preferences > cpu/gpu/memory](../../../preferences-settings/cpu-gpu-memory.md). Access to the thumbnails in this secondary cache is slower than the primary cache, but still much faster than reprocessing thumbnails from scratch. The size of the secondary cache is limited only by the available disk space.
+As the thumbnail cache has a pre-defined maximum size it will eventually get filled up. If new thumbnails are subsequently added, old thumbnails are dropped from the cache. However, darktable will keep all thumbnails on disk if the corresponding disk backend option is activated in [preferences > processing > cpu/gpu/memory](../../../preferences-settings/processing.md#cpu--gpu--memory). Access to the thumbnails in this secondary cache is slower than the primary cache, but still much faster than reprocessing thumbnails from scratch. The size of the secondary cache is limited only by the available disk space.
 
 Thumbnails are never removed from the secondary cache. You can manually clean the secondary cache by recursively deleting all images in the `$HOME/.cache/darktable/mipmaps-xyz.d` folder (where `xyz` denotes an alphanumeric identifier of the cache). After clearing the secondary cache you can simply allow darktable to re-generate thumbnails as needed, or you can generate all thumbnails in one go with [`darktable-generate-cache`](../../special-topics/program-invocation/darktable-generate-cache.md).
 
