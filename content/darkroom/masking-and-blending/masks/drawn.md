@@ -23,6 +23,8 @@ Ctrl+click on the shape icon to continuously draw multiple shapes of the same ty
 
 For all drawn shapes, you can hold Shift while scrolling with the mouse wheel to change the extent of the shape's feathering (the blur at the edge of the shape) and use Ctrl+scroll to change the shape's opacity (how transparent it is). These operations are available in both creation and edit modes (as long as your mouse is over the shape in question).
 
+By default, scrolling your mouse up increases the value of the relevant shape parameters. This behavior can be changed in [preferences > darkroom > scroll down to increase mask parameters](../../../preferences-settings/darkroom.md).
+
 ---
 
 **Note:** When used in shape creation mode, the preceding scroll operations will also cause the _default_ feathering or opacity to be changed. The new default values will be used the next time you create a new shape.
