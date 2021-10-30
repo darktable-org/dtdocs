@@ -16,6 +16,9 @@ mouse wheel scrolls modules side panel by default
 always show panels' scrollbars
 : Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart) 
 
+position of the histogram module
+: Choose whether to show the [histogram](../module-reference/utility-modules/shared/histogram.md) module in the left or right panel (default right). (needs a restart)
+
 method to use for getting the display profile
 : This option allows the user to force darktable to use a specific method to obtain the current display profile for [color management](../special-topics/color-management/_index.md). In the default setting “all”, darktable will choose to query the X display server's xatom or the colord system service. You can set this option to “xatom” or “colord” to enforce a specific method if the two methods give different results. You can run the [darktable-cmstest](../special-topics/program-invocation/darktable-cmstest.md) binary to examine your color management subsystem.
 
