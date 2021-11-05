@@ -37,8 +37,8 @@ From top to bottom:
 
 From top to bottom:
 
-[histogram](../module-reference/utility-modules/shared/histogram.md)
-: A graphical depiction of the image's light levels and colors. This module can be moved to the left-hand panel if desired (see [preferences > miscellaneous > position of the histogram module](../preferences-settings/miscellaneous.md)).
+[scopes](../module-reference/utility-modules/shared/scopes.md)
+: A graphical depiction of the image's light levels and colors. This module can be moved to the left-hand panel if desired (see [preferences > miscellaneous > position of the scopes module](../preferences-settings/miscellaneous.md)).
 
 [module groups](./organization/module-groups.md)
 : Select module groups (if enabled).

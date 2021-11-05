@@ -16,8 +16,8 @@ mouse wheel scrolls modules side panel by default
 always show panels' scrollbars
 : Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart) 
 
-position of the histogram module
-: Choose whether to show the [histogram](../module-reference/utility-modules/shared/histogram.md) module in the left or right panel (default right). (needs a restart)
+position of the scopes module
+: Choose whether to show the [scopes](../module-reference/utility-modules/shared/scopes.md) module in the left or right panel (default right). (needs a restart)
 
 method to use for getting the display profile
 : This option allows the user to force darktable to use a specific method to obtain the current display profile for [color management](../special-topics/color-management/_index.md). In the default setting “all”, darktable will choose to query the X display server's xatom or the colord system service. You can set this option to “xatom” or “colord” to enforce a specific method if the two methods give different results. You can run the [darktable-cmstest](../special-topics/program-invocation/darktable-cmstest.md) binary to examine your color management subsystem.
@@ -34,7 +34,7 @@ disable the entry completion
 
 It is possible to create multiple instances of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations. The following options control rules that are applied (in order) to decide which module instance keyboard shortcuts should be applied to.
 
-These rules are also used when clicking and dragging on the histogram to change exposure.
+These rules are also used when clicking and dragging on the scopes module to change exposure.
 
 prefer expanded instances
 : If instances of the module are expanded, ignore collapsed instances (default off).

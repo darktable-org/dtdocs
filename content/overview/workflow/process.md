@@ -61,7 +61,7 @@ On the left hand side is the [history stack](../../module-reference/utility-modu
 
 It is important to understand the distinction between the order of the modules on the right-hand-side of the screen (which represents the order in which modules are _executed_) and the order of the modules in the history stack (which represents the order in which modules were _modified_).
 
-To the top right is the [histogram](../../module-reference/utility-modules/shared/histogram.md) which shows the spread of tones/colors in your image.
+To the top right is the [scopes](../../module-reference/utility-modules/shared/scopes.md) module, which shows the spread of tones/colors in your image.
 
 ---
 If you have previously viewed or edited the image in the darkroom view, start by _discarding history_ (click the _reset_ button in the [_history stack_](../../module-reference/utility-modules/darkroom/history-stack.md)). This will reapply defaults using your new settings and provide a clean starting point for editing.
@@ -79,7 +79,7 @@ The default settings in darktable are therefore intended to provide you with a n
 
 ## module groups
 
-Below the histogram at the top right of the screen is a set of tabs into which darktable's modules are [grouped](../../darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it. 
+Below the scopes module, at the top right of the screen, is a set of tabs into which darktable's modules are [grouped](../../darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it. 
 
 ---
 For the purposes of this guide, click on the hamburger icon (to the right of the tabs) and select the "workflow: scene referred" preset now.

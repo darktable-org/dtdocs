@@ -1,28 +1,28 @@
 ---
-title: histogram
-id: histogram
+title: scopes
+id: scopes
 applicable-version: 3.8
 tags: 
 view: lighttable, tethering
 ---
 
-A graphical depiction of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions/#definitions).
+This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions/#definitions).
 
-![histogram](./histogram/histogram.png#w50)
+![scopes module](./scopes/scopes.png#w50)
 
-Move the mouse over the panel to show buttons that allow you to adjust the display. The leftmost button cycles the mode between a "regular" histogram, a waveform scope, an RGB parade scope, and a vectorscope. The remaining buttons control how the plot for the current scope is drawn.
+Move the mouse over the panel to show buttons that allow you to adjust the display. The leftmost button cycles the mode between histogram, waveform scope, RGB parade scope, and vectorscope. The remaining buttons control how the plot for the current scope is drawn.
 
-When the mouse is over the histogram panel, scroll with the mouse while holding down the Ctrl key to change the height of the panel. You can show/hide the histogram entirely with a keyboard shortcut (default Ctrl+Shift+H).
+When the mouse is over the scopes panel, scroll with the mouse while holding down the Ctrl key to change the height of the panel. You can show/hide the scopes module entirely with a keyboard shortcut (default Ctrl+Shift+H).
 
-You can move the histogram to the left-hand panel in [preferences > miscellaneous > position of the histogram module](../../../preferences-settings/miscellaneous.md).
+You can move the scope to the left-hand panel in [preferences > miscellaneous > position of the scopes module](../../../preferences-settings/miscellaneous.md).
 
 For performance reasons, scopes are calculated from the image preview (the image displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass more time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
 
-# the "regular" histogram
+# histogram
 
-!["regular" histogram](./histogram/histogram-regular.png#w50)
+![histogram](./scopes/histogram.png#w50)
 
-The regular histogram shows the distribution of pixels by lightness for each color channel.
+The histogram shows the distribution of pixels by lightness for each color channel.
 
 In its default state, data for all three RGB color channels is displayed. The x-axis runs from 0% to 100% lightness for each channel. The y-axis gives the count of pixels with the given lightness.
 
@@ -32,19 +32,19 @@ The three rightmost colored buttons toggle the display of the red, green and blu
 
 # waveform
 
-![waveform scope (horizontal)](./histogram/histogram-waveform.png#w50)
+![waveform scope (horizontal)](./scopes/waveform.png#w50)
 
-The waveform scope shows data akin to the waveform, with the addition of spatial data about the image.
+The waveform scope shows similar data to the histogram, but allows you to view that data in a spacial context.
 
-In the "standard" horizontal histogram, the x-axis of the waveform represents the x-axis of the image -- the right-hand side of the waveform represents the right-hand side of the image and the left-hand side of the waveform represents the left-hand side of the image.
+In the "standard" horizontal waveform, the x-axis of the waveform represents the x-axis of the image -- the right-hand side of the waveform represents the right-hand side of the image and the left-hand side of the waveform represents the left-hand side of the image.
 
 The y-axis represents the distribution of pixels by lightness for each channel -- the dotted line at the top represents 100% lightness (values above this may be clipped), the dotted line in the middle represents 50% lightness, and the bottom of the waveform represents 0% lightness. 
 
 The brightness of each point on the waveform represents the number of pixels at the given position (the x-axis) having the given lightness (the y-axis).
 
-![waveform scope (vertical)](./histogram/histogram-waveform-vertical.png#w50)
+![waveform scope (vertical)](./scopes/waveform-vertical.png#w50)
 
-Clicking the second-to-leftmost button on the panel toggles between a horizontal and a vertical waveform. In the vertical waveform, the y-axis of the plot represents the y-axis of the image. The x-axis represents the distribution of pixels by lightness. The vertical waveform can be useful for portrait-format images, or simply to understand an image in a different way.
+Clicking the second-to-leftmost button on the panel toggles between a horizontal and a vertical waveform. In the vertical waveform, the y-axis of the plot represents the y-axis of the image, and the x-axis represents the distribution of pixels by lightness. The vertical waveform can be useful for portrait-format images, or simply to understand an image in a different way.
 
 As with the histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
 
@@ -52,11 +52,11 @@ See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histogram
 
 # rgb parade
 
-![rgb parade (horizontal)](./histogram/histogram-parade.png#w50)
+![rgb parade (horizontal)](./scopes/parade.png#w50)
 
 The RGB parade scope shows the same data as the waveform, but with the red, green, and blue channels presented side-by-side.
 
-![rgb parade (vertical)](./histogram/histogram-parade-vertical.png#w50)
+![rgb parade (vertical)](./scopes/parade-vertical.png#w50)
 
 As with the waveform, clicking the second-to-leftmost button on the panel toggles between horizontal and vertical processing of the image data.
 
@@ -64,7 +64,7 @@ The RGB parade can be useful for matching the intensities of the red, green, and
 
 # vectorscope
 
-![vectorscope](./histogram/histogram-vectorscope.png#w50)
+![vectorscope](./scopes/vectorscope.png#w50)
 
 The vectorscope shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. 
 
@@ -89,7 +89,7 @@ The histogram, waveform, and RGB parade scopes can be used to directly alter the
 
 For the histogram, click towards the right-hand side of the histogram and then drag right to increase or drag left to decrease the exposure. In a similar manner you can control the black level by clicking and dragging in the left-hand side.
 
-For horizontal waveform and RGB parade, drag the upper portion of the histogram up/down to increase/decrease exposure. Drag the lower portion up/down to increase/decrease the black level.
+For horizontal waveform and RGB parade, drag the upper portion of the scope up/down to increase/decrease exposure. Drag the lower portion up/down to increase/decrease the black level.
 
 For vertical waveform and RGB parade scopes, the corresponding regions are to the right (exposure) and left (black level).
 
@@ -97,6 +97,6 @@ You can also scroll in the appropriate area -- rather than dragging -- to adjust
 
 # histogram profile
 
-Image data is converted to the _histogram profile_ before the histogram is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the histogram is shown in the soft proof profile.
+Image data is converted to the _histogram profile_ before the scope data is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the scope is shown in the soft proof profile.
 
-As the histogram runs at the end of the preview pixelpipe, it receives data in display color space. If you are using a display color space that is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile may be clipped or distorted.
+As the scopes module runs at the end of the preview pixelpipe, it receives data in display color space. If you are using a display color space that is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile may be clipped or distorted.

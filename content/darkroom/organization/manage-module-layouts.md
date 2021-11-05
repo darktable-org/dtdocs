@@ -10,7 +10,7 @@ Manage the layout and grouping of processing modules and the quick access panel.
 
 ![manage module layouts](./manage-module-layouts/manage-module-layouts.png#w100)
 
-This maintenance screen can be accessed from the _presets_ menu beside the module search box or module group icons (below the histogram in the darkroom view). Ctrl+click on the preset menu to open this screen directly.
+This maintenance screen can be accessed from the _presets_ menu beside the module search box or module group icons (below the scopes module in the darkroom view). Ctrl+click on the preset menu to open this screen directly.
 
 Settings are automatically saved when you exit the screen. Click _reset_ to abandon any changes made in the current editing session.
 

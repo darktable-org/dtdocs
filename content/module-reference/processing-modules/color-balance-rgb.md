@@ -16,7 +16,7 @@ This module is not suitable for beginners with no prior knowledge of color theor
 
 Color-grading is an important part of image editing. It can help to remove unwanted color casts and can also deliver a creative color twist that will add atmosphere to your images. In the days of film photography, most of the color ambiance was obtained with the film emulsion and the developing chemicals, with some color timing being performed under the enlarger with color heads. This consumed expensive resources and was mostly reserved for the cinema industry, where the job was performed by a colorist.
 
-In the digital age, where raw images look flat and even, color-grading assumes the same role that film emulsions did, by re-introducing color shifts for aesthetic purposes. It can also serve to harmonize the color palette of a series of images (which may have been shot under different conditions) to achieve a consistent global look. For this task, the [vectorscope](../utility-modules/shared/histogram.md#vectorscope) is also extremely useful.
+In the digital age, where raw images look flat and even, color-grading assumes the same role that film emulsions did, by re-introducing color shifts for aesthetic purposes. It can also serve to harmonize the color palette of a series of images (which may have been shot under different conditions) to achieve a consistent global look. For this task, the [vectorscope](../utility-modules/shared/scopes.md#vectorscope) is also extremely useful.
 
 Colorists usually split color-grading into two distinct steps:
 
