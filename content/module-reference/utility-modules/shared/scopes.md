@@ -14,7 +14,7 @@ Move the mouse over the panel to show buttons that allow you to adjust the displ
 
 When the mouse is over the scopes panel, scroll with the mouse while holding down the Ctrl key to change the height of the panel. You can show/hide the scopes module entirely with a keyboard shortcut (default Ctrl+Shift+H).
 
-You can move the scope to the left-hand panel in [preferences > miscellaneous > position of the scopes module](../../../preferences-settings/miscellaneous.md).
+You can move the scopes module to the left-hand panel in [preferences > miscellaneous > position of the scopes module](../../../preferences-settings/miscellaneous.md).
 
 For performance reasons, scopes are calculated from the image preview (the image displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass more time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
 
