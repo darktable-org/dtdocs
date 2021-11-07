@@ -31,7 +31,10 @@ sort by
 : You can define different settings depending on the thumbnail size. See [preferences > lighttable](../../preferences-settings/lighttable.md#thumbnails) for details of how size delimiters are set.
 
 ![top panel_help icon](./top-panel/top-panel_help.png#icon) context-sensitive help
-: Click on this icon and then click on a control element to be directed to the appropriate online help page.
+: Click this icon and then click on a control element to be directed to the appropriate online help page.
+
+![top panel shortcut mapping icon](./top-panel/top-panel_shortcut.png#icon) shortcut mapping
+: Click this icon to enter the [visual shortcut mapping](../../preferences-settings/shortcuts.md#visual-shortcut-mapping) mode to create keyboard/mouse shortcuts.
 
 ![top panel_preferences icon](./top-panel/top-panel_preferences.png#icon) preferences
 : View and amend darktable's [preferences & settings](../../preferences-settings/_index.md).
