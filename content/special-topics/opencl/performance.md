@@ -32,3 +32,15 @@ opencl\_micro\_nap
 
 opencl\_use\_pinned\_memory
 : During tiling huge amounts of memory need to be transferred between host and device. On some devices (namely AMD) direct memory transfers to and from an arbitrary host memory region may give a huge performance penalty. This is especially noticeable when exporting large images. Setting this configuration parameter to TRUE tells darktable to use a special kind of intermediate buffer for host-device data transfers. On some devices this can speed up exporting of large files by a factor of 2 to 3. NVIDIA devices and drivers seem to have a more efficient memory transfer technique even for arbitrary memory regions. As they may not show any performance gain and even may produce garbled output, opencl\_use\_pinned\_memory should be left at its default FALSE for those devices.
+
+opencl\_building\_gpuXXX
+: Manually add this setting to `darktablerc` to add extra OpenCL compilation options for your GPU(s), where XXX is the GPU name. These options are used when compiling OpenCL kernels and may be provided for performance tuning or to work around bugs. You must remove any existing kernels in order to recompile them with the new options. Provide an empty string to recompile without any options. Remove the setting entirely to recompile with default options.
+
+  You can reference your GPU by its ID (e.g. `opencl_building_gpu0`) or by its canonical name (e.g. `opencl_building_gpugeforce10606gb`). Start darktable with `darktable -d opencl` to find your canonical GPU name and default compilation options. 
+
+  For example, the following lines would add extra compilation options for the GPU with ID 0 and for the GPU named "geforce10606gb":
+
+```
+opencl_building_gpu0=-cl-mad-enable -cl-no-signed-zeros -cl-unsafe-math-optimizations -cl-finite-math-only -cl-fast-relaxed-math
+opencl_building_gpugeforce10606gb=-cl-mad-enable -cl-no-signed-zeros
+```
