@@ -5,133 +5,204 @@ weight: 120
 draft: false
 ---
 
-Much of the functionality of darktable can be accessed via shortcuts using the keyboard or keyboard/mouse combinations. These shortcuts are user-configurable via the _shortcuts_ tab. 
+You can perform almost any action in darktable with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details.
 
-Many important shortcut actions are provided with default key combinations, but most must be manually configured by the user. Any key may be used for a keyboard shortcut, and may be combined with the Shift, Control or Alt modifier keys (or any combination thereof).
+# defining shortcuts
 
-When you open the _shortcuts_ tab you are initially presented with a hierarchical list of all actions that can be applied with a keyboard shortcut. At the top of this hierarchy is a short list of key [_categories_](#shortcut-categories) defined below.
+A _shortcut_ is a combination of key or button presses and/or mouse or device movements that performs an _action_ in darktable.
 
-# add or amend a shortcut
+A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
 
-In order to add or amend a shortcut, first navigate to the action you want to change and double-click on it. You will be prompted to press the new key combination to be mapped to the selected action. 
+## simple shortcuts
 
-If a conflict is found you will be given the option to retain the existing shortcut or replace it. Depending on context, it is possible to use the same keyboard shortcut for multiple actions. For example the same key combination may be used for one action in the lighttable view and another in the darkroom view.
+All shortcuts involving the keyboard/mouse must be initiated with a key combination on the keyboard. This combination must consist of at least one key press, plus an optional modifier (Shift, Ctrl or Alt, either alone or in combination). You can use a single-, double- or triple-key-presses and the final key-press may be lengthened to provide an additional option. You cannot press any other button or key after a long-press, and you cannot extend it (see below) -- the release of the final key must end the shortcut.
 
-# remove a shortcut
+A shortcut may also include a (single, double, triple) click of any mouse button. As with keyboard key presses, the final mouse click may be lengthened but that long-click must end the shortcut.
 
-To remove a keyboard shortcut, single-click on the action you wish to remove it from and press the Backspace key.
+A shortcut that only includes button or key presses is referred to as a _simple_ shortcut.
 
-# search for a shortcut action
+If you are using another type of device (MIDI, game controller) you may (single, double, triple) press any device button to create a simple shortcut without needing to press a keyboard key first.
 
-A search field is shown at the bottom of the _shortcuts_ tab. Enter the text you wish to search for and press Enter or click the _search_ button. Press Enter or _search_ multiple times to cycle through all matching shortcut actions.
+### creating additional modifiers
 
-# view currently assigned shortcuts
+The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the the "global/modifier" action. However, these will merely function as extra Crl, Alt or Shift keys -- you cannot create "new" modifiers.
 
-Press the H key in any darktable view to show a list of all shortcuts that are assigned for the current view.
+## extending simple shortcuts with movement
 
-# import, export, reset
+For certain actions you can choose to _extend_ a simple shortcut using a mouse movement. For example you could hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut with a mouse:
 
-You can import your shortcut mappings from or export them to a file.
+- Movement of the mouse scroll wheel
+- Horizontal, vertical or diagonal movement of the mouse cursor
 
-Press the _default_ button to reset all shortcuts to their default state. _Take care when using this option as it is not possible to restore back to a previous state unless you have first exported existing shortcuts to a file or taken a backup of your configuration directory._
+Similarly, if you are using another device (MIDI, game controller), you may move any of that device's controls (knobs, joysticks etc.) to extend a shortcut. For example you may hold a button while turning a control knob to create an extended shortcut on a MIDI device. For such devices you do not need an initial key- or button-press -- you can directly assign a control knob to an action -- though this will significantly reduce the flexibility of such devices.
 
-# shortcut categories
+As noted above, you cannot extend a keyboard shortcut that was initiated with a long-key-press or a long-mouse-click -- such shortcuts must be terminated with the raising of the final key/button.
 
-Keyboard shortcuts are categorized within a hierarchical list so that they can easily be found. The following sections summarize these categories and list some common options.
+# actions
+
+Shortcuts are used to initiate _actions_ within darktable. 
+
+An _action_ is usually (but not always) an operation that you might undertake using darktable's point-and-click user interface. For example:
+
+- Increase, decrease or reset sliders
+- Scroll through dropdown lists
+- Enable, expand or focus modules
+- Click buttons
+- Switch between views
+
+Such point-and-click type _actions_ are normally defined as the application of an _effect_ to an _element_ of a _widget_, where these terms are defined as follows:
+
+widget
+: Each visible part of the user interface is known as a _widget_. For example the darktable application window is a widget, containing side panel widgets, each of which contains module widgets, each of which contains button, slider and dropdown list widgets etc... When assigning a shortcut to an action, you must first decide which widget it is to be applied to.
+
+element
+: An _element_ is the part of a UI widget that is affected by your shortcut. For example, for a slider that has a color picker, you can make a shortcut activate the color picker _button_ element or change the _value_ element of the slider. For a row of tabs (the row is a single widget) you can select which tab element to activate.
+
+effect
+: A shortcut can sometimes have multiple possible _effects_ on a given _element_. For example, a button can be activated as if it was pressed with a plain mouse-click or as if it was pressed with Ctrl+click. A slider's value can be edited, increased/decreased or reset.
+
+# assigning shortcuts to actions
+
+There are two primary methods of assigning a shortcut to an action.
+
+## visual shortcut mapping
+
+Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) in the [top panel](../overview/user-interface/top-panel.md) of any darktable view to enter visual shortcut mapping mode. 
+
+The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
+
+- A cross ![cross icon](./shortcuts/cross-icon.png#icon) indicates that there is no mappable widget under the cursor. Clicking the left mouse button will call up the shortcut mapping screen (where you can configure shortcuts for non-visual actions).
+- A spiral ![spiral icon](./shortcuts/spiral-icon.png#icon) indicates that a shortcut can be defined for the widget under the cursor.
+- An up arrow ![up icon](./shortcuts/up-icon.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it)
+- A down arrow ![down icon](./shortcuts/down-icon.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
+
+Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut. See below for details of some of the default assigned actions. 
+
+You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) again or right-clicking anywhere on the screen.
+
+You can delete a shortcut mapping by defining it a second time against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and asked whether you wish to replace the existing shortcut.
+
+If you want to alter the action assigned to a shortcut or view additional options, you can also left-click on any UI widget to open the shortcut mapping screen for that widget (see below). Entering the shortcut mapping screen also exits visual shortcut mapping mode.
+
+## shortcut mapping screen
+
+The most flexible way to create shortcuts is by using the shortcut mapping screen, which can be accessed from the global preferences dialog or by clicking on a widget in visual mapping mode. This screen allows access to all available actions, including some that are not directly linked to a UI widget.
+
+The top panel of the shortcut mapping screen shows a list of available UI widgets/actions and the bottom panel shows the shortcuts currently assigned to them. You can search the top and bottom panels using the text entry boxes at the bottom of the screen.
+
+Double-click an item in the top panel to create a new shortcut for that item, and then enter your desired shortcut (right-click to cancel). Once you have done this, a new entry will appear in the bottom panel showing the shortcut you have created. You can then manually alter the _element_, _effect_, _speed_ or _instance_ of the assigned action against that shortcut in the bottom panel. To delete a shortcut, select it in the bottom panel and press the Delete key.
+
+The following additional options are provided in the shortcut mapping screen:
+
+export...
+: Export the current shortcut mappings to a file for one or all of your devices (keyboard/mouse, midi, game) to an external file. The dialog will show you how many shortcuts exist for each device.
+
+import...
+: Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts. 
+
+restore...
+: Restore your shortcut mappings to (a) The mappings shipped with darktable by default, (b) The start of your current session, or (c) The point at which the shortcut mapping screen was last opened. When restoring, you can choose to leave any additional shortcuts that were added after the relevant checkpoint as they are, so that only changed shortcuts are restored to their previous meaning. Or you can choose to first clear all shortcuts and just load the restore point.
+
+# common actions
+
+The following is a list of some of the actions to which you can assign shortcuts, organized by widget type. This is not an exhaustive list and you are encouraged to browse the shortcut mapping screen for a complete list of available actions. If you assign a shortcut to a widget, it will be given a default action, depending on the type of widget and on whether you have assigned a simple or extended shortcut.
+
+Note that it is possible to assign a number of actions that have no effect. For example, all sliders include a _button_ element, regardless of whether such a button is actually present alongside a given slider.
 
 ## global
 
-Shortcut actions in this category are applicable to all darktable views.
-
-If you have created any user-defined styles, these will be available as global actions within a "styles" sub-section.
+Actions in the "global" section of the shortcut mapping screen can be executed from any darktable view. Most of these actions do not have specific _elements_ as they are used to perform one-off operations.
 
 ## views
 
-A single section is provided for each darktable view. Shortcut actions are only applicable to the selected view.
+Actions in the "views" section can only be executed from the specified darktable view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-## processing modules
+## buttons 
 
-Shortcut actions in this category apply to [processing modules](../module-reference/processing-modules/_index.md) in the darkroom view. A section is provided for each processing module.
+A button is a clickable icon in the darktable interface. The default action, when assigning a simple shortcut to a _button_ is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
 
-In addition, a separate "blending" section allows you to control the [masking and blending](../darkroom/masking-and-blending/_index.md) options for the currently active module.
+## toggles
 
-### common shortcuts
-
-Every processing module provides the following shortcut actions by default:
-
-enable module
-: Enable or disable the module, regardless of whether it is currently visible.
-
-show module
-: Expand or collapse the module. If the module is not currently displayed on the screen, darktable will switch to an appropriate module group before displaying it.
-
-focus module
-: Cause the module to receive or lose focus. This can activate on-screen guides or controls for that module (for example you can focus the crop module to show the crop guides and unfocus it to commit settings).
-
-reset module parameters
-: Reset the module to its default state.
-
-show preset menu
-: Show the presets menu for the module.
-
-presets
-: An expandable category that lists all currently-defined presets for the module as possible actions.  This option will not be shown if there are no presets for a given module.
-
-For comboboxes and sliders, some standard shortcut actions are provided, as described in the following sections.
-
-In addition, other module-specific controls may be provided with their own shortcut actions.
-
-### sliders
-
-All sliders in processing modules can be adjusted via keyboard shortcuts, regardless of whether the module is currently shown or enabled. The following shortcut actions are provided as standard for each slider:
-
-increase/decrease
-: Separate shortcuts that allow you to increase or decrease the slider's value by a single step.
-
-dynamic
-: A single shortcut that can be used in combination with the mouse scroll wheel to increase and decrease slider values.
-
-edit
-: A shortcut to bring up the slider's edit dialog within which you may key a value directly or modify the slider with the mouse.
-
-reset
-: Reset the slider to its default value.
-
-In addition, you can modify the precision of the increase/decrease operations with a keyboard shortcut (shortcuts > views > darkroom > change keyboard shortcut slider precision), choosing between fine, normal and coarse. See [module controls](../darkroom/processing-modules/module-controls.md) for more details.
-
-When performing increase/decrease and dynamic operations on sliders a toast message will appear at the top of the image to indicate the adjusted value of the slider.
-
-### comboboxes
-
-As with sliders, all comboboxes in processing modules can be adjusted via keyboard shortcuts. The following shortcut actions are provided as standard for each combobox:
-
-next/previous
-: Separate shortcuts that allow you to change to the next or previous entry in the combobox.
-
-dynamic
-: A single shortcut that can be used in combination with the mouse scroll wheel to change to the next/previous entry in the combobox.
-
-If the end of a combobox list is reached, these shortcuts will cycle back to the beginning of the list. Similarly, if the beginning of the list is reached the shortcuts will cycle to the end. 
-
-### multiple module instances
-
-It is possible to create [multiple instances](../darkroom/processing-modules/multiple-instances.md) of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations.
-
-Some additional settings are provided in [preferences > miscellaneous](./miscellaneous.md) to control how keyboard shortcuts are handled when multiple instances of a processing module are present.
+A toggle is a button that has a persistent on/off state. It therefore has additional _effects_ to allow you to toggle it or explicitly set its state. As with a normal button the default action, when assigning a simple shortcut to a toggle is to activate the toggle as if clicked with the left mouse button (which toggles the button on/off).
 
 ## utility modules
 
-Shortcut actions in this category apply to [utility modules](../module-reference/utility-modules/_index.md). These modules are not used for image processing and may appear in any view. Some utility modules can be used in multiple views.
+All utility modules have the following elements:
 
-As with processing modules, some shortcut actions are provided by default for each module:
+_show_
+: Acts as a _toggle_ allowing the module to be expanded and collapsed.
 
-show module
-: Expand or collapse the module.
+_reset_
+: Acts as a _button_ that resets all module parameters when activated. The _ctrl-activate_ action can be used to re-apply any automatic presets for that module.
 
-reset module parameters
-: Reset the module to its default state.
+_presets_
+: Allows you to select actions from the [presets](../darkroom/processing-modules/presets.md) menu (e.g. edit, update, previous, next). The default action when assigning a simple shortcut to a _preset_ element is to display a list of the available presets for selection. Extended shortcuts are not currently available for preset elements.
 
-show preset menu
-: Show the presets menu for the module.
+The default action when assigning a simple shortcut to a utility module is to _toggle_ the _show_ element (expand/collapse the module).
 
-Some of the above actions may not be available for all utility modules.
+In addition, shortcuts are available for all of the controls on each module as well as any stored presets (see below).
+
+## processing modules
+
+Processing modules have the same elements and defaults as utility modules with the following additional elements:
+
+_enable_
+: Acts as a _toggle_ allowing the module to be switched on and off.
+
+_focus_
+: Acts as a _toggle_ allowing the module to be focused or defocused. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
+
+_instance_
+: Allows you to perform actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action when assigning a simple shortcut to the _instance_ element is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
+
+If an action affects a processing module that can have multiple instances, you can choose which instance to adjust with a given shortcut. By default, all actions will affect the "preferred" instance, as defined using the settings in [preferences > miscellaneous > keyboard shortcuts with multiple instances](./miscellaneous.md#keyboard-shortcuts-with-multiple-instances).
+
+## dropdowns
+
+A dropdown is a multi-selection box and has the following elements available:
+
+_selection_
+: Allows values to be selected from the dropdown list in various ways. The default action when assigning a simple shortcut to a dropdown is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values. 
+
+_button_
+: A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
+
+## sliders
+
+A slider allows you to continuously alter an integer or decimal value, and has the following elements available:
+
+_value_
+: Allows the current value of the slider to be altered. The default action when assigning a simple shortcut to a slider is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
+
+_force_
+: This is the same as the _value_ element described above, but it allows you to exceed the bounds set in the visual slider.
+
+_zoom_
+: Allows you to change the upper and lower bounds of the visual slider without altering the current value.
+
+_button_
+: A standard _button_ element that allows the button to the right of the slider (if present) to be activated. For example, a slider may include a color picker to allow you to visually set its value based on selected elements of the image.
+
+You can alter the value of a slider more quickly or slowly than normal by defining the _speed_ of the action in the shortcut mapping screen. By default a _value_ (or _force_) effect is given a speed of 1.0, which means that it is changed at the default rate defined by the given slider. You can alter the slider more quickly by increasing the speed (a speed of 10 makes the action 10x faster) or more slowly by decreasing it (a speed of 0.1 makes the action 10x slower).
+
+# fallbacks
+
+Where a _widget_ can have multiple different _actions_ applied to it, it can be tedious to set up individual shortcuts for each one of those actions. To make this process simpler, if you create a simple shortcut a number of effects can be made available by default as extensions to that shortcut. These are known as _fallbacks_.
+
+While fallbacks are a powerful way to quickly set up multiple actions using predefined and consistent shortcuts, they will assign a lot of actions automatically (which might not be what you want), and can be hard to understand. Fallbacks are therefore disabled by default and you will need to click on the "enable fallbacks" check box in the shortcuts setup window to enable them.
+
+To take a brief example, you could create a simple shortcut (e.g. Ctrl+R) against a processing module. This will automatically set up the following _fallback_ effects using the defined shortcut, extended with mouse-clicks. In each case (except the first) you should hold the initial shortcut while clicking with your mouse. The final mouse-click will apply the action defined below:
+
+- Ctrl+R (no mouse-click) to show/hide the module (the default fallback)
+- Ctrl+R+left-click to enable/disable the module
+- Ctrl+R+left-double-click to reset the module
+- Ctrl+R+right-click to show the module's preset menu
+- Ctrl+R+right-double-click to show the module's multiple instance menu
+
+Similar fallbacks are defined for many common UI elements and all can be manually overridden.
+
+Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign Ctrl+R to an action, you cannot use a `Ctrl+` fallback.
+
+To see a list of the default fallbacks, click the "enable fallbacks" checkbox in the shortcut mapping screen, expand the "fallbacks" list in the top panel and select an option. An additional item (also named "fallbacks") will then appear in the bottom panel containing full details of the available fallbacks.
+
+Fallbacks are only applied if no other shortcut using that combination has been explicitly created. In the above example, if you were to explicitly assign Ctrl+R+left-click to another action, the "enable/disable module" fallback would be ignored.
