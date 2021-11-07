@@ -19,10 +19,10 @@ The images in a collection can be filtered using the following image attributes:
 ## files
 
 film roll
-: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Click on a film roll while holding Ctrl+Shift to switch to the corresponding folder. Right-click to remove the collection or tell darktable that its location has changed in the file system.
+: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Ctrl+Shift+click on a film roll to switch to the corresponding folder. Right-click to remove the contents of the film roll from the darktable library or tell darktable that its location has changed in the file system.
 
 folder
-: The folder (file path) where the image file is located. Click on a folder while holding Ctrl+Shift to switch to the corresponding film roll. Right-click to remove the collection or tell darktable that its location has changed in the file system. Double-click to show only the images in the selected folder; Ctrl+click to show only the images from any sub-folders; Shift+click to show the images from the current folder plus all sub-folders.
+: The folder (file path) where the image file is located. Click on a folder to include the contents of that folder and all sub-folders in the collection; Shift+click to include only the images in the selected folder; Ctrl+click to show only the images from any sub-folders; Ctrl+Shift+click to switch to the corresponding film roll. Right-click on a folder name to remove its contents from the darktable library or tell darktable that its location has changed in the file system.
 
 filename
 : The image's filename.
