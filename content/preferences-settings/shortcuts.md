@@ -81,7 +81,7 @@ There are two primary methods of assigning a shortcut to an action.
 
 ## visual shortcut mapping
 
-Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) in the [top panel](../overview/user-interface/top-panel.md) of any darktable view to enter visual shortcut mapping mode. 
+Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md) of any darktable view to enter visual shortcut mapping mode. 
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
@@ -95,7 +95,7 @@ Press a key combination while hovering over a mappable widget to assign a shortc
 
 Left-click on a mappable widget to open the shortcut mapping screen for that widget. Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. Here, you can also configure shortcuts for non-visual actions.
 
-You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) again or right-clicking anywhere on the screen.
+You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon again or right-clicking anywhere on the screen.
 
 You can delete a shortcut mapping by defining it a second time against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and asked whether you wish to replace the existing shortcut.
 
