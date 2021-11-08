@@ -93,17 +93,15 @@ The mouse cursor will change as you hover over UI widgets, to indicate whether o
 
 Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
 
-Left-click on a mappable widget to open the shortcut mapping screen for that widget. Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. Here, you can also configure shortcuts for non-visual actions.
+Left-click on a mappable widget to open the shortcut mapping screen for that widget (see below). Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. This screen can be used to alter the action assigned to a shortcut and to configure shortcuts for non-visual actions. Entering the shortcut mapping screen exits visual shortcut mapping mode.
 
 You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon again or right-clicking anywhere on the screen.
 
 You can delete a shortcut mapping by defining it a second time against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and asked whether you wish to replace the existing shortcut.
 
-If you want to alter the action assigned to a shortcut or view additional options, you can also left-click on any UI widget to open the shortcut mapping screen for that widget (see below). Entering the shortcut mapping screen also exits visual shortcut mapping mode.
-
 ## shortcut mapping screen
 
-The most flexible way to create shortcuts is by using the shortcut mapping screen, which can be accessed from the global preferences dialog or by clicking on a widget in visual mapping mode. This screen allows access to all available actions, including some that are not directly linked to a UI widget.
+The most flexible way to create shortcuts is by using the shortcut mapping screen, which can be accessed from the global preferences dialog or by left-clicking in visual mapping mode. This screen allows access to all available actions, including some that are not directly linked to a UI widget.
 
 The top panel of the shortcut mapping screen shows a list of available UI widgets/actions and the bottom panel shows the shortcuts currently assigned to them. You can search the top and bottom panels using the text entry boxes at the bottom of the screen.
 
@@ -136,26 +134,26 @@ Actions in the "views" section can only be executed from the specified darktable
 
 ## buttons 
 
-A button is a clickable icon in the darktable interface. The default action, when assigning a simple shortcut to a _button_ is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
+A button is a clickable icon in the darktable interface. The default action, when assigning a simple shortcut to a _button_, is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
 
 ## toggles
 
-A toggle is a button that has a persistent on/off state. It therefore has additional _effects_ to allow you to toggle it or explicitly set its state. As with a normal button the default action, when assigning a simple shortcut to a toggle is to activate the toggle as if clicked with the left mouse button (which toggles the button on/off).
+A toggle is a button that has a persistent on/off state. It therefore has additional _effects_ to allow you to toggle it or explicitly set its state. As with a normal button the default action, when assigning a simple shortcut to a toggle, is to activate the toggle as if clicked with the left mouse button (which toggles the button on/off).
 
 ## utility modules
 
 All utility modules have the following elements:
 
 _show_
-: Acts as a _toggle_ allowing the module to be expanded and collapsed.
+: Acts as a _toggle_ that expands and collapses the module.
 
 _reset_
 : Acts as a _button_ that resets all module parameters when activated. The _ctrl-activate_ action can be used to re-apply any automatic presets for that module.
 
 _presets_
-: Allows you to select actions from the [presets](../darkroom/processing-modules/presets.md) menu (e.g. edit, update, previous, next). The default action when assigning a simple shortcut to a _preset_ element is to display a list of the available presets for selection. Extended shortcuts are not currently available for preset elements.
+: Allows you to select actions from the [presets](../darkroom/processing-modules/presets.md) menu (e.g. edit, update, previous, next). The default action, when assigning a simple shortcut to a _preset_ element, is to display a list of the available presets for selection. Extended shortcuts are not currently available for preset elements.
 
-The default action when assigning a simple shortcut to a utility module is to _toggle_ the _show_ element (expand/collapse the module).
+The default action, when assigning a simple shortcut to a utility module, is to _toggle_ the _show_ element (expand/collapse the module).
 
 In addition, shortcuts are available for all of the controls on each module as well as any stored presets (see below).
 
@@ -164,13 +162,13 @@ In addition, shortcuts are available for all of the controls on each module as w
 Processing modules have the same elements and defaults as utility modules with the following additional elements:
 
 _enable_
-: Acts as a _toggle_ allowing the module to be switched on and off.
+: Acts as a _toggle_ that switches the module on and off.
 
 _focus_
-: Acts as a _toggle_ allowing the module to be focused or defocused. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
+: Acts as a _toggle_ that focuses or defocuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
 
 _instance_
-: Allows you to perform actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action when assigning a simple shortcut to the _instance_ element is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
+: Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action, when assigning a simple shortcut to the _instance_ element, is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
 
 If an action affects a processing module that can have multiple instances, you can choose which instance to adjust with a given shortcut. By default, all actions will affect the "preferred" instance, as defined using the settings in [preferences > miscellaneous > keyboard shortcuts with multiple instances](./miscellaneous.md#keyboard-shortcuts-with-multiple-instances).
 
@@ -179,7 +177,7 @@ If an action affects a processing module that can have multiple instances, you c
 A dropdown is a multi-selection box and has the following elements available:
 
 _selection_
-: Allows values to be selected from the dropdown list in various ways. The default action when assigning a simple shortcut to a dropdown is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values. 
+: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a simple shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values. 
 
 _button_
 : A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
@@ -189,7 +187,7 @@ _button_
 A slider allows you to continuously alter an integer or decimal value, and has the following elements available:
 
 _value_
-: Allows the current value of the slider to be altered. The default action when assigning a simple shortcut to a slider is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider. Value elements are also used for modifying some on-screen graphs.
+: Allows the current value of the slider to be altered. The default action, when assigning a simple shortcut to a slider, is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down.  Value elements are also used for modifying some on-screen graphs. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
 
 _force_
 : This is the same as the _value_ element described above, but it allows you to exceed the bounds set in the visual slider.
@@ -198,7 +196,7 @@ _zoom_
 : Allows you to change the upper and lower bounds of the visual slider without altering the current value.
 
 _button_
-: A standard _button_ element that allows the button to the right of the slider (if present) to be activated. For example, a slider may include a color picker to allow you to visually set its value based on selected elements of the image.
+: A standard _button_ element that allows the button to the right of the slider (if present) to be activated. For example, a slider may include a color picker to visually set its value based on selected elements of the image.
 
 You can alter the value of a slider more quickly or slowly than normal by defining the _speed_ of the action in the shortcut mapping screen. By default a _value_ (or _force_) effect is given a speed of 1.0, which means that it is changed at the default rate defined by the given slider. You can alter the slider more quickly by increasing the speed (a speed of 10 makes the action 10x faster) or more slowly by decreasing it (a speed of 0.1 makes the action 10x slower).
 
@@ -218,10 +216,10 @@ To take a brief example, you could create a simple shortcut (e.g. Ctrl+R) agains
 
 Similar fallbacks are defined for many common UI elements and all can be manually overridden.
 
-Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign Ctrl+R to an action, you cannot use a `Ctrl+` fallback. Some default fallbacks of this type are provided for the _value_ element and for horizontal/vertical movements in the (zoomed) central area -- in this case, `Shift+` increases the spead to 10.0 and `Ctrl+` decreases the speed to 0.1.
+Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign Ctrl+R to an action, you cannot use a `Ctrl+` fallback. Some default fallbacks of this type are provided for the _value_ element and for horizontal/vertical movements in the (zoomed) central area -- in this case, `Shift+` increases the speed to 10.0 and `Ctrl+` decreases the speed to 0.1.
 
-To see a list of _all_ of the default fallbacks, click the "enable fallbacks" checkbox in the shortcut mapping screen and select the "fallbacks" category in the top panel. To see the fallbakcs for a given widget (e.g. a slider) just select that widget in the top panel. In both cases an additional item (also named "fallbacks") will then appear in the bottom panel containing full details of the available fallbacks.
+To see a list of _all_ of the default fallbacks, click the "enable fallbacks" checkbox in the shortcut mapping screen and select the "fallbacks" category in the top panel. To see the fallbacks for a given widget (e.g. a slider) just select that widget in the top panel. In both cases an additional item (also named "fallbacks") will then appear in the bottom panel containing full details of the available fallbacks.
 
 Fallbacks are only applied if no other shortcut using that combination has been explicitly created. In the above example, if you were to explicitly assign Ctrl+R+left-click to another action, the "enable/disable module" fallback would be ignored.
 
-As with any other shortcut, fallback settings can be customized to your preferences.
+As with any other shortcut, fallback settings are fully customizable. 
