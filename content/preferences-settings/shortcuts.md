@@ -5,7 +5,7 @@ weight: 120
 draft: false
 ---
 
-You can perform almost any action in darktable with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details.
+You can perform almost any action in darktable with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _external devices_ or just _devices_ in this guide.
 
 # defining shortcuts
 
@@ -13,34 +13,44 @@ A _shortcut_ is a combination of key or button presses and/or mouse or device mo
 
 A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
 
+## initiating a shortcut
+
+A shortcut must be initiated by either
+
+- pressing a key on the keyboard; or
+- pressing a button or moving a knob/joystick on an external device 
+
+You cannot initiate a shortcut by moving your mouse or pressing one of its buttons, as these actions are used to interact with darktable's UI.
+
 ## simple shortcuts
 
 A shortcut that only includes button and/or key presses (and not mouse/device movements) is referred to as a _simple_ shortcut.
 
-Such a shortcut can be initiated with a key combination on the keyboard or a button-press on an external (non-mouse) device. If using the keyboard, a simple shortcut must consist of at least one key press, plus an optional modifier (Shift, Ctrl or Alt, either alone or in combination). You can use a single-, double- or triple-key-presses and you can end a simple shortcut with a long-key-press (where the length of the final key press is longer than your system's double-click duration). 
+A simple shortcut must be initiated as above, but can include:
 
-A shortcut may also include a (single, double, triple) click of any mouse button (as well as combinations of mouse buttons). As with keyboard key presses, the final mouse click of a simple shortcut may be a long-click.
+- One or more modifier keys (Shift, Ctrl, Alt), held down while executing the remainder of the shortcut
+- Up to three key presses, the last one of which may be a long-press (defined as a key-press longer than your system's double-click duration)
+- Similarly, up to three device-button presses or mouse-button clicks, the last of which may be long
 
-If you are using another type of device (MIDI, game controller) you may (single, double, triple) press any device button to create a simple shortcut without needing to press a keyboard key first.
-
-Combinations of keyboard, mouse, and device buttons also can be used.
+Various combinations of keyboard, mouse, and device buttons can be used to create simple shortcuts.
 
 ### creating additional modifiers
 
-The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the the "global/modifier" action. However, these will merely function as extra Crl, Alt or Shift keys -- you cannot create "new" modifiers.
+The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the the "global/modifier" action. However, these will merely function as extra Ctrl, Alt or Shift keys -- you cannot create "new" modifiers.
 
 ## extending simple shortcuts with movement
 
-For certain actions you can choose to _extend_ a simple shortcut using mouse/device movement. For example you could hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut with a mouse:
+For certain actions you can choose to _extend_ a simple shortcut using mouse/device movement. For example you might hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut:
 
 - Movement of the mouse scroll wheel
 - Horizontal, vertical or diagonal movement of the mouse cursor
+- Movement of a knob/joystick on an external device
 
-Extended shortcuts must be initiated with a button or key press where the final key/button is held during the extending movement -- mouse/device movements will not be considered as part of a shortcut without this initial key/button press.
+To extend a simple shortcut, you must hold the final key/button of the simple shortcut while performing the extending mouse/device movement. 
 
-Similarly, if you are using another device (MIDI, game controller), you may move any of that device's controls (knobs, joysticks etc.) to extend a shortcut. For example you may hold a button while turning a control knob to create an extended shortcut on a MIDI device. For such devices you do not need an initial key- or button-press -- you can directly assign a control knob to an action -- though this will significantly reduce the flexibility of such devices.
+For external devices you do not need to start with a _simple_ shortcut -- you can directly assign a control knob or joystick to an action -- though this will significantly reduce the flexibility of such devices.
 
-Long button and key presses cannot be extended, as the length of the click/key-press is timed using the release of the final button/key -- such shortcuts must be terminated with the raising of the final button/key.
+Long button and key presses cannot be extended, as the length of the click/press is timed using the release of the final button/key -- such shortcuts must be terminated with the raising of the final button/key.
 
 # actions
 
