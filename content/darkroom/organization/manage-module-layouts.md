@@ -41,6 +41,9 @@ show search line
 show quick access panel
 : Choose whether to display the quick access panel. If checked, a new entry will appear in the bottom panel to allow you to add or remove widgets.
 
+show all history modules in active group
+: Select this to show all modules that are present in the [history stack](../pixelpipe/history-stack.md) within the active group, regardless of whether or not they are actually active.
+
 auto-apply this preset
 : Module group presets can be automatically applied based on the type of image being worked on. The check box indicates whether this preset currently has any auto-apply rules. Click on the gear icon to amend the auto-apply settings. See [presets](../processing-modules/presets.md) for details.
 

@@ -16,7 +16,7 @@ Click on the icons at the top of this panel to reveal, from left to right,
 : A customizable panel allowing quick access to commonly-used module controls.
 
 ![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png#icon) active modules
-: A group containing the modules that are currently active in the pixelpipe.
+: A group containing the modules that are currently active in the pixelpipe.  Right-click to show all modules that are present in the [history stack](../pixelpipe/history-stack.md) within the active group, regardless of whether or not they are actually active.
 
 [module groups](./module-groups.md)
 : One or more groups of processing modules. These groups are user-defined but some default groupings are provided as presets.
@@ -26,7 +26,7 @@ Click on the icons at the top of this panel to reveal, from left to right,
 
 Click once on a module group icon (including the active group) to show only the modules in that group. Click a second time to show a list of all modules that are currently active or present in any group.
 
-You can change which widgets appear in the quick access panel, and which modules appear in the module groups, by right-clicking on the appropriate icon.
+You can change which widgets appear in the quick access panel and which modules appear in the module groups, by right-clicking the appropriate icon.
 
 # search
 
