@@ -15,13 +15,15 @@ A single action may have multiple shortcuts but a single shortcut can only be li
 
 ## simple shortcuts
 
-All shortcuts involving the keyboard/mouse must be initiated with a key combination on the keyboard. This combination must consist of at least one key press, plus an optional modifier (Shift, Ctrl or Alt, either alone or in combination). You can use a single-, double- or triple-key-presses and the final key-press may be lengthened to provide an additional option. You cannot press any other button or key after a long-press, and you cannot extend it (see below) -- the release of the final key must end the shortcut.
+A shortcut that only includes button and/or key presses (and not mouse/device movements) is referred to as a _simple_ shortcut.
 
-A shortcut may also include a (single, double, triple) click of any mouse button. As with keyboard key presses, the final mouse click may be lengthened but that long-click must end the shortcut.
+Such a shortcut can be initiated with a key combination on the keyboard or a button-press on an external (non-mouse) device. If using the keyboard, a simple shortcut must consist of at least one key press, plus an optional modifier (Shift, Ctrl or Alt, either alone or in combination). You can use a single-, double- or triple-key-presses and you can end a simple shortcut with a long-key-press (where the length of the final key press is longer than your system's double-click duration). 
 
-A shortcut that only includes button or key presses is referred to as a _simple_ shortcut.
+A shortcut may also include a (single, double, triple) click of any mouse button (as well as combinations of mouse buttons). As with keyboard key presses, the final mouse click of a simple shortcut may be a long-click.
 
 If you are using another type of device (MIDI, game controller) you may (single, double, triple) press any device button to create a simple shortcut without needing to press a keyboard key first.
+
+Combinations of keyboard, mouse, and device buttons also can be used.
 
 ### creating additional modifiers
 
@@ -29,14 +31,16 @@ The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You c
 
 ## extending simple shortcuts with movement
 
-For certain actions you can choose to _extend_ a simple shortcut using a mouse movement. For example you could hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut with a mouse:
+For certain actions you can choose to _extend_ a simple shortcut using mouse/device movement. For example you could hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut with a mouse:
 
 - Movement of the mouse scroll wheel
 - Horizontal, vertical or diagonal movement of the mouse cursor
 
+Extended shortcuts must be initiated with a button or key press where the final key/button is held during the extending movement -- mouse/device movements will not be considered as part of a shortcut without this initial key/button press.
+
 Similarly, if you are using another device (MIDI, game controller), you may move any of that device's controls (knobs, joysticks etc.) to extend a shortcut. For example you may hold a button while turning a control knob to create an extended shortcut on a MIDI device. For such devices you do not need an initial key- or button-press -- you can directly assign a control knob to an action -- though this will significantly reduce the flexibility of such devices.
 
-As noted above, you cannot extend a keyboard shortcut that was initiated with a long-key-press or a long-mouse-click -- such shortcuts must be terminated with the raising of the final key/button.
+Long button and key presses cannot be extended, as the length of the click/key-press is timed using the release of the final button/key -- such shortcuts must be terminated with the raising of the final button/key.
 
 # actions
 
@@ -71,12 +75,15 @@ Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
-- A cross ![cross icon](./shortcuts/cross-icon.png#icon) indicates that there is no mappable widget under the cursor. Clicking the left mouse button will call up the shortcut mapping screen (where you can configure shortcuts for non-visual actions).
-- A spiral ![spiral icon](./shortcuts/spiral-icon.png#icon) indicates that a shortcut can be defined for the widget under the cursor.
-- An up arrow ![up icon](./shortcuts/up-icon.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it)
+- A down arrow with a line ![expand icon](./shortcuts/expand-icon.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
+- A spiral ![spiral icon](./shortcuts/spiral-icon.png#icon) indicates that a shortcut can be defined for the widget under the cursor. 
+- An up arrow ![up icon](./shortcuts/up-icon.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
 - A down arrow ![down icon](./shortcuts/down-icon.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
+- A cross ![cross icon](./shortcuts/cross-icon.png#icon) indicates that there is no mappable widget under the cursor. 
 
-Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut. See below for details of some of the default assigned actions. 
+Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
+
+Left-click on a mappable widget to open the shortcut mapping screen for that widget. Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. Here, you can also configure shortcuts for non-visual actions.
 
 You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) again or right-clicking anywhere on the screen.
 
@@ -95,7 +102,7 @@ Double-click an item in the top panel to create a new shortcut for that item, an
 The following additional options are provided in the shortcut mapping screen:
 
 export...
-: Export the current shortcut mappings to a file for one or all of your devices (keyboard/mouse, midi, game) to an external file. The dialog will show you how many shortcuts exist for each device.
+: Export the current shortcut mappings for one or all of your devices (keyboard/mouse, midi, game) to an external file. The dialog will show you how many shortcuts exist for each device.
 
 import...
 : Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts. 
@@ -172,7 +179,7 @@ _button_
 A slider allows you to continuously alter an integer or decimal value, and has the following elements available:
 
 _value_
-: Allows the current value of the slider to be altered. The default action when assigning a simple shortcut to a slider is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
+: Allows the current value of the slider to be altered. The default action when assigning a simple shortcut to a slider is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider. Value elements are also used for modifying some on-screen graphs.
 
 _force_
 : This is the same as the _value_ element described above, but it allows you to exceed the bounds set in the visual slider.
@@ -201,8 +208,10 @@ To take a brief example, you could create a simple shortcut (e.g. Ctrl+R) agains
 
 Similar fallbacks are defined for many common UI elements and all can be manually overridden.
 
-Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign Ctrl+R to an action, you cannot use a `Ctrl+` fallback.
+Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign Ctrl+R to an action, you cannot use a `Ctrl+` fallback. Some default fallbacks of this type are provided for the _value_ element and for horizontal/vertical movements in the (zoomed) central area -- in this case, `Shift+` increases the spead to 10.0 and `Ctrl+` decreases the speed to 0.1.
 
-To see a list of the default fallbacks, click the "enable fallbacks" checkbox in the shortcut mapping screen, expand the "fallbacks" list in the top panel and select an option. An additional item (also named "fallbacks") will then appear in the bottom panel containing full details of the available fallbacks.
+To see a list of _all_ of the default fallbacks, click the "enable fallbacks" checkbox in the shortcut mapping screen and select the "fallbacks" category in the top panel. To see the fallbakcs for a given widget (e.g. a slider) just select that widget in the top panel. In both cases an additional item (also named "fallbacks") will then appear in the bottom panel containing full details of the available fallbacks.
 
 Fallbacks are only applied if no other shortcut using that combination has been explicitly created. In the above example, if you were to explicitly assign Ctrl+R+left-click to another action, the "enable/disable module" fallback would be ignored.
+
+As with any other shortcut, fallback settings can be customized to your preferences.
