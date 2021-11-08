@@ -47,6 +47,9 @@ display grid
 snap to grid
 : Help setting the image areas by snapping them to the grid for proper alignment.
 
+borderless mode required
+: Indicates whether the printer borderless mode is to be activated. This item is activated when the user's margins are smaller than the printer hardware margins. Note that it is only an indicator as it does not activate the borderless mode automatically.
+
 ## image layout
 
 image width/height
