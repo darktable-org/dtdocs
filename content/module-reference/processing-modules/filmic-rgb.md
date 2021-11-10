@@ -99,6 +99,15 @@ dynamic range mapping
 
 : ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png#w50)
 
+---
+
+**Note:** When some parameters are too extreme, resulting in an unfeasible curve, _filmic rgb_ will sanitize them internally. Sanitizing is illustrated in two ways on the look views:
+
+- A dot becoming red indicates that the linear part of the curve is pushed too far towards the top or the bottom. In the [_look_](#look) tab, reduce the latitude or recenter the linear part using the shadows ↔ highlights balance parameter. 
+- Dots becoming half circles indicate that contrast is too low considering the dynamic range of the image. Increase contrast in the [_look_](#look) tab, or the dynamic range in the [_scene_](#scene) tab.
+
+---
+
 # module controls
 
 ## scene
