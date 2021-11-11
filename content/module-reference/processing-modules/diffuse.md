@@ -26,7 +26,7 @@ Diffusion can be removed in order to:
 - remove atmospheric haze (use the _dehaze_ preset),
 - add extra acutance for better legibility (use the _local contrast_ preset).
 
-Note that motion blurs cannot be reverted by undoing the diffusion process, they are not diffusive in nature.
+Note that motion blurs cannot be reverted by undoing the diffusion process, as they are not diffusive in nature.
 
 Diffusion can be added in order to:
 
