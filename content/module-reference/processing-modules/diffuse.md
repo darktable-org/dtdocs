@@ -22,7 +22,7 @@ As it is a highly technical module, several presets are provided to demonstrate 
 Diffusion can be removed in order to:
 
 - recover the original image from sensors with an anti-aliasing filter or mitigate the blur created by most demosaicing algorithms (use the _sharpen sensor demosaicing_ preset and move the module before the _input color profile_ module in the pipeline),
-- reverse static lens blurring/defocusing (use the _lens deblur_ presets),
+- reverse static lens blurring/defocusing (use one of the _lens deblur_ presets),
 - remove atmospheric haze (use the _dehaze_ preset),
 - add extra acutance for better legibility (use the _local contrast_ preset).
 
@@ -32,7 +32,7 @@ Diffusion can be added in order to:
 
 - create a bloom or Orton effect (use the _bloom_ preset),
 - inpaint missing or damaged parts of an image (use the _inpaint highlights_ preset),
-- denoise in an edge-preserving way (use the _denoise_ presets)
+- denoise in an edge-preserving way (use one of the _denoise_ presets)
 - apply a surface blur (use the _surface blur_ preset).
 
 Since the process is physical, even its glitches may be used for creative purposes. For example, you can:
@@ -85,11 +85,11 @@ central radius
 : The main scale of the diffusion. Zero causes the diffusion to act more heavily on fine details (used for deblurring and denoising). Non-zero values define the size of details to be heavily diffused (used to increase local contrast).
 
 radius span
-: This allows to select the band of details radii to act on, around the central radius. The span of diffusion defines a range of details scales between `center - span` and `center + span` in which the diffusion is confined. High values diffuse on a large band of radii, at the expense of computation time. Low values diffuse closer around the central radius. If you plan to deblur, the radius span should be approximately the width of your lens blur and the central radius should be zero. If you plan to increase the local contrast but don't want to affect sharpness or noise, the radius span should be 3/4 of your central radius maximum.
+: This allows you to select the band of details radii to act on, around the central radius. The span of diffusion defines a range of detail scales (between `center - span` and `center + span`) within which the diffusion is confined. High values diffuse on a large band of radii, at the expense of computation time. Low values diffuse closer around the central radius. If you plan to deblur, the radius span should be approximately the width of your lens blur and the central radius should be zero. If you plan to increase the local contrast, but don't want to affect sharpness or noise, the radius span should be 3/4 of your central radius maximum.
 
-The radii are expressed in pixels of the full-resolution image, so copy-pasting settings between images of different resolution may lead to slightly different results, except for pixel-level sharpness.
+The radii are expressed in pixels of the full-resolution image, so copy+pasting settings between images of different resolution may lead to slightly different results, except for pixel-level sharpness.
 
-For electrical engineers, what is set here is a band-pass filter in wavelets space, using a gaussian frequential window centered in `central radius` with a fall-off (standard deviation) of `radius span`. Wavelets scales are analogous to harmonic frequencies and each wavelet scale defines the radius of the details to act on.
+For electrical engineers, what is set here is a band-pass filter in wavelets space, using a gaussian frequential window centered on `central radius` with a fall-off (standard deviation) of `radius span`. Wavelet scales are analogous to harmonic frequencies and each wavelet scale defines the radius of the details to act on.
 
 ## diffusion speed
 
@@ -122,18 +122,18 @@ For electrical engineers, what is set here is a band-pass filter in wavelets spa
 ## edges management
 
 sharpness
-: Apply a gain on wavelet details, regardless of diffusion properties. Zero does nothing, positive values sharpen, negative values blur. This is mostly useful as an adjustment variable when doing blooming or blurring, to retain some sharpness while adding a glow around edges. It is not advised to used this to sharpen alone, since nothing prevents halos or fringes with this setting.
+: Apply a gain on wavelet details, regardless of diffusion properties. Zero does nothing, positive values sharpen, negative values blur. This is mostly useful as an adjustment variable when blooming or blurring, to retain some sharpness while adding a glow around edges. You are not advised to used this for sharpening alone, since there is nothing to prevent halos or fringes with this setting.
 
 edge sensitivity
-: Apply a penalty over the diffusion speeds when edges are detected. This detection uses the local variance around each pixel. Zero disables the penalty, higher values make the penalty stronger and more sensible to edges. Increase if you notice edge artifacts like fringes and halos.
+: Apply a penalty over the diffusion speeds when edges are detected. This detection uses the local variance around each pixel. Zero disables the penalty, higher values make the penalty stronger and more sensitive to edges. Increase if you notice edge artifacts like fringes and halos.
 
 edge threshold
-: Define a variance threshold, affecting mostly the low-variance areas (dark areas, blurry parts or flat surfaces). Positive values will increase the penalty for low-variance areas, which will be good for sharpening or increasing local contrast without crushing blacks. Negative values will decrease the penalty for low-variance areas, which will be good for denoising or blurring with a maximal effect on black and blurry regions.
+: Define a variance threshold, which affects mostly low-variance areas (dark or blurry areas, or flat surfaces). Positive values will increase the penalty for low-variance areas, which is good for sharpening or increasing local contrast without crushing blacks. Negative values will decrease the penalty for low-variance areas, which is good for denoising or blurring with a maximal effect on black and blurry regions.
 
 ## diffusion spatiality
 
 luminance masking threshold
-: This control is useful if you want to in-paint highlights. For values greater than 0%, the diffusion will only occur in regions with a luminance greater than this setting. Notice gaussian noise will be added in these regions to simulate particles and initialize the in-painting.
+: This control is useful if you want to in-paint highlights. For values greater than 0%, the diffusion will only occur in regions with a luminance greater than this setting. Note that gaussian noise will be added in these regions to simulate particles and initialize the in-painting.
 
 # workflow
 
@@ -143,7 +143,7 @@ The main difficulty with this module is that while its output can vary dramatica
 
 If you intend to deblur your image using this module, always start by properly correctiong any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don't have clipped black pixels in your image. These can be corrected with the _black level correction_ of the [_exposure_](./exposure.md) module.
 
-Since it works on separate RGB channels, it is better to apply this module after the [color calibration](color-calibration.md) one to get a fully neutral, white-balanced, input image. Notice that increasing local contrast or sharpness will also lead to a slight color contrast and saturation boost, which is usually desirable. And since it uses a variance-based regularization to detect edges, it is better to put this module before any non-linear operator.
+Since it works on separate RGB channels, it is better to apply this module after [_color calibration_](./color-calibration.md), so that you start with a fully neutral, white-balanced, input image. Note that increasing local contrast or sharpness will also lead to a slight color contrast and saturation boost, which is usually a good thing. Since it uses a variance-based regularization to detect edges, it is also better to put this module before any non-linear operation.
 
 ## starting with presets
 
@@ -178,24 +178,24 @@ The fourth order follows the gradient or isophote direction of the high frequenc
 
 # using multiple instances for image reconstruction
 
-There are 4 optical issues that may benefit from a reconstruction by __undoing__ the diffusion process:
+Noise post-filtering may benefit from **introducing** a diffusion process -- this can be applied as an extra step after the [_denoise (profiled)_](./denoise-profiled.md) module.
 
-1. sensor low-pass filter (LPF) blur and/or demosaicing anti-aliasing step,
+Conversely, the following optical issues may benefit from reconstruction by **undoing** the diffusion process:
+
+1. blur introduced by a sensor's low-pass filter (LPF) and/or anti-aliasing performed by the [_demosaic_](./demosaic.md) module,
 2. static lens blur,
-3. hazing, fog,
-4. light diffusion (using a diffuser too large), leading to even lighting and lack of local contrast on the subject.
+3. haze/fog,
+4. light diffusion (using a diffuser that is too large), leading to even lighting and lack of local contrast on the subject.
 
-And there is one issue that may benefit from a reconstruction by __doing__ a diffusion process: noise post-filtering (as an extra step after applying the [denoise (profiled)](denoised-profiled.md) module).
+While more than one of these issues can affect the same picture at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following [pipe order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md):
 
-While more than one of these issues can affect the same picture at the same time, it is better to try to fix them separately in more than one instance of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and denoising always happens first. That is, your instances should be stacked on top of each other in this order:
-
-1. denoising,
+1. denoise,
 2. local contrast enhancement,
-3. dehazing,
+3. dehaze,
 4. lens blur correction,
-5. sensor and demosaicing correction.
+5. sensor and demosaic correction.
 
-Indeed, starting with the coarser scales reconstructions reduces the probability of introducing or increasing noise when doing the finer scales reconstructions. This is unintuitive because these processes don't happen in this order during the formation of the image. For the same reason, denoising should always happen before any attempt at sharpening or increasing acutance.
+Starting with the coarser-scale reconstructions reduces the probability of introducing or increasing noise when performing the finer-scale reconstructions. This is unintuitive because these processes don't happen in this order during the formation of the image. For the same reason, denoising should always happen before any attempt at sharpening or increasing acutance.
 
 # notes and warnings
 
