@@ -85,7 +85,9 @@ central radius
 : The main scale of the diffusion. Zero causes the diffusion to act more heavily on fine details (used for deblurring and denoising). Non-zero values define the size of details to be heavily diffused (used to increase local contrast).
 
 radius span
-: This allows to select the band of details radii to act on, around the central radius. The span of diffusion, expressed in pixels of the full-resolution image. High values diffuse on a large band of radii, at the expense of computation time. Low values diffuse closer around the central radius. If you plan to deblur, the radius span should be approximately the width of your lens blur and the central radius should be zero. If you plan to increase the local contrast but don't want to affect sharpness or noise, the radius span should be 3/4 of your central radius maximum.
+: This allows to select the band of details radii to act on, around the central radius. The span of diffusion defines a range of details scales between `center - span` and `center + span` in which the diffusion is confined. High values diffuse on a large band of radii, at the expense of computation time. Low values diffuse closer around the central radius. If you plan to deblur, the radius span should be approximately the width of your lens blur and the central radius should be zero. If you plan to increase the local contrast but don't want to affect sharpness or noise, the radius span should be 3/4 of your central radius maximum.
+
+The radii are expressed in pixels of the full-resolution image, so copy-pasting settings between images of different resolution may lead to slightly different results, except for pixel-level sharpness.
 
 For electrical engineers, what is set here is a band-pass filter in wavelets space, using a gaussian frequential window centered in `central radius` with a fall-off (standard deviation) of `radius span`. Wavelets scales are analogous to harmonic frequencies and each wavelet scale defines the radius of the details to act on.
 
@@ -190,9 +192,8 @@ While more than one of these issues can affect the same picture at the same time
 1. denoising,
 2. local contrast enhancement,
 3. dehazing,
-4. local contrast enhancement,
-5. lens blur correction,
-6. sensor and demosaicing correction.
+4. lens blur correction,
+5. sensor and demosaicing correction.
 
 Indeed, starting with the coarser scales reconstructions reduces the probability of introducing or increasing noise when doing the finer scales reconstructions. This is unintuitive because these processes don't happen in this order during the formation of the image. For the same reason, denoising should always happen before any attempt at sharpening or increasing acutance.
 
