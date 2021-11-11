@@ -25,4 +25,4 @@ softproof profile
 : Set the color profile for soft proofing. Typically these profiles are supplied by your printer or generated during printer profiling.
 
 histogram profile
-: Set the color profile of the histogram.
+: Set the color profile of the histogram. None of the available options are ideal, however, "system display profile" is probably the _least bad_ setting, since all other profiles are derived from the display color space and at least the values will conform to what you see on screen.
