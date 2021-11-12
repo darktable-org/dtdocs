@@ -68,5 +68,5 @@ The blurring process does not take scene depth and depth-of-field into account, 
 
 # tips and tricks
 
-Any image is usually (even a tiny bit) noisy. If you blur only a part of the image, the blurred region will look suspiciously clean compared to the rest of the image. It is therefore a good idea to add a bit of noise on top of the blurred part to blend it with the rest, using either the [grain](./grain.md) or the [censorize](./censorize.md) modules.
+All images are usually (even a tiny bit) noisy. If you blur only a part of the image, the blurred region will look suspiciously clean compared to the rest of the image. It is therefore a good idea to add a bit of noise on top of the blurred part to blend it with the rest, using either the [grain](./grain.md) or the [censorize](./censorize.md) modules.
 
