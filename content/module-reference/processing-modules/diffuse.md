@@ -42,7 +42,7 @@ Since the process is physical, even its glitches may be used for creative purpos
 
 ---
 
-**Note:** This module is highly resource-intensive, as it is actually an anisotropic, multiscale, partial differential equation solver. The module's runtime increases with the number of iterations and OpenCL is therefore strongly recommended.
+**Note:** This module is highly resource-intensive, as it is actually an anisotropic, multiscale, partial differential equation solver. The module's runtime increases with the number of iterations and OpenCL is therefore strongly recommended. Some "fast" presets are also provided for use on systems without OpenCL.
 
 ---
 
