@@ -10,7 +10,7 @@ Each image in the current collection is represented by a thumbnail in the lightt
 
 # thumbnail creation
 
-Thumbnails are created when an image is imported into darktable for the first time, after an image has been modified in the darkroom, or when revisiting an image whose thumbnail is no longer available.
+A thumbnail is created when an image is imported into darktable for the first time, after an image has been modified in the darkroom, or when revisiting an image whose thumbnail is no longer available.
 
 When an image is imported for the first time darktable can either try to extract an embedded thumbnail from the input image (most raw files contain these, usually in JPEG format) or process the raw image itself using default settings. You can define how darktable obtains its thumbnails in [preferences > lighttable > thumbnails](../../../preferences-settings/lighttable.md#thumbnails).
 
