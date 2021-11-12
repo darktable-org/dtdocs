@@ -52,6 +52,12 @@ For external devices you do not need to start with a _simple_ shortcut -- you ca
 
 Long button and key presses cannot be extended, as the length of the click/press is timed using the release of the final button/key -- such shortcuts must be terminated with the raising of the final button/key.
 
+---
+
+**Note:** You may need to switch off the "disable touchpad while typing" setting if you want to use extended shortcuts with a laptop touchpad.
+
+---
+
 # actions
 
 Shortcuts are used to initiate _actions_ within darktable. 
