@@ -5,7 +5,7 @@ weight: 50
 draft: false
 ---
 
-The [base curve](../../module-reference/processing-modules/base-curve.md), [tone curve](../../module-reference/processing-modules/tone-curve.md) and [rgb curve](../../module-reference/processing-modules/rgb-curve.md) modules use curves to control the tones in the image. These modules have some common features that warrent separate discussion.
+The [base curve](../../module-reference/processing-modules/base-curve.md), [tone curve](../../module-reference/processing-modules/tone-curve.md) and [rgb curve](../../module-reference/processing-modules/rgb-curve.md) modules use curves to control the tones in the image. These modules have some common features that warrant separate discussion.
 
 ![curve](./curves/curve.png#w33)
 

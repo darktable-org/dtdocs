@@ -10,7 +10,7 @@ This page defines the style guide for dtdocs and information about how to contri
 
 It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://raw.githubusercontent.com/darktable-org/dtdocs/master/content/special-topics/contributing.md) to see the source for this page.
 
-The manual structure and content have been carefully considered based on the following critera:
+The manual structure and content have been carefully considered based on the following criteria:
 1. The manual should be comprehensive -- it should describe all of the functionality available in darktable
 1. It should have a consistent and logical structure and every piece of functionality should have its own logical place within that structure
 1. It should be as long as necessary but as short as possible -- brevity is a must

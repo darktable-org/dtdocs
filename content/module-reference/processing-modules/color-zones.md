@@ -41,7 +41,7 @@ select by saturation
 
 # pixel manipulation curves
 
-Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizonal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, saturation, hue). 
+Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizontal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, saturation, hue). 
 
 If, for example, you were to choose to _select by hue_ (the default), the horizontal axis (below the manipulation curves) would show the range of hues you can work with, and the three pixel manipulation curves would appears as follows:
 

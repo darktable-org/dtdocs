@@ -60,7 +60,7 @@ This particular implementation can simulate natural diffusion, using what is cal
 
 ## speed
 
-Depending how fluid the environnement is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion speed_](#diffusion-speed) section of the module.
+Depending how fluid the environment is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion speed_](#diffusion-speed) section of the module.
 
 When performing reconstruction (denoising, deblurring, dehazing), it is advisable to use smaller speeds for better accuracy. This prevents numerical overshoots (and therefore degeneration of the solution) and may require more iterations. For small numbers of iterations, higher speeds may be used. Note that large blurs need many iterations for proper reconstruction, so the speed should be adjusted to avoid degenerating the solution.
 

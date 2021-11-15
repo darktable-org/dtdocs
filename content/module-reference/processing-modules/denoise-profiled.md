@@ -62,7 +62,7 @@ strength
 : Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal-to-noise ratio. It's mostly a matter of taste -- whether you prefer a low noise level at the cost of fine details, or you accept more noise to better preserve fine detail. 
 
 preserve shadows (advanced mode only)
-: Lower this control to denoise the shadows more agressively. Usually, as noise increases, you will need to decrease this parameter.
+: Lower this control to denoise the shadows more aggressively. Usually, as noise increases, you will need to decrease this parameter.
 
 bias correction (advanced mode only)
 : Correct any color cast that may appear in the shadows. Increase this value if dark shadows appear too green, decrease if they appear too purple.
