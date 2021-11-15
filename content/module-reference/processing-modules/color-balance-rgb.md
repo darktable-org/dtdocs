@@ -120,7 +120,7 @@ mask middle-gray fulcrum
 highlights fall-off
 : Control the softness or hardness of the transition from fully opaque (100%) to fully transparent (0%) for the highlights mask.
 
-For each of these settings, a mask button, provided to the right of the slider, displays the appropriate mask (shadows, mid-tones, highlights), overlayed as a checker board. The still-visible area of the image (not hidden by the mask) is the area that will be affected by the shadows, mid-tones and highlights sliders in the other tabs.
+For each of these settings, a mask button, provided to the right of the slider, displays the appropriate mask (shadows, mid-tones, highlights), overlaid as a checker board. The still-visible area of the image (not hidden by the mask) is the area that will be affected by the shadows, mid-tones and highlights sliders in the other tabs.
 
 All mask previews display the output of the module, including any color changes made, so you can also activate them while editing, to see only the affected part of the image.
 

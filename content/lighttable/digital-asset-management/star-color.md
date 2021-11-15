@@ -14,7 +14,7 @@ You can give an image a rating from zero to five stars. Whenever you import imag
 
 There are several ways to change a rating. While hovering the cursor over an image thumbnail, you can press a number key 0 – 5 to define the number of stars, or press R to “reject” an image. This is probably the fastest way to rate your images on first inspection of a film roll.
 
-You can also directly click on the star icons that are overlayed on the thumbnails or in the bottom panel. Click the x to reject. 
+You can also directly click on the star icons that are overlaid on the thumbnails or in the bottom panel. Click the x to reject. 
 
 As Rejecting an image removes the currently-applied star rating, you can undo the rejection by clicking x or pressing R again.
 

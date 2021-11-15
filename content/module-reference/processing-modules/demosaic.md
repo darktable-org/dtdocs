@@ -20,7 +20,7 @@ Darktable offers several demosaic algorithms, each with it's own characteristics
 
 Demosaic interpolation algorithms are often prone to produce artifacts, typically visible as [Moiré patterns](https://en.wikipedia.org/wiki/Moire_pattern) when zooming into the image. The chosen algorithm might handle _pre-existing_ Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances _VNG4_ and _LMMSE_ are often more stable.
 
-The following demosaic algorithms are avaliable for sensors with Bayer filters:
+The following demosaic algorithms are available for sensors with Bayer filters:
 
 - _PPG_ used to be darktable's default demosaic algorithm. It is fast, but other algorithms generally yield better results.
 
@@ -52,7 +52,7 @@ Some images have areas best demosaiced using an algorithm that preserves high fr
 
 In dual demosaic algorithms (e.g. _RCD + VNG4_) the sensor data is demosaiced twice, first by _RCD_, _AMaZE_ or _Markesteijn 3-pass_ and then by _VNG4_. Both sets of demosaiced data are retained for subsequent processing.
 
-The data from the high frequency algorithm is then analysed for _local data change_ and, using a threshold (there is a bit more of maths involved here), the ouput image is written pixel-by-pixel for each color channel using data from each demosaic algorithm weighed by the local data change. 
+The data from the high frequency algorithm is then analysed for _local data change_ and, using a threshold (there is a bit more of maths involved here), the output image is written pixel-by-pixel for each color channel using data from each demosaic algorithm weighed by the local data change. 
 
 In general, areas with greater detail are demosaiced by the algorithm best suited to that purpose (_RCD, AMaZe, Markesteijn 3-pass_) and any flat areas (like blue sky) are demosaiced using the second algorithm (_VNG4_). 
 

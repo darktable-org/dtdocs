@@ -56,7 +56,7 @@ Say you wanted to bring out the green color of the anthers at the end of the sta
 
 ![contrast-equalizer-chroma-high](./contrast-equalizer/contrast-equalizer-chroma-high.png#w66)
 
-As in the luma tab, the chroma tab also has a denoising spline at the bottom of the graph. This can be used to handle chroma noise at different scales within the image. Chroma denoising can generally be more agressive on larger wavelet scales and has less effect on a smaller scale.
+As in the luma tab, the chroma tab also has a denoising spline at the bottom of the graph. This can be used to handle chroma noise at different scales within the image. Chroma denoising can generally be more aggressive on larger wavelet scales and has less effect on a smaller scale.
 
 ## edge tab
 

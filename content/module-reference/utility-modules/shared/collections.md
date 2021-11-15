@@ -145,7 +145,7 @@ select by value
 
 ## combining multiple filters
 
-You can combine multiple filters together to create more complex collections of images using a series of rules. A rule is a combination of a filter critera along with a logical operation that defines how that criteria is combined with any previous rules.
+You can combine multiple filters together to create more complex collections of images using a series of rules. A rule is a combination of a filter criteria along with a logical operation that defines how that criteria is combined with any previous rules.
 
 Click on the ![collect-expander-icon](./collections/collect-expander.png#icon) button (to the right of the search field) to open a menu with the following options:
 

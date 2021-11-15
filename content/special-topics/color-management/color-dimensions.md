@@ -72,7 +72,7 @@ On both of the above charts, lightness, chroma, saturation and brilliance are dr
 
 ---
 
-**Note**: In this section, _brilliance_ and _brightness_ are both used to describe the same dimension. In all rigor, brightness is an absolute metric, whereas brilliance is the brightness of some surface relative to the brightness of its surroundings (that is, how much a surface "pops" out of its surroundings and looks fluorescent). But in image editing, increasing the brightness of some surface will indeed increase its brilliance too, so the term _brilliance_ is prefered in darktable's user interface for clarity and in reference to its visual effect.
+**Note**: In this section, _brilliance_ and _brightness_ are both used to describe the same dimension. In all rigor, brightness is an absolute metric, whereas brilliance is the brightness of some surface relative to the brightness of its surroundings (that is, how much a surface "pops" out of its surroundings and looks fluorescent). But in image editing, increasing the brightness of some surface will indeed increase its brilliance too, so the term _brilliance_ is preferred in darktable's user interface for clarity and in reference to its visual effect.
 
 ---
 

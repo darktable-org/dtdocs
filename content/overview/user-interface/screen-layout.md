@@ -42,7 +42,7 @@ TAB             Temporarily expand the centre view to fill the whole window.
                 Press again to return to the previous view.
 F11             Toggle fullscreen mode
 Shift+Ctrl+t    Toggle the top panel (between the image and the top banner)
-Shift+Ctrl+b    Toggle the bottom panel (beween the image and the filmstrip/timeline, if shown)
+Shift+Ctrl+b    Toggle the bottom panel (between the image and the filmstrip/timeline, if shown)
 Shift+Ctrl+l    Toggle the left panel
 Shift+Ctrl+r    Toggle the right panel
 Ctrl+f          Toggle the filmstrip/timeline
