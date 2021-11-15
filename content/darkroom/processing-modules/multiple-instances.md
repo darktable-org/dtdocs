@@ -32,7 +32,7 @@ new instance
 : Create a new instance of the current module with all of its parameters reset to their default values. The 'instance name' is automatically set to a unique integer so that it can be distinguished from its parent.
 
 duplicate instance
-: Create a new instance of the current module with all of its parameters inherited from the parent module. As with 'new instance' the 'instance name' is automatically set to a unique integer.
+: Create a new instance of the current module with all of its parameters inherited from the current instance. As with 'new instance' the 'instance name' is automatically set to a unique integer.
 
 move up/down
 : Move the instance up or down in the pixelpipe
