@@ -33,7 +33,7 @@ blur type
 ## controls specific to lens blur
 
 diaphragm blades
-: The number of blades that the diaphragm is composed of. Older lenses used typically 5 or 7 blades, newer lenses typically use 9 or 11 blades. In any case, real lenses have an add number of blades and any number greater than 11 blades comes very close to producing a perfect disc. If you degenerate the diaphragm settings with the _concavity_ to create a star or an asterisk, this control defines how many branches it has.
+: The number of blades that the diaphragm is composed of. Older lenses used typically 5 or 7 blades, newer lenses typically use 9 or 11 blades. In any case, real lenses have an odd number of blades and any number greater than 11 blades comes very close to producing a perfect disc. If you degenerate the diaphragm settings with the _concavity_ to create a star or an asterisk, this control defines how many branches it has.
 
 concavity
 : - a concavity of 1 ensures the diaphragm is a [regular convex polygon](https://en.wikipedia.org/wiki/Regular_polygon#Regular_convex_polygons) (triangle, pentagon, heptagon, etc.).
