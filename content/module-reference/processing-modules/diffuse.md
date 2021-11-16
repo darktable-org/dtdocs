@@ -70,7 +70,7 @@ All speeds are added (first to fourth orders), and the sums "`first order + seco
 
 Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighours.
 
-Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _max radius_ parameter.
+Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _radius span_ parameter.
 
 Regardless of the diffusion, a _sharpness_ parameter allows you to increase or decrease the details at each scale, much like the spline controls of the _contrast equalizer_. Along with the _edge sensitivity_ slider, this provides the same features as the _contrast equalizer_ module (_luma_ and _edges_ tabs) but in a scene-referred RGB space.
 
