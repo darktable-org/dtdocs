@@ -16,7 +16,7 @@ There are several ways to change a rating. While hovering the cursor over an ima
 
 You can also directly click on the star icons that are overlaid on the thumbnails or in the bottom panel. Click the x to reject. 
 
-As Rejecting an image removes the currently-applied star rating, you can undo the rejection by clicking x or pressing R again.
+As rejecting an image removes the currently-applied star rating, you can undo the rejection by clicking x or pressing R again.
 
 Similarly you can click the first star for a second time to reset the image rating to unranked, or zero stars. This behavior can be changed in [preferences > lighttable](../../../preferences-settings/lighttable.md).
 
