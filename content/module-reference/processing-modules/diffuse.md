@@ -151,9 +151,9 @@ The provided presets have been tuned by the developer and tested on a range of i
 
 - if the effect seems too strong, decrease the number of iterations,
 - if edge artifacts appear, increase the edge sensitivity,
-- if debluring starts to affect valid blurry parts (bokeh), reduce the radius,
-- if debluring seems correct in bright areas but excessive in dark areas, increase the edges _threshold_,
-- if debluring clips black pixels, lower the _black level correction_ in _exposure_ module,
+- if deblurring starts to affect valid blurry parts (bokeh), reduce the radius,
+- if deblurring seems correct in bright areas but excessive in dark areas, increase the edges _threshold_,
+- if deblurring clips black pixels, lower the _black level correction_ in _exposure_ module,
 - fine-tune the _sharpness_ to your taste.
 
 ## starting from scratch
