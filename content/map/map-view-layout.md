@@ -29,7 +29,7 @@ Here you can find the modules specific to the map view. From top to bottom:
 : Manage a hierarchical list of location tags and their corresponding regions on the map.
 
 [map settings](../module-reference/utility-modules/map/map-settings.md)
-: Set up your map overlay information and map providers.
+: Choose the map provider and set up various map display parameters.
 
 [tagging](../module-reference/utility-modules/shared/tagging.md)
 : Tag selected images.
