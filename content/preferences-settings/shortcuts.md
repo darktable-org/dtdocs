@@ -105,13 +105,19 @@ You can assign as many shortcuts as you like in a single mapping session and the
 
 You can delete a shortcut mapping by defining it a second time against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and asked whether you wish to replace the existing shortcut.
 
+---
+
+**Note:** It is currently only possible to delete user-defined shortcuts. System-defined default shortcuts will only be deleted for your current session and will reappear the next time you start darktable.
+
+---
+
 ## shortcut mapping screen
 
 The most flexible way to create shortcuts is by using the shortcut mapping screen, which can be accessed from the global preferences dialog or by left-clicking in visual mapping mode. This screen allows access to all available actions, including some that are not directly linked to a UI widget.
 
 The top panel of the shortcut mapping screen shows a list of available UI widgets/actions and the bottom panel shows the shortcuts currently assigned to them. You can search the top and bottom panels using the text entry boxes at the bottom of the screen.
 
-Double-click an item in the top panel to create a new shortcut for that item, and then enter your desired shortcut (right-click to cancel). Once you have done this, a new entry will appear in the bottom panel showing the shortcut you have created. You can then manually alter the _element_, _effect_, _speed_ or _instance_ of the assigned action against that shortcut in the bottom panel. To delete a shortcut, select it in the bottom panel and press the Delete key.
+Double-click an item in the top panel to create a new shortcut for that item, and then enter your desired shortcut (right-click to cancel). Once you have done this, a new entry will appear in the bottom panel showing the shortcut you have created. You can then manually alter the _element_, _effect_, _speed_ or _instance_ of the assigned action against that shortcut in the bottom panel. To delete a user-defined shortcut, select it in the bottom panel and press the Delete key.
 
 The following additional options are provided in the shortcut mapping screen:
 
