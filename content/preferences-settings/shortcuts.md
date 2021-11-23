@@ -103,13 +103,7 @@ Left-click on a mappable widget to open the shortcut mapping screen for that wid
 
 You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon again or right-clicking anywhere on the screen.
 
-You can delete a shortcut mapping by defining it a second time against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and asked whether you wish to replace the existing shortcut.
-
----
-
-**Note:** It is currently only possible to delete user-defined shortcuts. System-defined default shortcuts will only be deleted for your current session and will reappear the next time you start darktable.
-
----
+You can delete a user-defined shortcut mapping by defining it a second time against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and asked whether you wish to replace the existing shortcut.
 
 ## shortcut mapping screen
 
@@ -129,6 +123,32 @@ import...
 
 restore...
 : Restore your shortcut mappings to (a) The mappings shipped with darktable by default, (b) The start of your current session, or (c) The point at which the shortcut mapping screen was last opened. When restoring, you can choose to leave any additional shortcuts that were added after the relevant checkpoint as they are, so that only changed shortcuts are restored to their previous meaning. Or you can choose to first clear all shortcuts and just load the restore point.
+
+## deleting default shortcuts
+
+It is not currently possible to delete system-defined default shortcuts -- if you delete a default shortcut it will be automatically reinstated the next time you restart darktable.
+
+As a workaround, you can _override_ the default by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/darktable/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit darktable first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in darktable:
+
+```
+d=global/switch views/darkroom
+l=global/switch views/lighttable
+m=global/switch views/map
+p=global/switch views/print
+s=global/switch views/slideshow
+t=global/switch views/tethering
+```
+
+You can disable all of these shortcuts by changing `shortcutsrc` as follows:
+
+```
+d=global/no-op
+l=global/no-op
+m=global/no-op
+p=global/no-op
+s=global/no-op
+t=global/no-op
+```
 
 # common actions
 
