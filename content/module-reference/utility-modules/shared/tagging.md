@@ -118,8 +118,8 @@ import...
 export...
 : Export all tags to a Lightroom keyword file.
 
-![plus-icon](./tagging/plus-icon.png#icon) subset
-: Show a list of tags that have been attached to some of the selected images but not to all of them. This can be useful to help you decide whether you want to apply any of those tags to the rest of the selected images.
+![plus-icon](./tagging/plus-icon.png#icon) suggestions
+: When active, show the keywords which have been assigned to images in the database simultaneously with the keywords already attached to the selected images. This can be useful to help you find out tags which work together. CAUTION: as this view queries the database expect some slowdown.
 
 ![list-tree-icon](./tagging/list-tree-icon.png#icon) list/tree
 : Toggle the display of tags between the straight _list_ view and hierarchical _tree_ view.
