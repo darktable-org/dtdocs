@@ -1,7 +1,7 @@
 ---
 title: tagging
 id: tagging
-applicable-version: 3.6
+applicable-version: 3.8
 tags:
 view: lighttable, [darkroom], tethering, map
 ---
@@ -118,8 +118,8 @@ import...
 export...
 : Export all tags to a Lightroom keyword file.
 
-![plus-icon](./tagging/plus-icon.png#icon) subset
-: Show a list of tags that have been attached to some of the selected images but not to all of them. This can be useful to help you decide whether you want to apply any of those tags to the rest of the selected images.
+![plus-icon](./tagging/plus-icon.png#icon) suggestions
+: Show a list of suggested keywords based on the keywords already associated with the selected images. CAUTION: This view queries the database so might be slow.
 
 ![list-tree-icon](./tagging/list-tree-icon.png#icon) list/tree
 : Toggle the display of tags between the straight _list_ view and hierarchical _tree_ view.
