@@ -71,7 +71,7 @@ The following assumes that you're git working directory is clean, that you have 
 3. In your local `dtdocs` git repo, create a new branch: `git checkout -b po-updates`
 4. Update the Weblate remote: `git remote update weblate`
 5. Merge the Weblate changes into your locally created branch: `git merge weblate/master`
-6. Squash all the Weblate commits, sincce there are so many: `git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))`
+6. Squash all the Weblate commits, since there are so many: `git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))`
 7. State the changed PO files: `git add -A`
 8. Commit the PO files: `git commit -m "Update with the PO files from weblate."`
 9. Create a Pull Request in Github.
