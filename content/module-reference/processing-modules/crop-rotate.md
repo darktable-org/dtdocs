@@ -22,7 +22,7 @@ Whenever the user interface of this module is in focus, the full uncropped image
 
 Resize the crop by dragging the border and corner handles.
 
-Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by either giving focus to another module or by double-clicking on the image.
+Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by giving focus to another module.
 
 If you intend to use the [_retouch_](./retouch.md) module, you are recommended to use _rotate and perspective_ for rotation and/or keystone correction only, performing creative cropping in the [_crop_](./crop.md) module. This process ensures that the entire image is available for source spots in _retouch_, since the _crop_ module is placed after _retouch_ in the pixelpipe.
 
