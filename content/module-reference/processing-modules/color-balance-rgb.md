@@ -67,7 +67,7 @@ Linear chroma grading affects the chroma dimension proportionally to its input v
 
 ### perceptual saturation grading
 
-Perceptual chroma grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Perceptual saturation grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
 
 ### perceptual brilliance grading
 
