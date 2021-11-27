@@ -38,3 +38,9 @@ Going by the information provided [here](https://discuss.pixls.us/t/midi-control
 - the 8 sliders/wheels can be individually mapped to the elements of the graph in color zones
 
 Other than that, since the loupedeck uses Relative encoding (so is similar to the Beatstep) it will need to tell the midi module at each startup (until a configuration system has been implemented). You do this by turning any of the knobs (or wheels) slowly down/left 5 times. Re-initialise the input layer with Ctrl+Shift+Alt+I if it didn't work the first time so you can try again.
+
+# Korg nanoKONTROL2
+
+The device should be configured first using the Korg Kontrol Editor application to be in the CC mode and every button should be set to the Note type and Momentary button behavior. To control the lights in the buttons the LED mode should be set to External. It is important to note that the Track and the Marker buttons do not have leds in them.
+
+There is an Kontrol Editor profile available [here](https://github.com/darktable-org/darktable/files/7603658/note_buttons.zip) which can be loaded using the Windows application to directly configure all these settings to correctly work with darktable.
