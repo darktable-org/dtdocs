@@ -38,7 +38,7 @@ Most processing software uses a traditional temperature/tint model for adjusting
 Please note that the [white balance](../../module-reference/processing-modules/white-balance.md) module is still enabled in this approach, but its settings normally should not be altered.
 
 ---
-Set [preferences > processing > auto-apply chromatic aberration defaults](../../preferences-settings/processing.md) to "modern" now.
+Set [preferences > processing > auto-apply chromatic adaptation defaults](../../preferences-settings/processing.md) to "modern" now.
 
 ---
 ## edit in a controlled environment
