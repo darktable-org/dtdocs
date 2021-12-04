@@ -22,7 +22,7 @@ Groups of shapes forming a mask are displayed with a headline in the form "grp <
 
 By default each shape receives an automatically generated name, consisting of the shape type ("brush", "circle", "ellipse", "path", "gradient") and an automatically-incremented integer. You can rename a shape by double-clicking on its current name. It is a good habit to give shapes and groups meaningful names, especially if you intend to re-use the same selection in different masks.
 
-Click on a shape name to show the selected shape on the image canvas with all of its controls, allowing you to edit the properties of just that shape. This is especially useful where there are many overlapping shapes within a mask, making it difficult to select the right one with the mouse.
+Click on a shape name to show the selected shape on the image canvas with all of its controls, allowing you to edit the properties of just that shape. This is especially useful where there are many overlapping shapes within a mask, making it difficult to select the right one with the mouse. Similarly if you select a shape on-screen from within the mask controls of a processing module, that shape will be selected in the mask manager.
 
 Right-click on a shape name to show a menu containing options to remove the current shape or to remove all shapes not currently in use.
 
@@ -32,15 +32,15 @@ Right-click on a shape name to show a menu containing options to remove the curr
 
 ---
 
-# masks
+# masks & groups
 
-Masks are constructed by adding shapes to the image in the order that they are listed from top to bottom. Each shape adjusts the existing mask using one of four logical set operators (see below). Because order is important it is also possible to move shapes up and down the list.
+Masks are constructed by adding a group of shapes to the image in the order that they are listed (from top to bottom). Each shape adjusts the existing mask using one of four logical set operators (see below). Because order is important it is also possible to move shapes up and down the list.
 
-Click on the name of a mask to show a list of the shapes which form that mask.
+Click on the name of a group in the mask manager to expand that group, showing a list of its constituent shapes. The corresponding shapes will be shown on the center image. Similarly if you choose to show a mask from within a processing module, the corresponding group will be expanded within the mask manager.
 
-Right-click on the mask name to show a menu containing options to add new or existing shapes to the mask, or to clean up unused shapes.
+Right-click on the group name to display a menu with options to add new or existing shapes to the group, or to clean up unused shapes. You can also choose to delete the group.
 
-Right-click on any of the constituent shapes to control how that shape contributes to the mask:
+Right-click on any of the constituent shapes to control how that shape contributes to the overall group mask:
 
 remove from group
 : Remove the shape from the current mask.

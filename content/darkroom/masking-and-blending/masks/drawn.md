@@ -33,9 +33,9 @@ By default, scrolling your mouse up increases the value of the relevant shape pa
 
 # editing shapes
 
-Click on the 'show and edit mask elements' icon ![show-and-edit-masks-icon](./drawn/shape-edit.png#icon) to enter shape edit mode. This will show all drawn masks in use by the current module and allow you to edit those shapes. Ctrl+click on the same icon to enter restricted edit mode, where certain actions (e.g. dragging a complete shape or changing its size) are blocked. This is particularly useful to avoid costly mistakes when editing path and brush shapes.
+Click on the 'show and edit mask elements' icon ![show-and-edit-masks-icon](./drawn/shape-edit.png#icon) to enter shape edit mode. This will show all drawn masks in use by the current module and allow you to edit those shapes. It will also expand the associated group in the [mask manager](../../../module-reference/utility-modules/darkroom/mask-manager.md). Ctrl+click on the same icon to enter restricted edit mode, where certain actions (e.g. dragging a complete shape or changing its size) are blocked. This is particularly useful to avoid costly mistakes when editing path and brush shapes.
 
-Click and drag a shape to move it around the image canvas.
+Click and drag a shape to move it around the image canvas. Clicking on a shape will also select that shape in the mask manager.
 
 # removing shapes
 
