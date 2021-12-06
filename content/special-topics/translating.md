@@ -72,7 +72,10 @@ The following assumes that you're git working directory is clean, that you have 
 4. Update the Weblate remote: `git remote update weblate`
 5. Merge the Weblate changes into your locally created branch: `git merge weblate/master`
 6. Squash all the Weblate commits, since there are so many: `git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))`
-7. State the changed PO files: `git add -A`
-8. Commit the PO files: `git commit -m "Update with the PO files from weblate."`
-9. Create a Pull Request in Github.
-10. After the Pull Request is accepted, reset the Weblate repo to match the `dtdocs` repo: `wlc reset darktable/dtdocs`
+7. Stage the changed PO files: `git add -A`
+8. Commit the `PO` files: `git commit -m "Updated with the PO files from weblate."`
+9. Update the `POT` and `PO` files: `cd tools/ && ./generate-translations.sh --no-translations && cd ..`
+10. Stage the `POT` and `PO` files: `git add -A`
+11. Commit the `POT` and`PO` files: `git commit -m "Updated POT and PO files."`
+12. Create a Pull Request in Github.
+13. After the Pull Request is accepted, reset the Weblate repo to match the `dtdocs` repo: `wlc reset darktable/dtdocs`
