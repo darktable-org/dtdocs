@@ -21,7 +21,7 @@ _**Note:** This module performs blurs in Lab color space, and is no longer recom
 # module controls
 
 size
-: The spacial extent of the bloom effect.
+: The spatial extent of the bloom effect.
 
 threshold
 : The threshold for the brightness increase.

@@ -34,7 +34,7 @@ The three rightmost colored buttons toggle the display of the red, green and blu
 
 ![waveform scope (horizontal)](./scopes/waveform.png#w50)
 
-The waveform scope shows similar data to the histogram, but allows you to view that data in a spacial context.
+The waveform scope shows similar data to the histogram, but allows you to view that data in a spatial context.
 
 In the "standard" horizontal waveform, the x-axis of the waveform represents the x-axis of the image -- the right-hand side of the waveform represents the right-hand side of the image and the left-hand side of the waveform represents the left-hand side of the image.
 
