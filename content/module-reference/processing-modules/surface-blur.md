@@ -20,7 +20,7 @@ This module is resource-intensive and slows down pixelpipe processing significan
 # module controls
 
 radius
-: The spacial extent of the gaussian blur.
+: The spatial extent of the gaussian blur.
 
 red, green, blue
 : The blur intensity for each of the RGB channels.
