@@ -67,16 +67,12 @@ do
      
      #replace occurences of en or $language string
      cd "$HUGO_DIR/$language"
-     find . -type f -name "*.html" -exec sed -i 's/..\/style\.css/style.css/' {} +
-     find . -type f -name "*.html" -exec sed -i 's/..\/en\///' {} +
-     find . -type f -name "*.html" -exec sed -i 's/..\/..\/en\///' {} +
-     find . -type f -name "*.html" -exec sed -i 's/..\/..\/..\/en\///' {} +
-     find . -type f -name "*.html" -exec sed -i "s/..\/$language\///" {} +
-     find . -type f -name "*.html" -exec sed -i "s/..\/..\/$language\///" {} +
-     find . -type f -name "*.html" -exec sed -i "s/..\/..\/..\/$language\///" {} +
+     find . -type f -name "*.html" -exec sed -i "s/\.\.\/$language\///g" {} +
+     find . -type f -name "*.html" -exec sed -i 's/\.\.\/style\.css/style.css/' {} +
      sed -i "s/content src\=\"$language\//content src\=\"/" toc.ncx
      sed -i "s/item href\=\"$language\//item href\=\"/" content.opf
      sed -i "s/a href\=\"$language\//a href\=\"/" toc.xhtml
+     sed -i "s/\.\.\/style\.css/style.css/" toc.xhtml
 
      #move files to target epub directories
      mv darkroom guides-tutorials lighttable lua map module-reference overview preferences-settings print slideshow special-topics tethering OEBPS
