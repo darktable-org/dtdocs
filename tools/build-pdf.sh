@@ -51,7 +51,6 @@ do
   else
      echo "$language directory not found"
   fi
-  fi
 done
 
 pkill hugo
