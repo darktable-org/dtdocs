@@ -1,26 +1,58 @@
 #!/usr/bin/env bash
 
+#go to project root
+PROJECT_ROOT="$(cd `dirname $0`/..; pwd)"
+cd "$PROJECT_ROOT"
+
 OUTPUT=pdf
-HUGO_DIR=public-${OUTPUT}
-HUGO_CONFIG=config-${OUTPUT}.yaml
+HUGO_DIR="$PROJECT_ROOT/public-${OUTPUT}"
+HUGO_PUBLIC="$PROJECT_ROOT/public"
+HUGO_CONFIG="$PROJECT_ROOT/config-${OUTPUT}.yaml"
+
+if [ ! -d "$PROJECT_ROOT/po" ]
+then
+   echo "po files not found"
+   echo "exiting"
+   exit 1
+fi
 
 # Get a list of languages
-languages=`find po -name '*.po' | cut -d . -f 2 | sort -u`
-# convert newlines to spaces
-languages=`echo $languages`
+languages=`find $PROJECT_ROOT/po -name '*.po' | cut -d . -f 2 | sort -u`
 
-rm -r ${HUGO_DIR}
+# convert newlines to spaces and add English to the list
+languages=`echo en $languages`
 
-hugo serve --verbose --config ${HUGO_CONFIG} --bind 127.0.0.1 --port 1313 --disableFastRender -d ${HUGO_DIR} &
+#check for config
+if [ ! -f "$HUGO_CONFIG" ]
+then
+   echo "config not found"
+   echo "exiting"
+   exit 1
+fi
+
+#initialise directories
+rm -r "${HUGO_DIR}"
+mkdir -p "$HUGO_DIR"
+
+#start hugo server
+hugo serve --verbose --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" &
 sleep 30
-mkdir -p ./public/en
-weasyprint -v http://127.0.0.1:1313/dtdocs/en/index.html ./public/en/darktable_user_manual.pdf
+
+#make pdfs for each language
 for language in $languages
 do
-  echo $language
-  mkdir -p ./public/$language
-  weasyprint -v http://127.0.0.1:1313/dtdocs/$language/index.html ./public/$language/darktable_user_manual.pdf
+  echo "processing language $language"
+
+  if [ -d "$HUGO_DIR/$language" ]
+  then
+     echo $language
+     mkdir -p "$HUGO_PUBLIC/$language"
+     weasyprint -v http://127.0.0.1:1313/dtdocs/$language/index.html "$HUGO_PUBLIC/$language/darktable_user_manual.pdf"
+  else
+     echo "$language directory not found"
+  fi
+  fi
 done
+
 pkill hugo
 
-rm -r ${HUGO_DIR}

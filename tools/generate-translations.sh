@@ -3,6 +3,10 @@
 # Adapted from https://gitlab.com/fdroid/fdroid-website/-/raw/master/tools/i18n.sh
 # Requires po4a version 0.58 or higher.
 
+#go to project root
+PROJECT_ROOT="$(cd `dirname $0`/..; pwd)"
+cd "$PROJECT_ROOT"
+
 set -e
 
 # Is po4a installed?
@@ -33,11 +37,9 @@ else
     exit 1
 fi
 
-PROJECT_ROOT=$(cd `dirname $0`/..; pwd)
-cd ${PROJECT_ROOT}
-
 # Get a list of languages
 languages=`find po -name '*.po' | cut -d . -f 2 | sort -u`
+
 # convert newlines to spaces
 languages=`echo $languages`
 

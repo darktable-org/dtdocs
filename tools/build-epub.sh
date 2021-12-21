@@ -1,35 +1,40 @@
 #!/usr/bin/env bash
 
-OUTPUT=epub
-HUGO_DIR="$(pwd)/public-${OUTPUT}"
-HUGO_CONFIG="$(pwd)/config-${OUTPUT}.yaml"
-HUGO_PUBLIC="$(pwd)/public"
+#go to project root
+PROJECT_ROOT="$(cd `dirname $0`/..; pwd)"
+cd "$PROJECT_ROOT"
 
-# Get a list of languages
-if [ -d "$(pwd)/po" ]
+OUTPUT=epub
+HUGO_DIR="$PROJECT_ROOT/public-${OUTPUT}"
+HUGO_CONFIG="$PROJECT_ROOT/config-${OUTPUT}.yaml"
+HUGO_PUBLIC="$PROJECT_ROOT/public"
+
+if [ ! -d "$PROJECT_ROOT/po" ]
 then
-   languages=`find $(pwd)/po -name '*.po' | cut -d . -f 2 | sort -u`
-else
-   echo "po files not found -- you must run this from the root of your dtdocs repo"
+   echo "po files not found"
    echo "exiting"
    exit 1
 fi
 
+# Get a list of languages
+languages=`find $PROJECT_ROOT/po -name '*.po' | cut -d . -f 2 | sort -u`
+
+# convert newlines to spaces and add English to the list
+languages=`echo en $languages`
+
 #check for config
 if [ ! -f "$HUGO_CONFIG" ]
 then
-   echo "config not found -- exiting"
+   echo "config not found"
+   echo "exiting"
    exit 1
 fi
 
 #initialise directories
 rm -r "$HUGO_DIR"
-mkdir -p "$HUGO_PUBLIC"
 mkdir -p "$HUGO_DIR"
 
-# convert newlines to spaces and add English to the list
-languages=`echo en $languages`
-
+#build epub hugo files
 hugo -v --config "${HUGO_CONFIG}" -d "${HUGO_DIR}"
 
 if [ ! -d "$HUGO_DIR/en" ]
@@ -116,3 +121,4 @@ do
      echo "$language directory not found"
   fi
 done
+
