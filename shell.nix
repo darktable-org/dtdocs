@@ -1,4 +1,4 @@
-{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/7e9b0dff974c89e070da1ad85713ff3c20b0ca97.tar.gz") {}
+{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/422b95f54fe8edc264710cbc3a13ae643e0c5f1e.tar.gz") {}
 }:
 
 pkgs.mkShell {
@@ -11,6 +11,7 @@ pkgs.mkShell {
     pkgs.perlPackages.Po4a
     pkgs.python38Packages.weasyprint
     pkgs.linkchecker
+    pkgs.zip
   ];
   shellHook = ''
     PROJECTDIR=`pwd`
