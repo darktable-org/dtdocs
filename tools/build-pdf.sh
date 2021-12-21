@@ -16,11 +16,20 @@ then
    exit 1
 fi
 
-# Get a list of languages
-languages=`find $PROJECT_ROOT/po -name '*.po' | cut -d . -f 2 | sort -u`
+#get list of disabled languages
+disabled_languages=$(cat "$PROJECT_ROOT/disable-languages")
 
-# convert newlines to spaces and add English to the list
-languages=`echo en $languages`
+#remove disabled languages from the list
+for lang in `find po -name '*.po' | cut -d . -f 2 | sort -u`
+do
+   if [[ ! "$disabled_languages" == *$lang* ]]
+   then
+      languages="$languages $lang"
+   fi
+done
+
+# add English to the start of the list
+languages=$(echo "en $languages")
 
 #check for config
 if [ ! -f "$HUGO_CONFIG" ]
@@ -35,7 +44,7 @@ rm -r "${HUGO_DIR}"
 mkdir -p "$HUGO_DIR"
 
 #start hugo server
-hugo serve --verbose --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" &
+env HUGO_DISABLELANGUAGES="$disabled_languages " hugo serve --verbose --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" &
 sleep 30
 
 #make pdfs for each language

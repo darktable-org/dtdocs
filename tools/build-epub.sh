@@ -16,11 +16,20 @@ then
    exit 1
 fi
 
-# Get a list of languages
-languages=`find $PROJECT_ROOT/po -name '*.po' | cut -d . -f 2 | sort -u`
+#get list of disabled languages
+disabled_languages=$(cat "$PROJECT_ROOT/disable-languages")
 
-# convert newlines to spaces and add English to the list
-languages=`echo en $languages`
+#create a list of enabled languages
+for lang in `find po -name '*.po' | cut -d . -f 2 | sort -u`
+do
+   if [[ ! "$disabled_languages" == *$lang* ]]
+   then
+      languages="$languages $lang"
+   fi
+done
+
+# add English to the list
+languages=$(echo "en $languages")
 
 #check for config
 if [ ! -f "$HUGO_CONFIG" ]
@@ -35,7 +44,7 @@ rm -r "$HUGO_DIR"
 mkdir -p "$HUGO_DIR"
 
 #build epub hugo files
-hugo -v --config "${HUGO_CONFIG}" -d "${HUGO_DIR}"
+env HUGO_DISABLELANGUAGES="$disabled_languages " hugo -v --config "${HUGO_CONFIG}" -d "${HUGO_DIR}"
 
 if [ ! -d "$HUGO_DIR/en" ]
 then
