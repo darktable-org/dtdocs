@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-base_url=$1
+base_url="$1"
 
 #go to project root
 PROJECT_ROOT="$(cd `dirname $0`/..; pwd)"
@@ -20,5 +20,5 @@ if [ -z "$base_url" ]
 then
    env HUGO_DISABLELANGUAGES="$disabled_languages " hugo --config "$HUGO_CONFIG" -d "$HUGO_DIR"
 else
-   env HUGO_DISABLELANGUAGES="$disabled_languages " hugo --config "$HUGO_CONFIG" -d "$HUGO_DIR" -b "$url"
+   env HUGO_DISABLELANGUAGES="$disabled_languages " hugo --config "$HUGO_CONFIG" -d "$HUGO_DIR" -b "$base_url"
 fi
