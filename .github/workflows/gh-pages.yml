@@ -22,7 +22,7 @@ jobs:
         run: nix-shell --run 'cd themes/hugo-darktable-docs-theme/assets/ && yarn install'
 
       - name: Run linkchecker
-        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config.yaml & sleep 30 && linkchecker --ignore-url .*pdf$ --ignore-url .*epub$ --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
+        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config.yaml -b https://darktable-org.github.io/dtdocs/ & sleep 30 && linkchecker --ignore-url .*pdf$ --ignore-url .*epub$ --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
 
       - name: build site
         run: nix-shell --run './tools/build-all.sh https://darktable-org.github.io/dtdocs/'

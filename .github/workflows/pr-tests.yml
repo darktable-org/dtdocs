@@ -21,7 +21,7 @@ jobs:
         run: nix-shell --run 'cd themes/hugo-darktable-docs-theme/assets/ && yarn install'
 
       - name: Run linkchecker
-        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config.yaml & sleep 30 && linkchecker --ignore-url .*pdf$ --ignore-url .*epub$ --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
+        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config.yaml -b https://darktable-org.github.io/dtdocs/ & sleep 30 && linkchecker --ignore-url .*pdf$ --ignore-url .*epub$ --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
 
       - name: Generate translated files
         run: nix-shell --run 'cd tools && bash generate-translations.sh --no-update'
@@ -31,6 +31,3 @@ jobs:
 
       - name: Build
         run: nix-shell --run 'hugo'
-
-      - name: Build PDF
-        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo'
