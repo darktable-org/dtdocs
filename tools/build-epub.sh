@@ -20,7 +20,7 @@ fi
 languages=`find $PROJECT_ROOT/po -name '*.po' | cut -d . -f 2 | sort -u`
 
 # convert newlines to spaces and add English to the list
-languages=`echo en $languages`
+languages=$(echo "en $languages")
 
 #check for config
 if [ ! -f "$HUGO_CONFIG" ]
