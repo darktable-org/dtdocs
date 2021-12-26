@@ -125,7 +125,7 @@ RGB blue channel
 
 The following are available when blending in the "RGB (display)" color space only.
 
-HSV lightness
+HSV value
 : Mix the lightness from the input and output images, while taking color unaltered from the input image. In contrast to “lightness” this blend mode does not involve clamping.
 
 HSV color
