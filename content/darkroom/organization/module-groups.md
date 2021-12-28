@@ -63,7 +63,7 @@ These presets define groups of modules relevant to the [scene-referred and displ
 This preset provides a minimal set of modules targeted as a starting point for beginners. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with other modules. 
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
-: A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply a basic tone mapping via base curve or basic adjustments.
+: A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply a basic tone mapping.
 
 ![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png#icon) grading modules
 : Modules dealing with creative tone and color grading.
