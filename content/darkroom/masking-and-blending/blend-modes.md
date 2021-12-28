@@ -136,7 +136,7 @@ HSV color
 lightness
 : Mix lightness from the input and output images, while taking color (chroma and hue) unaltered from the input image.
 
-chrominance
+chromaticity
 : Mix chrominance from the input and output images, while taking lightness and hue unaltered from the input image. This blend mode uses RGB ratios, divided by a Euclidean norm.
 
 lighten
