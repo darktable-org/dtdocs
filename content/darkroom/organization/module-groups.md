@@ -27,7 +27,7 @@ This preset contains all modules, sorted according to the traditional module gro
 : Modules related to correcting problems such as lens distortions, sensor noise, sharpening, etc.
 
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
-: "Special effect" modules such as retouch, liquify, bloom, sharpen, etc.
+: "Special effect" modules such as bloom, diffuse or sharpen, etc.
 
 # _modules: default_
 
