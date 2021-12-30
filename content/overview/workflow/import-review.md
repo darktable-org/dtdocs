@@ -12,7 +12,7 @@ add to library
 : This option adds images to the library without copying or moving -- your original files will stay in their current location and will not be altered. On import, darktable will read the metadata from the image files and any accompanying [XMP sidecar file](../../overview/sidecar-files/_index.md). If an image has already been added to the database, any updates you have made to the sidecar file will be loaded.
 
 copy & import
-: Copies the images to the storage llocation (following the file naming pattern defined in [preferences > import](../../preferences-settings/import.md)), then adds the _copied_ images to the library -- the original images are not changed or moved.
+: Copies the images to the storage location (following the file naming pattern defined in [preferences > import](../../preferences-settings/import.md)), then adds the _copied_ images to the library -- the original images are not changed or moved.
 
 copy & import from camera
 : Connect the camera to your system with a USB cable (if your camera is auto-mounted by your system, you will need to un-mount it before it can be accessed by darktable). If you don't see your camera listed in the import module, press the "scan for devices" button. Once your camera is detected the import module should offer the ability to _copy & import_ images from the camera. Clicking the "copy & import" button physically copies the selected images from the camera into a specified directory (following the file naming pattern defined in [preferences > import](../../preferences-settings/import.md)) and then adds the copied images to the library.
