@@ -4,7 +4,7 @@ This is the user documentation for [darktable](https://darktable.org). The conte
 
 This repository tracks the current darktable development version. The auto-built website for the development user manual can be found at https://darktable-org.github.io/dtdocs/.
 
-The user manual for the current stable release of darktable can be found at [darktable.org](https://www.darktable.org/usermanual/en).
+The user manual for the current stable release of darktable can be found at [darktable.org](https://docs.darktable.org/stable/en/).
 
 ## Contributing
 
