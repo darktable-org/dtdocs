@@ -62,7 +62,7 @@ While the previous definitions are useful to give a meaning to the words, they d
 
 ![lightness and chroma to brilliance and saturation](./color-dimensions/lightness-chroma-to-brilliance-saturation.png)
 
-Lines of equal chroma are vertical (following the patches grid), meaning that chroma has the same direction for all colors in the gamut (see below). However, lines of equal saturation are oblique (drawn dashed on the graph) and all go from black though each color patch, meaning that their directions are particular to each color.
+Lines of equal chroma are vertical (following the patches grid), meaning that chroma has the same direction for all colors in the gamut (see below). However, lines of equal saturation are oblique (drawn dashed on the graph) and all go from black through each color patch, meaning that their directions are particular to each color.
 
 Increasing the chroma will therefore move all colors uniformly away from the central gray axis horizontally, while increasing the saturation will close or open the angle of the oblique dashed lines like a flower.
 
