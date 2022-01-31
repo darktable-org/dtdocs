@@ -22,7 +22,7 @@ When importing an image, there are a number of properties that can be used to in
 
 - If the image was taken using an achromatic camera, the image will be automatically flagged as monochrome.
 
-- When you capture a scene from which you would like to produce a monochrome image, it can be helpful to put your camera into a "black & white" creative mode. This allows you to visualise what the scene would look like in monochrome through your camera's liveview screen or electronic viewfinder. The camera will still capture the full color data in the raw file, but the embedded jpeg preview image will be monochrome. When you import such an image, darktable can automatically flag the image as monochrome based on the preview image.
+- When you capture a scene from which you would like to produce a monochrome image, it can be helpful to put your camera into a "black & white" creative mode. This allows you to visualise what the scene would look like in monochrome through your camera's liveview screen or electronic viewfinder. The camera will still capture the full color data in the raw file, but the embedded JPEG preview image will be monochrome. When you import such an image, darktable can automatically flag the image as monochrome based on the preview image.
 
   Checking whether the preview is monochrome slows down the import process, so this is disabled by default. You can enable this check in [preferences > processing > detect monochrome previews](../preferences-settings/processing.md)  
 
