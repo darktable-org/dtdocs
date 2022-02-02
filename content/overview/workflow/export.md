@@ -16,4 +16,4 @@ darktable is a non-destructive editor, which means that all changes are recorded
 
 3. Click the "export" button to save your processed images in the selected location.
 
-_**Note:** While JPEG is useful for most purposes, if you wish to perform further edits in a raster editor like GIMP or Krita, it is normally better to export in tiff format._
+_**Note:** While JPEG is useful for most purposes, if you wish to perform further edits in a raster editor like GIMP or Krita, it is normally better to export in TIFF format._
