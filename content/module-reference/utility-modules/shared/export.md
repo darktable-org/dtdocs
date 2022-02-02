@@ -80,7 +80,7 @@ high quality resampling
 : Set this to 'yes' to perform high quality resampling on the image. The image will be processed in full resolution and only downscaled at the very end. This can sometimes result in better quality, but will always be slower.
 
 store masks
-: Store masks as layers in exported image. Only works for some image formats (currently TIFF and xcf).
+: Store masks as layers in exported image. Only works for some image formats (currently TIFF and XCF).
 
 profile
 : The output color profile. Select “image settings” if you want the settings in the [_output color profile_](../../processing-modules/output-color-profile.md) module of the individual images to be respected.
