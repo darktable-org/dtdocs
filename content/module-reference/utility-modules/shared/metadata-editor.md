@@ -15,9 +15,6 @@ Metadata is freeformat text (title, description, creator, publisher, rights etc.
 metadata entry fields
 : A separate field is displayed for each metadata item. Hold Ctrl while scrolling with your mouse to increase the height of a field. Press Ctrl+Enter to insert a new line. Press Enter to apply any text entered in the current metadata field to the selected images. Double-click on a field's label to delete the contents of that field.
 
-reset
-: Double-click on the label erases the metadata content.
-
 apply
 : Apply new settings from the metadata entry fields to the selected images.
 
