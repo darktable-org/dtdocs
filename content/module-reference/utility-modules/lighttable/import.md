@@ -77,7 +77,7 @@ The import dialog is intended to allow you to set up common import locations, to
 
 When you choose a place, the folder tree is automatically populated (into the folders pane) from the root directory of the selected place. You can then navigate the folder tree and select a folder for import. The last selected place/folder is automatically reloaded the next time you open the dialog.
 
-In the example screenshot above, you can see that a "place" has been created for the root of the Pictures folder and a sub-folder within that structure has been selected. This is the recommended workflow for the import process -- you should not have to create new places very often.
+In the example screenshot above, you can see that a "place" has been created for the root of the Photos folder and a sub-folder within that structure has been selected. This is the recommended workflow for the import process -- you should not have to create new places very often.
 
 ### files
 
