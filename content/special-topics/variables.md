@@ -26,6 +26,7 @@ $(ID)                      the image id
 $(VERSION)                 the duplicate version number
 $(VERSION_IF_MULTI)        same as $(VERSION) but null string if only one version exists
 $(VERSION_NAME)            version name from metadata
+$(DARKTABLE_VERSION)       the version of the running darktable instance
 $(SEQUENCE)                a sequence number within an export job
 $(SENSOR_WIDTH)            width of RAW data in pixels before RAW crop
 $(SENSOR_HEIGHT)           height of RAW data in pixels before RAW crop
