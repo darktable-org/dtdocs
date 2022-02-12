@@ -36,6 +36,9 @@ It is possible to create multiple instances of many processing modules. In this 
 
 These rules are also used when clicking and dragging on the scopes module to change exposure.
 
+prefer focused instance
+: If an instance has focus, apply the shortcut to that instance and ignore any other rules. Note that this option does not impact blending shortcuts, which are always applied to the focused instance (default on).
+
 prefer expanded instances
 : If instances of the module are expanded, ignore collapsed instances (default off).
 
