@@ -1,7 +1,7 @@
 ---
 title: guides & overlays
 id: guides-overlays
-applicable-version: 3.8
+applicable-version: 4.0
 tags: 
 view: darkroom
 ---
@@ -39,3 +39,6 @@ horizontal lines, vertical lines, subdivisions
 
 overlay color
 : The color of the overlay lines. Note that this impacts _any_ lines that are drawn directly over the image, for example, drawn masks.
+
+contrast
+: The contrast between the lightest and darkest parts of any overlays -- usually, the contrast between the "on" and "off" parts of dashed lines.
