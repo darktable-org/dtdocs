@@ -25,3 +25,9 @@ To set up a timelapse capture, create a new [session](../module-reference/utilit
 The [camera settings](../module-reference/utility-modules/tethering/camera-settings.md) module can be used to define the delay (the number of seconds between capture) and sequence (the number of images to capture) of your timelapse.
 
 To start the timelapse click the capture button in the same panel and watch the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) fill up with images. The last captured image is always displayed in the center view. 
+
+# storing images on the camera as well as on the computer
+
+By default, the gphoto2 framework which is used by darktable's tethering feature will only download the images to the computer and not store them on the camera's memory card in parallel. This setting can be change outside of darktable by using the `gphoto2` command line client. However, there are cases where this method fails, as it requires that the gphoto2 library built into darktable uses the same configuration file as the gphoto2 command line tool. In particular, if darktable or gphoto2 are installed within a sandbox or container that hides user account settings, you may face this issue (this can e.g. happen with ‘smap’ packages and similar package formats).
+
+To allow a captured image to stay on the camera's memory card, connect camera and computer for a tethering session, but close darktable. Enter `gphoto2 --set-config capturetarget=1` on the command line. If this command is successfull, start darktable again. From here, images should be stored (duplicated) on the camera's memory card during a tethered capture.
