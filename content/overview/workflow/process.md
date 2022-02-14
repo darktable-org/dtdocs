@@ -114,7 +114,7 @@ As you will be adjusting the tones and colors of the image, start by enabling [c
 
    ---
 
-4. **Color preservation**: The tone mapping in the filmic module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear. 
+4. **Color preservation**: The tone mapping in the filmic rgb module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear. 
 
 5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required. 
 
