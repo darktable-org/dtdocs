@@ -30,7 +30,7 @@ omit hierarchy in simple tag lists
 disable the entry completion
 : The entry completion is useful for those who enter tags using the keyboard only. For others the entry completion can be embarrassing (default off). (needs a restart) 
 
-# keyboard shortcuts with multiple instances
+# shortcuts with multiple instances
 
 It is possible to create multiple instances of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations. The following options control rules that are applied (in order) to decide which module instance keyboard shortcuts should be applied to.
 
