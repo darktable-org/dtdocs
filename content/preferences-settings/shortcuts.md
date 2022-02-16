@@ -202,7 +202,7 @@ _focus_
 _instance_
 : Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action, when assigning a simple shortcut to the _instance_ element, is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
 
-If an action affects a processing module that can have multiple instances, you can choose which instance to adjust with a given shortcut. By default, all actions will affect the "preferred" instance, as defined using the settings in [preferences > miscellaneous > keyboard shortcuts with multiple instances](./miscellaneous.md#keyboard-shortcuts-with-multiple-instances).
+If an action affects a processing module that can have multiple instances, you can choose which instance to adjust with a given shortcut. By default, all actions will affect the "preferred" instance, as defined using the settings in [preferences > miscellaneous > shortcuts with multiple instances](./miscellaneous.md#shortcuts-with-multiple-instances).
 
 ## dropdowns
 
