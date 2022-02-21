@@ -36,7 +36,7 @@ Various combinations of keyboard, mouse, and device buttons can be used to creat
 
 ### creating additional modifiers
 
-The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the the "global/modifier" action. However, these will merely function as extra Ctrl, Alt or Shift keys -- you cannot create "new" modifiers.
+The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the "global/modifier" action. However, these will merely function as extra Ctrl, Alt or Shift keys -- you cannot create "new" modifiers.
 
 ## extending simple shortcuts with movement
 
