@@ -1,7 +1,7 @@
 ---
 title: shadows and highlights
 id: shadows-and-highlights
-applicable-version: 3.2.1
+applicable-version: 4.0.0
 tags: 
 working-color-space: Lab 
 view: darkroom
@@ -12,7 +12,7 @@ Modify the tonal range of the shadows and highlights of an image by enhancing lo
 
 ---
 
-_**Note:** This module performs blurs in Lab color space, which can result in a number of issues, including halos, high local contrast in highlights, and hue shifts towards blue in the shadows. Instead, use the [tone equalizer](./tone-equalizer.md) module instead._
+_**Note:** This module performs blurs in Lab color space, which can result in a number of issues when the parameters are pushed hard, including halos, high local contrast in highlights, and hue shifts towards blue in the shadows. You are advised to use the [tone equalizer](./tone-equalizer.md) module instead._
 
 ---
 
