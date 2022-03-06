@@ -21,7 +21,7 @@ This module uses edge-detection. Where pixels are detected as a fringe, the colo
 # module controls
 
 operation mode
-: _global average_: This mode is is usually the fastest but might show slightly incorrect previews at high magnification. It might also protect the wrong regions of color too much or too little by comparison with local average.
+: _global average_: This mode is usually the fastest but might show slightly incorrect previews at high magnification. It might also protect the wrong regions of color too much or too little by comparison with local average.
 
 : _local average_: This mode is slower because it computes local color references for every pixel. However it might protect color better than global average and allows for rebuilding color where actually required. 
 
