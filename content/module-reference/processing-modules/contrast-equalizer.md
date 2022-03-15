@@ -44,7 +44,7 @@ Raising the two control points at the right-hand end of the graph will increase 
 
 ![contrast-equalizer-luma-high](./contrast-equalizer/contrast-equalizer-luma-high.png#w66)
 
-Increasing the local contrast can also amplify the luma noise in the image. A second spline located at the bottom of the graph can be used used to denoise the selected detail scales. Raise this spline (by clicking just above one of the triangles at the bottom of the graph and dragging the line upwards) to reduce noise at the given wavelet scale. In the example above, the dark denoising spline has been raised at the fine-detail end of the graph.
+Increasing the local contrast can also amplify the luma noise in the image. A second spline located at the bottom of the graph can be used to denoise the selected detail scales. Raise this spline (by clicking just above one of the triangles at the bottom of the graph and dragging the line upwards) to reduce noise at the given wavelet scale. In the example above, the dark denoising spline has been raised at the fine-detail end of the graph.
 
 ## chroma tab
 
