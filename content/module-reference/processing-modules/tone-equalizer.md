@@ -61,7 +61,7 @@ To avoid having to switch back and forth between the _advanced_ and _masking_ ta
 
 When setting up the guided mask you will need to strike a balance between obtaining a smooth blur within tonal regions (to preserve local contrast) and preservation of the boundaries between those regions. Some experimentation will be required to find the best settings. Often the key controls to adjust are the _exposure/contrast compensation_ sliders at the bottom of the module.
 
-Displaying the guided mask while while making these adjustments will help you to understand these controls and better judge the quality of the mask.
+Displaying the guided mask while making these adjustments will help you to understand these controls and better judge the quality of the mask.
 
 luminance estimator
 : Choose the method by which the luminance of a pixel will be estimated when mapping it to a mask intensity value (default _RGB euclidean norm_).
