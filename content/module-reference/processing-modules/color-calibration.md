@@ -119,7 +119,7 @@ clip negative RGB from gamut
 
 ---
 
-**Note 1**: It has been reported that some OpenCL drivers don't play well when negative RGB are present in the pixel pipeline, because many pixel operators use logarithms and power functions (_filmic_, _color balance_, all the CIE Lab <-> CIE XYZ color space conversions), which are not defined for negative numbers. Although the inputs are sanitized before sensitive operations, it is not enough for some OpenCL drivers, which will output isolated `NaN` (Not a Number) values. These `NaN` values may be subsequently spread by local filters (blurring and sharpening operations, like _sharpness_, _local contrast_, _contrast equalizer_, _low pass_, _high pass_, _surface blur_, and _filmic_ highlights reconstruction), resulting in large black, grey or white squares.
+**Note 1**: It has been reported that some OpenCL drivers don't play well when negative RGB values are present in the pixel pipeline, because many pixel operators use logarithms and power functions (_filmic_, _color balance_, all the CIE Lab <-> CIE XYZ color space conversions), which are not defined for negative numbers. Although the inputs are sanitized before sensitive operations, it is not enough for some OpenCL drivers, which will output isolated `NaN` (Not a Number) values. These `NaN` values may be subsequently spread by local filters (blurring and sharpening operations, like _sharpness_, _local contrast_, _contrast equalizer_, _low pass_, _high pass_, _surface blur_, and _filmic_ highlights reconstruction), resulting in large black, grey or white squares.
 
 In all these cases, you **must** enable the "clip negative RGB from gamut" option in the _color calibration_ module.
 
