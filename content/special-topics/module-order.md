@@ -34,7 +34,7 @@ The default ordering of modules when using the new scene-referred workflow is as
 2. [spot removal (deprecated)](../module-reference/processing-modules/spot-removal.md)
 2. [retouch](../module-reference/processing-modules/retouch.md)
 2. [**exposure**](../module-reference/processing-modules/exposure.md)
-2. [local tone mapping (deprecated)](../module-reference/processing-modules/tone-mapping.md)
+2. [tone mapping (deprecated)](../module-reference/processing-modules/tone-mapping.md)
 2. [tone equalizer](../module-reference/processing-modules/tone-equalizer.md)
 2. [crop](../module-reference/processing-modules/crop.md)
 2. [graduated density](../module-reference/processing-modules/graduated-density.md)
