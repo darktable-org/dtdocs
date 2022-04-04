@@ -30,7 +30,7 @@ All thumbnails are fully color managed. Colors are rendered accurately on screen
 
 If for some reason darktable is unable to generate a thumbnail, it displays an image of a skull ![skull icon](./thumbnails/skull.png#icon) instead. Don't panic!
 	
-There are three main reasons that this could happen:
+There are three main reasons why this could happen:
 
 - _Missing image file_: darktable remembers all images it has ever imported, as long as they have not been removed from your database. If darktable wants to create a thumbnail but is not able to open the input file, a skull is displayed instead. Users are advised to remove images from the database using the [selected images](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script [`purge_non_existing_images.sh`](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) from darktable's toolset to clean-up your database.
 
