@@ -10,7 +10,7 @@ Control whether warning messages are shown before undertaking certain activities
 # general
 
 ask before removing images from the library
-: Always ask before removing an image from darktable's library database, where the image/xmp file is retained (default on).
+: Always ask before removing image information from darktable's library database, where the xmp file is retained (default on).
 
 ask before deleting images from disk
 : Always ask before deleting an image file (default on).
