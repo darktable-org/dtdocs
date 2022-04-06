@@ -119,7 +119,7 @@ exif data
 : Export the source image's Exif data.
 
 metadata
-: Export metadata defined in the [metadata editor](../shared/metadata-editor.md) module. Metadata fields tagged as _private_ or _hidden_ will not be exported.
+: Export metadata defined in the [metadata editor](../shared/metadata-editor.md) module. Metadata fields tagged as _private_ or not tagged as _visible_ will not be exported.
 
 geo tags
 : Export geo tags.
