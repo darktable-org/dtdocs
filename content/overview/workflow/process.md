@@ -84,7 +84,7 @@ The default settings in darktable are therefore intended to provide you with a n
 Below the scopes module, at the top right of the screen, is a set of tabs into which darktable's modules are [grouped](../../darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it. 
 
 ---
-For the purposes of this guide, click on the hamburger icon (to the right of the tabs) and select the "workflow: scene referred" preset now.
+For the purposes of this guide, click on the hamburger icon (to the right of the tabs) and select the "workflow: scene-referred" preset now.
 
 ---
 
