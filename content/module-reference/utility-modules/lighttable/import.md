@@ -133,7 +133,7 @@ sub directory naming pattern
 : The sub directory part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).
 
 keep original filename
-: Check this box to keep original the filename instead of using the pattern below when importing.
+: Check this box to keep the original filename instead of using the pattern below when importing.
 
 file naming pattern
 : The file name part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(SEQUENCE).$(FILE_EXTENSION)`).
