@@ -23,3 +23,5 @@ D          open in darkroom view for developing
 W          fully zoom into the current image while the key is pressed
 Ctrl+W     fully zoom into the current image and show areas in focus
 ```
+
+_N.B. A color label will be added to all selected images if **any** of them do not currently have the label; otherwise the label will be removed from all selected images._

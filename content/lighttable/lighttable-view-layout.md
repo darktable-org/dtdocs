@@ -63,7 +63,7 @@ From left to right:
 : Apply star ratings to images.
 
 [color labels](./digital-asset-management/star-color.md)
-: Apply color categories to images.
+: Apply color labels to images.
 
 [mode selector](./lighttable-modes/_index.md)
 : Choose a lighttable mode.

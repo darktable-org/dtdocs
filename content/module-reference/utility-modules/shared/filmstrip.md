@@ -1,7 +1,7 @@
 ---
 title: filmstrip
 id: filmstrip
-applicable-version: 3.2.1
+applicable-version: 4.0
 tags: 
 view: lighttable, darkroom, tethering, map, print
 ---
@@ -25,7 +25,7 @@ Ctrl+A         select all images in the filmstrip
 Ctrl+Shift+A   deselect all images
 Ctrl+I         invert the current selection
 
-F1 – F5        toggle color label (red, yellow, green, blue, purple)
+F1 – F5        add or remove color label (red, yellow, green, blue, purple)
 0 – 5          set/change image rating
 R              reject image
 Ctrl+D         duplicate image
@@ -34,5 +34,7 @@ Ctrl+V         paste all of the copied history stack
 Ctrl+Shift+C   selectively copy the history stack
 Ctrl+Shift+V   selectively paste from the copied history stack
 ```
+
+_N.B. A color label will be added to all selected images if **any** of them do not currently have the label; otherwise the label will be removed from all selected images._
 
 See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.
