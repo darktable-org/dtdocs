@@ -18,23 +18,30 @@ In the darkroom, the image currently being processed is selected and highlighted
 
 If you wish to select multiple images in the filmstrip, use Alt+click to select the first image, followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
 
-The following shortcuts are available to select images in the filmstrip or to perform actions on the selected images:
+The following shortcuts can be used to select images in the filmstrip:
 
-```
-Ctrl+A         select all images in the filmstrip
-Ctrl+Shift+A   deselect all images
-Ctrl+I         invert the current selection
+- `Ctrl+A` selects all images in the filmstrip
 
-F1 – F5        add or remove color label (red, yellow, green, blue, purple)
-0 – 5          set/change image rating
-R              reject image
-Ctrl+D         duplicate image
-Ctrl+C         copy the full history stack
-Ctrl+V         paste all of the copied history stack
-Ctrl+Shift+C   selectively copy the history stack
-Ctrl+Shift+V   selectively paste from the copied history stack
-```
+- `Ctrl+Shift+A` deselects all images
 
-_N.B. A color label will be added to all selected images if **any** of them do not currently have the label; otherwise the label will be removed from all selected images._
+- `Ctrl+I` inverts the current selection
+
+The following shortcuts can be used to perform operations on the selected images
+
+- `F1, F2, F3, F4, F5` adds or removes a color label (red, yellow, green, blue, purple, respectively). A color label will be added if _any_ selected image does not currently have the label; otherwise the label will be removed
+
+- `0, 1, 2, 3, 4, 5` sets the star rating
+
+- `R` rejects the image(s)
+
+- `Ctrl+D` duplicates the image(s)
+
+- `Ctrl+C` copies the full history stack
+
+- `Ctrl+V` pastes all of the copied history stack
+
+- `Ctrl+Shift+C` selectively copies the history stack
+
+- `Ctrl+Shift+V` selectively pastes from the copied history stack
 
 See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.

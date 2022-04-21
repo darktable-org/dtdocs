@@ -37,18 +37,16 @@ The left, right and filmstrip/timeline panels can be resized by dragging their i
 
 Each of the panels can be expanded or collapsed by pressing the triangle located at the outside edge of the panels. Panel visibility can also be adjusted using keyboard shortcuts, as follows:
 
-```
-TAB             Temporarily expand the centre view to fill the whole window. 
-                Press again to return to the previous view.
-F11             Toggle fullscreen mode
-Shift+Ctrl+t    Toggle the top panel (between the image and the top banner)
-Shift+Ctrl+b    Toggle the bottom panel (between the image and the filmstrip/timeline, if shown)
-Shift+Ctrl+l    Toggle the left panel
-Shift+Ctrl+r    Toggle the right panel
-Ctrl+f          Toggle the filmstrip/timeline
-Ctrl+h          Toggle the top banner
-b               Toggle all borders and panel-collapse controls
-```
+ - `TAB` temporarily expands the centre view to fill the whole window. Press again to return to the previous view.
+ - `F11` toggles fullscreen mode
+ - `Shift+Ctrl+t` toggles the top panel (between the image and the top banner)
+ - `Shift+Ctrl+b` toggles the bottom panel (between the image and the filmstrip/timeline, if shown)
+ - `Shift+Ctrl+l` toggles the left panel
+ - `Shift+Ctrl+r` toggles the right panel
+ - `Ctrl+f` toggle sthe filmstrip/timeline
+ - `Ctrl+h` toggles the top banner
+ - `b` toggles all borders and panel-collapse controls
+
 ---
 
 **Note:** The size and visibility of the panels are stored independently for each view.

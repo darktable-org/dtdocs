@@ -28,12 +28,10 @@ The functionality in darktable is separated into six different views:
 
 You can switch between views by clicking the view name at the top of the right-hand panel (the currently active view is highlighted) or by using one of the following keyboard shortcuts:
 
-```
-L 	switch to lighttable
-D 	switch to darkroom
-M 	switch to map
-P 	switch to print
-S 	switch to slideshow
-T 	switch to tethering
-```
+ - `L` switches to lighttable
+ - `D` switches to darkroom
+ - `M` switches to map
+ - `P` switches to print
+ - `S` switches to slideshow
+ - `T` switches to tethering
 

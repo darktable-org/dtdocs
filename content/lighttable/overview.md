@@ -12,16 +12,24 @@ The centre view contains thumbnails of your images -- how they are displayed dep
 
 While the mouse is over an image thumbnail or images are selected, there are a number of actions you can perform with keyboard shortcuts:
 
-```
-0 – 5      set the rating of the image 
-           if an image has 1 star and you hit the 1 key, the image will become unrated 
-R          rate the image as "rejected"
-F1 – F5    set a color label
-Ctrl+C     copy the history stack
-Ctrl+V     paste the copied history stack
-D          open in darkroom view for developing
-W          fully zoom into the current image while the key is pressed
-Ctrl+W     fully zoom into the current image and show areas in focus
-```
+- `F1, F2, F3, F4, F5` adds or removes a color label (red, yellow, green, blue, purple, respectively). A color label will be added if _any_ selected image does not currently have the label; otherwise the label will be removed
 
-_N.B. A color label will be added to all selected images if **any** of them do not currently have the label; otherwise the label will be removed from all selected images._
+- `0, 1, 2, 3, 4, 5` sets the star rating
+
+- `R` rejects the image(s)
+
+- `Ctrl+D` duplicates the image(s)
+
+- `Ctrl+C` copies the full history stack
+
+- `Ctrl+V` pastes all of the copied history stack
+
+- `Ctrl+Shift+C` selectively copies the history stack
+
+- `Ctrl+Shift+V` selectively pastes from the copied history stack
+
+- `D` opens the image in the darkroom view for developing
+
+- `W ` fully zooms into the current image while the key is pressed
+
+- `Ctrl+W ` fully zooms into the current image and show areas in focus
