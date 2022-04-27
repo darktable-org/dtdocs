@@ -98,13 +98,20 @@ weight
 - All content should be authored in plain markdown without shortcodes and HTML should be kept to an absolute minimum , if used at all
 - Minimalism is an absolute must. Fewer words are preferred
 - Markdown files should be as short as possible
-- Follow the naming and capitalization norms present in the GUI of the application -- namely all headers and titles are in lower case, except for the very top-level chapter names
+- Follow the naming and capitalization norms present in the GUI of the application -- namely all headers and titles are in lower case, except for the very top-level chapter names. Similarly, use all lower case when referencing module names and controls.
 - Headers in a file should not exceed level three (###)
-- The primary authoring language is English
+- The primary authoring language is English. Avoid idiomatic terminology where possible as the English language version may be read by people for whom English is not their native language
 - Assume the reader has the application open while reading the user manual and only include images where they contribute to the explanation of complex functionality
 - Use image callouts if you need to annotate an image (i.e. mark parts of the image with a letter or number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult. See [this page](../darkroom/pixelpipe/the-anatomy-of-a-module.md) for an example.
 - Changes to the content should be proposed via pull request or a similar mechanism
 - Your submissions will be copy-edited -- don't take it personally
+
+## keyboard and mouse shortcuts
+
+- Reference named keyboard keys using CamelCase (Ctrl, Shift, Alt, Esc, AltGr, CapsLock, PageUp, PageDown)
+- Reference single letter keys in lower case (this avoids confusion between for example, Ctrl+H and Ctrl+Shift+h). Quotation marks might help with clarification (press "h" to see a list of active shortcuts)
+- Reference mouse actions using lower case, with multiple words joined by a hyphen (scroll, click, single-click, double-click, right-click)
+- Connect combinations of keys/actions with a plus sign (Ctrl+Shift+h, Shift+double-click)
 
 ## definition lists
 
