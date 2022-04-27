@@ -76,7 +76,7 @@ widget
 : Each visible part of the user interface is known as a _widget_. For example the darktable application window is a widget, containing side panel widgets, each of which contains module widgets, each of which contains button, slider and dropdown list widgets etc... When assigning a shortcut to an action, you must first decide which widget it is to be applied to.
 
 element
-: An _element_ is the part of a UI widget that is affected by your shortcut. For example, for a slider that has a color picker, you can make a shortcut activate the color picker _button_ element or change the _value_ element of the slider. For a row of tabs (the row is a single widget) you can select which tab element to activate.
+: An _element_ is the part of a UI widget that is affected by your shortcut. For example, for a slider that has a color picker, you can make a shortcut activate the color picker _button_ element or change the _value_ element of the slider. For a row of tabs (the row is a single widget) you can select which tab element to activate or use your mouse scroll wheel to scroll through the tabs.
 
 effect
 : A shortcut can sometimes have multiple possible _effects_ on a given _element_. For example, a button can be activated as if it was pressed with a plain mouse-click or as if it was pressed with Ctrl+click. A slider's value can be edited, increased/decreased or reset.
