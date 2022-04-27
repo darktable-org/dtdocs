@@ -32,17 +32,12 @@ right-click
 double-click
 : Double-click on a slider or its label to reset to the default value.
 
-In addition, the precision of mouse-wheel and arrow-key adjustments can be altered:
+In addition, the speed of mouse-wheel, arrow-key and click+drag adjustments can be altered:
 
  - hold down the Shift key while adjusting to _increase_ the step size by a factor of 10. 
  - hold down the Ctrl key while adjusting to _decrease_ the step size by a factor of 10.
 
-Both of these multipliers can be amended in the `$HOME/.config/darktablerc` file:
-
-```
-darkroom/ui/scale_rough_step_multiplier=10.0
-darkroom/ui/scale_precise_step_multiplier=0.1
-```
+Both of these multipliers can be amended in [preferences > shortcuts](../../preferences-settings/shortcuts.md) by altering the speed of the fallbacks/value actions.
 
 # comboboxes
 
