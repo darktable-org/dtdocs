@@ -37,4 +37,6 @@ method
 : The method used to reconstruct highlights (see above).
 
 clipping threshold
-: Manually adjust the clipping threshold against magenta highlights. You shouldn't need to adjust this.
+: Manually adjust the clipping threshold against magenta highlights. You shouldn't need to adjust this. 
+
+: Click the icon beside the slider to visualise the clipped areas of the image.
