@@ -77,13 +77,13 @@ path
 : Consider fine-tuning paths in restricted edit mode (enabled by Ctrl+clicking on the 'show and edit mask elements' icon). This allows you to adjust single nodes and segments without the risk of accidentally shifting or resizing the whole shape. 
 
 brush
-: Start drawing a brush stroke by left-clicking on the image canvas and moving the mouse while keeping the button pressed. The brush stroke is finalized once you release the mouse button. Scroll the mouse to change the shape size, either before you start drawing or at any time during the operation. Likewise you can use the "`{`" and "`}`" keys to decrease/increase feathering, and the "`<`" and "`>`" keys to decrease/increase opacity.
+: Start drawing a brush stroke by left-clicking on the image canvas and moving the mouse while keeping the button pressed. The brush stroke is finalized once you release the mouse button. Scroll the mouse to change the shape size and Shift+scroll to change the feathering (hardness), either before you start drawing or at any time during the operation. Likewise you can use the "`{`" and "`}`" keys to decrease/increase hardness, and the "`<`" and "`>`" keys to decrease/increase opacity.
 
 : If you have a graphics tablet with pen pressure sensitivity, darktable can apply the recorded pen pressure to certain attributes of the brush stroke. This operation can be controlled in [preferences > darkroom > pen pressure control for brush masks](../../../preferences-settings/darkroom.md).
 
 : On lifting the tablet pen or releasing the left mouse button the brush stroke is converted into a number of connected nodes, which define the final shape. A configuration option ([preferences > darkroom > smoothing of brush strokes](../../../preferences-settings/darkroom.md)) controls how much smoothing is applied. A higher level of smoothing leads to fewer nodes being created – this eases subsequent editing at the expense of lower accuracy.
 
-: Nodes and segments of a brush stroke can be modified individually. See the documentation on path shapes (above) for more details.
+: Nodes and segments of a brush stroke can be modified individually. See the documentation on path shapes (above) for more details. Change the size or hardness of a node by scrolling and Shift+scrolling over a node, respectively.
 
 ---
 
