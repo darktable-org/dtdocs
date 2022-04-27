@@ -1,7 +1,7 @@
 ---
 title: global color picker
 id: global-color-picker
-applicable-version: 3.8
+applicable-version: 4.0
 tags: 
 view: darkroom
 ---
@@ -15,6 +15,8 @@ Besides the global color picker described here, many darktable modules (e.g. [_t
 You can right-click on the sampled color values to copy them to the clipboard.
 
 As the global color picker runs at the end of the preview pixelpipe, it receives data in display color space then converts it to histogram color space. If you are using a display color space which is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile will clip or distort.
+
+Hover over any of the color values to show a tooltip containing more detailed information about the picked color or live color sample. This information includes RGB and Lab values as well as an approximate color name. An attempt is also made to detect skin tones and provide an appropriate description. Skin tone detection needs proper Lightness scaling (44 to 48% for African and 58 to 64% for all others) and neutral white balance.
 
 # module controls
 
