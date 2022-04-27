@@ -100,7 +100,7 @@ weight
 - Markdown files should be as short as possible
 - Follow the naming and capitalization norms present in the GUI of the application -- namely all headers and titles are in lower case, except for the very top-level chapter names. Similarly, use all lower case when referencing module names and controls.
 - Headers in a file should not exceed level three (###)
-- The primary authoring language is English. Avoid idiomatic terminology where possible as the English language version may be read by people for whom English is not their native language
+- The primary authoring language is English. Avoid idiomatic language where possible as the English version of the documentation may be read by people for whom English is not their native language
 - Assume the reader has the application open while reading the user manual and only include images where they contribute to the explanation of complex functionality
 - Use image callouts if you need to annotate an image (i.e. mark parts of the image with a letter or number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult. See [this page](../darkroom/pixelpipe/the-anatomy-of-a-module.md) for an example.
 - Changes to the content should be proposed via pull request or a similar mechanism
