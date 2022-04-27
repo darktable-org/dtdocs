@@ -7,6 +7,12 @@ draft: false
 
 # interface
 
+load default shortcuts at startup
+: When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). Deactivate this preference to stop loading default shortcuts on startup -- only load the user-defined ones (including any defaults that you have not subsequently deleted or overridden). This makes deletion easier but also means that you will not benefit from new shortcuts added in future versions without first re-enabling this preference (default on).
+
+scale slider step with min/max
+: When activated, the default step-size, when altering sliders, will depend on the current min/max values for that slider (default on).
+
 sort built-in presets first
 : Choose how the presets menu is sorted. If this option is enabled, built-in presets are shown first. If the option is disabled, user presets are shown first (default on).
 

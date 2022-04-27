@@ -126,9 +126,17 @@ restore...
 
 ## deleting default shortcuts
 
-It is not currently possible to delete system-defined default shortcuts -- if you delete a default shortcut it will be automatically reinstated the next time you restart darktable.
+When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). 
 
-As a workaround, you can _override_ the default by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/darktable/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit darktable first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in darktable:
+There are two ways to delete default shortcuts:
+
+### prevent default shortcuts from being reloaded
+
+Disable [preferences > miscellaneous > interface > load default shortcuts at startup](./miscellaneous.md) to prevent default shortcuts from being reloaded. While this option is disabled, darktable will only load user-defined shortcuts and any defaults that you have not subsequently deleted or overridden.
+
+### override default shortcut with a no-op action
+
+You can _override_ the action of a default shortcut by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/darktable/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit darktable first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in darktable:
 
 ```
 d=global/switch views/darkroom
