@@ -87,7 +87,7 @@ There are two primary methods of assigning a shortcut to an action.
 
 ## visual shortcut mapping
 
-Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md) of any darktable view to enter visual shortcut mapping mode. 
+Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md) of any darktable view to enter visual shortcut mapping mode. If you hold Ctrl while clicking the button, no confirmation will appear when overwriting an existing shortcut mapping.
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
