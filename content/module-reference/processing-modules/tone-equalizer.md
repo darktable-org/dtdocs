@@ -1,4 +1,4 @@
-<---
+---
 title: tone equalizer
 id: tone-equalizer
 applicable-version: 3.8
