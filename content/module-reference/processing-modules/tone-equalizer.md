@@ -1,4 +1,4 @@
----
+<---
 title: tone equalizer
 id: tone-equalizer
 applicable-version: 3.8
@@ -108,6 +108,8 @@ When the _tone equalizer_ module is enabled and expanded, you can move the mouse
 - the shade of the outer circle indicates the intensity of the mask at that point
 - if the tone equalizer has brightened or darkened pixels matching this mask intensity, the magnitude of the adjustment is indicated by an arc on the left-hand-side. The longer the arc, the greater the brightness adjustment,
 - if there has been an exposure adjustment, the shade of the inner circle indicates the amount of brightening or darkening, relative to the mask's intensity at that point (as indicated by the outer gray circle). That is to say, if the pixel under the crosshairs has been brightened, the inner circle will be a lighter shade of gray than the outer circle; if the pixel has been darkened, the inner circle will be a darker shade of gray than the outer circle.
+
+If you need to move or zoom the portion of the image shown in the center view while the module is expanded, hold down the 'a' key while dragging the mouse or using the scroll wheel.  As long as the key is held down, mouse actions adjust the viewport rather than adjusting the tone curve.
 
 ## presets
 
