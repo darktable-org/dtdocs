@@ -6,7 +6,7 @@ tags:
 view: lighttable, darkroom, tethering, map, print
 ---
 
-The filmstrip can be used to quickly switch between images in any darktable view. The images shown are the same as those displayed in the lighttable view and are defined by the currently-selected collection.
+The filmstrip can be used to quickly switch between images. The images shown are the same as those displayed in the lighttable view and are defined by the currently-selected collection.
 
 ![filmstrip](./filmstrip/filmstrip.png)
 
