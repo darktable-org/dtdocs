@@ -171,6 +171,10 @@ While it is best to not touch imported files behind darktable's back, this modul
 1. The original film roll or folder name will be displayed with ~~strikethrough~~ formatting to emphasize that it can not be located.
 1. Right-click on the folder or film roll name, select “search filmroll...”, and then select the new location of the folder.
 
+## returning to a previous collection
+
+You can revert to a previously defined collection by clicking on the history button at the bottom and selecting one of the most recent collection you have used.
+
 ## preferences
 
 The "preferences..." option in the presets menu allows you to adjust the behavior of the collections module as follows:
@@ -180,6 +184,12 @@ do not set the 'uncategorized' entry for tags
 
 tag case sensitivity
 : Set whether tags should be case sensitive or not -- without the `sqlite` ICU extension this will only apply to the 26 latin letters (default insensitive).
+
+number of collections to be stored
+: Set the number of recent collections to show in the history popup
+
+hide the history button and show a specific module instead
+: Set your prefered way to get the history of your recent collection. This can be either with the history button or with a specific [recent collect module](./recent-collections.md)
 
 number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).
