@@ -108,7 +108,7 @@ The default ordering of modules when using the legacy display-referred workflow 
 2. [raw denoise](../module-reference/processing-modules/raw-denoise.md)
 2. [demosaic](../module-reference/processing-modules/demosaic.md)
 2. [denoise (profiled)](../module-reference/processing-modules/denoise-profiled.md)
-2. [local tone mapping (deprecated)](../module-reference/processing-modules/tone-mapping.md)
+2. [tone mapping (deprecated)](../module-reference/processing-modules/tone-mapping.md)
 2. [exposure](../module-reference/processing-modules/exposure.md)
 2. [spot removal (deprecated)](../module-reference/processing-modules/spot-removal.md)
 2. [retouch](../module-reference/processing-modules/retouch.md)
