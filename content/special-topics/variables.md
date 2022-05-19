@@ -38,18 +38,20 @@ $(EXPORT_WIDTH)            image width in pixels at the end of the pixelpipe and
 $(EXPORT_HEIGHT)           image height in pixels at the end of the pixelpipe and after export resize
 $(MAX_WIDTH)               maximum width entered in export module
 $(MAX_HEIGHT)              maximum height entered in export module
-$(YEAR)                    year at date of export
-$(MONTH)                   month at date of export
-$(DAY)                     day at date of export
-$(HOUR)                    hour at time of export
-$(MINUTE)                  minute at time of export
-$(SECOND)                  second at time of export
+$(YEAR)                    year at date of import/export
+$(MONTH)                   month at date of import/export
+$(DAY)                     day at date of import/export
+$(HOUR)                    hour at time of import/export
+$(MINUTE)                  minute at time of import/export
+$(SECOND)                  second at time of import/export
+$(MSEC)                    millisecond at time of import/export
 $(EXIF_YEAR)               Exif year
 $(EXIF_MONTH)              Exif month
 $(EXIF_DAY)                Exif day
 $(EXIF_HOUR)               Exif hour
 $(EXIF_MINUTE)             Exif minute
 $(EXIF_SECOND)             Exif second
+$(EXIF_MSEC)               Exif millisecond
 $(EXIF_ISO)                ISO value
 $(EXIF_EXPOSURE)           Exif exposure
 $(EXIF_EXPOSURE_BIAS)      Exif exposure bias
