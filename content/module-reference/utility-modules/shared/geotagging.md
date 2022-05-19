@@ -36,6 +36,7 @@ With the time setting corrected, you can now apply GPX tracking data using the _
 
 date/time
 : This field is initialized with the date/time read from the first selected image (format `yyyy:mm:dd hh:mm:ss`) and can be modified to correct the date/time for that image. The individual date/time fields can be altered by scrolling over them with your mouse. If any field reaches its limit, the neighboring fields are automatically updated. For example, if you go over 60 on the minute field, the hour field will automatically be incremented.
+If needed milliseconds can be used as well, see [preferences > lighttable](../../../preferences-settings/lighttable.md).
 
 original date/time
 : The original date/time of the image is shown here for reference.
