@@ -27,6 +27,9 @@ rating an image one star twice will not zero out the rating
 show scrollbars for center view
 : Choose whether to show scrollbars in the center view of the lighttable (default on).
 
+show image time with milliseconds
+: define wether time should be displayed with milliseconds (default without).
+
 # thumbnails
 
 use raw file instead of embedded JPEG from size
