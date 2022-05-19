@@ -116,16 +116,16 @@ For electrical engineers, what is set here is a band-pass filter in wavelets spa
 - Zero affects both equally (isotropic)
 
 1st order anisotropy
-: The direction of diffusion of the _1st order speed_ setting. 
+: The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_1st order speed_ setting). 
 
 2nd order anisotropy
-: The direction of diffusion of the _2nd order speed_ setting.
+: The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the high-frequency (_2nd order speed_ setting).
 
 3rd order anisotropy
-: The direction of diffusion of the _3rd order speed_ setting.
+: The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_3rd order speed_ setting).
 
 4rd order anisotropy
-: The direction of diffusion of the _4th order speed_ setting.
+: The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the high-frequency (_4th order speed_ setting).
 
 ## edge management
 
