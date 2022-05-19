@@ -1,7 +1,7 @@
 ---
 title: geotagging
 id: geotagging
-applicable-version: 3.6
+applicable-version: 4.0
 tags:
 view: lighttable
 ---
@@ -35,8 +35,7 @@ With the time setting corrected, you can now apply GPX tracking data using the _
 # module controls (common)
 
 date/time
-: This field is initialized with the date/time read from the first selected image (format `yyyy:mm:dd hh:mm:ss`) and can be modified to correct the date/time for that image. The individual date/time fields can be altered by scrolling over them with your mouse. If any field reaches its limit, the neighboring fields are automatically updated. For example, if you go over 60 on the minute field, the hour field will automatically be incremented.
-If needed milliseconds can be used as well, see [preferences > lighttable](../../../preferences-settings/lighttable.md).
+: This field is initialized with the date/time read from the first selected image (format `yyyy:mm:dd hh:mm:ss`) and can be modified to correct the date/time for that image. The individual date/time fields can be altered by scrolling over them with your mouse. If any field reaches its limit, the neighboring fields are automatically updated. For example, if you go over 60 on the minute field, the hour field will automatically be incremented. It is also possible to use milliseconds in this module if you enable [preferences > lighttable > show image time with milliseconds](../../../preferences-settings/lighttable.md).
 
 original date/time
 : The original date/time of the image is shown here for reference.

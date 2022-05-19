@@ -28,7 +28,7 @@ show scrollbars for center view
 : Choose whether to show scrollbars in the center view of the lighttable (default on).
 
 show image time with milliseconds
-: define wether time should be displayed with milliseconds (default without). If set, milliseconds are shown in image information module and can be used in geotagging module.
+: Choose wether to include milliseconds when displaying time values (default off). If set, milliseconds are shown in the [image information](../../module-reference/utility-modules/shared/image-information.md) module and can also be used in the [geotagging](../../module-reference/utility-modules/shared/geotagging.md) module.
 
 # thumbnails
 
