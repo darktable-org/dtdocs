@@ -56,11 +56,11 @@ Diffusion is a time-dependent process: the more time it has, the further the par
 
 Natural diffusion usually takes place from points with a high potential (high energy or high concentration of particles) to those with a low potential (low energy or low concentration of particles). In an image, this means that diffusion always occurs from the brightest pixels to the darkest.
 
-This particular implementation can simulate natural diffusion, using what is called an isotropic diffusion (all directions have the same weight, like heat diffusion), but can also force a weighted direction parallel to the gradients (forcing diffusion across object edges and creating ghost edges), or a weighted direction perpendicular to the gradients, called isophote (forcing diffusion to be contained inside edges, like in a droplet of watercolor). The relative weight of each direction (gradient and isophote) is user-defined and can be found in the [_diffusion directionality_](#diffusion-directionality) section of the module.
+This particular implementation can simulate natural diffusion, using what is called an isotropic diffusion (all directions have the same weight, like heat diffusion), but can also force a weighted direction parallel to the gradients (forcing diffusion across object edges and creating ghost edges), or a weighted direction perpendicular to the gradients, called isophote (forcing diffusion to be contained inside edges, like in a droplet of watercolor). The relative weight of each direction (gradient and isophote) is user-defined and can be found in the [_direction_](#direction-1) section of the module.
 
 ## speed
 
-Depending how fluid the environment is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_diffusion speed_](#diffusion-speed) section of the module.
+Depending how fluid the environment is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_speed_](#speed-sharpen--diffuse) section of the module.
 
 When performing reconstruction (denoising, deblurring, dehazing), it is advisable to use smaller speeds for better accuracy. This prevents numerical overshoots (and therefore degeneration of the solution) and may require more iterations. For small numbers of iterations, higher speeds may be used. Note that large blurs need many iterations for proper reconstruction, so the speed should be adjusted to avoid degenerating the solution.
 
