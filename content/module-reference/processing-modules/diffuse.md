@@ -1,7 +1,7 @@
 ---
 title: diffuse or sharpen
 id: diffuse
-applicable-version: 3.8
+applicable-version: 4.0
 tags:
 working-color-space: RGB
 view: darkroom
@@ -76,7 +76,7 @@ Regardless of the diffusion, a _sharpness_ parameter allows you to increase or d
 
 # module controls
 
-## diffusion properties
+## properties
 
 iterations
 : The number of times the algorithm should run on top of itself. High values slow the module down but allow more accurate reconstructions, provided that the diffusion speeds are low enough.
@@ -91,38 +91,46 @@ The radii are expressed in pixels of the full-resolution image, so copy+pasting 
 
 For electrical engineers, what is set here is a band-pass filter in wavelets space, using a gaussian frequential window centered on `central radius` with a fall-off (standard deviation) of `radius span`. Wavelet scales are analogous to harmonic frequencies and each wavelet scale defines the radius of the details to act on.
 
-## diffusion speed
+## speed (sharpen ↔ diffuse)
+
+- Positive values apply diffusion
+- Negative values undo diffusion (=sharpen)
+- Zero does nothing
 
 1st order speed (gradient)
-: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _1st order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
+: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _1st order anisotropy_ setting. 
 
 2nd order speed (laplacian)
-: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _2nd order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
+: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _2nd order anisotropy_ setting. 
 
 3rd order speed (gradient of laplacian)
-: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _3nd order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
+: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _3rd order anisotropy_ setting. 
 
 4th order speed (laplacian of laplacian)
-: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _4th order anisotropy_ setting. Positive values apply diffusion, negative values undo diffusion, zero does nothing.
+: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _4th order anisotropy_ setting. 
 
-## diffusion directionality
+## direction
+
+- Positive values make diffusion rather avoid edges (isophotes)
+- Negative values make diffusion follow gradients more closely
+- Zero affects both equally (isotropic)
 
 1st order anisotropy
-: The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the low-frequency. Zero is isotropic, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: The direction of diffusion of the _1st order speed_ setting. 
 
 2nd order anisotropy
-: The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the high-frequency. Zero is isotropic, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: The direction of diffusion of the _2nd order speed_ setting.
 
 3rd order anisotropy
-: The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the low-frequency. Zero is isotropic, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: The direction of diffusion of the _3rd order speed_ setting.
 
 4rd order anisotropy
-: The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the high-frequency. Zero is isotropic, negative values make diffusion follow gradients more closely, positive values make diffusion follow isophotes more closely.
+: The direction of diffusion of the _4th order speed_ setting.
 
-## edges management
+## edge management
 
 sharpness
-: Apply a gain on wavelet details, regardless of diffusion properties. Zero does nothing, positive values sharpen, negative values blur. This is mostly useful as an adjustment variable when blooming or blurring, to retain some sharpness while adding a glow around edges. You are not advised to use this for sharpening alone, since there is nothing to prevent halos or fringes with this setting.
+: Apply a gain on wavelet details, regardless of properties set above. Zero does nothing, positive values sharpen, negative values blur. This is mostly useful as an adjustment variable when blooming or blurring, to retain some sharpness while adding a glow around edges. You are not advised to use this for sharpening alone, since there is nothing to prevent halos or fringes with this setting.
 
 edge sensitivity
 : Apply a penalty over the diffusion speeds when edges are detected. This detection uses the local variance around each pixel. Zero disables the penalty, higher values make the penalty stronger and more sensitive to edges. Increase if you notice edge artifacts like fringes and halos.
