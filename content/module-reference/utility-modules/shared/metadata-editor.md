@@ -6,9 +6,11 @@ tags:
 view: lighttable, tethering
 ---
 
-Edit the metadata  of selected images.
+Edit the metadata of selected images.
 
 Metadata is freeformat text (title, description, creator, publisher, rights etc.) that describes your images.
+
+When several images are selected and these images have a different values for a given metadata, the module displays _<leave unchanged>_ (in case you apply). Click Right on the field shows the different values at the end of the contextual menu. If you select one of them it becomes the common value, which can be saved afterwords.
 
 # module controls
 
@@ -21,11 +23,19 @@ metadata entry fields
 apply
 : Apply new settings from the metadata entry fields to the selected images.
 
+# keyboard
+
+- Tab key saves the field, moves forward the cursor to the next field, and to the last field loops to the first one.
+
+- Shift+Tab does the same, backward.
+
+- Enter save the field but doesn't move the cursor.
+
 # preferences
 
 The “preferences…” option in the presets menu brings up a dialog where you can configure how metadata is handled within darktable. For each metadata item, two check boxes allow you to restrict how metadata is handled:
 
-visible 
+visible
 : Show or hide this metadata field. Hidden fields are not included in exported images.
 
 private
