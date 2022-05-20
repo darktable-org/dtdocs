@@ -18,26 +18,27 @@ darktable supports variable substitution in a number of modules and preference s
 The following variables are available, though they may not all be applicable in every context:
 
 ```
-$(ROLL_NAME)               film roll of the input image
-$(FILE_FOLDER)             folder containing the input image
-$(FILE_NAME)               basename of the input image
-$(FILE_EXTENSION)          extension of the input image
+$(ROLL.NAME)               film roll of the input image
+$(FILE.FOLDER)             folder containing the input image
+$(FILE.NAME)               basename of the input image
+$(FILE.EXTENSION)          extension of the input image
 $(ID)                      the image id
 $(VERSION)                 the duplicate version number
-$(VERSION_IF_MULTI)        same as $(VERSION) but null string if only one version exists
-$(VERSION_NAME)            version name from metadata
-$(DARKTABLE_VERSION)       the version of the running darktable instance
+$(VERSION.IF_MULTI)        same as $(VERSION) but null string if only one version exists
+$(VERSION.NAME)            version name from metadata
+$(DARKTABLE.VERSION)       the version of the running darktable instance
+$(DARKTABLE.NAME)          name of darktable
 $(SEQUENCE)                a sequence number within an export job
-$(SENSOR_WIDTH)            width of RAW data in pixels before RAW crop
-$(SENSOR_HEIGHT)           height of RAW data in pixels before RAW crop
-$(RAW_WIDTH)               width of RAW data in pixels after RAW crop
-$(RAW_HEIGHT)              height of RAW data in pixels after RAW crop
-$(CROP_WIDTH)              image width in pixels at the end of the pixelpipe, but before export resize
-$(CROP_HEIGHT)             image height in pixels at the end of the pixelpipe, but before export resize
-$(EXPORT_WIDTH)            image width in pixels at the end of the pixelpipe and after export resize
-$(EXPORT_HEIGHT)           image height in pixels at the end of the pixelpipe and after export resize
-$(MAX_WIDTH)               maximum width entered in export module
-$(MAX_HEIGHT)              maximum height entered in export module
+$(WIDTH.SENSOR)            width of RAW data in pixels before RAW crop
+$(HEIGHT.SENSOR)           height of RAW data in pixels before RAW crop
+$(WIDTH.RAW)               width of RAW data in pixels after RAW crop
+$(HEIGHT.RAW)              height of RAW data in pixels after RAW crop
+$(WIDTH.CROP)              image width in pixels at the end of the pixelpipe, but before export resize
+$(HEIGHT.CROP)             image height in pixels at the end of the pixelpipe, but before export resize
+$(WIDTH.EXPORT)            image width in pixels at the end of the pixelpipe and after export resize
+$(HEIGHT.EXPORT)           image height in pixels at the end of the pixelpipe and after export resize
+$(WIDTH.MAX)               maximum width entered in export module
+$(HEIGHT.MAX)              maximum height entered in export module
 $(YEAR)                    year at date of import/export
 $(MONTH)                   month at date of import/export
 $(DAY)                     day at date of import/export
@@ -45,27 +46,26 @@ $(HOUR)                    hour at time of import/export
 $(MINUTE)                  minute at time of import/export
 $(SECOND)                  second at time of import/export
 $(MSEC)                    millisecond at time of import/export
-$(EXIF_YEAR)               Exif year
-$(EXIF_MONTH)              Exif month
-$(EXIF_DAY)                Exif day
-$(EXIF_HOUR)               Exif hour
-$(EXIF_MINUTE)             Exif minute
-$(EXIF_SECOND)             Exif second
-$(EXIF_MSEC)               Exif millisecond
-$(EXIF_ISO)                ISO value
-$(EXIF_EXPOSURE)           Exif exposure
-$(EXIF_EXPOSURE_BIAS)      Exif exposure bias
-$(EXIF_APERTURE)           Exif aperture
-$(EXIF_FOCAL_LENGTH)       Exif focal length
-$(EXIF_FOCUS_DISTANCE)     Exif focus distance
+$(EXIF.YEAR)               Exif year
+$(EXIF.MONTH)              Exif month
+$(EXIF.DAY)                Exif day
+$(EXIF.HOUR)               Exif hour
+$(EXIF.MINUTE)             Exif minute
+$(EXIF.SECOND)             Exif second
+$(EXIF.MSEC)               Exif millisecond
+$(EXIF.ISO)                Exif ISO value
+$(EXIF.EXPOSURE)           Exif exposure
+$(EXIF.EXPOSURE.BIAS)      Exif exposure bias
+$(EXIF.APERTURE)           Exif aperture
+$(EXIF.FOCAL.LENGTH)       Exif focal length
+$(EXIF.FOCUS.DISTANCE)     Exif focus distance
 $(LONGITUDE)               longitude
 $(LATITUDE)                latitude
 $(ELEVATION)               elevation
 $(STARS)                   star rating (text only)
-$(RATING_ICONS)            star rating (using star characters)
-$(LABELS)                  colorlabels (text only)
-$(LABELS_ICONS)            colorlabels (using colored bullet characters)
-$(LABELS_COLORICONS)       colorlabels (using colored icons)
+$(RATING.ICONS)            star rating (using star characters)
+$(LABELS)                  colorlabels (color labels as text)
+$(LABELS.ICONS)            colorlabels (color labels as icons)
 $(MAKER)                   camera maker
 $(MODEL)                   camera model
 $(LENS)                    lens
@@ -77,10 +77,10 @@ $(RIGHTS)                  rights from metadata
 $(TAGS)                    tags list (Xmp.dc.Subject)
 $(CATEGORYn(category))     tag name of level n [0,9] of selected category (or tag)
 $(SIDECAR_TXT)             content of the text sidecar file (if any)
-$(PICTURES_FOLDER)         pictures folder
-$(HOME)                    home folder
-$(DESKTOP)                 desktop folder
-$(OPENCL_ACTIVATED)        whether OpenCL is activated
+$(FOLDER.PICTURES)         pictures folder
+$(FOLDER.HOME)             home folder
+$(FOLDER.DESKTOP)          desktop folder
+$(OPENCL.ACTIVATED)        whether OpenCL is activated
 $(USERNAME)                user name defined by OS
 $(NL)                      newline character
 $(JOBCODE)                 internal jobcode of current job
@@ -88,9 +88,9 @@ $(JOBCODE)                 internal jobcode of current job
 
 # string substitution
 
-All of the variables support basic string substitution inspired by bash though some of the details differ. 
+All of the variables support basic string substitution inspired by bash though some of the details differ.
 
-All patterns are treated as simple string comparisons. There is no regex support. 
+All patterns are treated as simple string comparisons. There is no regex support.
 
 The following string replacement functions are provided, where `var` is one of the variables listed above:
 
@@ -99,17 +99,17 @@ $(var-default)                   If var is empty, return "default"
 
 $(var+alt_value)                 If var is set, return "alt_value" else return empty string
 
-$(var:offset)                    Return var starting from offset 
+$(var:offset)                    Return var starting from offset
                                  If offset is negative count from the end of the string
 
 $(var:offset:length)             Starting from offset, return at most length characters of var
                                  If offset is negative the length is counted from the end of var
-                                 If length is negative this indicates the end of the result, 
+                                 If length is negative this indicates the end of the result,
                                   counted from the end of var, and not an actual length
 
-$(var#pattern)                   Remove "pattern" from the start of var 
+$(var#pattern)                   Remove "pattern" from the start of var
 
-$(var%pattern)                   Remove "pattern" from the end of var 
+$(var%pattern)                   Remove "pattern" from the end of var
 
 $(var/pattern/replacement)       Replace the first occurrence of "pattern" in var with "replacement"
                                  If "replacement" is empty then "pattern" will be removed
@@ -117,9 +117,9 @@ $(var/pattern/replacement)       Replace the first occurrence of "pattern" in va
 $(var//pattern/replacement)      Replace all occurrences of "pattern" in var with "replacement"
                                  If "replacement" is empty then "pattern" will be removed
 
-$(var/#pattern/replacement)      If var starts with "pattern then "pattern" is replaced with "replacement" 
+$(var/#pattern/replacement)      If var starts with "pattern then "pattern" is replaced with "replacement"
 
-$(var/%pattern/replacement)      If var ends with "pattern" then "pattern" is replaced with "replacement" 
+$(var/%pattern/replacement)      If var ends with "pattern" then "pattern" is replaced with "replacement"
 
 $(var^)                          Make the first character of var uppercase
 
