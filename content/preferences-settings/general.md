@@ -27,7 +27,7 @@ GUI controls and text DPI
 
 # CSS Theme Modifications
 
-In addition to selecting a pre-built theme you can also apply additional CSS customisations of your own to tweak the look-and-feel of darktable. darktable provides a textbox for this purpose in general tab of main preferences. No need to set import lines of darktable CSS themes. You just need to choose which default darktable theme you want to start from (in theme menu just above) and then just copy/paste tweaks you find or create your own.
+In addition to selecting a pre-built theme you can also apply additional CSS customisations of your own to tweak the look-and-feel of darktable. A text box is provided for this purpose. No need to set import lines of darktable CSS themes. You just need to choose which default darktable theme you want to start from (in theme menu just above) and then just copy/paste tweaks you find or create your own.
 
 When you have finished entering your CSS tweaks, click on the 'save CSS and apply' button. This will save your CSS to a file (`$HOME/.config/darktable/user.css` on Mac and Linux ; `C:\%LOCALAPPDATA%\darktable\user.css` on Windows) and immediately apply it to the current darktable session.
 
@@ -37,6 +37,7 @@ If your changes cause any issues, you can uncheck the "modify selected theme wit
 
 If you want to understand how darktable themes are constructed you are advised to look at the file `$DARKTABLE/share/darktable/themes/darktable.css` for more information (where `$DARKTABLE` is darktable's installation directory). You can also use the Gtk Inspector tool to analyse the existing layout.
 
-Now darktable CSS use classes for main parts and then ids for specific ones, like it is recommended by W3C specifications. Main darktable classes are now specified in darktable.css header. Other ones could be found inside file content. To optimize CSS, set on text box only what you want to change. No need to copy parts already set in darktable.css file (or other theme you select). It's always better to set tweaks that will impact all items (for example: buttons) then set specific tweaks if you want to just set a precise tweak for specific button.
+Now we have darktable classes first used for main items (buttons, or items with transparent background for example), then CSS ids are set for specific items (for example modules tabs that are Gtk buttons but with different behavior than classic buttons). Those classes are now specified in darktable.css header. Other ones could be found inside CSS code.
+To optimize CSS, set on text box only what you want to change. No need to copy parts already set in darktable.css file (or other theme you select). It's always better to set tweaks that will impact all items (for example: buttons) then set specific tweaks if you want to just set a precise tweak for specific button.
 
-*Note that actual darktable themes are without colors (except some needed ones like color labels). This is done on purpose. The goal of darktable UI is to let most place to the images and avoid any distractions.*
+*Note that actual darktable themes only use shades of gray (except some needed ones like color labels). This is done on purpose. Colourful interface might distract the eye from the image.*
