@@ -93,9 +93,7 @@ For electrical engineers, what is set here is a band-pass filter in wavelets spa
 
 ## speed (sharpen ↔ diffuse)
 
-- Positive values apply diffusion
-- Negative values undo diffusion (=sharpen)
-- Zero does nothing
+In the following controls, positive values apply diffusion, negative values undo diffusion (i.e. sharpen) and zero does nothing.
 
 1st order speed (gradient)
 : The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _1st order anisotropy_ setting. 
@@ -111,9 +109,7 @@ For electrical engineers, what is set here is a band-pass filter in wavelets spa
 
 ## direction
 
-- Positive values make diffusion rather avoid edges (isophotes)
-- Negative values make diffusion follow gradients more closely
-- Zero affects both equally (isotropic)
+In the following controls, positive values cause diffusion to avoid edges (isophotes), negative values make diffusion follow gradients more closely, and zero affects both equally (isottropic).
 
 1st order anisotropy
 : The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_1st order speed_ setting). 
