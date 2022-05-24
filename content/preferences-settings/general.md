@@ -25,14 +25,42 @@ font size in points
 GUI controls and text DPI
 : Adjust the global GUI resolution to rescale controls, buttons, labels, etc. Increase for a magnified GUI, decrease to fit more content in the window. Set to -1 to use the system-defined global resolution. The default is 96 DPI on most systems. (needs a restart)
 
-# CSS Theme Modifications
+# CSS theme modifications
 
-In addition to selecting a pre-built theme you can also apply additional CSS customisations of your own to tweak the look-and-feel of darktable. A text box is provided for this purpose.
+In addition to selecting a pre-built theme you can also apply additional CSS customisations of your own to tweak the look-and-feel of darktable.
 
-When you have finished entering your CSS tweaks, click on the 'save CSS and apply' button. This will save your CSS to a file (`$HOME/.config/darktable/user.css`) and immediately apply it to the current darktable session.
+Two different methods are provided to allow you to alter darktable's user interface:
 
-If your changes cause any issues, you can uncheck the "modify selected theme with CSS tweaks below" check box. This will immediately restore the base theme but will leave your tweaks in the editor so that you can re-edit them and try again. Simply press "save CSS and apply" again when you are ready to retry. This will automatically re-check the "modify selected theme with CSS tweaks below" checkbox and apply the new CSS.
+create a custom theme
+: If you wish to make a large number of changes to darktable's theme you may wish to create your own theme (in a `.css` file) and place it in `$HOME/.config/darktable/themes` (or `C:\%LOCALAPPDATA%\darktable\themes` on Windows). Your new theme will automatically appear in the _theme_ selection list the next time you restart darktable. 
 
-If you have any issues with darktable please retry with this option unchecked to be certain that they were not caused by any of your alterations.
+: Please note that darktable's internal CSS changes quite regularly so you may need to make large changes to custom themes when new versions of darktable are released. For this reason (among others) we do not recommend creating custom themes unless you are willing to devote a lot of time to their maintenance. Also note that if your theme loads any of darktable's prebuilt themes (see below) before applying customisations, your CSS theme file may not be portable between installations (due to the need to use relative paths in the `@import url` directive).
 
-If you want to understand how darktable themes are constructed you are advised to look at the file `$DARKTABLE/share/darktable/themes/darktable.css` for more information (where `$DARKTABLE` is darktable's installation directory). You can also use the Gtk Inspector tool to analyse the existing layout.
+create theme tweaks
+: A text box is provided at the bottom of the general tab within which you can enter your own CSS tweaks. When using this option, darktable will first load your selected theme (the "base" theme, chosen in the _theme_ drop-down) and then apply your custom CSS on top. This means that you can easily make minor alterations to the look-and-feel, while still keeping mostly up-to-date with changes when a new version of darktable is released. It also means that you can usually change your base theme without affecting any custom CSS.
+
+: When you have finished entering your CSS, click on the 'save CSS and apply' button. This will save your CSS to `$HOME/.config/darktable/user.css` ( or `C:\%LOCALAPPDATA%\darktable\user.css` on Windows) and immediately apply it to the current darktable session.
+
+: If you notice any issues after applying your CSS, you can uncheck the "modify selected theme with CSS tweaks below" check box to revert. This will immediately restore the base theme but will leave your tweaks in the editor so that you can re-edit them and try again. Simply press "save CSS and apply" again when you are ready to retry. This will automatically re-check the "modify selected theme with CSS tweaks below" checkbox and apply the new CSS.
+
+---
+
+**Note**: If you have any issues while using custom CSS tweaks please retry with the "modify selected theme with CSS tweaks below" option unchecked to be certain that they were not caused by any of your alterations.
+
+---
+
+## understanding darktable's themes
+
+All of darktable's pre-built themes are provided as CSS files in `$DARKTABLE/share/darktable/themes/` (where `$DARKTABLE` is darktable's installation directory). The default theme is provided in `darktable.css` and this contains the bulk of the code used to control the look-and-feel of darktable. A number of other themes are also provided but most of them use `darktable.css` as a base (by importing `darktable.css` using the `@import url` directive).
+
+If you intend to create your own custom theme file you are advised to follow a similar approach -- import one of darktable's existing theme files (the `@import url` directive expects relative paths) and then apply your own customisations on top. You do not need to do this when using the CSS text box in the preferences dialog.
+
+Themes use the same basic CSS principles as in html browsers (with some minor exceptions -- see the [Gtk documentation](https://developer-old.gnome.org/gtk3/stable/chap-css-overview.html) for details):
+
+- Most styles are applied to broad classes of UI elements, for example, Gtk buttons and Gtk text entry fields
+- Next, related groups of darktable-specific UI elements are given _class names_ and further styled as a group
+- Finally, some unique UI elements are assigned a CSS _id_ so that they can be styled independently
+
+You are encouraged to explore the existing themes (`darktable.css` in particular is thoroughly commented) and to make use of the [Gtk Inspector](https://wiki.gnome.org/Projects/GTK/Inspector) tool to figure out how to select the specific UI element (or class of elements) you wish to modify. Some experimentation will be required.
+
+Please note that darktable themes are grayscale by default in order that users not be distracted by strong colors while editing images. You are advised to retain this practice in your own themes and to keep the average shade as close to mid-gray as possible. In addition you are advised to review your custom CSS each time darktable is updated, to ensure that changes to the application have not adversely affected your tweaks.
