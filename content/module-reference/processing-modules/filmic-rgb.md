@@ -1,7 +1,7 @@
 ---
 title: filmic rgb
 id: filmic-rgb
-applicable-version: 3.6
+applicable-version: 4.0
 tags:
 working-color-space: RGB
 view: darkroom
@@ -218,7 +218,7 @@ latitude
 shadows ↔ highlights balance
 : By default, the latitude is centered in the middle of the dynamic range. If this produces clipping at one end of the curve, the balance parameter allows you to slide the latitude along the slope, towards the shadows or towards the highlights. This allows more room to be given to one extremity of the dynamic range than to the other, if the properties of the image demand it.
 
-mid-tones saturation or extreme luminance saturation
+mid-tones saturation / extreme luminance saturation
 : At extreme luminances, the pixels will tend towards either white or black. Because neither white nor black have color associated with them, the saturation of these pixels must be 0%. In order to gracefully transition towards this 0% saturation point, pixels outside the mid-tone latitude range are progressively desaturated as they approach the extremes. The darker curve in the _filmic rgb_ graph indicates the amount of desaturation that is applied to pixels outside the latitude range. Moving the slider to the right pushes the point where desaturation will start to be applied towards the extremes, resulting in a steeper desaturation curve. If pushed too far, this can result in fringing around the highlights. Moving the slider to the left brings the point at which color desaturation will start to be applied closer to the center, resulting in a gentler desaturation curve. If you would like to see more color saturation in the highlights, and you have checked that the white relative exposure in the [_scene_](#scene) tab is not yet clipping those highlights, move the mid-tones saturation slider to the right to increase the saturation.
 
 : Please note that this desaturation strategy has changed compared to previous versions of _filmic rgb_ (which provided a different slider control labelled _extreme luminance saturation_). You can revert to the previous desaturation behaviour by selecting "v3 (2019)" in the _color science_ setting on the [_options_](#options) tab.
@@ -245,7 +245,7 @@ target white luminance
 ## options
 
 color science
-: This setting defaults to _v6 (2022)_ for new images, and defines the algorithms used by the _filmic rgb_ module (such as the extreme luminance desaturation strategy). To revert to the behaviour of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between all methods lies in the way they handle desaturation close to pure black and pure white (for more details, see [Background](#background) section below). If you have previously made edits to an image using older versions of _filmic rgb_, this will already be set to one of these versions in order to provide backward compatibility for those edits.
+: This setting defaults to _v6 (2022)_ for new images, and defines the algorithms used by the _filmic rgb_ module (e.g. the extreme luminance desaturation strategy). To revert to the behavior of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between these methods lies in the way in which they handle desaturation close to pure black and pure white (see the [background](#background) section for details). If you have previously edited an image using older versions of _filmic rgb_, the color science setting will be kept at the earlier version number in order to provide backward compatibility for those edits.
 
 preserve chrominance
 : Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
@@ -291,25 +291,23 @@ add noise in highlights
 type of noise
 : This specifies the statistical distribution of the added noise. It can be helpful to match the look of the artificially generated noise with the naturally occurring noise in the surrounding areas from the camera's sensor. The _poissonian_ noise is the closest to natural sensor noise but is less visually pleasing than _gaussian_, which is probably closer to film grain. Also note that most denoising modules will turn the sensor noise from poissonian to slightly gaussian, so you should pick the variant that blends better into the actual noise in your image.
 
-
 ## background
 
-The _color science_ parameter, found in the _options_ tab, referres to the strategy used to desaturate colors near pure white (maximum display emission) and pure black (minimum display emission). The problem can be explained with the graph below, representing the sRGB space gamut at the constant hue of its green primary, at varying lightness (vertical axis) and chroma (horizontal axis):
+The _color science_ parameter (in the _options_ tab) defines the strategy that is used to desaturate colors near pure white (maximum display emission) and pure black (minimum display emission). The problem can be explained with the graph below, which represents the gamut of the sRGB color space at the constant hue of its green primary, with varying lightness (vertical axis) and chroma (horizontal axis):
 
-![Gamut cone](../../special-topics/color-management/color-dimensions/sRGB-green.png)
+![Gamut cone](./filmic-rgb/sRGB-green.png)
 
-As we approach pure black and pure white, the chroma available in gamut shrinks considerably until it reaches zero for lightness = 0 and lightness = 100% of the medium emission. This means that very bright (or very dark) colors cannot be very saturated at the same time if we want them to fit in gamut, and this gamut is imposed by the printing or displaying device we use.
+As we approach pure black and pure white, the chroma available in gamut shrinks considerably until it reaches zero for lightness = 0 and lightness = 100% of the medium emission. This means that very bright (or very dark) colors cannot be very saturated at the same time if we want them to fit in gamut, with the gamut being imposed by the printing or displaying device we use.
 
-If colors are left unmanaged and are allowed to escape gamut, they will be clipped to valid values at the time of conversion to display color space. The problem is this clipping is generally not hue-preserving and definitely not luminance-preserving, so highlights will typically shift to yellow and appear darker than they should, when evaluated against their neighbourhood.
+If colors are left unmanaged and are allowed to escape gamut, they will be clipped to valid values at the time of conversion to display color space. The problem is that this clipping is generally not hue-preserving and definitely not luminance-preserving, so highlights will typically shift to yellow and appear darker than they should, when evaluated against their neighborhood.
 
-To overcome this, filmic has used various ways of desaturating extreme luminances, forcing a zero saturation at minimum and maximum lightness and a smooth desaturation gradient: the so-called _color sciences_. They were all intended to minimize the hue shifts that come with gamut clipping.
+To overcome this, filmic has used various strategies over the years (the so-called _color sciences_) to desaturate extreme luminances, forcing a zero saturation at minimum and maximum lightness and a smooth desaturation gradient. These strategies were all intended to minimize the hue shifts that come with gamut clipping.
 
-Since all of them were approximations and often over-conservative, the _v6 (2022)_ introduces a more accurate and measured approach. It performs a test-conversion to display color space, checks if the resulting color fits within the [0; 100]% range, and if it doesn't, computes the maximum saturation available in gamut at this luminance and hue, then clips the color to this value. This ensures a minimal color distortion, allows more saturated colors and better use of the available gamut, but also enforces a constant hue throughout the whole tone mapping __and__ gamut mapping operation.
+Since all of these strategies were approximations (and often over-conservative ones) _v6 (2022)_ introduces a more accurate and measured approach. It performs a test-conversion to display color space, checks if the resulting color fits within the [0; 100]% range, and if it doesn't, computes the maximum saturation available in gamut at this luminance and hue, finally clipping the color to this value. This ensures a minimal color distortion, allowing for more saturated colors and better use of the available gamut, but also enforces a constant hue throughout the whole tone mapping **and** gamut mapping operation.
 
-This gamut mapping uses the output color profile as a definition of the display color space and will automatically adjust to any output space. However, only _matrix_ or _matrix + curve(s)_ ICC profiles are supported. _LUT_ ICC profiles are not supported and, if used, will make the gamut mapping default to the pipeline working space (Rec 2020 by default).
+This gamut mapping uses the output color profile as a definition of the display color space and automatically adjusts to any output space. However, only _matrix_ or _matrix + curve(s)_ ICC profiles are supported. _LUT_ ICC profiles are not supported and, if used, will make the gamut mapping default to the pipeline working space (Rec 2020 by default).
 
-Note that the hue used as a reference for the gamut mapping is the hue before any tone mapping, sampled at the input of filmic. This means that even the _none_ chrominance preservation mode (applied on individual RGB channels regardless of their ratios) will preserve hue in _v6_ ; it will only desaturate highlights more than the other modes and a mechanism prevents its resaturation of shadows (this behaviour can be bypassed by increasing the _extreme luminance saturation_ setting).
-
+Note that the hue used as a reference for the gamut mapping is the hue before any tone mapping, sampled at the input of filmic. This means that even the _none_ chrominance preservation mode (applied on individual RGB channels regardless of their ratios) preserves hue in _v6_. This mode will only desaturate highlights more than the other modes, and a mechanism is in place to prevent it from resaturating shadows -- this behaviour can be bypassed by increasing the _extreme luminance saturation_ setting.
 
 ## caveats
 
@@ -319,7 +317,6 @@ As filmic v6 is so far the best version to retain saturated colors at constant h
 
 It is not the purpose of a tone mapping and gamut mapping operators to reconstruct damaged signals, and these flaws need to be corrected earlier in the pipeline with the specialized modules provided. However, there is a mechanism in filmic v6 that ensures that any color brighter than the _white relative exposure_ degrades to pure white, so a quick workaround is to simply set the _white relative exposure_ to a value slightly lower than the exposure of the clipped parts. In other words: if it is clipped at the input, let it be clipped at the output. Chrominance preservation options that work the best for this purpose are the _luminance_ and _euclidean_ norms, or simply _none_.
 
-
 ### inconsistent output
 
-With filmic v6, it is expected that, when exporting the same image to sRGB or Adobe RGB color spaces, and then comparing both images side by side on a large-gamut screen (that can cover Adobe RGB), the sRGB export should have more desaturated highlights than the Adobe RGB version. sRGB being shorter than Adobe RGB, its gamut boundary is closer to the neutral grey axis, and therefore the maximum allowed chroma is lower for any given luminance. This is by no mean a bug but a proof that the gamut mapping actually does its job.
+With filmic v6, if you export the same image to sRGB and Adobe RGB color spaces, and then compare both images side by side on a large-gamut screen (that can cover Adobe RGB), the sRGB export _should_ have more desaturated highlights than the Adobe RGB version. Since the sRGB color space is shorter than Adobe RGB, its gamut boundary is closer to the neutral grey axis, and therefore the maximum allowed chroma is lower for any given luminance. This is by no means a bug but rather is proof that the gamut mapping is actually doing its job.
