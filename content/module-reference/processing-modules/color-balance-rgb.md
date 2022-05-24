@@ -107,7 +107,7 @@ This tab defines auxiliary controls for the previous tabs. Masking controls typi
 
 ### saturation formula
 
-Note this setting has been put in the _masks_ tab, while it is not technically a mask, because it is not meant to be used regularly and to
+Note this setting has been put in the _masks_ tab, while it is not technically a mask, because it is not meant to be used regularly and in the spirit of saving some display real-estate.
 
 JzAzBz (2021)
 : This mode is the original saturation algorithm. It uses JzAzBz uniform color space (UCS) to compute the saturation. This color space is not meant for color changes and its lightness does not account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect), which states that colorful colors will look brighter than neutral or near-neutral colors (greys and pastels) having the same luminance. It also suffers from non-smooth behaviour near black, with colors being darkened too much.
