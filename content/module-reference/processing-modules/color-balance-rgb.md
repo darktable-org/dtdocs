@@ -1,7 +1,7 @@
 ---
 title: color balance rgb
 id: color-balance
-applicable-version: 3.6
+applicable-version: 4.0
 tags:
 working-color-space: RGB
 view: darkroom
@@ -105,16 +105,6 @@ This is equivalent to the ASC CDL _power_, and falls back to applying a constant
 
 This tab defines auxiliary controls for the previous tabs. Masking controls typically don't require any user modification since the defaults are calibrated to suit most needs and fulfil the normal scene-referred pixel pipeline expectations. You should only need to change these settings in specific scenarios.
 
-### saturation formula
-
-Note this setting has been put in the _masks_ tab, while it is not technically a mask, because it is not meant to be used regularly and in the spirit of saving some display real-estate.
-
-JzAzBz (2021)
-: This mode is the original saturation algorithm. It uses JzAzBz uniform color space (UCS) to compute the saturation. This color space is not meant for color changes and its lightness does not account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect), which states that colorful colors will look brighter than neutral or near-neutral colors (greys and pastels) having the same luminance. It also suffers from non-smooth behaviour near black, with colors being darkened too much.
-
-darktable UCS (2022)
-: The darktable Uniform Color Space has been [designed from the ground up](https://eng.aurelienpierre.com/2022/02/color-saturation-control-for-the-21th-century/), using psychoperceptual measurement datasets, for the sole purpose of the color manipulation (saturation) done in this module. It does account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect) and has a built-in gamut mapping formula that is more accurate and efficient than what can be done in JzAzBz. It displays a smoother behaviour which makes the saturation change more even across the lightness range.
-
 ### luminance ranges
 
 The graphs show the opacity (on the _y_ axis) of the 3 luminance masks relative to the pixel luminance (on the _x_ axis). The darkest curve represents the _shadows_ mask, the brightest represents the _highlights_ mask, and the third curve represents the _mid-tones_ mask.
@@ -147,6 +137,16 @@ contrast gray fulcrum
 : Set the fulcrum for the _contrast_ setting in the [_master_](#master-tab) tab. This corresponds to the luminance value that will be left unchanged by the contrast adjustment. This setting usually matches the middle-gray linear value. If you followed the scene-referred workflow recommendations and set the global brightness early in the pipeline, using the _exposure_ module, the correct value should usually be around 18-20%.
 
 : The color-picker to the right of the slider automatically sets the contrast gray fulcrum to the average luminance from the selected region. This relies on the assumption that the average luminance is usually close to middle-gray, which is not true if you have specular highlights or primary light sources in the frame, or for low/high-key images.
+
+### saturation formula
+
+Note that this setting is not really appropriate for the _masks_ tab (since it is not technically related to the masks) but is placed here because it is not meant to be used regularly and in the spirit of saving some display real-estate. Two options are provided:
+
+JzAzBz (2021)
+: This mode is the original saturation algorithm. It uses the JzAzBz uniform color space (UCS) to compute the saturation. This color space is not meant for color changes and its lightness does not account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect), which states that colorful colors will look brighter than neutral or near-neutral colors (greys and pastels) having the same luminance. It also suffers from non-smooth behaviour near black, with colors being darkened too much.
+
+darktable UCS (2022)
+: The darktable Uniform Color Space has been [designed from the ground up](https://eng.aurelienpierre.com/2022/02/color-saturation-control-for-the-21th-century/), using psychoperceptual measurement datasets, for the sole purpose of the color manipulation (saturation) performed by this module. This color space does account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect) and has a built-in gamut mapping formula that is more accurate and efficient than can be achieved in JzAzBz. It displays a smoother behaviour which makes saturation changes more even across the lightness range.
 
 ### mask preview settings
 
