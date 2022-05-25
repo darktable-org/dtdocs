@@ -1,7 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
-applicable-version: 3.6
+applicable-version: 4.0
 tags:
 working-color-space: RGB
 view: darkroom
@@ -9,7 +9,7 @@ masking: true
 include_toc: true
 ---
 
-A fully-featured color-space correction, white balance adjustment and channel mixer module. 
+A fully-featured color-space correction, white balance adjustment and channel mixer module.
 
 This simple yet powerful module can be used in the following ways:
 
@@ -111,11 +111,11 @@ chroma
 : For custom white balance, set the _chroma_ (or saturation) of the illuminant color in LCh color space (derived from CIE Luv space).
 
 gamut compression
-:  Most camera sensors are slightly sensitive to invisible UV wavelengths, which are recorded on the blue channel and produce "imaginary" colors. Once corrected by the input color profile, these colors will end up out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet with positive values in the working color space) and produce visual artifacts in gradients. The chromatic adaptation may also push other valid colors out of gamut, at the same time pushing any already out-of-gamut colors even further out of gamut. 
+:  Most camera sensors are slightly sensitive to invisible UV wavelengths, which are recorded on the blue channel and produce "imaginary" colors. Once corrected by the input color profile, these colors will end up out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet with positive values in the working color space) and produce visual artifacts in gradients. The chromatic adaptation may also push other valid colors out of gamut, at the same time pushing any already out-of-gamut colors even further out of gamut.
 : _Gamut compression_ uses a perceptual, non-destructive, method to attempt to compress the chroma while preserving the luminance as-is and the hue as close as possible, in order to fit the whole image into the gamut of the pipeline working color space. One example where this feature is very useful is for scenes containing blue LED lights, which are often quite problematic and can result in ugly gamut clipping in the final image.
 
 clip negative RGB from gamut
-: Remove any negative RGB values (set them to zero). This helps to deal with bad black level as well as the blue channel clipping issues that may occur with blue LED lights. This option is destructive for color (it may change the hue) but ensures a valid RGB output no matter what. It should never be disabled unless you want to take care of the gamut mapping manually and understand what you are doing. In that case, use the _black level correction_ in the _exposure_ module to get rid of any negative RGB (RGB means light, which is energy, and which should always be a positive quantity), then increase the _gamut compression_ until no solid black patches remain in the image. Proper denoising may help getting rid of odd RGB values too. Note that this approach may still be insufficient to recover some deep and luminous shades of blue. 
+: Remove any negative RGB values (set them to zero). This helps to deal with bad black level as well as the blue channel clipping issues that may occur with blue LED lights. This option is destructive for color (it may change the hue) but ensures a valid RGB output no matter what. It should never be disabled unless you want to take care of the gamut mapping manually and understand what you are doing. In that case, use the _black level correction_ in the _exposure_ module to get rid of any negative RGB (RGB means light, which is energy, and which should always be a positive quantity), then increase the _gamut compression_ until no solid black patches remain in the image. Proper denoising may help getting rid of odd RGB values too. Note that this approach may still be insufficient to recover some deep and luminous shades of blue.
 
 ---
 
@@ -139,7 +139,7 @@ The chromatic adaptation in this module relies on a number of assumptions about 
 
 The chromatic adaptation modes in _color calibration_ can be disabled by either setting the _adaptation_ to "none (bypass)" or setting the _illuminant_ to "same as pipeline (D50)" in the CAT tab.
 
-These warnings are intended to prevent common and easy mistakes while using the automatic default presets in the module in a typical RAW editing workflow. When using custom presets and some specific workflows, such as editing film scans or JPEGs, these warnings can and should be ignored. 
+These warnings are intended to prevent common and easy mistakes while using the automatic default presets in the module in a typical RAW editing workflow. When using custom presets and some specific workflows, such as editing film scans or JPEGs, these warnings can and should be ignored.
 
 Advanced users can disable module warnings in [preferences > processing > show warning messages](../../preferences-settings/processing.md).
 
@@ -249,6 +249,49 @@ input R/G/B
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
 
+# spot color mapping
+
+The spot mapping feature is designed to help batch-editing series of pictures in an efficient way. In this scenario, you typically develop one reference image for the whole batch and then copy-paste the development stack to all the other pictures in the batch.
+
+Unfortunately, it frequently happens that the light color temperature changes slightly between shots, even within the same series captured in the same conditions, which can be the result of a cloud passing by the sun in natural light, or of a different colored bounce light vs. main light ratio. Each image will still need some individual fine-tuning if one wants a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
+
+The spot mapping settings lets you define a target chromaticity (hue and chroma) for a particular region of the image (the control sample). Then, you can match the control sample against that target chromaticity in other images. The control sample can be either a critical part of your subject that needs to have constant color, or a non-moving and constantly-lit surface over your series of pictures. Then the mapping process has 2 steps.
+
+## step 1 : set the target
+
+There are 2 ways of setting the target chromaticity for your control sample :
+
+1. if you know or expect an arbitrary color for the control sample (for example, a grey card, a color chart, a product or a logo of a specified color), you can set its L, h and c values directly, in Lch derivated from CIE Lab 1976 space,
+2. if you simply want to match the development of your reference image, set the _spot mode_ to _measure_, then enable the color-picker, on the right of the color patch and draw a rectangle over your control sample. The _input_ column will then get updated with the L, h, c values of the control sample before the exposure correction, and the _target_ column will show the resulting L, h, c values of the control sample after the current _exposure_ setting is applied.
+
+If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-grey), which can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral grey, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral greys.
+
+Note that the target value is not reset when you reset the module itself, but will be stored indefinitely in darktable's configuration and will be available on next reboot as well as for the next picture you develop.
+
+The _take channel mixing into account_ option lets you choose where the target is sampled. If disabled, the target color is measured after the _CAT_ step (chromatic adaptation transform), that is before the channel mixing part, so if you have a calibrated profile in effect in the channel mixer, it is discarded. If enabled, the target color is measured after the _CAT_ and the channel mixing part, including the calibrated profile you may have. This is the recommended option for most use cases.
+
+---
+
+**Note**: If you are defining your target from a grey patch, you should know that the grey patch of color checkers is never 100% neutral. For example, Datacolor Spyder has a slightly warm grey of hue = 20° and chroma = 1.2, while X-Rite pre-2014 has a colder but more neutral grey of hue = 240° and chroma = 0.3 and X-Rite post-2014 is almost perfectly neutral, with a grey patch of hue = 133° and chroma = 0.2. In general, it is not desirable to match the control sample against a perfectly neutral grey target, and it is actually wrong to do so when using grey cards and color checkers as a control sample.
+
+---
+
+## step 2 : match the target
+
+When you open new images, the _spot mode_ gets automatically reset to _correction_. Using the color picker attached to the exposure slider, you can then directly reselect your control sample in the new image. The proper illuminant settings required for the control sample to match the memorized target chromaticity will be automatically computed, and the setting will be updated in the same operation.
+
+The _take channel mixing into account_ option will need to be set the same as when the measurement of the target was performed to ensure consistent results. Note that the target matching only defines the illuminant settings used in the _CAT_, it does not alter the channel mixer settings since the calibration is handled in the color checker calibration tool. However, the channel mixer settings can be used or discarded in the computation of the illuminant settings, depending on this option.
+
+This operation can be repeated as many times as you have images in your series with no further work.
+
+
+---
+
+**Note:** Perfectly matching your control sample against the target chromaticity may still not yield a similar perceptual result, even if the numbers are exactly the same. The ratio of lightness between the control sample and its surrounding, as well as the color contrasts at play in the frame, will alter the perception of colors in ways that are very difficult to model. To build an intuition of this problem, see the [grey strawberries illusion](https://www.sciencealert.com/in-spite-of-what-your-eyes-tell-you-these-strawberries-aren-t-red).
+
+---
+
+
 # extracting settings using a color checker
 
 Since the channel mixer is essentially an RGB matrix (similar to the [_input color profile_](./input-color-profile.md) used for RAW images) it can be used to improve the color accuracy of the input color profile by computing ad-hoc color calibration settings.
@@ -267,8 +310,8 @@ This feature can assist with:
 Users are not currently permitted to use custom targets, but a limited number of verified color checkers (from reputable manufacturers) are supported:
 
 - X-Rite / Gretag MacBeth Color Checker 24 (pre- and post-2014),
-- Datacolor SpyderCheckr 24,
-- Datacolor SpyderCheckr 48.
+- Datacolor SpyderCheckr 24 (pre- and post-2018),
+- Datacolor SpyderCheckr 48 (pre- and post-2018).
 
 Users are discouraged from obtaining cheap, off-brand, color targets as color constancy between batches cannot possibly be asserted at such prices. Inaccurate color checkers will only defeat the purpose of color calibration and possibly make things worse.
 
@@ -276,7 +319,7 @@ IT7 and IT8 charts are not supported since they are hardly portable and not prac
 
 ---
 
-**Note**: X-Rite changed the formula of their pigments in 2014, which slightly altered the color of the patches. Both formulas are supported in darktable, but you should be careful to choose the correct reference for your target. If in doubt, try both and choose the one that yields the lowest average delta E after calibration.
+**Note**: X-Rite changed the formula of their pigments in 2014 and Datacolor in 2018, which slightly altered the color of the patches. Both formulas are supported in darktable, but you should be careful to choose the correct reference for your target. If in doubt, try both and choose the one that yields the lowest average delta E after calibration.
 
 ---
 
