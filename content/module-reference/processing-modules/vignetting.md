@@ -28,7 +28,7 @@ scale
 : The radius of the vignetting area.
 
 fall-off strength
-: The progressiveness of the fall-off. Higher values cause a steeper transition.
+: The progressiveness of the fall-off. Lower values cause a steeper transition.
 
 brightness
 : The intensity of brightening (positive values) or darkening (negative values).
