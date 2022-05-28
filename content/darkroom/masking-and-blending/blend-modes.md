@@ -134,10 +134,10 @@ HSV color
 # others
 
 lightness
-: Mix lightness from the input and output images, while taking color (chroma and hue) unaltered from the input image.
+: Mix lightness from the input and output images, while taking color (chromaticity and hue) unaltered from the input image.
 
 chromaticity
-: Mix chrominance from the input and output images, while taking lightness and hue unaltered from the input image. This blend mode uses RGB ratios, divided by a Euclidean norm.
+: Mix chromaticity from the input and output images, while taking lightness and hue unaltered from the input image. This blend mode uses RGB ratios, divided by a Euclidean norm.
 
 lighten
 : _not available in the "RGB (scene)" color space_
