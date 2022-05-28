@@ -217,7 +217,7 @@ The following keys can be used within the tagging module:
 
 - The Down arrow key is equivalent to the Tab key, when pressed while inside the text entry field.
 
-- Shift+Tab does the same as the Tab key but navigates in the opposite direction. Pressing Tab from within the text entry field selects the first user tag in the _attached tags_ view (if any).
+- Shift+Tab does the same as the Tab key but navigates in the opposite direction. Pressing Shift+Tab from within the text entry field selects the first user tag in the _attached tags_ view (if any).
 
 - The Enter key can be used within the _attached tags_ view to attach the selected tag, keeping focus on the attached tag (similar to when a tag is attached using the mouse).
 
