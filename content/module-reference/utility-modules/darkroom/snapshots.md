@@ -12,7 +12,7 @@ A snapshot is a stored bitmap of the center image in the darkroom view. Snapshot
 
 To take a snapshot, click on the _take snapshot_ button. Above the button you will see a list of the snapshots that have been taken for this editing session. The name of each snapshot reflects the name of the module selected in the history stack and its position at the time the snapshot was taken.
 
-Click on the name of a snapshot to show it -- this enables a split view between the saved snapshot image and the current state of the processed image. You can control the split view by moving the splitline back and forth over the image with your mouse. If you hover over the splitline with your mouse, a small rotation icon will appear on the center of the line. Click this icon to change between vertical and horizontal split view. 
+Click on the name of a snapshot to show it -- this enables a split view between the saved snapshot image and the current state of the processed image. You can control the position of the split-line by clicking and dragging the line with your mouse. If you hover over the split-line with your mouse, a small rotation icon will appear on the center of the line. Click this icon to change between vertical and horizontal split view -- the positions of the snapshot and current image will be rotated anti-clockwise allowing you to choose whether they appear to the top, bottom, left or right of the screen. 
 
 At all times, an arrow containing the letter "S" is displayed to indicate which side of the image is the snapshot and which is the current edit.
 
