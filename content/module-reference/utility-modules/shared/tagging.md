@@ -1,7 +1,7 @@
 ---
 title: tagging
 id: tagging
-applicable-version: 3.8
+applicable-version: 4.0
 tags:
 view: lighttable, [darkroom], tethering, map
 ---
@@ -76,7 +76,7 @@ The _attached tags_ section displays tag(s) attached to image(s), where those im
 
 - currently selected (if not hovering over an image)
 
-The darktable tags (“`darktable|xxx`”) cannot be selected.
+Automatically generated darktable tags (with names starting “`darktable|`”) cannot be selected.
 
 At the bottom of the _attached tags_ section are the following buttons, from left to right:
 
@@ -121,7 +121,7 @@ export...
 : Export all tags to a Lightroom keyword file.
 
 ![plus-icon](./tagging/plus-icon.png#icon) suggestions
-: Show a list of suggested keywords based on the keywords already associated with the selected images (see preferences here below). CAUTION: This view queries the database so might be slow.
+: Show a list of suggested keywords based on the keywords already associated with the selected images (see the [preferences](#preferences) section). CAUTION: This view queries the database so might be slow.
 
 ![list-tree-icon](./tagging/list-tree-icon.png#icon) list/tree
 : Toggle the display of tags between the straight _list_ view and hierarchical _tree_ view.
@@ -172,7 +172,7 @@ The "edit..." operation allows you to change the name of a tag, though you canno
 
 The "change path..." operation is only available in the _tree_ view mode, and it shows the number of tagged images which would be impacted by a change to the name of this node. The change path window lets the user change the full path of the node, including the nodes to which it belongs (nodes can be specified using the pipe "`|`" symbol). This operation is powerful, but please take care as it can have a significant impact on the metadata of your images. The operation is aborted if the requested change causes a conflict with an existing tag.
 
-A quick way to organize the tag structure is to drag and drop the nodes. In the _tree_ view mode, you can drag any node and drop it on top of any other node. The first node and its descendants, if any, become descendants of the second node. Dragging over a node automatically opens that node. To avoid opeing the node, drag over the node selection indicator instead. To place a node at the root level, drag it onto the top of the tagging window. If the requested change causes a conflict with an existing tag, the operation is aborted.
+A quick way to organize the tag structure is to drag and drop the nodes. In the _tree_ view mode, you can drag any node and drop it on top of any other node. The first node and its descendants, if any, become descendants of the second node. Dragging over a node automatically opens that node (to avoid opening a node, drag over the node selection indicator instead). To place a node at the root level, drag it onto the top of the tagging window. If the requested change causes a conflict with an existing tag, the operation is aborted.
 
 ## attach tag
 
@@ -211,17 +211,19 @@ The “export” button exports your entire tag dictionary into a text file of y
 
 ## keyboard
 
-- Tab key moves forward _attached tags_ view -> entry -> _tag dictionary_ view. From entry, selects the first matching tag in _tag dictionary_ view if any.
+The following keys can be used within the tagging module:
 
-- Down key, from entry is equivalent to Tab key.
+- The Tab key can be used to navigate between the _attached tags_ view, the text entry box, and the _tag dictionary_ view. Pressing Tab from within the text entry field selects the first matching tag in the _tag dictionary_ view (if any).
 
-- Shift+Tab does the same, backward. From entry, selects the first user tag in _attached tags_ view.
+- The Down arrow key is equivalent to the Tab key, when pressed while inside the text entry field.
 
-- Enter on _attached tags_ view attaches the selected tag if any, keeping focus on the attached tag (as for tag attached with the mouse).
+- Shift+Tab does the same as the Tab key but navigates in the opposite direction. Pressing Tab from within the text entry field selects the first user tag in the _attached tags_ view (if any).
 
-- Shift+Enter on _attached tags_ view does the same but gives back the focus on entry.
+- The Enter key can be used within the _attached tags_ view to attach the selected tag, keeping focus on the attached tag (similar to when a tag is attached using the mouse).
 
-- Delete / BackSpace on _attached tags_ view detaches the selected tag.
+- Pressing Shift+Enter from within the _attached tags_ view returns focus to the text entry field.
+
+- The Delete / BackSpace keys can be used within the _attached tags_ view to detach the selected tag.
 
 ## navigation
 
@@ -231,13 +233,13 @@ To return to the collection that was selected before opening a tag collection se
 
 # preferences
 
-The “preferences…” option in the presets menu brings up a dialog where you can tweak the suggestions list behavior, which is composed in two parts, the best matching tags on one side and the most recent attached tags on the other side.
+The "preferences…" option in the presets menu brings up a dialog where you can tweak the behavior of the tag suggestions list. The tag suggestions list comprises two parts, with the best-matched tags on one side and the most-recently-attached tags on the other. The following options are available:
 
-suggested tags level of confidence.
-: level of confidence to include the tag in the suggestions list (default 50):
-- 0: all associated tags
-- 99: 99% matching associated tags
-- 100: no matching tag to show only recent tags (faster).
+suggested tags level of confidence
+: Level of confidence used to include the tag in the suggestions list (default 50):
+: - 0: all associated tags
+: - 99: 99% matching associated tags
+: - 100: no matching tags -- used to disable the best-matched tag suggestion list (faster).
 
 number of recently attached tags
-: number of recently attached tags which are included in the suggestions list (default 20). The value "-1" disables the recent list.
+: Number of recently attached tags to include in the suggestions list (default 20). A value of "-1" can be used to disable the the most-recently-attached suggestions list.
