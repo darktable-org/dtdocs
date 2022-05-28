@@ -36,6 +36,8 @@ If any of the above methods result in an image being flagged as monochrome, dark
 
 The `darktable|mode|monochrome` tag will be automatically applied to any images flagged as monochrome and, if you have enabled any permanent overlay information on your lighttable thumbnails, such images will be marked with a visual indicator `B&W` next to the file type information. By automatically applying this tag and visual indicator, darktable makes it easy to set up filters to single out images for monochrome treatment, and to see at a glance which images in the current collection bear the _monochrome_ tag.
 
+If darktable detects a true monochrome image or one from a monochrome-converted camera (using the "passthrough monochrome" demosaicer) some modules (e.g. demosaic, white balance) are automatically disabled.
+
 # monochrome conversion
 
 ## physical approach
