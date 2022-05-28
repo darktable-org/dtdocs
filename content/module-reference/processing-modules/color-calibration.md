@@ -119,7 +119,7 @@ clip negative RGB from gamut
 
 ---
 
-**Note 1**: It has been reported that some OpenCL drivers don't play well when negative RGB values are present in the pixel pipeline, because many pixel operators use logarithms and power functions (_filmic_, _color balance_, all the CIE Lab <-> CIE XYZ color space conversions), which are not defined for negative numbers. Although the inputs are sanitized before sensitive operations, it is not enough for some OpenCL drivers, which will output isolated `NaN` (Not a Number) values. These `NaN` values may be subsequently spread by local filters (blurring and sharpening operations, like _sharpness_, _local contrast_, _contrast equalizer_, _low pass_, _high pass_, _surface blur_, and _filmic_ highlights reconstruction), resulting in large black, grey or white squares.
+**Note 1**: It has been reported that some OpenCL drivers don't play well when negative RGB values are present in the pixel pipeline, because many pixel operators use logarithms and power functions (_filmic_, _color balance_, all the CIE Lab <-> CIE XYZ color space conversions), which are not defined for negative numbers. Although the inputs are sanitized before sensitive operations, it is not enough for some OpenCL drivers, which will output isolated `NaN` (Not a Number) values. These `NaN` values may be subsequently spread by local filters (blurring and sharpening operations, like _sharpness_, _local contrast_, _contrast equalizer_, _low pass_, _high pass_, _surface blur_, and _filmic_ highlights reconstruction), resulting in large black, gray or white squares.
 
 In all these cases, you **must** enable the "clip negative RGB from gamut" option in the _color calibration_ module.
 
@@ -251,46 +251,46 @@ normalize channels
 
 # spot color mapping
 
-The spot mapping feature is designed to help batch-editing series of pictures in an efficient way. In this scenario, you typically develop one reference image for the whole batch and then copy-paste the development stack to all the other pictures in the batch.
+The spot mapping feature is designed to help with [batch-editing](../../guides-tutorials/batch-editing.md) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
 
-Unfortunately, it frequently happens that the light color temperature changes slightly between shots, even within the same series captured in the same conditions, which can be the result of a cloud passing by the sun in natural light, or of a different colored bounce light vs. main light ratio. Each image will still need some individual fine-tuning if one wants a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
+Unfortunately, the light color temperature often changes slightly between shots, even within the same series captured in the same conditions. This can be the result of a cloud passing by the sun in natural light, or a different ratio between colored bounce light and main light. Each image will still need some individual fine-tuning if you want a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
 
-The spot mapping settings lets you define a target chromaticity (hue and chroma) for a particular region of the image (the control sample). Then, you can match the control sample against that target chromaticity in other images. The control sample can be either a critical part of your subject that needs to have constant color, or a non-moving and constantly-lit surface over your series of pictures. Then the mapping process has 2 steps.
+Spot color mapping allows you to define a target chromaticity (hue and chroma) for a particular region of the image (the control sample), which you then match against the same target chromaticity in other images. The control sample can either be a critical part of your subject that needs to have constant color, or a non-moving and consistently-lit surface over your series of images.
 
-## step 1 : set the target
+The mapping process consists of two steps.
 
-There are 2 ways of setting the target chromaticity for your control sample :
+## step 1: set the target
 
-1. if you know or expect an arbitrary color for the control sample (for example, a grey card, a color chart, a product or a logo of a specified color), you can set its L, h and c values directly, in Lch derivated from CIE Lab 1976 space,
-2. if you simply want to match the development of your reference image, set the _spot mode_ to _measure_, then enable the color-picker, on the right of the color patch and draw a rectangle over your control sample. The _input_ column will then get updated with the L, h, c values of the control sample before the exposure correction, and the _target_ column will show the resulting L, h, c values of the control sample after the current _exposure_ setting is applied.
+There are two ways of setting the target chromaticity for your control sample:
 
-If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-grey), which can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral grey, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral greys.
+1. if you know or expect an arbitrary color for the control sample (for example, a gray card, a color chart, a product or a logo of a specified color), you can set its L, h and c values directly, in Lch derived from CIE Lab 1976 space,
+2. if you simply want to match the development of your reference image, set the _spot mode_ to _measure_, then enable the color-picker (to the right of the color patch) and draw a rectangle over your control sample. The _input_ column will then be updated with the L, h, c values of the control sample before the color correction, and the _target_ column will show the resulting L, h, c values of the control sample after the current calibration setting is applied.
 
-Note that the target value is not reset when you reset the module itself, but will be stored indefinitely in darktable's configuration and will be available on next reboot as well as for the next picture you develop.
+If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-gray) -- this can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral gray, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral grays.
 
-The _take channel mixing into account_ option lets you choose where the target is sampled. If disabled, the target color is measured after the _CAT_ step (chromatic adaptation transform), that is before the channel mixing part, so if you have a calibrated profile in effect in the channel mixer, it is discarded. If enabled, the target color is measured after the _CAT_ and the channel mixing part, including the calibrated profile you may have. This is the recommended option for most use cases.
+Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next reboot as well as for the next image you develop.
+
+The _take channel mixing into account_ option lets you choose where the target is sampled. If disabled, the target color is measured immediately after the _CAT_ (Chromatic Adaptation Transform) step, which takes place before any channel mixing. This means that if you have a calibrated profile in effect within the channel mixer, this profile will be discarded. If enabled, the target color is measured after the _CAT_ and the channel mixing steps, including any calibrated profile. This is the recommended option for most use cases.
 
 ---
 
-**Note**: If you are defining your target from a grey patch, you should know that the grey patch of color checkers is never 100% neutral. For example, Datacolor Spyder has a slightly warm grey of hue = 20° and chroma = 1.2, while X-Rite pre-2014 has a colder but more neutral grey of hue = 240° and chroma = 0.3 and X-Rite post-2014 is almost perfectly neutral, with a grey patch of hue = 133° and chroma = 0.2. In general, it is not desirable to match the control sample against a perfectly neutral grey target, and it is actually wrong to do so when using grey cards and color checkers as a control sample.
+**Note**: If you are defining your target from a gray patch, you should know that the gray patch on color checkers is never entirely neutral. For example, Datacolor Spyder has a slightly warm gray (hue = 20°, chroma = 1.2) while X-Rite pre-2014 has a colder but more neutral gray (hue = 240°, chroma = 0.3) and X-Rite post-2014 is almost perfectly neutral (hue = 133°, chroma = 0.2). In general, it is not desirable to match the control sample against a perfectly neutral gray target, and it is actually wrong to do so when using gray cards and color checkers as a control sample.
 
 ---
 
 ## step 2 : match the target
 
-When you open new images, the _spot mode_ gets automatically reset to _correction_. Using the color picker attached to the exposure slider, you can then directly reselect your control sample in the new image. The proper illuminant settings required for the control sample to match the memorized target chromaticity will be automatically computed, and the setting will be updated in the same operation.
+When you open a new image, the _spot mode_ is automatically reset to _correction_. Using the color picker attached to the color patch, you can then directly reselect your control sample in the new image. The proper illuminant settings required for the control sample to match the memorized target chromaticity will be automatically computed, and the setting will be updated in the same operation.
 
-The _take channel mixing into account_ option will need to be set the same as when the measurement of the target was performed to ensure consistent results. Note that the target matching only defines the illuminant settings used in the _CAT_, it does not alter the channel mixer settings since the calibration is handled in the color checker calibration tool. However, the channel mixer settings can be used or discarded in the computation of the illuminant settings, depending on this option.
+The _take channel mixing into account_ option will need to be set the same as when the measurement of the target was performed to ensure consistent results. Note that the target matching only defines the illuminant settings used in the Chromatic Adaptation Transform  -- it does not alter the channel mixer settings, since the calibration is handled in the color checker calibration tool. However, the channel mixer settings can be used or discarded in the computation of the illuminant settings, depending on this option.
 
 This operation can be repeated as many times as you have images in your series with no further work.
 
-
 ---
 
-**Note:** Perfectly matching your control sample against the target chromaticity may still not yield a similar perceptual result, even if the numbers are exactly the same. The ratio of lightness between the control sample and its surrounding, as well as the color contrasts at play in the frame, will alter the perception of colors in ways that are very difficult to model. To build an intuition of this problem, see the [grey strawberries illusion](https://www.sciencealert.com/in-spite-of-what-your-eyes-tell-you-these-strawberries-aren-t-red).
+**Note:** Perfectly matching your control sample against the target chromaticity may still not yield a similar perceptual result, even if the numbers are exactly the same. The ratio of lightness between the control sample and its surrounding, as well as the color contrasts at play in the frame, will alter the perception of colors in ways that are very difficult to model. To build an intuition of this problem, see the [gray strawberries illusion](https://www.sciencealert.com/in-spite-of-what-your-eyes-tell-you-these-strawberries-aren-t-red).
 
 ---
-
 
 # extracting settings using a color checker
 
