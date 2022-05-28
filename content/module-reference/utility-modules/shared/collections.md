@@ -1,7 +1,7 @@
 ---
 title: collections
 id: collections
-applicable-version: 3.8
+applicable-version: 4.0
 tags:
 view: lighttable, tethering, map
 ---
@@ -64,22 +64,22 @@ geotagging
 
 ## times
 
-date taken
+capture date
 : The date the photo was taken, in the format `YYYY:MM:DD`.
 
-date-time taken
+capture time
 : The date & time the photo was taken, in the format `YYYY:MM:DD hh:mm:ss`.
 
-import timestamp
+import time
 : The date/time the file was imported, in the format `YYYY:MM:DD hh:mm:ss`.
 
-change timestamp
+modification time
 : The date/time the file was last changed, in the format `YYYY:MM:DD hh:mm:ss`.
 
-export timestamp
+export time
 : The date/time the file was last expoted, in the format `YYYY:MM:DD hh:mm:ss`.
 
-print timestamp
+print time
 : The date/time the file was last printed, in the format `YYYY:MM:DD hh:mm:ss`.
 
 ## capture details
