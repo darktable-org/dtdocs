@@ -1,7 +1,7 @@
 ---
 title: watermark
 id: watermark
-applicable-version: 3.8
+applicable-version: 4.0
 tags:
 working-color-space: RGB
 view: darkroom
