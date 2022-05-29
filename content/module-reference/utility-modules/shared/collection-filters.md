@@ -84,7 +84,7 @@ This is the classic rating selection widget that used to be shown in darktable's
 
 ![rating filter](./collection-filters/rating-filter.png#w33)
 
-It is composed of a pair of comboboxes. The first combobox is used to choose the operator to use and (if applicable) the second combobox selects the number of stars to be applied to that operator. If you choose "All", the second combobox will not appear.
+This widget is composed of a pair of comboboxes. The combobox on the right (always visible) is used to choose a number of stars, plus some additional options ("all", "unstarred only", "rejected only", "all except rejected"). The combobox to the left (only shown when a star rating is chosen in the right-hand combobox) is used to choose an operator (<, <=, =, >, >=, ≠).
 
 ## range rating
 
@@ -108,7 +108,7 @@ You can also use the "min" and "max" text entry fields in the main module interf
 
 ## date attributes
 
-As with numeric and rating range filters, date/time filters are represented using a "range" widget. Select a range of values by clicking and dragging on the widget and use the right-click menu for more options.
+As with numeric and rating range filters, date/time filters are represented using a "range" widget. You can select a range of values by clicking and dragging on the widget, and use the right-click menu for more options.
 
 ![date range filter](./collection-filters/capture-date-filter.png#w33)
 
