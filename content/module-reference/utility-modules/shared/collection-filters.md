@@ -76,7 +76,7 @@ You can interact with this filter widget as follows:
 - Click on a color label to include images with that label
 - Ctrl+click on a color label to include images without that label
 - Click or Ctrl+click on the gray icon to act on all color labels simultaneously
-- Use the last button to define how multiple to handle the selection of multiple color labels. Select ![and](./collection-filters/color-filter-and.png#icon) (and) to filter images having _all_ of the selected color labels; Select ![or](./collection-filters/color-filter-or.png#icon) (or) to filter images with _at least one_ of the selected color labels.
+- Use the last button to define how to handle the selection of multiple color labels. Select ![and](./collection-filters/color-filter-and.png#icon) (and) to filter images having _all_ of the selected color labels; Select ![or](./collection-filters/color-filter-or.png#icon) (or) to filter images with _at least one_ of the selected color labels.
 
 ## rating
 
