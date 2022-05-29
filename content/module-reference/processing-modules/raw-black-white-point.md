@@ -1,7 +1,7 @@
 ---
 title: raw black/white point
 id: raw-black-white-point
-applicable-version: 3.2.1
+applicable-version: 4.0
 tags: 
 working-color-space: Not Applicable (RAW) 
 view: darkroom
@@ -19,3 +19,6 @@ black level 0-3
 
 white point
 : The camera-specific white level. All pixels with values above this are likely to be clipped and will be handled accordingly in the [_highlight reconstruction_](./highlight-reconstruction.md) module.
+
+flat field correction
+: Use flat field correction to compensate for lens shading. This field only appears for applicable Raw files and will automatically use any GainMap embedded in the Raw. You can choose to disable this correction if desired.
