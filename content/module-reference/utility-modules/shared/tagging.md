@@ -219,9 +219,9 @@ The following keys can be used within the tagging module:
 
 - Shift+Tab does the same as the Tab key but navigates in the opposite direction. Pressing Shift+Tab from within the text entry field selects the first user tag in the _attached tags_ view (if any).
 
-- The Enter key can be used within the _attached tags_ view to attach the selected tag, keeping focus on the attached tag (similar to when a tag is attached using the mouse).
+- The Enter key can be used within the _tag dictionary_ view to attach the selected tag, keeping focus on the attached tag (similar to when a tag is attached using the mouse).
 
-- Pressing Shift+Enter from within the _attached tags_ view returns focus to the text entry field.
+- Pressing Shift+Enter from within the _tag dictionary_ view returns focus to the text entry field.
 
 - The Delete / BackSpace keys can be used within the _attached tags_ view to detach the selected tag.
 
@@ -237,9 +237,9 @@ The "preferences…" option in the presets menu brings up a dialog where you can
 
 suggested tags level of confidence
 : Level of confidence used to include the tag in the suggestions list (default 50):
-: - 0: all associated tags
-: - 99: 99% matching associated tags
-: - 100: no matching tags -- used to disable the best-matched tag suggestion list (faster).
+: - 0: display all associated tags,
+: - 99: match tags with a 99% confidence level,
+: - 100: this is essentially an unreachable level of confidence and so returns no matching tags. Use 100% to disable the best-matched tag suggestion list (faster).
 
 number of recently attached tags
 : Number of recently attached tags to include in the suggestions list (default 20). A value of "-1" can be used to disable the the most-recently-attached suggestions list.
