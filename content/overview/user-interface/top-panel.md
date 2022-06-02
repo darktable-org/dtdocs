@@ -12,11 +12,8 @@ The top panel is common to all darktable views and provides access to a number o
 
 # On the left-hand-side
 
-view
-: Choose which images to view in the lighttable/filmstrip, based on star rating and reject status.
-
-sort by
-: Choose a property by which to sort the images.
+filter / sort
+: Choose how to filter and sort the images. Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collection-filters.md) module.
 
 ![top-panel_sort-order icon](./top-panel/top-panel_sort-order.png#icon) sort order
 : Switch the sort order (ascending / descending).
