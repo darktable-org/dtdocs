@@ -8,7 +8,7 @@ author: "people"
 
 The quick access panel allows you to access widgets from a number of processing modules all in one place.
 
-![quick-access-panel](./quick-access-panel/quick-access-panel.png)
+![quick-access-panel](./quick-access-panel/quick-access-panel.png#w33)
 
 You can add new widgets to the panel by 
 

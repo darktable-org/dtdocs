@@ -8,7 +8,7 @@ author: "people"
 
 Processing modules are organized and accessed via the right-hand panel in the darkroom:
 
-![organization](./organization/organization.png#w30)
+![organization](./organization/organization.png#w33)
 
 Click on the icons at the top of this panel to reveal, from left to right, 
 
