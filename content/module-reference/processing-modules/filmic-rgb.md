@@ -80,7 +80,7 @@ The graphic display at the top of the _filmic rgb_ module offers multiple views 
 The following views are available:
 
 look only
-: This is the default view. The main bright curve shows how the dynamic range of the scene (in EV) is compressed into the display-referred output range. The orange dot shows the middle-gray point, the white dots either side mark out the latitude range, and the orange part of the curve at the bottom indicates an overshoot problem with the spline (the [_look_](#look) tab has some controls to deal with this).  The darker curve shows how the color saturation rolls off in the extreme shadows and highlights.
+: This is the default view. The main bright curve shows how the dynamic range of the scene (in EV) is compressed into the display-referred output range. The orange dot shows the middle-gray point, the white dots either side mark out the latitude range, and the orange part of the curve at the bottom and top indicates an overshoot problem with the spline (the [_look_](#look) tab has some controls to deal with this).
 
 : ![filmic-rgb-look-only](./filmic-rgb/filmic-look-only.png#w50)
 
