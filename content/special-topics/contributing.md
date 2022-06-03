@@ -123,7 +123,7 @@ gui control name
 : You can include as many paragraphs as you like, but try to limit to 2 or 3 where possible.
 
 ![active-icon](./contributing/active-icon.png#icon) a control accessed through a button with an icon
-: When a control is activated using an icon, take a screenshot of the icon using the standard darktable theme and add it before the name of the control
+: When a control is activated using an icon, take a screenshot of the icon using the standard darktable theme (darktable-elegant-grey) and add it before the name of the control
 
 gui combobox name
 : Comboboxes often have multiple options that all need to be displayed with separate definitions. Use bulleted lists with _italics_ for the combobox values.
@@ -159,7 +159,7 @@ Internal links must be relative to the current file and must point to a valid ma
 
 ## images
 
-When taking screenshots from the darktable application itself, use the default darktable theme.
+When taking screenshots from the darktable application itself, use the default darktable theme (darktable-elegant-grey).
 
 Several filename suffixes can be used to control how an image is rendered.
 
