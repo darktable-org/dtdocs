@@ -33,9 +33,6 @@ method to use for getting the display profile
 omit hierarchy in simple tag lists
 : When exporting images any hierarchical tags are also added as a simple list of non-hierarchical tags to make them visible to some other programs. When this option is checked darktable will only include the last part of the hierarchy and ignore the rest. So `foo|bar|baz` will only add `baz`. 
 
-disable the entry completion
-: The entry completion is useful for those who enter tags using the keyboard only. For others the entry completion can be embarrassing (default off). (needs a restart) 
-
 # shortcuts with multiple instances
 
 It is possible to create multiple instances of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations. The following options control rules that are applied (in order) to decide which module instance keyboard shortcuts should be applied to.

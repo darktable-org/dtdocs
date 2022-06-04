@@ -51,6 +51,9 @@ display of individual color channels
 hide built-in presets for processing modules
 : If enabled, only user-defined presets will be shown in the presets menu for processing modules -- built-in presets will be hidden (default off).
 
+show the guides widget in modules UI
+: Enable this to show the local [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md#local-guides) interface directly within the UI of the modules that support it (default on).
+
 expand a single processing module at a time
 : Control how [processing modules](../module-reference/processing-modules) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default on).
 
