@@ -57,20 +57,21 @@ show warning messages
 
 # cpu / gpu / memory
 
-memory in megabytes to use for thumbnail cache
-: In order to speed up the display of film rolls, darktable stores image thumbnails in a cache on disk (primary cache) and loads it into memory at startup. This setting controls the size of the cache in megabytes. Needs a restart if changed (default 512MB).
+darktable resources
+: Choose how much of your system and graphics card (GPU) memory will be used by darktable. Four options are provided by default:
+: - _small_ takes roughly 20% of your system memory and 40% of your GPU memory. This might be acceptable on very large systems, especially if you're not exporting images. Mostly, though, this can only be recommended if you are using a lot of other demanding applications at the same time as darktable.
+: - _default_ takes roughly 60% of your system memory and 70% of your GPU memory. This mode is recommended if you're not exporting a lot of images, have at least 16Gb of system memory and 4Gb of GPU memory, and also are running a lot of other application at the same time as darktable.
+: - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using darktable on your system and/or are exporting a lot of images.
+: - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it might lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
+
+prefer performance over quality
+: Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
 
 enable disk backend for thumbnail cache
 : If activated, darktable stores all thumbnails on disk as a secondary cache, and thereby keeps thumbnails accessible if they are dropped from the primary cache. This needs more disk space but speeds up the [lighttable](../lighttable/_index.md) view as it avoids the reprocessing of thumbnails (default on).
 
 enable disk backend for full preview cache
 : If enabled, darktable writes full preview images to disk (`.cache/darktable/`) when evicted from the memory cache. Note that this can take a lot of storage (several gigabytes for 20k images) and darktable will never delete cached images. It's safe to delete these manually if you want. Enabling this option will greatly improve lighttable performance when zooming an image in full preview mode (default off).
-
-host memory limit (in MB) for tiling
-: In order to manage large images on systems with limited memory darktable does tile-wise processing. This variable controls the maximum amount of memory (in MB) a module may use during image processing. Lower values will force memory-hungry modules to process an image with increasing number of tiles. Setting this to 0 will omit any limits. Values below 500 will be treated as 500. (default 1500).
-
-minimum amount of memory (in MB) for a single buffer in tiling
-: If set to a positive, non-zero value, this variable defines the minimum amount of memory (in MB) that darktable should take for a single tile. (default 16).
 
 activate [OpenCL](../special-topics/opencl/_index.md) support
 : _darktable_ can use your GPU to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found the option is grayed out. Can be switched on and off at any time and takes immediate effect (default on).
@@ -80,3 +81,10 @@ OpenCL scheduling profile
 : - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe; 
 : - _multiple GPUs_: both pixelpipes are processed in parallel on two different GPUs; 
 : - _very fast GPU_: both pixelpipes are processed sequentially on the GPU. 
+
+tune OpenCL performance
+: Defines how darktable will attempt to tune OpenCL performance for your system. The following options are provided (default _nothing_):
+: - _nothing_: do not attempt to tune OpenCL performance.
+: - _memory size_: on the first run of a pixelpipe, darktable determines how much memory is available and assumes that the same amount will continue to be available for the remainder of your darktable session. This will usually be safe if you are not using any other applications that need a reasonable amount of your GPU's memory. Otherwise you might be better to disable this option, as it could lead to out-of-memory errors.
+: - _memory transfer_: when darktable needs more memory than it has available, it breaks your images into tiles, which are processed separately. When tiling, darktable frequently needs to transfer data between system and GPU memory. This option tells darktable to use a special copy mode (pinned memory transfer), which can be faster, but can also require more memory on some devices. On other devices it might degrade performance. There is no safe general way to predict how this option will function on a given device so you will have to test it for yourself.
+: - _memory size and transfer_: use both tuning mechanisms.
