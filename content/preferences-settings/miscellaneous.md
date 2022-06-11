@@ -29,7 +29,7 @@ method to use for getting the display profile
 : This option allows the user to force darktable to use a specific method to obtain the current display profile for [color management](../special-topics/color-management/_index.md). In the default setting “all”, darktable will choose to query the X display server's xatom or the colord system service. You can set this option to “xatom” or “colord” to enforce a specific method if the two methods give different results. You can run the [darktable-cmstest](../special-topics/program-invocation/darktable-cmstest.md) binary to examine your color management subsystem.
 
 order or exclude midi devices
-: Comma-separated list of device-name fragments. If matched, load the midi device at the id given by the location in the list. If preceded by "-", prevent the matched device from loading. Add encoding and number of knobs. For example "BeatStep:63:16".
+: Semicolon-separated list of device-name fragments. If matched, load the midi device at the id given by the location in the list. If preceded by "-", prevent the matched device from loading. You can also add encoding and number of knobs. For example "BeatStep:63:16". Please see [midi device support](../special-topics/midi-device-support.md#additional-midi-configuration) for more information.
 
 # tags
 
