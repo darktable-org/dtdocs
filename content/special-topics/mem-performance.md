@@ -1,75 +1,151 @@
 ---
-title: performance optimization
-id: performance
-weight: 55
+title: memory & performance tuning
+id: mem-performance
+weight: 35
 draft: false
 author: "people"
 ---
 
-There are a number of configuration parameters in `$HOME/.config/darktable/darktablerc` that can help to finetune your system's OpenCL performance.
+# memory requirements
+
+Processing a Raw image in darktable requires a great deal of system memory. A simple calculation makes this clear: For a 20 megapixel image, darktable requires a 4x32-bit floating point cell to store each pixel, meaning that each full image of this size will require approximately 300MB of memory. In order to actually process this image through a given module, darktable requires at least two buffers (input and output) of this size, with more complex modules potentially requiring several additional buffers for intermediate data. Without further optimization, anything between 600MB and 3GB of memory might be required to store and process image data. On top of this is darktable's code segment, the code and data of the dynamically-linked system libraries, as well as further buffers that darktable uses to store intermediate states for quick access during interactive work.
+
+All in all, darktable requires _at least_ 4GB of physical RAM plus 4 to 8GB of additional swap space. The more memory you have available, the better darktable will run.
+
+As well as executing on your CPU, many darktable modules also have OpenCL implementations that can take full advantage of the parallel processing offered by your graphics card (GPU). Similarly, the more memory your GPU has, the better this will be for darktable's performance.
+
+## tiling
+
+If darktable does not have sufficient memory to process the entire image in one go, modules may choose to use a "tiling strategy", wherein the image is split into smaller parts (tiles) which are processed independently, and then stitched back together at the end. While this allows images to be processed with a much smaller memory footprint, it does also come with some down-sides:
+
+- tiling is always slower -- sometimes up to 10x slower, though for some modules the difference is barely noticeable,
+- tiling is not technically possible for some modules because of the nature of the underlying algorithms
+
+For most systems, tiling will likely only be used for full-sized image exports and interactive work in the darkroom will be processed more efficiently. For best performance (and avoidance of tiling modes) you should run darktable alongside as few other applications as possible and configure darktable to use as much of your system and GPU memory as possible.
+
+# performance tuning
+
+There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory) and others need to be modified directly in darktable's configuration file (found in `$HOME/.config/darktable/darktablerc`).
+
+This section provides some guidance on how to adjust these settings.
+
+## how to test
 
 In order to obtain profiling information you need to start darktable from a terminal with `darktable -d opencl -d perf`, if you are concerned about tiling you should do `darktable -d opencl -d tiling -d perf`.
 
-After each reprocessing of the pixelpipe -- caused by module parameter changes, zooming, panning, etc. -- you will see the total time spent in the pixelpipe and the time spent in each of the OpenCL kernels. The most reliable value is the total time spent the in pixelpipe. Please note that the timings given for each individual module are unreliable when running the OpenCL pixelpipe asynchronously (see opencl\_async\_pixelpipe below).
+After each reprocessing of the pixelpipe (caused by module parameter changes, zooming, panning, etc.) you will see the total time spent in the pixelpipe and the time spent in each of the OpenCL kernels. The most reliable value is the total time spent the in pixelpipe and you should use this to assess your changes. 
 
-To allow for fast pixelpipe processing with OpenCL it is essential that we keep the GPU busy. Any interrupts or a stalled data flow will add to the total processing time. This is especially important for the small image buffers we need to handle during interactive work. These can be processed quickly by a fast GPU. However, even short-term stalls of the pixelpipe can easily become a bottleneck.
+---
 
-On the other hand darktable's performance during file exports is more or less only governed by the speed of our algorithms and the horse-power of your GPU. Short-term stalls will not have a noticeable effect on the total time of an export.
+**Note**: The timings given for each individual module are unreliable when running the OpenCL pixelpipe asynchronously (see `opencl_async_pixelpipe` below).
 
-darktable comes with default settings that should deliver a decent GPU performance on most systems. However, if you want to fiddle around a bit by yourself and try to optimize things further, here is a description of the relevant configuration parameters.
+---
 
-Since darktable 4.0 most relevant OpenCL related options are handled by a "per device" strategy. The configure parameter for each device (can be edited) looks like:
+To allow for fast processing with OpenCL it is essential that the GPU is kept busy. Any interrupts or a stalled data flow will add to the total processing time. This is especially important for the small image buffers used during interactive work. These can be processed quickly by a fast GPU. However, even short-term stalls of the pixelpipe can easily become a bottleneck.
 
-cldevice_v4_quadrortx4000=0 250 0 16 16 1024 0 0 0.017853 or in general
+On the other hand darktable's performance during file exports is more or less only governed by the speed of the algorithms and the horse-power of your GPU. Short-term stalls will not have a noticeable effect on the total time of an export.
 
-cldevice_version_canonicalname=a b c d e f g h x.xxxx
+## darktable resources
 
- a) avoid atomics:  (1) avoiding or (0) use atomics (Only very old devices require an avoid.
- b) micro_nap:      default 250. If using multiple devices the non-desktop device could be set to 0
- c) pinned memory:  (0) select mode by gui. (1) enforce pinned transfer. (2) disable pinned transfer
- d) clroundup wd:   both roundups have 16 as default.
- e) clroundup ht:
- f) event_handles:  safe up to 1024, (0) to disable CL events (might not report errors but faster)
- g) async mode:     if (1) device uses asnchronous dt mode, this uses more events and might be
-                    unstable on old&small devices with heavy tiling and pinned transfer.
- h) disabled:       (0) enable or (1) disable device. Bad devices are marked as disabled by dt
- i) benchmark:      DO NOT edit except maybe set to 0 to enfore a CL re-benchmarking
+The "darktable resources" preference (in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory)) allows you to choose between four different approaches to allocating your system's resources to darktable. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/darktable/darktablerc`. You can amend any of these directly within your darktablerc file to tweak values for selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
-avoid atomics
-: Atomic operations in OpenCL are a special method of data synchronization. They are only used in a few kernels. Unfortunately, some old AMD/ATI devices are extremely slow in processing atomics, on these cards it's better to process the affected modules on the CPU rather than accepting an ultra-slow GPU codepath. Therefore, set this parameter to 1 if you experience slow processing of modules like [_shadows and highlights_](../../module-reference/processing-modules/shadows-and-highlights.md), [_monochrome_](../../module-reference/processing-modules/monochrome.md), [_local contrast_](../../module-reference/processing-modules/local-contrast), or [_global tonemap (deprecated)_](../../module-reference/processing-modules/global-tonemap) or if you get intermittent system freezes. Please note that this should not affect any card since 2015.
+Each of the four "darktable resources" options are defined as follows:
 
-opencl\_micro\_nap
-: In an ideal case you will keep your GPU busy at 100% when reprocessing the pixelpipe. That's good. On the other hand your GPU may also be needed to do regular GUI updates. It might happen that there is no sufficient time left for this task. The consequence would by a jerky reaction of your GUI on panning, zooming or when moving sliders. To resolve this issue darktable can add small naps into its pixelpipe processing to have the GPU catch some breath and perform GUI related activities. The opencl\_micro\_nap parameter controls the duration of these naps in microseconds. On current systems you are pretty safe with default even for integrated graphics cards, using multiple devices the non-desktop device could be set to 0. The default is 250.
+```
+resource_default=512 8 128 700
+resource_large=700 16 128 900
+resource_small=128 4 64 400
+resource_unrestricted=16384 1024 128 900
+```
 
-opencl\_use\_pinned\_memory
-: During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a huge performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using new modulkes like diffuse&sharpen or the laplacian highlights reconstruction. 
+More generally, these can be represented as `resource_level=a b c d` where `a` - `d` are defined as follows:
 
-Overall, there is no safe way or general rule to predict a performance benefit, so you have to find out what mode is faster on yout system. (We used to suggest pinned transfer might be better for AMD and not better for NVIDIA cards, this general rule is certainly not true any more.) You may set to 0 if mode is selected via the preferences interface (valid for all devices), 1 enforced pinned transfer and 2 forced it to be disabled for the device.
+a. system memory for module processing
+: The maximum amount of system memory made available for module processing. Lower values force memory-hungry modules to process images with an increasing number of tiles. This number is a fraction of the total amount of system memory, divided by 1024. For example, on a system with 16GB of total system memory the amount assigned by `resource_default` (in GB) is `16 * 512 / 1024`, or 8GB of system RAM.
 
-clroundup\_wh and clroundup\_ht
-: Should be left at this default, so far tests don't show benefits for using other values like 32.
+b. minimum tiling buffer size
+: The minimum size of a single tiling buffer, similarly expressed as a fraction of total system memory. For example, on a system with 16GB of total system memory the amount assigned by `resource_default` (in GB) is `16 * 8 / 1024`, or 0.125GB of system RAM. Note that this setting is largely historic and is no longer of much practical use -- you are advised to leave it at its default value.
 
-opencl\_number\_event\_handles
-: Event handles are used so that darktable can monitor the success/failure of kernels and profiling info even if the pixelpipe is executed asynchronously. The number of event handles is a limited resource of your OpenCL driver. For sure they can be recycled but there is a limited number that can be used at the same time. Unfortunately, there is no way to find out what the resource limits are, so darktable uses a very conservative guess of 128 per default. On most current devices and drivers you can expect a number of up to 1024 as safe leading to a slightly better OpenCL performance. If your driver runs out of free handles you will experience failing OpenCL kernels with error message `CL_OUT_OF_RESOURCES` or even crashes or system freezes.
+c. thumbnail cache memory
+: The amount of memory to use for the thumbnail cache. Again, this is expressed as a fraction of total system memory and, on a 16GB system, the amount assigned by `resource_default` is `16 * 128 / 1024`, or 2GB of system RAM.
 
-A value of 0 will block darktable from using any event handles. This will prevent darktable from properly monitoring the success of your OpenCL kernels but saves some driver overhead leading to a better performance. The consequence is that any failures will likely lead to garbled output without darktable noticing. This is only recommended if you know for sure that your system runs rock-solid.
+d. opencl (GPU) memory
+: The maximum amount of GPU memory made available for module processing. As with system memory, lower values will force memory-hungry modules to process images with an increasing number of tiles. Your GPU memory will be used by other applications on your system, however, your GPU is not able to take advantage of swap files and it can be difficult for darktable to know exactly how much memory is available at a given time. If this parameter is set too low, darktable will invoke tiling strategies unnecessarily due to lack of available memory. If it is set too high, darktable could be forced to fall back to CPU processing (which will be significantly slower). For this reason, the GPU memory parameter fraction also includes an extra 400MB of headroom in an attempt to avoid over-allocation of memory. For example, on a GPU with 6GB of memory, darktable will use approximately `(6 - 0.4) * 700 / 1024`, or 3.8GB of GPU RAM when using the `resource_default` level.
 
-opencl\_async\_mode
-: This flag controls how often darktable blocks the OpenCL pixelpipe to get a status on success/failure of the kernels that have been run. For optimum latency set this to 1, so that darktable runs the pixelpipe asynchronously and tries to use as few interrupts/events as possible. If you experience OpenCL errors like failing kernels, reset the parameter to 0 (default). darktable will then interrupt after each module so that you can more easily isolate the problem. Problems have been reported with some older AMD/ATI cards, like the HD57xx, which can produce garbled output if this parameter is set to 1. If in doubt, leave it at its default of 0.
+In addition to the resource levels presented in the UI the following options can be set via the command-line (e.g. `darktable --conf resourcelevel="notebook"`). These modes are designed for debugging tiling issues and testing performance of common systems on larger development machines. The following options are provided:
 
-opencl_device_disabled
-: If darktable detects a malfunctioning device it will automatically mark it by setting this value to 1. If you have a device reporting a lot of errors you might also disable it be setting the conf field to 0.
+- "mini" (1GB ram, 2MB single buffer, 128MB thumbnail cache, 200MB OpenCL memory)
+- "notebook" (4GB ram, 32MB  single buffer, 512MB thumbnail cache, 1GB OpenCL memory)
+- "reference" (8GB ram, 32MB single buffer, 512MB thumbnail cache, 2GB OpenCL memory)
 
-benchmark
-: When darktable detects a new device in your system it will do a small benchmark and will keep the result here. DO NOT EDIT
+## tuning GPU memory usage
 
-Please note: if darktable detects a "buggy" device conf key it will be rewritten to default values.
+If you want to make maximal use of your GPU memory for openCL, you have three options:
 
-For the adventurous people, you can also define OpenCL compiler options for each device, the conf key is named
-cldevive_version_canonicalname_building
+- Choose the "large" resource level. For a 6GB card, this will use approximately 5GB of GPU memory, leaving 1GB for the rest of your system.
+- Alter darktablerc to increase the last number in your selected resource level. For example, increasing the openCL memory fraction to 950 would increase the available memory on a 6GB system to approximately 5.3GB.
+- Set [preferences > processing > gpu/gpu/memory > tune openCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size". This will attempt to determine how much memory is available at the start of the first pipeline run and use all of the available memory (less a safety margin of 100MB) for the remainder of your session. This will maximize the amount of memory used but could cause out-of-memory issues (leading to CPU fallbacks) if you aren't careful about usage of other GPU-enabled applications while darktable is running.
+
+## device-specific OpenCL configuration
+
+The default darktable settings should deliver a reasonable GPU performance on most systems. However, if you want to try to optimize things further, here is a description of the relevant configuration parameters.
+
+Since darktable 4.0 most of the OpenCL-related options are managed with a "per device" strategy. The configuration parameter for each device looks like:
+
+`cldevice_v4_quadrortx4000=0 250 0 16 16 1024 0 0 0.017853`
+
+or, more generally
+
+`cldevice_version_canonicalname=a b c d e f g h i`
+
+An entry will be automatically created in darktablerc for each newly-detected device when you launch darktable for the first time, with the correct canonical device name and version number. The parameters `a` - `i` are defined as follows and can be manually edited:
+
+a. avoid atomics
+: _1 = avoid atomics; 0 = use atomics_
+: Atomic operations in OpenCL are a special method of data synchronization and are only used in a few modules. Unfortunately, some old AMD/ATI devices are extremely slow in processing atomics, and on these cards it's better to process the affected modules on the CPU rather than accepting an ultra-slow GPU codepath. Therefore, set this parameter to 1 if you experience slow processing within modules like [_shadows and highlights_](../../module-reference/processing-modules/shadows-and-highlights.md), [_monochrome_](../../module-reference/processing-modules/monochrome.md), [_local contrast_](../../module-reference/processing-modules/local-contrast), or [_global tonemap (deprecated)_](../../module-reference/processing-modules/global-tonemap) or if you get intermittent system freezes. Please note that this should not affect any card manufactured since 2015.
+
+b. micro nap
+: _default 250_
+: In an ideal case you will keep your GPU busy at 100% when processing the pixelpipe. However, if your GPU is also being used to update your screen, and darktable is already using it at 100%, there may not be sufficient time left for this task. This would likely show as jerky reaction of your GUI on panning, zooming or when moving sliders. To resolve this issue darktable can add small pauses into its pixelpipe processing so that the GPU can catch its breath and perform GUI related activities. The "micro nap" parameter controls the duration of these naps in microseconds. On current systems you are pretty safe with the default value even for integrated graphics cards. If you are using multiple devices or you are not using your discrete GPU for drawing on your screen, this value can be set to 0 for the non-desktop device.
+
+c. pinned memory
+: _0 = use gui to select mode; 1 = enforce pinned transfer; 2 = disable pinned transfer_
+: During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a huge performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like _diffuse or sharpen_ or the laplacian highlight reconstruction method. 
+
+: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer", in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
+
+d. clroundup wh / e. clroundup ht
+: These parameters should be left at this default value -- so far tests don't show any benefit for using other values.
+
+f. number of event handles
+: Event handles are used by darktable to monitor the success/failure of kernels and provide profiling info even if the pixelpipe is executed asynchronously. The number of event handles is a limited resource of your OpenCL driver. For sure they can be recycled but there is a limited number that can be used at the same time. Unfortunately, there is no way to find out what the resource limits are for a given device, so darktable uses a very conservative guess of 128 by default. On most current devices and drivers you can expect a number of up to 1024 to be safe and lead to slightly better OpenCL performance. If your driver runs out of free handles you will experience failing OpenCL kernels with error message `CL_OUT_OF_RESOURCES` or even crashes or system freezes.
+
+: A value of 0 will block darktable from using any event handles. This will prevent darktable from properly monitoring the success of your OpenCL kernels but saves some driver overhead leading to a better performance. The consequence is that any failures will likely lead to garbled output without darktable noticing. This is only recommended if you know for sure that your system runs rock-solid.
+
+g. asynchronous mode
+: _1 = use asynchronous mode; 0 = don't use_
+: This flag controls how often darktable blocks the OpenCL pixelpipe to get a status on success/failure of the kernels that have been run. For optimum latency set this to 1, so that darktable runs the pixelpipe asynchronously and tries to use as few interrupts/events as possible. If you experience OpenCL errors like failing kernels, reset the parameter to 0 (the default). This will cause darktable to interrupt after each module so that you can more easily isolate the problem. Issues have been reported with some older AMD/ATI cards (like the HD57xx) which can produce garbled output if this parameter is set to 1. If in doubt, leave it at its default of 0.
+
+h. disable device
+: _0 = enable device; 1 = disable device_
+: If darktable detects a malfunctioning device it will automatically mark it as such by setting this value to 1. If you have a device that reports a lot of errors you can manually disable it be setting this field to 0.
+
+i. benchmark
+: When darktable detects a new device in your system it will do a small benchmark and store the result here. You can change this back to 0 to force darktable to redo the benchmark but in most cases **you should not edit this setting**.
+
+---
+
+**Note**: if darktable detects a "buggy" device configuration key it will be rewritten back to default values.
+
+---
+
+## other configuration keys
+
+The following additional configuration keys are also available:
+
+cldevice\_version\_canonicalname\_building
 : This option is used when compiling OpenCL kernels and may be provided for performance tuning or to work around bugs. You must remove any existing kernels in order to recompile them with the new options. Provide an empty string to recompile without any options. Remove the setting entirely to recompile with default options, default is `-cl-fast-relaxed-math`
 
-
 opencl\_synch\_cache
-: This parameter, if set to "true", will force darktable to fetch image buffers from your GPU after each module and store them in its pixelpipe cache. This is a resource consuming operation, but can make sense depending on your GPU (including if the GPU is rather slow). In this case darktable might in fact save some time when module parameters have changed, as it can go back to some cached intermediate state and reprocess only part of the pixelpipe. In many cases this parameter should be set to "active module" (the default), which will only cache the input of the currently focused module.
+: If set to "true", this parameter will force darktable to fetch image buffers from your GPU after each module and store them in its pixelpipe cache. This is a resource consuming operation, but can make sense depending on your GPU (including if the GPU is rather slow). In this case darktable might in fact save some time when module parameters have changed, as it can go back to some cached intermediate state and reprocess only part of the pixelpipe. In many cases this parameter should be set to "active module" (the default), which will only cache the input of the currently focused module.
 
