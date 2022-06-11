@@ -62,7 +62,8 @@ darktable resources
 : - _small_ takes roughly 20% of your system memory and 40% of your GPU memory. This might be acceptable on very large systems, especially if you're not exporting images. Mostly, though, this can only be recommended if you are using a lot of other demanding applications at the same time as darktable.
 : - _default_ takes roughly 60% of your system memory and 70% of your GPU memory. This mode is recommended if you're not exporting a lot of images, have at least 16Gb of system memory and 4Gb of GPU memory, and also are running a lot of other application at the same time as darktable.
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using darktable on your system and/or are exporting a lot of images.
-: - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it might lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
+: - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
+: See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information. 
 
 prefer performance over quality
 : Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
@@ -74,19 +75,18 @@ enable disk backend for full preview cache
 : If enabled, darktable writes full preview images to disk (`.cache/darktable/`) when evicted from the memory cache. Note that this can take a lot of storage (several gigabytes for 20k images) and darktable will never delete cached images. It's safe to delete these manually if you want. Enabling this option will greatly improve lighttable performance when zooming an image in full preview mode (default off).
 
 activate [OpenCL](../special-topics/opencl/_index.md) support
-: _darktable_ can use your GPU to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found the option is grayed out. Can be switched on and off at any time and takes immediate effect (default on).
+: Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found the option is grayed out. Can be switched on and off at any time and takes immediate effect (default on).
 
 OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems: 
-: - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe; 
-: - _multiple GPUs_: both pixelpipes are processed in parallel on two different GPUs; 
+: - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe, 
 : - _very fast GPU_: both pixelpipes are processed sequentially on the GPU. 
+: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information, 
 
 tune OpenCL performance
 : Defines how darktable will attempt to tune OpenCL performance for your system. The following options are provided (default _nothing_):
 : - _nothing_: do not attempt to tune OpenCL performance.
-: - _memory size_: on the first run of a pixelpipe, darktable determines how much GPU memory is actually available and uses this (with a small amount of safety-margin) as the maximum amount of memory that darktable will use, for the remainder of your session. This is usually safe unless you start other applications (that use a reasonable amount of GPU memory) while darktable is running. Otherwise, use of this option could lead to out-of-memory errors, which will cause darktable to fall back to CPU, which can significantly reduce performance. You may switch this option off and on again to prompt darktable to perform its memory calculation again (at the start of the next pipe run).
-: - _memory transfer_: when darktable needs more memory than it has available, it breaks your images into tiles, which are processed separately. When tiling, darktable frequently needs to transfer data between system and GPU memory. This option tells darktable to use a special copy mode (pinned memory transfer), which can be faster, but can also require more memory on some devices. On other devices it might degrade performance. There is no safe general way to predict how this option will function on a given device so you will have to test it for yourself.
+: - _memory size_: on the first run of a pixelpipe, darktable determines how much GPU memory is actually available and uses this (with a small amount of safety-margin) as the maximum amount of memory that darktable will use, for the remainder of your session. This is usually safe unless you start other applications (that use a reasonable amount of GPU memory) while darktable is running. Otherwise, use of this option could lead to out-of-memory errors, which will cause darktable to fall back to CPU, significantly reducing performance. You may switch this option off and on again to prompt darktable to perform its memory calculation again (at the start of the next pipe run).
+: - _memory transfer_: when darktable needs more memory than it has available, it breaks your images into tiles, which are processed separately. When tiling, darktable frequently needs to transfer data between system and GPU memory. This option tells darktable to use a special copy mode (pinned memory transfer), which can be faster, but can also require more memory on some devices. On other devices it might degrade performance. There is no safe general way to predict how this option will function on a given device so you will have to test it for yourself. If you have multiple devices, you can switch pinned memory transfer on or off on a "per device" basis by directly editing your darktablerc file.
 : - _memory size and transfer_: use both tuning mechanisms.
-
-See the [memory & performance tuning](../special-topics/mem-performance.md) for technical information about how the resources and OpenCL settings work and how to tweak them further for optimal performance.
+: See the [memory & performance tuning](../special-topics/mem-performance.md) section for more information.
