@@ -15,7 +15,7 @@ left-click
 : Click anywhere in the slider area to set the value. You can also click and drag to change it. You don't have to aim for the triangle or even the line -- you can click anywhere in the entire height of the slider, including the label.
 
 mouse wheel
-: Hover over the slider with your mouse, then use your mouse wheel to adjust the value.
+: Hover over the slider with your mouse, then use your mouse wheel to adjust the value. You can alter the default speed at which the mouse scroll adjusts a slider by scrolling over that slider while in [visual shortcut mapping mode](../../preferences-settings/shortcuts.md#visual-shortcut-mapping).
 
 keyboard arrow keys
 : When the slider has focus you can hover over the slider with your mouse, then use your keyboard's arrow keys (←/↓ and →/↑) to adjust the value. In order to give focus to the widget without changing the current value you can right-click, then right-click again.
