@@ -10,6 +10,8 @@ As has been mentioned, OpenCL systems come with a huge variety of setups: differ
 
 Many of the potential problems will only appear with very specific combinations of these factors. As the darktable developers only have access to a small fraction of these variations, please understand that we might not be able to fix your specific problem. There is not much we can do if we are unable to reproduce your issue.
 
+If you are having issues with a specific device (and you have other OpenCL devices available) the first thing to do would be to try disabling just that device -- see [memory & performance tuning](../mem-performance.md#device-specific-opencl-configuration) for more information.
+
 If nothing else helps, the best option is probably to start darktable with
 
 `darktable --disable-opencl`
