@@ -8,6 +8,8 @@ author: "people"
 
 The shortcut mapping system has been most extensively tested with the Behringer X-Touch Mini and contains custom code to deal with the specific features of this device. All other devices are treated as "generic midi" and may or may not work (well) or need some manual setup each time. A configuration framework (possibly in lua) to support additional device-specific features is on the to do list.
 
+If you succeed in getting a midi device up and running that hasn't been mentioned below, it would be greatly appreciated if you would provide feedback in order to assist others, if any special steps are required. You could do this either by submitting a documentation [pull request](https://github.com/darktable-org/dtdocs/pulls) to amend this page or by [filing an issue](https://github.com/darktable-org/dtdocs/issues) containing the necessary information. Alternatively you could read or respond to any of the (closed) midi or "inputng" [issues](https://github.com/darktable-org/darktable/issues) or [pull requests](https://github.com/darktable-org/darktable/pulls) in the main darktable repository if you need additional help or guidance yourself.
+
 # Behringer X-touch Mini
 
 The device should be in Standard Mode (not MC). Layers A & B are somewhat supported, however, since the device does not send a notification when switching between layers, and since the updates to "hidden" rotors and lights (both under buttons and the pattern used around the rotors) are ignored, everything will only be updated completely after you press or turn something in the "new" layer.
