@@ -43,7 +43,7 @@ Each of the panels can be expanded or collapsed by pressing the triangle located
  - `Shift+Ctrl+b` toggles the bottom panel (between the image and the filmstrip/timeline, if shown)
  - `Shift+Ctrl+l` toggles the left panel
  - `Shift+Ctrl+r` toggles the right panel
- - `Ctrl+f` toggle sthe filmstrip/timeline
+ - `Ctrl+f` toggles the filmstrip/timeline
  - `Ctrl+h` toggles the top banner
  - `b` toggles all borders and panel-collapse controls
 
