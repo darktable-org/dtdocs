@@ -28,7 +28,7 @@ compensate camera exposure (manual mode)
 
 exposure (manual mode)
 : Increase (move to the right) or decrease (move to the left) the exposure value (EV).
-: The color-picker tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in [spot exposure mapping](#spot-exposure-mapping) options.
+: The color picker tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in [spot exposure mapping](#spot-exposure-mapping) options.
 
 clipping threshold (manual mode)
 : Define what percentage of bright values are to be clipped in the calculation of the _exposure_ and _black level correction_. Use the color picker to sample a portion of the image to be used for this calcuation.
@@ -63,7 +63,7 @@ The mapping process consists of two steps.
 There are two ways of setting the target brightness for your control sample:
 
 1. if you know or expect an arbitrary lightness for the control sample (for example, a gray card, a color chart, a product or a logo of a specified brightness), you can set its L value directly, in CIE Lab 1976 space,
-2. if you simply want to match the development of your reference image, set the _spot mode_ to _measure_, then enable the color-picker (to the right of the _exposure_ slider) and draw a rectangle over your control sample. The _input_ column will then be updated with the lightness value of the control sample before the exposure correction, and the _target_ column will show the resulting lightness of the control sample after the current exposure setting is applied.
+2. if you simply want to match the development of your reference image, set the _spot mode_ to _measure_, then enable the color picker (to the right of the _exposure_ slider) and draw a rectangle over your control sample. The _input_ column will then be updated with the lightness value of the control sample before the exposure correction, and the _target_ column will show the resulting lightness of the control sample after the current exposure setting is applied.
 
 If you reset the lightness value, the default value is 50% (middle-gray) -- this can be useful to quickly set the average exposure of any image.
 

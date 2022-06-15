@@ -69,7 +69,7 @@ If there was some variability in your lighting conditions, each image will need 
 
 First, homogenize the exposure using your control sample and the [_spot exposure mapping_](../module-reference/processing-modules/exposure.md#spot-exposure-mapping) tool.
 
-Then, adjust the _filmic rgb_ white relative exposure if needed, preferably using the color-picker. The contrast should not require any adjustment since it does not depend on the dynamic-range of the image.
+Then, adjust the _filmic rgb_ white relative exposure if needed, preferably using the color picker. The contrast should not require any adjustment since it does not depend on the dynamic-range of the image.
 
 Finally, homogenize the chromatic adaptation, using your control sample and the [_color calibration spot mapping_](../module-reference/processing-modules/color-calibration.md#spot-color-mapping) tool.
 
