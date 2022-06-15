@@ -109,7 +109,7 @@ In the following controls, positive values apply diffusion, negative values undo
 
 ## direction
 
-In the following controls, positive values cause diffusion to avoid edges (isophotes), negative values make diffusion follow gradients more closely, and zero affects both equally (isottropic).
+In the following controls, positive values cause diffusion to avoid edges (isophotes), negative values make diffusion follow gradients more closely, and zero affects both equally (isotropic).
 
 1st order anisotropy
 : The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_1st order speed_ setting). 
