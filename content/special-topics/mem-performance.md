@@ -114,7 +114,7 @@ b. micro nap
 
 c. pinned memory
 : _0 = use gui to select mode; 1 = enforce pinned transfer; 2 = disable pinned transfer_
-: During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../module-reference/processing-modules/diffuse.md) or the _guided laplacian_ mode in the [_highlights reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module. 
+: During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../module-reference/processing-modules/diffuse.md) or the _guided laplacians_ mode in the [_highlights reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module. 
 
 : There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer" (in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory)), in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
 
