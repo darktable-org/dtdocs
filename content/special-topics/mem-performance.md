@@ -137,6 +137,20 @@ h. disable device
 i. benchmark
 : When darktable detects a new device on your system it will do a small benchmark and store the result here. You can change this back to 0 to force darktable to redo the benchmark but in most cases **you should not edit this setting**.
 
+
+There is a second device specific configuration key taking care of parameters that are related to the device hardware **plus** the device id, the usual key name `cldevice_version_canonicalname` is followed by `_idX` with X being the device id.
+
+For darktable 4.0 there is only one parameter defined
+a. forced headroom (only valid if tuning for memory is switched on)
+: 0 check for currently available memory on this OpenCL device is done. (default)
+: headroom (in MB) defines how much of this cards memory will not be used by darktable, this replaces the default check.
+
+This parameter helps to get the best performance in some situations
+1. You are sure that no apps or the OS make use of a specific device so darktable can take all of it. Likely this can be done if you have more than one OpenCL device available on your system, in this case set to 1
+2. The test for available memory is not working in a stable way on your system leading to crashes or instability. (Might depend on driver and device)
+3. You simply want to set it to a fixed (600 would be a good start) value.
+ but take care! If the setting is too low, performance will even drop because of CPU fallbacks.
+
 ---
 
 **Note**: if darktable detects a "buggy" device configuration key it will be rewritten back to default values.
