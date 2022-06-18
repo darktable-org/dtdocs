@@ -29,24 +29,20 @@ darktable [-d {all,cache,camctl,camsupport,control,dev,
           [--noiseprofiles <noiseprofiles json file>]
           [--d-signal <signal>]
           [--d-signal-act <all,raise,connect,disconnect,print-trace>]
-          [--enforce-tiling]
           [--conf <key>=<value>]
           [-t <num openmp threads>]
 ```
 
 All parameters are optional. In most cases darktable should be started without any additional parameters, in which case darktable uses suitable defaults.
 
-`-d {all,cache,camctl,camsupport,control,dev,fswatch,input,lighttable,lua,masks,memory,nan,opencl,perf,pwstorage,print,sqlioporder,imageio,undo,signal}`
-: Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). Some debug options also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided, even when using `-d all`.
+`-d {all,cache,camctl,camsupport,control,dev,fswatch,input,lighttable,lua,masks,memory,nan,opencl,perf,pwstorage,print,sqlioporder,imageio,undo,signal,tiling}`
+: Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided after each option for which verbose output is required (including when using `-d all`).
 
 `--d-signal <signal>`
 : If `-d signal` or `-d all` is specified, specify the signal to debug using this option. Specify `ALL` to debug all signals or specify signal using it's full name. Can be used multiple times.
 
 `--d-signal-act <all,raise,connect,disconnect,print-trace>`
 : If `-d signal` or `-d all` is specified, specify the signal action to debug using this option.
-
-`--enforce-tiling`
-: Force tiling to be used, even on systems with plenty of memory (for easier debugging of tiling issues).
 
 `<input file>|<image folder>`
 : Optionally supply the name of an image file or folder. If a filename is given darktable starts in darkroom view with that file opened. If a folder is given darktable starts in lighttable view with the content of that folder as the current collection.
