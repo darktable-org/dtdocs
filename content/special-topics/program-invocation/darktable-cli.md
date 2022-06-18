@@ -51,21 +51,6 @@ The user must supply an input filename and an output filename. All other paramet
 `--height <max height>`
 : Limit the height of the exported image to the given number of pixels.
 
-`--bpp <bpp>`
-: Define the bit depth of the exported image. Permitted values depend on the output file format. 
-
----
-
-**Note:** This option is not currently functional. If you need to define the bit depth you need to use the following workaround:
-
-```
-    --core
-    --conf plugins/imageio/format/<FORMAT>/bpp=<VALUE>
-```
-where `<FORMAT>` is the name of the selected output format.
-
----
-
 `--hq <0|1|true|false>`
 : Define whether to use high quality resampling during export (see the [export](../../module-reference/utility-modules/shared/export.md) module reference for more details). Defaults to true.
 
@@ -106,4 +91,160 @@ where `<FORMAT>` is the name of the selected output format.
 : All command line parameters following `--core` are passed to the darktable core and handled as standard parameters. See the [`darktable binary`](./darktable.md) section for a detailed description.
 
 
+# Export options
 
+In order to pass `darktable-cli` the desidered export option you have two methods:
+
+## 1. Set the export options in `darktable` (non-cli)
+
+`darktable-cli` will use the last format settings used in `darktable` (non-cli).
+
+So, before exporting with `darktable-cli`, run `darktable`, set the desidered format in the export module, then set your desidered settings for that format, and close `darktable`.
+
+## 2. Set the export options through `darktable-cli` options
+
+You can set any option with the syntax:
+
+```
+    --core
+    --conf plugins/imageio/format/<FORMAT>/<OPTION>=<VALUE>
+```
+where `<FORMAT>` is the name of the selected output format and `<OPTION>` is any configuration option for that format.
+
+Here are the various configuration options for the various file formats:
+
+### `jpeg`
+
+`quality`
+: the compression quality (`5` - `100`)
+
+### `j2k` (jpg2000)
+
+`format`
+: the format of the output
+:  - `0` = J2K
+:  - `1` = jp2
+
+`quality`
+: the compression quality (`5` - `100`)
+
+`preset`
+: the DCP mode
+: - `0` = Cinema2K, 24FP
+: - `1` = Cinema2K, 48FPS
+: - `2` = Cinema4K, 24FPS
+
+### `exr` (OpenEXR)
+
+`bpp`
+: the bit depth (`16` or `32`)
+
+`compression`
+: the compression type
+:  - `0` = uncompressed
+:  - `1` = RLE
+:  - `2` = ZIPS
+:  - `3` = ZIP
+:  - `4` = PIZ
+:  - `5` = PXR24
+:  - `6` = B44
+:  - `7` = DWAA
+:  - `8` = DWAB
+
+### `pdf`
+
+- `title`
+: the title of the pdf (any character)
+
+`size`
+: the size of the pdf (`a4`, `a3`, `letter`, `legal`)
+
+`orientation`
+: the paper orientation of the pdf
+:  - `0` = portrait
+:  - `1` = landscape
+
+`border`
+: the empty space around the pdf; format: size (a number) + unit; examples: 10 mm, 1 inch
+
+`dpi`
+: the bit depth inside the pdf (`1` - `5000`)
+
+`rotate`
+: whether to rotate the pdf (`0` or `1`)
+
+`icc`
+: whether to embed an icc profile (`0` or `1`)
+
+`bpp`
+: the bit depth (`8` or `16`)
+
+`compression`
+: whether to compress the pdf (`0` or `1`)
+
+`mode`
+: the mode to put the images in the pdf
+:  - `0` = normal: just put the images into the pdf
+:  - `1` = draft: images are replaced with boxes
+:  - `2` = debug: only show the outlines and bounding boxen
+
+### `pfm`
+
+no options
+
+### `png`
+
+`bpp`
+: the bit depth (`8` or `16`)
+
+`compression`
+: the compression level (`0` - `9`)
+
+### `ppm`
+
+no options
+
+### `tiff`
+
+`bpp`
+: the bit depth (`8`, `16`, `32`)
+
+`compress`
+: the compression type
+:  - `0` = uncompressed
+:  - `1` = deflate
+:  - `2` = deflate with predictor
+
+`compresslevel`
+: the compression level (`0` - `9`)
+
+`shortfile`
+: B&W or color image
+:  - `0` = write rgb colors
+:  - `1` = write grayscale
+
+### `webp`
+
+`comp_type`
+: the compression type
+:  - `0` = lossy
+:  - `1` = lossless
+
+`quality`
+: the compression quality (`5` - `100`)
+
+`hint`
+: the preferred way to manage the compression
+:  - `0` = default
+:  - `1` = picture : digital picture, like portrait, inner shot
+:  - `2` = photo   : outdoor photograph, with natural lighting
+:  - `3` = graphics: discrete tone image (graph, map-tile etc)
+
+### `copy`
+
+no options
+
+### `xcf`
+
+`bpp`
+: the bit depth (`8`, `16`, `32`)
