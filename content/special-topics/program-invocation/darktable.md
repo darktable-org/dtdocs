@@ -36,7 +36,7 @@ darktable [-d {all,cache,camctl,camsupport,control,dev,
 All parameters are optional. In most cases darktable should be started without any additional parameters, in which case darktable uses suitable defaults.
 
 `-d {all,cache,camctl,camsupport,control,dev,fswatch,input,lighttable,lua,masks,memory,nan,opencl,perf,pwstorage,print,sqlioporder,imageio,undo,signal,tiling}`
-: Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. Note that `-d all` does not invoke verbose mode by default.
+: Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided, even when using `-d all`.
 
 `--d-signal <signal>`
 : If `-d signal` or `-d all` is specified, specify the signal to debug using this option. Specify `ALL` to debug all signals or specify signal using it's full name. Can be used multiple times.
