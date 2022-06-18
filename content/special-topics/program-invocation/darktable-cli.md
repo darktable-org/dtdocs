@@ -90,161 +90,160 @@ The user must supply an input filename and an output filename. All other paramet
 `--core <darktable options>`
 : All command line parameters following `--core` are passed to the darktable core and handled as standard parameters. See the [`darktable binary`](./darktable.md) section for a detailed description.
 
+# export options
 
-# Export options
+Export options for darktable are defined as configuration items, set from within the [export module](../../module-reference/utility-modules/shared/export.md). There are two ways to alter this configuration when using `darktable-cli`, as described below.
 
-In order to pass `darktable-cli` the desidered export option you have two methods:
+## use the export module
 
-## 1. Set the export options in `darktable` (non-cli)
+The `darktable-cli` command will use the last format configuration used in the export module, when run in interactive (gui) mode. You may therefore manually set your desired format options in the darktable gui and then run `darktable-cli` to export your files.
 
-`darktable-cli` will use the last format settings used in `darktable` (non-cli).
+## pass options on the command-line
 
-So, before exporting with `darktable-cli`, run `darktable`, set the desidered format in the export module, then set your desidered settings for that format, and close `darktable`.
-
-## 2. Set the export options through `darktable-cli` options
-
-You can set any option with the syntax:
+You can set any export format configuration option using the following syntax:
 
 ```
-    --core
-    --conf plugins/imageio/format/<FORMAT>/<OPTION>=<VALUE>
+    --core --conf plugins/imageio/format/<FORMAT>/<OPTION>=<VALUE>
 ```
-where `<FORMAT>` is the name of the selected output format and `<OPTION>` is any configuration option for that format.
 
-Here are the various configuration options for the various file formats:
+where `<FORMAT>` is the name of the desired output format and `<OPTION>` is any configuration option for that format.
 
-### `jpeg`
+An option set in this way will not be permanently stored but will be used just for this run of `darktable-cli`.
+
+The following sections describe the configuration options/values that are available for each export format:
+
+### jpeg
 
 `quality`
-: the compression quality (`5` - `100`)
+: The compression quality (`5` - `100`)
 
-### `j2k` (jpg2000)
+### j2k (jpg2000)
 
 `format`
-: the format of the output
-:  - `0` = J2K
-:  - `1` = jp2
+: The format of the output
+:  - `0`: J2K
+:  - `1`: jp2
 
 `quality`
-: the compression quality (`5` - `100`)
+: The compression quality (`5` - `100`)
 
 `preset`
-: the DCP mode
-: - `0` = Cinema2K, 24FP
-: - `1` = Cinema2K, 48FPS
-: - `2` = Cinema4K, 24FPS
+: The DCP mode
+: - `0`: Cinema2K, 24FP
+: - `1`: Cinema2K, 48FPS
+: - `2`: Cinema4K, 24FPS
 
-### `exr` (OpenEXR)
+### exr (OpenEXR)
 
 `bpp`
-: the bit depth (`16` or `32`)
+: The bit depth (`16` or `32`)
 
 `compression`
-: the compression type
-:  - `0` = uncompressed
-:  - `1` = RLE
-:  - `2` = ZIPS
-:  - `3` = ZIP
-:  - `4` = PIZ
-:  - `5` = PXR24
-:  - `6` = B44
-:  - `7` = DWAA
-:  - `8` = DWAB
+: The compression type
+:  - `0`: uncompressed
+:  - `1`: RLE
+:  - `2`: ZIPS
+:  - `3`: ZIP
+:  - `4`: PIZ
+:  - `5`: PXR24
+:  - `6`: B44
+:  - `7`: DWAA
+:  - `8`: DWAB
 
-### `pdf`
+### pdf
 
-- `title`
-: the title of the pdf (any character)
+`title`
+: The title of the pdf (any character)
 
 `size`
-: the size of the pdf (`a4`, `a3`, `letter`, `legal`)
+: The size of the pdf (`a4`, `a3`, `letter`, `legal`)
 
 `orientation`
 : the paper orientation of the pdf
-:  - `0` = portrait
-:  - `1` = landscape
+:  - `0`: portrait
+:  - `1`: landscape
 
 `border`
-: the empty space around the pdf; format: size (a number) + unit; examples: 10 mm, 1 inch
+: The empty space around the pdf; format: size (a number) + unit; examples: 10 mm, 1 inch
 
 `dpi`
-: the bit depth inside the pdf (`1` - `5000`)
+: The bit depth inside the pdf (`1` - `5000`)
 
 `rotate`
-: whether to rotate the pdf (`0` or `1`)
+: Whether to rotate the pdf (`0` or `1`)
 
 `icc`
-: whether to embed an icc profile (`0` or `1`)
+: Whether to embed an icc profile (`0` or `1`)
 
 `bpp`
-: the bit depth (`8` or `16`)
+: The bit depth (`8` or `16`)
 
 `compression`
-: whether to compress the pdf (`0` or `1`)
+: Whether to compress the pdf (`0` or `1`)
 
 `mode`
-: the mode to put the images in the pdf
-:  - `0` = normal: just put the images into the pdf
-:  - `1` = draft: images are replaced with boxes
-:  - `2` = debug: only show the outlines and bounding boxen
+: The mode to put the images in the pdf
+:  - `0`: normal: just put the images into the pdf
+:  - `1`: draft: images are replaced with boxes
+:  - `2`: debug: only show the outlines and bounding boxen
 
-### `pfm`
+### pfm
 
-no options
+No options provided.
 
-### `png`
+### png
 
 `bpp`
-: the bit depth (`8` or `16`)
+: The bit depth (`8` or `16`)
 
 `compression`
-: the compression level (`0` - `9`)
+: The compression level (`0` - `9`)
 
-### `ppm`
+### ppm
 
-no options
+No options provided.
 
-### `tiff`
+### tiff
 
 `bpp`
-: the bit depth (`8`, `16`, `32`)
+: The bit depth (`8`, `16`, `32`)
 
 `compress`
-: the compression type
-:  - `0` = uncompressed
-:  - `1` = deflate
-:  - `2` = deflate with predictor
+: The compression type
+:  - `0`: uncompressed
+:  - `1`: deflate
+:  - `2`: deflate with predictor
 
 `compresslevel`
-: the compression level (`0` - `9`)
+: The compression level (`0` - `9`)
 
 `shortfile`
 : B&W or color image
-:  - `0` = write rgb colors
-:  - `1` = write grayscale
+:  - `0`: write rgb colors
+:  - `1`: write grayscale
 
-### `webp`
+### webp
 
 `comp_type`
-: the compression type
-:  - `0` = lossy
-:  - `1` = lossless
+: The compression type
+:  - `0`: lossy
+:  - `1`: lossless
 
 `quality`
 : the compression quality (`5` - `100`)
 
 `hint`
-: the preferred way to manage the compression
-:  - `0` = default
-:  - `1` = picture : digital picture, like portrait, inner shot
-:  - `2` = photo   : outdoor photograph, with natural lighting
-:  - `3` = graphics: discrete tone image (graph, map-tile etc)
+: The preferred way to manage the compression
+:  - `0`: default
+:  - `1`: picture : digital picture, like portrait, inner shot
+:  - `2`: photo   : outdoor photograph, with natural lighting
+:  - `3`: graphics: discrete tone image (graph, map-tile etc)
 
-### `copy`
+### copy
 
-no options
+No options provided.
 
-### `xcf`
+### xcf
 
 `bpp`
-: the bit depth (`8`, `16`, `32`)
+: The bit depth (`8`, `16`, `32`)
