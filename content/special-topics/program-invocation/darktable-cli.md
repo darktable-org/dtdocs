@@ -18,7 +18,6 @@ darktable-cli [<input file or folder>]
               <output file or folder>
               [--width <max width>]
               [--height <max height>]
-              [--bpp <bpp>]
               [--hq <0|1|true|false>]
               [--upscale <0|1|true|false>]
               [--style <style name>]
