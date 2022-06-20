@@ -28,7 +28,7 @@ guided laplacians
 
 ---
 
-**Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be useful to avoid using this module in _clip_ mode (so that _filmic rgb_ has more information to work with).
+**Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be useful to avoid using this module in _clip highlights_ mode (so that _filmic rgb_ has more information to work with).
 
 ---
 
