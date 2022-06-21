@@ -33,7 +33,7 @@ This section provides some guidance on how to adjust these settings.
 
 In order to determine how much your modifications improve (or not) darktable's performance, you will need one or more sample images to test with, and a method of assessing the speed of the pixelpipe.
 
-For sample images, you are advised to use some of the more intensive modules, such as [diffuse or sharpen](../module-reference/processing-modules/diffuse.md) or [denoise (profiled)](../module-reference/processing-modules/denoise-profiled.md). Exports are likely to have more consistent and comparible timings between pipe runs than interactive work (and will also push your hardware more). 
+For sample images, you are advised to use some of the more intensive modules, such as [diffuse or sharpen](../module-reference/processing-modules/diffuse.md) or [denoise (profiled)](../module-reference/processing-modules/denoise-profiled.md). Exports are likely to have more consistent and comparable timings between pipe runs than interactive work (and will also push your hardware more). 
 
 In order to obtain profiling information you need to start darktable from a terminal with `darktable -d opencl -d perf`. If you want more information about tiling you should use `darktable -d opencl -d tiling -d perf`.
 
