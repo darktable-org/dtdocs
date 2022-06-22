@@ -88,7 +88,7 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 
 - Choose the "large" resource level. For a 6GB card, this will use approximately 5GB of GPU memory, leaving 1GB for the rest of your system.
 - Alter darktablerc to increase the last number (the OpenCL memory fraction) for your selected resource level. For example, increasing the OpenCL memory fraction to 950 would increase the available memory on a 6GB GPU to approximately 5.3GB.
-- Set [preferences > processing > gpu/gpu/memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size". This will attempt to determine how much memory is available at the start of the first pipeline run and use all of the available memory (less a safety margin of 100MB) for the remainder of your session. This will maximize the amount of memory used but could cause out-of-memory issues (leading to CPU fallbacks) if you aren't careful about usage of other GPU-enabled applications while darktable is running.
+- Set [preferences > processing > gpu/gpu/memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
 
 ## device-specific OpenCL configuration
 
@@ -137,25 +137,26 @@ h. disable device
 i. benchmark
 : When darktable detects a new device on your system it will do a small benchmark and store the result here. You can change this back to 0 to force darktable to redo the benchmark but in most cases **you should not edit this setting**.
 
-
-There is a second device specific configuration key taking care of parameters that are related to the device hardware **plus** the device id, the usual key name `cldevice_version_canonicalname` is followed by `_idX` with X being the device id.
-
-For darktable 4.0 there is only one parameter defined
-a. forced headroom (only valid if tuning for memory is switched on)
-: 0 check for currently available memory on this OpenCL device is done. (default)
-: headroom (in MB) defines how much of this cards memory will not be used by darktable, this replaces the default check.
-
-This parameter helps to get the best performance in some situations
-1. You are sure that no apps or the OS make use of a specific device so darktable can take all of it. Likely this can be done if you have more than one OpenCL device available on your system, in this case set to 1
-2. The test for available memory is not working in a stable way on your system leading to crashes or instability. (Might depend on driver and device)
-3. You simply want to set it to a fixed (600 would be a good start) value.
- but take care! If the setting is too low, performance will even drop because of CPU fallbacks.
-
 ---
 
 **Note**: if darktable detects a "buggy" device configuration key it will be rewritten back to default values.
 
 ---
+
+## id-specific OpenCL configuration
+
+A second device-specifc configuration key is also provided, which takes into account both the device name **and** the device id (just in case you have two identical devices). In this case, the usual key name `cldevice_version_canonicalname` is followed by `_idX` with X being the device id. For example, if the above example device was referred to as device 0, the second configuration setting would (by default) be `cldevice_v4_quadrortx4000_id0=400`.
+
+This configuration key currently only has a single parameter defined:
+
+forced headroom (default 400)
+: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is only valid if you set [preferences > processing > tune OpenCL performance](../preferences-settings/processing/#cpu--gpu--memory) to "memory size".
+
+: If you set this parameter to zero (`0`) then, on the first run of a pixelpipe, darktable will attempt to determine how much GPU memory is actually available and use this (with a safety-margin of 100MB) as the maximum amount of memory that darktable will use, for the remainder of your session. This is usually safe unless you start other applications (that use a reasonable amount of GPU memory) while darktable is running. Otherwise, use of this option could lead to out-of-memory errors, which will cause darktable to fall back to CPU, significantly reducing performance. You may switch this option off and on again to prompt darktable to perform its memory calculation again (at the start of the next pipe run). Note that there are known issues with memory auto-detection on newer Nvidia drivers so auto-detection should be used with care and is therefore disabled by default.
+
+: If you are certain that no apps (or your OS) make use of the specific device you can set this parameter to 1 for the otherwise-unused device so that darktable will use all of that device's memory.
+
+: The default of 400MB should be fine for most systems. If you find you run into performance problems due to darktable falling back to CPU, try changing it to 600 or disabling "tune for memory size".
 
 ## other configuration keys
 
