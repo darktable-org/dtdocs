@@ -132,7 +132,7 @@ g. asynchronous mode
 
 h. disable device
 : _0 = enable device; 1 = disable device_
-: If darktable detects a malfunctioning device it will automatically mark it as such by setting this value to 1. If you have a device that reports a lot of errors you can manually disable it be setting this field to 0.
+: If darktable detects a malfunctioning device it will automatically mark it as such by setting this parameter to 1. If you have a device that reports a lot of errors you can manually disable it by setting this field to 1.
 
 i. benchmark
 : When darktable detects a new device on your system it will do a small benchmark and store the result here. You can change this back to 0 to force darktable to redo the benchmark but in most cases **you should not edit this setting**.
