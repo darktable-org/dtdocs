@@ -88,7 +88,7 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 
 - Choose the "large" resource level. For a 6GB card, this will use approximately 5GB of GPU memory, leaving 1GB for the rest of your system.
 - Alter darktablerc to increase the last number (the OpenCL memory fraction) for your selected resource level. For example, increasing the OpenCL memory fraction to 950 would increase the available memory on a 6GB GPU to approximately 5.3GB.
-- Set [preferences > processing > gpu/gpu/memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
+- Set [preferences > processing > cpu / gpu / memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
 
 ## device-specific OpenCL configuration
 
