@@ -11,10 +11,10 @@ The `darktable` binary starts darktable with its GUI and full functionality. Thi
 `darktable` can called with the following command line parameters:
 
 ```
-darktable [-d {all,cache,camctl,camsupport,control,dev,
-               fswatch,input,lighttable,lua,masks,memory,nan,
-               opencl,perf,pwstorage,print,sql,ioporder,
-               imageio,undo,signal}]
+darktable [-d {all,act_on,cache,camctl,camsupport,control,demosaic,
+               dev,fswatch,imageio,input,ioporder,lighttable,lua,
+               masks,memory,nan,opencl,params,perf,print,pwstorage,
+               signal,sql,tiling,undo,verbose}]
           [<input file>|<image folder>]
           [--version]
           [--disable-opencl]
@@ -35,7 +35,7 @@ darktable [-d {all,cache,camctl,camsupport,control,dev,
 
 All parameters are optional. In most cases darktable should be started without any additional parameters, in which case darktable uses suitable defaults.
 
-`-d {all,cache,camctl,camsupport,control,dev,fswatch,input,lighttable,lua,masks,memory,nan,opencl,perf,pwstorage,print,sqlioporder,imageio,undo,signal,tiling}`
+`-d {all,act_on,cache,camctl,camsupport,control,demosaic,dev,fswatch,imageio,input,ioporder,lighttable,lua,masks,memory,nan,opencl,params,perf,print,pwstorage,signal,sql,tiling,undo,verbose}`
 : Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided, even when using `-d all`.
 
 `--d-signal <signal>`
