@@ -212,7 +212,7 @@ The [_color balance rgb_](../../module-reference/processing-modules/color-balanc
 
 # other important topics
 
-## re-use common module settings
+## reuse common module settings
 
 If you find yourself using the same module parameters repeatedly, you can create [presets](../../darkroom/processing-modules/presets.md) containing your favorite settings. If you use the same settings on every image, you can also make presets apply automatically to new images. For example, you may find yourself adding the same exposure settings to every image taken by a certain camera -- in this case you can create a preset that automatically applies those corrections only to images from that camera.
 
