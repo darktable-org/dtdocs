@@ -234,9 +234,9 @@ No options provided.
 `hint`
 : The preferred way to manage the compression
 :  - `0`: default
-:  - `1`: picture : digital picture, like portrait, inner shot
-:  - `2`: photo   : outdoor photograph, with natural lighting
-:  - `3`: graphics: discrete tone image (graph, map-tile etc)
+:  - `1`: picture: digital picture, like portrait, inner shot
+:  - `2`: photo: outdoor photograph, with natural lighting
+:  - `3`: graphic: discrete tone image (graph, map-tile etc)
 
 ### copy
 
