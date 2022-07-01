@@ -268,7 +268,7 @@ There are two ways of setting the target chromaticity for your control sample:
 
 If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-gray) -- this can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral gray, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral grays.
 
-Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next reboot as well as for the next image you develop.
+Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next launch as well as for the next image you develop.
 
 The _take channel mixing into account_ option lets you choose where the target is sampled. If disabled, the target color is measured immediately after the _CAT_ (Chromatic Adaptation Transform) step, which takes place before any channel mixing. This means that if you have a calibrated profile in effect within the channel mixer, this profile will be discarded. If enabled, the target color is measured after the _CAT_ and the channel mixing steps, including any calibrated profile. This is the recommended option for most use cases.
 
