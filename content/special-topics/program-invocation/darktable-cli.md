@@ -128,9 +128,9 @@ The following sections describe the configuration options/values that are availa
 
 `preset`
 : The DCP mode
-: - `0`: Cinema2K, 24FP
-: - `1`: Cinema2K, 48FPS
-: - `2`: Cinema4K, 24FPS
+: - `0`: Cinema2K, 24 FPS
+: - `1`: Cinema2K, 48 FPS
+: - `2`: Cinema4K, 24 FPS
 
 ### exr (OpenEXR)
 
