@@ -17,3 +17,7 @@ cd "$PROJECT_ROOT"
 
 #build pdfs
 ./tools/build-pdf.sh
+
+#hack for when there aren't any translations
+cp -r ./public/en/* ./public
+rm -rf ./public/en

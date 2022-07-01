@@ -124,7 +124,12 @@ do
      mv *.html content.opf toc.xhtml toc.ncx index.html style.css darktable-logo* OEBPS
 
      #create epub
-     zip -rX "$HUGO_PUBLIC/$language/darktable_user_manual.epub" mimetype OEBPS META-INF
+     if [ -d "$HUGO_DIR/$language" ]
+     then
+        zip -rX "$HUGO_PUBLIC/$language/darktable_user_manual.epub" mimetype OEBPS META-INF
+     else
+        echo "$language directory not found"
+     fi
 
   else
      echo "$language directory not found"
