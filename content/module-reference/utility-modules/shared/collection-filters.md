@@ -18,7 +18,7 @@ Note that only a subset of filters is currently implemented -- more will be adde
 
 # default settings
 
-By default, three filters ([range rating](#range-rating), [color labels](#color-labels) and [text search](#text-search) are defined within this module. By default these filters select all images (i.e. show images with any star rating or color label) and are all pinned to the top panel for quick access. This default setting is also available as the "initial setting" preset.
+By default, three filters ([range rating](#range-rating), [color label](#color-label) and [text search](#text-search) are defined within this module. By default these filters select all images (i.e. show images with any star rating or color label) and are all pinned to the top panel for quick access. This default setting is also available as the "initial setting" preset.
 
 # module controls
 
