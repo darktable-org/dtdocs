@@ -166,7 +166,7 @@ The following sections describe the configuration options/values that are availa
 : The empty space around the pdf; format: size (a number) + unit; examples: 10 mm, 1 inch
 
 `dpi`
-: The bit depth inside the pdf (`1` - `5000`)
+: The resolution in dots per inch inside the pdf (`1` - `5000`)
 
 `rotate`
 : Whether to rotate the pdf (`0` or `1`)
