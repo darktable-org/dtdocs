@@ -67,7 +67,7 @@ There are two ways of setting the target brightness for your control sample:
 
 If you reset the lightness value, the default value is 50% (middle-gray) -- this can be useful to quickly set the average exposure of any image.
 
-Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next reboot as well as for the next image you develop.
+Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next launch as well as for the next image you develop.
 
 ## step 2 : match the target
 
