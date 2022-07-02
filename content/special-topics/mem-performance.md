@@ -145,7 +145,7 @@ i. benchmark
 
 ## id-specific OpenCL configuration
 
-A second device-specifc configuration key is also provided, which takes into account both the device name **and** the device id (just in case you have two identical devices). In this case, the usual key name `cldevice_version_canonicalname` is followed by `_idX` with X being the device id. For example, if the above example device was referred to as device 0, the second configuration setting would (by default) be `cldevice_v4_quadrortx4000_id0=400`.
+A second device-specific configuration key is also provided, which takes into account both the device name **and** the device id (just in case you have two identical devices). In this case, the usual key name `cldevice_version_canonicalname` is followed by `_idX` with X being the device id. For example, if the above example device was referred to as device 0, the second configuration setting would (by default) be `cldevice_v4_quadrortx4000_id0=400`.
 
 This configuration key currently only has a single parameter defined:
 
