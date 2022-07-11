@@ -29,6 +29,8 @@ right-click
 
 : Alternatively you can type in a new value using your keyboard and commit by hitting the Enter key. You may even supply the new value in the form of an arithmetic expression which darktable will calculate for you -- the previous value is referenced as “x”.
 
+: For most sliders, the displayed limits are soft limits.  You may type in any value up to the hard limits for the setting, e.g. in [rotate and perspective](../../module-reference/processing-modules/rotate-perspective.md), the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees, and in [exposure](../../module-reference/processing-modules/exposure.md) the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV.  If you enter a value beyond the hard limit, it will be adjusted to the limit.
+
 double-click
 : Double-click on a slider or its label to reset to the default value.
 
