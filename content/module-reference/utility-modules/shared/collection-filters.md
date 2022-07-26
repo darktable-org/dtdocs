@@ -6,7 +6,7 @@ tags:
 view: lighttable, darkroom, tethering, map
 ---
 
-Filter the _collection_ of images displayed in the lighttable view and filmstrip panel using image attributes, optionally pinning filters to the [top panel](../../overview/user-interface/top-panel.md) for quick access.
+Filter the _collection_ of images displayed in the lighttable view and filmstrip panel using image attributes, optionally pinning filters to the [top panel](../../../overview/user-interface/top-panel.md) for quick access.
 
 Once you have defined a _collection_ of images with the [collections](./collections.md) module, the collection filters module allows you to define additional filters and sort criteria. For example, you might wish to show all images in a given folder using the collections module and then define additional quick filters to narrow-down by star rating and/or color label.
 
