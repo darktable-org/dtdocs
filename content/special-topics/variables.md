@@ -96,6 +96,8 @@ The following string replacement functions are provided, where `var` is one of t
 
 ```
 $(var-default)                   If var is empty, return "default"
+                                 It is possible to use another variable as "default", e.g.
+                                 $(WIDTH.CROP-$(WIDTH.RAW))
 
 $(var+alt_value)                 If var is set, return "alt_value" else return empty string
 
