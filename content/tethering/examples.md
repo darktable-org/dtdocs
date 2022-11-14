@@ -26,8 +26,9 @@ The [camera settings](../module-reference/utility-modules/tethering/camera-setti
 
 To start the timelapse click the capture button in the same panel and watch the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) fill up with images. The last captured image is always displayed in the center view. 
 
-# storing images on the camera as well as on the computer
+# storing images on the camera and computer
 
-By default, the gphoto2 framework which is used by darktable's tethering feature will only download the images to the computer and not store them on the camera's memory card in parallel. This setting can be change outside of darktable by using the `gphoto2` command line client. However, there are cases where this method fails, as it requires that the gphoto2 library built into darktable uses the same configuration file as the gphoto2 command line tool. In particular, if darktable or gphoto2 are installed within a sandbox or container that hides user account settings, you may face this issue (this can e.g. happen with ‘smap’ packages and similar package formats).
+By default, the gphoto2 framework (used by darktable's tethering feature) will only download images to your computer, and will not store them on the camera's memory card. This setting can be changed outside of darktable by using the `gphoto2` command line interface. However, there are cases where this method fails, as it requires that darktable use the same configuration file as the gphoto2 command line tool. In particular, if darktable or gphoto2 are installed within a sandbox or container that hides user account settings, you may face this issue (for example, with `snap` packages and similar).
 
-To allow a captured image to stay on the camera's memory card, connect camera and computer for a tethering session, but close darktable. Enter `gphoto2 --set-config capturetarget=1` on the command line. If this command is successfull, start darktable again. From here, images should be stored (duplicated) on the camera's memory card during a tethered capture.
+To allow captured images to be retained on the camera's memory card, connect the camera to your computer for a tethering session, but close darktable. Enter `gphoto2 --set-config capturetarget=1` on the command line. If this command is successful, start darktable again. Thereafter, images should be stored (duplicated) on the camera's memory card during a tethered capture.
+
