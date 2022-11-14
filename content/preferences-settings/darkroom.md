@@ -32,10 +32,9 @@ show scrollbars for center view
 
 demosaicing for zoomed out darkroom mode
 : Choose how to demosaic images in the darkroom view when not viewing the image at 1:1 zoom scale. Note: this setting is only used for interactive work and does not affect exported images.
+: - _default_ uses the default demosaic mode for the camera's sensor (RCD or Markesteijn).
 : - _always bilinear (fast)_ is fastest, but not as sharp
-: - _at most RCD (reasonable)_ uses RCD + interpolation modes. X-Trans sensors will use VNG as the middle-ground setting.
-: - _full (possibly slow)_ will use the settings from the [_demosaic_](../module-reference/processing-modules/demosaic.md) module.
-: (default "_at most RCD (reasonable)_"). 
+: - _full (possibly slow)_ will use the settings from the [_demosaic_](../module-reference/processing-modules/demosaic.md) module (the same settings as the export module will use).
 
 reduce resolution of preview image
 : Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color picking and masking (default "original").
