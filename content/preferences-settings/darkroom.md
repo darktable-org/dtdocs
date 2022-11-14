@@ -65,13 +65,6 @@ expand the module when it is activated, and collapse it when disabled
 scroll to processing modules when expanded/collapsed
 : With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
 
-white balance slider colors
-: Controls the appearance of the temperature/tint sliders in the [white balance](../module-reference/processing-modules/white-balance.md) module.
-: - _no color_: background of the sliders is not colored at all.
-: - _illuminant color_: slider colors represent the color of the light source, i.e. the color you are adjusting to in order to achieve neutral white
-: - _effect emulation_: slider colors represent the effect the adjustment would have had on the scene. This is how most other raw processors show temperature/tint sliders colors.
-: (default _no color_)
-
 show right-side buttons in processing module headers
 : Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
 : - _always_: always show all buttons
