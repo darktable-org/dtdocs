@@ -131,6 +131,9 @@ $(var,)                          Make the first character of var lowercase
 
 $(var,,)                         Make all characters of var lowercase
 ```
-The image information patterns support [markup](https://docs.gtk.org/Pango/pango_markup.html), so adding the following to the start will give a clear warning when OpenCL has failed to initialise:
+
+# formatting
+
+The image information patterns support [markup](https://docs.gtk.org/Pango/pango_markup.html). For example, adding the following will provide a clear warning (large, red, bold text) when OpenCL has failed to initialise:
 
 `<span alpha='1%'>$(OPENCL_ACTIVATED/no/<span foreground='red' weight='heavy' size='xx-large' alpha='100%'>OPENCL ACTIVATION FAILED</span>$(NL))</span>`

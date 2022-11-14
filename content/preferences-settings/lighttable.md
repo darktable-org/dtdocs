@@ -42,7 +42,7 @@ delimiters for size categories
 : Size categories are used to allow different thumbnail overlays to be shown depending on the thumbnail size. A pipe delimited set of values defines at what image sizes the category changes. The default value of "120|400" means that there will be 3 categories of thumbnail: 0-120px, 120-400px and >400px.
 
 pattern for the thumbnail extended overlay text
-: If you have chosen to show extended overlay text over thumbnail images, this setting allows you to define what information is displayed. This pattern can use any of the variables defined in the [variables](../special-topics/variables.md) section.
+: If you have chosen to show extended overlay text over thumbnail images, this setting allows you to define what information is displayed. This pattern can use any of the variables defined in the [variables](../special-topics/variables.md) section. You can also include [formatting](../special-topics/variables.md#formatting) (bold, italic, colors etc).
 
 pattern for the thumbnail tooltip (empty to disable)
-: Defines what information is displayed in the tooltip when the mouse hovers over image thumbnails. This pattern can also use any of the variables defined in the [variables](../special-topics/variables.md) section.
+: Defines what information is displayed in the tooltip when the mouse hovers over image thumbnails. This pattern can also use the same variables and formatting as the extended overlay text.
