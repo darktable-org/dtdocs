@@ -25,5 +25,5 @@ legacy
 
 ---
 
-For full details of the default legacy and v3.0 module orders, please refer to the [default module order](../../../special-topics/module-order.md) section. For details about changing module order please refer to [the pixelpipe & module order](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
+For more information about changing module order please refer to [the pixelpipe & module order](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
 
