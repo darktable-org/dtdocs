@@ -72,13 +72,6 @@ white balance slider colors
 : - _effect emulation_: slider colors represent the effect the adjustment would have had on the scene. This is how most other raw processors show temperature/tint sliders colors.
 : (default _no color_)
 
-colorbalance slider block layout
-: Controls the appearance of the shadows/mid-tones/highlights sections in the [color balance](../module-reference/processing-modules/color-balance.md) module.
-: - _list_: all sliders are shown in one long list (with headers)
-: - _tabs_: use tabs to switch between the blocks of sliders
-: - _columns_: the blocks of sliders are shown next to each other (in narrow columns)
-: (default _list_)
-
 show right-side buttons in processing module headers
 : Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
 : - _always_: always show all buttons
