@@ -1,7 +1,7 @@
 ---
 title: diffuse or sharpen
 id: diffuse
-applicable-version: 4.0
+applicable-version: 4.2
 tags:
 working-color-space: RGB
 view: darkroom
@@ -21,7 +21,7 @@ As it is a highly technical module, several presets are provided to demonstrate 
 
 Diffusion can be removed in order to:
 
-- recover the original image from sensors with an anti-aliasing filter or mitigate the blur created by most demosaicing algorithms (use the _sharpen sensor demosaicing_ preset and move the module before the _input color profile_ module in the pipeline),
+- recover the original image from sensors with an anti-aliasing filter or mitigate the blur created by most demosaicing algorithms (use one of the _sharpen demosaicing_ presets and move the module before the _input color profile_ module in the pipeline),
 - reverse static lens blurring/defocusing (use one of the _lens deblur_ presets),
 - remove atmospheric haze (use the _dehaze_ preset),
 - add extra acutance for better legibility (use the _local contrast_ preset).
