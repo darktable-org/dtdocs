@@ -71,7 +71,7 @@ Perceptual saturation grading affects both the luminance and the chroma dimensio
 
 ### perceptual brilliance grading
 
-Perceptual brilliance grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue, and in a direction orthogonal to the saturation. Its effect is close to that of changing exposure, but scaled perceptually. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_).
+Perceptual brilliance grading affects both the luminance and the chroma dimensions, in a perceptual space, proportionally to its input value, at constant hue, and in a direction orthogonal to the saturation. Its effect is close to that of changing exposure, but scaled perceptually. It does this globally, with a flat coefficient (using the _global saturation_), as well as on each of the _shadows_, _mid-tones_ and _highlights_ masks (defined in the [_masks_](#masks-tab) tab under _luminance ranges_). Brilliance Values outside the range -20% - 20% are likely to create artifacts, and are best avoided.
 
 ## 4 ways tab
 
@@ -103,7 +103,7 @@ This is equivalent to the ASC CDL _power_, and falls back to applying a constant
 
 ## masks tab
 
-This tab defines auxiliary controls for the previous tabs. Masking controls typically don't require any user modification since the defaults are calibrated to suit most needs and fulfil the normal scene-referred pixel pipeline expectations. You should only need to change these settings in specific scenarios.
+This tab defines auxiliary controls for the previous tabs. You should at least set the _white fulcrum threshold_, as that value is used to normalize brightness levels; leaving it at the default may introduce artifacts in other modules later in the pipeline (_filmic rgb_ highlight recovery being the prominent example).
 
 ### luminance ranges
 
@@ -129,7 +129,7 @@ Luminance masks are computed at the input of the module, which means that they a
 ### thresholds
 
 white fulcrum
-: Set the white point luminance in EV. This is used to normalize the _power_ setting in the [_4 ways_](#4-ways-tab) tab. Display-referred implementations of power functions assume that white is at 100%, which removes the need for normalization. For scene-referred purposes this needs to be taken into account.
+: Set the white point luminance in EV. This is used to normalize the _power_ setting in the [_4 ways_](#4-ways-tab) tab, and also to normalize brightness levels. Display-referred implementations of power functions assume that white is at 100%, which removes the need for normalization. For scene-referred purposes this needs to be taken into account.
 
 : The color picker to the right of the slider automatically sets the white fulcrum to the maximum luminance from the selected region, which should be sufficient in most cases.
 
