@@ -62,7 +62,7 @@ From left to right:
 : Quick access menu for module presets. You can manage the contents of this menu by selecting "manage quick presets list...".
 
 ![styles-icon](./darkroom-view-layout/styles-icon.png#icon) [styles](../module-reference/utility-modules/lighttable/styles.md)
-: Quick access menu for styles.
+: Quick access menu for styles. Hover over a style name with your mouse to show a preview of the current darkroom image with the selected style applied.
 
 ![second-window-icon](./darkroom-view-layout/second-window-icon.png#icon) second darkroom window
 : For multi-monitor setup, allows the user to display a second image on another screen.

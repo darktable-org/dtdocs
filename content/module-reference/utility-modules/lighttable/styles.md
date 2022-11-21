@@ -14,6 +14,8 @@ A list of all available styles is displayed in the module. A search field above 
 
 Double-click on a style name to apply that style to all selected images.  A style may also be applied to all selected images by pressing a shortcut key assigned to it (see [preferences > shortcuts](../../../preferences-settings/shortcuts.md)) while in the lighttable or darkroom view.
 
+Hover over the style name with your mouse to view a preview of the first selected image with that style applied.
+
 Remove all styles by clicking on the module's reset button.
 
 Please note that styles also include the active state of each module. You can use this to create your own default settings, which you can then activate on-demand. Simply set your desired defaults for each module, disable the module, and save the style.
