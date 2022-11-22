@@ -218,6 +218,8 @@ If an action affects a processing module that can have multiple instances, you c
 
 Additional options are available in the shortcuts mapping screen to adjust the blend parameters (the \<blending\> section) and module controls (the \<focused\> section) for the currently-focused module. The latter section allows you to assign shortcuts to the first, second, third (etc.) button, drop-down, slider and tab on the module. The shortcuts will affect different module controls depending on which module currently has focus (as the available list of controls changes).
 
+You can also assign scroll shortcuts to the 'preset' menu, which allows you to use your mouse scroll wheel to scroll through the module's presets.
+
 ## dropdowns
 
 A dropdown is a multi-selection box and has the following elements available:
