@@ -29,7 +29,7 @@ Primary color-grading is best left to the [_color calibration_](./color-calibrat
 
 The _color balance RGB_ module is an improvement over the [American Society of Cinematographers Color Decision List](https://en.wikipedia.org/wiki/ASC_CDL) (ASC CDL), and uses alpha masks to allow the effect to be properly split between shadows and highlights. The classic CDL acts on the entire luminance range, and each of its parameters is given more weight on some parts of the image only as a side-effect of the mathematics.
 
-This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_), in a linear RGB color space designed specifically for color-grading. This color space exhibits a uniform spacing of perceptual hues while retaining a physically-scaled luminance[^1]. The perceptual part of the module (_saturation_ and _brilliance_) works in the JzAzBz[^2] color space, which provides a perceptual scaling of both lightness and chromaticity suitable for HDR images. Both color spaces ensure that saturation and chroma changes take place at constant hue, which is not the case for most other saturation operators in darktable (notably in the older [_color balance_](./color-balance.md) module).
+This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_), in a linear RGB color space designed specifically for color-grading. This color space exhibits a uniform spacing of perceptual hues while retaining a physically-scaled luminance[^1]. The perceptual part of the module (_saturation_ and _brilliance_) works in the JzAzBz[^2] color space, which provides a perceptual scaling of both lightness and chromaticity suitable for HDR images. Both color spaces ensure that saturation and chroma changes take place at constant hue, which is not the case for most other saturation operators in Ansel (notably in the older [_color balance_](./color-balance.md) module).
 
 [^1]: Richard A. Kirk, Chromaticity coordinates for graphic arts based on CIE 2006 LMS with even spacing of Munsell colours, 2019. <https://doi.org/10.2352/issn.2169-2629.2019.27.38>
 
@@ -145,8 +145,8 @@ Note that this setting is not really appropriate for the _masks_ tab (since it i
 JzAzBz (2021)
 : This mode is the original saturation algorithm. It uses the JzAzBz uniform color space (UCS) to compute the saturation. This color space is not meant for color changes and its lightness does not account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect), which states that colorful colors will look brighter than neutral or near-neutral colors (greys and pastels) having the same luminance. It also suffers from non-smooth behaviour near black, with colors being darkened too much.
 
-darktable UCS (2022)
-: The darktable Uniform Color Space has been [designed from the ground up](https://eng.aurelienpierre.com/2022/02/color-saturation-control-for-the-21th-century/), using psychoperceptual measurement datasets, for the sole purpose of the color manipulation (saturation) performed by this module. This color space does account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect) and has a built-in gamut mapping formula that is more accurate and efficient than can be achieved in JzAzBz. It displays a smoother behaviour which makes saturation changes more even across the lightness range.
+Ansel UCS (2022)
+: The Ansel Uniform Color Space has been [designed from the ground up](https://eng.aurelienpierre.com/2022/02/color-saturation-control-for-the-21th-century/), using psychoperceptual measurement datasets, for the sole purpose of the color manipulation (saturation) performed by this module. This color space does account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect) and has a built-in gamut mapping formula that is more accurate and efficient than can be achieved in JzAzBz. It displays a smoother behaviour which makes saturation changes more even across the lightness range.
 
 ### mask preview settings
 
@@ -208,7 +208,7 @@ The following is the internal order of operations within the module:
 
 # caveats
 
-Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while darktable uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between these spaces. The result will therefore be a slighly tinted black & white image. If your intent is to get a real black & white image using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
+Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while Ansel uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between these spaces. The result will therefore be a slighly tinted black & white image. If your intent is to get a real black & white image using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
 
 This module has its gamut-mapping (against pipeline RGB) permanently enabled. This means that if your original image contains some largely out-of-gamut colors to start with, simply enabling _color balance RGB_ with no particular setting will slightly alter its colors. This is probably for the best.
 

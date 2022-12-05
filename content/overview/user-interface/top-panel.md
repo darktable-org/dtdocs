@@ -6,7 +6,7 @@ weight: 40
 author: "people"
 ---
 
-The top panel is common to all darktable views and provides access to a number of common functions.
+The top panel is common to all Ansel views and provides access to a number of common functions.
 
 ![top-panel](./top-panel/top-panel.png#w100)
 
@@ -34,4 +34,4 @@ filter / sort
 : Click this icon to enter the [visual shortcut mapping](../../preferences-settings/shortcuts.md#visual-shortcut-mapping) mode to create keyboard/mouse shortcuts.
 
 ![top panel_preferences icon](./top-panel/top-panel_preferences.png#icon) preferences
-: View and amend darktable's [preferences & settings](../../preferences-settings/_index.md).
+: View and amend Ansel's [preferences & settings](../../preferences-settings/_index.md).

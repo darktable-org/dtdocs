@@ -10,7 +10,7 @@ Control whether warning messages are shown before undertaking certain activities
 # general
 
 ask before removing images from the library
-: Always ask before removing image information from darktable's library database, where the xmp file is retained (default on).
+: Always ask before removing image information from Ansel's library database, where the xmp file is retained (default on).
 
 ask before deleting images from disk
 : Always ask before deleting an image file (default on).
@@ -34,10 +34,10 @@ ask before deleting a tag
 : Always ask before deleting a tag from an image (default on).
 
 ask before deleting a style
-: Always ask before deleting a style (default on). 
+: Always ask before deleting a style (default on).
 
 ask before deleting a preset
-: Always ask before deleting a preset (default on). 
+: Always ask before deleting a preset (default on).
 
 ask before exporting in overwrite mode
 : Always ask before [exporting](../module-reference/utility-modules/shared/export.md) images in overwrite mode.
@@ -45,7 +45,7 @@ ask before exporting in overwrite mode
 # other
 
 password storage backend to use
-: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”. 
+: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”.
 
 executable for playing audio files
-: Define an external program which is used in the lighttable view to play audio files that some cameras record to keep notes for images (default “aplay”). 
+: Define an external program which is used in the lighttable view to play audio files that some cameras record to keep notes for images (default “aplay”).

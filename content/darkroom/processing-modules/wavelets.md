@@ -5,11 +5,11 @@ weight: 55
 draft: false
 ---
 
-Wavelets are used to separate (or _decompose_) an image into a number of distinct _layers_, each containing a different level of detail. After decomposing an image in this way, a module can limit its processing to one or more of these detail layers, and then piece the layers back together again at the end to form its output. This allows us to be surgical about which features in the image we wish to impact when working with a module. 
+Wavelets are used to separate (or _decompose_) an image into a number of distinct _layers_, each containing a different level of detail. After decomposing an image in this way, a module can limit its processing to one or more of these detail layers, and then piece the layers back together again at the end to form its output. This allows us to be surgical about which features in the image we wish to impact when working with a module.
 
-Some of the operations that darktable can perform in this way are:
+Some of the operations that Ansel can perform in this way are:
 
-- noise removal (in the [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md), [_raw denoise_](../../module-reference/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) modules) 
+- noise removal (in the [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md), [_raw denoise_](../../module-reference/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) modules)
 - contrast adjustment (in the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module)
 - blurring or removal of unwanted detail (in the [_retouch_](../../module-reference/processing-modules/retouch.md) module)
 
@@ -17,7 +17,7 @@ Some of the operations that darktable can perform in this way are:
 
 A wavelet is an oscillating mathematical function that starts and ends at zero. The following diagram shows some simple wavelets of differing sizes.
 
-![wavelets-overview](./wavelets/wavelets-overview.png#w50) 
+![wavelets-overview](./wavelets/wavelets-overview.png#w50)
 
 These wavelet functions are used to scan and decompose an image using a mathematical operation called _convolution_. This picks out details from the image that are on a similar scale to the size of a given wavelet, and builds a number of these detail layers, each corresponding to a different wavelet scale.
 
@@ -25,7 +25,7 @@ The following is an example where detail layers have been extracted from the abo
 
 ![wavelets-retouch-gui](./wavelets/clean-retouch.png#w33)
 
-The bars in the _wavelet decompose_ section indicate the layers that have been extracted at different wavelet scales. The darkest rectangle at the left represents the entire image (before decomposition) and the gray boxes each represent one of the decomposed layers. Clicking on the staircase icon below the bar graph enables the layer visualisation overlay so that you can see what the currently selected layer looks like. 
+The bars in the _wavelet decompose_ section indicate the layers that have been extracted at different wavelet scales. The darkest rectangle at the left represents the entire image (before decomposition) and the gray boxes each represent one of the decomposed layers. Clicking on the staircase icon below the bar graph enables the layer visualisation overlay so that you can see what the currently selected layer looks like.
 
 Let's take a look at some of the layers generated for the above image.
 
@@ -35,7 +35,7 @@ At scale #2, the image contains only very fine details, including the model's ey
 
 At scales #5 and #6 we begin to see larger and larger features:
 
-![wavelets-layer-scale-5](./wavelets/wavelets-layer-scale-5.png#w50) 
+![wavelets-layer-scale-5](./wavelets/wavelets-layer-scale-5.png#w50)
 
 ![wavelets-layer-scale-6](./wavelets/wavelets-layer-scale-6.png#w50)
 
@@ -49,9 +49,9 @@ Suppose, in the above example, that we wanted to smooth out some of the blotchin
 
 The sequence of images below shows (1) The original image; (2) The layer (scale 5) that we wish to blur; and (3) The final image after the scale 5 layer has been blurred and the layers recombined:
 
-![wavelets-original](./wavelets/wavelets-original.png#w50) 
+![wavelets-original](./wavelets/wavelets-original.png#w50)
 
-![wavelets-layer-scale-5](./wavelets/wavelets-layer-scale-5.png#w50) 
+![wavelets-layer-scale-5](./wavelets/wavelets-layer-scale-5.png#w50)
 
 ![wavelets-blur-layered](./wavelets/wavelets-blur-layered.png#w50)
 
@@ -75,6 +75,6 @@ The [_denoise (profiled)_](../../module-reference/processing-modules/denoise-pro
 
 ![spline](./wavelets/clean-spline.png#w33)
 
-Here, each node in the graph represents a different level of detail in the image, from coarse detail on the left to fine detail on the right. You can raise or lower each of these nodes with your mouse to increase or decrease the module's effect, respectively, on that wavelet scale. 
+Here, each node in the graph represents a different level of detail in the image, from coarse detail on the left to fine detail on the right. You can raise or lower each of these nodes with your mouse to increase or decrease the module's effect, respectively, on that wavelet scale.
 
 To modify the curve, click slightly above or below the line near to a node and drag up or down. You can change the width of your modification by scrolling with your mouse wheel, which increases or reduces the size of the circle displayed under your mouse pointer. A small circle indicates that the effect of dragging the curve up or down will be isolated mostly to the node being adjusted. A larger circle indicates that the effect will be more broad and will increasingly impact adjacent nodes. When you hover your mouse over the graph, shaded areas indicate the parts of the spline that will be impacted when you attempt to modify the curve.

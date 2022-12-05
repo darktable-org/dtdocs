@@ -8,7 +8,7 @@ draft: false
 # interface
 
 load default shortcuts at startup
-: When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). Deactivate this preference to stop loading default shortcuts on startup -- only load the user-defined ones (including any defaults that you have not subsequently deleted or overridden). This makes deletion easier but also means that you will not benefit from new shortcuts added in future versions without first re-enabling this preference (default on).
+: When launching the application, Ansel loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). Deactivate this preference to stop loading default shortcuts on startup -- only load the user-defined ones (including any defaults that you have not subsequently deleted or overridden). This makes deletion easier but also means that you will not benefit from new shortcuts added in future versions without first re-enabling this preference (default on).
 
 scale slider step with min/max
 : When activated, the default step-size, when altering sliders, will depend on the current min/max values for that slider (default on).
@@ -17,10 +17,10 @@ sort built-in presets first
 : Choose how the presets menu is sorted. If this option is enabled, built-in presets are shown first. If the option is disabled, user presets are shown first (default on).
 
 mouse wheel scrolls modules side panel by default
-: When enabled, the mouse wheel scrolls side panels by default and Ctrl+Alt+wheel scrolls data entry fields. When disabled, this behavior is reversed (default off). 
+: When enabled, the mouse wheel scrolls side panels by default and Ctrl+Alt+wheel scrolls data entry fields. When disabled, this behavior is reversed (default off).
 
 always show panels' scrollbars
-: Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart) 
+: Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart)
 
 duration of the ui transitions in ms
 : Defines how long modules and other ui elements will take to transition between states (expand/collapse). Set to 0 to disable animation (default 250ms).
@@ -29,7 +29,7 @@ position of the scopes module
 : Choose whether to show the [scopes](../module-reference/utility-modules/shared/scopes.md) module in the left or right panel (default right). (needs a restart)
 
 method to use for getting the display profile
-: This option allows the user to force darktable to use a specific method to obtain the current display profile for [color management](../special-topics/color-management/_index.md). In the default setting “all”, darktable will choose to query the X display server's xatom or the colord system service. You can set this option to “xatom” or “colord” to enforce a specific method if the two methods give different results. You can run the [darktable-cmstest](../special-topics/program-invocation/darktable-cmstest.md) binary to examine your color management subsystem.
+: This option allows the user to force Ansel to use a specific method to obtain the current display profile for [color management](../special-topics/color-management/_index.md). In the default setting “all”, Ansel will choose to query the X display server's xatom or the colord system service. You can set this option to “xatom” or “colord” to enforce a specific method if the two methods give different results. You can run the [Ansel-cmstest](../special-topics/program-invocation/Ansel-cmstest.md) binary to examine your color management subsystem.
 
 order or exclude midi devices
 : Semicolon-separated list of device-name fragments. If matched, load the midi device at the id given by the location in the list. If preceded by "-", prevent the matched device from loading. You can also add encoding and number of knobs. For example "BeatStep:63:16". Please see [midi device support](../special-topics/midi-device-support.md#additional-midi-configuration) for more information.
@@ -37,7 +37,7 @@ order or exclude midi devices
 # tags
 
 omit hierarchy in simple tag lists
-: When exporting images any hierarchical tags are also added as a simple list of non-hierarchical tags to make them visible to some other programs. When this option is checked darktable will only include the last part of the hierarchy and ignore the rest. So `foo|bar|baz` will only add `baz`. 
+: When exporting images any hierarchical tags are also added as a simple list of non-hierarchical tags to make them visible to some other programs. When this option is checked Ansel will only include the last part of the hierarchy and ignore the rest. So `foo|bar|baz` will only add `baz`.
 
 # shortcuts with multiple instances
 
@@ -63,7 +63,7 @@ selection order
 # map / geolocalisation view
 
 pretty print the image location
-: Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on). 
+: Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on).
 
 # slideshow view
 

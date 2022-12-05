@@ -6,7 +6,7 @@ weight: 20
 author: "people"
 ---
 
-The layout of all darktable views is similar and consists of a center area with panels at the edges: 
+The layout of all Ansel views is similar and consists of a center area with panels at the edges:
 
 ![screen-layout](./screen-layout/screen-layout.png#w100)
 
@@ -20,7 +20,7 @@ The layout of all darktable views is similar and consists of a center area with 
 : Contains modules primarily used for image processing.
 
 4. top banner
-: Contains information about the current darktable version and allows you to switch between views. Also used by some modules to show additional hints and messages.
+: Contains information about the current Ansel version and allows you to switch between views. Also used by some modules to show additional hints and messages.
 
 5. [top panel](./top-panel.md)
 : Provides access to global settings and shortcuts
@@ -33,7 +33,7 @@ The layout of all darktable views is similar and consists of a center area with 
 
 # panel size and visibility
 
-The left, right and filmstrip/timeline panels can be resized by dragging their inner borders. 
+The left, right and filmstrip/timeline panels can be resized by dragging their inner borders.
 
 Each of the panels can be expanded or collapsed by pressing the triangle located at the outside edge of the panels. Panel visibility can also be adjusted using keyboard shortcuts, as follows:
 

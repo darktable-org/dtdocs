@@ -1,10 +1,10 @@
 # darktable Documentation
 
-This is the user documentation for [darktable](https://darktable.org). The content is authored in markdown and rendered to HTML using [Hugo](https://gohugo.io) as well as to PDF and ePub.
+This is the user documentation for [darktable](https://ansel.photos). The content is authored in markdown and rendered to HTML using [Hugo](https://gohugo.io) as well as to PDF and ePub.
 
 This repository tracks the current darktable development version. The auto-built website for the development user manual can be found at https://darktable-org.github.io/dtdocs/.
 
-The user manual for the current stable release of darktable can be found at [darktable.org](https://docs.darktable.org/usermanual/stable/en/).
+The user manual for the current stable release of darktable can be found at [ansel.photos](https://ansel.photos/doc/usermanual/stable/en/).
 
 ## Contributing
 

@@ -6,13 +6,13 @@ draft: false
 author: "people"
 ---
 
-A number of pre-defined module groups are shipped with darktable and are selectable as presets. These are summarized below.
+A number of pre-defined module groups are shipped with Ansel and are selectable as presets. These are summarized below.
 
 All of these presets (with the exception of _modules: deprecated_ and _search only_) also include the quick access panel. All except the _modules: deprecated_ group include the search bar.
 
 # _modules: all_
 
-This preset contains all modules, sorted according to the traditional module groupings used prior to darktable 3.4, as follows:
+This preset contains all modules, sorted according to the traditional module groupings used prior to Ansel 3.4, as follows:
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : The minimal set of modules normally required to render a presentable image.
@@ -31,7 +31,7 @@ This preset contains all modules, sorted according to the traditional module gro
 
 # _modules: default_
 
-This preset is the default module group layout from darktable 3.4 onwards and consists of a simplified set of module groups, as follows:
+This preset is the default module group layout from Ansel 3.4 onwards and consists of a simplified set of module groups, as follows:
 
 ![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png#icon) technical modules
 : Modules that deal with technical issues relating to the physics of sensors and denoising, lenses and associated corrections, color profiles, dynamic range and tone mapping, and recovering from damage to the image by physical limitations (hot pixels, clipped highlights, etc.).
@@ -60,7 +60,7 @@ These presets define groups of modules relevant to the [scene-referred and displ
 
 # _workflow: beginner_
 
-This preset provides a minimal set of modules targeted as a starting point for beginners. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with other modules. 
+This preset provides a minimal set of modules targeted as a starting point for beginners. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with other modules.
 
 ![module-group-basic-icon](./manage-module-layouts/module-group-basic-icon.png#icon) base modules
 : A basic set of modules to adjust the cropping/orientation, adjust the exposure, and apply a basic tone mapping.
@@ -73,7 +73,7 @@ This preset provides a minimal set of modules targeted as a starting point for b
 
 # _previous config_
 
-These presets are automatically generated for users who have upgraded from a version of darktable prior to 3.4. Where you have previously set up favourites or altered the _hidden_ flag on modules, these presets contains those customisations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
+These presets are automatically generated for users who have upgraded from a version of Ansel prior to 3.4. Where you have previously set up favourites or altered the _hidden_ flag on modules, these presets contains those customisations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
 
 If favourites were created in prior versions these will remain available in an additional group:
 
@@ -86,5 +86,4 @@ This preset does not include any module groupings. Modules may only be accessed 
 
 # _modules: deprecated_
 
-This preset contains a list of deprecated modules. This is the only way to access deprecated modules for new edits but be warned: these modules will be removed for new edits in the next release of darktable. This group cannot be duplicated and the modules within it cannot be added to user-created groups.
-
+This preset contains a list of deprecated modules. This is the only way to access deprecated modules for new edits but be warned: these modules will be removed for new edits in the next release of Ansel. This group cannot be duplicated and the modules within it cannot be added to user-created groups.

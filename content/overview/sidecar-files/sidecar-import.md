@@ -6,20 +6,20 @@ draft: false
 author: "people"
 ---
 
- When importing an image, darktable automatically checks if it is accompanied by a sidecar file. As well as looking for files named `<basename>.<extension>.xmp` and `<basename>_nn.<extension>.xmp` (darktable's XMP file naming formats) darktable also checks for the presence of a file in the form `<basename>.xmp` (the naming format for Lightroom's XMP sidecar files). Files with the latter naming format will be read by darktable but will not be written to. Once the image has been imported, darktable will generate an additional XMP file using its own naming convention.
+ When importing an image, Ansel automatically checks if it is accompanied by a sidecar file. As well as looking for files named `<basename>.<extension>.xmp` and `<basename>_nn.<extension>.xmp` (Ansel's XMP file naming formats) Ansel also checks for the presence of a file in the form `<basename>.xmp` (the naming format for Lightroom's XMP sidecar files). Files with the latter naming format will be read by Ansel but will not be written to. Once the image has been imported, Ansel will generate an additional XMP file using its own naming convention.
 
-At present, darktable is able to load the following metadata from Lightroom-generated sidecar files during the import process:
+At present, Ansel is able to load the following metadata from Lightroom-generated sidecar files during the import process:
 
 - tags (including hierarchical tags)
 - color labels
 - ratings
 - GPS information
 
-In addition, darktable has been designed to help migrate some image operations from other specific applications. The aim here is not to make darktable a drop-in replacement for any other software, but rather to help you to recover part of the work you have already invested into your image. It is important to understand that the import process will never give identical results to other software. The underlying processing engines are very different from application to application, and depend a lot on the individual image. In some cases, the results may be similar but often, further adjustment will be required in darktable.
+In addition, Ansel has been designed to help migrate some image operations from other specific applications. The aim here is not to make Ansel a drop-in replacement for any other software, but rather to help you to recover part of the work you have already invested into your image. It is important to understand that the import process will never give identical results to other software. The underlying processing engines are very different from application to application, and depend a lot on the individual image. In some cases, the results may be similar but often, further adjustment will be required in Ansel.
 
 This migration happens automatically when entering the darkroom view, provided that a corresponding XMP sidecar is found.
 
-At present, darktable is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding darktable module in parentheses):
+At present, Ansel is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding Ansel module in parentheses):
 
 - crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md))
 - black level ([_exposure_](../../module-reference/processing-modules/exposure.md))

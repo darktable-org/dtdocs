@@ -9,16 +9,16 @@ author: "people"
 The first example showed us the very basics of lua and allowed us to check that everything was working properly. Now let's do something a little bit more complex. Let's try to print a list of images that have a "red" label attached to them. But first of all, what is an image?
 
 ```
-local darktable = require "darktable"
-local debug = require "darktable.debug"
-print(darktable.debug.dump(darktable.database[1]))
+local Ansel = require "Ansel"
+local debug = require "Ansel.debug"
+print(Ansel.debug.dump(Ansel.database[1]))
 ```
 
 Running the code above will produce a lot of output. We will look at it in a moment, but first let's look at the code itself.
 
-We know about `require darktable`. Here, we need to separately `require darktable.debug` which is an optional section of the API that provides helper functions to help debug lua scripts.
+We know about `require Ansel`. Here, we need to separately `require Ansel.debug` which is an optional section of the API that provides helper functions to help debug lua scripts.
 
-`darktable.database` is a table provided by the API that contains all images in the library database. Each entry in the database is an image object. Image objects are complex objects that allow you to manipulate your image in various ways (all documented in the `types_dt_lua_image_t` section of the API manual). To display our images, we use `darktable.debug.dump` which is a function that will take anything as its parameter and recursively dump its content. Since images are complex objects that indirectly reference other complex objects, the resulting output is huge. Below is a cut down example of the output.
+`Ansel.database` is a table provided by the API that contains all images in the library database. Each entry in the database is an image object. Image objects are complex objects that allow you to manipulate your image in various ways (all documented in the `types_dt_lua_image_t` section of the API manual). To display our images, we use `Ansel.debug.dump` which is a function that will take anything as its parameter and recursively dump its content. Since images are complex objects that indirectly reference other complex objects, the resulting output is huge. Below is a cut down example of the output.
 
 ```
 toplevel (userdata,dt_lua_image_t) : /images/100.JPG
@@ -78,8 +78,8 @@ toplevel (userdata,dt_lua_image_t) : /images/100.JPG
 As we can see, an image has a large number of fields that provide all sort of information about it. Here, we are interested in the "red" label. This field is a boolean, and the documentation tells us that it can be written. We now just need to find all images with that field and print them out:
 
 ```
-darktable = require "darktable"
-for _,v in ipairs(darktable.database) do
+Ansel = require "Ansel"
+for _,v in ipairs(Ansel.database) do
   if v.red then
     print(tostring(v))
   end
@@ -88,10 +88,8 @@ end
 
 This code should be quite simple to understand at this point, but it contains a few interesting aspects of lua that are worth highlighting:
 
-- `ipairs` is a standard lua function that will iterate through all numeric indices of a table. We use it here because darktable's database has non-numeric indices which are functions to manipulate the database itself (adding or deleting images, for example).
+- `ipairs` is a standard lua function that will iterate through all numeric indices of a table. We use it here because Ansel's database has non-numeric indices which are functions to manipulate the database itself (adding or deleting images, for example).
 
 - Iterating through a table will return both the key and the value used. It is conventional in lua to use a variable named “`_`” to store values that we don't care about.
 
-- Note that we use the standard lua function `tostring` here and not the darktable-specific `darktable.debug.dump`. The standard function will return a name for the object whereas the debug function will print the content. The debug function would be too verbose here. Once again, it is a great debug tool but it should not be used for anything else.
-
-
+- Note that we use the standard lua function `tostring` here and not the Ansel-specific `Ansel.debug.dump`. The standard function will return a name for the object whereas the debug function will print the content. The debug function would be too verbose here. Once again, it is a great debug tool but it should not be used for anything else.

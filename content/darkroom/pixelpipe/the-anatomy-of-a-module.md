@@ -5,9 +5,9 @@ weight: 10
 draft: false
 ---
 
-The basic element of image processing in darktable is the [processing module](../../module-reference/processing-modules/). In order to process a raw image a number of such modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in darktable is analogous to that of an _adjustment layer_ in that both make an incremental adjustment to the image, building on top of the adjustments that came before.
+The basic element of image processing in Ansel is the [processing module](../../module-reference/processing-modules/). In order to process a raw image a number of such modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in Ansel is analogous to that of an _adjustment layer_ in that both make an incremental adjustment to the image, building on top of the adjustments that came before.
 
-[Utility modules](../../module-reference/utility-modules/) are also provided by darktable, however these are not directly involved in image processing, instead providing a GUI that allows you to manage your images, tag them, export them etc.
+[Utility modules](../../module-reference/utility-modules/) are also provided by Ansel, however these are not directly involved in image processing, instead providing a GUI that allows you to manage your images, tag them, export them etc.
 
 Every processing module acts independently of the others, but all modules perform their processing in a similar manner:
 
@@ -17,9 +17,9 @@ Every processing module acts independently of the others, but all modules perfor
 
 2. Combine the _module input_ and _processed output_ using a [blending operator](../masking-and-blending/blend-modes.md) to produce the _blended output_. If no blending is performed, the output of this step is the same as the _processed output_.
 
-3. Generate a _mask_, which defines an _opacity_ for each pixel in the image. The _opacity_ is later used to control how strongly the module's operation is applied to each part of the image. 
+3. Generate a _mask_, which defines an _opacity_ for each pixel in the image. The _opacity_ is later used to control how strongly the module's operation is applied to each part of the image.
 
-   You may define your own mask by drawing shapes over the image or by using pixel properties from the _module input_ or _processed output_ (see [masks](../masking-and-blending/masks/_index.md) for details). This mask may be further modified with a global opacity setting, which affects every pixel equally. 
+   You may define your own mask by drawing shapes over the image or by using pixel properties from the _module input_ or _processed output_ (see [masks](../masking-and-blending/masks/_index.md) for details). This mask may be further modified with a global opacity setting, which affects every pixel equally.
 
    If no drawn/parametric mask is used, the output of this step is a mask where every pixel has the same opacity (governed by the global opacity setting). If no opacity is defined (no blending is performed) a global opacity of 1.0 (or 100%) is assumed.
 

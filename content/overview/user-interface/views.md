@@ -6,7 +6,7 @@ weight: 10
 author: "people"
 ---
 
-The functionality in darktable is separated into six different views:
+The functionality in Ansel is separated into six different views:
 
 [lighttable](../../lighttable/_index.md)
 : Manage images and collections.
@@ -34,4 +34,3 @@ You can switch between views by clicking the view name at the top of the right-h
  - `P` switches to print
  - `S` switches to slideshow
  - `T` switches to tethering
-

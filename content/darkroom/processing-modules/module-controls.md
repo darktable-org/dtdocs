@@ -27,7 +27,7 @@ right-click
 
 : A bent line extending from the triangular marker moves with your mouse. The closer your mouse pointer is to the triangular marker the coarser the control you have over the value; the further away from the triangular marker the finer your control. Left-click with your mouse to accept the new value and hide the pop-up.
 
-: Alternatively you can type in a new value using your keyboard and commit by hitting the Enter key. You may even supply the new value in the form of an arithmetic expression which darktable will calculate for you -- the previous value is referenced as “x”.
+: Alternatively you can type in a new value using your keyboard and commit by hitting the Enter key. You may even supply the new value in the form of an arithmetic expression which Ansel will calculate for you -- the previous value is referenced as “x”.
 
 : For most sliders, the minimum and maximum values displayed are known as "soft limits" -- they do not represent the minimum/maximum values that you may enter, merely a suggested range of "normal" values that most users will not need to exceed. As well as these soft limits, each slider also has "hard limits" which may not be exceeded.
 
@@ -38,7 +38,7 @@ double-click
 
 In addition, the speed of mouse-wheel, arrow-key and click+drag adjustments can be altered:
 
- - hold down the Shift key while adjusting to _increase_ the step size by a factor of 10. 
+ - hold down the Shift key while adjusting to _increase_ the step size by a factor of 10.
  - hold down the Ctrl key while adjusting to _decrease_ the step size by a factor of 10.
 
 Both of these multipliers can be amended in [preferences > shortcuts](../../preferences-settings/shortcuts.md) by altering the speed of the fallbacks/value actions.

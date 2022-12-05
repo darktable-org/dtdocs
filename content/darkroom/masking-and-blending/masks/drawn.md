@@ -7,7 +7,7 @@ draft: false
 
 With the drawn mask feature you can construct a mask by drawing shapes directly onto the image canvas. Shapes can be used alone or in combination. Once a shape has been drawn on an image it can be adjusted, removed, or reused in other modules.
 
-Shapes are stored internally as vectors and are rendered with the required resolution during pixelpipe processing. Shapes are expressed in the coordinate system of the original image and are transformed along with the rest of the image by any active distorting modules in the pipe ([_lens correction_](../../../module-reference/processing-modules/lens-correction.md), [_rotate and perspective_](../../../module-reference/processing-modules/rotate-perspective.md) for example). This means that a shape will always work on the same image area regardless of any modifications that may be subsequently applied. 
+Shapes are stored internally as vectors and are rendered with the required resolution during pixelpipe processing. Shapes are expressed in the coordinate system of the original image and are transformed along with the rest of the image by any active distorting modules in the pipe ([_lens correction_](../../../module-reference/processing-modules/lens-correction.md), [_rotate and perspective_](../../../module-reference/processing-modules/rotate-perspective.md) for example). This means that a shape will always work on the same image area regardless of any modifications that may be subsequently applied.
 
 The controls required to create and alter drawn masks may be enabled by selecting either the "drawn mask" or "drawn & parametric mask" icon at the bottom of a module. You can also create and edit shapes using the [mask manager](../../../module-reference/utility-modules/darkroom/mask-manager.md) module.
 
@@ -17,7 +17,7 @@ Choose a shape by clicking on the appropriate shape icon (from left to right: ci
 
 ![shape icons](./drawn/shape-icons.png)
 
-This will take you into the creation mode for that shape. Once you have finished drawing your shape you will automatically be taken into edit mode. 
+This will take you into the creation mode for that shape. Once you have finished drawing your shape you will automatically be taken into edit mode.
 
 Ctrl+click on the shape icon to continuously draw multiple shapes of the same type -- each time a shape is completed, you will re-enter creation mode for a new instance of that shape. While in continuous creation mode, right-click on the image to stop drawing shapes and enter edit mode.
 
@@ -74,12 +74,12 @@ path
 
 : The size of the completed shape can be modified by scrolling. The same holds true for the width of the border (the area with a gradual opacity decay), which can also be changed with Shift+scroll (with the mouse wheel) from anywhere within the shape. Single nodes as well as path segments can be moved by dragging them with the mouse. If a node is selected by clicking on it, a further control point appears which allows you to modify the curvature of the line (reset to default by right-clicking). Dragging one of the control points on the border adjusts the border width just in that part of the shape.
 
-: Consider fine-tuning paths in restricted edit mode (enabled by Ctrl+clicking on the 'show and edit mask elements' icon). This allows you to adjust single nodes and segments without the risk of accidentally shifting or resizing the whole shape. 
+: Consider fine-tuning paths in restricted edit mode (enabled by Ctrl+clicking on the 'show and edit mask elements' icon). This allows you to adjust single nodes and segments without the risk of accidentally shifting or resizing the whole shape.
 
 brush
 : Start drawing a brush stroke by left-clicking on the image canvas and moving the mouse while keeping the button pressed. The brush stroke is finalized once you release the mouse button. Scroll the mouse to change the shape size and Shift+scroll to change the feathering (hardness), either before you start drawing or at any time during the operation. Likewise you can use the "`{`" and "`}`" keys to decrease/increase hardness, and the "`<`" and "`>`" keys to decrease/increase opacity.
 
-: If you have a graphics tablet with pen pressure sensitivity, darktable can apply the recorded pen pressure to certain attributes of the brush stroke. This operation can be controlled in [preferences > darkroom > pen pressure control for brush masks](../../../preferences-settings/darkroom.md).
+: If you have a graphics tablet with pen pressure sensitivity, Ansel can apply the recorded pen pressure to certain attributes of the brush stroke. This operation can be controlled in [preferences > darkroom > pen pressure control for brush masks](../../../preferences-settings/darkroom.md).
 
 : On lifting the tablet pen or releasing the left mouse button the brush stroke is converted into a number of connected nodes, which define the final shape. A configuration option ([preferences > darkroom > smoothing of brush strokes](../../../preferences-settings/darkroom.md)) controls how much smoothing is applied. A higher level of smoothing leads to fewer nodes being created – this eases subsequent editing at the expense of lower accuracy.
 
@@ -94,15 +94,15 @@ brush
 gradient
 : The gradient shape is a linear gradient which extends from a given point to the edge of the image.
 
-: Click on the image canvas to define the position of the line that defines 50% opacity. Dotted lines indicate the distance beyond which the opacity is 100% and 0%. Between these dotted lines the opacity changes linearly. 
+: Click on the image canvas to define the position of the line that defines 50% opacity. Dotted lines indicate the distance beyond which the opacity is 100% and 0%. Between these dotted lines the opacity changes linearly.
 
 : The line has two anchor nodes which you can drag to change the rotation of the gradient. You can also set the rotation angle when placing the gradient shape by clicking and dragging to place the shape.
 
-: Gradient lines can also be curved by scrolling with your mouse while hovering close to the center line. This can be useful to counteract the distortion caused by the [_lens correction_](../../../module-reference/processing-modules/lens-correction.md) module. 
+: Gradient lines can also be curved by scrolling with your mouse while hovering close to the center line. This can be useful to counteract the distortion caused by the [_lens correction_](../../../module-reference/processing-modules/lens-correction.md) module.
 
 : Depending on the module and the underlying image, using a gradient shape might provoke banding artifacts. You should consider activating the [_dithering_](../../../module-reference/processing-modules/dithering.md) module to alleviate this.
 
-# reversing the polarity of a drawn mask 
+# reversing the polarity of a drawn mask
 
 Click on the "`+/-`" button to reverse the polarity of the entire drawn mask. For example, a circular mask will, by default, cause the module to be applied only to the area inside the drawn circle. Reversing its polarity will cause the module to apply to the whole image, _except for_ that circle.
 

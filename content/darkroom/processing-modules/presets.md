@@ -51,7 +51,7 @@ auto apply this preset to matching images _(processing modules only)_
 
 : For example, if you want a preset to be applied to all images from a specific camera leave all fields at default values except for "model". Leave all fields unchanged to auto-apply a preset to all images.
 
-: The example dialog above sets up following rules: if the lens name matches, the aperture is greater than or equal to f/8 and the focal length is between 24 and 35mm the preset will be automatically applied. 
+: The example dialog above sets up following rules: if the lens name matches, the aperture is greater than or equal to f/8 and the focal length is between 24 and 35mm the preset will be automatically applied.
 
 : _The [image information](../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
 
@@ -81,14 +81,14 @@ aperture
 : Only apply the preset if the aperture of your image lies within the given range; set f/0 as the lower value to match arbitrarily open apertures; set f/+ as the upper value to match arbitrarily closed apertures.
 
 focal length
-: Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
+: Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000).
 
 format
 : Only apply the preset to certain types of image. Check a box to include files matching a criterion; uncheck the box to exclude those files. Choose from "raw", "non-raw", "HDR", "monochrome" and "color".
 
 ---
 
-**Note**: If you deselect both "raw" and "non-raw" the filter will not apply to any files (since all supported files are either raw or non-raw). Similarly if you deselect both "monochrome" and "color". 
+**Note**: If you deselect both "raw" and "non-raw" the filter will not apply to any files (since all supported files are either raw or non-raw). Similarly if you deselect both "monochrome" and "color".
 
 ---
 
@@ -100,7 +100,6 @@ Both user-defined and internal presets can be viewed and managed from within [pr
 
 **Note:** If you create a user-defined preset with the same name as a built-in preset, your preset will override the built-in version, which will no longer be accessible.
 
-If you delete a preset that has the same name as one of the built-in presets, then your user preset will be deleted, and that preset name will no longer appear in the preset menu at all. The next time you start darktable, the corresponding built-in preset will once again become visible.
+If you delete a preset that has the same name as one of the built-in presets, then your user preset will be deleted, and that preset name will no longer appear in the preset menu at all. The next time you start Ansel, the corresponding built-in preset will once again become visible.
 
 ---
-

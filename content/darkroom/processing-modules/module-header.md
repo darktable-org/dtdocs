@@ -5,13 +5,13 @@ weight: 10
 draft: false
 ---
 
-At the top of each processing module is the _module header_. 
+At the top of each processing module is the _module header_.
 
 ![module header](./module-header/module-header.png#w33)
 
 Click on the module name to expand the module and display the parameters that control its operation.
 
-By default darktable will only allow one processing module to be expanded at a time -- if you click the header of another module, the previously-opened module's controls are collapsed. If you want to expand more than one module, you may expand further modules by Shift+clicking on the header and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [preferences > darkroom](../../../preferences-settings/darkroom.md).
+By default Ansel will only allow one processing module to be expanded at a time -- if you click the header of another module, the previously-opened module's controls are collapsed. If you want to expand more than one module, you may expand further modules by Shift+clicking on the header and all previously expanded modules will remain open. This behaviour can be reversed via a setting in [preferences > darkroom](../../../preferences-settings/darkroom.md).
 
 ---
 
@@ -29,10 +29,10 @@ on/off button
 module name
 : The module name consists of a description of the module's operation (which cannot be changed) followed by the module's instance name (which can). By default the first instance of a module has an empty instance name. If you create additional instances, the name of each new instance is initiated with a unique integer. For example, the second created instance of an exposure module will be automatically named `exposure 1`.
 
-: Ctrl+click on a module's name to manually amend its instance name. 
+: Ctrl+click on a module's name to manually amend its instance name.
 
 mask toggle
-: This icon will appear in the header whenever a [mask](../masking-and-blending/masks/_index.md) is active on a module. Hover over the icon to see what type of mask is enabled. Click it to display the current mask as a yellow overlay over a black-and-white version of the image. Solid yellow indicates an opacity of 100%; a fully visible gray background image (without yellow overlay) indicates an opacity of 0%. This toggle button can be disabled in [preferences > darkroom > show mask indicator in module headers](../../preferences-settings/darkroom.md#modules). 
+: This icon will appear in the header whenever a [mask](../masking-and-blending/masks/_index.md) is active on a module. Hover over the icon to see what type of mask is enabled. Click it to display the current mask as a yellow overlay over a black-and-white version of the image. Solid yellow indicates an opacity of 100%; a fully visible gray background image (without yellow overlay) indicates an opacity of 0%. This toggle button can be disabled in [preferences > darkroom > show mask indicator in module headers](../../preferences-settings/darkroom.md#modules).
 
 multiple instance menu
 : This menu allows you to create, delete, move and rename module instances. Right-click on this icon to directly create a new instance of the module. See the [multiple instances](./multiple-instances.md) section for more information.

@@ -19,16 +19,16 @@ ESC                  leave slideshow mode and return to lighttable view.
 
 
 + or                 increase delay between each image.
-up arrow 
+up arrow
 
 - or                 decrease delay between each image.
 down arrow
 
-left-click or        
+left-click or
 right arrow or       switch to the next image of the collection.
 right shift-key
 
-right-click or       
+right-click or
 left arrow or        switch to the previous image of the collection.
 left shift-key
 
@@ -36,7 +36,6 @@ left shift-key
 
 ---
 
-**Hint:** To take full advantage of your screen size, put darktable into fullscreen mode by pressing F11 and hide the border-controls by pressing the B key.
+**Hint:** To take full advantage of your screen size, put Ansel into fullscreen mode by pressing F11 and hide the border-controls by pressing the B key.
 
 ---
-

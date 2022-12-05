@@ -19,13 +19,13 @@ The manual structure and content have been carefully considered based on the fol
 1. Images should be included only where necessary to improve understanding of key principles and should not contain text unless it is unavoidable
 
 We are generally **not** interested in:
-1. Restructuring the manual 
+1. Restructuring the manual
 1. Switching markup languages
-1. Detailed workflow tutorials (though we are interested in publishing those on the blogs of either darktable.org or pixls.us)
+1. Detailed workflow tutorials (though we are interested in publishing those on the blogs of either ansel.photos or pixls.us)
 
-We **are** interested in 
-1. Spelling and grammar corrections 
-1. Clarification of text 
+We **are** interested in
+1. Spelling and grammar corrections
+1. Clarification of text
 1. Documentation for new features
 
 We are always extremely interested in hearing about which sections of the manual did not make sense to you and *why*, so that we can improve the documentation.
@@ -55,7 +55,7 @@ example-chapter/
    section3.md
 ```
 
-A couple of notes on the above structure: 
+A couple of notes on the above structure:
 
 - `_index.md` files do not contain any content (they contain metadata only) and are used to render section headers and ToC entries. In the above example `example-chapter/_index.md` defines the title of the example chapter and the order in which it appears in the main table of contents. Similarly `example-chapter/section1-with-subsections/_index.md` defines metadata for the first section of the chapter.
 - Media files should be contained in a directory with the same name as the page to which they relate. In this example, `example-chapter/section1-with-subsections/subsection1` contains media related to the `subsection1.md` page.
@@ -115,7 +115,7 @@ weight
 
 ## definition lists
 
-The standard method of presenting information about darktable module controls is with the use of definition lists. 
+The standard method of presenting information about darktable module controls is with the use of definition lists.
 
 gui control name
 : A declaration of what the control does. For example "Set the exposure in EV units".
@@ -175,9 +175,8 @@ image width
 
 inline
 : With the exception of icons, images are included as block elements by default. You can override this by including `#inline` after the image name. This can be combined with the width setting as follows.
-: `![squirrel](./contributing/squirrel.png#w25#inline)` outputs ![squirrel](./contributing/squirrel.png#w25#inline) 
+: `![squirrel](./contributing/squirrel.png#w25#inline)` outputs ![squirrel](./contributing/squirrel.png#w25#inline)
 
 default
 : By default images are presented as block elements with 100% width. So `![squirrel](./contributing/squirrel.png#w100)` and `![squirrel](./contributing/squirrel.png)` are equivalent and both output the following:
 : ![squirrel](./contributing/squirrel.png)
-

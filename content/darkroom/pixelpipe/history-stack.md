@@ -5,9 +5,9 @@ weight: 30
 draft: false
 ---
 
-The _history stack_ stores the entire editing history for a given image, in the order in which those edits were applied. It is saved to darktable's library database and the image's XMP sidecar file and persists between editing sessions.
+The _history stack_ stores the entire editing history for a given image, in the order in which those edits were applied. It is saved to Ansel's library database and the image's XMP sidecar file and persists between editing sessions.
 
-Each time a processing module is enabled, disabled, moved or amended a new entry is added to the top of the _history stack_. 
+Each time a processing module is enabled, disabled, moved or amended a new entry is added to the top of the _history stack_.
 
 The history stack can be queried and modified within the [history stack](../../../module-reference/utility-modules/darkroom/history-stack.md) module in the darkroom.
 

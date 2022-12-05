@@ -1,16 +1,12 @@
 ---
-title: darktable
+title: Ansel
 id: user-manual
 draft: false
 author: "people"
 ---
 
-<span class="webonly">![](./darktable-logo.png#w50)</span>
 
-darktable is an open source photography workflow application and raw developer — a virtual lighttable and darkroom for photographers. It manages your digital negatives in a database, lets you view them through a zoomable lighttable and enables you to develop and enhance your raw images.
+This documentation is derivated from [darktable 4.0 user manual](https://github.com/darktable-org/dtdocs.git) and further developed under the [Ansel project](https://github.com/aurelienpierreeng/ansel-doc), where comments, suggestions and corrections can be made. It is released under the [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
 
-The source repository for this documentation may be found at [https://github.com/darktable-org/dtdocs.git](https://github.com/darktable-org/dtdocs.git). Any feedback relating to this documentation can be provided by creating a [ticket](https://github.com/darktable-org/dtdocs/issues/new) or a pull request against this repository.
 
-<span class="webonly">You can also click on the following links to download the manual in [PDF](darktable_user_manual.pdf) or [epub](darktable_user_manual.epub) format.</span>
-
-This documentation is released under the [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
+[Darkroom modules](./darkroom/_index.md) that have been deprecated in either Ansel or darktable 4.0 are not documented here and can be found on [darktable user manual](https://docs.darktable.org).

@@ -6,4 +6,4 @@ draft: false
 author: "people"
 ---
 
-darktable comes with a versatile scripting interface language for functionality enhancement.
+Ansel comes with a versatile scripting interface language for functionality enhancement.

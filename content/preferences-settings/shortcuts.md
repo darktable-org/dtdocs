@@ -5,22 +5,22 @@ weight: 120
 draft: false
 ---
 
-You can perform almost any action in darktable with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _external devices_ or just _devices_ in this guide.
+You can perform almost any action in Ansel with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _external devices_ or just _devices_ in this guide.
 
 # defining shortcuts
 
-A _shortcut_ is a combination of key or button presses and/or mouse or device movements that performs an _action_ in darktable.
+A _shortcut_ is a combination of key or button presses and/or mouse or device movements that performs an _action_ in Ansel.
 
-A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
+A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given Ansel view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
 
 ## initiating a shortcut
 
 A shortcut must be initiated by either
 
 - pressing a key on the keyboard; or
-- pressing a button or moving a knob/joystick on an external device 
+- pressing a button or moving a knob/joystick on an external device
 
-You cannot initiate a shortcut by moving your mouse or pressing one of its buttons, as these actions are used to interact with darktable's UI.
+You cannot initiate a shortcut by moving your mouse or pressing one of its buttons, as these actions are used to interact with Ansel's UI.
 
 ## simple shortcuts
 
@@ -46,7 +46,7 @@ For certain actions you can choose to _extend_ a simple shortcut using mouse/dev
 - Horizontal, vertical or diagonal movement of the mouse cursor
 - Movement of a knob/joystick on an external device
 
-To extend a simple shortcut, you must hold the final key/button of the simple shortcut while performing the extending mouse/device movement. 
+To extend a simple shortcut, you must hold the final key/button of the simple shortcut while performing the extending mouse/device movement.
 
 For external devices you do not need to start with a _simple_ shortcut -- you can directly assign a control knob or joystick to an action -- though this will significantly reduce the flexibility of such devices.
 
@@ -60,9 +60,9 @@ Long button and key presses cannot be extended, as the length of the click/press
 
 # actions
 
-Shortcuts are used to initiate _actions_ within darktable. 
+Shortcuts are used to initiate _actions_ within Ansel.
 
-An _action_ is usually (but not always) an operation that you might undertake using darktable's point-and-click user interface. For example:
+An _action_ is usually (but not always) an operation that you might undertake using Ansel's point-and-click user interface. For example:
 
 - Increase, decrease or reset sliders
 - Scroll through dropdown lists
@@ -73,7 +73,7 @@ An _action_ is usually (but not always) an operation that you might undertake us
 Such point-and-click type _actions_ are normally defined as the application of an _effect_ to an _element_ of a _widget_, where these terms are defined as follows:
 
 widget
-: Each visible part of the user interface is known as a _widget_. For example the darktable application window is a widget, containing side panel widgets, each of which contains module widgets, each of which contains button, slider and dropdown list widgets etc... When assigning a shortcut to an action, you must first decide which widget it is to be applied to.
+: Each visible part of the user interface is known as a _widget_. For example the Ansel application window is a widget, containing side panel widgets, each of which contains module widgets, each of which contains button, slider and dropdown list widgets etc... When assigning a shortcut to an action, you must first decide which widget it is to be applied to.
 
 element
 : An _element_ is the part of a UI widget that is affected by your shortcut. For example, for a slider that has a color picker, you can make a shortcut activate the color picker _button_ element or change the _value_ element of the slider. For a row of tabs (the row is a single widget) you can select which tab element to activate or use your mouse scroll wheel to scroll through the tabs.
@@ -87,17 +87,17 @@ There are two primary methods of assigning a shortcut to an action.
 
 ## visual shortcut mapping
 
-Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md) of any darktable view to enter visual shortcut mapping mode. If you hold Ctrl while clicking the button, no confirmation will appear when overwriting an existing shortcut mapping.
+Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md) of any Ansel view to enter visual shortcut mapping mode. If you hold Ctrl while clicking the button, no confirmation will appear when overwriting an existing shortcut mapping.
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
 - A down arrow with a line ![expand icon](./shortcuts/expand-icon.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
-- A spiral ![spiral icon](./shortcuts/spiral-icon.png#icon) indicates that a shortcut can be defined for the widget under the cursor. 
+- A spiral ![spiral icon](./shortcuts/spiral-icon.png#icon) indicates that a shortcut can be defined for the widget under the cursor.
 - An up arrow ![up icon](./shortcuts/up-icon.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
 - A down arrow ![down icon](./shortcuts/down-icon.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
-- A cross ![cross icon](./shortcuts/cross-icon.png#icon) indicates that there is no mappable widget under the cursor. 
+- A cross ![cross icon](./shortcuts/cross-icon.png#icon) indicates that there is no mappable widget under the cursor.
 
-Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
+Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions.
 
 Left-click on a mappable widget to open the shortcut mapping screen for that widget (see below). Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. This screen can be used to alter the action assigned to a shortcut and to configure shortcuts for non-visual actions. Entering the shortcut mapping screen exits visual shortcut mapping mode.
 
@@ -123,24 +123,24 @@ export...
 : Export the current shortcut mappings for one or all of your devices (keyboard/mouse, midi, game controller) to an external file. The dialog will show you how many shortcuts exist for each device.
 
 import...
-: Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts. 
+: Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts.
 
 restore...
-: Restore your shortcut mappings to (a) The mappings shipped with darktable by default, (b) The start of your current session, or (c) The point at which the shortcut mapping screen was last opened. When restoring, you can choose to leave any additional shortcuts that were added after the relevant checkpoint as they are, so that only changed shortcuts are restored to their previous meaning. Or you can choose to first clear all shortcuts and just load the restore point.
+: Restore your shortcut mappings to (a) The mappings shipped with Ansel by default, (b) The start of your current session, or (c) The point at which the shortcut mapping screen was last opened. When restoring, you can choose to leave any additional shortcuts that were added after the relevant checkpoint as they are, so that only changed shortcuts are restored to their previous meaning. Or you can choose to first clear all shortcuts and just load the restore point.
 
 ## deleting default shortcuts
 
-When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). 
+When launching the application, Ansel loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart).
 
 There are two ways to delete default shortcuts:
 
 ### prevent default shortcuts from being reloaded
 
-Disable [preferences > miscellaneous > interface > load default shortcuts at startup](./miscellaneous.md) to prevent default shortcuts from being reloaded. While this option is disabled, darktable will only load user-defined shortcuts and any defaults that you have not subsequently deleted or overridden.
+Disable [preferences > miscellaneous > interface > load default shortcuts at startup](./miscellaneous.md) to prevent default shortcuts from being reloaded. While this option is disabled, Ansel will only load user-defined shortcuts and any defaults that you have not subsequently deleted or overridden.
 
 ### override default shortcut with a no-op action
 
-You can _override_ the action of a default shortcut by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/darktable/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit darktable first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in darktable:
+You can _override_ the action of a default shortcut by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/Ansel/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit Ansel first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in Ansel:
 
 ```
 d=global/switch views/darkroom
@@ -170,15 +170,15 @@ Note that it is possible to assign a number of actions that have no effect. For 
 
 ## global
 
-Actions in the "global" section of the shortcut mapping screen can be executed from any darktable view. Most of these actions do not have specific _elements_ as they are used to perform one-off operations.
+Actions in the "global" section of the shortcut mapping screen can be executed from any Ansel view. Most of these actions do not have specific _elements_ as they are used to perform one-off operations.
 
 ## views
 
-Actions in the "views" section can only be executed from the specified darktable view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
+Actions in the "views" section can only be executed from the specified Ansel view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-## buttons 
+## buttons
 
-A button is a clickable icon in the darktable interface. The default action, when assigning a simple shortcut to a _button_, is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
+A button is a clickable icon in the Ansel interface. The default action, when assigning a simple shortcut to a _button_, is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
 
 ## toggles
 
@@ -225,7 +225,7 @@ You can also assign scroll shortcuts to the 'preset' menu, which allows you to u
 A dropdown is a multi-selection box and has the following elements available:
 
 _selection_
-: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a simple shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values. 
+: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a simple shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values.
 
 _button_
 : A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
@@ -270,4 +270,4 @@ To see a list of _all_ of the default fallbacks, click the "enable fallbacks" ch
 
 Fallbacks are only applied if no other shortcut using that combination has been explicitly created. In the above example, if you were to explicitly assign Ctrl+R+left-click to another action, the "enable/disable module" fallback would be ignored.
 
-As with any other shortcut, fallback settings are fully customizable. 
+As with any other shortcut, fallback settings are fully customizable.

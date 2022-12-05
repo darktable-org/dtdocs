@@ -26,7 +26,7 @@ $(JOBCODE)           unique identifier of the import job
 $(SEQUENCE)          a sequence number within the import job
 $(MAX_WIDTH)         maximum image width to limit within export session
 $(MAX_HEIGHT)        maximum image height to limit within export session
-$(ID)                unique identification number of the image in darktable's database
+$(ID)                unique identification number of the image in Ansel's database
 $(YEAR)              year at the date of import
 $(MONTH)             month at the date of import
 $(DAY)               day at the date of import
@@ -43,7 +43,7 @@ $(EXIF_ISO)          ISO value of the photo (from Exif data)
 ```
 
 base directory naming pattern
-: The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`).
+: The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Ansel`).
 
 sub directory naming pattern
 : The sub directory part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).

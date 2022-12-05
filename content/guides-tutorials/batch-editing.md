@@ -6,7 +6,7 @@ weight: 110
 author: "people"
 ---
 
-Batch-editing is the process of developing images in a semantically-related series that are expected to have a consistent final look, often with the intent of publishing the images in catalogues, magazines or books. It can be a tedious, frustrating and unexciting task, so darktable includes functionality to help make it faster and more reliable.
+Batch-editing is the process of developing images in a semantically-related series that are expected to have a consistent final look, often with the intent of publishing the images in catalogues, magazines or books. It can be a tedious, frustrating and unexciting task, so Ansel includes functionality to help make it faster and more reliable.
 
 # preparation
 

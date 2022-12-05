@@ -2,7 +2,7 @@
 title: scopes
 id: scopes
 applicable-version: 3.8
-tags: 
+tags:
 view: lighttable, tethering
 ---
 
@@ -38,7 +38,7 @@ The waveform scope shows similar data to the histogram, but allows you to view t
 
 In the "standard" horizontal waveform, the x-axis of the waveform represents the x-axis of the image -- the right-hand side of the waveform represents the right-hand side of the image and the left-hand side of the waveform represents the left-hand side of the image.
 
-The y-axis represents the distribution of pixels by lightness for each channel -- the dotted line at the top represents 100% lightness (values above this may be clipped), the dotted line in the middle represents 50% lightness, and the bottom of the waveform represents 0% lightness. 
+The y-axis represents the distribution of pixels by lightness for each channel -- the dotted line at the top represents 100% lightness (values above this may be clipped), the dotted line in the middle represents 50% lightness, and the bottom of the waveform represents 0% lightness.
 
 The brightness of each point on the waveform represents the number of pixels at the given position (the x-axis) having the given lightness (the y-axis).
 
@@ -48,7 +48,7 @@ Clicking the second-to-leftmost button on the panel toggles between a horizontal
 
 As with the histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
 
-See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histograms-and-waveforms/) for more on darktable's waveform scope.
+See [Of Histograms and Waveforms](https://www.ansel.photos/2013/12/of-histograms-and-waveforms/) for more on darktable's waveform scope.
 
 # rgb parade
 
@@ -66,7 +66,7 @@ The RGB parade can be useful for matching the intensities of the red, green, and
 
 ![vectorscope](./scopes/vectorscope.png#w50)
 
-The vectorscope shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data. 
+The vectorscope shows [chromaticity](https://en.wikipedia.org/wiki/Chromaticity) without regard to either lightness or spatial data.
 
 The distance from the center of the graph represents chroma and the angle represents hue. Areas of the graph are colored depending on the chromaticity of the color to which they correspond in the image. The graph represents color "volume" by rendering the more frequently used colors in the image in lighter tones.
 

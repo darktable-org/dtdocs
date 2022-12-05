@@ -2,7 +2,7 @@
 title: lens correction
 id: lens-correction
 applicable-version: 3.8
-tags: 
+tags:
 working-color-space: RGB
 view: darkroom
 masking: false
@@ -12,13 +12,13 @@ Automatically correct for (and simulate) lens distortion, transversal chromatic 
 
 This module identifies the camera/lens combination from the image's Exif data and uses the external [lensfun library](https://lensfun.github.io/) to provide correction parameters.
 
-If your system's lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu. 
+If your system's lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu.
 
 If your lens is present in the list but has not been correctly identified, this may require some adjustment within the exiv2 program (see [this post](https://dev.exiv2.org/boards/3/topics/2854) for details). Note that you may need to re-import the images once such adjustments have been made as the lens name is retrieved as part of the import process.
 
 By default, only the lenses that are directly compatible with your camera's mount are listed and automatically identified. If you are using lenses for a different mount with an adapter (for example a Four Thirds lens adapted to a Micro Four Thirds body), then you must run the [`lensfun-add-adapter`](https://lensfun.github.io/manual/v0.3.2/lensfun-add-adapter.html) tool to enable those lenses.
 
-If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running the [`lensfun-update-data`](https://lensfun.github.io/manual/v0.3.2/lensfun-update-data.html) tool. If there is still no matching profile for your lens, a [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) is offered by Torsten Bronger, one of darktable's users. Alternatively you may visit the [lensfun project](https://lensfun.github.io/lenslist/) to learn how to generate your own set of correction parameters. Don't forget to share your profile with the lensfun team!
+If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running the [`lensfun-update-data`](https://lensfun.github.io/manual/v0.3.2/lensfun-update-data.html) tool. If there is still no matching profile for your lens, a [lens calibration service](https://www.ansel.photos/2013/07/have-your-lens-calibrated/) is offered by Torsten Bronger, one of darktable's users. Alternatively you may visit the [lensfun project](https://lensfun.github.io/lenslist/) to learn how to generate your own set of correction parameters. Don't forget to share your profile with the lensfun team!
 
 # module controls
 
@@ -26,7 +26,7 @@ camera
 : The camera make and model as determined by the image's Exif data. You can override this manually and select your camera from a hierarchical menu. Only lenses with correction profiles matching the selected camera will be shown.
 
 lens
-: The lens make and model as determined by the image's Exif data. You can override this manually and select your lens from a hierarchical menu. This is mainly required for pure mechanical lenses, but may also be needed for off-brand / third party lenses. 
+: The lens make and model as determined by the image's Exif data. You can override this manually and select your lens from a hierarchical menu. This is mainly required for pure mechanical lenses, but may also be needed for off-brand / third party lenses.
 
 photometric parameters (focal length, aperture, focal distance)
 : Lens corrections depend on certain photometric parameters that are read from the image's Exif data: focal length (for distortion, TCA, vignetting), aperture (for TCA, vignetting) and focal distance (for vignetting). Many cameras do not record focal distance in their Exif data, in which case you will need to set this manually.
@@ -64,4 +64,3 @@ corrections done
 
 show guides
 : Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
-
