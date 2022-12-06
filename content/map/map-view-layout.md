@@ -40,4 +40,4 @@ Here you can find the modules specific to the map view. From top to bottom:
 # bottom panel
 
 [filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
-: Drag images from the filmstrip onto the map as described in the map [overview](./overview.md).
+: Drag images from the filmstrip onto the map as described in the map [overview](./).

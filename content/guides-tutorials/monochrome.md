@@ -48,7 +48,7 @@ This approach tends to work with linear scene-referred data from the sensor, and
 
 2. Apply a luminosity saturation curve. As a piece of photographic film is exposed to more intense light, its response will fall off as the silver emulsion becomes saturated. This saturation curve can be simulated within the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) module.
 
-3. Developing a monochrome film in the darkroom traditionally involves "dodging and burning" to control the level of exposure across different parts of the image. This can be emulated in Ansel by using either the [_exposure_](../module-reference/processing-modules/exposure.md) module with manually created [masks](../darkroom/masking-and-blending/overview.md), or by using the [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md) module, which generates a mask using a guided filter.
+3. Developing a monochrome film in the darkroom traditionally involves "dodging and burning" to control the level of exposure across different parts of the image. This can be emulated in Ansel by using either the [_exposure_](../module-reference/processing-modules/exposure.md) module with manually created [masks](../darkroom/masking-and-blending/), or by using the [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md) module, which generates a mask using a guided filter.
 
 ## perceptual approach
 
