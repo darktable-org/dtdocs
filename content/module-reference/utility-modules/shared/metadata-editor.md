@@ -35,7 +35,7 @@ You may use the keyboard to navigate and apply changes while any of the metadata
 
 # preferences
 
-The "preferences…" option in the presets menu brings up a dialog where you can configure how metadata is handled within darktable. For each metadata item, two check boxes allow you to restrict how metadata is handled:
+The "preferences…" option in the presets menu brings up a dialog where you can configure how metadata is handled within Ansel. For each metadata item, two check boxes allow you to restrict how metadata is handled:
 
 visible
 : Show or hide this metadata field. Hidden fields are not included in exported images.

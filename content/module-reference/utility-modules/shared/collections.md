@@ -8,7 +8,7 @@ view: lighttable, tethering, map
 
 Filter the images shown in the lighttable view and filmstrip panel using image attributes. This set of filtered images is known as a _collection_.
 
-Importing images into darktable stores information about them (filename, path, Exif data, data from XMP sidecar files etc.) in darktable's library database. A collection may be  defined by applying filtering rules to these attributes, thus creating a subset of images to display in the lighttable view and the filmstrip module.
+Importing images into Ansel stores information about them (filename, path, Exif data, data from XMP sidecar files etc.) in Ansel's library database. A collection may be  defined by applying filtering rules to these attributes, thus creating a subset of images to display in the lighttable view and the filmstrip module.
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
 
@@ -19,10 +19,10 @@ The images in a collection can be filtered using the following image attributes:
 ## files
 
 film roll
-: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Ctrl+Shift+click on a film roll to switch to the corresponding folder. Right-click to remove the contents of the film roll from the darktable library or tell darktable that its location has changed in the file system.
+: The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Ctrl+Shift+click on a film roll to switch to the corresponding folder. Right-click to remove the contents of the film roll from the Ansel library or tell Ansel that its location has changed in the file system.
 
 folder
-: The folder (file path) where the image file is located. Click on a folder to include the contents of that folder and all sub-folders in the collection; Shift+click to include only the images in the selected folder; Ctrl+click to show only the images from any sub-folders; Ctrl+Shift+click to switch to the corresponding film roll. Right-click on a folder name to remove its contents from the darktable library or tell darktable that its location has changed in the file system.
+: The folder (file path) where the image file is located. Click on a folder to include the contents of that folder and all sub-folders in the collection; Shift+click to include only the images in the selected folder; Ctrl+click to show only the images from any sub-folders; Ctrl+Shift+click to switch to the corresponding film roll. Right-click on a folder name to remove its contents from the Ansel library or tell Ansel that its location has changed in the file system.
 
 filename
 : The image's filename.
@@ -103,9 +103,9 @@ ISO
 : The ISO, as derived from Exif data.
 
 aspect ratio
-: The aspect ratio of the image, including any cropping within darktable.
+: The aspect ratio of the image, including any cropping within Ansel.
 
-## darktable
+## Ansel
 
 grouping
 : Choose between "group followers" and "group leaders".
@@ -165,7 +165,7 @@ The logical operators defining how rules are combined are indicated with icons t
 
 ## updating the folder path of moved images
 
-While it is best to not touch imported files behind darktable's back, this module can help you to recover from situations when you have moved or renamed image folders after importing them. The collections module has a feature that allows you to update darktable's library database with the new folder location. The process is as follows:
+While it is best to not touch imported files behind Ansel's back, this module can help you to recover from situations when you have moved or renamed image folders after importing them. The collections module has a feature that allows you to update Ansel's library database with the new folder location. The process is as follows:
 
 1. Set the _image attribute_ combobox to "folder" or "film roll".
 1. The original film roll or folder name will be displayed with ~~strikethrough~~ formatting to emphasize that it can not be located.

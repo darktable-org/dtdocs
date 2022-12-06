@@ -12,9 +12,9 @@ Render a vector-based overlay onto your image. Watermarks are standard SVG docum
 
 You can also use bitmap (PNG) images.
 
-The SVG processor in darktable can also substitute strings within an SVG document, allowing image-dependent information to be included in the watermark.
+The SVG processor in Ansel can also substitute strings within an SVG document, allowing image-dependent information to be included in the watermark.
 
-User-designed watermarks should be placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
+User-designed watermarks should be placed into the directory `$HOME/.config/Ansel/watermarks`. Once in place, use the reload button update the list of available watermarks.
 
 The following is a list of variable strings that are supported for substitution within an SVG document.
 

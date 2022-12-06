@@ -2,8 +2,8 @@
 title: white balance
 id: white-blaance
 applicable-version: 3.4
-tags: 
-working-color-space: not-applicable (RAW) 
+tags:
+working-color-space: not-applicable (RAW)
 view: darkroom
 masking: false
 ---
@@ -24,7 +24,7 @@ White balance is not intended as a "creative" module -- its primary goal is to t
 
 ## scene illuminant temp
 
-This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balace of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders. 
+This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balace of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders.
 
 temperature
 : Set the color temperature in kelvin.
@@ -43,7 +43,7 @@ setting
 
 : - _user modified_: The most recently modified setting. Manual adjustment of temperature, tint or r/g/b channel coefficients will automatically select this option. Choose this setting after selecting any other preset to return parameters to the most recent user-modified state
 
-: - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value). 
+: - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value).
 
 For convenience the final four modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
 
@@ -74,7 +74,7 @@ effect emulation
 
 ## button bar
 
-The button bar is simple addition that allows one-click access to the internal white balance settings. You can disable this by editing your `darktablerc` file. Find the line that says
+The button bar is simple addition that allows one-click access to the internal white balance settings. You can disable this by editing your `Anselrc` file. Find the line that says
 
 ```
 plugins/darkroom/temperature/button_bar=TRUE

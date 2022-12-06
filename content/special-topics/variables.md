@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-darktable supports variable substitution in a number of modules and preference settings. For example:
+Ansel supports variable substitution in a number of modules and preference settings. For example:
 
 - Defining file names in the [export](../module-reference/utility-modules/shared/export.md) module
 - Displaying image information in the darkroom's [image information line](../module-reference/utility-modules/darkroom/image-info-line.md)
@@ -26,8 +26,8 @@ $(ID)                      the image id
 $(VERSION)                 the duplicate version number
 $(VERSION.IF_MULTI)        same as $(VERSION) but null string if only one version exists
 $(VERSION.NAME)            version name from metadata
-$(DARKTABLE.VERSION)       the version of the running darktable instance
-$(DARKTABLE.NAME)          name of darktable
+$(DARKTABLE.VERSION)       the version of the running Ansel instance
+$(DARKTABLE.NAME)          name of Ansel
 $(SEQUENCE)                a sequence number within an export job
 $(WIDTH.SENSOR)            width of RAW data in pixels before RAW crop
 $(HEIGHT.SENSOR)           height of RAW data in pixels before RAW crop

@@ -10,9 +10,9 @@ The huge diversity of systems and the marked differences between OpenCL vendors 
 
 The principle OpenCL function flow is like this:
 
-`darktable > libOpenCL.so > libnvidia-opencl.so.1 > kernel driver module(s) > GPU`
+`Ansel > libOpenCL.so > libnvidia-opencl.so.1 > kernel driver module(s) > GPU`
 
-- darktable dynamically loads `libOpenCL.so` -- a system library that must be accessible to the system's dynamic loader (`ld.so`).
+- Ansel dynamically loads `libOpenCL.so` -- a system library that must be accessible to the system's dynamic loader (`ld.so`).
 
 - `libOpenCL.so` reads the vendor-specific information file (`/etc/OpenCL/vendors/nvidia.icd`) to find the library that contains the vendor-specific OpenCL implementation.
 
@@ -22,7 +22,7 @@ The principle OpenCL function flow is like this:
 
 At system startup the required device special files (`/dev/nvidia*`) need to be created. If this does not happen on your system by default, the easiest way to set them up and make sure all modules are loaded is by installing the `nvidia-modprobe` package.
 
-A user account that needs to make use of OpenCL from within darktable must have read/write access to NVIDIA's device special files. On some systems these files allow world read-write access by default, which avoids permission issues but might be debatable in terms of system security. Other systems restrict the access to a user group, e.g. “video”. In this case your user account has to be member of that group.
+A user account that needs to make use of OpenCL from within Ansel must have read/write access to NVIDIA's device special files. On some systems these files allow world read-write access by default, which avoids permission issues but might be debatable in terms of system security. Other systems restrict the access to a user group, e.g. “video”. In this case your user account has to be member of that group.
 
 To summarise, the packages that needed to be installed in this specific case were:
 
@@ -57,4 +57,4 @@ crw-rw-rw- 1 root root 195, 255 Jul 28 21:13 /dev/nvidiactl
 crw-rw-rw- 1 root root 250,   0 Jul 28 21:13 /dev/nvidia-uvm
 ```
 
-Beware that the major/minor numbers (e.g. `250/0` for `/dev/nvidia-uvm` in this example) may vary depending on your system. 
+Beware that the major/minor numbers (e.g. `250/0` for `/dev/nvidia-uvm` in this example) may vary depending on your system.

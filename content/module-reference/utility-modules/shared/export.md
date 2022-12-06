@@ -2,7 +2,7 @@
 title: export
 id: export-selected
 applicable-version: 3.6
-tags: 
+tags:
 view: lighttable
 ---
 
@@ -10,7 +10,7 @@ Export selected images.
 
 When used in the darkroom view, the currently-edited image will be exported if no other images are selected in the filmstrip.
 
-Files can be exported to a file on disk, email, various online storage locations, a web album, or a book template. 
+Files can be exported to a file on disk, email, various online storage locations, a web album, or a book template.
 
 # module controls
 
@@ -30,7 +30,7 @@ on conflict
 
 : - _create unique filename_: Automatically choose a unique new file name by appending an integer to name of the conflicting file.
 
-: - _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss -- you can disable this in [preferences > security > ask before exporting in overwrite mode](../../../preferences-settings/security.md). _**Note:** This dialog is not presented per-file but as a one-off confirmation before the export job starts._ 
+: - _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss -- you can disable this in [preferences > security > ask before exporting in overwrite mode](../../../preferences-settings/security.md). _**Note:** This dialog is not presented per-file but as a one-off confirmation before the export job starts._
 
 : - _skip_: Do not export images where the destination filename already exists.
 
@@ -59,7 +59,7 @@ b&w image
 set size
 : Choose how to measure the maximum size of your exported image
 
-: - _in pixels (for file)_: Enter the maximum width and height in pixels. 
+: - _in pixels (for file)_: Enter the maximum width and height in pixels.
 
 : - _in cm (for print)_: Enter the maximum width and height in cm and define the image's dpi. The equivalent size in pixels will be automatically calculated.
 
@@ -71,7 +71,7 @@ dpi
 : If units of cm or inches are chosen, set the dpi of the output image. The dpi will also be stored in the Exif data of the exported image. It will be automatically set to 300 if "in pixels" or "by scale" is chosen.
 
 max size
-: Set the maximum width and height of the exported image(s) in pixels, cm or inches (depending on the selected unit) -- zero means that no constraint will be set on that dimension. Exported images will be constrained so as not to exceed either of these values, while retaining the correct aspect ratio. Set both to zero to export with the original dimensions (after cropping). If the entered values exceed the original dimensions darktable will either export with the original dimensions or upscale the image, depending on the "allow upscaling" parameter.
+: Set the maximum width and height of the exported image(s) in pixels, cm or inches (depending on the selected unit) -- zero means that no constraint will be set on that dimension. Exported images will be constrained so as not to exceed either of these values, while retaining the correct aspect ratio. Set both to zero to export with the original dimensions (after cropping). If the entered values exceed the original dimensions Ansel will either export with the original dimensions or upscale the image, depending on the "allow upscaling" parameter.
 
 allow upscaling
 : Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image's dimensions will not exceed the dimensions of the original image (after cropping).
@@ -86,16 +86,16 @@ profile
 : The output color profile. Select “image settings” if you want the settings in the [_output color profile_](../../processing-modules/output-color-profile.md) module of the individual images to be respected.
 
 intent
-: This option lets you define the intent -- the way in which darktable will handle out-of-gamut colors. See [rendering intent](../../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
+: This option lets you define the intent -- the way in which Ansel will handle out-of-gamut colors. See [rendering intent](../../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
 
 style
-: Choose a [style](../lighttable/styles.md) which darktable will combine with the existing history stack to generate the output image. These history items are only added temporarily -- the original history stack is not overwritten. You can use this feature to add processing steps and parameters that you want to be applied specifically to images before export. For example you may define a style that adds a stronger level of sharpening when you produce scaled-down JPEG files for the internet or add a certain level of exposure compensation to all of your output images. 
+: Choose a [style](../lighttable/styles.md) which Ansel will combine with the existing history stack to generate the output image. These history items are only added temporarily -- the original history stack is not overwritten. You can use this feature to add processing steps and parameters that you want to be applied specifically to images before export. For example you may define a style that adds a stronger level of sharpening when you produce scaled-down JPEG files for the internet or add a certain level of exposure compensation to all of your output images.
 
 mode
 : When applying a style during export this option defines whether the history stack items of that style replace the original history stack of the image or are appended to it. Technically speaking, in append mode history stack items of the style will constitute separate instances of the respective modules on top of any existing ones (see also [multiple instances](../../../darkroom/processing-modules/multiple-instances.md)). As a consequence the original history stack will remain in effect with the new items being applied in addition. This way you can apply an overall adjustment (e.g. exposure) to a number of exported images while respecting the settings of each individual image.
 
 export
-: Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the "x" icon located close to the progress bar. 
+: Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the "x" icon located close to the progress bar.
 
 ---
 
@@ -109,7 +109,7 @@ The “preferences…” option in the presets menu brings up a dialog where you
 
 ![metadata config](./export-selected/metadata-config.png#w66)
 
-The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. 
+The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when Ansel is closed.
 
 ## general settings
 
@@ -138,15 +138,15 @@ develop history
 
 ---
 
-**Caution:** For various reasons embedding XMP tags into output files may fail without notice, e.g. if certain size limits are exceeded. Users are therefore advised to not rely on this feature for their backup strategy. To back up your data always make sure to save your input (raw) file as well as all of darktable's XMP sidecar files.
+**Caution:** For various reasons embedding XMP tags into output files may fail without notice, e.g. if certain size limits are exceeded. Users are therefore advised to not rely on this feature for their backup strategy. To back up your data always make sure to save your input (raw) file as well as all of Ansel's XMP sidecar files.
 
 ---
 
 ## per metadata settings
 
-The right-hand-side of this dialog allows you to define formulas to populate image metadata. The formulas defined here have priority over the settings in the left-hand-side of the dialog. The first column identifies the entry to be edited. The second column allows you to define how to calculate the value for that metadata entry using a formula. 
+The right-hand-side of this dialog allows you to define formulas to populate image metadata. The formulas defined here have priority over the settings in the left-hand-side of the dialog. The first column identifies the entry to be edited. The second column allows you to define how to calculate the value for that metadata entry using a formula.
 
-See the [variables](../../../special-topics/variables.md) section for details of the variables you can use in your metadata formula. Press Enter to validate the formula. Leave the formula empty to prevent a given metadata entry from being exported (`Exif.GPSInfo.GPSVersionID` in the above example). 
+See the [variables](../../../special-topics/variables.md) section for details of the variables you can use in your metadata formula. Press Enter to validate the formula. Leave the formula empty to prevent a given metadata entry from being exported (`Exif.GPSInfo.GPSVersionID` in the above example).
 
 Use the “--” icon to remove a metadata entry from the list and the “+” icon to add a new one from a predefined list of available metadata tags.
 

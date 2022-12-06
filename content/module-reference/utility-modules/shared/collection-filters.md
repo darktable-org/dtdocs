@@ -14,7 +14,7 @@ Once you have defined a _collection_ of images with the [collections](./collecti
 
 For information about the image attributes you can select, please see the documentation for the [collections](./collections.md/#filtering-attributes) module.
 
-Note that only a subset of filters is currently implemented -- more will be added in future versions of darktable.
+Note that only a subset of filters is currently implemented -- more will be added in future versions of Ansel.
 
 # default settings
 
@@ -80,7 +80,7 @@ You can interact with this filter widget as follows:
 
 ## rating
 
-This is the classic rating selection widget that used to be shown in darktable's top panel by default.
+This is the classic rating selection widget that used to be shown in Ansel's top panel by default.
 
 ![rating filter](./collection-filters/rating-filter.png#w33)
 
@@ -130,7 +130,7 @@ Within the extension field, you can also use the keywords `RAW` (to select all h
 
 You can search images using any of their text properties (path, filename, filmroll, tags, metadata) using the text search filter. The search is performed "on-the-fly" and the widget is dimmed during the search process.
 
-By default darktable performs a "fuzzy" search (wildcards are automatically added to the start and the end of the text). If you want to search for an exact match, you can enclose it with double-quotes (`"match this exactly"`).
+By default Ansel performs a "fuzzy" search (wildcards are automatically added to the start and the end of the text). If you want to search for an exact match, you can enclose it with double-quotes (`"match this exactly"`).
 
 # sorting
 

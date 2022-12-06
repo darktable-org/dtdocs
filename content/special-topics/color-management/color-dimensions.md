@@ -1,12 +1,12 @@
 ---
-title: darktable's color dimensions
+title: Ansel's color dimensions
 id: color-dimensions
 weight: 80
 draft: false
 author: "people"
 ---
 
-This section defines the perceptual properties of color, both conceptually and quantitatively, in order to characterize and quantify the creative and corrective adjustments made to color in darktable.
+This section defines the perceptual properties of color, both conceptually and quantitatively, in order to characterize and quantify the creative and corrective adjustments made to color in Ansel.
 
 # definitions
 
@@ -17,9 +17,9 @@ There are two frameworks within which color properties may be analyzed and descr
 - A scene-linear, physiological, framework, that mostly focuses on the response of the retina cone cells, using color spaces such as CIE XYZ 1931 or CIE LMS 2006,
 - A perceptual, psychological, framework that stacks the brain's corrections on top of the retina signal, using color spaces such as CIE Lab 1976, CIE Luv 1976, CIE CAM 2016 and JzAzBz (2017).
 
-These two frameworks provide us with metrics and dimensions to analyze color and allow us to change some of its properties while preserving others. 
+These two frameworks provide us with metrics and dimensions to analyze color and allow us to change some of its properties while preserving others.
 
-The following dimensions of color are used by darktable:
+The following dimensions of color are used by Ansel:
 
 hue
 : An attribute of visual perception in which an area appears to be similar to one of the colors red, yellow, green, or blue, or to a combination of adjacent pairs of these colors considered in a closed ring. [^1] Hue is a shared property between the perceptual and scene-linear frameworks.
@@ -72,7 +72,7 @@ On both of the above charts, lightness, chroma, saturation and brilliance are dr
 
 ---
 
-**Note**: In this section, _brilliance_ and _brightness_ are both used to describe the same dimension. In all rigor, brightness is an absolute metric, whereas brilliance is the brightness of some surface relative to the brightness of its surroundings (that is, how much a surface "pops" out of its surroundings and looks fluorescent). But in image editing, increasing the brightness of some surface will indeed increase its brilliance too, so the term _brilliance_ is preferred in darktable's user interface for clarity and in reference to its visual effect.
+**Note**: In this section, _brilliance_ and _brightness_ are both used to describe the same dimension. In all rigor, brightness is an absolute metric, whereas brilliance is the brightness of some surface relative to the brightness of its surroundings (that is, how much a surface "pops" out of its surroundings and looks fluorescent). But in image editing, increasing the brightness of some surface will indeed increase its brilliance too, so the term _brilliance_ is preferred in Ansel's user interface for clarity and in reference to its visual effect.
 
 ---
 
@@ -104,4 +104,4 @@ This is one more reason to avoid using HSL/HSV spaces (derived from RGB spaces) 
 
 # color dimensions and settings
 
-Many applications, including darktable, call any settings that affect chroma "saturation" (for example, in color balance, "contrast/brightness/saturation"). This is a symptom of software trying to be accessible to non-professionals by using a common language. This is misleading, since saturation does exist and is quite different from chroma. In addition, many video specifications improperly call chroma "saturation". Whenever darktable reuses such specifications, it uses the incorrect term from the specification rather than the proper color dimension term.
+Many applications, including Ansel, call any settings that affect chroma "saturation" (for example, in color balance, "contrast/brightness/saturation"). This is a symptom of software trying to be accessible to non-professionals by using a common language. This is misleading, since saturation does exist and is quite different from chroma. In addition, many video specifications improperly call chroma "saturation". Whenever Ansel reuses such specifications, it uses the incorrect term from the specification rather than the proper color dimension term.

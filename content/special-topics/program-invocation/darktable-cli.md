@@ -1,19 +1,19 @@
 ---
-title: darktable-cli
-id: darktable-cli
+title: Ansel-cli
+id: Ansel-cli
 weight: 20
 draft: false
 author: "people"
 ---
 
-The `darktable-cli` binary starts the command line interface variant of darktable which allows images to be exported.
+The `Ansel-cli` binary starts the command line interface variant of Ansel which allows images to be exported.
 
 This variant does not open any display -- it works in pure console mode without launching a GUI. This mode is particularly useful for servers running background jobs.
 
-`darktable-cli` can be called with the following command line parameters:
+`Ansel-cli` can be called with the following command line parameters:
 
 ```
-darktable-cli [<input file or folder>]
+Ansel-cli [<input file or folder>]
               [<xmp file>]
               <output file or folder>
               [--width <max width>]
@@ -30,7 +30,7 @@ darktable-cli [<input file or folder>]
               [--icc-intent <intent>]
               [--verbose]
               [--help [option]]
-              [--core <darktable options>]
+              [--core <Ansel options>]
 ```
 
 The user must supply an input filename and an output filename. All other parameters are optional.
@@ -39,7 +39,7 @@ The user must supply an input filename and an output filename. All other paramet
 : The name of the input file or folder (containing images) to be exported. If you wish to process multiple images or multiple folders use the `--import` option instead.
 
 `<xmp file>`
-: The optional name of an XMP sidecar file containing the history stack data to be applied during export. If this option is not provided darktable will search for an XMP file that belongs to the given input file(s).
+: The optional name of an XMP sidecar file containing the history stack data to be applied during export. If this option is not provided Ansel will search for an XMP file that belongs to the given input file(s).
 
 `<output file or folder>`
 : The name of the output file or destination folder. The export file format is derived from the file extension or from the `--out-ext` option. You can also use a number of [variables](../variables.md) in the output filename. For obvious reasons this parameter is mandatory if you use the program on an image folder containing multiple images. If you specify output folder it is recommended that you also specify the file format with `--out-ext`.
@@ -57,13 +57,13 @@ The user must supply an input filename and an output filename. All other paramet
 : Define whether allow upscaling during export. Defaults to false.
 
 `--style <style name>`
-: Specify the name of a style to be applied during export. If a style is specified, the path to the darktable configuration directory must also be specified (i.e. `--core --configdir ~/.config/darktable`). By default no style is applied.
+: Specify the name of a style to be applied during export. If a style is specified, the path to the Ansel configuration directory must also be specified (i.e. `--core --configdir ~/.config/Ansel`). By default no style is applied.
 
 `--style-overwrite`
 : The specified style overwrites the history stack instead of being appended to it.
 
 `--apply-custom-presets <0|1|false|true>`
-: Whether to load `data.db` which contains presets and styles. Disabling this option allows you to run multiple instances of `darktable-cli` at the cost of being unable to use the `--style` option. Defaults to true.
+: Whether to load `data.db` which contains presets and styles. Disabling this option allows you to run multiple instances of `Ansel-cli` at the cost of being unable to use the `--style` option. Defaults to true.
 
 `--out-ext <extension>`
 : Set the output extension to use. If specified takes precedence over `<output file>`. By default this is extracted from `<output file>`. Defaults to `jpg` if `<output folder>` is specified.
@@ -74,10 +74,10 @@ The user must supply an input filename and an output filename. All other paramet
 `--icc-type <type>`
 : Specify the ICC profile type, which is the same as specifying the "output profile" in the [_output color profile_](../../module-reference/processing-modules/output-color-profile.md) module. Defaults to "image specified". Use `--help icc-type` to obtain a list of the supported types. See the _output color profile_ module reference for a more detailed description of the available options.
 
-`--icc-file <file>` 
+`--icc-file <file>`
 : Specify the ICC profile filename. Defaults to an empty filename.
 
-`--icc-intent <intent>` 
+`--icc-intent <intent>`
 : Specify the rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
 
 `--verbose`
@@ -86,16 +86,16 @@ The user must supply an input filename and an output filename. All other paramet
 `--help [option]`
 : Prints usage and exits. If `option` is specified, additionally prints usage for the given option.
 
-`--core <darktable options>`
-: All command line parameters following `--core` are passed to the darktable core and handled as standard parameters. See the [`darktable binary`](./darktable.md) section for a detailed description.
+`--core <Ansel options>`
+: All command line parameters following `--core` are passed to the Ansel core and handled as standard parameters. See the [`Ansel binary`](./Ansel.md) section for a detailed description.
 
 # export options
 
-Export options for darktable are defined as configuration items, set from within the [export module](../../module-reference/utility-modules/shared/export.md). There are two ways to alter this configuration when using `darktable-cli`, as described below.
+Export options for Ansel are defined as configuration items, set from within the [export module](../../module-reference/utility-modules/shared/export.md). There are two ways to alter this configuration when using `Ansel-cli`, as described below.
 
 ## use the export module
 
-The `darktable-cli` command will use the last format configuration used in the export module, when run in interactive (gui) mode. You may therefore manually set your desired format options in the darktable gui and then run `darktable-cli` to export your files.
+The `Ansel-cli` command will use the last format configuration used in the export module, when run in interactive (gui) mode. You may therefore manually set your desired format options in the Ansel gui and then run `Ansel-cli` to export your files.
 
 ## pass options on the command-line
 
@@ -107,7 +107,7 @@ You can set any export format configuration option using the following syntax:
 
 where `<FORMAT>` is the name of the desired output format and `<OPTION>` is any configuration option for that format.
 
-An option set in this way will not be permanently stored but will be used just for this run of `darktable-cli`.
+An option set in this way will not be permanently stored but will be used just for this run of `Ansel-cli`.
 
 The following sections describe the configuration options/values that are available for each export format:
 

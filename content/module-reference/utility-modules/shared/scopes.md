@@ -48,7 +48,7 @@ Clicking the second-to-leftmost button on the panel toggles between a horizontal
 
 As with the histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
 
-See [Of Histograms and Waveforms](https://www.ansel.photos/2013/12/of-histograms-and-waveforms/) for more on darktable's waveform scope.
+See [Of Histograms and Waveforms](https://www.ansel.photos/2013/12/of-histograms-and-waveforms/) for more on Ansel's waveform scope.
 
 # rgb parade
 

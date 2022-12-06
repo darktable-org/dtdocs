@@ -6,7 +6,7 @@ tags:
 view: lighttable, darkroom, tethering, map, slideshow, print
 ---
 
-Display information embedded within an image's Exif data as well as a number of additional data fields defined by darktable.
+Display information embedded within an image's Exif data as well as a number of additional data fields defined by Ansel.
 
 When hovering with the mouse over image thumbnails, the displayed data is automatically updated to show information about the image currently under the mouse cursor.
 
