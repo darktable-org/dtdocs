@@ -84,11 +84,11 @@ weight
 ```
    example-chapter/
       section1-with-subsections/
-         _index.md               # weight: 30 (place section1 page at the end of example-chapter)
-         subsection1.md             # weight: 20 (place subsection1 page at the end of section1)
-         subsection2.md             # weight: 10 (place subsection2 page at the start of section1)
-      section2.md                # weight: 20 (place section2 in the middle of example-chapter)
-      section3.md                # weight: 10 (place section3 at the start of example-chapter)
+         _index.md               ## weight: 30 (place section1 page at the end of example-chapter)
+         subsection1.md             ## weight: 20 (place subsection1 page at the end of section1)
+         subsection2.md             ## weight: 10 (place subsection2 page at the start of section1)
+      section2.md                ## weight: 20 (place section2 in the middle of example-chapter)
+      section3.md                ## weight: 10 (place section3 at the start of example-chapter)
 ```
 
 ## content
