@@ -18,7 +18,7 @@ As the global color picker runs at the end of the preview pixelpipe, it receives
 
 Hover over any of the color values to show a tooltip containing more detailed information about the picked color or live color sample. This information includes RGB and Lab values as well as an approximate color name. An attempt is also made to detect skin tones and provide an appropriate description. Skin tone detection needs proper Lightness scaling (44 to 48% for African and 58 to 64% for all others) and neutral white balance.
 
-# module controls
+## module controls
 
 point/area mode
 : The global color picker can be activated in point or area mode by clicking or Ctrl+clicking on the color picker icon, respectively (you can also right-click to enable area mode). In point mode only a small spot under your cursor is taken as a sample. In area mode Ansel samples the area within a drawn rectangle.

@@ -2,8 +2,8 @@
 title: color reconstruction
 id: color-reconstruction
 applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
+tags:
+working-color-space: Lab
 view: darkroom
 masking: true
 ---
@@ -16,7 +16,7 @@ Due to a limitation of the underlying algorithm, reconstructed colors may someti
 
 Note that similar functionality is also available in the _reconstruct_ tab of the [_filmic rgb_](./filmic-rgb.md#reconstruct) module.
 
-# module controls
+## module controls
 
 threshold
 : The color reconstruction module replaces the color of all target pixels having luminance values above this threshold. Only pixels with luminance values below the threshold are taken as valid source pixels for replacement colors. Setting this parameter too high will cause the module to have no effect on any pixels. Setting it too low will minimize the “pool” of replacement colors -- if no suitable colors are available, the original colors are retained. This parameter therefore exhibits a “sweet spot” characteristic with an optimum setting depending on the individual image.

@@ -10,7 +10,7 @@ The top panel is common to all Ansel views and provides access to a number of co
 
 ![top-panel](./top-panel/top-panel.png#w100)
 
-# On the left-hand-side
+## On the left-hand-side
 
 filter / sort
 : Choose how to filter and sort the images. Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collection-filters.md) module.
@@ -18,7 +18,7 @@ filter / sort
 ![top-panel_sort-order icon](./top-panel/top-panel_sort-order.png#icon) sort order
 : Switch the sort order (ascending / descending).
 
-# On the right-hand-side
+## On the right-hand-side
 
 ![top panel_grouping icon](./top-panel/top-panel_grouping.png#icon) grouping
 : Expand or collapse [grouped images](../../lighttable/digital-asset-management/grouping.md).

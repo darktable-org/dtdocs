@@ -2,7 +2,7 @@
 title: tone equalizer
 id: tone-equalizer
 applicable-version: 3.8
-tags: 
+tags:
 working-color-space: RGB
 view: darkroom
 masking: true
@@ -20,27 +20,27 @@ The following diagram describes how the tone equalizer works:
 
 2. Adjust the sliders in the [_simple_](#simple-tab) tab or the equalizer graph in the [_advanced_](#advanced-tab) tab to alter the brightness of the underlying image, based on the brightness of the mask. Exposure can also be adjusted by scrolling with the mouse while hovering the cursor over the preview image (see [_cursor indicator/control_](#cursor-indicatorcontrol) for details).
 
-   In the simple tab, each slider corresponds to a single brightness zone (EV) in the mask, which can be raised or lowered to adjust the exposure of the image where the mask's brightness lies in that zone. Similarly, in the equalizer tab, the horizontal axis of the graph corresponds to the brightness level of the mask, and the vertical axis specifies the required exposure adjustment to pixels where the mask matches that brightness level. 
+   In the simple tab, each slider corresponds to a single brightness zone (EV) in the mask, which can be raised or lowered to adjust the exposure of the image where the mask's brightness lies in that zone. Similarly, in the equalizer tab, the horizontal axis of the graph corresponds to the brightness level of the mask, and the vertical axis specifies the required exposure adjustment to pixels where the mask matches that brightness level.
 
-3. The exposure of each pixel of the input image is adjusted using the mask and the equalizer graph. For each pixel, the module looks up the brightness of the mask at that point, finds the matching brightness on the horizontal axis of the equalizer graph, and increases or decreases the exposure accordingly (using the vertical axis of the graph). 
+3. The exposure of each pixel of the input image is adjusted using the mask and the equalizer graph. For each pixel, the module looks up the brightness of the mask at that point, finds the matching brightness on the horizontal axis of the equalizer graph, and increases or decreases the exposure accordingly (using the vertical axis of the graph).
 
 It is important that the mask separates the image into regions of similar brightness, and that a suitable amount of blur is applied within those regions. This means that all of the pixels in each region will have their exposure adjusted similarly, without adversely affecting local contrast. Examine your image beforehand to identify which regions you wish to dodge and burn, and use the controls on the [_masking_](#masking-tab) tab to ensure that those areas are reasonably separated in tone within the final mask. This will allow those regions to be adjusted independently.
 
-# module controls
+## module controls
 
-The controls of the _tone equalizer_ module are divided between three tabs. 
+The controls of the _tone equalizer_ module are divided between three tabs.
 
 display exposure mask
 : Click on the icon to the right of this label to show/hide the module's guided mask over the top of the image. This control is available in all three tabs.
 
-## simple tab
+#### simple tab
 
 This tab splits the brightness of the guided mask into nine zones (from --8 to 0 EV) and allows you to alter each zone independently. This is a simplified interface and is used to generate the same tone adjustment curve as shown in the [_advanced_](#advanced-tab) tab.
 
 --8 EV ... 0 EV
 : Each slider adjusts the exposure of all pixels where the _guided mask_ has the given brightness. If the mask's histogram is evenly spread over the entire tonal range, sliders towards the top generally affect the shadows, whereas sliders towards the bottom generally affect the highlights. You can check the spread of the histogram within the [_advanced_](#advanced-tab) tab.
 
-## advanced tab
+#### advanced tab
 
 This tab allows you to control the same intensity levels as in the simple tab, though here they are represented as control points on a curve. Behind the curve is a histogram representing the intensity levels of the _guided mask_ (not the underlying image). If the histogram is too bunched up, this means your mask doesn't have a good spread of intensity levels, which makes it harder to independently control the brightness of the different parts of your image. It is therefore recommended that the histogram be adjusted so that it extends the entire range, covering as many control points as possible for maximum flexibility. You can adjust the mask using the controls in the [_masking_](#masking-tab) tab.
 
@@ -49,11 +49,11 @@ Click+drag the control points on the curve to adjust the brightness of all pixel
 curve smoothing
 : Control how the curve is interpolated between control points. Move the slider to the right to make the transitions between the control points more gradual, but beware that going past about 0.6 can introduce some instability (oscillations) in the curve due to mathematical constraints. Move the slider to the left for a more well-behaved curve, but beware that this can result in harsher tonal transitions that may damage local contrast.
 
-## masking tab
+#### masking tab
 
-This tab contains controls for adjusting the guided mask. 
+This tab contains controls for adjusting the guided mask.
 
-The purpose of the guided mask is to separate out areas with different tonal ranges so that they can be independently brightened or darkened by the tone equalizer. The masking filters are designed to allow sharp edges between these areas to be preserved, while blurring details within a given tonal range, so that the brightness can be adjusted without adversely impacting local contrast. Ideally the mask histogram shown in the _advanced_ tab should be spread out across all of the control points. 
+The purpose of the guided mask is to separate out areas with different tonal ranges so that they can be independently brightened or darkened by the tone equalizer. The masking filters are designed to allow sharp edges between these areas to be preserved, while blurring details within a given tonal range, so that the brightness can be adjusted without adversely impacting local contrast. Ideally the mask histogram shown in the _advanced_ tab should be spread out across all of the control points.
 
 To avoid having to switch back and forth between the _advanced_ and _masking_ tabs, a gray bar under the "mask post processing" label displays a representation of the middle 80% of the histogram. By using the controls in this tab to center and spread out this gray bar, you can expect to have a nicely shaped histogram when you return to the "advanced" tab. If you see orange at either end of the gray bar, this means that part of the histogram is outside of the 9 EV range of the mask, and needs to be further adjusted.
 
@@ -67,10 +67,10 @@ luminance estimator
 : Choose the method by which the luminance of a pixel will be estimated when mapping it to a mask intensity value (default _RGB euclidean norm_).
 
 preserve details
-: Choose the smoothing algorithm used to blur the mask: 
+: Choose the smoothing algorithm used to blur the mask:
  - _no:_ Do not smooth the mask (the effect is the same as using normal tone curves). When the module is used to compress dynamic range, this option can cause compression of local contrast. This can be useful when increasing (local and global) contrast.
  - _guided filter:_ Use the original guided filter algorithm to blur the mask while attempting to preserve edges. One of the limitations of this algorithm is that the guided filter is exposure-sensitive, meaning that shadows tend to be blurred more than highlights. Note that this limitation can sometimes be an asset: if one wants to lighten shadows a lot, the guided filter can provide very good local contrast preservation.
- - _average guided filter:_ Use this option in cases where the effect of the guided filter is too strong. In this mode, a geometric mean is taken between the output of the original _guided filter_ algorithm and the output given by the _no_ option. 
+ - _average guided filter:_ Use this option in cases where the effect of the guided filter is too strong. In this mode, a geometric mean is taken between the output of the original _guided filter_ algorithm and the output given by the _no_ option.
  - _eigf (default):_ The _exposure-independent guided filter_ solves the problem of the original _guided filter_, in that it makes the degree of blurring independent of the exposure. This means the degree of blurring applied to the highlights and the shadows regions should be about the same. This improved algorithm is now the default option.
  - _averaged eigf:_ This option takes the geometric mean between the _eigf_ mask and the mask generated by the _no_ option, and is useful in cases where the degree of blurring in the mask needs to be mitigated.
 
@@ -97,7 +97,7 @@ mask exposure compensation
 mask contrast compensation
 : Dilate (spread out) or compress the mask's histogram. The wand icon to the right of the slider will propose a reasonable starting point, which can then be fine-tuned to optimize the spread of the histogram under the tone equalizer control points.
 
-## cursor indicator/control
+#### cursor indicator/control
 
 When the _tone equalizer_ module is enabled and expanded, you can move the mouse pointer over the preview image to show a cursor that displays information about the pixel under the pointer. When this cursor is shown, the mouse wheel can be used to brighten or darken the areas of your image that match the mask intensity level at that point. This provides a convenient way to quickly brighten or darken specific parts of the image.
 
@@ -111,7 +111,6 @@ When the _tone equalizer_ module is enabled and expanded, you can move the mouse
 
 If you need to move or zoom the portion of the image shown in the center view while the module is expanded, hold down the 'a' key while dragging the mouse or using the scroll wheel.  As long as the key is held down, mouse actions adjust the viewport rather than adjusting the tone curve.
 
-## presets
+#### presets
 
 The _tone equalizer_ comes with several presets that can use used to compress shadows and highlights. Each comes in two variants, using either the guided filter (gf) or the exposure-independent guided filter (eigf). The variants using the guided filter tend to preserve local contrast in the shadows better those that use the exposure-independent guided filter, but at the price of reducing the local contrast in the highlights. Either of these variants may lead to better results, depending on the image. In both cases, the presets preserve middle-gray, so you shouldn't need to adjust the global exposure after activating the tone equalizer.
-

@@ -2,11 +2,11 @@
 title: styles
 id: styles
 applicable-version: 3.6
-tags: 
+tags:
 view: lighttable
 ---
 
-Create named styles from selected images' [history stacks](../../../darkroom/pixelpipe/history-stack.md) and apply styles to selected images. 
+Create named styles from selected images' [history stacks](../../../darkroom/pixelpipe/history-stack.md) and apply styles to selected images.
 
 Styles can either be created within this panel or in the [history stack](../darkroom/history-stack.md) module in the darkroom.
 
@@ -20,7 +20,7 @@ Remove all styles by clicking on the module's reset button.
 
 Please note that styles also include the active state of each module. You can use this to create your own default settings, which you can then activate on-demand. Simply set your desired defaults for each module, disable the module, and save the style.
 
-# module controls
+## module controls
 
 create duplicate
 : When applying a style to images, tick this box to create a duplicate of each image before applying the chosen style to that duplicate. Disable this option to apply the chosen style directly to the selected images. Beware that in this case any existing history stack is overwritten (depending on the mode -- see below) and cannot be recovered.

@@ -7,7 +7,7 @@ draft: false
 
 Control how images are processed.
 
-# image processing
+## image processing
 
 always use LittleCMS 2 to apply output color profile
 : If this option is activated, Ansel will use the LittleCMS 2 system library to apply the output color profile instead of its own internal routines. This is significantly slower than the default but might give more accurate results in some cases.
@@ -52,7 +52,7 @@ detect monochrome previews
 show warning messages
 : Enable this option to display warning messages in processing modules where non-standard and possibly harmful settings have been used in the pipeline. Such messages can sometimes be false-positives (because of intentional non-standard settings) and can be disregarded if you know what you are doing. Disable to hide these warnings. (default on).
 
-# cpu / gpu / memory
+## cpu / gpu / memory
 
 Ansel resources
 : Choose how much of your system and graphics card (GPU) memory will be used by Ansel. Four options are provided by default:

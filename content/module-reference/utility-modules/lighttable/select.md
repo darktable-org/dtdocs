@@ -2,13 +2,13 @@
 title: select
 id: select
 applicable-version: 3.2.1
-tags: 
+tags:
 view: lighttable
 ---
 
 Select images in the lighttable according to simple criteria.
 
-# module controls
+## module controls
 
 select all
 : Select all images in the current collection.

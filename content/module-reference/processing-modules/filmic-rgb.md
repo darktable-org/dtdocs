@@ -22,7 +22,7 @@ _filmic rgb_ is the successor to the _filmic_ module from Ansel 2.6. While the u
 
 ---
 
-# prerequisites
+## prerequisites
 
 In order to get the best from this module, your images need some preparation:
 
@@ -42,7 +42,7 @@ white balance, denoise, demosaic
 disable tone mapping modules
 : If you plan to use one of _filmic rgb_'s chrominance preservation modes, avoid using [_base curve_](base-curve.md) and the various tone mapping modules. These may produce unpredictable color shifts that would make the chrominance preservation useless. None of these modules should be required when using _filmic rgb_.
 
-# usage
+## usage
 
 The _filmic rgb_ module is designed to map the dynamic range of the photographed scene (RAW image) to the dynamic range of the display.
 
@@ -73,7 +73,7 @@ In this configuration, filmic will only perform a logarithmic tone mapping betwe
 
 ---
 
-# graphic display
+## graphic display
 
 The graphic display at the top of the _filmic rgb_ module offers multiple views to help you to understand its functionality. You can cycle through these views using the ![view-icon](./filmic-rgb/view-icon.png#icon) icon to the right of the graph display. You can also toggle the labels on the axes on and off using the ![legend-icon](./filmic-rgb/legend-icon.png#icon) icon.
 
@@ -108,9 +108,9 @@ dynamic range mapping
 
 ---
 
-# module controls
+## module controls
 
-## scene
+#### scene
 
 The controls in the _scene_ tab are similar in principle to those of the [_levels_](./levels.md) module (black, gray, white). The difference is that _levels_ assumes display-referred pixels values (between 0 and 100%), whereas _filmic_ allows you to work on scene-referred pixels (between --infinity EV and +infinity EV), which forces the use of a different interface.
 
@@ -148,7 +148,7 @@ The _scene-referred_ workflow forces a black level correction of --0.0002, in th
 
 ---
 
-## reconstruct
+#### reconstruct
 
 This tab provides controls that blend transitions between unclipped and clipped areas within an image and can also help to reconstruct colors from adjacent pixels. It is designed to handle spotlights that could not possibly be unclipped when taking the shot (such as naked light bulbs or the sun disc in the frame) and aims at diffusing their edges as film would do. It is not designed to recover large areas of clipped pixels or in-paint missing parts of the image.
 
@@ -156,7 +156,7 @@ It can sometimes be useful to disable the [_highlight reconstruction_](./highlig
 
 Firstly, a mask needs to be set up to identify the parts of the image that will be affected by the highlights reconstruction. There are then some additional controls to fine-tune some of the trade-offs made by the reconstruction algorithm.
 
-### _highlights clipping_
+###### _highlights clipping_
 
 These controls allow you to choose which areas of the image are impacted by the highlight reconstruction algorithms.
 
@@ -169,7 +169,7 @@ transition
 display highlight reconstruction mask
 : Click on the icon to the right of this label to toggle the display of the highlight reconstruction mask. It is recommended that you turn this on while adjusting the above controls.
 
-### _balance_
+###### _balance_
 
 These controls allow you to balance the trade-offs between the various reconstruction algorithms.
 
@@ -182,7 +182,7 @@ bloom ↔ reconstruct
 gray ↔ colorful details
 : Use this to control whether the algorithm favors the recovery of monochromatic highlights (gray) or colorful details. Move the slider to the right if you want more color in the highlights. Move the slider to the left if you want to reduce the saturation of the highlights. It can be helpful to reduce the saturation in the highlights if you start seeing magenta or out-of-gamut colors.
 
-## look
+#### look
 
 When working on the _look_ tab, it is recommended that you monitor the S-curve spline on the _look only_ graph. This curve starts from the scene/display black levels at the bottom left of the graph, and should smoothly increase up to the scene/display white levels at the top right. Sometimes, if the constraints on the S-curve are too tight, the splines in the shadows and/or highlights regions can "overshoot" the limits of the display, and an orange warning is shown on those parts of the spline.
 
@@ -225,7 +225,7 @@ mid-tones saturation / extreme luminance saturation
 
 : This control is set to 0 by default and it is now recommended that saturation is handled earlier in the pipeline. A preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
 
-## display
+#### display
 
 The parameters in this tab should rarely require adjustment.
 
@@ -242,7 +242,7 @@ target white luminance
 
 : To avoid double-ups and washed-out images, _filmic rgb_ applies a “gamma” compression reverting the output ICC gamma correction, so the middle-gray is correctly remapped at the end. To remove this compression, set the destination power factor to 1.0 and the middle-gray destination to 45%.
 
-## options
+#### options
 
 color science
 : This setting defaults to _v6 (2022)_ for new images, and defines the algorithms used by the _filmic rgb_ module (e.g. the extreme luminance desaturation strategy). To revert to the behavior of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between these methods lies in the way in which they handle desaturation close to pure black and pure white (see the [background](#background) section for details). If you have previously edited an image using older versions of _filmic rgb_, the color science setting will be kept at the earlier version number in order to provide backward compatibility for those edits.
@@ -291,7 +291,7 @@ add noise in highlights
 type of noise
 : This specifies the statistical distribution of the added noise. It can be helpful to match the look of the artificially generated noise with the naturally occurring noise in the surrounding areas from the camera's sensor. The _poissonian_ noise is the closest to natural sensor noise but is less visually pleasing than _gaussian_, which is probably closer to film grain. Also note that most denoising modules will turn the sensor noise from poissonian to slightly gaussian, so you should pick the variant that blends better into the actual noise in your image.
 
-## background
+#### background
 
 The _color science_ parameter (in the _options_ tab) defines the strategy that is used to desaturate colors near pure white (maximum display emission) and pure black (minimum display emission). The problem can be explained with the graph below, which represents the gamut of the sRGB color space at the constant hue of its green primary, with varying lightness (vertical axis) and chroma (horizontal axis):
 
@@ -309,14 +309,14 @@ This gamut mapping uses the output color profile as a definition of the display 
 
 Note that the hue used as a reference for the gamut mapping is the hue before any tone mapping, sampled at the input of filmic. This means that even the _none_ chrominance preservation mode (applied on individual RGB channels regardless of their ratios) preserves hue in _v6_. This mode will only desaturate highlights more than the other modes, and a mechanism is in place to prevent it from resaturating shadows -- this behaviour can be bypassed by increasing the _extreme luminance saturation_ setting.
 
-## caveats
+#### caveats
 
-### color artifacts
+###### color artifacts
 
 As filmic v6 is so far the best version to retain saturated colors at constant hue, it gets also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, that are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
 
 It is not the purpose of a tone mapping and gamut mapping operators to reconstruct damaged signals, and these flaws need to be corrected earlier in the pipeline with the specialized modules provided. However, there is a mechanism in filmic v6 that ensures that any color brighter than the _white relative exposure_ degrades to pure white, so a quick workaround is to simply set the _white relative exposure_ to a value slightly lower than the exposure of the clipped parts. In other words: if it is clipped at the input, let it be clipped at the output. Chrominance preservation options that work the best for this purpose are the _luminance_ and _euclidean_ norms, or simply _none_.
 
-### inconsistent output
+###### inconsistent output
 
 With filmic v6, if you export the same image to sRGB and Adobe RGB color spaces, and then compare both images side by side on a large-gamut screen (that can cover Adobe RGB), the sRGB export _should_ have more desaturated highlights than the Adobe RGB version. Since the sRGB color space is shorter than Adobe RGB, its gamut boundary is closer to the neutral grey axis, and therefore the maximum allowed chroma is lower for any given luminance. This is by no means a bug but rather is proof that the gamut mapping is actually doing its job.

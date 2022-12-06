@@ -8,7 +8,7 @@ author: "people"
 
 Culling mode allows you to display images side by side for easy comparison.
 
-# controls
+## controls
 
 zoom
 : In culling mode, you can zoom into images (up to 100%) by holding Ctrl while scrolling with the mouse wheel.
@@ -18,7 +18,7 @@ zoom
 navigate
 : Use the mouse wheel or arrow keys (←/→) to scroll through your collection.
 
-# modes
+## modes
 
 There are two different culling modes, which define how many images are shown at the same time: “fixed” and “dynamic”. Switch between these while in culling mode by pressing the "<" key.
 

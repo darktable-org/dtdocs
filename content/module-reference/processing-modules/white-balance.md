@@ -20,9 +20,9 @@ White balance is not intended as a "creative" module -- its primary goal is to t
 
 ---
 
-# module controls
+## module controls
 
-## scene illuminant temp
+#### scene illuminant temp
 
 This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balace of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders.
 
@@ -32,7 +32,7 @@ temperature
 tint
 : Alter the color tint of the image, from magenta (tint < 1) to green (tint > 1).
 
-## white balance presets
+#### white balance presets
 
 setting
 : Choose from a predetermined list of white balances. The available settings are derived from the presets available in the camera used to take the photograph. The following options are provided in addition to any camera-defined white balance presets.
@@ -50,16 +50,16 @@ For convenience the final four modes can also be set by clicking on one of the b
 finetune
 : Finetune a camera-specific white balance preset. This is only shown if it is available for the camera in question. The direction of adjustment is dependent on the provided presets. If your camera doesn't have white balance presets available, check [this guide](https://github.com/darktable-org/darktable/wiki/White-balance-presets) to see how you can submit your own.
 
-## channel coefficients
+#### channel coefficients
 
 The RGB channel coefficients are automatically calculated from the above parameters and, as such, are hidden by default. You can expand/collapse the channel coefficients section by clicking on either the 'channel coefficients' label or the adjacent triangular button.
 
 red/green/blue
 : Set the value of each RGB channel coefficient from 0 to 8
 
-# additional functionality
+## additional functionality
 
-## colored sliders
+#### colored sliders
 
 By default the module's sliders are monochrome. However, two flavors of colored sliders can be enabled in [preferences > darkroom > white balance slider colors](../../preferences-settings/darkroom.md) or by clicking on the 'scene illuminant temp' section label in the module.
 
@@ -72,7 +72,7 @@ illuminant color
 effect emulation
 : The slider colors represent the effect the adjustment would have had on the scene. This is how most other raw processors show temperature/tint sliders colors.
 
-## button bar
+#### button bar
 
 The button bar is simple addition that allows one-click access to the internal white balance settings. You can disable this by editing your `Anselrc` file. Find the line that says
 
@@ -82,7 +82,7 @@ plugins/darkroom/temperature/button_bar=TRUE
 
 and change `TRUE` to `FALSE`.
 
-# usage warning
+## usage warning
 
 The only parameters that are used internally by this module's operation are the _rgb channel coefficients_. The _temperature_ and _tint_ sliders are provided as a more user-friendly way to adjust those parameters. The relationship between the channel coefficients and temperature/tint sliders depends on characteristics specific to the camera used to take the photograph. This means that applying white balance settings from an image made with one camera to an image made with another will, in general, not give consistent results.
 
