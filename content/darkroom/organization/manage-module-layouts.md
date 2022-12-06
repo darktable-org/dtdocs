@@ -14,9 +14,9 @@ This maintenance screen can be accessed from the _presets_ menu beside the modul
 
 Settings are automatically saved when you exit the screen. Click _reset_ to abandon any changes made in the current editing session.
 
-## module controls
+# module controls
 
-#### global controls
+## global controls
 
 The following global controls are available in the top panel of the screen.
 
@@ -47,18 +47,18 @@ show all history modules in active group
 auto-apply this preset
 : Module group presets can be automatically applied based on the type of image being worked on. The check box indicates whether this preset currently has any auto-apply rules. Click on the gear icon to amend the auto-apply settings. See [presets](../processing-modules/presets.md) for details.
 
-#### module groups
+## module groups
 
 The bottom panel of the screen allows you to alter the quick access panel and module groups for the selected preset (user-defined presets only).
 
 add a group
-: Click on the + sign beside the "module groups" label to add a new group.
+: Click on the + sign beside the "module groups" label to add a new group. 
 
 remove a group
 : Remove a group by clicking on the X button beside the group name.
 
 add a module/widget
-: Add a module to a group, or a widget to the quick access panel, by clicking the + sign below the group name. Select the required module/widget from the displayed list.
+: Add a module to a group, or a widget to the quick access panel, by clicking the + sign below the group name. Select the required module/widget from the displayed list. 
 
 remove a module/widget
 : Remove a module from a group, or a widget from the quick access panel, by clicking the X beside the module/widget name.
@@ -71,3 +71,4 @@ change the group order
 
 rename a group
 : Rename a module group by clicking on the group name and typing. Right-click to bring up a menu that can be used to copy, paste, select all, delete or insert an emoji)
+

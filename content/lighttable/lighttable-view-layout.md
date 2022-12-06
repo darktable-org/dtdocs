@@ -6,7 +6,7 @@ weight: 20
 author: "people"
 ---
 
-## left panel
+# left panel
 
 From top to bottom:
 
@@ -25,7 +25,7 @@ From top to bottom:
 [lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md) (optional)
 : Install lua scripts.
 
-## right panel
+# right panel
 
 From top to bottom:
 
@@ -53,7 +53,7 @@ From top to bottom:
 [export](../module-reference/utility-modules/shared/export.md)
 : Export selected images to local files or external services.
 
-## bottom panel
+# bottom panel
 
 ![lighttable-bottom-panel](./lighttable-view-layout/lighttable-bottom-panel.png#w100)
 

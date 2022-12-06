@@ -9,15 +9,15 @@ The [base curve](../../module-reference/processing-modules/base-curve.md), [tone
 
 ![curve](./curves/curve.png#w33)
 
-## nodes
+# nodes
 
 In their default state, curves are straight lines, defined by two anchor nodes at the top-right and bottom-left of the graph. You can move the nodes to modify the curve or generate new nodes by clicking on the curve. Ctrl+click to generate a new node at the x-location of the mouse pointer and the corresponding y-location of the current curve -- this adds a node without the risk of accidentally modifying the curve. Up to 20 nodes can be defined per curve. To remove a node, click on it and drag it out of the widget area.
 
-## curve controls
+# curve controls
 
 The following controls are common to two or more of the above processing modules and are therefore discussed separately here. Please see the individual module documentation for discussion of any additional controls.
 
-interpolation method
+interpolation method 
 : _tone curve and rgb curve only_
 
 : Interpolation is the process by which a continuous curve is derived from a few nodes. As this process is never perfect, several methods are offered that can alleviate some of the issues you may encounter.
@@ -39,7 +39,7 @@ preserve colors
 : - _norm RGB_
 : - _basic power_
 
-scale for graph
+scale for graph 
 : _tone curve and base curve only_
 
 : The scale allows you to distort the graph display so that certain graphical properties emerge to help you draw more useful curves. Note that the scaling option only affects the curve display, not the actual parameters stored by the module.

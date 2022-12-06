@@ -2,7 +2,7 @@
 title: rgb levels
 id: rgb-levels
 applicable-version: 3.2.1
-tags:
+tags: 
 working-color-space: RGB
 view: darkroom
 masking: true
@@ -12,11 +12,11 @@ Adjust black, white and mid-gray points in RGB color space. This module is silmi
 
 The rgb levels tool shows a histogram of the image, and displays three bars with handles. Drag the handles to modify the black, middle-gray and white points in lightness (in "RGB, linked channels" mode) or independently for each of the R, G and B channels (in "RGB, independent channels" mode).
 
-Moving the black and white bars to match the left and right borders of the histogram will make the output image span the full available tonal range. This will increase the image's contrast.
+Moving the black and white bars to match the left and right borders of the histogram will make the output image span the full available tonal range. This will increase the image's contrast. 
 
 Moving the middle bar will modify the mid-tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
-Three color pickers are available for sampling the black, white and gray points from the image.
+Three color pickers are available for sampling the black, white and gray points from the image. 
 
 ---
 
@@ -24,7 +24,7 @@ Three color pickers are available for sampling the black, white and gray points 
 
 ---
 
-## module controls
+# module controls
 
 mode
 : The mode of operation. "RGB, linked channels" (default) provides a single levels tool which updates all channels, taking into account the selected color preservation method (see "preserve colors" below). "RGB, independent channels" provides separate levels controls for each of the R, G and B channels.

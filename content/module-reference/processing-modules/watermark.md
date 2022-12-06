@@ -28,7 +28,7 @@ $(WATERMARK_FONT_STYLE)       The font style (normal, oblique, italic)
 $(WATERMARK_FONT_WEIGHT)      The font weight (boldness)
 ```
 
-## module controls
+# module controls
 
 marker
 : Choose the watermark to apply. Use the reload button to update the list to include any newly-added watermarks. The extension of the file (png/svg) is shown in brackets.

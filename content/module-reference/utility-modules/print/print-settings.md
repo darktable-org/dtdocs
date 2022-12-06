@@ -8,9 +8,9 @@ view: print
 
 Manage settings for the [print view](../../../print/_index.md) and initiate printing.
 
-## module controls
+# module controls
 
-#### printer
+## printer
 
 printer
 : Select one of the installed printers.
@@ -27,7 +27,7 @@ intent
 black point compensation
 : Whether to adjust the black point of the output profile, which is often lighter than the input profile. This should be “on” when the _intent_ is set to “relative colorimetric”.
 
-#### page
+## page
 
 paper size
 : The size of the paper on which to print.
@@ -50,7 +50,7 @@ snap to grid
 borderless mode required
 : Indicates whether the printer borderless mode is to be activated. This item is activated when the user's margins are smaller than the printer hardware margins. Note that it is only an indicator as it does not activate the borderless mode automatically.
 
-#### image layout
+## image layout
 
 image width/height
 : This information field displays the actual image width and height (given with the selected units) on the paper.
@@ -76,7 +76,7 @@ When hovering an image area its position and size are displayed. It is also poss
 
 The page layout can be recorded using a preset.
 
-#### print settings
+## print settings
 
 profile
 : The export profile to use. This profile is the entry point used for the next transformation using the printer's ICC profile. Usually it is better to prefer a large gamut (e.g. Adobe RGB) rather than a smaller one (e.g. sRGB).
@@ -90,6 +90,6 @@ style
 mode
 : Whether the chosen style should be appended to the existing history stack or replace it completely. See the [export](../shared/export.md) module for more details.
 
-#### print button
+## print button
 
 When clicked, the images are first exported using the selected options, then composed on the page and finally sent to the printer.

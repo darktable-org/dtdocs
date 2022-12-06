@@ -22,7 +22,7 @@ font size in points
 GUI controls and text DPI
 : Adjust the global GUI resolution to rescale controls, buttons, labels, etc. Increase for a magnified GUI, decrease to fit more content in the window. Set to -1 to use the system-defined global resolution. The default is 96 DPI on most systems. (needs a restart)
 
-## CSS theme modifications
+# CSS theme modifications
 
 In addition to selecting a pre-built theme you can also apply additional CSS customisations of your own to tweak the look-and-feel of Ansel.
 
@@ -46,7 +46,7 @@ create theme tweaks
 
 ---
 
-#### understanding Ansel's themes
+## understanding Ansel's themes
 
 All of Ansel's pre-built themes are provided as CSS files in `$Ansel/share/Ansel/themes/` (where `$Ansel` is Ansel's installation directory). The default theme is `Ansel.css` and this contains the bulk of the code used to control the look-and-feel of Ansel. A number of other themes are also provided but most of them use `Ansel.css` as a base (by importing `Ansel.css` using the `@import url` directive).
 

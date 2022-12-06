@@ -8,7 +8,7 @@ author: "people"
 
 The darkroom view is where you develop your images. The center panel contains the image currently being edited.
 
-## zoom
+# zoom
 
 Middle-click on the center panel cycle between "fit to screen", 1:1 and 2:1 zoom.
 

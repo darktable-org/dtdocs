@@ -5,7 +5,7 @@ weight: 20
 draft: false
 ---
 
-## left panel
+# left panel
 
 From top to bottom:
 
@@ -33,7 +33,7 @@ From top to bottom:
 [export](../module-reference/utility-modules/shared/export.md)
 : Export selected images to local files or external services.
 
-## right panel
+# right panel
 
 From top to bottom:
 
@@ -52,7 +52,7 @@ search module
 [module order](../module-reference/utility-modules/darkroom/module-order.md)
 : Choose the order in which processing modules are executed in the pixelpipe.
 
-## bottom panel
+# bottom panel
 
 ![darkroom-view-layout](./darkroom-view-layout/darkroom-bottom-panel.png#w100)
 

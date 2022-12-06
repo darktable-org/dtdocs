@@ -12,9 +12,9 @@ When used in the darkroom view, the currently-edited image will be exported if n
 
 Files can be exported to a file on disk, email, various online storage locations, a web album, or a book template.
 
-## module controls
+# module controls
 
-#### storage options
+## storage options
 
 target storage
 : The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
@@ -34,7 +34,7 @@ on conflict
 
 : - _skip_: Do not export images where the destination filename already exists.
 
-#### format options
+## format options
 
 file format
 : Choose the file format for the exported image. Additional options will appear (below) depending on the selected format.
@@ -54,7 +54,7 @@ compression level
 b&w image
 : For TIFF export format, it is possible to save a monochrome image. This setting controls whether the resulting file encodes the shades of gray as separate RGB channels, or as a single grayscale channel. The latter option will result in smaller files.
 
-#### global options
+## global options
 
 set size
 : Choose how to measure the maximum size of your exported image
@@ -103,7 +103,7 @@ export
 
 ---
 
-## metadata preferences
+# metadata preferences
 
 The “preferences…” option in the presets menu brings up a dialog where you can configure what metadata to include in exported files:
 
@@ -111,7 +111,7 @@ The “preferences…” option in the presets menu brings up a dialog where you
 
 The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when Ansel is closed.
 
-#### general settings
+## general settings
 
 The left-hand-side of this dialog allows you to choose which groups of metadata are to be exported with the image. The following options are available:
 
@@ -142,7 +142,7 @@ develop history
 
 ---
 
-#### per metadata settings
+## per metadata settings
 
 The right-hand-side of this dialog allows you to define formulas to populate image metadata. The formulas defined here have priority over the settings in the left-hand-side of the dialog. The first column identifies the entry to be edited. The second column allows you to define how to calculate the value for that metadata entry using a formula.
 
@@ -156,12 +156,12 @@ The formulas allow you virtually define all the metadata you need to qualify you
 
 _Remember that a tag set up as a category is never exported._
 
-#### tips
+## tips
 
 - To prevent a specific metadata field from being exported, add it to the list and leave the formula empty.
 - To force a specific exif metadata field to be exported when exif export is disabled, add it to the list and enter `=` into the formula.
 
-#### examples
+## examples
 
 example 1
 : A first level tag called places is set as a category, and is followed by four levels of information (or keywords): country, region, city and location (e.g. `places|France|Nord|Lille|rue Nationale`). Each level can be retrieved (when it is defined) by one of the variables `$(CATEGORY0(places))`, `$(CATEGORY1(places))`, `$(CATEGORY2(places))` and `$(CATEGORY3(places))`. In this example, the returned values are "France", "Nord", "Lille" and "rue Nationale", respectively. These keywords can also be retrieved as simple tags using the variable `$(TAGS)`. The last keyword level defined (the leaf) is displayed in [image information](../shared/image-information.md), here "rue Nationale".

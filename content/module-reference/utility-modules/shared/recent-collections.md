@@ -12,7 +12,7 @@ This module may be hidden, depending on the preferences set in the [collections]
 
 Click on an entry to reopen the selected collection. This also updates the collections module with the appropriate filter criteria and rules.
 
-#### preferences
+## preferences
 
 The "preferences..." option in the presets menu allows you to adjust the behavior of the recent collections module as follows:
 

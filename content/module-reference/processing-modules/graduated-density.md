@@ -2,8 +2,8 @@
 title: graduated density
 id: graduated-density
 applicable-version: 3.2.1
-tags:
-working-color-space: RGB
+tags: 
+working-color-space: RGB 
 view: darkroom
 masking: true
 ---
@@ -14,7 +14,7 @@ A line is shown on screen allowing the position and rotation of the gradient to 
 
 This module is known to provoke banding artifacts under certain conditions. You should consider activating the [_dithering_](./dithering.md) module to alleviate these issues.
 
-## module controls
+# module controls
 
 density
 : Set the density of the filter (EV). A low value underexposes slightly whereas a high value creates a strong filter.

@@ -10,7 +10,7 @@ A number of pre-defined module groups are shipped with Ansel and are selectable 
 
 All of these presets (with the exception of _modules: deprecated_ and _search only_) also include the quick access panel. All except the _modules: deprecated_ group include the search bar.
 
-## _modules: all_
+# _modules: all_
 
 This preset contains all modules, sorted according to the traditional module groupings used prior to Ansel 3.4, as follows:
 
@@ -29,7 +29,7 @@ This preset contains all modules, sorted according to the traditional module gro
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as bloom, diffuse or sharpen, etc.
 
-## _modules: default_
+# _modules: default_
 
 This preset is the default module group layout from Ansel 3.4 onwards and consists of a simplified set of module groups, as follows:
 
@@ -42,7 +42,7 @@ This preset is the default module group layout from Ansel 3.4 onwards and consis
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as retouch, liquify, bloom, sharpen, etc.
 
-## _workflow: scene-referred_ & _workflow: display-referred_
+# _workflow: scene-referred_ & _workflow: display-referred_
 
 These presets define groups of modules relevant to the [scene-referred and display-referred workflows](../pixelpipe/the-pixelpipe-and-module-order.md#module-order-and-workflows), sorted into groups as shown below:
 
@@ -58,7 +58,7 @@ These presets define groups of modules relevant to the [scene-referred and displ
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as watermark, framing, vignetting, etc.
 
-## _workflow: beginner_
+# _workflow: beginner_
 
 This preset provides a minimal set of modules targeted as a starting point for beginners. It is suggested that beginners start by copying this minimal preset, and add to it as they gain experience with other modules.
 
@@ -71,7 +71,7 @@ This preset provides a minimal set of modules targeted as a starting point for b
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as retouch, sharpen, watermark, etc.
 
-## _previous config_
+# _previous config_
 
 These presets are automatically generated for users who have upgraded from a version of Ansel prior to 3.4. Where you have previously set up favourites or altered the _hidden_ flag on modules, these presets contains those customisations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
 
@@ -80,10 +80,10 @@ If favourites were created in prior versions these will remain available in an a
 ![module-group-favourites-icon](./manage-module-layouts/module-group-favorites-icon.png#icon) favourite modules
 : This group was previously used by users to make it easier to find frequently-used modules, and is available under the "previous config" presets. New users can, of course, still create their own custom group and name it "favourites" if they so desire.
 
-## _search only_
+# _search only_
 
 This preset does not include any module groupings. Modules may only be accessed using the search facility.
 
-## _modules: deprecated_
+# _modules: deprecated_
 
 This preset contains a list of deprecated modules. This is the only way to access deprecated modules for new edits but be warned: these modules will be removed for new edits in the next release of Ansel. This group cannot be duplicated and the modules within it cannot be added to user-created groups.

@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-## left panel
+# left panel
 These modules are identical to the lighttable view. From top to bottom:
 
 [collections](../module-reference/utility-modules/shared/collections.md)
@@ -18,7 +18,7 @@ These modules are identical to the lighttable view. From top to bottom:
 [image information](../module-reference/utility-modules/shared/image-information.md)
 : Display image information.
 
-## right panel
+# right panel
 
 Here you can find the modules specific to the map view. From top to bottom:
 
@@ -37,7 +37,7 @@ Here you can find the modules specific to the map view. From top to bottom:
 [geotagging](../module-reference/utility-modules/shared/geotagging.md)
 : Apply GPX track data to selected images.
 
-## bottom panel
+# bottom panel
 
 [filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
 : Drag images from the filmstrip onto the map as described in the map [overview](./).

@@ -2,17 +2,17 @@
 title: hot pixels
 id: hot-pixels
 applicable-version: 3.2.1
-tags:
-working-color-space: Not Applicable (RAW)
+tags: 
+working-color-space: Not Applicable (RAW) 
 view: darkroom
 masking: true
 ---
 
-Automatically detect and eliminate hot pixels.
+Automatically detect and eliminate hot pixels. 
 
 Hot pixels are pixels which have failed to record a light level correctly. Detected hot pixels are replaced by an average of their neighbors.
 
-## module controls
+# module controls
 
 threshold
 : How strong a pixel's value needs to deviate from that of its neighbors to be regarded as a hot pixel.

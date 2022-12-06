@@ -14,7 +14,7 @@ One issue with a lot of denoising algorithms is that they assume that the varian
 
 Currently, Ansel has sensor noise profiles for over 300 popular camera models from all the major manufacturers. If you generate your own noise profile for a camera that is not yet supported by Ansel, be sure to share it with the Ansel development team so they can include it in the next release! Please see Ansel's [camera support](https://github.com/Ansel-org/Ansel/wiki/Camera-support) page for more information.
 
-## modes
+# modes
 
 The _denoise (profiled)_ module implements two algorithms, each of which is available in either an easy-to-use "auto" mode, or a more advanced manual mode with additional controls:
 
@@ -28,7 +28,7 @@ wavelets (default)
 
 : The wavelet algorithm is less resource-intensive than _non-local means_.
 
-#### luma versus chroma noise
+## luma versus chroma noise
 
 Both “non-local means” and “wavelet” algorithms can efficiently tackle luma (lightness) noise and chroma (color) noise.
 
@@ -36,7 +36,7 @@ In the past, it was suggested that you use two separate instances of this module
 
 The new algorithms in this module now provide their own methods to separately handle luma and chroma noise, and in both cases this can be handled with a single module instance.
 
-## module controls
+# module controls
 
 The _denoise (profiled)_ module provides some controls that are independent of the algorithm used. These are described first, before moving on to the algorithm-specific controls.
 
@@ -44,7 +44,7 @@ When describing the controls specific to an algorithm, we will first cover the s
 
 Note that sliders are provided with minimum and maximum values by default. However, these are only soft limits and, where needed, higher values can be entered by right-clicking on the slider and typing a new value.
 
-#### common controls
+## common controls
 
 profile
 : Ansel automatically determines the camera model and ISO based on the Exif data of your raw file, and searches for a corresponding profile in its database. If your image has an intermediate ISO value, settings will be interpolated between the two closest datasets in the database, and this interpolated setting will show up as the first line in the combo box. You can also manually override this selection if necessary. Re-selecting the top-most entry in the combo box will return you to the default profile.
@@ -67,12 +67,12 @@ preserve shadows (advanced mode only)
 bias correction (advanced mode only)
 : Correct any color cast that may appear in the shadows. Increase this value if dark shadows appear too green, decrease if they appear too purple.
 
-#### non-local means auto sliders
+## non-local means auto sliders
 
 central pixel weight (details)
 : Control the amount of detail that should be preserved by the denoising algorithm. By default, this will have a low value, meaning that the algorithm will treat both luma and chroma noise equally. Move this slider to the right to reduce the amount of luma denoising, so that the algorithm will primarily affect chroma noise. By adjusting this slider together with the _strength_ slider, you can find a good balance between luma and chroma denoising.
 
-#### non-local means advanced sliders
+## non-local means advanced sliders
 
 When you take non-local means out of auto mode, the _adjust autoset parameters_ slider is replaced with the following controls. You can use the auto-adjust slider to arrive at some initial settings then, when you switch to manual mode, the sliders will show the equivalent manual settings. You can then continue to fine-tune the manual settings from the auto-set starting point.
 
@@ -85,7 +85,7 @@ search radius
 scattering (coarse-grain noise)
 : Like the _search radius_, this slider controls how far from a pixel the algorithm will attempt to find similar patches. However, it does this without increasing the number of patches considered. As such, processing time will stay about the same. Increasing the value will reduce coarse grain noise, but may smooth local contrast. This slider is particularly effective at reducing chroma noise.
 
-#### wavelet curves
+## wavelet curves
 
 Wavelet curves are shown when one of the “wavelet” modes is selected.
 
@@ -93,13 +93,13 @@ The noise in an image usually consists of both fine grain and coarse grain noise
 
 For example, you can preserve very-fine-grain noise by pulling the right-most part of the curve down. When tackling chroma noise (e.g. on a U0V0 curve, or on a second module instance with a color blend mode) you can safely raise the right side of the curve, since colors do not change a lot on fine scales. This can be useful if you see some noisy isolated pixels with the wrong color.
 
-#### wavelets _Y0U0V0_ color mode
+## wavelets _Y0U0V0_ color mode
 
 The preferred way to use wavelets is with the _Y0U0V0_ color mode. This mode separates the denoising curves into luminance (_Y0_) and color (_U0V0_) components. You can then use the _Y0_ curve to control the level of luma denoising, and the _U0V0_ curve to control the level of chroma denoising.
 
 ![denoise-y0u0v0](./denoise-profiled/denoise-y0u0v0.png#w33)
 
-#### wavelets _RGB_ color mode
+## wavelets _RGB_ color mode
 
 Before the _Y0U0V0_ color mode was introduced, wavelet-based denoising could only be performed directly on the _R_, _G_ and _B_ channels, either together or individually.
 
@@ -109,6 +109,6 @@ If you want to denoise the RGB channels independently, the best way to do this i
 
 The issue with independently denoising the RGB channels is that there can still be some residual chroma noise at the end that requires excessive smoothing to eliminate. This was in fact one of the key motivations behind implementing the _Y0U0V0_ color mode.
 
-#### wavelets advanced sliders
+## wavelets advanced sliders
 
 When you take _wavelets_ out of _auto_ mode, the _adjust autoset parameters_ slider is replaced with the _preserve shadows_ and _bias correction_ controls listed above in the [common controls](#common-controls) section.

@@ -18,7 +18,7 @@ The panel below these buttons displays a list of all masks and individual shapes
 
 Groups of shapes forming a mask are displayed with a headline in the form "grp <module_name>" indicating the module in which they are used, with the component shapes listed below. The list of mask groups is followed by a list of all individual shapes that have been generated in the context of the current image. If a shape is in use by any masks this is indicated by a symbol to the right of the shape name.
 
-## shapes
+# shapes
 
 By default each shape receives an automatically generated name, consisting of the shape type ("brush", "circle", "ellipse", "path", "gradient") and an automatically-incremented integer. You can rename a shape by double-clicking on its current name. It is a good habit to give shapes and groups meaningful names, especially if you intend to reuse the same selection in different masks.
 
@@ -32,7 +32,7 @@ Right-click on a shape name to show a menu containing options to remove the curr
 
 ---
 
-## masks & groups
+# masks & groups
 
 Masks are constructed by adding a group of shapes to the image in the order that they are listed (from top to bottom). Each shape adjusts the existing mask using one of four logical set operators (see below). Because order is important it is also possible to move shapes up and down the list.
 
@@ -56,7 +56,7 @@ move up/down
 
 You can also create your own groups using existing shapes by selecting the shapes you wish to group, right-clicking them and choosing "group the forms".
 
-## set operators
+# set operators
 
 Set operators are used to define how grouped shapes are combined. In the following examples we will use a mask that combines a gradient followed by a path, to demonstrate the effect of each set operator when applied to the path shape.
 

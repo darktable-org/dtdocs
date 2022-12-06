@@ -7,7 +7,7 @@ draft: false
 
 Control default file naming conventions used when [importing](../module-reference/utility-modules/lighttable/import.md) images.
 
-## session options
+# session options
 
 The following options define the default naming pattern for use in the "copy & import" or "copy & import from camera" options in the import module, or when taking photos in the [tethering](../tethering/_index.md) view.
 

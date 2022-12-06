@@ -8,7 +8,7 @@ author: "people"
 
 The _zoomable lighttable_ mode provides an alternative way to navigate large collections of images, but with some similarities to the filemanager mode (described below).
 
-## controls
+# controls
 
 zoom
 : Scroll with the mouse wheel to zoom in and out of the lighttable (compared to Ctrl+scroll in [filemanager](./filemanager.md) mode).

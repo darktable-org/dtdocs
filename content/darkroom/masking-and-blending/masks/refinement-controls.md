@@ -41,7 +41,7 @@ mask contrast
 ![mask icon](./refinement-controls/icon-mask.png#icon) display mask
 : Click on this icon to display the current mask as a yellow overlay over a black-and-white version of the image. Solid yellow indicates an opacity of 100%; a fully visible gray background image (without yellow overlay) indicates an opacity of 0%.
 
-## example: feathering a drawn mask
+# example: feathering a drawn mask
 
 ![feathering](./refinement-controls/feathering.png#w100)
 
@@ -49,7 +49,7 @@ It can be rather tedious to create a drawn mask that precisely covers a particul
 
 1. The first image above shows the original, unaltered image.
 2. The second image shows a rough selection of the sculpture created with a drawn mask. Note that the mask is rather fuzzy and does not precisely follow the outline of the lion sculpture.
-3. The third image shows the effect of adjusting the feathering radius, mask opacity and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask opacity and mask contrast have been increased to 0.3 and 0.5, respectively.
+3. The third image shows the effect of adjusting the feathering radius, mask opacity and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask opacity and mask contrast have been increased to 0.3 and 0.5, respectively. 
 4. The final image above shows the end result, where the color enhancement (via the [_color contrast_](../../../module-reference/processing-modules/color-contrast.md) module) is restricted to only the lion sculpture.
 
-Mask feathering works particularly well in this example because the sculpture is well separated from the out-of-focus background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture.
+Mask feathering works particularly well in this example because the sculpture is well separated from the out-of-focus background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture. 

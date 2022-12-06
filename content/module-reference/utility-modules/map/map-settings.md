@@ -8,7 +8,7 @@ view: map
 
 Select preferred map data from various providers. Some will provide additional layers (satellite view etc.) which you can toggle.
 
-## module controls
+# module controls
 
 map source
 : Choose the provider to source map information from.

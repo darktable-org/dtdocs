@@ -12,7 +12,7 @@ The map view shows a world map with the images in the current [collection](../li
 
 Even if your camera doesn't support this feature, there is an alternative method -- Ansel can match the Exif date/time in your image(s) to a separate GPX data tracking file created by a GPS tracker, that has recorded your movements. GPS trackers can be purchased as standalone handheld devices or you can install a GPS tracker app on your smartphone. Location tagging with GPS tracking data can be done using the [geotagging](../module-reference/utility-modules/shared/geotagging.md) module, in the lighttable and map views.
 
-## center map view
+# center map view
 
 In the center of the map view you will see a world map.
 
@@ -36,7 +36,7 @@ Click+drag to adjust the location of an image. Shift+click to move a complete gr
 
 The left and right panels provide additional controls (see [map view layout](./map-view-layout.md)).
 
-## undo/redo
+# undo/redo
 
 All image movements in the map view are recorded by Ansel. It is possible to undo or redo such changes to recover a previous state. Note that this undo/redo facility is unlimited while moving images but it is reset each time you leave the map view.
 

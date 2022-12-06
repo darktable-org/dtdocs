@@ -14,7 +14,7 @@ Although not an inherent problem in any of Ansel's modules, some operations may 
 
 Viewing an image dithered into a very low bit depth from some distance (e.g. “Floyd-Steinberg 1-bit b&w”) will give the impression of a homogeneous grayscale image. Ansel attempts to mimic this impression when rendering zoomed-out images in the center view, the navigation window and thumbnails. This is accomplished by dithering those images into a higher number of grayscale levels. Note that, as a consequence, the [scopes](../utility-modules/shared/scopes.md) module -- the data for which is derived from the navigation window -- will show this increased number of levels and is therefore not a full match to the output image.
 
-## module controls
+# module controls
 
 method
 : Choose the dithering method to use.

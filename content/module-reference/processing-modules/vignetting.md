@@ -2,13 +2,13 @@
 title: vignetting
 id: vignetting
 applicable-version: 3.2.1
-tags:
+tags: 
 working-color-space: RGB
 view: darkroom
 masking: false
 ---
 
-Apply a vignetting effect to the image.
+Apply a vignetting effect to the image. 
 
 Vignetting is a modification of the brightness and saturation at the borders of the image in a specified shape. Many of the parameters listed below can also be modified with a graphical control that overlays the image when the module has focus, showing the shape and extent of the effect.
 
@@ -22,7 +22,7 @@ _**Also note:** This module can produce unnatural-looking results and should be 
 
 ---
 
-## module controls
+# module controls
 
 scale
 : The radius of the vignetting area.

@@ -2,10 +2,10 @@
 title: rgb curve
 id: rgb-curve
 applicable-version: 3.8
-tags:
-working-color-space:
+tags: 
+working-color-space:  
 view: darkroom
-masking:
+masking: 
 ---
 
 A classic digital photography tool to alter an image's tones using curves.
@@ -16,7 +16,7 @@ Activate the color picker on the left to show the picked values in the graph (Ct
 
 A second color picker to the right can be used to automtaically create new nodes based on the sampled area. Ctrl+click+drag to alter the created nodes to have a positive curve for the selected area; Shift+click+drag to create a negative curve.
 
-## module controls
+# module controls
 
 _Please refer to the [curves](../../darkroom/processing-modules/curves.md) section for more details about how to modify curves including the **interpolation method** and **preserve colors** controls._
 

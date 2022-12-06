@@ -7,13 +7,13 @@ draft: false
 
 You can perform almost any action in Ansel with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _external devices_ or just _devices_ in this guide.
 
-## defining shortcuts
+# defining shortcuts
 
 A _shortcut_ is a combination of key or button presses and/or mouse or device movements that performs an _action_ in Ansel.
 
 A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given Ansel view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
 
-#### initiating a shortcut
+## initiating a shortcut
 
 A shortcut must be initiated by either
 
@@ -22,7 +22,7 @@ A shortcut must be initiated by either
 
 You cannot initiate a shortcut by moving your mouse or pressing one of its buttons, as these actions are used to interact with Ansel's UI.
 
-#### simple shortcuts
+## simple shortcuts
 
 A shortcut that only includes button and/or key presses (and not mouse/device movements) is referred to as a _simple_ shortcut.
 
@@ -34,11 +34,11 @@ A simple shortcut must be initiated as above, but can include:
 
 Various combinations of keyboard, mouse, and device buttons can be used to create simple shortcuts.
 
-###### creating additional modifiers
+### creating additional modifiers
 
 The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the "global/modifier" action. However, these will merely function as extra Ctrl, Alt or Shift keys -- you cannot create "new" modifiers.
 
-#### extending simple shortcuts with movement
+## extending simple shortcuts with movement
 
 For certain actions you can choose to _extend_ a simple shortcut using mouse/device movement. For example you might hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut:
 
@@ -58,7 +58,7 @@ Long button and key presses cannot be extended, as the length of the click/press
 
 ---
 
-## actions
+# actions
 
 Shortcuts are used to initiate _actions_ within Ansel.
 
@@ -81,11 +81,11 @@ element
 effect
 : A shortcut can sometimes have multiple possible _effects_ on a given _element_. For example, a button can be activated as if it was pressed with a plain mouse-click or as if it was pressed with Ctrl+click. A slider's value can be edited, increased/decreased or reset.
 
-## assigning shortcuts to actions
+# assigning shortcuts to actions
 
 There are two primary methods of assigning a shortcut to an action.
 
-#### visual shortcut mapping
+## visual shortcut mapping
 
 Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md) of any Ansel view to enter visual shortcut mapping mode. If you hold Ctrl while clicking the button, no confirmation will appear when overwriting an existing shortcut mapping.
 
@@ -107,7 +107,7 @@ You can delete a user-defined shortcut mapping by defining it a second time agai
 
 Finally, if you scroll with your mouse wheel while in visual mapping mode (without pressing any other buttons/keys) when hovering over a slider, this will change the default speed for that slider -- scroll up to increase and down to decrease. When you leave mapping mode, normal mouse scrolls over that slider will change its value with the adjusted speed.
 
-#### shortcut mapping screen
+## shortcut mapping screen
 
 The most flexible way to create shortcuts is by using the shortcut mapping screen, which can be accessed from the global preferences dialog or by left-clicking in visual mapping mode. This screen allows access to all available actions, including some that are not directly linked to a UI widget.
 
@@ -128,17 +128,17 @@ import...
 restore...
 : Restore your shortcut mappings to (a) The mappings shipped with Ansel by default, (b) The start of your current session, or (c) The point at which the shortcut mapping screen was last opened. When restoring, you can choose to leave any additional shortcuts that were added after the relevant checkpoint as they are, so that only changed shortcuts are restored to their previous meaning. Or you can choose to first clear all shortcuts and just load the restore point.
 
-#### deleting default shortcuts
+## deleting default shortcuts
 
 When launching the application, Ansel loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart).
 
 There are two ways to delete default shortcuts:
 
-###### prevent default shortcuts from being reloaded
+### prevent default shortcuts from being reloaded
 
 Disable [preferences > miscellaneous > interface > load default shortcuts at startup](./miscellaneous.md) to prevent default shortcuts from being reloaded. While this option is disabled, Ansel will only load user-defined shortcuts and any defaults that you have not subsequently deleted or overridden.
 
-###### override default shortcut with a no-op action
+### override default shortcut with a no-op action
 
 You can _override_ the action of a default shortcut by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/Ansel/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit Ansel first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in Ansel:
 
@@ -162,29 +162,29 @@ s=global/no-op
 t=global/no-op
 ```
 
-## common actions
+# common actions
 
 The following is a list of some of the actions to which you can assign shortcuts, organized by widget type. This is not an exhaustive list and you are encouraged to browse the shortcut mapping screen for a complete list of available actions. If you assign a shortcut to a widget, it will be given a default action, depending on the type of widget and on whether you have assigned a simple or extended shortcut.
 
 Note that it is possible to assign a number of actions that have no effect. For example, all sliders include a _button_ element, regardless of whether such a button is actually present alongside a given slider.
 
-#### global
+## global
 
 Actions in the "global" section of the shortcut mapping screen can be executed from any Ansel view. Most of these actions do not have specific _elements_ as they are used to perform one-off operations.
 
-#### views
+## views
 
 Actions in the "views" section can only be executed from the specified Ansel view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-#### buttons
+## buttons
 
 A button is a clickable icon in the Ansel interface. The default action, when assigning a simple shortcut to a _button_, is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
 
-#### toggles
+## toggles
 
 A toggle is a button that has a persistent on/off state. It therefore has additional _effects_ to allow you to toggle it or explicitly set its state. As with a normal button the default action, when assigning a simple shortcut to a toggle, is to activate the toggle as if clicked with the left mouse button (which toggles the button on/off).
 
-#### utility modules
+## utility modules
 
 All utility modules have the following elements:
 
@@ -201,7 +201,7 @@ The default action, when assigning a simple shortcut to a utility module, is to 
 
 In addition, shortcuts are available for all of the controls on each module as well as any stored presets (see below).
 
-#### processing modules
+## processing modules
 
 Processing modules have the same elements and defaults as utility modules with the following additional elements:
 
@@ -220,7 +220,7 @@ Additional options are available in the shortcuts mapping screen to adjust the b
 
 You can also assign scroll shortcuts to the 'preset' menu, which allows you to use your mouse scroll wheel to scroll through the module's presets.
 
-#### dropdowns
+## dropdowns
 
 A dropdown is a multi-selection box and has the following elements available:
 
@@ -230,7 +230,7 @@ _selection_
 _button_
 : A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
 
-#### sliders
+## sliders
 
 A slider allows you to continuously alter an integer or decimal value, and has the following elements available:
 
@@ -248,7 +248,7 @@ _button_
 
 You can alter the value of a slider more quickly or slowly than normal by defining the _speed_ of the action in the shortcut mapping screen. By default a _value_ (or _force_) effect is given a speed of 1.0, which means that it is changed at the default rate defined by the given slider. You can alter the slider more quickly by increasing the speed (a speed of 10 makes the action 10x faster) or more slowly by decreasing it (a speed of 0.1 makes the action 10x slower).
 
-## fallbacks
+# fallbacks
 
 Where a _widget_ can have multiple different _actions_ applied to it, it can be tedious to set up individual shortcuts for each one of those actions. To make this process simpler, if you create a simple shortcut a number of effects can be made available by default as extensions to that shortcut. These are known as _fallbacks_.
 

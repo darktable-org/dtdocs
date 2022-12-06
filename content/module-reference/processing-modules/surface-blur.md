@@ -17,7 +17,7 @@ The module can also be used as a creative filter to provide interesting effects,
 
 This module is resource-intensive and slows down pixelpipe processing significantly. You should consider activating it late in your workflow.
 
-## module controls
+# module controls
 
 radius
 : The spatial extent of the gaussian blur.

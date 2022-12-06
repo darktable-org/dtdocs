@@ -7,7 +7,7 @@ draft: false
 
 The following options are related to Ansel's library database and [XMP sidecar files](../overview/sidecar-files/_index.md).
 
-## database
+# database
 
 create database snapshot
 : Specifies how often Ansel should create database snapshots. Options are "never", "once a month", "once a week", "once a day" and "on close" (default "once a week")
@@ -15,7 +15,7 @@ create database snapshot
 how many snapshots to keep
 : Number of snapshots to keep after creating a new snapshot, not counting database backups taken when moving between Ansel versions. Enter "-1" to store an unlimited number of snapshots. (default 10)
 
-## xmp
+# xmp
 
 write sidecar file for each image
 : XMP files provide a redundant method of saving the changes that you have made to an image, in addition to the changes saved to Ansel's database. This option allows you to choose when to write these files. Choose from:

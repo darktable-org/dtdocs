@@ -2,7 +2,7 @@
 title: color zones
 id: color-zones
 applicable-version: 3.8
-tags:
+tags: 
 working-color-space: Lab
 view: darkroom
 masking: true
@@ -20,7 +20,7 @@ _**Note:** This module should be used with care, as transitions between colors m
 
 ---
 
-## pixel selection method
+# pixel selection method
 
 The _color zones_ module offers three different methods for selecting which pixels you want to adjust. They are:
 
@@ -39,9 +39,9 @@ select by saturation
 
 : ![color zones choose saturation](./color-zones/color-zones-choose-saturation.png#w33)
 
-## pixel manipulation curves
+# pixel manipulation curves
 
-Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizontal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, saturation, hue).
+Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizontal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, saturation, hue). 
 
 If, for example, you were to choose to _select by hue_ (the default), the horizontal axis (below the manipulation curves) would show the range of hues you can work with, and the three pixel manipulation curves would appears as follows:
 
@@ -62,19 +62,19 @@ hue
 
 The curves work similarly in the lightness- and saturation-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
 
-Note that these examples are somewhat contrived in order to illustrate the module's usage. In practical use, they would likely need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect.
+Note that these examples are somewhat contrived in order to illustrate the module's usage. In practical use, they would likely need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect. 
 
-## range selection
+# range selection
 
 When adjusting the pixel manipulation curves, it can sometimes be difficult to judge exactly where on the horizontal axis pixels will fall. To the right of the tab controls are a pair of color pickers that can be used to assist with this.
 
 If you click the left-hand color picker and choose a pixel in the image, you will see a dark vertical line showing where that pixel falls on the horizontal axis. If you Ctrl+click or right-click on the same color picker you can choose a rectangular area from the image -- the range of values represented within the selected rectangle will be shaded vertically, with a similar dark line showing the median value.
 
-If you click on the right-hand color picker, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, representing the highlighted range (see below). Simply drag on the center node to raise or lower the curve within the selected range. Alternatively, hold Ctrl while selecting a range to automatically create a positive curve (push up the selected range) or hold Shift while selecting to create a negative curve (pushed down).
+If you click on the right-hand color picker, you can similarly choose a rectangular area on the image and the display will be shown as described above (a shaded area with a dark vertical line). However, in this case the color picker will also automatically add some control points to the curve for you, representing the highlighted range (see below). Simply drag on the center node to raise or lower the curve within the selected range. Alternatively, hold Ctrl while selecting a range to automatically create a positive curve (push up the selected range) or hold Shift while selecting to create a negative curve (pushed down). 
 
 ![color zones overview](./color-zones/color-zones-overview.png#w33)
 
-## module controls
+# module controls
 
 The following controls are available in the _color zones_ module:
 
@@ -98,3 +98,4 @@ mix
 
 interpolation method
 : Define how the curve is interpolated using the user-defined control points. See the [curves](../../darkroom/processing-modules/curves.md) section for more details.
+

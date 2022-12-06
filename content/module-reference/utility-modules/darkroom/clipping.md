@@ -2,7 +2,7 @@
 title: clipping warning
 id: clipping
 applicable-version: 3.4
-tags:
+tags: 
 view: darkroom
 ---
 
@@ -28,7 +28,7 @@ The clipping warning module, described here, warns you about clipping caused by 
 
 - The [gamut check](./gamut.md) module also provides information about clipping arising from image processing. It is based on the external littleCMS library, and is more or less equivalent to the _full gamut_ mode in the clipping warning module. The downsides of the gamut check module are that it doesn't allow you to distinguish between clipping caused by luminance and gamut mapping, and it is much slower than the clipping warning indicator.
 
-## module controls
+# module controls
 
 Right-click on the clipping icon to show the following options:
 
@@ -55,3 +55,4 @@ lower threshold
 
 upper threshold
 : How close a pixel should be to the upper limit before being flagged by the clipping warning, expressed as a percentage (default 98%). In the case of gamut checks, this controls how close the saturation of the pixel is allowed to get to the limits of the color space's gamut before a clipping indication is flagged.
+

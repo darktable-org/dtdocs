@@ -7,7 +7,7 @@ draft: false
 
 This section describes how to interact with processing module controls.
 
-## sliders
+# sliders
 
 Sliders offer five different methods of interaction, depending on the level of control you require.
 
@@ -43,14 +43,14 @@ In addition, the speed of mouse-wheel, arrow-key and click+drag adjustments can 
 
 Both of these multipliers can be amended in [preferences > shortcuts](../../preferences-settings/shortcuts.md) by altering the speed of the fallbacks/value actions.
 
-## comboboxes
+# comboboxes
 
 Click on a combobox to show a list of available options which you can click to select. Occasionally the selection list will open close to the bottom or top of the screen meaning that only some of the items are visible -- simply scroll with your mouse wheel to bring up the full list. Alternatively, you can also use the mouse wheel and keyboard arrow keys to select an option, or start typing to filter the combobox entries.
 
-## color pickers
+# color pickers
 
 A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png#icon) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by clicking on the color picker icon. Area mode is activated with Ctrl+click or right-click.
 
-## keyboard shortcuts
+# keyboard shortcuts
 
 Module parameters can also be adjusted using keyboard shortcuts. See [preferences > shortcuts](../../preferences-settings/shortcuts.md) for more information.

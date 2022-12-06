@@ -31,7 +31,7 @@ The layout of all Ansel views is similar and consists of a center area with pane
 7. [filmstrip](../../module-reference/utility-modules/shared/filmstrip.md)/[timeline](../../module-reference/utility-modules/lighttable/timeline.md) panel
 : An optional panel that can be enabled at the bottom of the screen to display a timeline (in the lighttable view) or a filmstrip (in other views) of images in the current collection.
 
-## panel size and visibility
+# panel size and visibility
 
 The left, right and filmstrip/timeline panels can be resized by dragging their inner borders.
 

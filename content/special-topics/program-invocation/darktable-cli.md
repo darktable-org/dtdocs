@@ -89,15 +89,15 @@ The user must supply an input filename and an output filename. All other paramet
 `--core <Ansel options>`
 : All command line parameters following `--core` are passed to the Ansel core and handled as standard parameters. See the [`Ansel binary`](./Ansel.md) section for a detailed description.
 
-## export options
+# export options
 
 Export options for Ansel are defined as configuration items, set from within the [export module](../../module-reference/utility-modules/shared/export.md). There are two ways to alter this configuration when using `Ansel-cli`, as described below.
 
-#### use the export module
+## use the export module
 
 The `Ansel-cli` command will use the last format configuration used in the export module, when run in interactive (gui) mode. You may therefore manually set your desired format options in the Ansel gui and then run `Ansel-cli` to export your files.
 
-#### pass options on the command-line
+## pass options on the command-line
 
 You can set any export format configuration option using the following syntax:
 
@@ -111,12 +111,12 @@ An option set in this way will not be permanently stored but will be used just f
 
 The following sections describe the configuration options/values that are available for each export format:
 
-###### jpeg
+### jpeg
 
 `quality`
 : The compression quality (`5` - `100`)
 
-###### j2k (jpg2000)
+### j2k (jpg2000)
 
 `format`
 : The format of the output
@@ -132,7 +132,7 @@ The following sections describe the configuration options/values that are availa
 : - `1`: Cinema2K, 48 FPS
 : - `2`: Cinema4K, 24 FPS
 
-###### exr (OpenEXR)
+### exr (OpenEXR)
 
 `bpp`
 : The bit depth (`16` or `32`)
@@ -149,7 +149,7 @@ The following sections describe the configuration options/values that are availa
 :  - `7`: DWAA
 :  - `8`: DWAB
 
-###### pdf
+### pdf
 
 `title`
 : The title of the pdf (any character)
@@ -186,11 +186,11 @@ The following sections describe the configuration options/values that are availa
 :  - `1`: draft: images are replaced with boxes
 :  - `2`: debug: only show the outlines and bounding boxen
 
-###### pfm
+### pfm
 
 No options provided.
 
-###### png
+### png
 
 `bpp`
 : The bit depth (`8` or `16`)
@@ -198,11 +198,11 @@ No options provided.
 `compression`
 : The compression level (`0` - `9`)
 
-###### ppm
+### ppm
 
 No options provided.
 
-###### tiff
+### tiff
 
 `bpp`
 : The bit depth (`8`, `16`, `32`)
@@ -221,7 +221,7 @@ No options provided.
 :  - `0`: write rgb colors
 :  - `1`: write grayscale
 
-###### webp
+### webp
 
 `comp_type`
 : The compression type
@@ -238,11 +238,11 @@ No options provided.
 :  - `2`: photo: outdoor photograph, with natural lighting
 :  - `3`: graphic: discrete tone image (graph, map-tile etc)
 
-###### copy
+### copy
 
 No options provided.
 
-###### xcf
+### xcf
 
 `bpp`
 : The bit depth (`8`, `16`, `32`)

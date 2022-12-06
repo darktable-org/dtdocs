@@ -5,7 +5,7 @@ weight: 110
 draft: false
 ---
 
-## interface
+# interface
 
 load default shortcuts at startup
 : When launching the application, Ansel loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). Deactivate this preference to stop loading default shortcuts on startup -- only load the user-defined ones (including any defaults that you have not subsequently deleted or overridden). This makes deletion easier but also means that you will not benefit from new shortcuts added in future versions without first re-enabling this preference (default on).
@@ -34,12 +34,12 @@ method to use for getting the display profile
 order or exclude midi devices
 : Semicolon-separated list of device-name fragments. If matched, load the midi device at the id given by the location in the list. If preceded by "-", prevent the matched device from loading. You can also add encoding and number of knobs. For example "BeatStep:63:16". Please see [midi device support](../special-topics/midi-device-support.md#additional-midi-configuration) for more information.
 
-## tags
+# tags
 
 omit hierarchy in simple tag lists
 : When exporting images any hierarchical tags are also added as a simple list of non-hierarchical tags to make them visible to some other programs. When this option is checked Ansel will only include the last part of the hierarchy and ignore the rest. So `foo|bar|baz` will only add `baz`.
 
-## shortcuts with multiple instances
+# shortcuts with multiple instances
 
 It is possible to create multiple instances of many processing modules. In this scenario it is not always obvious which instance should be controlled by keyboard shortcut operations. The following options control rules that are applied (in order) to decide which module instance keyboard shortcuts should be applied to.
 
@@ -60,12 +60,12 @@ prefer unmasked instances
 selection order
 : After applying the above rules, apply the shortcut to the first or last instance remaining (default "last instance").
 
-## map / geolocalisation view
+# map / geolocalisation view
 
 pretty print the image location
 : Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on).
 
-## slideshow view
+# slideshow view
 
 waiting time before each picture in slideshow
 : The number of seconds before displaying the next image (default 5) in the [slideshow view](../slideshow/_index.md).
