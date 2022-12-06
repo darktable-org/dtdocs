@@ -6,7 +6,7 @@ tags:
 view: map
 ---
 
-Create areas or locations and organize them as hierarchical tags. 
+Create areas or locations and organize them as hierarchical tags.
 
 A location is shown as a shape on the map when selected. Initially each location is represented as a square or circle and can be changed to a rectangle or ellipse by adjusting the shape's width and/or height.
 
@@ -14,7 +14,7 @@ A location can also be created from an OpenStreetMap region (city/country) polyg
 
 Each location is stored as tag entry under the geotagging collection in the [collections](../shared/collections.md) module. The pipe “|” character can be used to insert a new level (a group of locations).
 
-# module controls
+## module controls
 
 shape
 : Select the circle or rectangle symbol to choose the default shape for new locations. A polygon symbol is available when a shape is displayed by the [find location](./find-location.md) module.
@@ -25,7 +25,7 @@ new location / new sub-location
 show all
 : Show or hide all locations that lie within the visible area of the current map.
 
-## actions on the locations list
+### actions on the locations list
 
 click
 : Select or de-select a location. If the location is not currently visible on the map, the map is automatically centered on that location.
@@ -40,7 +40,7 @@ right-click
 : - Update the filmstrip -- the filmstrip will be populated with all images in the selected location.
 : - Switch to the lighttable view and show a collection that contains all images in the selected location.
 
-## actions on locations in the map
+### actions on locations in the map
 
 _Note: The following actions have no effect on polygon locations._
 

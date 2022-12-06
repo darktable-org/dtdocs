@@ -12,11 +12,11 @@ Importing images into Ansel stores information about them (filename, path, Exif 
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
 
-# filtering attributes
+## filtering attributes
 
 The images in a collection can be filtered using the following image attributes:
 
-## files
+### files
 
 film roll
 : The name of the film roll to which the image belongs (which is the same as the name of the folder in which the image resides). Ctrl+Shift+click on a film roll to switch to the corresponding folder. Right-click to remove the contents of the film roll from the Ansel library or tell Ansel that its location has changed in the file system.
@@ -27,7 +27,7 @@ folder
 filename
 : The image's filename.
 
-## metadata
+### metadata
 
 tag
 : Any tag that is attached to the image. Untagged images are grouped under the "not tagged" entry. When activated, a hierarchical list of known tags is displayed
@@ -62,7 +62,7 @@ color label
 geotagging
 : The geo location of the image (see [locations](../map/locations.md)).
 
-## times
+### times
 
 capture date
 : The date the photo was taken, in the format `YYYY:MM:DD`.
@@ -82,7 +82,7 @@ export time
 print time
 : The date/time the file was last printed, in the format `YYYY:MM:DD hh:mm:ss`.
 
-## capture details
+### capture details
 
 camera
 : The Exif data entry describing the camera make and model.
@@ -105,7 +105,7 @@ ISO
 aspect ratio
 : The aspect ratio of the image, including any cropping within Ansel.
 
-## Ansel
+### Ansel
 
 grouping
 : Choose between "group followers" and "group leaders".
@@ -122,9 +122,9 @@ module
 module order
 : Choose images with "v3.0", "legacy" or "custom" module orders.
 
-# module controls
+## module controls
 
-## defining filter criteria
+### defining filter criteria
 
 The top line of the module can be used to define filter criteria for your collection as follows:
 
@@ -143,7 +143,7 @@ select by value
 
 : If you enable single-click mode (see [preferences > lighttable](../../../preferences-settings/lighttable.md)) you can select with a single-click rather than double-click. This mode also allows you to select a range of values with the mouse. This only works for numerical and date-time attributes.
 
-## combining multiple filters
+### combining multiple filters
 
 You can combine multiple filters together to create more complex collections of images using a series of rules. A rule is a combination of a filter criteria along with a logical operation that defines how that criteria is combined with any previous rules.
 
@@ -163,7 +163,7 @@ exclude images
 
 The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![collect-and-icon](./collections/collect-and.png#icon) symbol, OR by the ![collect-or-icon](./collections/collect-or.png#icon) symbol, and EXCEPT by the ![collect-except-icon](./collections/collect-except.png#icon) symbol. Click on any of these icons to change the logical operation for that rule.
 
-## updating the folder path of moved images
+### updating the folder path of moved images
 
 While it is best to not touch imported files behind Ansel's back, this module can help you to recover from situations when you have moved or renamed image folders after importing them. The collections module has a feature that allows you to update Ansel's library database with the new folder location. The process is as follows:
 
@@ -171,11 +171,11 @@ While it is best to not touch imported files behind Ansel's back, this module ca
 1. The original film roll or folder name will be displayed with ~~strikethrough~~ formatting to emphasize that it can not be located.
 1. Right-click on the folder or film roll name, select “search filmroll...”, and then select the new location of the folder.
 
-## returning to a previous collection
+### returning to a previous collection
 
 You can return to a previously-defined collection by clicking on the history button at the bottom of the module or using the [recently used collections](./recent-collections.md) module -- see the [preferences](#preferences) section for more details.
 
-## preferences
+### preferences
 
 The "preferences..." option in the presets menu allows you to adjust the behavior of the collections module as follows:
 

@@ -14,7 +14,7 @@ When several images are selected and the focus is not on a single image, the mod
 
 While you are in the lighttable view, you can double-click on the _filmroll_ field for a given image to show all images in that image's film roll.
 
-# preferences
+## preferences
 
 The “preferences…” option in the presets menu brings up a dialog with a list of all fields that are available for display.
 

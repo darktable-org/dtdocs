@@ -2,13 +2,13 @@
 title: history stack
 id: history-stack
 applicable-version: 3.6
-tags: 
+tags:
 view: lighttable
 ---
 
 Manipulate the history stack of one or more selected images.
 
-# module controls
+## module controls
 
 selective copy...
 : Copy parts of the history stack from the selected image. A dialog appears from which you may choose the items to copy from the history stack. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on a history item to copy that item only and immediately close the dialog.
@@ -45,7 +45,7 @@ paste
 mode
 : This setting defines how the paste actions behave when applied to an image that already has a history stack. In simple terms the “overwrite” mode deletes the previous history stack before pasting, whereas “append”  concatenates the two history stacks together.
 
-: A copied history stack can have multiple entries of the same module (with the same name or different names) and pasting behaves differently for these entries in append and overwrite modes. 
+: A copied history stack can have multiple entries of the same module (with the same name or different names) and pasting behaves differently for these entries in append and overwrite modes.
 
 : In _append_ mode, for each module in the copied history stack, if there is a module in the destination image with the same name it will be replaced. If there is no such module, a new instance will be created. In both cases the pasted instance is placed on top of the history stack. If a particular module appears multiple times in either history stack only the last occurrence of that module will be processed.
 

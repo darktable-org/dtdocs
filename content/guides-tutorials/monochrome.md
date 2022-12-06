@@ -16,7 +16,7 @@ There are two main approaches to this conversion:
 
 These approaches, and other monochrome-related features in Ansel, are discussed in the following sections.
 
-# importing and flagging images as monochrome
+## importing and flagging images as monochrome
 
 When importing an image, there are a number of properties that can be used to indicate that the image requires a monochrome treatment:
 
@@ -38,9 +38,9 @@ The `Ansel|mode|monochrome` tag will be automatically applied to any images flag
 
 If Ansel detects a true monochrome image or one from a monochrome-converted camera (using the "passthrough monochrome" demosaicer) some modules (e.g. demosaic, white balance) are automatically disabled.
 
-# monochrome conversion
+## monochrome conversion
 
-## physical approach
+### physical approach
 
 This approach tends to work with linear scene-referred data from the sensor, and attempts to mimic the response of a photographic film with a silver emulsion. It consists of three steps:
 
@@ -50,7 +50,7 @@ This approach tends to work with linear scene-referred data from the sensor, and
 
 3. Developing a monochrome film in the darkroom traditionally involves "dodging and burning" to control the level of exposure across different parts of the image. This can be emulated in Ansel by using either the [_exposure_](../module-reference/processing-modules/exposure.md) module with manually created [masks](../darkroom/masking-and-blending/), or by using the [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md) module, which generates a mask using a guided filter.
 
-## perceptual approach
+### perceptual approach
 
 The other option for producing a monochrome image is to reduce the color saturation in the image, which can be done in a linear colorspace, or in a color space oriented towards modelling human perception.
 

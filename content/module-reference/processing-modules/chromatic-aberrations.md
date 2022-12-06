@@ -2,8 +2,8 @@
 title: chromatic aberrations
 id: chromatic-aberrations
 applicable-version: 3.6
-tags: 
-working-color-space: 
+tags:
+working-color-space:
 view: darkroom
 masking: true
 ---
@@ -12,7 +12,7 @@ Correct chromatic aberrations.
 
 In contrast to the [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) module, this module does not require raw data as input.
 
-# workflow 
+## workflow
 
 To obtain the best result, you are advised to proceed as follows:
 1. Attenuate the chromatic aberrations as much as possible in the [_lens correction_](./lens-correction.md) module using the TCA sliders.
@@ -27,7 +27,7 @@ For more complicated cases you could also try the following:
 - Use the module with parametric or drawn masks.
 - Use RGB red, green and blue blend modes to restrict the effect to a particular channel.
 
-# module controls
+## module controls
 
 guide
 : The color channel that will be used as a reference for the correction.

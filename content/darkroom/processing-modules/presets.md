@@ -11,7 +11,7 @@ Most of the functionality described here applies to processing modules only. How
 
 Please note that, for processing modules, the saved preset also includes the active state of the module. You can use this to create your own default settings, which you can activate on-demand. Simply set your desired defaults, disable the module, and save the preset.
 
-# the presets menu
+## the presets menu
 
 The presets menu will contain one or more of the following entries depending on the presets that are defined or selected for the current module:
 
@@ -32,13 +32,13 @@ store new preset
 
 Click on a preset name to apply the preset to the current instance of the module.  Right-click on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom using a keyboard shortcut -- if you have assigned one (see [preferences > shortcuts](../../preferences-settings/shortcuts.md)).
 
-# creating and editing presets
+## creating and editing presets
 
 When creating or editing presets, the following dialog is shown:
 
 ![new preset](./presets/new_preset.png#w33)
 
-## controls
+### controls
 
 name
 : The name of the preset
@@ -58,7 +58,7 @@ auto apply this preset to matching images _(processing modules only)_
 only show this preset for matching images _(processing modules only)_
 : Check this box to automatically show the preset in the preset menu, using the same set of filters.
 
-## filter criteria
+### filter criteria
 
 The following criteria can be used to auto-apply or auto-show presets for processing modules:
 
@@ -92,7 +92,7 @@ format
 
 ---
 
-# managing presets
+## managing presets
 
 Both user-defined and internal presets can be viewed and managed from within [preferences > presets](../../../preferences-settings/presets.md).
 

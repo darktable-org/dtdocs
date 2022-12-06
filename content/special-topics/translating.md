@@ -13,12 +13,12 @@ You can either use Weblate's web UI to translate the documentation or download t
 Please do all translation work through Weblate. We will not accept pull requests directly on github to update PO files.
 
 
-# Making a new branch in git
+## Making a new branch in git
 1. Make a new branch to work on it in git.
    For example:
    `git checkout -b fr-translation-init`
 
-# Adding a new language to Hugo
+## Adding a new language to Hugo
 
 1. In the files `config.yaml` and `config-pdf.yaml`, locate the `languages:` line.
 2. Add the language you wish to translate. For example, the English looks like this:
@@ -30,7 +30,7 @@ Please do all translation work through Weblate. We will not accept pull requests
 
 3. Save the files.
 
-# Generating a PO file
+## Generating a PO file
 
 Do the following steps if you want to update the POT and PO files from the markdown source.
 
@@ -40,7 +40,7 @@ Do the following steps if you want to update the POT and PO files from the markd
 2. Run the script to populate the PO file:
    `cd tools/ && ./generate-translations.sh --no-translations`
 
-# Generating translated files
+## Generating translated files
 
 Do the following steps to generate the website files from a translation.
 
@@ -52,7 +52,7 @@ Do the following steps to generate the website files from a translation.
 4. Remove the translated files, as we never check them into git:
    `cd tools/ && ./generate-translations.sh --rm-translations`.
 
-# Translating website, epub, and PDF strings
+## Translating website, epub, and PDF strings
 
 There are two themes for the darktable documentation: one for the HTML website and one for the PDF. You'll need to translate the strings for both.
 
@@ -62,7 +62,7 @@ There are two themes for the darktable documentation: one for the HTML website a
 4. Check the translated PO file into git, push it to github, and open a pull request to have your changes accepted.
 5. Repeat the last four steps for the other themes, `themes/hugo-darktable-docs-epub-theme` and `themes/hugo-darktable-docs-pdf-theme`.
 
-# Integrating new translations from Weblate
+## Integrating new translations from Weblate
 
 The following assumes that you're git working directory is clean, that you have API access to the Weblate instance, that you've configured the Weblate git repo as a remote in your local `dtdocs` git repo, and that `wlc`, the Weblate command line client, is configured.
 

@@ -12,12 +12,12 @@ Enhance the image's local contrast.
 
 This is achieved using either a _local laplacian_ (default) or _unnormalized bilateral_ filter. Both modes work exclusively on the L channel from Lab. The _local laplacian_ filter has been designed to be robust against unwanted halo effects and gradient reversals along edges.
 
-# module controls
+## module controls
 
 mode
 : Choice of _local laplacian_ filter or _bilateral grid_. The following sections define the controls available for each of these modes.
 
-## bilateral grid
+### bilateral grid
 
 coarseness
 : Adjust the coarseness of the details to be adjusted.
@@ -28,7 +28,7 @@ contrast
 detail
 : Add or remove detail. Higher values increase local contrast.
 
-## local laplacian
+### local laplacian
 
 To understand the parameters of the local laplacian filter, one can think of it as applying a curve to the image, similar to the following graph:
 

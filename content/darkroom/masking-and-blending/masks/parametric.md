@@ -13,13 +13,13 @@ Each pixel of an image thus has different blending factors for each of its data 
 
 If the blend mask has a value of 0 for a given pixel, the input of the module is left unchanged. If the blend mask has a value of 1 (100%) for a pixel, the module has its full effect.
 
-# channel tabs
+## channel tabs
 
 Click on one of the channel tabs to select a data channel to use to build your mask.
 
-Modules acting in (_display-referred_) _Lab_ color space have data channels for L, a, b, C (chroma of LCh) and h (hue of LCh). 
+Modules acting in (_display-referred_) _Lab_ color space have data channels for L, a, b, C (chroma of LCh) and h (hue of LCh).
 
-Modules acting in _display-referred RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL). 
+Modules acting in _display-referred RGB_ color space have data channels for g (gray), R, G, B, H (hue of HSL), S (saturation of HSL), and L (lightness of HSL).
 
 Modules acting in _scene-referred RGB_ color space have data channels for g (gray), R, G, B, Jz (luminance component of JzCzhz), Cz (chroma, or saturation, of JzCzhz), and hz (hue of JzCzhz). The g (gray) value is calculated as a weighted average of the R, G & B channels, the exact weightings depending on the working color space being used. The JzCzhz color space is a polar representation of the Jzazbz color space, in the same way that LCh is a polar representation of the Lab space. Like the L in Lab color space, the Jz is a representation of the luminosity of a pixel that aligns with how we perceive brightness. However, the Jzazbz color space is much better for high dynamic range images and is less susceptible to hue shifts than Lab space.
 
@@ -31,25 +31,25 @@ The _boost factor_ slider allows the range of values targeted by the parametric 
 
 ![input and output sliders](./parametric/input-output-sliders.png#w33)
 
-## inspecting data channels & masks
+### inspecting data channels & masks
 
-Press the letter C while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in gray-scale values or in false colors depending on the setting in [preferences > darkroom > display of individual color channels](../../../preferences-settings/darkroom.md). 
+Press the letter C while hovering over a channel's input/output slider to view the input/output image data for that color channel. The center image changes to display that color channel either in gray-scale values or in false colors depending on the setting in [preferences > darkroom > display of individual color channels](../../../preferences-settings/darkroom.md).
 
-Press the letter M to see the resulting mask for that slider overlaid on the image. 
+Press the letter M to see the resulting mask for that slider overlaid on the image.
 
-When the mouse pointer leaves the slider the image returns to normal after a short delay. 
+When the mouse pointer leaves the slider the image returns to normal after a short delay.
 
-## linear / log mode
+### linear / log mode
 
 Press the letter A while hovering over the a slider to change its display to 'log' mode. This provides more fine control in the shadows. Press A again to toggle back to 'linear' mode.
 
-# channel input/output sliders
+## channel input/output sliders
 
 With each color channel slider you can construct a trapezoidal opacity function. For this purpose there are four markers per slider. Two filled triangles above the slider mark the range of values where opacity is 1. Two open triangles below the slider mark the range values where opacity is 0. Intermediate points between full and zero are given a proportional opacity.
 
 The filled triangles, or inside markers, indicate the closed (mostly narrower) edge of the trapezoidal function. The open triangles, or outside markers, indicate the open (mostly wider) edge of the trapezoidal function. The sequence of the markers always remains unchanged: they can touch one another but they cannot switch position.
 
-A polarity (+/-) button to the right of each the slider switches between "range select" and "range de-select" modes, with visual confirmation provided by exchanging the upper and lower triangle markers. These two types of trapezoidal functions are represented graphically in the following images. 
+A polarity (+/-) button to the right of each the slider switches between "range select" and "range de-select" modes, with visual confirmation provided by exchanging the upper and lower triangle markers. These two types of trapezoidal functions are represented graphically in the following images.
 
 **range select**
 
@@ -63,23 +63,22 @@ A polarity (+/-) button to the right of each the slider switches between "range 
 
 ![range deselect graph](./parametric/blendif_3b.png#w33)
 
-In their default state all markers are at their extreme positions. 
+In their default state all markers are at their extreme positions.
 
 In this state a range select function selects the whole range of values giving an “all at 100%” mask. Starting from there one can move the sliders inwards to gradually exclude more and more parts of the image except for the remaining narrow range.
 
-Conversely a range de-select function (enabled by toggling the polarity) by default deselects the whole range of values, giving an “all-zero” mask as a starting point. Moving the sliders inwards gradually includes more and more parts of the image except for the remaining narrow range. 
+Conversely a range de-select function (enabled by toggling the polarity) by default deselects the whole range of values, giving an “all-zero” mask as a starting point. Moving the sliders inwards gradually includes more and more parts of the image except for the remaining narrow range.
 
-# color pickers
+## color pickers
 
 With the left-hand color picker button you can select a point or area probe from your image. The corresponding values for the real and virtual data channels are then displayed within each color channel slider.
 
 With the right-hand color picker button you can automatically set the slider's values based on the selected range. Click and drag to set the parameters for the input slider from the drawn rectangle; Ctrl+click and drag to set the parameters for the output slider.
 
-# invert
+## invert
 
 Click the invert button above the sliders to invert the polarity of the entire parametric mask. This differs from the polarity buttons beside the individual sliders which just invert the parameters for the current slider/channel.
 
-# reset
+## reset
 
 Click the reset button above the sliders to revert all parametric mask parameters to their default state.
-

@@ -18,23 +18,23 @@ As the most common use case for this module is for rotation, the perspective cor
 
 While the module is active (and none of the structure buttons are selected) you can right-click and drag anywhere on the image to define a horizontal or vertical line. This will cause the rotation parameter to be automatically adjusted to make the drawn line horizontal/vertical with respect to the image frame.
 
-# perspective correction workflow
+## perspective correction workflow
 
-## structure
+### structure
 
 The first step is to obtain details about the horizontal and/or vertical structures in the image. Three alternative methods are provided to do this:
 
-### manually draw structure lines
+#### manually draw structure lines
 
 Click on the ![draw-structure-lines-icon](./rotate-perspective/icon-draw-structure-lines.png#icon) icon to enable line drawing mode and then click-and-drag on the image to draw lines that you wish to become horizontal or vertical. The module will automatically detect whether the lines are horizontal or vertical and color them green or blue, respectively. Draw as many lines as you wish (the more lines, the better the fit mechanism will work) and then click on one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn lines at any time. Edit a line by clicking and dragging on the line or the end nodes, and right-click a line to delete it. Once you are happy with your changes, re-select a "fit" icon to complete the process.
 
-### manually define a perspective rectangle
+#### manually define a perspective rectangle
 
 Click on the ![draw-structure-rectangle-icon](./rotate-perspective/icon-draw-structure-rectangle.png#icon)icon to enable perspective rectangle drawing mode. This will draw a rectangle on the screen and you can grab and move the corners of the rectangle so that the left and right sides fall on lines you wish to make vertical, and the top and bottom fall on lines you wish to make horizontal. Once you are happy with your rectangle, click one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn rectangle at any time. Once you are happy with your changes, re-select a "fit" icon to complete the process.
 
 This method is similar to how "keystone" correction works in the [_crop and rotate_](./crop-rotate.md) module.
 
-### automatically detect structure
+#### automatically detect structure
 
 Click the ![get-structure-icon](./rotate-perspective/icon-get-structure.png#icon) icon to analyze the image for structural elements -- Ansel will automatically detect and evaluate line elements. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
 
@@ -61,17 +61,17 @@ You can manually change the status of line segments: Left-Click on a line to sel
 
 Once you are happy with the detected lines, select a "fit" icon to complete the process.
 
-## fit
+### fit
 
 Once you are happy with the identified horizontal and vertical lines, using one of the methods above, click on one of the "fit" icons to automatically set the module's parameters based on the defined structure. The image and the overlaid lines are then displayed with perspective corrections applied.
 
 You may choose to automatically apply just the vertical corrections ![vertical-icon](./rotate-perspective/icon-vertical.png#icon), just the horizontal corrections ![horizontal-icon](./rotate-perspective/icon-horizontal.png#icon), or both together ![both-icon](./rotate-perspective/icon-both.png#icon). Ctrl+click on any of the icons to apply a rotation without the lens shift. Shift+click on any of the icons to apply the lens shift without any rotation.
 
-## rotate
+### rotate
 
 Once you are happy with the applied perspective corrections, you may wish to perform a final rotation correction either by adjusting the rotation parameter or right-clicking and dragging the image to define a horizontal/vertical line.
 
-# module controls
+## module controls
 
 rotation
 : Control the rotation of the image around its center to correct for a skewed horizon. To rotate by more than the default soft limit of ten degrees, right click and enter the desired value up to 180 degrees (see [module controls](../../darkroom/processing-modules/module-controls.md)).
@@ -112,7 +112,7 @@ fit
 show guides
 : Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
 
-# examples
+## examples
 
 Here is an image with a skewed horizon and converging lines caused by directing the camera upwards:
 

@@ -13,7 +13,7 @@ Some of the operations that Ansel can perform in this way are:
 - contrast adjustment (in the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module)
 - blurring or removal of unwanted detail (in the [_retouch_](../../module-reference/processing-modules/retouch.md) module)
 
-# theory
+## theory
 
 A wavelet is an oscillating mathematical function that starts and ends at zero. The following diagram shows some simple wavelets of differing sizes.
 
@@ -43,7 +43,7 @@ By scale #8 we only see very high-level features such as the overall shape of th
 
 ![wavelets-layer-scale-8](./wavelets/wavelets-layer-scale-8.png#w50)
 
-# why use wavelets?
+## why use wavelets?
 
 Suppose, in the above example, that we wanted to smooth out some of the blotchiness in the model's skin, without losing any of the underlying small-scale texture. Wavelet decomposition makes this a trivial operation - we can simply use the retouch module to apply a Gaussian blur to only the 'blotchy' detail layer(s), leaving all other layers untouched. Once the adjustment is complete, the retouch module simply recombines the adjusted layer with the remaining untouched layers to produce the final image.
 
@@ -57,11 +57,11 @@ The sequence of images below shows (1) The original image; (2) The layer (scale 
 
 As you can see, the large-scale skin blotches have been removed, but the small-scale details remain untouched.
 
-# interacting with wavelet scales
+## interacting with wavelet scales
 
 There are two methods by which processing modules allow you to modify their operation using wavelet scales.
 
-## wavelet decomposition
+### wavelet decomposition
 
 As discussed above, the _retouch_ module allows you to choose how many detail levels to split your image into. It decomposes the image into separate layers and allows you to perform operations selectively on each individual layer or on the image as a whole:
 
@@ -69,7 +69,7 @@ As discussed above, the _retouch_ module allows you to choose how many detail le
 
 See the [_retouch_](../../../module-reference/processing-modules/retouch.md) module documentation for more details.
 
-## spline controls
+### spline controls
 
 The [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md), [_raw denoise_](../../module-reference/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) modules allow their effects to be applied more or less to each wavelet scale using _splines_.
 

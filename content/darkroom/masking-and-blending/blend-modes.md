@@ -5,7 +5,7 @@ weight: 20
 draft: false
 ---
 
-Blend modes define how the input and output of a module are combined (blended) together before the module's final output is passed to the next module in the pixelpipe. 
+Blend modes define how the input and output of a module are combined (blended) together before the module's final output is passed to the next module in the pixelpipe.
 
 Classic blending modes, designed for display-referred RGB (constrained to 0-100%), implicitly define a fulcrum at 50% (gray) or 100% (white) in their algorithms, depending on the blend mode. Because scene-referred is not subject to these restrictions, this fulcrum needs to be explicitly defined by the user when performing blending operations in the "RGB (scene)" color space. The additional _blend fulcrum_ parameter will be presented to the user when using one of these blend modes in this color space. The effect depends on the operator used. For example, values above the fulcrum might be brightened and values below darkened, or vice versa.
 
@@ -25,7 +25,7 @@ final_output = (1.0 - opacity) * module_output + opacity * blended_input
 
 where the `blended_input` is a combination of the output and input images, depending on the blend mode below where _output_ and _input_ image references are reversed. In "reversed" blend modes, an opacity of 0% outputs an image that is identical to the _output_ image of the module.
 
-# normal modes
+## normal modes
 
 normal
 : The most commonly used blend mode, "normal" simply mixes input and output to an extent determined by the opacity parameter. This mode is commonly used to reduce the strength of a module's effect by reducing the opacity. This is also usually the blend mode of choice when applying a module's effect selectively with masks. This mode is also known as the "over" Porter-Duff alpha blending operator (see [alpha compositing](https://en.wikipedia.org/wiki/Alpha_compositing) for more details).
@@ -34,7 +34,7 @@ normal bounded
 : _not available in the "RGB (scene)" color space_
 : This blend mode is the same as “normal”, except that the input and output data are clamped to a particular min/max value range. Out-of-range values are effectively blocked and are not passed to subsequent modules. Sometimes this helps to prevent artifacts. However, in most cases (e.g. highly color-saturated extreme highlights) it is better to let unbound values travel through the pixelpipe to be properly handled later. The “normal” blend mode is therefore usually preferred.
 
-# arithmetic modes
+## arithmetic modes
 
 addition
 : Add together the pixel values of the input and output images, lightening the output. When blending in the "RGB (scene)" color space, the pixel values of the output image are multiplied by a value proportional to the "blend fulcrum".
@@ -68,7 +68,7 @@ geometric mean
 harmonic mean
 : Return the product of the input and output pixel values, multiplied by 2 and divided by their sum.
 
-# contrast enhancing modes
+## contrast enhancing modes
 
 The following modes are not available in the "RGB (scene)" blending color space as they rely on an assumption of "50% mid gray" which only applies to display-referred and non-linear color spaces.
 
@@ -90,9 +90,9 @@ linearlight
 pinlight
 : This mode performs a darken and lighten blending simultaneously, removing mid-tones. It can result in artifacts such as patches and blotches.
 
-# color channel modes
+## color channel modes
 
-## Lab channels
+### Lab channels
 
 The following are available for blending in the Lab color space only
 
@@ -108,20 +108,20 @@ Lab b-channel
 Lab color
 : Mix the Lab color channels (a and b) from the input and output images, while taking the lightness unaltered from the input image. In contrast to “color” this blend mode does not involve any color space conversion and does not clamp any data. In some cases this blend mode is less prone to artifacts than “color”.
 
-## RGB channels
+### RGB channels
 
 The following are available when blending in RGB color spaces only.
 
 RGB red channel
-: Mix the "red" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "red" channel from the output image is multiplied by a value proportional to the "blend fulcrum". 
+: Mix the "red" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "red" channel from the output image is multiplied by a value proportional to the "blend fulcrum".
 
 RGB green channel
-: Mix the "green" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "green" channel from the output image is multiplied by a value proportional to the "blend fulcrum". 
+: Mix the "green" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "green" channel from the output image is multiplied by a value proportional to the "blend fulcrum".
 
 RGB blue channel
-: Mix the "blue" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "blue" channel from the output image is multiplied by a value proportional to the "blend fulcrum". 
+: Mix the "blue" channel from the input and output images, while taking the other channels unaltered from the input image. When blending in the "RGB (scene)" color space, the "blue" channel from the output image is multiplied by a value proportional to the "blend fulcrum".
 
-# HSV channels
+## HSV channels
 
 The following are available when blending in the "RGB (display)" color space only.
 
@@ -131,7 +131,7 @@ HSV value
 HSV color
 : Mix the color from the input and output images, while taking lightness unaltered from the input image. In contrast to “color” this blend mode does not involve clamping.
 
-# others
+## others
 
 lightness
 : Mix lightness from the input and output images, while taking color (chromaticity and hue) unaltered from the input image.
@@ -153,11 +153,10 @@ hue
 
 color
 : _not available in the "RGB (scene)" color space_
-: Mix color (chroma and hue) from the input and output images while taking lightness unaltered from the input image. 
+: Mix color (chroma and hue) from the input and output images while taking lightness unaltered from the input image.
 
 : _Caution: When modules drastically modify hue (e.g. when generating complementary colors) this blend mode can result in strong color noise._
 
 coloradjustment
 : _not available in the "RGB (scene)" color space_
 : Some modules act predominantly on the tonal values of an image but also perform some color saturation adjustments (e.g. the [_levels_](../../module-reference/processing-modules/levels.md) and [_tone curve_](../../module-reference/processing-modules/tone-curve.md) modules). This blend mode takes the lightness from the module's output and mixes colors from input and output, enabling control over the module's color adjustments.
-

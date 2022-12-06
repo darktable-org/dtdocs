@@ -18,7 +18,7 @@ You can move the scopes module to the left-hand panel in [preferences > miscella
 
 For performance reasons, scopes are calculated from the image preview (the image displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass more time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
 
-# histogram
+## histogram
 
 ![histogram](./scopes/histogram.png#w50)
 
@@ -30,7 +30,7 @@ Click the second-to-leftmost button on the panel to toggle between a logarithmic
 
 The three rightmost colored buttons toggle the display of the red, green and blue color channels.
 
-# waveform
+## waveform
 
 ![waveform scope (horizontal)](./scopes/waveform.png#w50)
 
@@ -50,7 +50,7 @@ As with the histogram, you can selectively display each of the red, green, and b
 
 See [Of Histograms and Waveforms](https://www.ansel.photos/2013/12/of-histograms-and-waveforms/) for more on Ansel's waveform scope.
 
-# rgb parade
+## rgb parade
 
 ![rgb parade (horizontal)](./scopes/parade.png#w50)
 
@@ -62,7 +62,7 @@ As with the waveform, clicking the second-to-leftmost button on the panel toggle
 
 The RGB parade can be useful for matching the intensities of the red, green, and blue channels. It can also help with understanding the differences between and individual qualities of each channel.
 
-# vectorscope
+## vectorscope
 
 ![vectorscope](./scopes/vectorscope.png#w50)
 
@@ -76,14 +76,14 @@ The vectorscope can describe the image in the [CIELUV](https://en.wikipedia.org/
 
 The graph includes a "hue ring" representing the maximum chroma of each hue (in bounded RGB) of the current histogram profile. The RGB primaries/secondaries are marked by circles.
 
-## caveats
+### caveats
 
 - The hue ring is not a [gamut check](../darkroom/gamut/), as a color can be within the hue ring, yet out of gamut due to its darkness/lightness.
 - When adjusting an image based upon a color checker, faster and more accurate results will come from using [calibrate with a color checker](../../processing-modules/color-calibration/#extracting-settings-using-a-color-checker) in the _color calibration_ module.
 - The vectorscope does not have a "skin tone line", which is a flawed generalization rather than a universal standard.
 - The vectorscope represents a colorimetric encoding of an image, which inevitably diverges from a viewer's perception of the image.
 
-# exposure adjustment
+## exposure adjustment
 
 The histogram, waveform, and RGB parade scopes can be used to directly alter the _exposure_ and _black level_ of the [_exposure_](../../processing-modules/exposure.md) module.
 
@@ -95,7 +95,7 @@ For vertical waveform and RGB parade scopes, the corresponding regions are to th
 
 You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point. Double-click in the scope to reset the exposure module's parameters to their defaults.
 
-# histogram profile
+## histogram profile
 
 Image data is converted to the _histogram profile_ before the scope data is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the scope is shown in the soft proof profile.
 

@@ -11,7 +11,7 @@ As with the base instance of a module, all instances can be moved independently 
 
 Instances can be renamed by Ctrl+clicking on the module name.
 
-# typical use cases
+## typical use cases
 
 There are many occasions where it makes sense to have a module apply more than once in the pixelpipe. Here are some typical use cases.
 
@@ -24,7 +24,7 @@ There are many occasions where it makes sense to have a module apply more than o
 
 ---
 
-# managing multiple instances
+## managing multiple instances
 
 Click on the _multiple instance menu_ in the [module header](./module-header.md) to display a menu with the following options. Right-click on the menu icon to create a new instance directly (same action as clicking on the "new instance" option of the menu).
 

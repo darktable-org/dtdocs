@@ -2,17 +2,17 @@
 title: retouch
 id: retouch
 applicable-version: 3.8
-tags: 
+tags:
 working-color-space: rgb
 view: darkroom
-masking: 
+masking:
 ---
 
 Remove unwanted elements from your image by cloning, healing, blurring and filling using drawn shapes.
 
-This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module (equivalent to this module's "clone" tool) by including a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image. 
+This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module (equivalent to this module's "clone" tool) by including a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image.
 
-# clone and heal
+## clone and heal
 
 Cloning allows a part of the image (the _target_) to be hidden by replacing it with an area copied from elsewhere in the image (the _source_). For example, you may wish to remove a small cloud from a blue sky:
 
@@ -30,7 +30,7 @@ In such cases, the _heal_ tool ![retouch-heal-icon](./retouch/rt-heal-icon.png#i
 
 ![retouch-heal-nocontrol](./retouch/rt-heal-nocontrol.png#w33)
 
-## source and target shapes
+### source and target shapes
 
 Once you have chosen _heal_ or _clone_ mode, you must choose the shape you wish to use (_circle_, _ellipse_, _path_ or _brush_ -- see the [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) section for details). The source and target patches will both use the same shape.
 
@@ -52,7 +52,7 @@ Once you have placed your source and target shapes on the image, they can be adj
 
 ---
 
-# fill and blur
+## fill and blur
 
 The _clone_ and _heal_ tools both require the use of another part of the image to "fill in" the region being hidden. Sometimes there is no suitable sample in the image to use for this purpose. In such cases, the _retouch_ module offers two further options:
 
@@ -64,7 +64,7 @@ The _clone_ and _heal_ tools both require the use of another part of the image t
 
 These two options are most useful when used together with wavelet decomposition, where they can be used to smooth over features within a selected detail layer.
 
-# wavelet decomposition
+## wavelet decomposition
 
 Wavelets allow an image to be decomposed into a number of layers each containing varying levels of detail, so that you can work on each detail layer independently and then recombine them at the end. This is particularly useful in portrait photography, where you can deal with skin blotches and blemishes on a coarse layer of detail, leaving the finer skin texture untouched. The [_wavelets_](../../darkroom/processing-modules/wavelets.md) section provides more information on the decomposition process.
 
@@ -74,27 +74,27 @@ This method can be used with the healing tool, for example, to paint over a spot
 
 It can also be used with the blur tool to even out coarse blotches in the skin, again without impacting the finer details (see the [_wavelets_](../../darkroom/processing-modules/wavelets.md) section for details on this technique).
 
-# module controls
+## module controls
 
 ![retouch-overview](./retouch/rt-overview.png#w33)
 
-## retouch tools
+### retouch tools
 
 The _retouch tools_ section consists of two items:
 
 shapes
-: The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer. 
+: The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer.
 
-: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details). 
+: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details).
 
-: Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel). 
+: Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel).
 
 : Click the _show and edit shapes_ ![retouch-shapes-icon](./retouch/rt-shapes-icon.png#icon) button to show and edit any existing shapes for the currently-selected wavelet scale.
 
 algorithms
 : Choose a retouching algorithm (clone, heal, fill or blur). Ctrl+click to change the algorithm used for the currently-selected shape. Shift+click to set the default algorithm (used for new images or when you reset module parameters).
 
-## wavelet decompose
+### wavelet decompose
 
 The _wavelet decompose_ section centres around a bar graph that shows how the image has been decomposed into detail (scale) layers. The key features of the bar graph are:
 
@@ -147,7 +147,7 @@ preview single scale
 ![retouch-mask-icon](./retouch/rt-mask-icon.png#icon) display masks
 : Show the target shapes associated with the currently-selected layer with a yellow overlay.
 
-## shapes
+### shapes
 
 This section allows you to modify settings related to the currently-selected shape:
 
@@ -172,10 +172,10 @@ blur radius
 mask opacity
 : Alter the opacity of the mask associated with the currently-selected shape. An opacity of 1.0 indicates that the shape is completely opaque and the module's effect is fully applied, whereas a value less than 1.0 indicates that the effect applied by the shape is blended with the underlying image to the degree indicated by the slider.
 
-## show guides
+### show guides
 
 Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
 
-## panning and zooming the image
+### panning and zooming the image
 
 While creating or editing a shape, mouse actions are applied to the current shape.  If you need to move or zoom the portion of the image shown in the center view, hold down the 'a' key while dragging the mouse or using the scroll wheel.  While the key is held down, the mouse actions will apply to the entire image rather than the current shape. Holding down the key will also temporarily suppress generating new shapes in continuous-creation mode.

@@ -14,13 +14,13 @@ If Ansel was compiled with JPEG2000 support, the following extensions are also r
 
 If Ansel was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, DCM, GIF, JNG, JPC, JP2, MIFF, MNG, PBM, PGM, PNM, PPM`.
 
-# camera raw files
+## camera raw files
 
 Ansel reads raw files using the open source library [RawSpeed](https://github.com/Ansel-org/rawspeed), originally developed by Klaus Post and now maintained as part of the Ansel project. The number of supported cameras and file formats is constantly increasing. Most modern camera models are supported, and new ones tend to get added very quickly. It is beyond the scope of this manual to give an exhaustive list.
 
 With the exception of Fujifilm X-Trans cameras, Ansel does not decode images from cameras with non-Bayer sensors (e.g. Sigma cameras with the Foveon X3 sensor).
 
-# other image files
+## other image files
 
 Ansel natively reads “ordinary” images in JPEG, 8-bit/16-bit PNG and 8-bit/16-bit TIFF format, as well as 16-bit/32-bit floating point TIFF formats.
 

@@ -32,13 +32,13 @@ We are always extremely interested in hearing about which sections of the manual
 
 In general, if you wish to make a major change, please open an issue and discuss it with the maintainers first. This is to avoid doing work that wouldn't be accepted.
 
-# format
+## format
 
 This website is authored in pure markdown, using some extensions. It is initially designed to work with the Hugo SSG but intended to be portable enough that it can be easily rendered with another application if required.
 
 Files should be rendered in UTF-8 and should not include any column wrapping.
 
-# structure
+## structure
 
 The following shows the structure of an example main chapter with subsections in the dtdocs website.
 
@@ -60,7 +60,7 @@ A couple of notes on the above structure:
 - `_index.md` files do not contain any content (they contain metadata only) and are used to render section headers and ToC entries. In the above example `example-chapter/_index.md` defines the title of the example chapter and the order in which it appears in the main table of contents. Similarly `example-chapter/section1-with-subsections/_index.md` defines metadata for the first section of the chapter.
 - Media files should be contained in a directory with the same name as the page to which they relate. In this example, `example-chapter/section1-with-subsections/subsection1` contains media related to the `subsection1.md` page.
 
-# metadata
+## metadata
 
 Metadata for the markdown files is presented at the head of the page using yaml. Any metadata may be defined -- the module reference sections contain quite a lot of specific metadata -- however the following defines some minimal metadata for the example page `example-chapter/section1-with-subsections/subsection1.md`.
 
@@ -91,9 +91,9 @@ weight
       section3.md                # weight: 10 (place section3 at the start of example-chapter)
 ```
 
-# content
+## content
 
-## general style guidance
+### general style guidance
 
 - All content should be authored in plain markdown without shortcodes and HTML should be kept to an absolute minimum , if used at all
 - Minimalism is an absolute must. Fewer words are preferred
@@ -106,14 +106,14 @@ weight
 - Changes to the content should be proposed via pull request or a similar mechanism
 - Your submissions will be copy-edited -- don't take it personally
 
-## keyboard and mouse shortcuts
+### keyboard and mouse shortcuts
 
 - Reference named keyboard keys using CamelCase (Ctrl, Shift, Alt, Esc, AltGr, CapsLock, PageUp, PageDown)
 - Reference single letter keys in lower case (this avoids confusion between for example, Ctrl+H and Ctrl+Shift+h). Quotation marks might help with clarification (press "h" to see a list of active shortcuts)
 - Reference mouse actions using lower case, with multiple words joined by a hyphen (scroll, click, single-click, double-click, right-click)
 - Connect combinations of keys/actions with a plus sign (Ctrl+Shift+h, Shift+double-click)
 
-## definition lists
+### definition lists
 
 The standard method of presenting information about darktable module controls is with the use of definition lists.
 
@@ -132,7 +132,7 @@ gui combobox name
 
 Definition lists are also used throughout the document, wherever a named piece of functionality needs to be defined. See, for example, [darktable-cli](./program-invocation/darktable-cli.md).
 
-## notes
+### notes
 
 If you wish to present an important note to the user, use the following format:
 
@@ -142,11 +142,11 @@ If you wish to present an important note to the user, use the following format:
 
 ---
 
-## fixed-width fonts and code blocks
+### fixed-width fonts and code blocks
 
 Fixed width fonts (using the \` character) should normally only be used for code blocks and when referencing file names and command line parameters.
 
-## links
+### links
 
 Internal links must be relative to the current file and must point to a valid markdown (.md) file. Start links with either `./` to represent the current directory or `../` to represent the parent directory.
 
@@ -157,7 +157,7 @@ Internal links must be relative to the current file and must point to a valid ma
 - Link to a specific preference setting: [preferences > general > interface language](../preferences-settings/general.md)
 - Each header within a page can be linked to directly with an anchor link: [contributing/notes](./contributing.md#notes)
 
-## images
+### images
 
 When taking screenshots from the darktable application itself, use the default darktable theme (darktable-elegant-grey).
 
