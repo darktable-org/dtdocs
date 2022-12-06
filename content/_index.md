@@ -1,5 +1,5 @@
 ---
-title: Ansel
+title: Documentation
 id: user-manual
 draft: false
 author: "people"
