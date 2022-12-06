@@ -10,7 +10,7 @@ Import and apply GPX track data to a selection of images.
 
 This module is common to the [lighttable](../../../lighttable/_index.md) and [map](../../../map/_index.md) views. The map view provides an enhanced mode that allows you to preview the position of the images along the GPS tracks while adjusting the images' date/time offset and time zone.
 
-# workflow overview
+## workflow overview
 
 A GPS receiver calculates its current position based on information it receives from satellites, and records it in a GPX file together with the current date and time. The Exif data of the images also contains a time stamp defined by the camera settings. The _geotagging_ module takes the time stamp of the image, looks up the position in the GPX file at that time, and stores the appropriate coordinates (latitude/longitude/elevation) in its database and the image's XMP sidecar file.
 
@@ -32,7 +32,7 @@ Otherwise follow the following process to correlate the time of the images and G
 
 With the time setting corrected, you can now apply GPX tracking data using the _apply GPX track file_ button.
 
-# module controls (common)
+## module controls (common)
 
 date/time
 : This field is initialized with the date/time read from the first selected image (format `yyyy:mm:dd hh:mm:ss`) and can be modified to correct the date/time for that image. The individual date/time fields can be altered by scrolling over them with your mouse. If any field reaches its limit, the neighboring fields are automatically updated. For example, if you go over 60 on the minute field, the hour field will automatically be incremented. It is also possible to use milliseconds in this module if you enable [preferences > lighttable > show image time with milliseconds](../../../preferences-settings/lighttable.md).
@@ -58,7 +58,7 @@ camera time zone
 apply GPX track file (lighttable view only)
 : Apply a GPX track file. Click the corresponding button and navigate to the GPX file. You can use Ctrl+Z to undo any unwanted changes. Within the file chooser window, the preview button lists the tracks of the selected GPX file along with the following information: track name, start and end date/time (local time), number of track points and number of selected images that will be geotagged.
 
-# module controls (map view)
+## module controls (map view)
 
 gpx file
 : The path of the gpx file selected.

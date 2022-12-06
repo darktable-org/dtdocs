@@ -8,7 +8,7 @@ author: "people"
 
 In the default mode images are displayed in a grid with an adjustable number of images per row.
 
-# controls
+## controls
 
 zoom
 : The number of images in each row can be altered using the slider in the bottom panel, or by holding Ctrl while scrolling over the center view with your mouse.

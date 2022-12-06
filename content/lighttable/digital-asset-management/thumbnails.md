@@ -8,7 +8,7 @@ author: "people"
 
 Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup. The size of this cache can be adjusted in [preferences > processing > cpu/gpu/memory](../../../preferences-settings/processing#cpu--gpu--memory).
 
-# thumbnail creation
+## thumbnail creation
 
 A thumbnail is created when an image is imported into Ansel for the first time, after an image has been modified in the darkroom, or when revisiting an image whose thumbnail is no longer available.
 
@@ -26,7 +26,7 @@ If you choose not to activate the disk backend and select too small a cache size
 
 All thumbnails are fully color managed. Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to Ansel. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
 
-# skulls
+## skulls
 
 If for some reason Ansel is unable to generate a thumbnail, it displays an image of a skull ![skull icon](./thumbnails/skull.png#icon) instead. Don't panic!
 

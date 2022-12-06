@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-# memory requirements
+## memory requirements
 
 Processing a Raw image in Ansel requires a great deal of system memory. A simple calculation makes this clear: For a 20 megapixel image, Ansel requires a 4x32-bit floating point cell to store each pixel, meaning that each full image of this size will require approximately 300MB of memory just to store the image data. In order to actually process this image through a given module, Ansel needs at least two buffers (input and output) of this size, with more complex modules potentially requiring several additional buffers for intermediate data. Without further optimization, anything between 600MB and 3GB of memory might be required to store and process image data as the pixelpipe executes. On top of this is Ansel's code segment, the code and data of any dynamically-linked system libraries, as well as further buffers that Ansel uses to store intermediate states (cache) for quick access during interactive work.
 
@@ -14,7 +14,7 @@ All in all, Ansel requires _at least_ 4GB of physical RAM plus 4 to 8GB of addit
 
 As well as executing on your CPU, many Ansel modules also have OpenCL implementations that can take full advantage of the parallel processing offered by your graphics card (GPU). Similarly, the more GPU memory you have, the better Ansel will perform.
 
-## tiling
+#### tiling
 
 If Ansel does not have sufficient memory to process the entire image in one go, modules may choose to use a "tiling strategy", wherein the image is split into smaller parts (tiles) which are processed independently, and then stitched back together at the end. While this allows images to be processed with a much smaller memory footprint, it does also come with some down-sides:
 
@@ -23,13 +23,13 @@ If Ansel does not have sufficient memory to process the entire image in one go, 
 
 For most systems, tiling will probably only be used for full-sized image exports, with interactive work in the darkroom being processed more efficiently. For best performance (and avoidance of tiling modes) you should run Ansel alongside as few other applications as possible and configure Ansel to use as much of your system and GPU memory as you can.
 
-# performance tuning
+## performance tuning
 
 There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory) and others need to be modified directly in Ansel's configuration file (found in `$HOME/.config/Ansel/Anselrc`).
 
 This section provides some guidance on how to adjust these settings.
 
-## how to test
+#### how to test
 
 In order to determine how much your modifications improve (or not) Ansel's performance, you will need one or more sample images to test with, and a method of assessing the speed of the pixelpipe.
 
@@ -49,7 +49,7 @@ To allow for efficient processing with OpenCL it is essential that the GPU is ke
 
 On the other hand Ansel's performance during file exports is more or less only governed by the speed of the algorithms and the horse-power of your GPU. Short-term stalls will not have a noticeable effect on the total time of an export.
 
-## Ansel resources
+#### Ansel resources
 
 The "Ansel resources" preference (in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory)) allows you to choose between four different approaches to allocating your system's resources to Ansel. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/Ansel/Anselrc`. You can amend any of these directly within your Anselrc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
@@ -82,7 +82,7 @@ In addition to the resource levels presented in the UI the following options can
 - "notebook" (4GB ram, 32MB  single buffer, 512MB thumbnail cache, 1GB OpenCL memory)
 - "reference" (8GB ram, 32MB single buffer, 512MB thumbnail cache, 2GB OpenCL memory)
 
-## tuning GPU memory usage
+#### tuning GPU memory usage
 
 If you want to make maximal use of your GPU memory for OpenCL, you have three options:
 
@@ -90,7 +90,7 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 - Alter Anselrc to increase the last number (the OpenCL memory fraction) for your selected resource level. For example, increasing the OpenCL memory fraction to 950 would increase the available memory on a 6GB GPU to approximately 5.3GB.
 - Set [preferences > processing > cpu / gpu / memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
 
-## device-specific OpenCL configuration
+#### device-specific OpenCL configuration
 
 The default Ansel settings should deliver a reasonable GPU performance on most systems. However, if you want to try to optimize things further, this section describes the relevant configuration parameters (all of which are set in your Anselrc file).
 
@@ -143,7 +143,7 @@ i. benchmark
 
 ---
 
-## id-specific OpenCL configuration
+#### id-specific OpenCL configuration
 
 A second device-specific configuration key is also provided, which takes into account both the device name **and** the device id (just in case you have two identical devices). In this case, the usual key name `cldevice_version_canonicalname` is followed by `_idX` with X being the device id. For example, if the above example device was referred to as device 0, the second configuration setting would (by default) be `cldevice_v4_quadrortx4000_id0=400`.
 
@@ -158,7 +158,7 @@ forced headroom (default 400)
 
 : The default of 400MB should be fine for most systems. If you find you run into performance problems due to Ansel falling back to CPU, try changing it to 600 or disabling "tune for memory size".
 
-## other configuration keys
+#### other configuration keys
 
 The following additional configuration keys are also available in Anselrc:
 

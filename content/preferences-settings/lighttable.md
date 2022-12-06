@@ -7,7 +7,7 @@ draft: false
 
 Control functionality in the [lighttable](../lighttable/_index.md) view and modules.
 
-# general
+## general
 
 hide built-in presets for utility modules
 : If enabled, only user-defined presets will be shown in presets menu for utility modules -- built-in presets will be hidden (default off).
@@ -30,7 +30,7 @@ show scrollbars for center view
 show image time with milliseconds
 : Choose whether to include milliseconds when displaying time values (default off). If set, milliseconds are shown in the [image information](../../module-reference/utility-modules/shared/image-information.md) module and can also be used in the [geotagging](../../module-reference/utility-modules/shared/geotagging.md) module.
 
-# thumbnails
+## thumbnails
 
 use raw file instead of embedded JPEG from size
 : When generating thumbnails for images that have not yet been processed in the darkroom, if the thumbnail size is greater than this value, generate it by processing the raw image data. If the thumbnail is below this size, use the JPEG preview image embedded in the raw file. Once an image has been processed in the darkroom, thumbnails will always be generated from raw data (you can revert back to the JPEG preview by discarding history). To render thumbnails with the best quality choose "always".

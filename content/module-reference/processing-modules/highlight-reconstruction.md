@@ -32,7 +32,7 @@ guided laplacians
 
 ---
 
-# module controls
+## module controls
 
 method
 : The method used to reconstruct highlights (see above).
@@ -54,7 +54,7 @@ inpaint a flat color (_guided laplacians_ mode only)
 diameter of the reconstruction (_guided laplacians_ mode only)
 : The _guided laplacians_ mode uses a multi-scale algorithm that tries to recover details from each scale independently. The _diameter of the reconstruction_ is the largest scale used by the algorithm. Large scales will increase memory consumption as well as runtimes, and may also cause unrelated colors or details to be inpainted in clipped regions. You are advised to use a diameter roughly twice as large as the largest clipped area to be reconstructed. It is also possible that a given diameter may not suit all clipped areas, in which case you should use several instances at different scales and mask the clipped areas accordingly.
 
-# comparison with filmic's highlight reconstruction
+## comparison with filmic's highlight reconstruction
 
 It is important to note that the _highlight reconstruction_ module is quite early in the pixel pipeline -- before [_input color profile_](./input-color-profile.md) and the full chromatic adaptation in [_color calibration_](./color-calibration.md) (if you use the _modern chromatic adaptation_ workflow). A common trick to solve clipped highlights is to simply desaturate them to white but, because white is not defined before the full chromatic adaptation and the input color profiling, it is not possible to use this trick here. Technically, there is no color yet at this point in the pipeline, only an arbitrary 3D signal.
 

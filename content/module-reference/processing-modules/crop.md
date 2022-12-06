@@ -20,11 +20,11 @@ Resize the crop by dragging the border and corner handles.
 
 Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by giving focus to another module.
 
-# module controls
+## module controls
 
 The _crop_ module controls are split into two sections as follows:
 
-## crop settings
+#### crop settings
 
 aspect
 : Set the aspect ratio of the crop, constraining the width:height ratio of the crop rectangle to the chosen aspect. Many common numerical ratios are pre-defined. A few special aspect ratios deserve explanation:
@@ -45,7 +45,7 @@ aspect
 
 ---
 
-## margins
+#### margins
 
 These sliders allow you to directly set how much of the image to crop from each side. They are automatically updated if you move or resize the crop area on the image using the mouse.
 
@@ -63,6 +63,6 @@ top
 bottom
 : The percentage of the image that should be cropped from the bottom.
 
-## guides
+#### guides
 
 Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.

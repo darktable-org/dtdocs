@@ -28,6 +28,6 @@ Click once on a module group icon (including the active group) to show only the 
 
 You can change which widgets appear in the quick access panel and which modules appear in the module groups, by right-clicking the appropriate icon.
 
-# search
+## search
 
 Below the module group icons is the search bar, which you can use to access any of the processing modules, regardless of whether they are currently in a group. This option allows you to search by module name, any user-defined [instance name](../processing-modules/multiple-instances.md), as well as pre-defined module tags (for example, the [color calibration rgb](../../../module-reference/processing-modules/color-balance-rgb.md) module can also be searched using the terms "hue", "contrast" and "vibrance").

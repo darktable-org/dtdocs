@@ -46,19 +46,19 @@ Since the process is physical, even its glitches may be used for creative purpos
 
 ---
 
-# concepts
+## concepts
 
-## time
+#### time
 
 Diffusion is a time-dependent process: the more time it has, the further the particles can spread. In this module, time is simulated using the number of iterations (the number of times the algorithm runs on top of itself). More iterations can make reconstruction (deblurring, denoising, dehazing) more accurate if properly set, but can also cause it to degenerate.
 
-## direction
+#### direction
 
 Natural diffusion usually takes place from points with a high potential (high energy or high concentration of particles) to those with a low potential (low energy or low concentration of particles). In an image, this means that diffusion always occurs from the brightest pixels to the darkest.
 
 This particular implementation can simulate natural diffusion, using what is called an isotropic diffusion (all directions have the same weight, like heat diffusion), but can also force a weighted direction parallel to the gradients (forcing diffusion across object edges and creating ghost edges), or a weighted direction perpendicular to the gradients, called isophote (forcing diffusion to be contained inside edges, like in a droplet of watercolor). The relative weight of each direction (gradient and isophote) is user-defined and can be found in the [_direction_](#direction-1) section of the module.
 
-## speed
+#### speed
 
 Depending how fluid the environment is, particles can move more or less freely and therefore more or less fast. The speed of diffusion can be set in the [_speed_](#speed-sharpen--diffuse) section of the module.
 
@@ -66,7 +66,7 @@ When performing reconstruction (denoising, deblurring, dehazing), it is advisabl
 
 All speeds are added (first to fourth orders), and the sums "`first order + second order`" and "`third order + fourth order`" should never exceed ±100%, unless you want to produce [glitch art](https://en.wikipedia.org/wiki/Glitch_art).
 
-## scale
+#### scale
 
 Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighours.
 
@@ -74,9 +74,9 @@ Here, we fast-track things a bit to save time and reuse the multi-scale wavelets
 
 Regardless of the diffusion, a _sharpness_ parameter allows you to increase or decrease the details at each scale, much like the spline controls of the _contrast equalizer_. Along with the _edge sensitivity_ slider, this provides the same features as the _contrast equalizer_ module (_luma_ and _edges_ tabs) but in a scene-referred RGB space.
 
-# module controls
+## module controls
 
-## properties
+#### properties
 
 iterations
 : The number of times the algorithm should run on top of itself. High values slow the module down but allow more accurate reconstructions, provided that the diffusion speeds are low enough.
@@ -91,28 +91,28 @@ The radii are expressed in pixels of the full-resolution image, so copy+pasting 
 
 For electrical engineers, what is set here is a band-pass filter in wavelets space, using a gaussian frequential window centered on `central radius` with a fall-off (standard deviation) of `radius span`. Wavelet scales are analogous to harmonic frequencies and each wavelet scale defines the radius of the details to act on.
 
-## speed (sharpen ↔ diffuse)
+#### speed (sharpen ↔ diffuse)
 
 In the following controls, positive values apply diffusion, negative values undo diffusion (i.e. sharpen) and zero does nothing.
 
 1st order speed (gradient)
-: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _1st order anisotropy_ setting. 
+: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _1st order anisotropy_ setting.
 
 2nd order speed (laplacian)
-: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _2nd order anisotropy_ setting. 
+: The speed of diffusion of the low-frequency wavelet layers in the direction defined by the _2nd order anisotropy_ setting.
 
 3rd order speed (gradient of laplacian)
-: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _3rd order anisotropy_ setting. 
+: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _3rd order anisotropy_ setting.
 
 4th order speed (laplacian of laplacian)
-: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _4th order anisotropy_ setting. 
+: The speed of diffusion of the high-frequency wavelet layers in the direction defined by the _4th order anisotropy_ setting.
 
-## direction
+#### direction
 
 In the following controls, positive values cause diffusion to avoid edges (isophotes), negative values make diffusion follow gradients more closely, and zero affects both equally (isotropic).
 
 1st order anisotropy
-: The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_1st order speed_ setting). 
+: The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_1st order speed_ setting).
 
 2nd order anisotropy
 : The direction of diffusion of the low-frequency wavelet layers relative to the orientation of the gradient of the high-frequency (_2nd order speed_ setting).
@@ -123,7 +123,7 @@ In the following controls, positive values cause diffusion to avoid edges (isoph
 4rd order anisotropy
 : The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the high-frequency (_4th order speed_ setting).
 
-## edge management
+#### edge management
 
 sharpness
 : Apply a gain on wavelet details, regardless of properties set above. Zero does nothing, positive values sharpen, negative values blur. This is mostly useful as an adjustment variable when blooming or blurring, to retain some sharpness while adding a glow around edges. You are not advised to use this for sharpening alone, since there is nothing to prevent halos or fringes with this setting.
@@ -134,22 +134,22 @@ edge sensitivity
 edge threshold
 : Define a variance threshold, which affects mostly low-variance areas (dark or blurry areas, or flat surfaces). Positive values will increase the penalty for low-variance areas, which is good for sharpening or increasing local contrast without crushing blacks. Negative values will decrease the penalty for low-variance areas, which is good for denoising or blurring with a maximal effect on black and blurry regions.
 
-## diffusion spatiality
+#### diffusion spatiality
 
 luminance masking threshold
 : This control is useful if you want to in-paint highlights. For values greater than 0%, the diffusion will only occur in regions with a luminance greater than this setting. Note that gaussian noise will be added in these regions to simulate particles and initialize the in-painting.
 
-# workflow
+## workflow
 
 The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
 
-## general advice
+#### general advice
 
 If you intend to deblur your image using this module, always start by properly correctiong any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don't have clipped black pixels in your image. These can be corrected with the _black level correction_ of the [_exposure_](./exposure.md) module.
 
 Since it works on separate RGB channels, it is better to apply this module after [_color calibration_](./color-calibration.md), so that you start with a fully neutral, white-balanced, input image. Note that increasing local contrast or sharpness will also lead to a slight color contrast and saturation boost, which is usually a good thing. Since it uses a variance-based regularization to detect edges, it is also better to put this module before any non-linear operation.
 
-## starting with presets
+#### starting with presets
 
 The provided presets have been tuned by the developer and tested on a range of images for typical purposes. The easiest way is simply to start from the presets, and then tweak them as needed:
 
@@ -160,7 +160,7 @@ The provided presets have been tuned by the developer and tested on a range of i
 - if deblurring clips black pixels, lower the _black level correction_ in _exposure_ module,
 - fine-tune the _sharpness_ to your taste.
 
-## starting from scratch
+#### starting from scratch
 
 The module's default settings are entirely neutral and will do nothing to your image. The spirit of the module is that each order affects the texture of the image in a particular way.
 
@@ -180,7 +180,7 @@ The third order follows the gradient or isophote direction of the low frequency 
 
 The fourth order follows the gradient or isophote direction of the high frequency layer and is more likely to catch noise. Diffusing on the fourth order is the best way to reduce noise without affecting sharpness too much, either as a stand-alone denoiser, or as a regularization step in a deblurring process.
 
-# using multiple instances for image reconstruction
+## using multiple instances for image reconstruction
 
 Noise post-filtering may benefit from **introducing** a diffusion process -- this can be applied as an extra step after the [_denoise (profiled)_](./denoise-profiled.md) module.
 
@@ -201,7 +201,7 @@ While more than one of these issues can affect the same picture at the same time
 
 Starting with the coarser-scale reconstructions reduces the probability of introducing or increasing noise when performing the finer-scale reconstructions. This is unintuitive because these processes don't happen in this order during the formation of the image. For the same reason, denoising should always happen before any attempt at sharpening or increasing acutance.
 
-# notes and warnings
+## notes and warnings
 
 While this module is designed to be scale-invariant, its output can only be guaranteed at 100% zoom and high quality or full-size export. Results at lower zoom levels or export dimensions may or may not match your expectations.
 

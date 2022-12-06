@@ -18,7 +18,7 @@ manual
 automatic (RAW images only)
 : Use an analysis of the image's histogram to automatically set the exposure. Ansel automatically selects the exposure compensation that is required to shift the selected _percentile_ to the selected _target level_ (see definitions below). This mode is particularly useful for automatically altering a large number of images to have the same exposure. A typical use case of automatic mode is deflickering of time-lapse photographs.
 
-# module controls
+## module controls
 
 mode
 : Choose the mode of operation (automatic/manual).
@@ -48,7 +48,7 @@ black level correction (manual and automatic modes)
 
 ---
 
-# spot exposure mapping
+## spot exposure mapping
 
 The spot mapping feature is designed to help with [batch-editing](../../guides-tutorials/batch-editing.md) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
 
@@ -58,7 +58,7 @@ Spot exposure mapping allows you to define a target brightness, in terms of expo
 
 The mapping process consists of two steps.
 
-## step 1: set the target
+#### step 1: set the target
 
 There are two ways of setting the target brightness for your control sample:
 
@@ -69,7 +69,7 @@ If you reset the lightness value, the default value is 50% (middle-gray) -- this
 
 Note that the target value is not reset when you reset the module itself, but is stored indefinitely in Ansel's configuration and will be available on next launch as well as for the next image you develop.
 
-## step 2 : match the target
+#### step 2 : match the target
 
 When you open a new image, the _spot mode_ is automatically reset to _correction_. Using the color picker attached to the exposure slider, you can then directly reselect your control sample in the new image. The proper exposure setting required for the control sample to match the memorized target lightness will be automatically computed, and the setting will be updated in the same operation.
 

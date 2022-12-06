@@ -10,7 +10,7 @@ masking: false
 
 Control how raw files are demosaiced.
 
-# bayer filters
+## bayer filters
 
 The sensor cells of a digital camera are not color-sensitive -- they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a color filter (red, green or blue) that primarily passes light of that color. This means that each pixel of the raw image only contains information about a single color channel.
 
@@ -36,17 +36,17 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 ---
 
-# sensors without bayer filters
+## sensors without bayer filters
 
 There are a few cameras whose sensors do not use a Bayer filter. Cameras with an "X-Trans" sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is _Markesteijn 1-pass_, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose _Markesteijn 3-pass_. Though _VNG_ is faster than _Markesteijn 1-pass_ on some computers, it is more prone to artifacts.
 
-# special algorithms
+## special algorithms
 
 _passthrough (monochrome)_ is only useful for cameras that have had the color filter array physically removed from the sensor (e.g. scratched off). Demosaic algorithms usually reconstruct missing color channels by interpolation with data from the neighboring pixels. However, if the color filter array is not present, there is nothing to interpolate, so this algorithm simply sets all the color channels to the same value, resulting in a monochrome image. This method avoids the interpolation artifacts that the standard demosaic algorithms might introduce.
 
 _photosite_color_ is not meant to be used for image processing. It takes the raw photosite data and presents it as red, blue or green pixels. This is designed for debugging purposes in order to see the raw data and can assist with analysis of errors produced by the other demosaic algorithms.
 
-# dual demosaic algorithms
+## dual demosaic algorithms
 
 Some images have areas best demosaiced using an algorithm that preserves high frequency information (like _AMaZE_ or _RCD_) and other areas that might profit from an algorithm more suited to low frequency content (like _VNG4_).
 
@@ -58,11 +58,11 @@ In general, areas with greater detail are demosaiced by the algorithm best suite
 
 _The 'local data change' is technically implemented as a gaussian-blurred single channel selection mask calculated from a combination of the threshold value and the pixels' luminance._
 
-## selecting the threshold
+#### selecting the threshold
 
 An automatically-calculated threshold is difficult to implement. Instead, the "display blending mask" button can be used to display the _selection mask_ so you can control the selection of the algorithm manually. The brighter the pixel in the displayed mask, the more the output is taken from the high-frequency algorithm.
 
-# module controls
+## module controls
 
 method
 : The demosaic algorithm to use (see above).

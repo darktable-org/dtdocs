@@ -13,7 +13,7 @@ Ansel supports variable substitution in a number of modules and preference setti
 - Displaying image information in the lighttable's overlays and tooltips (see [preferences > lighttable](../preferences-settings/lighttable.md))
 - Placing text on an image in the [_watermark_](../module-reference/processing-modules/watermark.md) processing module
 
-# available variables
+## available variables
 
 The following variables are available, though they may not all be applicable in every context:
 
@@ -86,7 +86,7 @@ $(NL)                      newline character
 $(JOBCODE)                 internal jobcode of current job
 ```
 
-# string substitution
+## string substitution
 
 All of the variables support basic string substitution inspired by bash though some of the details differ.
 
@@ -132,7 +132,7 @@ $(var,)                          Make the first character of var lowercase
 $(var,,)                         Make all characters of var lowercase
 ```
 
-# formatting
+## formatting
 
 The image information patterns support [markup](https://docs.gtk.org/Pango/pango_markup.html). For example, adding the following will provide a clear warning (large, red, bold text) when OpenCL has failed to initialise:
 

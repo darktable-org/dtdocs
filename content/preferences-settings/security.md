@@ -7,7 +7,7 @@ draft: false
 
 Control whether warning messages are shown before undertaking certain activities.
 
-# general
+## general
 
 ask before removing images from the library
 : Always ask before removing image information from Ansel's library database, where the xmp file is retained (default on).
@@ -42,7 +42,7 @@ ask before deleting a preset
 ask before exporting in overwrite mode
 : Always ask before [exporting](../module-reference/utility-modules/shared/export.md) images in overwrite mode.
 
-# other
+## other
 
 password storage backend to use
 : The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”.
