@@ -64,9 +64,8 @@ offset
 
 This module is implemented using a "naive" convolution, which is a slow algorithm. Faster approaches are available (using FFT) but not yet implemented. The GPU implementation, through OpenCL, should hide this issue somewhat. In any case, the runtime of the module will increase with the square of the blur radius.
 
-The blurring process does not take scene depth and depth-of-field into account, but blurs the whole image as a flat object. It is therefore not suitable for creating fake depth-of-field. Using darktable's general masking will only partially work to isolate the foreground of an image, since it will still be blurred into the background.
+The blurring process does not take scene depth and depth-of-field into account, but blurs the whole image as a flat object. It is therefore not suitable for creating fake depth-of-field. Using Ansel's general masking will only partially work to isolate the foreground of an image, since it will still be blurred into the background.
 
 # tips and tricks
 
 All images are usually (even a tiny bit) noisy. If you blur only a part of the image, the blurred region will look suspiciously clean compared to the rest of the image. It is therefore a good idea to add a bit of noise on top of the blurred part to blend it with the rest, using either the [grain](./grain.md) or the [censorize](./censorize.md) modules.
-

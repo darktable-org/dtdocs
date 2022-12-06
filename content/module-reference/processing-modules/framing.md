@@ -2,13 +2,13 @@
 title: framing
 id: framing
 applicable-version: 3.8
-tags: 
-working-color-space: RGB 
+tags:
+working-color-space: RGB
 view: darkroom
 masking: true
 ---
 
-Generate a frame around the image. 
+Generate a frame around the image.
 
 The frame consists of a border (with a user-defined color) and a frame line within that border (with a second user-defined color). Various options are available to control the geometry and color of the frame.
 
@@ -21,7 +21,7 @@ aspect
 : The aspect ratio of the final module output (i.e. the underlying image plus the frame)
 
 orientation
-: The orientation of the frame (portrait/landscape). Select 'auto' for darktable to choose the most reasonable orientation based on the underlying image.
+: The orientation of the frame (portrait/landscape). Select 'auto' for Ansel to choose the most reasonable orientation based on the underlying image.
 
 horizontal/vertical position
 : Select from a set of pre-defined ratios to control where the underlying image will be positioned on the horizontal/vertical axis. You can also right click and enter your own ratio as "x/y".
@@ -37,4 +37,3 @@ border color / frame line color
 
 show guides
 : Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
-

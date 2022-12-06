@@ -50,4 +50,4 @@ shadows
 mid-tone range
 : This controls the extent of the S shaped part of the contrast curve. A larger value makes the S wider, and thus classifies more values as mid-tones and fewer values as highlights and shadows. In higher dynamic range settings it can be useful to reduce this value to achieve stronger range compression, by lowering the contrast in the highlights and the shadows. Note however, that for really strong HDR scenarios this may work best in combination with a [_base curve_](./base-curve.md) that pre-compresses the range, perhaps with an approximately logarithmic curve. The exposure fusion feature in the [_base curve_](./base-curve.md) module may lead to more pleasing results at times, but is also more prone to halo effects.
 
-: This setting can cause banding artifacts in the image if pushed to extreme values. This is due to the way in which darktable computes the fast approximation of the local laplacian filter.
+: This setting can cause banding artifacts in the image if pushed to extreme values. This is due to the way in which Ansel computes the fast approximation of the local laplacian filter.

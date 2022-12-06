@@ -6,7 +6,7 @@ weight: 20
 author: "people"
 ---
 
-The _zoomable lighttable_ mode provides an alternative way to navigate large collections of images, but with some similarities to the filemanager mode (described below). 
+The _zoomable lighttable_ mode provides an alternative way to navigate large collections of images, but with some similarities to the filemanager mode (described below).
 
 # controls
 
@@ -22,7 +22,6 @@ select
 
 ---
 
-**Hint:** you may find that image thumbnails are slow to load when zooming quickly through a large collection. One way to speed up the navigation is to generate a cache containing all the thumbnails using the [`darktable-generate-cache`](../../special-topics/program-invocation/darktable-generate-cache.md) command.
+**Hint:** you may find that image thumbnails are slow to load when zooming quickly through a large collection. One way to speed up the navigation is to generate a cache containing all the thumbnails using the [`Ansel-generate-cache`](../../special-topics/program-invocation/Ansel-generate-cache.md) command.
 
 ---
-

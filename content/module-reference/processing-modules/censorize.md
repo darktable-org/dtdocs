@@ -22,9 +22,9 @@ Aside from anonymization, this module can also be used for a wide range of creat
 
 **Note:** The anonymizing methods provided by this module are not forensically safe in order to favor aesthetics. Some forensic techniques may still be able to reconstruct the censorized content based on its structure, especially for simple shapes and text (e.g. license plates, street numbers).
 
-If forensically safe anonymization is required, the only way to achieve this is to paint the surfaces with a solid color. 
+If forensically safe anonymization is required, the only way to achieve this is to paint the surfaces with a solid color.
 
-**The darktable team does not accept responsibility for poorly anonymized pictures leading to the identification of individuals or personal property.**
+**The Ansel team does not accept responsibility for poorly anonymized pictures leading to the identification of individuals or personal property.**
 
 ---
 

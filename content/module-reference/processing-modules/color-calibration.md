@@ -169,7 +169,7 @@ The channel mixing process is therefore tied to a physical interpretation of the
 
 # R, G and B tabs
 
-At its most basic level, you can think of the R, G and B tabs of the _color calibration_ module as a type of matrix multiplication between a 3x3 matrix and the input [R G B] values. This is in fact very similar to what a matrix-based ICC color profile does, except that the user can input the matrix coefficients via the darktable GUI rather than reading the coefficients from an ICC profile file.
+At its most basic level, you can think of the R, G and B tabs of the _color calibration_ module as a type of matrix multiplication between a 3x3 matrix and the input [R G B] values. This is in fact very similar to what a matrix-based ICC color profile does, except that the user can input the matrix coefficients via the Ansel GUI rather than reading the coefficients from an ICC profile file.
 
 ```
 ┌ R_out ┐     ┌ Rr Rg Rb ┐     ┌ R_in ┐
@@ -212,7 +212,7 @@ normalize channels
 The brightness and colorfulness (color saturation) of pixels in an image can also be adjusted based on the R, G and B input channels. This uses the same basic algorithm that the [_filmic rgb_](filmic-rgb.md) module uses for tone mapping (which preserves RGB ratios) and for mid-tones saturation (which massages them).
 
 saturation algorithm
-: This control allows you to upgrade the saturation algorithm to the new 2021 version, for edits produced prior to darktable 3.6 -- it will not appear for edits that already use the latest version.
+: This control allows you to upgrade the saturation algorithm to the new 2021 version, for edits produced prior to Ansel 3.6 -- it will not appear for edits that already use the latest version.
 
 ## colorfulness tab controls
 
@@ -268,7 +268,7 @@ There are two ways of setting the target chromaticity for your control sample:
 
 If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-gray) -- this can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral gray, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral grays.
 
-Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next launch as well as for the next image you develop.
+Note that the target value is not reset when you reset the module itself, but is stored indefinitely in Ansel's configuration and will be available on next launch as well as for the next image you develop.
 
 The _take channel mixing into account_ option lets you choose where the target is sampled. If disabled, the target color is measured immediately after the _CAT_ (Chromatic Adaptation Transform) step, which takes place before any channel mixing. This means that if you have a calibrated profile in effect within the channel mixer, this profile will be discarded. If enabled, the target color is measured after the _CAT_ and the channel mixing steps, including any calibrated profile. This is the recommended option for most use cases.
 
@@ -319,7 +319,7 @@ IT7 and IT8 charts are not supported since they are hardly portable and not prac
 
 ---
 
-**Note**: X-Rite changed the formula of their pigments in 2014 and Datacolor in 2018, which slightly altered the color of the patches. Both formulas are supported in darktable, but you should be careful to choose the correct reference for your target. If in doubt, try both and choose the one that yields the lowest average delta E after calibration.
+**Note**: X-Rite changed the formula of their pigments in 2014 and Datacolor in 2018, which slightly altered the color of the patches. Both formulas are supported in Ansel, but you should be careful to choose the correct reference for your target. If in doubt, try both and choose the one that yields the lowest average delta E after calibration.
 
 ---
 
@@ -330,7 +330,7 @@ In order to use this feature you will need to take a test shot of a supported co
 * frame the chart in the center 50% of the camera's field, to ensure that the image is free of vignetting,
 * ensure that the main light source is far enough from the chart to give an even lighting field over the surface of the chart,
 * adjust the angle between the light, chart and lens to prevent reflections and gloss on the color patches,
-* for the best quality profile you should capture an image with the appropriate brightness. To achieve this, take a few bracketed images (between -1 and +1 EV) of your color checker and load them into darktable, ensuring that all modules between _color calibration_ and _output color profile_ are disabled. Choose the image where the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space (use the global color picker). This step is not strictly necessary -- alternatively you can take a single image and apply the exposure compensation as recommended in the profile report.
+* for the best quality profile you should capture an image with the appropriate brightness. To achieve this, take a few bracketed images (between -1 and +1 EV) of your color checker and load them into Ansel, ensuring that all modules between _color calibration_ and _output color profile_ are disabled. Choose the image where the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space (use the global color picker). This step is not strictly necessary -- alternatively you can take a single image and apply the exposure compensation as recommended in the profile report.
 
 If the lighting conditions are close to a standard D50 to D65 illuminant (direct natural light, no colored bounced light), the color checker shot can be used to produce a generic profile that will be suitable for any daylight illuminant with only a slight adjustment of the white balance.
 
@@ -430,5 +430,5 @@ It is possible to alleviate this issue, if you have a computer screen calibrated
 
 1. Display a white surface on your screen, for example by opening a blank canvas in any photo editing software you like
 2. Take a blurry (out of focus) picture of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and are using an aperture between f/5.6 and f/8,
-3. Open the picture in darktable and extract the white balance by using the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
+3. Open the picture in Ansel and extract the white balance by using the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
 4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.

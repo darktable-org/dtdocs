@@ -2,24 +2,24 @@
 title: denoise (profiled)
 id: denoise-profiled
 applicable-version: 3.8
-tags: 
-working-color-space:  
+tags:
+working-color-space:
 view: darkroom
-masking: 
+masking:
 ---
 
 An easy to use and highly efficient denoise module, adapted to the individual noise profiles of a wide range of camera sensors.
 
 One issue with a lot of denoising algorithms is that they assume that the variance of the noise is independent of the luminosity of the signal. By profiling the noise characteristics of a camera's sensor at different ISO settings, the variance at different luminosities can be assessed, and the denoising algorithm can be adjusted to more evenly smooth out the noise.
 
-Currently, darktable has sensor noise profiles for over 300 popular camera models from all the major manufacturers. If you generate your own noise profile for a camera that is not yet supported by darktable, be sure to share it with the darktable development team so they can include it in the next release! Please see darktable's [camera support](https://github.com/darktable-org/darktable/wiki/Camera-support) page for more information.
+Currently, Ansel has sensor noise profiles for over 300 popular camera models from all the major manufacturers. If you generate your own noise profile for a camera that is not yet supported by Ansel, be sure to share it with the Ansel development team so they can include it in the next release! Please see Ansel's [camera support](https://github.com/Ansel-org/Ansel/wiki/Camera-support) page for more information.
 
 # modes
 
 The _denoise (profiled)_ module implements two algorithms, each of which is available in either an easy-to-use "auto" mode, or a more advanced manual mode with additional controls:
 
 non-local means
-: This algorithm works in the spatial domain in much the same way as the [_astrophoto denoise_](./astrophoto-denoise.md) module. It averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a defined size is used to measure that similarity. 
+: This algorithm works in the spatial domain in much the same way as the [_astrophoto denoise_](./astrophoto-denoise.md) module. It averages each pixel with some surrounding pixels in the image. The weight of such a pixel in the averaging process depends on the similarity of its neighborhood with the neighborhood of the pixel being denoised. A patch with a defined size is used to measure that similarity.
 
 : Note that this algorithm is quite resource-intensive.
 
@@ -30,7 +30,7 @@ wavelets (default)
 
 ## luma versus chroma noise
 
-Both “non-local means” and “wavelet” algorithms can efficiently tackle luma (lightness) noise and chroma (color) noise.  
+Both “non-local means” and “wavelet” algorithms can efficiently tackle luma (lightness) noise and chroma (color) noise.
 
 In the past, it was suggested that you use two separate instances of this module to tackle _chroma_ and _luma_ noise independently (using _chroma_ and _lightness_ blending modes). This is no longer recommended, since the _denoise (profiled)_ module is placed before the _input color profile_ module in the pixelpipe (so that the profile parameters are accurate) and color blending modes should only be used after the input color profile has been applied.
 
@@ -38,7 +38,7 @@ The new algorithms in this module now provide their own methods to separately ha
 
 # module controls
 
-The _denoise (profiled)_ module provides some controls that are independent of the algorithm used. These are described first, before moving on to the algorithm-specific controls. 
+The _denoise (profiled)_ module provides some controls that are independent of the algorithm used. These are described first, before moving on to the algorithm-specific controls.
 
 When describing the controls specific to an algorithm, we will first cover the simplified interface, and then move on to the more advanced controls for that algorithm.
 
@@ -47,7 +47,7 @@ Note that sliders are provided with minimum and maximum values by default. Howev
 ## common controls
 
 profile
-: darktable automatically determines the camera model and ISO based on the Exif data of your raw file, and searches for a corresponding profile in its database. If your image has an intermediate ISO value, settings will be interpolated between the two closest datasets in the database, and this interpolated setting will show up as the first line in the combo box. You can also manually override this selection if necessary. Re-selecting the top-most entry in the combo box will return you to the default profile.
+: Ansel automatically determines the camera model and ISO based on the Exif data of your raw file, and searches for a corresponding profile in its database. If your image has an intermediate ISO value, settings will be interpolated between the two closest datasets in the database, and this interpolated setting will show up as the first line in the combo box. You can also manually override this selection if necessary. Re-selecting the top-most entry in the combo box will return you to the default profile.
 
 mode
 : Choose which denoising algorithm to use (see above), and whether to present the simplified ("auto") or full manual interface for that algorithm.
@@ -56,10 +56,10 @@ whitebalance-adaptive transform
 : As the white balance amplifies each of the RGB channels differently, each channel exhibits different noise levels. This checkbox makes the selected algorithm adapt to the white balance adjustments. This option should be disabled on the second instance if you have applied a first instance with a color blend mode.
 
 adjust autoset parameters (auto modes only)
-: Automatically adjust all the other parameters on the current denoising algorithm using a single slider. This is particularly useful when you have had to increase the exposure on an under-exposed image, which normally introduces additional noise (as if you had taken the shot with a higher ISO). This control compensates for that by using settings similar to those used for a higher ISO image. The "effective ISO" used by the denoise algorithm is the actual ISO used, multiplied by the value of this slider. 
+: Automatically adjust all the other parameters on the current denoising algorithm using a single slider. This is particularly useful when you have had to increase the exposure on an under-exposed image, which normally introduces additional noise (as if you had taken the shot with a higher ISO). This control compensates for that by using settings similar to those used for a higher ISO image. The "effective ISO" used by the denoise algorithm is the actual ISO used, multiplied by the value of this slider.
 
 strength
-: Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal-to-noise ratio. It's mostly a matter of taste -- whether you prefer a low noise level at the cost of fine details, or you accept more noise to better preserve fine detail. 
+: Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal-to-noise ratio. It's mostly a matter of taste -- whether you prefer a low noise level at the cost of fine details, or you accept more noise to better preserve fine detail.
 
 preserve shadows (advanced mode only)
 : Lower this control to denoise the shadows more aggressively. Usually, as noise increases, you will need to decrease this parameter.
@@ -87,7 +87,7 @@ scattering (coarse-grain noise)
 
 ## wavelet curves
 
-Wavelet curves are shown when one of the “wavelet” modes is selected. 
+Wavelet curves are shown when one of the “wavelet” modes is selected.
 
 The noise in an image usually consists of both fine grain and coarse grain noise, to varying degrees. The wavelet curves allow the strength of the denoising to be adjusted depending on the coarseness of the visible noise. The left end of the curve will act on very coarse grain noise, while the right of the curve will act on very fine grain noise. Raising the curve will increase the amount of smoothing, while lowering the curve will decrease it.
 
@@ -112,4 +112,3 @@ The issue with independently denoising the RGB channels is that there can still 
 ## wavelets advanced sliders
 
 When you take _wavelets_ out of _auto_ mode, the _adjust autoset parameters_ slider is replaced with the _preserve shadows_ and _bias correction_ controls listed above in the [common controls](#common-controls) section.
-

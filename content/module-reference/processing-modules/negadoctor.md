@@ -2,13 +2,13 @@
 title: negadoctor
 id: negadoctor
 applicable-version: 3.2.1
-tags: 
-working-color-space:  
+tags:
+working-color-space:
 view: darkroom
-masking: 
+masking:
 ---
 
-Process scanned film negatives. 
+Process scanned film negatives.
 
 You can obtain an image of a negative using a film scanner, or by photographing it against a white light (e.g. a light table or computer monitor) or off-camera flash.
 
@@ -26,7 +26,7 @@ When scanning or photographing your film negative, make sure you include some un
 
 When developing the scanned/photographed film negatives, it is recommended that you disable any tone mapping modules such as [_filmic rgb_](filmic-rgb.md) and [_base curve_](base-curve.md).
 
-The _working profile_ parameter in darktable's [_input color profile_](input-color-profile.md) module should be set to either _linear Rec2020 RGB_, or to an ICC profile representing the actual color space of your film emulsion. Some examples of such ICC profiles may be found in the following forum posts:
+The _working profile_ parameter in Ansel's [_input color profile_](input-color-profile.md) module should be set to either _linear Rec2020 RGB_, or to an ICC profile representing the actual color space of your film emulsion. Some examples of such ICC profiles may be found in the following forum posts:
 
 - [https://discuss.pixls.us/t/any-interest-in-a-film-negative-feature-in-rt/12569/177](https://discuss.pixls.us/t/any-interest-in-a-film-negative-feature-in-rt/12569/177)
 
@@ -96,4 +96,3 @@ paper gloss (specular highlights)
 
 print exposure adjustment
 : This slider offers one final opportunity to correct any clipping of the highlights. If you have followed all the previous instructions carefully, you shouldn't need to adjust this setting. Note that you can increase the print exposure while at the same time decreasing the paper gloss, which allows you to brighten the mid-tones without losing any highlights. You can use the color picker to select the brightest highlights, or select the entire image without including any unexposed film stock. This will set the exposure so that the brightest part of the selected region is not clipped. Double-check the histogram to make sure that the right part of the histogram doesn't clip.
-

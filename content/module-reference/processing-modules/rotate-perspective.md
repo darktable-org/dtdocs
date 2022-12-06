@@ -2,10 +2,10 @@
 title: rotate and perspective
 id: rotate-perspective
 applicable-version: 3.8
-tags: 
-working-color-space:  
+tags:
+working-color-space:
 view: darkroom
-masking: 
+masking:
 ---
 
 Automatically correct for converging lines, a form of perspective distortion. The underlying mechanism is inspired by Markus Hebel's [_ShiftN_](http://www.shiftn.de/) program. This module also allows for the rotation of the image to be adjusted.
@@ -36,7 +36,7 @@ This method is similar to how "keystone" correction works in the [_crop and rota
 
 ### automatically detect structure
 
-Click the ![get-structure-icon](./rotate-perspective/icon-get-structure.png#icon) icon to analyze the image for structural elements -- darktable will automatically detect and evaluate line elements. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines. 
+Click the ![get-structure-icon](./rotate-perspective/icon-get-structure.png#icon) icon to analyze the image for structural elements -- Ansel will automatically detect and evaluate line elements. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.
 
 Only lines that form a set of vertical or horizontal converging lines are used for subsequent processing steps. Line segments are displayed as overlays on the image canvas, with the type of line identified by color as follows:
 
@@ -55,7 +55,7 @@ yellow
 gray
 : Other lines that are not of interest to this module
 
-Lines marked in red or yellow are regarded as outliers and are not taken into account during the automatic fitting step. This outlier elimination involves a statistical process using random sampling which means that each time you press the "get structure" button the color pattern of the lines will look slightly different. 
+Lines marked in red or yellow are regarded as outliers and are not taken into account during the automatic fitting step. This outlier elimination involves a statistical process using random sampling which means that each time you press the "get structure" button the color pattern of the lines will look slightly different.
 
 You can manually change the status of line segments: Left-Click on a line to select it (turn the color to green or blue) and Right-click to deselect it (turn the color to red or yellow). If you keep the mouse button pressed, you can use a sweeping action to select/deselect multiple lines in a row. The size of the select/deselect brush can be changed with the mouse wheel. Hold down the Shift key and keep the left or right mouse button pressed while dragging to select or deselect all lines in the chosen rectangular area.
 
@@ -121,6 +121,3 @@ Here is an image with a skewed horizon and converging lines caused by directing 
 Here is the image after having corrected for vertical and horizontal perspective distortions using automatic structure detection. Note the framing adjustment made by the automatic cropping feature and the still-visible overlay of structural lines:
 
 ![prespective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
-
-
-

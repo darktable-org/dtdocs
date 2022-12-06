@@ -16,7 +16,7 @@ manual
 : Set the _exposure_, _black level_ and _clipping threshold_ manually
 
 automatic (RAW images only)
-: Use an analysis of the image's histogram to automatically set the exposure. Darktable automatically selects the exposure compensation that is required to shift the selected _percentile_ to the selected _target level_ (see definitions below). This mode is particularly useful for automatically altering a large number of images to have the same exposure. A typical use case of automatic mode is deflickering of time-lapse photographs.
+: Use an analysis of the image's histogram to automatically set the exposure. Ansel automatically selects the exposure compensation that is required to shift the selected _percentile_ to the selected _target level_ (see definitions below). This mode is particularly useful for automatically altering a large number of images to have the same exposure. A typical use case of automatic mode is deflickering of time-lapse photographs.
 
 # module controls
 
@@ -67,7 +67,7 @@ There are two ways of setting the target brightness for your control sample:
 
 If you reset the lightness value, the default value is 50% (middle-gray) -- this can be useful to quickly set the average exposure of any image.
 
-Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next launch as well as for the next image you develop.
+Note that the target value is not reset when you reset the module itself, but is stored indefinitely in Ansel's configuration and will be available on next launch as well as for the next image you develop.
 
 ## step 2 : match the target
 
