@@ -103,7 +103,9 @@ Example of internal link:
 
 The compiled HTML is [checked for broken links](https://github.com/aurelienpierreeng/ansel-doc/actions/workflows/hugo.yml) with 2 different test suites (HTMLTest, written in Golang, and HTMLProofer, written in Ruby), on new pull requests and on each commit on master. The tests are run in the documentation scope (https://github.com/aurelienpierreeng/ansel-doc/) and in the main website scope (https://github.com/aurelienpierreeng/ansel-website), where the documentation is embedded as a Hugo module under `$Lang/doc` (where `$Lang` is the 2-letters language code). Relative URLs for internal links work automatically in both setups.
 
-If you make links to page anchors, like `/my-post#some-heading`, ensure to not insert a slash `/` between the page slug and the hashtag `#` in your Markdown code
+If you make links to page anchors, like `/my-post.md#some-heading`, be sure to not insert a slash `/` between the page slug and the hashtag `#` in your Markdown code, or else the file will be taken for a directory and not found.
+
+Also, always link to the Markdown files, like `/my-post.md`, instead of `/my-post`. If you need to link to sections, like `/doc/` (_although you should use relative pathes there_), always link to their Markdown index, like `/doc/_index.md`. While `/my-post` and `/doc` are technically valid URLs __once the website is compiled to HTML__, text editors, IDEs, file browsers as well as Hugo at compilation stage are not aware of these URL and only know local text files. Using links to actual text files solves many issues, helps debugging and ensures the robustness of the HTML build.
 
 ### External links
 
