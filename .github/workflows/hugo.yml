@@ -6,6 +6,9 @@ on:
   push:
     branches: ["master"]
 
+  pull_request:
+    types: [opened, reopened]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -49,9 +52,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo \
-            --minify \
-            --baseURL "./public"
+          hugo
       - name: Upload folder artifact
         uses: actions/upload-artifact@v3
         with:
