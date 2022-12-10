@@ -1,5 +1,6 @@
 ---
 title: the history stack
+date: 2022-12-04T02:19:02+01:00
 id: history-stack
 weight: 30
 draft: false

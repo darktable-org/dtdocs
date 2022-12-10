@@ -1,5 +1,6 @@
 ---
 title: tone equalizer
+date: 2022-12-04T02:19:02+01:00
 id: tone-equalizer
 applicable-version: 3.8
 tags:

@@ -1,5 +1,6 @@
 ---
 title: metadata and tagging
+date: 2022-12-04T02:19:02+01:00
 id: metadata-and-tagging
 draft: false
 weight: 60

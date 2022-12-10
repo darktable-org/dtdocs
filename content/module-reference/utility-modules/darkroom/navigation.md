@@ -1,8 +1,9 @@
 ---
 title: navigation
+date: 2022-12-04T02:19:02+01:00
 id: navigation
 applicable-version: 3.2.1
-tags: 
+tags:
 view: darkroom
 ---
 

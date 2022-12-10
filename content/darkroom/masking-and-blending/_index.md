@@ -1,5 +1,6 @@
 ---
 title: masking & blending
+date: 2022-12-04T02:19:02+01:00
 id: masking-and-blending
 weight: 50
 draft: false

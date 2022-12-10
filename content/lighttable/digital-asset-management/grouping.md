@@ -1,5 +1,6 @@
 ---
 title: image grouping
+date: 2022-12-04T02:19:02+01:00
 id: grouping
 draft: false
 weight: 50
@@ -8,13 +9,13 @@ author: "people"
 
 Grouping images helps to improve the structure and clarity of your image collection when displayed in the lighttable view.
 
-You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../module-reference/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G. 
+You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../module-reference/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G.
 
 Duplicated images are automatically grouped together. Similarly, if you import multiple images from the same directory, having the same base name, but different extensions (eg. `IMG_1234.CR2` and `IMG_1234.JPG`), those images automatically form a group.
 
 Images that are members of a group are denoted by a group icon ![top panel_grouping icon](./grouping/top-panel_grouping.png#icon) in their thumbnails. Note that this icon is only shown when "overlays" are displayed on image thumbnails. Thumbnail overlays can be enabled by selecting the star icon in the [top panel](../../overview/user-interface/top-panel.md).
 
-This icon also appears as a button, in the top panel of the lighttable view, that can be used to toggle grouping on and off. If grouping is off, all images are displayed as individual thumbnails. If grouping is on, the images in a group are represented by a single thumbnail image (the group leader). If you press the group icon in the group leader's thumbnail, that group is expanded (click a second time to collapse). If you then expand another group, the first group collapses. 
+This icon also appears as a button, in the top panel of the lighttable view, that can be used to toggle grouping on and off. If grouping is off, all images are displayed as individual thumbnails. If grouping is on, the images in a group are represented by a single thumbnail image (the group leader). If you press the group icon in the group leader's thumbnail, that group is expanded (click a second time to collapse). If you then expand another group, the first group collapses.
 
 An expanded group in the filemanager mode of lighttable view is indicated by an orange frame that appears as soon as your mouse pointer hovers over one of the images. This frame surrounds all images in the group.
 

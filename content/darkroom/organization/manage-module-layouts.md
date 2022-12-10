@@ -1,5 +1,6 @@
 ---
 title: manage module layouts
+date: 2022-12-04T02:19:02+01:00
 id: manage-module-layouts
 weight: 40
 draft: false

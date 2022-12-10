@@ -1,5 +1,6 @@
 ---
 title: "basic principles: luarc files"
+date: 2022-12-04T02:19:02+01:00
 id: basic-principles
 weight: 20
 draft: false

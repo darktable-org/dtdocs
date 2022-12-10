@@ -1,5 +1,6 @@
 ---
 title: culling
+date: 2022-12-04T02:19:02+01:00
 id: culling
 draft: false
 weight: 30

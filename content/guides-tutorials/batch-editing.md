@@ -1,5 +1,6 @@
 ---
 title: batch-editing images
+date: 2022-12-04T02:19:02+01:00
 id: batch-editing
 draft: false
 weight: 110

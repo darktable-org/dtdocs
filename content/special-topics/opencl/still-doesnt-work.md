@@ -1,5 +1,6 @@
 ---
 title: opencl still does not run for me
+date: 2022-12-04T02:19:02+01:00
 id: still-doesnt-work
 weight: 100
 draft: false

@@ -1,5 +1,6 @@
 ---
 title: lut 3D
+date: 2022-12-04T02:19:02+01:00
 id: lut-3d
 applicable-version: 3.6
 tags:

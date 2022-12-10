@@ -1,5 +1,6 @@
 ---
 title: setting up opencl
+date: 2022-12-04T02:19:02+01:00
 id: setting-up
 weight: 40
 draft: false

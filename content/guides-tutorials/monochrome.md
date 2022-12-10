@@ -1,5 +1,6 @@
 ---
 title: developing monochrome images
+date: 2022-12-04T02:19:02+01:00
 id: monochrome-images
 draft: false
 weight: 10

@@ -1,5 +1,6 @@
 ---
 title: shortcuts
+date: 2022-12-04T02:19:02+01:00
 id: shortcuts
 weight: 120
 draft: false

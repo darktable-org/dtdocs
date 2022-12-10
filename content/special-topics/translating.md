@@ -1,5 +1,6 @@
 ---
 title: translating dtdocs
+date: 2022-12-04T02:19:02+01:00
 id: translating
 weight: 100
 draft: false
@@ -25,6 +26,7 @@ Please do all translation work through Weblate. We will not accept pull requests
    ```
      en-us:
        title: darktable 3.4 user manual
+date: 2022-12-04T02:19:02+01:00
        weight: 1
    ```
 

@@ -1,5 +1,6 @@
 ---
 title: star ratings & color labels
+date: 2022-12-04T02:19:02+01:00
 id: star-color
 draft: false
 weight: 40

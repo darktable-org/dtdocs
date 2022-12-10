@@ -1,5 +1,6 @@
 ---
 title: color balance rgb
+date: 2022-12-04T02:19:02+01:00
 id: color-balance
 applicable-version: 4.0
 tags:

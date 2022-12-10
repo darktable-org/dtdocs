@@ -1,5 +1,6 @@
 ---
 title: miscellaneous
+date: 2022-12-04T02:19:02+01:00
 id: miscellaneous
 weight: 110
 draft: false

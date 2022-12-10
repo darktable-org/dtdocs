@@ -1,5 +1,6 @@
 ---
 title: Lighttable
+date: 2022-12-04T02:19:02+01:00
 id: lighttable-and-dam
 draft: false
 weight: 20

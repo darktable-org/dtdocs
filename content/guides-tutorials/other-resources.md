@@ -1,5 +1,6 @@
 ---
 title: other resources
+date: 2022-12-04T02:19:02+01:00
 id: other-resources
 draft: false
 weight: 120

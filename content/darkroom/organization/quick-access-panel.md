@@ -1,5 +1,6 @@
 ---
 title: quick access panel
+date: 2022-12-04T02:19:02+01:00
 id: quick-access-panel
 weight: 30
 draft: false
@@ -10,7 +11,7 @@ The quick access panel allows you to access widgets from a number of processing 
 
 ![quick-access-panel](./quick-access-panel/quick-access-panel.png#w33)
 
-You can add new widgets to the panel by 
+You can add new widgets to the panel by
 
 - right-clicking on the "hamburger" icon at the top-left of the panel
 - using the [manage module layouts](./manage-module-layouts.md) screen

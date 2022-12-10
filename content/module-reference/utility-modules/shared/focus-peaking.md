@@ -1,8 +1,9 @@
 ---
 title: focus peaking
+date: 2022-12-04T02:19:02+01:00
 id: focus-peaking
 applicable-version: 3.2.1
-tags: 
+tags:
 view: lighttable, darkroom, tethering, map
 ---
 
@@ -19,4 +20,3 @@ Focus peaking works by filtering out image noise, measuring the intensity gradie
 ![focus-peaking-overview](./focus-peaking/focus-peaking-overview.png#w75)
 
 The image above was taken with a wide aperture to give a shallow depth of field, and you can see how the camera has focused on the chinese character written on the second red lantern along from the front. There are also stems of the pink flowers that fall within the area of acceptable sharpness around the focal plane, and these have also been marked up with yellow and green.
-

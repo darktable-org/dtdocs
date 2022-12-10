@@ -1,5 +1,6 @@
 ---
 title: purge_non_existing_images.sh
+date: 2022-12-04T02:19:02+01:00
 id: purge-non-existing-images-sh
 weight: 70
 draft: false

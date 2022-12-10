@@ -1,5 +1,6 @@
 ---
 title: the anatomy of a processing module
+date: 2022-12-04T02:19:02+01:00
 id: the-anatomy-of-a-module
 weight: 10
 draft: false

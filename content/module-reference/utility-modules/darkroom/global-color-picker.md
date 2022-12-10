@@ -1,5 +1,6 @@
 ---
 title: global color picker
+date: 2022-12-04T02:19:02+01:00
 id: global-color-picker
 applicable-version: 4.0
 tags:

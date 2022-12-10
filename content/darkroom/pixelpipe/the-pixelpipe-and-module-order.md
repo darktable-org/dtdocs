@@ -1,5 +1,6 @@
 ---
 title: the pixelpipe & module order
+date: 2022-12-04T02:19:02+01:00
 id: the-pixelpipe-and-module-order
 weight: 20
 draft: false

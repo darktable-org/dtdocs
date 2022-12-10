@@ -1,5 +1,6 @@
 ---
 title: clipping warning
+date: 2022-12-04T02:19:02+01:00
 id: clipping
 applicable-version: 3.4
 tags:

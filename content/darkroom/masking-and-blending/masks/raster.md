@@ -1,5 +1,6 @@
 ---
 title: raster masks
+date: 2022-12-04T02:19:02+01:00
 id: raster
 weight: 60
 draft: false
@@ -9,11 +10,11 @@ As described in the previous sections, the final output of a module's mask (the 
 
 As with any mask, if the opacity value for a pixel in a raster mask is zero the module's input passed through the module unchanged. If the opacity is 1.0 the module has its full effect. For each value between 0 and 1.0 the module's effect is applied proportionally at that location.
 
-You can choose a raster mask from the combobox. Raster masks can be identified by the name of the module against which they were originally generated. 
+You can choose a raster mask from the combobox. Raster masks can be identified by the name of the module against which they were originally generated.
 
 ---
 
-**Note:** Raster masks are generated as part of a module's internal processing. Once a module's processing is complete its mask then becomes available to subsequent modules in the pixelpipe. 
+**Note:** Raster masks are generated as part of a module's internal processing. Once a module's processing is complete its mask then becomes available to subsequent modules in the pixelpipe.
 
 This has two implications:
 

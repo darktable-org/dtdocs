@@ -1,5 +1,6 @@
 ---
 title: memory & performance tuning
+date: 2022-12-04T02:19:02+01:00
 id: mem-performance
 weight: 35
 draft: false
