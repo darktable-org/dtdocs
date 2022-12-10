@@ -103,6 +103,8 @@ Example of internal link:
 
 The compiled HTML is [checked for broken links](https://github.com/aurelienpierreeng/ansel-doc/actions/workflows/hugo.yml) with 2 different test suites (HTMLTest, written in Golang, and HTMLProofer, written in Ruby), on new pull requests and on each commit on master. The tests are run in the documentation scope (https://github.com/aurelienpierreeng/ansel-doc/) and in the main website scope (https://github.com/aurelienpierreeng/ansel-website), where the documentation is embedded as a Hugo module under `$Lang/doc` (where `$Lang` is the 2-letters language code). Relative URLs for internal links work automatically in both setups.
 
+If you make links to page anchors, like `/my-post#some-heading`, ensure to not insert a slash `/` between the page slug and the hashtag `#` in your Markdown code
+
 ### External links
 
 Many external websites will return HTML codes different than `200` (200 = everything fine) because the CI bot checking broken links is… a bot, and some websites block bots. The affected URLs can be added to the ignored list in [.htmltest.yml](https://github.com/aurelienpierreeng/ansel-website/blob/master/themes/ansel/static/.htmltest.yml) to prevent false-negative. Anything returning a `404` code (page not found error) should be fixed.
@@ -229,7 +231,7 @@ The date of the documentation pages set in the RSS feed is the `lastmod` paramet
 
 ### Compatibility with Obsidian
 
-[Obsidian](https://obsidian.md/) is a great editor, open-source, relying on Markdown and Typescript extensions to create personal knowledge bases. It's great as a logbook with hypertext, node graphs of links and tags. It also supports Mermaid.js and LaTeX, with helpers to create tables. For internal links between files, it uses vanilla relative paths.
+[Obsidian](https://obsidian.md/) is a great editor, open-source, relying on Markdown and Typescript extensions to create personal knowledge bases. It's great to write docs and logbooks with hypertext, node graphs of links and tags. As Ansel doc, it supports Mermaid.js and LaTeX natively, and has helpers to create tables and assign tags. For internal links between files, it uses vanilla relative paths and can detect broken links or create new pages from unexisting links.
 
 You can open the `content/` folder as an Obsidian vault and edit Ansel docs with all the graphical helpers Obsidian provides. Just be aware that:
 
@@ -245,3 +247,5 @@ However:
 
 
 You can start `hugo server` in a terminal while editing the content in Obsidian. Once a file is saved in Obsidian, Hugo refreshes the website directly and you only have to keep track of errors in the terminal, to revert your changes if needed.
+
+To see how to best use Obsidian to write Ansel docs, see https://github.com/aurelienpierreeng/ansel-website#open-obsidian.
