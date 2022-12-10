@@ -231,11 +231,17 @@ The date of the documentation pages set in the RSS feed is the `lastmod` paramet
 
 [Obsidian](https://obsidian.md/) is a great editor, open-source, relying on Markdown and Typescript extensions to create personal knowledge bases. It's great as a logbook with hypertext, node graphs of links and tags. It also supports Mermaid.js and LaTeX, with helpers to create tables. For internal links between files, it uses vanilla relative paths.
 
-You can open the `content/` folder as an Obsidian vault. Just be aware that:
+You can open the `content/` folder as an Obsidian vault and edit Ansel docs with all the graphical helpers Obsidian provides. Just be aware that:
 
 - Hugo Markdown doesn't support [Obsidian call-outs](https://help.obsidian.md/How+to/Use+callouts). You have to use the alerts boxes shown above as Hugo shortcodes, but they will not render in Obsidian,
+- Hugo doesn't support [Obsidian wikilinks](https://help.obsidian.md/How+to/Internal+link), so you will have to stick to usual Markdown links with relative pathes. That said, Obsidian provides paths auto-completion for those.
 - Obsidian doesn't support [definition lists](https://www.markdownguide.org/extended-syntax/#definition-lists), but you can still use them (they will just not be rendered in previews),
 - Obsidian doesn't support [headings IDs](https://www.markdownguide.org/extended-syntax/#heading-ids),
 
+However:
 
-Obsidian supports Hugo tags in Yaml frontmatter, and implements them in a much nicer way that gives a lot more sense to horizontal content linking.
+- Obsidian supports Hugo tags in Yaml frontmatter, and implements them in a much nicer way that gives a lot more sense to horizontal content linking,
+- Obsidian supports Hugo [aliases](https://help.obsidian.md/How+to/Add+aliases+to+note) for pages redirection,
+
+
+You can start `hugo server` in a terminal while editing the content in Obsidian. Once a file is saved in Obsidian, Hugo refreshes the website directly and you only have to keep track of errors in the terminal, to revert your changes if needed.
