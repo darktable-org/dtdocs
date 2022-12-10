@@ -233,7 +233,7 @@ The date of the documentation pages set in the RSS feed is the `lastmod` paramet
 
 You can open the `content/` folder as an Obsidian vault. Just be aware that:
 
-- Hugo Markdown doesn't support [Obsidian call-outs](https://help.obsidian.md/How+to/Use+callouts), instead you have to use the alerts boxes shown above as Hugo shortcodes,
+- Hugo Markdown doesn't support [Obsidian call-outs](https://help.obsidian.md/How+to/Use+callouts). You have to use the alerts boxes shown above as Hugo shortcodes, but they will not render in Obsidian,
 - Obsidian doesn't support [definition lists](https://www.markdownguide.org/extended-syntax/#definition-lists), but you can still use them (they will just not be rendered in previews),
 - Obsidian doesn't support [headings IDs](https://www.markdownguide.org/extended-syntax/#heading-ids),
 
