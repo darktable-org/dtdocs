@@ -69,4 +69,4 @@ Ansel will look for scripts (following the normal lua rules) in the standard dir
 
 - You are free to choose any license for your script but scripts that are uploaded on Ansel's website need to be GPLv2.
 
-Once you have filled all the fields, checked your code, you can upload it to our script page [here](https://github.com/Ansel-org/lua-scripts).
+Once you have filled all the fields, checked your code, you can upload it to our script page [here](https://github.com/darktable-org/lua-scripts).

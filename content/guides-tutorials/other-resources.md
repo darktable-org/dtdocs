@@ -11,7 +11,7 @@ For help and support with using Ansel you are encouraged to ask questions on the
 The official places to obtain information concerning Ansel are the following:
 
 - [ansel.photos](https://ansel.photos/)
-- [GitHub wiki](https://github.com/Ansel-org/Ansel/wiki)
+- [GitHub wiki](https://github.com/darktable-org/Ansel/wiki)
 
 The following articles provide some useful background information about Ansel's scene-referred workflow:
 

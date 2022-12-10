@@ -21,13 +21,9 @@ This migration happens automatically when entering the darkroom view, provided t
 
 At present, Ansel is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding Ansel module in parentheses):
 
-- crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md))
 - black level ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - exposure ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - vignette ([_vignetting_](../../module-reference/processing-modules/vignetting.md))
 - clarity ([_local contrast_](../../module-reference/processing-modules/local-contrast.md))
-- tone curve ([_tone curve_](../../module-reference/processing-modules/tone-curve.md))
 - HSL ([_color zones_](../../module-reference/processing-modules/color-zones.md))
-- split-toning ([_split-toning_](../../module-reference/processing-modules/split-toning.md))
 - grain ([_grain_](../../module-reference/processing-modules/grain.md))
-- spot removal ([_spot removal_](../../module-reference/processing-modules/spot-removal.md))

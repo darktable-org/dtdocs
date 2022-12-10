@@ -12,7 +12,7 @@ An easy to use and highly efficient denoise module, adapted to the individual no
 
 One issue with a lot of denoising algorithms is that they assume that the variance of the noise is independent of the luminosity of the signal. By profiling the noise characteristics of a camera's sensor at different ISO settings, the variance at different luminosities can be assessed, and the denoising algorithm can be adjusted to more evenly smooth out the noise.
 
-Currently, Ansel has sensor noise profiles for over 300 popular camera models from all the major manufacturers. If you generate your own noise profile for a camera that is not yet supported by Ansel, be sure to share it with the Ansel development team so they can include it in the next release! Please see Ansel's [camera support](https://github.com/Ansel-org/Ansel/wiki/Camera-support) page for more information.
+Currently, Ansel has sensor noise profiles for over 300 popular camera models from all the major manufacturers. If you generate your own noise profile for a camera that is not yet supported by Ansel, be sure to share it with the Ansel development team so they can include it in the next release! Please see Ansel's [camera support](https://github.com/darktable-org/Ansel/wiki/Camera-support) page for more information.
 
 ## modes
 

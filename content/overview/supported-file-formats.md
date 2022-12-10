@@ -16,7 +16,7 @@ If Ansel was compiled with GraphicsMagick support, the following extensions are 
 
 ## camera raw files
 
-Ansel reads raw files using the open source library [RawSpeed](https://github.com/Ansel-org/rawspeed), originally developed by Klaus Post and now maintained as part of the Ansel project. The number of supported cameras and file formats is constantly increasing. Most modern camera models are supported, and new ones tend to get added very quickly. It is beyond the scope of this manual to give an exhaustive list.
+Ansel reads raw files using the open source library [RawSpeed](https://github.com/darktable-org/rawspeed), originally developed by Klaus Post and now maintained as part of the Ansel project. The number of supported cameras and file formats is constantly increasing. Most modern camera models are supported, and new ones tend to get added very quickly. It is beyond the scope of this manual to give an exhaustive list.
 
 With the exception of Fujifilm X-Trans cameras, Ansel does not decode images from cameras with non-Bayer sensors (e.g. Sigma cameras with the Foveon X3 sensor).
 
