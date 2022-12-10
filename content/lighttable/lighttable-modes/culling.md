@@ -37,6 +37,6 @@ dynamic mode
 
 ---
 
-**Hint:** To enhance performance when loading zoomed images, you can enable ([preferences > processing > cpu/gpu/memory > enable disk backend for full preview cache](../../preferences-settings/processing.md#cpu--gpu--memory)). Bear in mind that this can occupy a lot of disk space.
+**Hint:** To enhance performance when loading zoomed images, you can enable ([Preferences > Processing > CPU, GPU, Memory > enable disk backend for full preview cache](../../preferences-settings/processing.md#cpu--gpu--memory)). Bear in mind that this can occupy a lot of disk space.
 
 ---

@@ -26,7 +26,7 @@ For most systems, tiling will probably only be used for full-sized image exports
 
 ## performance tuning
 
-There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory) and others need to be modified directly in Ansel's configuration file (found in `$HOME/.config/Ansel/Anselrc`).
+There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu--gpu--memory) and others need to be modified directly in Ansel's configuration file (found in `$HOME/.config/Ansel/Anselrc`).
 
 This section provides some guidance on how to adjust these settings.
 
@@ -52,7 +52,7 @@ On the other hand Ansel's performance during file exports is more or less only g
 
 ### Ansel resources
 
-The "Ansel resources" preference (in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory)) allows you to choose between four different approaches to allocating your system's resources to Ansel. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/Ansel/Anselrc`. You can amend any of these directly within your Anselrc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
+The "Ansel resources" preference (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu--gpu--memory)) allows you to choose between four different approaches to allocating your system's resources to Ansel. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/Ansel/Anselrc`. You can amend any of these directly within your Anselrc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
 Each of the four "Ansel resources" options are defined as follows:
 
@@ -117,7 +117,7 @@ c. pinned memory
 : _0 = use gui to select mode; 1 = enforce pinned transfer; 2 = disable pinned transfer_
 : During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../module-reference/processing-modules/diffuse.md) or the _guided laplacians_ mode in the [_highlight reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module.
 
-: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer" (in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory)), in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
+: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer" (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu--gpu--memory)), in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
 
 d. clroundup wh / e. clroundup ht
 : These parameters should be left at this default value -- testing has not shown any benefit to using other values.
