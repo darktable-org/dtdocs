@@ -11,7 +11,7 @@ masking: true
 
 A generic color look up table implemented in Lab space.
 
-The input to this module is a list of source and target points and the complete mapping is interpolated using splines. The resulting look up tables (LUTs) are editable by hand and can be created using the darktable-chart utility to match given input (such as hald-cluts and RAW/JPEG with in-camera processing pairs). See [using darktable-chart](../../special-topics/darktable-chart/_index.md) for details.
+The input to this module is a list of source and target points and the complete mapping is interpolated using splines. The resulting look up tables (LUTs) are editable by hand and can be created using the darktable-chart utility to match given input (such as hald-cluts and RAW/JPEG with in-camera processing pairs).
 
 ## module controls
 
