@@ -174,14 +174,14 @@ Inline LaTeX should be enclosed in `$`, block equations enclosed in `$$`. If you
 Ansel makes an heavy use of pipelines, and those are best described with flowcharts. Mermaid.js is now supported natively on Github and within Visual Studio Code and is great for that purpose. You can [try it visually here](https://mermaid.live/edit#pako:eNpVkE1rhDAQhv9KmFML-gc8FLra7sXSQvdU9TDVcRPWfBBHlkX97002FNqcQp73mQzvCr0dCAo4e3RSnKrWiHCem1J6NbPGuRN5_rQdiYW2hm6bODwcrZildU6Z82PKH2JIlGsdYyRYKnPZEyrv_ruhTVRNjY6t6_6S09Vu4qVRHzKM_0-kp2C9NiMWI-Y9elGi7yADTV6jGsLaaxRaYEmaWijC1dDCHqcWsoTGyV57iZ4jXtP8FiTrqcZvmuZksV-CH2lYew9f4ML282Z6KCLKYHEDMlUKQ1H695EGxda_pQbvRWbg0HxZGyIjTjPtPxIKcek) and copy-paste the code of the graphs within Markdown code blocks like this:
 
 ```markdown
-```mermaid
-graph TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
-```
+    ```mermaid
+    graph TD
+        A[Christmas] -->|Get money| B(Go shopping)
+        B --> C{Let me think}
+        C -->|One| D[Laptop]
+        C -->|Two| E[iPhone]
+        C -->|Three| F[fa:fa-car Car]
+    ```
 ```
 
 On Github, this renders:
