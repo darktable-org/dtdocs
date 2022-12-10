@@ -26,7 +26,7 @@ For most systems, tiling will probably only be used for full-sized image exports
 
 ## performance tuning
 
-There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu--gpu--memory) and others need to be modified directly in Ansel's configuration file (found in `$HOME/.config/Ansel/Anselrc`).
+There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu-gpu-memory) and others need to be modified directly in Ansel's configuration file (found in `$HOME/.config/Ansel/Anselrc`).
 
 This section provides some guidance on how to adjust these settings.
 
@@ -52,7 +52,7 @@ On the other hand Ansel's performance during file exports is more or less only g
 
 ### Ansel resources
 
-The "Ansel resources" preference (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu--gpu--memory)) allows you to choose between four different approaches to allocating your system's resources to Ansel. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/Ansel/Anselrc`. You can amend any of these directly within your Anselrc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
+The "Ansel resources" preference (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu-gpu-memory)) allows you to choose between four different approaches to allocating your system's resources to Ansel. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/Ansel/Anselrc`. You can amend any of these directly within your Anselrc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
 Each of the four "Ansel resources" options are defined as follows:
 
@@ -89,7 +89,7 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 
 - Choose the "large" resource level. For a 6GB card, this will use approximately 5GB of GPU memory, leaving 1GB for the rest of your system.
 - Alter Anselrc to increase the last number (the OpenCL memory fraction) for your selected resource level. For example, increasing the OpenCL memory fraction to 950 would increase the available memory on a 6GB GPU to approximately 5.3GB.
-- Set [preferences > processing > cpu / gpu / memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
+- Set [preferences > processing > cpu / gpu / memory > tune OpenCL performance](../preferences-settings/processing.md#cpu-gpu-memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
 
 ### device-specific OpenCL configuration
 
@@ -117,7 +117,7 @@ c. pinned memory
 : _0 = use gui to select mode; 1 = enforce pinned transfer; 2 = disable pinned transfer_
 : During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../module-reference/processing-modules/diffuse.md) or the _guided laplacians_ mode in the [_highlight reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module.
 
-: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer" (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu--gpu--memory)), in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
+: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer" (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu-gpu-memory)), in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
 
 d. clroundup wh / e. clroundup ht
 : These parameters should be left at this default value -- testing has not shown any benefit to using other values.
@@ -151,7 +151,7 @@ A second device-specific configuration key is also provided, which takes into ac
 This configuration key currently only has a single parameter defined:
 
 forced headroom (default 400)
-: The amount of memory (in MB) that will **not** be used by Ansel during OpenCL processing. This setting is only valid if you set [preferences > processing > tune OpenCL performance](../preferences-settings/processing/#cpu--gpu--memory) to "memory size".
+: The amount of memory (in MB) that will **not** be used by Ansel during OpenCL processing. This setting is only valid if you set [preferences > processing > tune OpenCL performance](../preferences-settings/processing/#cpu-gpu-memory) to "memory size".
 
 : If you set this parameter to zero (`0`) then, on the first run of a pixelpipe, Ansel will attempt to determine how much GPU memory is actually available and use this (with a safety-margin of 100MB) as the maximum amount of memory that Ansel will use, for the remainder of your session. This is usually safe unless you start other applications (that use a reasonable amount of GPU memory) while Ansel is running. Otherwise, use of this option could lead to out-of-memory errors, which will cause Ansel to fall back to CPU, significantly reducing performance. You may switch this option off and on again to prompt Ansel to perform its memory calculation again (at the start of the next pipe run). Note that there are known issues with memory auto-detection on newer Nvidia drivers so auto-detection should be used with care and is therefore disabled by default.
 
