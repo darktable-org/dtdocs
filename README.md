@@ -116,13 +116,13 @@ Be aware that Hugo automatically generates anchor links for headings, using the 
 Also be aware that these headings anchors may be used in other pages
 to make direct links. Changing the text of an heading will break its anchor and may break external links. Fortunately, the [broken links CI bot](https://github.com/aurelienpierreeng/ansel-doc/actions/workflows/hugo.yml) also checks for internal anchors, so you just have to keep mind its output.
 
-To avoid breaking anchors in external links, you can change the heading text but force their ID as it was before, like so:
+To avoid breaking anchors in external links, you can change the heading text but force their ID to the previous, like so:
 
 ```markdown
-### My New Heading {#my-old-id}
+### My New Heading {#my-old-heading}
 ```
 
-[See the details](https://www.markdownguide.org/extended-syntax/#heading-ids)
+This will preserve external links to `/my-post/#my-old-heading`. [See the details…](https://www.markdownguide.org/extended-syntax/#heading-ids)
 
 ### Screenshots
 
