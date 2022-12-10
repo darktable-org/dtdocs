@@ -28,19 +28,6 @@ pixel interpolator (scaling)
 3D lut root folder
 : Define the root folder (and sub-folders) containing Lut files used by the [_lut 3D_](../module-reference/processing-modules/lut-3D.md) module
 
-auto-apply pixel workflow defaults
-: Choose which modules and module order to apply to new images by default:
-
-- _scene-referred_ workflow (default) assumes that most processing will be performed in a linear RGB color space. Selecting this option will automatically enable the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md) and [_exposure_](../module-reference/processing-modules/exposure.md) modules and will set the pixelpipe order to _v3.0_ which is the (scene-referred) order defined for Ansel 3.0 and later.
-
-  The _exposure_ module will include an automatic adjustment of +0.5 EV to adjust the mid-gray to match that of the majority of SLR cameras. This adjustment can be overridden with an automatically-applied preset if the default produces consistently dark images for your camera.
-
-  Finally, this setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used.
-
-- _display-referred_ workflow assumes that most processing will be performed in the Lab color space and is the legacy mode from Ansel 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module and set the pixelpipe order to the _legacy_ (display-referred) order used by default up to version 2.6.
-
-- _none_ will not enable any modules by default and will set the pixelpipe to the _v3.0_ (scene-referred) order defined for Ansel 3.0 and later.
-
 auto-apply chromatic adaptation defaults
 : Choose which module is responsible for performing white balance adjustments (chromatic adaptation) by default. Select "legacy" (default) to perform basic chromatic adaptation within the [_white balance_](../module-reference/processing-modules/white-balance.md) module only. Select "modern" to use a combination of the _white balance_ and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules to perform modern chromatic adaptation with improved color science. These settings are applied by default to new edits and will not impact old edits.
 

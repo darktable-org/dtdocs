@@ -13,7 +13,7 @@ Remap the tonal range of an image by reproducing the tone and color response of 
 
 This module can be used either to expand or to contract the dynamic range of the scene to fit the dynamic range of the display. It protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights and dark shadows. Highlights will need extra care when details need to be preserved (e.g. clouds).
 
-The module is derived from another module of the same name in [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module. The following video (by the developer of this module) provides a useful introduction: [filmic rgb: remap any dynamic range in Ansel 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
+The module is derived from another module of the same name in [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image. The following video (by the developer of this module) provides a useful introduction: [filmic rgb: remap any dynamic range in Ansel 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
 
 _filmic rgb_ is the successor to the _filmic_ module from Ansel 2.6. While the underlying principles have not changed much, the default settings and their assumptions have, so users of the previous version should not expect a 1:1 translation of their workflow to the new version.
 
@@ -40,9 +40,6 @@ adjust for the mid-tones
 white balance, denoise, demosaic
 : If you plan on using _filmic rgb_'s auto-tuners, use the [_white balance_](./white-balance.md) module to first correct any color casts and obtain neutral colors. In RGB color spaces, luminance and chrominance are linked, and _filmic rgb_'s luminance detection relies on accurate measurements of both. If your image is very noisy, add an initial step of denoising to improve the black exposure readings, and use a high quality [_demosaic_](./demosaic.md) algorithm. You don't need to worry about noise if you are planning to set up filmic manually, without using the auto-tuners.
 
-disable tone mapping modules
-: If you plan to use one of _filmic rgb_'s chrominance preservation modes, avoid using [_base curve_](base-curve.md) and the various tone mapping modules. These may produce unpredictable color shifts that would make the chrominance preservation useless. None of these modules should be required when using _filmic rgb_.
-
 ## usage
 
 The _filmic rgb_ module is designed to map the dynamic range of the photographed scene (RAW image) to the dynamic range of the display.
@@ -53,7 +50,7 @@ This mapping is defined in three steps, each handled in a separate tab in the in
 
  - The [_reconstruct_](#reconstruct) tab offers tools to handle blown highlights.
 
- - The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you should aim to increase the latitude as much as possible without clipping the extremes of the curve.
+ - The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. As a general guideline, you should aim to increase the latitude as much as possible without clipping the extremes of the curve.
 
  - The [_display_](#display) tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab rarely require adjustment.
 

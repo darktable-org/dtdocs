@@ -20,8 +20,6 @@ The order of the pixelpipe is represented graphically by the order in which modu
 
 The order in which modules are executed within the pixelpipe has been carefully chosen to give the best output quality. In previous versions of Ansel it was not possible to change the module order. However, there are a number of very specific use cases where the movement of some modules within the pixelpipe is advised.
 
-One of the main reasons to change the module order came about with Ansel version 3.0, which introduced the new _scene-referred_ way of working. Version 3.2 formalised this by introducing the _display-referred_ and _scene-referred_ workflows, which are controlled by the [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md) setting. Starting with version 3.6, _scene-referred_ workflow is now the official recommended (and default) way to use Ansel.
-
 The _scene-referred_ workflow attempts to perform as many operations as possible in a linear RGB color space, only compressing the tones to fit the output medium (with a non-linear tone mapping) at the end of the pixelpipe. This has the advantage of being a more physically-realistic space to do transformations than the traditional _display-referred_ workflow, which attempts to perform operations in a non-linear _perceptual_ color space. Honoring the physical realism (rather than the perceptual realism) makes it much easier to produce predictable processing algorithms with a minimum of artifacts.
 
 The following diagram should help you to understand the difference between these workflows:
@@ -33,20 +31,6 @@ The following diagram should help you to understand the difference between these
 2. At some point in the pixelpipe, these pixel values are compressed by a non-linear tone mapping operation into a smaller dynamic range more suitable for display on a monitor or a print.
 
 3. The remaining modules operate in the non-linear _display-referred_ section of the pixelpipe to produce the final output image.
-
-### display-referred workflow
-
-Prior to version 3.0 Ansel's workflow was _display-referred_ (auto-apply pixel workflow defaults = "display-referred") and this option is still provided as a legacy mode. In this workflow, the [_base curve_](../../../module-reference/processing-modules/base-curve.md) or [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) module performs tone mapping early in the pixelpipe and most other Ansel modules operate on image data in the compressed _display-referred_ space.
-
-Selecting the display-referred workflow enables the legacy (pre-Ansel-3.0) module order and automatically switches on the [_base curve_](../../../module-reference/processing-modules/base-curve.md) module for new images.
-
-Pixel data within the _display-referred_ space is non-linear and is not a physically realistic representation of the original scene. This can lead to various artifacts with some modules, hence the creation of the (now default) _scene-referred_ workflow.
-
-### scene-referred workflow
-
-_Scene-referred_ workflow (auto-apply pixel workflow defaults = "scene-referred") was introduced as part of Ansel 3.0. The module order was entirely rearranged to place the [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) and [_base curve_](../../../module-reference/processing-modules/base-curve.md) tone mapping modules much later in the pixelpipe. This means that most modules now operate in _linear rgb_ space with only a few modules remaining within the non-linear _display-referred_ space. Within this workflow it is now recommended that the majority of image processing takes place using the modules up to and including [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md). Operations in this section of the pixelpipe, being truly linear, are much more physically realistic and produce fewer artifacts.
-
-Selecting the scene-referred workflow enables the _v3.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
 
 ## changing module order
 

@@ -25,7 +25,7 @@ If the image of the negative was obtained using a digital camera, then in order 
 
 When scanning or photographing your film negative, make sure you include some unexposed part of the film within the captured image. This is required to set the _Dmin_ parameter (see below). If this is not possible (e.g. your film holder completely obscures the unexposed parts of the film), you can take a separate image of an unexposed part of the film, measure the _Dmin_ parameter from that image, and then paste that setting to the rest of the images from that film.
 
-When developing the scanned/photographed film negatives, it is recommended that you disable any tone mapping modules such as [_filmic rgb_](filmic-rgb.md) and [_base curve_](base-curve.md).
+When developing the scanned/photographed film negatives, it is recommended that you disable any tone mapping modules such as [_filmic rgb_](filmic-rgb.md).
 
 The _working profile_ parameter in Ansel's [_input color profile_](input-color-profile.md) module should be set to either _linear Rec2020 RGB_, or to an ICC profile representing the actual color space of your film emulsion. Some examples of such ICC profiles may be found in the following forum posts:
 
