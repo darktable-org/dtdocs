@@ -6,9 +6,9 @@ weight: 10
 draft: false
 ---
 
-The basic element of image processing in Ansel is the [processing module](../../module-reference/processing-modules/). In order to process a raw image a number of such modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in Ansel is analogous to that of an _adjustment layer_ in that both make an incremental adjustment to the image, building on top of the adjustments that came before.
+The basic element of image processing in Ansel is the [processing module](../../module-reference/processing-modules/_index.md). In order to process a raw image a number of such modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in Ansel is analogous to that of an _adjustment layer_ in that both make an incremental adjustment to the image, building on top of the adjustments that came before.
 
-[Utility modules](../../module-reference/utility-modules/) are also provided by Ansel, however these are not directly involved in image processing, instead providing a GUI that allows you to manage your images, tag them, export them etc.
+[Utility modules](../../module-reference/utility-modules/_index.md) are also provided by Ansel, however these are not directly involved in image processing, instead providing a GUI that allows you to manage your images, tag them, export them etc.
 
 Every processing module acts independently of the others, but all modules perform their processing in a similar manner:
 

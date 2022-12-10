@@ -11,7 +11,7 @@ Take color samples from the current darkroom image, display their values in mult
 
 The color picker is activated by pressing the color picker icon. The module's parameters will remain in effect until you leave the darkroom mode.
 
-Besides the global color picker described here, many Ansel modules (e.g. [_tone curve_](../../processing-modules/tone-curve.md)) also contain local color pickers which are used to set individual module parameters. You should be aware that these two forms of color picker do not always work in the same color space. The global color picker works in the histogram color space and takes its samples after the complete pixelpipe has been processed. Local color pickers run in the color space of the module in which they are activated and reflect the input or output data of that module within the pixelpipe.
+Besides the global color picker described here, many Ansel modules (e.g. [_RGB curve_](../../processing-modules/rgb-curve.md)) also contain local color pickers which are used to set individual module parameters. You should be aware that these two forms of color picker do not always work in the same color space. The global color picker works in the histogram color space and takes its samples after the complete pixelpipe has been processed. Local color pickers run in the color space of the module in which they are activated and reflect the input or output data of that module within the pixelpipe.
 
 You can right-click on the sampled color values to copy them to the clipboard.
 

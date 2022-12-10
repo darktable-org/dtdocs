@@ -7,7 +7,7 @@ tags:
 view: lighttable, tethering
 ---
 
-This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions/#definitions).
+This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions#definitions).
 
 ![scopes module](./scopes/scopes.png#w50)
 
@@ -79,8 +79,8 @@ The graph includes a "hue ring" representing the maximum chroma of each hue (in 
 
 ### caveats
 
-- The hue ring is not a [gamut check](../darkroom/gamut/), as a color can be within the hue ring, yet out of gamut due to its darkness/lightness.
-- When adjusting an image based upon a color checker, faster and more accurate results will come from using [calibrate with a color checker](../../processing-modules/color-calibration/#extracting-settings-using-a-color-checker) in the _color calibration_ module.
+- The hue ring is not a [gamut check](../darkroom/gamut.md), as a color can be within the hue ring, yet out of gamut due to its darkness/lightness.
+- When adjusting an image based upon a color checker, faster and more accurate results will come from using [calibrate with a color checker](../../processing-modules/color-calibration#extracting-settings-using-a-color-checker) in the _color calibration_ module.
 - The vectorscope does not have a "skin tone line", which is a flawed generalization rather than a universal standard.
 - The vectorscope represents a colorimetric encoding of an image, which inevitably diverges from a viewer's perception of the image.
 

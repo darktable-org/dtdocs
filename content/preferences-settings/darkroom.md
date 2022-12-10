@@ -55,16 +55,16 @@ show the guides widget in modules UI
 : Enable this to show the local [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md#local-guides) interface directly within the UI of the modules that support it (default on).
 
 expand a single processing module at a time
-: Control how [processing modules](../module-reference/processing-modules) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default on).
+: Control how [processing modules](../module-reference/processing-modules/_index.md) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default on).
 
 only collapse modules in current group
 : When choosing to expand a single processing module at a time (using the logic defined in the previous setting), only collapse other modules that appear in the current visible group. Disable this option to ensure that modules in non-visible groups are also collapsed (default on).
 
 expand the module when it is activated, and collapse it when disabled
-: Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules) when they are enabled or disabled. (default off)
+: Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules/_index.md) when they are enabled or disabled. (default off)
 
 scroll to processing modules when expanded/collapsed
-: With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
+: With this option enabled [processing modules](../module-reference/processing-modules/_index.md) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
 
 show right-side buttons in processing module headers
 : Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection:

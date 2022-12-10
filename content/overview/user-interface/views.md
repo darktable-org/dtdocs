@@ -24,9 +24,6 @@ The functionality in Ansel is separated into six different views:
 [slideshow](../../slideshow/_index.md)
 : Display images as a slideshow, processing them on-the-fly.
 
-[tethering](../../tethering/_index.md)
-: Remotely capture and save images taken with a connected camera.
-
 You can switch between views by clicking the view name at the top of the right-hand panel (the currently active view is highlighted) or by using one of the following keyboard shortcuts:
 
  - `L` switches to lighttable

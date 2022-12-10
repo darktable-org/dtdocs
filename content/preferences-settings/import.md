@@ -10,7 +10,9 @@ Control default file naming conventions used when [importing](../module-referenc
 
 ## session options
 
-The following options define the default naming pattern for use in the "copy & import" or "copy & import from camera" options in the import module, or when taking photos in the [tethering](../tethering/_index.md) view.
+!!!TO REMOVE!!!
+
+The following options define the default naming pattern for use in the "copy & import" or "copy & import from camera" options in the import module, or when taking photos in the tethering view.
 
 The naming pattern consists of three parts: a base part defining the parent folder, a session part defining a sub directory (which is specific to the individual import session), and a file name part defining the filename structure for each imported image.
 

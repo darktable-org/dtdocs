@@ -37,7 +37,7 @@ To understand the parameters of the local laplacian filter, one can think of it 
 
 This curve is applied to the image in a way that works locally and avoids halo artifacts.
 
-The local laplacian mode also supports shadow lifting and highlight compression, similar to the [_shadows and highlights_](shadows-and-highlights.md) module.
+The local laplacian mode also supports shadow lifting and highlight compression.
 
 detail
 : Add or remove detail. Higher values increase local contrast. This inserts an S shaped element in the center of the curve, to increase or decrease local contrast.

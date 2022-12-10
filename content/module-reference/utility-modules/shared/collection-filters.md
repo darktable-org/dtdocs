@@ -13,7 +13,7 @@ Once you have defined a _collection_ of images with the [collections](./collecti
 
 ## filtering attributes
 
-For information about the image attributes you can select, please see the documentation for the [collections](./collections.md/#filtering-attributes) module.
+For information about the image attributes you can select, please see the documentation for the [collections](./collections.md#filtering-attributes) module.
 
 Note that only a subset of filters is currently implemented -- more will be added in future versions of Ansel.
 

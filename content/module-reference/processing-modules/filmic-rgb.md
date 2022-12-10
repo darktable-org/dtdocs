@@ -110,7 +110,7 @@ dynamic range mapping
 
 ### scene
 
-The controls in the _scene_ tab are similar in principle to those of the [_levels_](./levels.md) module (black, gray, white). The difference is that _levels_ assumes display-referred pixels values (between 0 and 100%), whereas _filmic_ allows you to work on scene-referred pixels (between --infinity EV and +infinity EV), which forces the use of a different interface.
+The controls in the _scene_ tab are similar in principle to those of the typical _levels_ tools, as found in other software. The difference is that _levels_ assumes display-referred pixels values (between 0 and 100%), whereas _filmic_ allows you to work on scene-referred pixels (between --infinity EV and +infinity EV), which forces the use of a different interface.
 
 middle-gray luminance (hidden by default)
 : This setting allows you to decide what luminance in the scene should be considered the reference middle-gray (which will be remapped to 18% in display). Use the color picker tool to read the average luminance over the drawn area. If you have a photograph of a gray card or a color chart (IT8 chart or colorchecker) shot in the scene lighting conditions, then the gray color picker tool can be used to quickly sample the luminance of the gray patch on that image. In other situations, the color picker can be used to sample the average luminance of the subject.

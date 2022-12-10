@@ -33,8 +33,6 @@ Click on the ![draw-structure-lines-icon](./rotate-perspective/icon-draw-structu
 
 Click on the ![draw-structure-rectangle-icon](./rotate-perspective/icon-draw-structure-rectangle.png#icon)icon to enable perspective rectangle drawing mode. This will draw a rectangle on the screen and you can grab and move the corners of the rectangle so that the left and right sides fall on lines you wish to make vertical, and the top and bottom fall on lines you wish to make horizontal. Once you are happy with your rectangle, click one of the "fit" icons to complete the process. You can re-enter this mode to edit your drawn rectangle at any time. Once you are happy with your changes, re-select a "fit" icon to complete the process.
 
-This method is similar to how "keystone" correction works in the [_crop and rotate_](./crop-rotate.md) module.
-
 #### automatically detect structure
 
 Click the ![get-structure-icon](./rotate-perspective/icon-get-structure.png#icon) icon to analyze the image for structural elements -- Ansel will automatically detect and evaluate line elements. Shift+click to apply a contrast enhancement step before performing further analysis. Ctrl+click to apply an edge enhancement step before performing further analysis. Both variations can be used alone or in combination if the default analysis is not able to detect a sufficient number of lines.

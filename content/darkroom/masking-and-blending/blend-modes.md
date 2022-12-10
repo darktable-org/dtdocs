@@ -74,10 +74,10 @@ harmonic mean
 The following modes are not available in the "RGB (scene)" blending color space as they rely on an assumption of "50% mid gray" which only applies to display-referred and non-linear color spaces.
 
 overlay
-: This mode combines the "multiply" and "screen" blend modes: The parts of the input where the output is brighter, become brighter; The parts of the image where the output is darker, become darker; Mid-gray is unaffected. This mode is often combined with the [_lowpass_](../../../module-reference/processing-modules/lowpass.md) and [_highpass_](../../../module-reference/processing-modules/highpass.md) modules.
+: This mode combines the "multiply" and "screen" blend modes: The parts of the input where the output is brighter, become brighter; The parts of the image where the output is darker, become darker; Mid-gray is unaffected.
 
 softlight
-: This mode is similar to "overlay", except the results are softer and less bright. As with overlay, it is often combined with the [_lowpass_](../../../module-reference/processing-modules/lowpass.md) and [_highpass_](../../../module-reference/processing-modules/highpass.md) modules.
+: This mode is similar to "overlay", except the results are softer and less bright.
 
 hardlight
 : This mode is not related to "softlight" in anything but name. Like overlay mode it is a combination of "multiply" and "screen" modes and has a different effect above and below mid-gray. The results with hardlight blend mode tend to be quite intense and usually need to be combined with a reduced opacity.
@@ -160,4 +160,4 @@ color
 
 coloradjustment
 : _not available in the "RGB (scene)" color space_
-: Some modules act predominantly on the tonal values of an image but also perform some color saturation adjustments (e.g. the [_levels_](../../module-reference/processing-modules/levels.md) and [_tone curve_](../../module-reference/processing-modules/tone-curve.md) modules). This blend mode takes the lightness from the module's output and mixes colors from input and output, enabling control over the module's color adjustments.
+: Some modules act predominantly on the tonal values of an image but also perform some color saturation adjustments. This blend mode takes the lightness from the module's output and mixes colors from input and output, enabling control over the module's color adjustments.
