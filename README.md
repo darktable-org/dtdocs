@@ -35,9 +35,9 @@ $ hugo mod get -u ./...
 
 ### Building
 
-You can build the HTML website locally, the production site to deploy to hosting, or the PDF.
+You can build the HTML website locally as follow:
 
-## Local Website
+#### Development Website
 
 Building the site to test locally can be done from the root of the repo.
 
@@ -47,7 +47,7 @@ $ hugo server -D
 
 The site should then be available at http://localhost:1313/ (you can see the URL in the output of the `hugo server` command).
 
-## Production Website
+#### Production Website
 
 Run the `hugo` command:
 
@@ -72,7 +72,7 @@ The documentation expects the reader to know **what** to do and will explain **h
 
 The content folder is located in the `content/` directory and the structure of folders and sub-folders will produce the structure of sections and sub-sections on the website. Files are written in Markdown and end with `.md` extension. Each file should have the following header (frontmatter):
 
-```
+```toml
 ---
 title: This page title
 date: 2022-12-04T02:19:02+01:00
@@ -111,14 +111,20 @@ Many external websites will return HTML codes different than `200` (200 = everyt
 
 H1 titles (encoded `# Title` in Markdown) are reserved for page titles and each page should have exactly one H1. darktable-doc messed up big time here by using H1 as section titles, this is both a SEO and an accessibility mistake. The web is semantic because it's designed for crawlers and screen readers just as much as for humans.
 
-Be aware that Hugo automatically generates anchor links for headings, using the text of the heading. Refrain from using symbols, especially (back)slashes, which will mess-up links.
+Be aware that Hugo automatically generates anchor links for headings, using the text of the heading. Thus, refrain from using symbols in headings, especially (back)slashes, which will mess-up the anchor links.
 
-Also be aware that this heading anchors may be used in other pages
-within direct links. Changing an heading text will break those links. Fortunately, the [broken links CI bot](https://github.com/aurelienpierreeng/ansel-doc/actions/workflows/hugo.yml) also checks for internal anchors, so you just have to keep mind its output.
+Also be aware that these headings anchors may be used in other pages
+to make direct links. Changing the text of an heading will break its anchor and may break external links. Fortunately, the [broken links CI bot](https://github.com/aurelienpierreeng/ansel-doc/actions/workflows/hugo.yml) also checks for internal anchors, so you just have to keep mind its output.
 
+To avoid breaking anchors in external links, you can change the heading text but force their ID as it was before, like so:
+
+```markdown
+### My New Heading {#my-old-id}
+```
+
+[See the details](https://www.markdownguide.org/extended-syntax/#heading-ids)
 
 ### Screenshots
-
 
 Screenshots are the basics of any front-end software documentation. The darktable-doc maintainers refuse them on the ground that they can't be translated and they will be soon be obsolete given the frequency of GUI hanges, but it's a huge pedagogic mistake. Even in the wrong language, screenshots help to see what to look for in the window. Use them. They will get obsolete and may not be translated, just as the rest of the text.
 
@@ -198,6 +204,15 @@ graph TD
 Icons from [Font Awesome v5](https://fontawesome.com/v5/search?o=r&m=free&s=solid) are supported by Ansel main website and documentation, using the syntax `fa:fa-YOUR-ICON-CODE` as shown in the example above. Use [Font Awesome v5 search engine](https://fontawesome.com/v5/search?o=r&m=free&s=solid) to get the `fa-` code of the icons you may use.
 
 Mermaid graphs are rendered client-side in SVG at display size and can be translated as text. Hugo is configured to detect these graphs automatically and load the javascript library only when needed.
+
+
+### Changing pages URL
+
+Sometimes, it makes sense to reorganize the content and to changes the path of some pages. To not break external links, you must record the old url of the new page as an alias, in the frontmatter of the new page like so:
+
+```toml
+aliases: ["/my-old-url/", "/another-even-older-url"]
+```
 
 ## Notes
 
