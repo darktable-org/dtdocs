@@ -72,14 +72,14 @@ The documentation expects the reader to know **what** to do and will explain **h
 
 The content folder is located in the `content/` directory and the structure of folders and sub-folders will produce the structure of sections and sub-sections on the website. Files are written in Markdown and end with `.md` extension. Each file should have the following header (frontmatter):
 
-```toml
+```yaml
 ---
 title: This page title
 date: 2022-12-04T02:19:02+01:00
 lastmod: 2022-12-31
 draft: false
 weight: 120
-tags: ["color science", "pipeline"]
+tags: [color science, pipeline]
 ---
 ```
 
@@ -216,6 +216,8 @@ aliases: ["/my-old-url/", "/another-even-older-url"]
 
 ## Notes
 
+### RSS feed
+
 The documentation has an RSS localized feed, for now :
 
 - https://ansel.photos/en/doc/index.xml,
@@ -224,3 +226,16 @@ The documentation has an RSS localized feed, for now :
 This is unusual and is meant to help users keep track of changes and evolutions, by subscribing to the RSS feed or by connecting it with bots.
 
 The date of the documentation pages set in the RSS feed is the `lastmod` parameter, aka the time of last modification. Since RSS doesn't have a `jast modified date`, it's the best I have found for the time being.
+
+### Compatibility with Obsidian
+
+[Obsidian](https://obsidian.md/) is a great editor, open-source, relying on Markdown and Typescript extensions to create personal knowledge bases. It's great as a logbook with hypertext, node graphs of links and tags. It also supports Mermaid.js and LaTeX, with helpers to create tables. For internal links between files, it uses vanilla relative paths.
+
+You can open the `content/` folder as an Obsidian vault. Just be aware that:
+
+- Hugo Markdown doesn't support [Obsidian call-outs](https://help.obsidian.md/How+to/Use+callouts), instead you have to use the alerts boxes shown above as Hugo shortcodes,
+- Obsidian doesn't support [definition lists](https://www.markdownguide.org/extended-syntax/#definition-lists), but you can still use them (they will just not be rendered in previews),
+- Obsidian doesn't support [headings IDs](https://www.markdownguide.org/extended-syntax/#heading-ids),
+
+
+Obsidian supports Hugo tags in Yaml frontmatter, and implements them in a much nicer way that gives a lot more sense to horizontal content linking.

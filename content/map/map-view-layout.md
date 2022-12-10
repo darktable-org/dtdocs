@@ -5,6 +5,7 @@ id: map-view-layout
 weight: 20
 draft: false
 author: "people"
+tags: [GPS]
 ---
 
 ## left panel
