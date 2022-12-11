@@ -16,7 +16,7 @@ left-click
 : Click anywhere in the slider area to set the value. You can also click and drag to change it. You don't have to aim for the triangle or even the line -- you can click anywhere in the entire height of the slider, including the label.
 
 mouse wheel
-: Hover over the slider with your mouse, then use your mouse wheel to adjust the value. You can alter the default speed at which the mouse scroll adjusts a slider by scrolling over that slider while in [visual shortcut mapping mode](../../preferences-settings/shortcuts.md#visual-shortcut-mapping).
+: Hover over the slider with your mouse, then use your mouse wheel to adjust the value. You can alter the default speed at which the mouse scroll adjusts a slider by scrolling over that slider while in [visual shortcut mapping mode](../../../preferences-settings/shortcuts.md#visual-shortcut-mapping).
 
 keyboard arrow keys
 : When the slider has focus you can hover over the slider with your mouse, then use your keyboard's arrow keys (←/↓ and →/↑) to adjust the value. In order to give focus to the widget without changing the current value you can right-click, then right-click again.
@@ -32,7 +32,7 @@ right-click
 
 : For most sliders, the minimum and maximum values displayed are known as "soft limits" -- they do not represent the minimum/maximum values that you may enter, merely a suggested range of "normal" values that most users will not need to exceed. As well as these soft limits, each slider also has "hard limits" which may not be exceeded.
 
-: You may right-click and type any value up to the hard limits for a given slider. For example, in the [_rotate and perspective_](../../module-reference/processing-modules/rotate-perspective.md) module, the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees; In the [_exposure_](../../module-reference/processing-modules/exposure.md) module, the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV. If you try to enter a value beyond the hard limit, it will be automatically be adjusted to the minimum/maximum allowable value.
+: You may right-click and type any value up to the hard limits for a given slider. For example, in the [_rotate and perspective_](../../../module-reference/processing-modules/rotate-perspective.md) module, the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees; In the [_exposure_](../../../module-reference/processing-modules/exposure.md) module, the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV. If you try to enter a value beyond the hard limit, it will be automatically be adjusted to the minimum/maximum allowable value.
 
 double-click
 : Double-click on a slider or its label to reset to the default value.
@@ -42,7 +42,7 @@ In addition, the speed of mouse-wheel, arrow-key and click+drag adjustments can 
  - hold down the Shift key while adjusting to _increase_ the step size by a factor of 10.
  - hold down the Ctrl key while adjusting to _decrease_ the step size by a factor of 10.
 
-Both of these multipliers can be amended in [preferences > shortcuts](../../preferences-settings/shortcuts.md) by altering the speed of the fallbacks/value actions.
+Both of these multipliers can be amended in [preferences > shortcuts](../../../preferences-settings/shortcuts.md) by altering the speed of the fallbacks/value actions.
 
 ## comboboxes
 
@@ -54,4 +54,4 @@ A number of modules allow parameters to be set using color pickers (identified b
 
 ## keyboard shortcuts
 
-Module parameters can also be adjusted using keyboard shortcuts. See [preferences > shortcuts](../../preferences-settings/shortcuts.md) for more information.
+Module parameters can also be adjusted using keyboard shortcuts. See [preferences > shortcuts](../../../preferences-settings/shortcuts.md) for more information.

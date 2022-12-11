@@ -15,7 +15,7 @@ You can add new widgets to the panel by
 
 - right-clicking on the "hamburger" icon at the top-left of the panel
 - using the [manage module layouts](./manage-module-layouts.md) screen
-- Ctrl+clicking on a widget in a processing module while in [visual shortcut mapping mode](../../preferences-settings/shortcuts.md#visual-shortcut-mapping)
+- Ctrl+clicking on a widget in a processing module while in [visual shortcut mapping mode](../../../preferences-settings/shortcuts.md#visual-shortcut-mapping)
 
 Click on the icon to the right of the module name to open the full version of that module. Click on the icon to the left of the module name to enable/disable the module.
 

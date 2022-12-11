@@ -6,7 +6,7 @@ weight: 50
 draft: false
 ---
 
-The [rgb curve](../../module-reference/processing-modules/rgb-curve.md) module use curves to control the tones in the image. These modules have some common features that warrant separate discussion.
+The [rgb curve](../../../module-reference/processing-modules/rgb-curve.md) module use curves to control the tones in the image. These modules have some common features that warrant separate discussion.
 
 ![curve](./curves/curve.png#w33)
 
@@ -30,7 +30,7 @@ interpolation method
 : - _monotonic spline_ is designed specifically to give a monotonic interpolation, meaning that there will be none of the oscillations the cubic spline may produce. This method is most suitable when you are trying to build an analytical function from a node interpolation (for example: exponential, logarithm, power, etc.). Such functions are provided as presets. It is a good trade-off between the two aforementioned methods.
 
 preserve colors
-: If a non-linear tone curve is applied to each of the RGB channels individually, then the amount of tone adjustment applied to each color channel may be different, and this can cause hue shifts. The _preserve colors_ combobox provides different methods of calculating the "luminance level" of a pixel in order to minimise these shifts. The amount of tone adjustment is calculated based on this luminance value, and then this same adjustment is applied to all three of the RGB channels. Different luminance estimators can affect the contrast in different parts of the image, depending on the characteristics of that image. The user can therefore choose the estimator that provides the best results for the given image. Some of these methods are discussed in detail in the **preserve chrominance** control in the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module. The following options are available:
+: If a non-linear tone curve is applied to each of the RGB channels individually, then the amount of tone adjustment applied to each color channel may be different, and this can cause hue shifts. The _preserve colors_ combobox provides different methods of calculating the "luminance level" of a pixel in order to minimise these shifts. The amount of tone adjustment is calculated based on this luminance value, and then this same adjustment is applied to all three of the RGB channels. Different luminance estimators can affect the contrast in different parts of the image, depending on the characteristics of that image. The user can therefore choose the estimator that provides the best results for the given image. Some of these methods are discussed in detail in the **preserve chrominance** control in the [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) module. The following options are available:
 
 : - _none_
 : - _luminance_

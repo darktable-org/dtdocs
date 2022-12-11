@@ -31,7 +31,7 @@ update preset \[name\]
 store new preset
 : Create a new preset using the module's current parameters.
 
-Click on a preset name to apply the preset to the current instance of the module.  Right-click on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom using a keyboard shortcut -- if you have assigned one (see [preferences > shortcuts](../../preferences-settings/shortcuts.md)).
+Click on a preset name to apply the preset to the current instance of the module.  Right-click on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom using a keyboard shortcut -- if you have assigned one (see [preferences > shortcuts](../../../preferences-settings/shortcuts.md)).
 
 ## creating and editing presets
 
@@ -54,7 +54,7 @@ auto apply this preset to matching images _(processing modules only)_
 
 : The example dialog above sets up following rules: if the lens name matches, the aperture is greater than or equal to f/8 and the focal length is between 24 and 35mm the preset will be automatically applied.
 
-: _The [image information](../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
+: _The [image information](../../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
 
 only show this preset for matching images _(processing modules only)_
 : Check this box to automatically show the preset in the preset menu, using the same set of filters.
@@ -95,7 +95,7 @@ format
 
 ## managing presets
 
-Both user-defined and internal presets can be viewed and managed from within [preferences > presets](../../../preferences-settings/presets.md).
+Both user-defined and internal presets can be viewed and managed from within [preferences > presets](../../../../preferences-settings/presets.md).
 
 ---
 
