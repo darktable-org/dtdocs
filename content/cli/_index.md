@@ -1,7 +1,7 @@
 ---
 title: Command Line Interface
 date: 2022-12-04T02:19:02+01:00
-weight: 50
+weight: 150
 draft: false
 author: "people"
 ---
