@@ -7,7 +7,7 @@ weight: 20
 author: "people"
 ---
 
-Before you can do anything in Ansel you must first add some images files to the library using the [import](../../modules/utility-modules/lighttable/import.md) module in the [lighttable view](../../lighttable/_index.md). This will create entries for your images in Ansel's library database so that it can keep track of the changes you make. There are three ways to import images, each accessible through buttons in the import module:
+Before you can do anything in Ansel you must first add some images files to the library using the [import](../../modules/utility-modules/lighttable/import.md) module in the [lighttable view](../../views/lighttable/_index.md). This will create entries for your images in Ansel's library database so that it can keep track of the changes you make. There are three ways to import images, each accessible through buttons in the import module:
 
 add to library
 : This option adds images to the library without copying or moving -- your original files will stay in their current location and will not be altered. On import, Ansel will read the metadata from the image files and any accompanying [XMP sidecar file](../../overview/sidecar-files/_index.md). If an image has already been added to the database, any updates you have made to the sidecar file will be loaded.
@@ -18,7 +18,7 @@ copy & import
 copy & import from camera
 : Connect the camera to your system with a USB cable (if your camera is auto-mounted by your system, you will need to un-mount it before it can be accessed by Ansel). If you don't see your camera listed in the import module, press the "scan for devices" button. Once your camera is detected the import module should offer the ability to _copy & import_ images from the camera. Clicking the "copy & import" button physically copies the selected images from the camera into a specified directory (following the file naming pattern defined in [preferences > import](../../preferences-settings/import.md)) and then adds the copied images to the library.
 
-Once images have been imported, their thumbnails are displayed in the lighttable view, within which you can organize and catalog your imported images -- please refer to the [digital asset management](../../lighttable/digital-asset-management/_index.md) section for more information.
+Once images have been imported, their thumbnails are displayed in the lighttable view, within which you can organize and catalog your imported images -- please refer to the [digital asset management](../../views/lighttable/digital-asset-management/_index.md) section for more information.
 
 The primary use for the lighttable view is to review your images and decide which you would like to edit further and which to discard. The following is a possible culling process to choose which images to edit/delete:
 1. Set the lighttable view to only show images with a rating of exactly 1 star using the _view_ setting on the [top panel](../user-interface/top-panel.md). Since Ansel assigns a 1 star rating to newly-imported images by default, this will show all of the images you have just imported. You can use the [collections](../../modules/utility-modules/shared/collections.md) module to further refine your selection if needed.

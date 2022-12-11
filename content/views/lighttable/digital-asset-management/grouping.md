@@ -9,7 +9,7 @@ author: "people"
 
 Grouping images helps to improve the structure and clarity of your image collection when displayed in the lighttable view.
 
-You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../modules/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G.
+You can combine images into a group by selecting them and clicking the “group” button in the [selected image(s)](../../../../modules/utility-modules/lighttable/selected-image.md) module, or by pressing Ctrl+G. Likewise, you can remove selected images from a group by clicking the “ungroup” button, or pressing Ctrl+Shift+G.
 
 Duplicated images are automatically grouped together. Similarly, if you import multiple images from the same directory, having the same base name, but different extensions (eg. `IMG_1234.CR2` and `IMG_1234.JPG`), those images automatically form a group.
 

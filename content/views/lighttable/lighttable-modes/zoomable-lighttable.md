@@ -23,6 +23,6 @@ select
 
 ---
 
-**Hint:** you may find that image thumbnails are slow to load when zooming quickly through a large collection. One way to speed up the navigation is to generate a cache containing all the thumbnails using the [`ansel-generate-cache`](../../special-topics/program-invocation/ansel-generate-cache.md) command.
+**Hint:** you may find that image thumbnails are slow to load when zooming quickly through a large collection. One way to speed up the navigation is to generate a cache containing all the thumbnails using the [`ansel-generate-cache`](../../../special-topics/program-invocation/ansel-generate-cache.md) command.
 
 ---

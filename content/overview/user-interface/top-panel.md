@@ -22,7 +22,7 @@ filter / sort
 ## On the right-hand-side
 
 ![top panel_grouping icon](./top-panel/top-panel_grouping.png#icon) grouping
-: Expand or collapse [grouped images](../../lighttable/digital-asset-management/grouping.md).
+: Expand or collapse [grouped images](../../views/lighttable/digital-asset-management/grouping.md).
 
 ![top panel_overlays icon](./top-panel/top-panel_overlays.png#icon) thumbnail overlays
 : Define what information is overlaid on to thumbnails in the lighttable/filmstrip.
