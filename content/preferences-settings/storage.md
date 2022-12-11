@@ -10,6 +10,12 @@ The following options are related to Ansel's library database and [XMP sidecar f
 
 ## database
 
+check for database maintenance
+: Indicates when darktable should check for database fragmentation and perform maintenance. Options are "never", "on startup", "on close" and "on both". Each of these is also available with an additional "(don't ask)" option to perform the checks automatically without prompting (default "on close").
+
+database fragmentation ratio threshold
+: Fragmentation ratio (in per cent) above which database maintenance should be performed (subject to the selection made in the option above) (default 25).
+
 create database snapshot
 : Specifies how often Ansel should create database snapshots. Options are "never", "once a month", "once a week", "once a day" and "on close" (default "once a week")
 
