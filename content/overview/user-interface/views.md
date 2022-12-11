@@ -15,7 +15,7 @@ The functionality in Ansel is separated into six different views:
 [darkroom](../../views/darkroom/_index.md)
 : Develop a single image.
 
-[map](../../map/_index.md)
+[map](../../views/map/_index.md)
 : Show geo-tagged images on a map and manually geo-tag new images.
 
 [print](../../views/print/_index.md)

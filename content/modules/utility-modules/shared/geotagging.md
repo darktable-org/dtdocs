@@ -9,13 +9,14 @@ view: lighttable
 
 Import and apply GPX track data to a selection of images.
 
-This module is common to the [lighttable](../../../views/lighttable/_index.md) and [map](../../../map/_index.md) views. The map view provides an enhanced mode that allows you to preview the position of the images along the GPS tracks while adjusting the images' date/time offset and time zone.
+This module is common to the [lighttable](../../../views/lighttable/_index.md) and [map](../../../views/map/_index.md) views. The map view provides an enhanced mode that allows you to preview the position of the images along the GPS tracks while adjusting the images' date/time offset and time zone.
 
 ## workflow overview
 
 A GPS receiver calculates its current position based on information it receives from satellites, and records it in a GPX file together with the current date and time. The Exif data of the images also contains a time stamp defined by the camera settings. The _geotagging_ module takes the time stamp of the image, looks up the position in the GPX file at that time, and stores the appropriate coordinates (latitude/longitude/elevation) in its database and the image's XMP sidecar file.
 
 Two problems may occur during this process:
+
 - In contrast to GPS devices, most cameras don't record the time accurately.
 - The time stored in the Exif data does not include the time zone. Most people set their camera to local time, whereas GPS devices store the time in the UTC (Universal Time, Coordinated, i.e. Greenwich (London)) time zone. If the time zones of the camera and GPX file differ, than the related location will be wrong.
 

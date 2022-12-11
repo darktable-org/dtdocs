@@ -45,4 +45,4 @@ The following shortcuts can be used to perform operations on the selected images
 
 - `Ctrl+Shift+V` selectively pastes from the copied history stack
 
-See the lighttable's [history stack](../views/lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.
+See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.

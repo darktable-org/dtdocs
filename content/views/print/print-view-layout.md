@@ -22,7 +22,7 @@ Images are inset along one dimension of their bounding box when they do not matc
 [collections](../../modules/utility-modules/shared/collections.md)
 : Filter the list of images displayed in the lighttable.
 
-[image information](../../modules/sutility-modules/shared/image-information.md)
+[image information](../../modules/utility-modules/shared/image-information.md)
 : Display image information
 
 ## right panel
