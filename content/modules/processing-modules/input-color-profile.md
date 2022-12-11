@@ -15,7 +15,7 @@ This module takes the color space used by the image source (e.g. camera, scanner
 
 Where an image has been captured in a raw file, the input color profile module will normally apply either a standard or enhanced color matrix specific for that camera model, which will be used to map the colors into the working profile color space. If color space information is embedded in the image, the _input color profile_ module will use this information when mapping the colors to the working profile color space. The user can also explicitly specify a color space for the incoming image, and can even supply a custom ICC color profile specifically made for the input device.
 
-As part of the mapping from the input color space to the working profile space, the colors can be confined to a certain gamut using the _gamut clipping_ options, which can help to mitigate some (infrequent) color artifacts. This is also influenced by the chosen [rendering intent](../../special-topics/color-management/rendering-intent.md).
+As part of the mapping from the input color space to the working profile space, the colors can be confined to a certain gamut using the _gamut clipping_ options, which can help to mitigate some (infrequent) color artifacts. This is also influenced by the chosen [rendering intent](../../color-management/rendering-intent.md).
 
 Note that the final color profile that will be used when exporting the image is controlled by the [_output color profile_](output-color-profile.md) module.
 
@@ -32,6 +32,6 @@ working profile
 : The working profile used by Ansel's processing modules. Each module can specify an alternative space that it will work in, and this will trigger a conversion. By default Ansel will use "linear Rec2020 RGB", which is a good choice in most cases.
 
 gamut clipping
-: Activate a color clipping mechanism. In most cases you can leave this control in its default “off” state. However, if your image shows some specific features such as highly saturated blue light sources, gamut clipping might be useful to avoid black pixel artifacts. See [possible color artifacts](../../special-topics/color-management/color-artifacts.md) for more information.
+: Activate a color clipping mechanism. In most cases you can leave this control in its default “off” state. However, if your image shows some specific features such as highly saturated blue light sources, gamut clipping might be useful to avoid black pixel artifacts. See [possible color artifacts](../../color-management/color-artifacts.md) for more information.
 
 : Choose from a list of RGB profiles. Input colors with a saturation that exceeds the permissible range of the selected profile are automatically clipped to a maximum value. “linear Rec2020 RGB” and “Adobe RGB (compatible)” allow for a broader range of unclipped colors, while “sRGB” and “linear Rec709 RGB” produce a tighter clipping. Select the profile that prevents artifacts while still maintaining the highest color dynamics.

@@ -87,7 +87,7 @@ profile
 : The output color profile. Select “image settings” if you want the settings in the [_output color profile_](../../processing-modules/output-color-profile.md) module of the individual images to be respected.
 
 intent
-: This option lets you define the intent -- the way in which Ansel will handle out-of-gamut colors. See [rendering intent](../../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
+: This option lets you define the intent -- the way in which Ansel will handle out-of-gamut colors. See [rendering intent](../../../color-management/rendering-intent) for a more detailed description of the available options.
 
 style
 : Choose a [style](../lighttable/styles.md) which Ansel will combine with the existing history stack to generate the output image. These history items are only added temporarily -- the original history stack is not overwritten. You can use this feature to add processing steps and parameters that you want to be applied specifically to images before export. For example you may define a style that adds a stronger level of sharpening when you produce scaled-down JPEG files for the internet or add a certain level of exposure compensation to all of your output images.

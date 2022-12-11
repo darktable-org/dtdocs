@@ -23,7 +23,7 @@ profile
 : The printer's ICC profile for the loaded paper. This is the profile specific to the printer and paper. This profile is the last color space transformation applied to the picture whose goal is to create a high quality print.
 
 intent
-: The print rendering intent (“perceptual”, “relative colorimetric”, “saturation” or “absolute colorimetric”). See [rendering intent](../../../special-topics/color-management/rendering-intent.md) for more details.
+: The print rendering intent (“perceptual”, “relative colorimetric”, “saturation” or “absolute colorimetric”). See [rendering intent](../../../color-management/rendering-intent.md) for more details.
 
 black point compensation
 : Whether to adjust the black point of the output profile, which is often lighter than the input profile. This should be “on” when the _intent_ is set to “relative colorimetric”.
@@ -83,7 +83,7 @@ profile
 : The export profile to use. This profile is the entry point used for the next transformation using the printer's ICC profile. Usually it is better to prefer a large gamut (e.g. Adobe RGB) rather than a smaller one (e.g. sRGB).
 
 intent
-: The rendering intent to use when exporting the image. For more information see [rendering intent](../../../special-topics/color-management/rendering-intent.md).
+: The rendering intent to use when exporting the image. For more information see [rendering intent](../../../color-management/rendering-intent.md).
 
 style
 : Choose a style to apply when exporting the image -- defaults to “none”. See the [export](../shared/export.md) module for a more detailed discussion of applying a style during export.

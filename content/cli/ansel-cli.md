@@ -79,7 +79,7 @@ The user must supply an input filename and an output filename. All other paramet
 : Specify the ICC profile filename. Defaults to an empty filename.
 
 `--icc-intent <intent>`
-: Specify the rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
+: Specify the rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../color-management/rendering-intent) for a more detailed description of the available options.
 
 `--verbose`
 : Enables verbose output.

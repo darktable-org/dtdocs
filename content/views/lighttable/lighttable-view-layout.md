@@ -75,5 +75,5 @@ From left to right:
 ![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png#icon) enable [focus-peaking](../../modules/utility-modules/shared/focus-peaking.md) mode
 : Highlight the parts of the image that are in focus.
 
-![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png#icon) [set display profile](../../special-topics/color-management/display-profile.md)
+![display icon](./lighttable-view-layout/lighttable-bottom-panel_display.png#icon) [set display profile](../../color-management/display-profile.md)
 : Set the display profile of your monitor(s).

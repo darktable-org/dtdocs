@@ -7,7 +7,7 @@ tags:
 view: lighttable, tethering
 ---
 
-This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions#definitions).
+This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../color-management/color-dimensions#definitions).
 
 ![scopes module](./scopes/scopes.png#w50)
 

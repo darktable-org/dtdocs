@@ -18,7 +18,7 @@ The output color profile may also be defined within the [export](../utility-modu
 ## module controls
 
 output intent
-: The rendering intent for output/export. Rendering intent can only be selected when using LittleCMS2 to apply the output color profile (this can be changed in [preferences > processing](../../preferences-settings/processing.md)). If Ansel's internal rendering routines are used, this option is hidden. For more details see [rendering intent](../../special-topics/color-management/rendering-intent.md).
+: The rendering intent for output/export. Rendering intent can only be selected when using LittleCMS2 to apply the output color profile (this can be changed in [preferences > processing](../../preferences-settings/processing.md)). If Ansel's internal rendering routines are used, this option is hidden. For more details see [rendering intent](../../color-management/rendering-intent.md).
 
 output profile
 : The profile used to render colors for output/export. The profile data will be embedded into the output file (if supported by the file format) allowing other applications to correctly interpret its colors. As not all applications are aware of color profiles, the general recommendation is to stick to sRGB unless you know what you are doing and have a good reason to do otherwise.

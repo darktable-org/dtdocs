@@ -11,7 +11,7 @@ masking: true
 
 An advanced module which brings color-grading tools from cinematography into the photographic scene-referred pipeline.
 
-This module is not suitable for beginners with no prior knowledge of color theory, who might want to stick to the _global chroma_ and _global vibrance_ settings until they have a good understanding of the [dimensions of color](../../special-topics/color-management/color-dimensions.md).
+This module is not suitable for beginners with no prior knowledge of color theory, who might want to stick to the _global chroma_ and _global vibrance_ settings until they have a good understanding of the [dimensions of color](../../color-management/color-dimensions.md).
 
 ## introduction
 
@@ -40,7 +40,7 @@ The _color balance RGB_ module expects a scene-referred linear input and produce
 
 At its output, _color balance RGB_ checks that the graded colors fit inside the pipeline RGB color space (Rec 2020 by default) and applies a soft saturation clipping at constant hue, aiming to retarget out-of-gamut color to the nearest in-gamut color by scaling both chroma and lightness. This prevents the chroma and saturation settings from pushing colors outside of the valid range and allows more drastic adjustments to be safely used.
 
-_Note that this module abides by the CIE definitions of chroma and saturation, as explained in the [dimensions of color](../../special-topics/color-management/color-dimensions.md) section._
+_Note that this module abides by the CIE definitions of chroma and saturation, as explained in the [dimensions of color](../../color-management/color-dimensions.md) section._
 
 ## module controls
 
@@ -163,7 +163,7 @@ checker board size
 
 ### saturation or chroma?
 
-As described in the [dimensions of color](../../special-topics/color-management/color-dimensions.md) section, saturation and chroma roam the (lightness, chroma) plane in different directions. In addition, the chroma of _color balance RGB_ uses a scene-referred linear space, while the saturation uses a perceptual space, which rescales color for even spacing.
+As described in the [dimensions of color](../../color-management/color-dimensions.md) section, saturation and chroma roam the (lightness, chroma) plane in different directions. In addition, the chroma of _color balance RGB_ uses a scene-referred linear space, while the saturation uses a perceptual space, which rescales color for even spacing.
 
 In practice, you should use the chroma setting if you want to preserve the scene-linearity of the light emission and/or keep the luminance unchanged. However, these changes might affect some hues more heavily than others, due to the fact that the color space is not fully perceptually-scaled.
 
