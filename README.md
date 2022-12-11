@@ -128,6 +128,14 @@ To avoid breaking anchors in external links, you can change the heading text but
 
 This will preserve external links to `/my-post/#my-old-heading`. [See the details…](https://www.markdownguide.org/extended-syntax/#heading-ids)
 
+### Embedding images
+
+Images embedded in pages like `my-post.md` should be stored in a folder named `my-post` and located in the same directory as the original `my-post.md`.
+
+This will not work for images embedded in `_index.md` files, which will need to be stored directly in the root the directory in which `_index.md` is stored.
+
+As for internal links, everything needs to be linked relatively to the source code as hosted on the local filesystem, not relatively to the compiled HTML.
+
 ### Screenshots
 
 Screenshots are the basics of any front-end software documentation. The darktable-doc maintainers refuse them on the ground that they can't be translated and they will be soon be obsolete given the frequency of GUI hanges, but it's a huge pedagogic mistake. Even in the wrong language, screenshots help to see what to look for in the window. Use them. They will get obsolete and may not be translated, just as the rest of the text.
