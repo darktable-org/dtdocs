@@ -11,7 +11,7 @@ Star ratings and color labels help you to sort and rank images according to your
 
 ## star ratings
 
-You can give an image a rating from zero to five stars. Whenever you import images, each image receives a default rating which you can define in the [import](../../../module-reference/utility-modules/lighttable/import.md) module.  You can also mark an image as “rejected”.
+You can give an image a rating from zero to five stars. Whenever you import images, each image receives a default rating which you can define in the [import](../../../modules/utility-modules/lighttable/import.md) module.  You can also mark an image as “rejected”.
 
 There are several ways to change a rating. While hovering the cursor over an image thumbnail, you can press a number key 0 – 5 to define the number of stars, or press R to “reject” an image. This is probably the fastest way to rate your images on first inspection of a film roll.
 
@@ -33,4 +33,4 @@ You can set the color labels for a single image by hovering your cursor over the
 
 To set the color labels of one or more images, select the desired images in the lighttable or filmstrip and then press the appropriate shortcut key or click the corresponding color button in the bottom panel. A color label will be added to all selected images if **any** of them do not currently have the label; otherwise the label will be removed from all selected images. To remove all labels (of any color) from the selected images, press the gray button.
 
-You can filter images by color label in the [collections](../../module-reference/utility-modules/shared/collections.md) module.
+You can filter images by color label in the [collections](../../modules/utility-modules/shared/collections.md) module.

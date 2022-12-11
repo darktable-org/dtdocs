@@ -9,10 +9,10 @@ author: "people"
 
 Ansel supports variable substitution in a number of modules and preference settings. For example:
 
-- Defining file names in the [export](../module-reference/utility-modules/shared/export.md) module
-- Displaying image information in the darkroom's [image information line](../module-reference/utility-modules/darkroom/image-info-line.md)
+- Defining file names in the [export](../modules/utility-modules/shared/export.md) module
+- Displaying image information in the darkroom's [image information line](../modules/utility-modules/darkroom/image-info-line.md)
 - Displaying image information in the lighttable's overlays and tooltips (see [preferences > lighttable](../preferences-settings/lighttable.md))
-- Placing text on an image in the [_watermark_](../module-reference/processing-modules/watermark.md) processing module
+- Placing text on an image in the [_watermark_](../modules/processing-modules/watermark.md) processing module
 
 ## available variables
 

@@ -10,7 +10,7 @@ The _history stack_ stores the entire editing history for a given image, in the 
 
 Each time a processing module is enabled, disabled, moved or amended a new entry is added to the top of the _history stack_.
 
-The history stack can be queried and modified within the [history stack](../../../../module-reference/utility-modules/darkroom/history-stack.md) module in the darkroom.
+The history stack can be queried and modified within the [history stack](../../../../modules/utility-modules/darkroom/history-stack.md) module in the darkroom.
 
 ---
 

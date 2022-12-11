@@ -10,9 +10,9 @@ Wavelets are used to separate (or _decompose_) an image into a number of distinc
 
 Some of the operations that Ansel can perform in this way are:
 
-- noise removal (in the [_denoise (profiled)_](../../../module-reference/processing-modules/denoise-profiled.md), [_raw denoise_](../../../module-reference/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../../module-reference/processing-modules/contrast-equalizer.md) modules)
-- contrast adjustment (in the [_contrast equalizer_](../../../module-reference/processing-modules/contrast-equalizer.md) module)
-- blurring or removal of unwanted detail (in the [_retouch_](../../../module-reference/processing-modules/retouch.md) module)
+- noise removal (in the [_denoise (profiled)_](../../../modules/processing-modules/denoise-profiled.md), [_raw denoise_](../../../modules/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../../modules/processing-modules/contrast-equalizer.md) modules)
+- contrast adjustment (in the [_contrast equalizer_](../../../modules/processing-modules/contrast-equalizer.md) module)
+- blurring or removal of unwanted detail (in the [_retouch_](../../../modules/processing-modules/retouch.md) module)
 
 ## theory
 
@@ -22,7 +22,7 @@ A wavelet is an oscillating mathematical function that starts and ends at zero. 
 
 These wavelet functions are used to scan and decompose an image using a mathematical operation called _convolution_. This picks out details from the image that are on a similar scale to the size of a given wavelet, and builds a number of these detail layers, each corresponding to a different wavelet scale.
 
-The following is an example where detail layers have been extracted from the above image. In this case, the images were produced using the [_retouch_](../../../module-reference/processing-modules/retouch.md) module, splitting the image into 8 different layers, and using the module's "display wavelet scale" button to visualise each of the detail layers:
+The following is an example where detail layers have been extracted from the above image. In this case, the images were produced using the [_retouch_](../../../modules/processing-modules/retouch.md) module, splitting the image into 8 different layers, and using the module's "display wavelet scale" button to visualise each of the detail layers:
 
 ![wavelets-retouch-gui](./wavelets/clean-retouch.png#w33)
 
@@ -68,11 +68,11 @@ As discussed above, the _retouch_ module allows you to choose how many detail le
 
 ![wavelets-retouch-gui](./wavelets/clean-retouch.png#w33)
 
-See the [_retouch_](../../../../module-reference/processing-modules/retouch.md) module documentation for more details.
+See the [_retouch_](../../../../modules/processing-modules/retouch.md) module documentation for more details.
 
 ### spline controls
 
-The [_denoise (profiled)_](../../../module-reference/processing-modules/denoise-profiled.md), [_raw denoise_](../../../module-reference/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../../module-reference/processing-modules/contrast-equalizer.md) modules allow their effects to be applied more or less to each wavelet scale using _splines_.
+The [_denoise (profiled)_](../../../modules/processing-modules/denoise-profiled.md), [_raw denoise_](../../../modules/processing-modules/raw-denoise.md) and [_contrast equalizer_](../../../modules/processing-modules/contrast-equalizer.md) modules allow their effects to be applied more or less to each wavelet scale using _splines_.
 
 ![spline](./wavelets/clean-spline.png#w33)
 

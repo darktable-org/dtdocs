@@ -34,7 +34,7 @@ duplicate
 : Create duplicates of the selected images within darktable. Duplicate images share the same image file, but each duplicate has its own XMP sidecar file and a separate entry in darktable's library database. This allows you to test different edits on the same image.
 
 rotation
-: Perform a clockwise or counter-clockwise rotation on the selected images. A third button can be used to reset the image rotation to the value stored in the image's Exif data. This feature is directly linked to the [_orientation_](../../../module-reference/processing-modules/orientation.md) processing module -- adjustments made here are automatically converted into a history stack item for that module.
+: Perform a clockwise or counter-clockwise rotation on the selected images. A third button can be used to reset the image rotation to the value stored in the image's Exif data. This feature is directly linked to the [_orientation_](../../../modules/processing-modules/orientation.md) processing module -- adjustments made here are automatically converted into a history stack item for that module.
 
 copy locally
 : Create local copies of the selected images on the local drive. These copies will then be used when the original images are not accessible (see [local copies](../../../overview/sidecar-files/local-copies.md)).

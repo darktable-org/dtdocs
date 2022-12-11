@@ -14,7 +14,7 @@ The top panel is common to all Ansel views and provides access to a number of co
 ## On the left-hand-side
 
 filter / sort
-: Choose how to filter and sort the images. Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collections.md) module.
+: Choose how to filter and sort the images. Criteria can be altered in the [collection filters](../../modules/utility-modules/shared/collections.md) module.
 
 ![top-panel_sort-order icon](./top-panel/top-panel_sort-order.png#icon) sort order
 : Switch the sort order (ascending / descending).

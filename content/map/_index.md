@@ -11,7 +11,7 @@ The map view allows you to see where your geo-tagged images were taken, and to a
 
 The map view shows a world map with the images in the current [collection](../lighttable/digital-asset-management/collections.md) pinned to their geo-tagged location (if available). This requires that images are tagged with location information. Some newer cameras, including smartphones, are already equipped with GPS receivers. Other cameras may need additional GPS hardware to do this.
 
-Even if your camera doesn't support this feature, there is an alternative method -- Ansel can match the Exif date/time in your image(s) to a separate GPX data tracking file created by a GPS tracker, that has recorded your movements. GPS trackers can be purchased as standalone handheld devices or you can install a GPS tracker app on your smartphone. Location tagging with GPS tracking data can be done using the [geotagging](../module-reference/utility-modules/shared/geotagging.md) module, in the lighttable and map views.
+Even if your camera doesn't support this feature, there is an alternative method -- Ansel can match the Exif date/time in your image(s) to a separate GPX data tracking file created by a GPS tracker, that has recorded your movements. GPS trackers can be purchased as standalone handheld devices or you can install a GPS tracker app on your smartphone. Location tagging with GPS tracking data can be done using the [geotagging](../modules/utility-modules/shared/geotagging.md) module, in the lighttable and map views.
 
 ## center map view
 
@@ -25,11 +25,11 @@ On-screen controls and displays are available to help you find your way. A navig
 
 Images that already have geo-location attributes in their metadata are displayed as small icons on the map. Images close to each other are grouped and a count of grouped images is displayed on the bottom-left corner.
 
-In order to assign geo coordinates to an image, activate the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) on the lower panel (press Ctrl+F). You can assign a geo location to an image by dragging the image icon from the film-strip and positioning it on the map -- Ansel will record the new location (latitude and longitude ) as part of the image metadata. This data will be included in exported images.
+In order to assign geo coordinates to an image, activate the [filmstrip](../modules/utility-modules/shared/filmstrip.md) on the lower panel (press Ctrl+F). You can assign a geo location to an image by dragging the image icon from the film-strip and positioning it on the map -- Ansel will record the new location (latitude and longitude ) as part of the image metadata. This data will be included in exported images.
 
 In order to remove location data from an image simply drag it from the map and drop it onto the filmstrip.
 
-Images close to each other are grouped under a single image group. You can use the  [map settings](../module-reference/utility-modules/map/map-settings.md) module to control the grouping as needed. The number displayed on the bottom left of the thumbnail is the number of images inside the group. A white number means that all images in the group are at exactly the same location, whereas a yellow number means they are not. Use the mouse scroll wheel while hovering over a group of images to scroll through the thumbnails of the images in that group.
+Images close to each other are grouped under a single image group. You can use the  [map settings](../modules/utility-modules/map/map-settings.md) module to control the grouping as needed. The number displayed on the bottom left of the thumbnail is the number of images inside the group. A white number means that all images in the group are at exactly the same location, whereas a yellow number means they are not. Use the mouse scroll wheel while hovering over a group of images to scroll through the thumbnails of the images in that group.
 
 Normally, images in the center map view have black borders. If an image is selected in the filmstrip, then the corresponding image on the map will be highlighted with a white border.
 

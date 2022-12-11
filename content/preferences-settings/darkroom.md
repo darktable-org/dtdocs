@@ -20,10 +20,10 @@ scroll down to increase mask parameters
 : By default, scrolling your mouse up increases the value of the relevant shape parameters in [drawn masks](../views/darkroom/masking-and-blending/masks/drawn.md). Set this preference to reverse the behavior (default off).
 
 pattern for the image information line
-: Set the information to be displayed in the [image information line](../module-reference/utility-modules/darkroom/image-info-line.md). You can use any variables in the [variables](../special-topics/variables.md) section as well as `$(NL)` for a new line. You can also include [formatting](../special-topics/variables.md#formatting) (bold, italic, colors etc).
+: Set the information to be displayed in the [image information line](../modules/utility-modules/darkroom/image-info-line.md). You can use any variables in the [variables](../special-topics/variables.md) section as well as `$(NL)` for a new line. You can also include [formatting](../special-topics/variables.md#formatting) (bold, italic, colors etc).
 
 position of the image information line
-: Choose the darkroom panel in which the [image information line](../module-reference/utility-modules/darkroom/image-info-line.md) is displayed. Choose between “top left” “top right” “top center” “bottom” and “hidden” (default "bottom").
+: Choose the darkroom panel in which the [image information line](../modules/utility-modules/darkroom/image-info-line.md) is displayed. Choose between “top left” “top right” “top center” “bottom” and “hidden” (default "bottom").
 
 border around image in darkroom mode
 : Display the center image in darkroom mode with an outside border of the given number of pixels (default 20).
@@ -35,11 +35,11 @@ demosaicing for zoomed out darkroom mode
 : Choose how to demosaic images in the darkroom view when not viewing the image at 1:1 zoom scale. Note: this setting is only used for interactive work and does not affect exported images.
 : - _always bilinear (fast)_ is fastest, but not as sharp
 : - _at most RCD (reasonable)_ uses RCD + interpolation modes. X-Trans sensors will use VNG as the middle-ground setting.
-: - _full (possibly slow)_ will use the settings from the [_demosaic_](../module-reference/processing-modules/demosaic.md) module.
+: - _full (possibly slow)_ will use the settings from the [_demosaic_](../modules/processing-modules/demosaic.md) module.
 : (default "_at most RCD (reasonable)_").
 
 reduce resolution of preview image
-: Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color picking and masking (default "original").
+: Reduce the resolution of the [navigation preview](../modules/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color picking and masking (default "original").
 
 show loading screen between images
 : Show gray loading screen when navigating between images in the darkroom. Switch this option off to just show a simple toast message and leave the previous image in place until the next image is loaded. Note that switching this option off can be very useful to quickly compare duplicate images, however, there might be issues with long loading times (leading you to think the next image has already loaded) and you may observe visual artifacts while the next image is loading (default on).
@@ -53,19 +53,19 @@ hide built-in presets for processing modules
 : If enabled, only user-defined presets will be shown in the presets menu for processing modules -- built-in presets will be hidden (default off).
 
 show the guides widget in modules UI
-: Enable this to show the local [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md#local-guides) interface directly within the UI of the modules that support it (default on).
+: Enable this to show the local [guides & overlays](../modules/utility-modules/darkroom/guides-overlays.md#local-guides) interface directly within the UI of the modules that support it (default on).
 
 expand a single processing module at a time
-: Control how [processing modules](../module-reference/processing-modules/_index.md) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default on).
+: Control how [processing modules](../modules/processing-modules/_index.md) are expanded in the darkroom. If this option is enabled, expanding a module by clicking collapses any currently expanded module. If you want to expand a module without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default on).
 
 only collapse modules in current group
 : When choosing to expand a single processing module at a time (using the logic defined in the previous setting), only collapse other modules that appear in the current visible group. Disable this option to ensure that modules in non-visible groups are also collapsed (default on).
 
 expand the module when it is activated, and collapse it when disabled
-: Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules/_index.md) when they are enabled or disabled. (default off)
+: Select this option for the darkroom to automatically expand or collapse [processing modules](../modules/processing-modules/_index.md) when they are enabled or disabled. (default off)
 
 scroll to processing modules when expanded/collapsed
-: With this option enabled [processing modules](../module-reference/processing-modules/_index.md) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
+: With this option enabled [processing modules](../modules/processing-modules/_index.md) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
 
 show right-side buttons in processing module headers
 : Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../views/darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection:

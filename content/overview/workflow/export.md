@@ -7,7 +7,7 @@ weight: 40
 author: "people"
 ---
 
-Ansel is a non-destructive editor, which means that all changes are recorded in the library database (with a backup stored in an XMP sidecar file), and the original Raw file is left untouched. You therefore need to [export](../../module-reference/utility-modules/shared/export.md) images in order to bake your edits into an output file that can be distributed outside of Ansel.
+Ansel is a non-destructive editor, which means that all changes are recorded in the library database (with a backup stored in an XMP sidecar file), and the original Raw file is left untouched. You therefore need to [export](../../modules/utility-modules/shared/export.md) images in order to bake your edits into an output file that can be distributed outside of Ansel.
 
 1. Choose an export scenario.
 

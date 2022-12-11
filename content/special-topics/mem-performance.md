@@ -34,7 +34,7 @@ This section provides some guidance on how to adjust these settings.
 
 In order to determine how much your modifications improve (or not) Ansel's performance, you will need one or more sample images to test with, and a method of assessing the speed of the pixelpipe.
 
-For sample images, you are advised to use some of the more intensive modules, such as [diffuse or sharpen](../module-reference/processing-modules/diffuse.md) or [denoise (profiled)](../module-reference/processing-modules/denoise-profiled.md). Exports are likely to have more consistent and comparable timings between pipe runs than interactive work (and will also push your hardware more).
+For sample images, you are advised to use some of the more intensive modules, such as [diffuse or sharpen](../modules/processing-modules/diffuse.md) or [denoise (profiled)](../modules/processing-modules/denoise-profiled.md). Exports are likely to have more consistent and comparable timings between pipe runs than interactive work (and will also push your hardware more).
 
 In order to obtain profiling information you need to start Ansel from a terminal with `Ansel -d opencl -d perf`. If you want more information about tiling you should use `Ansel -d opencl -d tiling -d perf`.
 
@@ -107,7 +107,7 @@ An entry will be automatically created in Anselrc for each newly-detected device
 
 a. avoid atomics
 : _1 = avoid atomics; 0 = use atomics_
-: Atomic operations in OpenCL are a special method of data synchronization and are only used in a few modules. Unfortunately, some old AMD/ATI devices are extremely slow in processing atomics and, on these cards, it is better to process the affected modules on the CPU rather than accepting an ultra-slow GPU codepath. Set this parameter to 1 if you experience slow processing within modules like [_local contrast_](../../module-reference/processing-modules/local-contrast) or if you get intermittent system freezes. Please note that this should not affect any card manufactured since 2015.
+: Atomic operations in OpenCL are a special method of data synchronization and are only used in a few modules. Unfortunately, some old AMD/ATI devices are extremely slow in processing atomics and, on these cards, it is better to process the affected modules on the CPU rather than accepting an ultra-slow GPU codepath. Set this parameter to 1 if you experience slow processing within modules like [_local contrast_](../../modules/processing-modules/local-contrast) or if you get intermittent system freezes. Please note that this should not affect any card manufactured since 2015.
 
 b. micro nap
 : _default 250_
@@ -115,7 +115,7 @@ b. micro nap
 
 c. pinned memory
 : _0 = use gui to select mode; 1 = enforce pinned transfer; 2 = disable pinned transfer_
-: During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../module-reference/processing-modules/diffuse.md) or the _guided laplacians_ mode in the [_highlight reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module.
+: During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../modules/processing-modules/diffuse.md) or the _guided laplacians_ mode in the [_highlight reconstruction_](../modules/processing-modules/highlight-reconstruction.md) module.
 
 : There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. This mode can also be set globally by setting the "tune OpenCL performance" option to "memory transfer" (in [Preferences > Processing > CPU, GPU, Memory](../preferences-settings/processing.md#cpu-gpu-memory)), in which case this parameter should be set to 0. Otherwise, you can enable/disable it at a device level using this parameter.
 

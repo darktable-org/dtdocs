@@ -210,7 +210,7 @@ _enable_
 : Acts as a _toggle_ that switches the module on and off.
 
 _focus_
-: Acts as a _toggle_ that focuses or defocuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
+: Acts as a _toggle_ that focuses or defocuses the module. This is useful for modules such as [_crop_](../modules/processing-modules/crop.md) or [_tone equalizer_](../modules/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
 
 _instance_
 : Allows you to select actions from the [multiple-instance](../views/darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action, when assigning a simple shortcut to the _instance_ element, is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
@@ -229,7 +229,7 @@ _selection_
 : Allows values to be selected from the dropdown list in various ways. The default action, when assigning a simple shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values.
 
 _button_
-: A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
+: A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../modules/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
 
 ### sliders
 

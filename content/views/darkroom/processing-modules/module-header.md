@@ -25,7 +25,7 @@ The module header contains the following controls in order from left to right:
 on/off button
 : Click to toggle the module on or off. Some modules are essential for image processing and cannot be disabled (though their parameters may be amended). Similarly, some modules are not applicable for certain types of image and cannot be enabled.
 
-: Ctrl+click on the on/off button to toggle whether the module has focus. The focus state is usually used to activate any overlays that a module places over the image to control its functionality. For example, the [_crop_](../../../../module-reference/processing-modules/crop.md) module only shows the composition and crop guide lines on the image if it has focus. Modules are automatically given focus when expanded.
+: Ctrl+click on the on/off button to toggle whether the module has focus. The focus state is usually used to activate any overlays that a module places over the image to control its functionality. For example, the [_crop_](../../../../modules/processing-modules/crop.md) module only shows the composition and crop guide lines on the image if it has focus. Modules are automatically given focus when expanded.
 
 module name
 : The module name consists of a description of the module's operation (which cannot be changed) followed by the module's instance name (which can). By default the first instance of a module has an empty instance name. If you create additional instances, the name of each new instance is initiated with a unique integer. For example, the second created instance of an exposure module will be automatically named `exposure 1`.

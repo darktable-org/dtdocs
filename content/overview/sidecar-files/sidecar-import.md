@@ -22,9 +22,9 @@ This migration happens automatically when entering the darkroom view, provided t
 
 At present, Ansel is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding Ansel module in parentheses):
 
-- black level ([_exposure_](../../module-reference/processing-modules/exposure.md))
-- exposure ([_exposure_](../../module-reference/processing-modules/exposure.md))
-- vignette ([_vignetting_](../../module-reference/processing-modules/vignetting.md))
-- clarity ([_local contrast_](../../module-reference/processing-modules/local-contrast.md))
-- HSL ([_color zones_](../../module-reference/processing-modules/color-zones.md))
-- grain ([_grain_](../../module-reference/processing-modules/grain.md))
+- black level ([_exposure_](../../modules/processing-modules/exposure.md))
+- exposure ([_exposure_](../../modules/processing-modules/exposure.md))
+- vignette ([_vignetting_](../../modules/processing-modules/vignetting.md))
+- clarity ([_local contrast_](../../modules/processing-modules/local-contrast.md))
+- HSL ([_color zones_](../../modules/processing-modules/color-zones.md))
+- grain ([_grain_](../../modules/processing-modules/grain.md))

@@ -11,35 +11,35 @@ tags: [GPS]
 ## left panel
 These modules are identical to the lighttable view. From top to bottom:
 
-[collections](../module-reference/utility-modules/shared/collections.md)
+[collections](../modules/utility-modules/shared/collections.md)
 : Filter the list of images displayed in the map view.
 
-[recently used collections](../module-reference/utility-modules/shared/recent-collections.md)
+[recently used collections](../modules/utility-modules/shared/recent-collections.md)
 : View recently used collections of images.
 
-[image information](../module-reference/utility-modules/shared/image-information.md)
+[image information](../modules/utility-modules/shared/image-information.md)
 : Display image information.
 
 ## right panel
 
 Here you can find the modules specific to the map view. From top to bottom:
 
-[find location](../module-reference/utility-modules/map/find-location.md)
+[find location](../modules/utility-modules/map/find-location.md)
 : Search for a place on map.
 
-[locations](../module-reference/utility-modules/map/locations.md)
+[locations](../modules/utility-modules/map/locations.md)
 : Manage a hierarchical list of location tags and their corresponding regions on the map.
 
-[map settings](../module-reference/utility-modules/map/map-settings.md)
+[map settings](../modules/utility-modules/map/map-settings.md)
 : Choose the map provider and set up various map display parameters.
 
-[tagging](../module-reference/utility-modules/shared/tagging.md)
+[tagging](../modules/utility-modules/shared/tagging.md)
 : Tag selected images.
 
-[geotagging](../module-reference/utility-modules/shared/geotagging.md)
+[geotagging](../modules/utility-modules/shared/geotagging.md)
 : Apply GPX track data to selected images.
 
 ## bottom panel
 
-[filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
+[filmstrip](../modules/utility-modules/shared/filmstrip.md)
 : Drag images from the filmstrip onto the map as described in the map [overview](./_index.md).

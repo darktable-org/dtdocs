@@ -32,7 +32,7 @@ right-click
 
 : For most sliders, the minimum and maximum values displayed are known as "soft limits" -- they do not represent the minimum/maximum values that you may enter, merely a suggested range of "normal" values that most users will not need to exceed. As well as these soft limits, each slider also has "hard limits" which may not be exceeded.
 
-: You may right-click and type any value up to the hard limits for a given slider. For example, in the [_rotate and perspective_](../../../module-reference/processing-modules/rotate-perspective.md) module, the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees; In the [_exposure_](../../../module-reference/processing-modules/exposure.md) module, the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV. If you try to enter a value beyond the hard limit, it will be automatically be adjusted to the minimum/maximum allowable value.
+: You may right-click and type any value up to the hard limits for a given slider. For example, in the [_rotate and perspective_](../../../modules/processing-modules/rotate-perspective.md) module, the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees; In the [_exposure_](../../../modules/processing-modules/exposure.md) module, the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV. If you try to enter a value beyond the hard limit, it will be automatically be adjusted to the minimum/maximum allowable value.
 
 double-click
 : Double-click on a slider or its label to reset to the default value.

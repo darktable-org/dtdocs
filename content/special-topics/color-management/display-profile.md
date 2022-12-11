@@ -11,7 +11,7 @@ author: "people"
 
 To investigate your display profile configuration you can run the [`ansel-cmstest`](../program-invocation/ansel-cmstest.md) binary (Linux only) which prints out useful information (e.g. profile name per-monitor) and tells you if the system is correctly configured.
 
-In rare cases you may need to manually select the display profile. This is possible from within the [soft proof](../../module-reference/utility-modules/darkroom/soft-proof.md) and [gamut check](../../module-reference/utility-modules/darkroom/gamut.md) option dialogs in the darkroom view and the display profile dialog in the lighttable view.
+In rare cases you may need to manually select the display profile. This is possible from within the [soft proof](../../modules/utility-modules/darkroom/soft-proof.md) and [gamut check](../../modules/utility-modules/darkroom/gamut.md) option dialogs in the darkroom view and the display profile dialog in the lighttable view.
 
 Bear in mind that high-tier consumer-grade screens usually don't need a user-made display profile unless you need to perform soft-proofing with professional expectations, since they are properly calibrated to sRGB in the factory.
 

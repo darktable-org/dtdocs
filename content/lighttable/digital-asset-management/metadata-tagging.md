@@ -11,8 +11,8 @@ Ansel allows you to store additional information about your images to allow them
 
 ## metadata
 
-Metadata (e.g. title, description) is free-format text that usually differs for each image. You can add metadata to images in the [metadata editor](../../module-reference/utility-modules/shared/metadata-editor.md) module.
+Metadata (e.g. title, description) is free-format text that usually differs for each image. You can add metadata to images in the [metadata editor](../../modules/utility-modules/shared/metadata-editor.md) module.
 
 ## tagging
 
-Tags are usually shared between multiple images and are used to categorise and group them. You can add tags to images in the [tagging](../../module-reference/utility-modules/shared/tagging.md) module.
+Tags are usually shared between multiple images and are used to categorise and group them. You can add tags to images in the [tagging](../../modules/utility-modules/shared/tagging.md) module.

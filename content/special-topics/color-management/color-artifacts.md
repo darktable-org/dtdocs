@@ -11,4 +11,4 @@ There are some infrequent situations that still can lead to problematic results 
 
 It has been found that highly saturated blue light sources in the image frame are likely candidates for pixels with negative L values. If you are engaged in stage photography you should pay close attention to such lights appearing in images.
 
-In order to mitigate this issue the [_input color profile_](../../module-reference/processing-modules/input-color-profile.md) module has a gamut clipping option. This option is switched off by default but can be activated if artifacts are observed. Depending on the settings, colors will be confined to one of the available RGB gamuts. In effect black pixel artifacts are prevented at the costs of losing some color dynamics.
+In order to mitigate this issue the [_input color profile_](../../modules/processing-modules/input-color-profile.md) module has a gamut clipping option. This option is switched off by default but can be activated if artifacts are observed. Depending on the settings, colors will be confined to one of the available RGB gamuts. In effect black pixel artifacts are prevented at the costs of losing some color dynamics.

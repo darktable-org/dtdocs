@@ -6,7 +6,7 @@ weight: 30
 draft: false
 ---
 
-Control default file naming conventions used when [importing](../module-reference/utility-modules/lighttable/import.md) images.
+Control default file naming conventions used when [importing](../modules/utility-modules/lighttable/import.md) images.
 
 ## session options
 

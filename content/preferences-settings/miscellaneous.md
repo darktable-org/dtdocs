@@ -27,7 +27,7 @@ duration of the ui transitions in ms
 : Defines how long modules and other ui elements will take to transition between states (expand/collapse). Set to 0 to disable animation (default 250ms).
 
 position of the scopes module
-: Choose whether to show the [scopes](../module-reference/utility-modules/shared/scopes.md) module in the left or right panel (default right). (needs a restart)
+: Choose whether to show the [scopes](../modules/utility-modules/shared/scopes.md) module in the left or right panel (default right). (needs a restart)
 
 method to use for getting the display profile
 : This option allows the user to force Ansel to use a specific method to obtain the current display profile for [color management](../special-topics/color-management/_index.md). In the default setting “all”, Ansel will choose to query the X display server's xatom or the colord system service. You can set this option to “xatom” or “colord” to enforce a specific method if the two methods give different results. You can run the [Ansel-cmstest](../special-topics/program-invocation/Ansel-cmstest.md) binary to examine your color management subsystem.
@@ -64,7 +64,7 @@ selection order
 ## map / geolocalisation view
 
 pretty print the image location
-: Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on).
+: Show a more readable representation of the geo-location in the [image information](../modules/utility-modules/shared/image-information.md) module (default on).
 
 ## slideshow view
 

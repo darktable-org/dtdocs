@@ -16,7 +16,7 @@ Instances can be renamed by Ctrl+clicking on the module name.
 
 There are many occasions where it makes sense to have a module apply more than once in the pixelpipe. Here are some typical use cases.
 
- - The [_exposure_](../../../../module-reference/processing-modules/exposure.md) module can be used in combination with [masks](../masking-and-blending/masks/_index.md) to lighten or darken parts of an image. A separate instance may be created to modify each masked region of the image.
+ - The [_exposure_](../../../../modules/processing-modules/exposure.md) module can be used in combination with [masks](../masking-and-blending/masks/_index.md) to lighten or darken parts of an image. A separate instance may be created to modify each masked region of the image.
 - You may wish to handle luma and chroma noise independently. This can be accomplished by generating two instances of your chosen denoising module and using the first one only on luma (by selecting [blend mode](../masking-and-blending/blend-modes.md) “lightness”) and the second one only on chroma (by selecting blend mode “color”).
 
 ---
@@ -42,4 +42,4 @@ delete
 : Remove the current instance. This option is not available if only one instance is present.
 
 rename
-: Rename the current instance. See the [history stack](../../../../module-reference/utility-modules/lighttable/history-stack.md) section for more details on how the instance name impacts copying and pasting history stacks.
+: Rename the current instance. See the [history stack](../../../../modules/utility-modules/lighttable/history-stack.md) section for more details on how the instance name impacts copying and pasting history stacks.

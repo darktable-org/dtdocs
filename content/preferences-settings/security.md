@@ -41,7 +41,7 @@ ask before deleting a preset
 : Always ask before deleting a preset (default on).
 
 ask before exporting in overwrite mode
-: Always ask before [exporting](../module-reference/utility-modules/shared/export.md) images in overwrite mode.
+: Always ask before [exporting](../modules/utility-modules/shared/export.md) images in overwrite mode.
 
 ## other
 

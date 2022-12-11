@@ -14,7 +14,7 @@ hide built-in presets for utility modules
 : If enabled, only user-defined presets will be shown in presets menu for utility modules -- built-in presets will be hidden (default off).
 
 use single-click in the collections module
-: Enable "single click" mode in the [collections](../module-reference/utility-modules/shared/collections.md) module, which allows ranges to be selected (default off).
+: Enable "single click" mode in the [collections](../modules/utility-modules/shared/collections.md) module, which allows ranges to be selected (default off).
 
 expand a single utility module at a time
 : Controls how utility modules are expanded. If this option is enabled, expanding a module by clicking collapses any other currently expanded panel. If you want to expand a panel without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default off).
@@ -29,7 +29,7 @@ show scrollbars for center view
 : Choose whether to show scrollbars in the center view of the lighttable (default on).
 
 show image time with milliseconds
-: Choose whether to include milliseconds when displaying time values (default off). If set, milliseconds are shown in the [image information](../../module-reference/utility-modules/shared/image-information.md) module and can also be used in the [geotagging](../../module-reference/utility-modules/shared/geotagging.md) module.
+: Choose whether to include milliseconds when displaying time values (default off). If set, milliseconds are shown in the [image information](../../modules/utility-modules/shared/image-information.md) module and can also be used in the [geotagging](../../modules/utility-modules/shared/geotagging.md) module.
 
 ## thumbnails
 
