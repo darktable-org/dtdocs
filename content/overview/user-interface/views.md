@@ -21,7 +21,7 @@ The functionality in Ansel is separated into six different views:
 [print](../../views/print/_index.md)
 : Send images to a printer.
 
-[slideshow](../../views/slidershow/_index.md)
+[slideshow](../../views/slideshow/_index.md)
 : Display images as a slideshow, processing them on-the-fly.
 
 You can switch between views by clicking the view name at the top of the right-hand panel (the currently active view is highlighted) or by using one of the following keyboard shortcuts:
