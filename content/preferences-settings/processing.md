@@ -66,7 +66,7 @@ OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems:
 : - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe,
 : - _very fast GPU_: both pixelpipes are processed sequentially on the GPU.
-: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../performance/openclmultiple-devices.md) section for more information,
+: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../performance/opencl/multiple-devices.md) section for more information,
 
 tune OpenCL performance
 : Defines how Ansel will attempt to tune OpenCL performance for your system. The following options are provided (default _nothing_):
