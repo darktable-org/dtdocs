@@ -174,7 +174,7 @@ While it is best to not touch imported files behind Ansel's back, this module ca
 
 ### returning to a previous collection
 
-You can return to a previously-defined collection by clicking on the history button at the bottom of the module or using the [recently used collections](./recent-collections.md) module -- see the [preferences](#preferences) section for more details.
+You can revert to a previously defined collection by clicking on the history button at the bottom and selecting one of the most recent collection you have used.
 
 ### preferences
 
@@ -187,10 +187,10 @@ tag case sensitivity
 : Set whether tags should be case sensitive or not -- without the `sqlite` ICU extension this will only apply to the 26 latin letters (default insensitive).
 
 number of collections to be stored
-: Set the number of recent collections to show in the history popup (if present).
+: Set the number of recent collections to show in the history popup
 
 hide the history button and show a specific module instead
-: Choose how to view your collections history -- you can either use the history button in this module or use the [recently used collections](./recent-collections.md) module.
+: Set your prefered way to get the history of your recent collection. This can be either with the history button or with a specific [recent collect module](./recent-collections.md)
 
 number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).

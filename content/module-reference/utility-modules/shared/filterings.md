@@ -1,142 +1,106 @@
 ---
-title: collection filters
-date: 2022-12-04T02:19:02+01:00
-id: collection-filters
-applicable-version: 4.0
+title: filtering
+id: filtering
+applicable-version: 3.8
 tags:
 view: lighttable, darkroom, tethering, map
 ---
 
-Filter the _collection_ of images displayed in the lighttable view and filmstrip panel using image attributes, optionally pinning filters to the [top panel](../../../overview/user-interface/top-panel.md) for quick access.
+Filter the _collection_ of images shown in the lighttable view and filmstrip panel using image attributes.
 
-Once you have defined a _collection_ of images with the [collections](./collections.md) module, the collection filters module allows you to define additional filters and sort criteria. For example, you might wish to show all images in a given folder using the collections module and then define additional quick filters to narrow-down by star rating and/or color label.
+Once you have set the _collection_ of images with the [collections](./collections.md) module, you can refilter and sort it by setting some filters based on image attributes.
+
+The filters can optionally be "pinned" into the top toolbar for a quick access.
 
 ## filtering attributes
 
-For information about the image attributes you can select, please see the documentation for the [collections](./collections.md#filtering-attributes) module.
+The images attributes used to setup filters are defined in [collections module](./collections.md/#filtering-attributes).
 
-Note that only a subset of filters is currently implemented -- more will be added in future versions of Ansel.
+Note that currently only a subset of this filters are implemented. More is expected in next versions.
 
-## default settings
-
-By default, three filters ([range rating](#range-rating), [color labels](#color-labels) and [text search](#text-search) are defined within this module. By default these filters select all images (i.e. show images with any star rating or color label) and are all pinned to the top panel for quick access. This default setting is also available as the "initial setting" preset.
-
-## module controls
-
-### adding new filters
-
-To add a new filter to the module, click on the "new rule" button and select an image attribute to use.
+# filters controls
 
 ### combining multiple filters
 
-When you use multiple filters, the first item on the filter header allows you to define how the filter is combined with the previous one.
+When you use multiple filters, the first item on the filter header allow you to define how the filter is combined with the previous one.
 
 and
-: Narrow down search. An image is only retained if it also fulfills the new criteria.
+: narrow down search. An image is only retained if it also fulfills the new criteria.
 
 or
-: Add more images. Images from the _collection_ that fulfill the new criteria are added.
+: add more images. Images from the _collection_ that fulfill the new criteria are added.
 
 and not
-: Exclude images. Images that fulfill the new criteria are removed.
-
----
-
-**Note**: The and/or/not operators have a defined order of precedence such that "not" is executed first, then "and" and finally "or". This means, for example, that if you define complex filters like "A and B or C and not D" these will be implemented as "(A and B) or (C and (not D))".
-
----
+: exclude images. Images that fulfill the new criteria are removed.
 
 ### removing or deactivating filters
 
-You can remove or temporarily deactivate a specific filter using the buttons on the right of the filter header (see screenshots in the following sections). If a filter is pinned to the top panel, you will need to unpin it before removing or deactivating.
+You can remove completely or deactivate temporarily a specific filter using the buttons on the right of the header.
 
 ### pinning into the top toolbar
 
-The pin button on the right of the filter header allows you to pin a filter to the top panel. To avoid unwanted actions, pinned filters can't be removed or deactivated.
+The pin togglebutton on the right of the header allow you to pin a _clone_ of the filter into the top toolbar. The filter and its clone stay synchronized all the time. To avoid unwanted actions, pinned filters can't be removed or deactivated. If you want to do so, un-pin the filter first.
 
-### resetting filters
-
-Clicking on the module reset button will remove all un-pinned filters and reset all others to their default values. If you want to also remove the pinned filters, you can Ctrl+click on the reset button.
-
-### returning to a previous set of filters
-
-You can return to a previously-defined set of filters by clicking on the history button at the bottom of the module and selecting from the resulting list.
-
-## filter widgets
-
-A number of filter widgets have been created for use within this module. Since some of these widgets use non-standard interfaces, their usage is explained in the following sections:
+# filters specific widgets
 
 ### color labels
 
-The following image shows the color labels widget, set to filter images having yellow or green color labels:
-
-![color filter](./collection-filters/color-filter.png#w33)
-
-You can interact with this filter widget as follows:
-
-- Click on a color label to include images with that label
-- Ctrl+click on a color label to include images without that label
-- Click or Ctrl+click on the gray icon to act on all color labels simultaneously
-- Use the last button to define how to handle the selection of multiple color labels. Select ![and](./collection-filters/color-filter-and.png#icon) (and) to filter images having _all_ of the selected color labels; Select ![or](./collection-filters/color-filter-or.png#icon) (or) to filter images with _at least one_ of the selected color labels.
+You can filter images by their colorlabels by using the dedicated filter which expose a widget where you can click on the colorlabel you want to search for.
+Ctrl-Click on a color button, allow you to exclude the color.
+The last _grey_ icon will act on all color simultaneously.
+The last button define the operator used to combine the color together. It can be either `∩` (and) to get images having all selected color labels, or `∪` (or) to get images with at least one of the selected color labels.
 
 ### rating
 
-This is the classic rating selection widget that used to be shown in Ansel's top panel by default.
+In order to answer different workflows, two rating widgets can be used.
 
-![rating filter](./collection-filters/rating-filter.png#w33)
+rating
+: this is the _legacy_ rating widget with a first combobox to choose the comparator and a main combobox to select the number of stars to filter.
 
-This widget is composed of a pair of comboboxes. The combobox on the right (always visible) is used to choose a number of stars, plus some additional options ("all", "unstarred only", "rejected only", "all except rejected"). The combobox to the left (only shown when a star rating is chosen in the right-hand combobox) is used to choose an operator (<, <=, =, >, >=, ≠).
+range rating
+: this is new widget that allow you to select the range of the rating you want to filter by using Click+Drag. You can also access predefined ranges, as well as specific rating (with an indication of the number of images concerned) using the context-menu that can be shown using Right-Click.
 
-### range rating
+## numeric attributes
 
-This new widget also allows you to select images by star rating, this time using a new "range" widget. The following image shows the widget with ratings of 2-4 stars selected.
-
-![range rating filter](./collection-filters/range-rating-filter.png#w33)
-
-You can choose a new range of ratings to filter by clicking and dragging over the widget's interface. You can also access pre-defined ranges by right-clicking and selecting from the popup menu. The number of applicable images is also shown against each entry in this menu.
-
-### range filters for numeric attributes
-
-Numeric attributes (aperture, exposure, focal length, iso, aspect ratio) are filtered using a widget that shows a histogram of the number of images available depending on the value of the given attribute (similar to the [_timeline_](../lighttable/timeline.md) in the lighttable view).
-
-For example, the following image shows the widget when used for selecting by aperture:
-
-![aperture range filter](./collection-filters/aperture-range-filter.png#w33)
-
-As with the range rating filter, you can select a range of values to filter by clicking and dragging on the widget. You can also access predefined ranges by right-clicking and selecting from the popup menu. The number of applicable images is also shown against each entry in this menu.
-
-You can also use the "min" and "max" text entry fields in the main module interface to manually define the bounds of the selection.
+Numeric filters (aperture, exposure, focal length, iso, aspect ratio) use a widget that show on a graph the repartition of the images depending on their attribute value.
+To select a range of value you can Click+Drag on the graph. You can also access predefined range if any, as well as the specific values (with an indication of the number of images concerned) using the context-menu that can be shown using Right-Click.
+In the left panel, you can also used the "min" and "max" entry to define the bounds manually (or Right-Click on the entries to get a context-menu with existing values).
 
 ### date attributes
 
-As with numeric and rating range filters, date/time filters are represented using a "range" widget. You can select a range of values by clicking and dragging on the widget, and use the right-click menu for more options.
-
-![date range filter](./collection-filters/capture-date-filter.png#w33)
-
-You can also use the "min" and "max" text entry fields in the main module interface to manually define the bounds of the selection (right-click for more options).
-
-The date/time format used by this module is `YYYY:MM:DD HH:MM:SS` (only the year values are mandatory).
-
-The keyword `now` is allowed in the max field (to define the current date/time).
-
-You can also use "relative" date/time values by preceding text entries with `+` or `-`. This allows you to set the maximum or minimum bound of the range relative to the other bound. As an example if you set the min value to `-0000:01` and the max value to `2022:04:15`, this will select images taken during the month before April 15th 2022.
+Like for numeric filters, date-time filters are represent on a graph and a range can be selected with Click+Drag. The context menu allow to set a date using a calendar as well as to select an existing date-time).
+In the left panel, you can also used the "min" and "max" entry to define the bounds manually (or Right-Click on the entries to get the context-menu with calendar and existing values)
+Date-time format is `YYYY:MM:DD HH:MM:SS` (only the year values are mandatory).
+The keyword `now` is allowed in the max field.
+You can also use "relative" date-time value by preceding the values with `+` or `-`. This allow you to set the max or min bound of the range relatively to the other bound. As an example if you set min value to `-0000:01` and max value to `2022:04:15` you get the image taken during the month before april, 15th 2022.
 
 ### filename
 
-The filename filter allows you to search images by their filename and/or extension. You can either enter the name or extension (with the leading `.`) manually or use the right-click menu to select.
-
-Within the extension field, you can also use the keywords `RAW` (to select all handled RAW file extensions), `NOT RAW` (to select all non-RAW file extensions), `LDR` (to select low-dynamic-range extensions) or `HDR` (to select high-dynamic-range extensions).
+The filename filter allow you to search images by their filename and/or extension name. You can either enter the name or extension (with the leading`.`) manually or use the context-menu that will show you each specific values in the _collection_ with the number of images concerned.
+For the extension field, you can use the keyword `RAW` as a replacement of all handled RAW extensions, `NOT RAW` for all the extensions except the RAW ones, `LDR` for all low dynamic range extensions and `HDR` for hight dynamic range extensions.
 
 ### text search
 
-You can search images using any of their text properties (path, filename, filmroll, tags, metadata) using the text search filter. The search is performed "on-the-fly" and the widget is dimmed during the search process.
+You can search images by their text properties (path, filename, filmroll, tags, metadata) using this filter. The search is done "on-the-fly" and the widget is dimmed during the search process.
+By default we do a "fuzzy" search (we add wildcards at the start and the end of the text). If you want to search for an exact text, you can enclose it with `"`.
 
-By default Ansel performs a "fuzzy" search (wildcards are automatically added to the start and the end of the text). If you want to search for an exact match, you can enclose it with double-quotes (`"match this exactly"`).
+# module controls
+
+## resetting filters
+
+Like all darktable module, you can reset the modules settings with the usual module header button. For this specific module a "simple" click will remove all un-pinned filters and reset the other to their default values. If you want to also remove the pinned filters, you can Ctrl-Click on the reset button.
+
+## adding a new filter
+
+A "new rule" button popup a menu that allow you to select the filter you want to add to the list.
+
+## returning to a previous set of filters
+
+You can revert to a previously defined set of filters by clicking on the history button and selecting one of the most recent set you have used.
 
 ## sorting
 
-The bottom part of the module allows you to define the sort order of the images when displayed in the lighttable and filmstrip views. As with the filter criteria, you can add multiple rules to this section. However, only the first-selected sort criteria is pinned to the top panel (this cannot be unpinned).
-
-As with filter criteria, the history button allows you to access any previously-used sort criteria.
-
-The button to the right of the attribute selection allows you to choose whether to sort that criteria in ascending or descending order.
+Criterias and orders used to sort the images can be defined using the bottom part of the module.
+You can use multiple criterias if needed.
+The first (and mandatory) criteria is also shown in the top toolbar.
+As for filters, you can add a new sort or revert to a previous set of sorts by using the "new sort" and "history" buttons.
