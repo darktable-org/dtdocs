@@ -5,6 +5,7 @@ id: darkroom
 weight: 30
 draft: false
 author: "people"
+aliases: [../darkroom]
 ---
 
 The darkroom view is where you develop your images. The center panel contains the image currently being edited.
