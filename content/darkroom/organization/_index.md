@@ -9,14 +9,14 @@ author: "people"
 
 Processing modules are organized and accessed via the right-hand panel in the darkroom:
 
-![organization](./overview/organization.png#w33)
+![organization](organization.png#w33)
 
 Click on the icons at the top of this panel to reveal, from left to right,
 
-![quick access](./overview/quick-access-panel-icon.png#icon)
+![quick access](quick-access-panel-icon.png#icon)
 : A customizable panel allowing quick access to commonly-used module controls.
 
-![module-group-active-icon](./overview/module-group-active-icon.png#icon) active modules
+![module-group-active-icon](module-group-active-icon.png#icon) active modules
 : A group containing the modules that are currently active in the pixelpipe.  Right-click to show all modules that are present in the [history stack](../pixelpipe/history-stack.md) within the active group, regardless of whether or not they are actually active.
 
 [module groups](./module-groups.md)
