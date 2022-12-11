@@ -15,7 +15,7 @@ As this module operates on non-demosaiced raw data, the underlying model assumes
 
 This module currently only works for raw images recorded with a Bayer sensor (the sensor used in the majority of cameras) -- for other types of image, you should use the [_chromatic aberrations_](./chromatic-aberrations.md) module instead.
 
-The module will also not apply any corrections to any photos that have been identified as monochrome (see [developing monochrome images](../../guides-tutorials/monochrome.md) for more information).
+The module will also not apply any corrections to any photos that have been identified as monochrome (see [developing monochrome images](monochrome.md) for more information).
 
 ## module controls
 

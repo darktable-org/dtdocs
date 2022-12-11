@@ -11,4 +11,4 @@ This section is intended to provide you with a flavor of what Ansel can do and o
 
 Please note that this is not an exhaustive guide and many useful topics are not covered. You advised to read through the reference sections of this manual once you are familiar with the basics.
 
-Further information on most of the subjects in this guide are also covered in the [other resources](../../guides-tutorials/other-resources.md) section.
+Further information on most of the subjects in this guide are also covered in the [other resources](other-resources.md) section.

@@ -31,9 +31,6 @@ mount camera
 [copy & import from camera](#copy--import-from-camera)
 : Create copies of images from the connected camera and then add those images to the darktable library. This button only appears if the camera is currently mounted.
 
-[tethered shoot](../../../../tethering/_index.md)
-: Open the tethering view so that you can take images with your connected camera using darktable. This button only appears if the camera is currently mounted.
-
 unmount camera
 : Unmount the camera and release it for use by other applications. This button only appears if the camera is currently mounted.
 
