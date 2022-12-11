@@ -39,7 +39,7 @@ From top to bottom:
 From top to bottom:
 
 [scopes](../../module-reference/utility-modules/shared/scopes.md)
-: A graphical depiction of the image's light levels and colors. This module can be moved to the left-hand panel if desired (see [preferences > miscellaneous > position of the scopes module](../preferences-settings/miscellaneous.md)).
+: A graphical depiction of the image's light levels and colors. This module can be moved to the left-hand panel if desired (see [preferences > miscellaneous > position of the scopes module](../../preferences-settings/miscellaneous.md)).
 
 [module groups](./organization/module-groups.md)
 : Select module groups (if enabled).
@@ -89,4 +89,4 @@ From left to right:
 ![guides-overlays-icon](./darkroom-view-layout/guides-overlays-icon.png#icon) [guides & overlays](../../module-reference/utility-modules/darkroom/guides-overlays.md)
 : Left-click to switch global guide overlays on/off and right-click to change the guide settings, including the color of all on-image drawing (masks, crop guides etc.)
 
-You can also enable the [filmstrip](../../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen to allow you select and interact with the currently selected collection in the [lighttable](../lighttable/_index.md) view.
+You can also enable the [filmstrip](../../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen to allow you select and interact with the currently selected collection in the [lighttable](../../lighttable/_index.md) view.

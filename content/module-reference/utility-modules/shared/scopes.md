@@ -17,7 +17,7 @@ When the mouse is over the scopes panel, scroll with the mouse while holding dow
 
 You can move the scopes module to the left-hand panel in [preferences > miscellaneous > position of the scopes module](../../../preferences-settings/miscellaneous.md).
 
-For performance reasons, scopes are calculated from the image preview (the image displayed in the [navigation](../views/darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass more time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
+For performance reasons, scopes are calculated from the image preview (the image displayed in the [navigation](../darkroom/navigation.md) module) rather than the higher quality image displayed in the center view. The preview is calculated at a lower resolution and may use shortcuts to bypass more time-consuming image processing steps. Hence the display may not accurately represent fine detail in the image, and may deviate in other ways from the final developed image.
 
 ## histogram
 
@@ -79,7 +79,7 @@ The graph includes a "hue ring" representing the maximum chroma of each hue (in 
 
 ### caveats
 
-- The hue ring is not a [gamut check](../views/darkroom/gamut.md), as a color can be within the hue ring, yet out of gamut due to its darkness/lightness.
+- The hue ring is not a [gamut check](../darkroom/gamut.md), as a color can be within the hue ring, yet out of gamut due to its darkness/lightness.
 - When adjusting an image based upon a color checker, faster and more accurate results will come from using [calibrate with a color checker](../../processing-modules/color-calibration#extracting-settings-using-a-color-checker) in the _color calibration_ module.
 - The vectorscope does not have a "skin tone line", which is a flawed generalization rather than a universal standard.
 - The vectorscope represents a colorimetric encoding of an image, which inevitably diverges from a viewer's perception of the image.
@@ -98,6 +98,6 @@ You can also scroll in the appropriate area -- rather than dragging -- to adjust
 
 ## histogram profile
 
-Image data is converted to the _histogram profile_ before the scope data is calculated. You can choose this profile by right-clicking on the [soft-proof](../views/darkroom/soft-proof.md) or [gamut check](../views/darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the scope is shown in the soft proof profile.
+Image data is converted to the _histogram profile_ before the scope data is calculated. You can choose this profile by right-clicking on the [soft-proof](../darkroom/soft-proof.md) or [gamut check](../darkroom/gamut.md) icons in the bottom panel and then selecting the profile of interest. When soft-proof or gamut check is enabled, the scope is shown in the soft proof profile.
 
 As the scopes module runs at the end of the preview pixelpipe, it receives data in display color space. If you are using a display color space that is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile may be clipped or distorted.
