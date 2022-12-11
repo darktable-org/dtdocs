@@ -35,7 +35,7 @@ The _working profile_ parameter in Ansel's [_input color profile_](input-color-p
 
 ---
 
-**Note:** if you want to use the [_tone equalizer_](tone-equalizer.md) with _negadoctor_, you'll need to move the _tone equalizer_ module **after** _negadoctor_ in the [pixelpipe](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md), since the _tone equalizer_ is not designed to work with negatives.
+**Note:** if you want to use the [_tone equalizer_](tone-equalizer.md) with _negadoctor_, you'll need to move the _tone equalizer_ module **after** _negadoctor_ in the [pixelpipe](../../views/darkroom/pixelpipe/the-pixelpipe-and-module-order.md), since the _tone equalizer_ is not designed to work with negatives.
 
 ---
 

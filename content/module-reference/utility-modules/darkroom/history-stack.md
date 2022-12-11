@@ -7,7 +7,7 @@ tags:
 view: darkroom
 ---
 
-View and modify the [history stack](../../../darkroom/pixelpipe/history-stack.md) of the current darkroom image.
+View and modify the [history stack](../../../views/darkroom/pixelpipe/history-stack.md) of the current darkroom image.
 
 This module lists every change of state (activate/de-activate/move/change parameters) for all processing modules that have been modified for the current image. Select a point in the stack to return to that point in the development history of the image. Shift+click an item in the history stack to expand that module in the right-hand module panel without changing the current edit.
 

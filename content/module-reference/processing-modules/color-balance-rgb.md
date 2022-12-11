@@ -47,7 +47,7 @@ _Note that this module abides by the CIE definitions of chroma and saturation, a
 ### master tab
 
 hue shift
-: Rotate all colors in the image by an angle over the chromaticity plane, at constant luminance and chroma. You can use this control to remove spilled colored light on a subject or to quickly change the color of some object. This setting is usually best applied locally, using [masks](../../../darkroom/masking-and-blending/masks/_index.md).
+: Rotate all colors in the image by an angle over the chromaticity plane, at constant luminance and chroma. You can use this control to remove spilled colored light on a subject or to quickly change the color of some object. This setting is usually best applied locally, using [masks](../../../views/darkroom/masking-and-blending/masks/_index.md).
 
 global vibrance
 : This affects the chroma dimension of color over the entire image, prioritizing those colors with low chroma. This allows the chroma of neutral colors to be increased without exaggerating already-colorful pixels.

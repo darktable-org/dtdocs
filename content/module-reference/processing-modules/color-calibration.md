@@ -40,9 +40,9 @@ By default, _color calibration_ performs chromatic adaptation by:
 
 For consistency, the _color calibration_ module's default settings always assume that the standard matrix is used in the _input color profile_ module -- any non-standard settings in this module are ignored. However, _color calibration_'s defaults can read any auto-applied preset in the _white balance_ module.
 
-It is also worth noting that, unlike the _white balance_ module, _color calibration_ can be used with [masks](../../darkroom/masking-and-blending/masks/_index.md). This means that you can selectively correct different parts of the image to account for differing light sources.
+It is also worth noting that, unlike the _white balance_ module, _color calibration_ can be used with [masks](../../views/darkroom/masking-and-blending/masks/_index.md). This means that you can selectively correct different parts of the image to account for differing light sources.
 
-To achieve this, create an instance of the _color calibration_ module to perform global adjustments using a mask to exclude those parts of the image that you wish to handle differently. Then create a second instance of the module reusing the mask from the first instance (inverted) using a [raster mask](../../darkroom/masking-and-blending/masks/raster.md).
+To achieve this, create an instance of the _color calibration_ module to perform global adjustments using a mask to exclude those parts of the image that you wish to handle differently. Then create a second instance of the module reusing the mask from the first instance (inverted) using a [raster mask](../../views/darkroom/masking-and-blending/masks/raster.md).
 
 ### CAT tab workflow
 
@@ -432,4 +432,4 @@ It is possible to alleviate this issue, if you have a computer screen calibrated
 1. Display a white surface on your screen, for example by opening a blank canvas in any photo editing software you like
 2. Take a blurry (out of focus) picture of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and are using an aperture between f/5.6 and f/8,
 3. Open the picture in Ansel and extract the white balance by using the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
-4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.
+4. [Save a preset](../../views/darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.

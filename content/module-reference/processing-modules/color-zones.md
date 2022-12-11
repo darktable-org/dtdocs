@@ -11,13 +11,13 @@ masking: true
 
 Selectively adjust the lightness, saturation and hue of pixels based on their current lightness, saturation and hue.
 
-This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (_saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).
+This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (_saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../views/darkroom/processing-modules/curves.md).
 
 You first need to choose whether you wish to adjust (select) pixels based on their lightness, saturation or hue. You can then use three curves, on their respective tabs, to adjust the lightness, saturation and hue of ranges of pixels selected via this method.
 
 ---
 
-_**Note:** This module should be used with care, as transitions between colors may not be graceful. Instead, use the [color balance rgb](./color-balance-rgb.md) module with a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md)._
+_**Note:** This module should be used with care, as transitions between colors may not be graceful. Instead, use the [color balance rgb](./color-balance-rgb.md) module with a [parametric mask](../../views/darkroom/masking-and-blending/masks/parametric.md)._
 
 ---
 
@@ -61,9 +61,9 @@ hue
 
 : ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png#w33)
 
-The curves work similarly in the lightness- and saturation-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
+The curves work similarly in the lightness- and saturation-based selection modes as well. See the section on [curves](../../views/darkroom/processing-modules/curves.md) to see how spline curves work in general.
 
-Note that these examples are somewhat contrived in order to illustrate the module's usage. In practical use, they would likely need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect.
+Note that these examples are somewhat contrived in order to illustrate the module's usage. In practical use, they would likely need to be combined with [drawn](../../views/darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../views/darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect.
 
 ## range selection
 
@@ -83,7 +83,7 @@ lightness, saturation & hue tabs
 : Each tab displays a pixel manipulation curve to allow you to alter “lightness”, “saturation”, or “hue” based on the pixel selection method.
 
 edit by area
-: Choose how to interact with the curve. This setting is disabled by default, allowing the control points for the curve to be freely placed. Check the box to fall back to the legacy "edit by area" mode, which functions in a similar way to the spline curve controls used in [wavelet](../../darkroom/processing-modules/wavelets.md#spline-controls) modules.
+: Choose how to interact with the curve. This setting is disabled by default, allowing the control points for the curve to be freely placed. Check the box to fall back to the legacy "edit by area" mode, which functions in a similar way to the spline curve controls used in [wavelet](../../views/darkroom/processing-modules/wavelets.md#spline-controls) modules.
 
  ![mask-icon](./color-zones/icon-mask.png#icon) mask display
 : Enable the _mask display_ to highlight pixels that have been affected by _color zones_ adjustments in yellow.
@@ -98,4 +98,4 @@ mix
 : Use this parameter to tune the strength of the overall effect.
 
 interpolation method
-: Define how the curve is interpolated using the user-defined control points. See the [curves](../../darkroom/processing-modules/curves.md) section for more details.
+: Define how the curve is interpolated using the user-defined control points. See the [curves](../../views/darkroom/processing-modules/curves.md) section for more details.

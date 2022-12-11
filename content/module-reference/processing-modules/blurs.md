@@ -17,7 +17,7 @@ Three types of blur are provided:
 
 1. _lens blur_: Simulates a lens diaphragm with a configurable number of blades and blade curvature to create synthetic bokeh.
 2. _motion blur_: Simulates the effect of camera motion with a configurable path.
-3. _gaussian blur_: This is not really an optical blur but can be used for denoising or for creative effects using [blend modes](../../darkroom/masking-and-blending/blend-modes.md)
+3. _gaussian blur_: This is not really an optical blur but can be used for denoising or for creative effects using [blend modes](../../views/darkroom/masking-and-blending/blend-modes.md)
 
 A diagram at the top of the module shows the shape of the blurring operator (known as the [_point spread function_](https://en.wikipedia.org/wiki/Point_spread_function)). The module will turn each luminous point from the scene into a blot shaped like the displayed blurring operator, with the size of the blot defined by the _blur radius_.
 

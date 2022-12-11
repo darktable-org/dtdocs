@@ -23,8 +23,8 @@ coarse/fine curves
 
 : Raising the curve will result in more smoothing, while lowering it will result in less smoothing. As an example, you can preserve very fine-grained noise by pulling down the rightmost point of the curve to the minimum value.
 
-: If you are tackling chroma noise with a [blend mode](../../darkroom/masking-and-blending/blend-modes.md), you can raise the rightmost part of the curve quite high, as colors do not change a lot on fine grain scales. This will help especially if you see some isolated pixel left un-denoised.
+: If you are tackling chroma noise with a [blend mode](../../views/darkroom/masking-and-blending/blend-modes.md), you can raise the rightmost part of the curve quite high, as colors do not change a lot on fine grain scales. This will help especially if you see some isolated pixel left un-denoised.
 
 : The best way to use the R, G, and B curves is to examine each of the channels in turn using the [_color calibration_](./color-calibration.md) module in gray mode, denoise that channel, and then repeat for the other channels. This way, you can take into account the fact that some channels may be noisier than others. Beware that guessing which channel is noisy without actually seeing the channels individually is not straightforward and can be counterintuitive. A pixel which is completely red may not be caused by noise on the R channel, but actually by noise on G and B channels.
 
-: See the [wavelet](../../darkroom/processing-modules/wavelets.md) section for more details.
+: See the [wavelet](../../views/darkroom/processing-modules/wavelets.md) section for more details.

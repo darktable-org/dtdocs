@@ -13,7 +13,7 @@ Adjust luminance and chroma contrast in the wavelet domain.
 
 This versatile module can be used to achieve a variety of effects, including bloom, denoise, clarity, and local contrast enhancement.
 
-It works in the [wavelet](../../darkroom/processing-modules/wavelets.md) domain and its parameters can be tuned independently for each wavelet detail scale. The module operates in CIE LCh color space and so is able to treat luminosity and chromaticity independently.
+It works in the [wavelet](../../views/darkroom/processing-modules/wavelets.md) domain and its parameters can be tuned independently for each wavelet detail scale. The module operates in CIE LCh color space and so is able to treat luminosity and chromaticity independently.
 
 A number of presets are provided, which should help you to understand the capabilities of the module.
 
@@ -27,7 +27,7 @@ In the background of the curve you can see a number of alternating light and dar
 
 ---
 
-**Tip:** if you are having trouble visualising which parts of the curve will affect which details in the image, you can set the [blend mode](../../darkroom/masking-and-blending/blend-modes.md) to "difference". This will make the image go black except for those areas where the output of the module differs from the input. By raising the curve at one of the control points, you will be able to see which details in the image are represented by that point.
+**Tip:** if you are having trouble visualising which parts of the curve will affect which details in the image, you can set the [blend mode](../../views/darkroom/masking-and-blending/blend-modes.md) to "difference". This will make the image go black except for those areas where the output of the module differs from the input. By raising the curve at one of the control points, you will be able to see which details in the image are represented by that point.
 
 ---
 
@@ -35,7 +35,7 @@ In the background of the curve you can see a number of alternating light and dar
 
 The luma tab allows you to adjust the local contrast in the image's luminance (brightness). Adjustments are represented by a white spline that begins as a horizontal line running across the centre of the graph (indicating that no change will be made). Raise or lower this spline at the left end of the graph to increase or decrease the local contrast of coarse detail in the image. Perform similar adjustments towards the right side of the graph to adjust the local contrast of the fine details in the image.
 
-When you hover the mouse pointer over the graph, a white circle indicates the radius of influence of the mouse pointer -- the size of this circle can be adjusted by scrolling with the mouse wheel. The larger the circle of influence, the more control points will be affected when you adjust the curve. A highlighted region in the background shows what the spline would look like if you pushed the currently-hovered control point all the way to the top or bottom on the graph -- see the screenshot below for examples of these features. For more information see the [wavelets](../../darkroom/processing-modules/wavelets.md) section.
+When you hover the mouse pointer over the graph, a white circle indicates the radius of influence of the mouse pointer -- the size of this circle can be adjusted by scrolling with the mouse wheel. The larger the circle of influence, the more control points will be affected when you adjust the curve. A highlighted region in the background shows what the spline would look like if you pushed the currently-hovered control point all the way to the top or bottom on the graph -- see the screenshot below for examples of these features. For more information see the [wavelets](../../views/darkroom/processing-modules/wavelets.md) section.
 
 The following image shows the default state of the contrast equalizer module before any adjustments have been made:
 

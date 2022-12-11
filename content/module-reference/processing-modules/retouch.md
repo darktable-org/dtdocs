@@ -11,7 +11,7 @@ masking:
 
 Remove unwanted elements from your image by cloning, healing, blurring and filling using drawn shapes.
 
-This module includes a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image.
+This module includes a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../views/darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image.
 
 ## clone and heal
 
@@ -33,7 +33,7 @@ In such cases, the _heal_ tool ![retouch-heal-icon](./retouch/rt-heal-icon.png#i
 
 ### source and target shapes
 
-Once you have chosen _heal_ or _clone_ mode, you must choose the shape you wish to use (_circle_, _ellipse_, _path_ or _brush_ -- see the [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) section for details). The source and target patches will both use the same shape.
+Once you have chosen _heal_ or _clone_ mode, you must choose the shape you wish to use (_circle_, _ellipse_, _path_ or _brush_ -- see the [drawn masks](../../views/darkroom/masking-and-blending/masks/drawn.md) section for details). The source and target patches will both use the same shape.
 
 When you hover over the image with your mouse, a plus symbol (+) will appear to indicate where the _source_ shape will be placed by default. Your normal mouse cursor will indicate the position of the target shape:
 
@@ -67,13 +67,13 @@ These two options are most useful when used together with wavelet decomposition,
 
 ## wavelet decomposition
 
-Wavelets allow an image to be decomposed into a number of layers each containing varying levels of detail, so that you can work on each detail layer independently and then recombine them at the end. This is particularly useful in portrait photography, where you can deal with skin blotches and blemishes on a coarse layer of detail, leaving the finer skin texture untouched. The [_wavelets_](../../darkroom/processing-modules/wavelets.md) section provides more information on the decomposition process.
+Wavelets allow an image to be decomposed into a number of layers each containing varying levels of detail, so that you can work on each detail layer independently and then recombine them at the end. This is particularly useful in portrait photography, where you can deal with skin blotches and blemishes on a coarse layer of detail, leaving the finer skin texture untouched. The [_wavelets_](../../views/darkroom/processing-modules/wavelets.md) section provides more information on the decomposition process.
 
 This method can be used with the healing tool, for example, to paint over a spot that appears in one of the coarse detail layers, while leaving the hairs in the fine detail layers intact:
 
 ![retouch-beard-preserve](./retouch/rt-beard-preserve.jpg#w50)
 
-It can also be used with the blur tool to even out coarse blotches in the skin, again without impacting the finer details (see the [_wavelets_](../../darkroom/processing-modules/wavelets.md) section for details on this technique).
+It can also be used with the blur tool to even out coarse blotches in the skin, again without impacting the finer details (see the [_wavelets_](../../views/darkroom/processing-modules/wavelets.md) section for details on this technique).
 
 ## module controls
 
@@ -86,7 +86,7 @@ The _retouch tools_ section consists of two items:
 shapes
 : The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer.
 
-: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details).
+: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../views/darkroom/masking-and-blending/masks/drawn.md) for details).
 
 : Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel).
 

@@ -58,7 +58,7 @@ Set [preferences > general > theme](../../preferences-settings/general.md) to "A
 
 Choose an image to edit from the lighttable view and double-click to load that image into the darkroom view. For now try to choose an image that is well exposed -- we will discuss some techniques to recover badly-exposed images later.
 
-In the darkroom view, you will see a list of [processing modules](../../darkroom/processing-modules/_index.md) to the right of your image. Each module performs its own processing on the image, in the order shown in the module list, starting at the bottom of the list and moving up to the top. You can think of this like a stack of building blocks where each block builds on the processing performed by the modules below it.
+In the darkroom view, you will see a list of [processing modules](../../views/darkroom/processing-modules/_index.md) to the right of your image. Each module performs its own processing on the image, in the order shown in the module list, starting at the bottom of the list and moving up to the top. You can think of this like a stack of building blocks where each block builds on the processing performed by the modules below it.
 
 On the left hand side is the [history stack](../../module-reference/utility-modules/darkroom/history-stack.md) (you may need to expand the module), which shows the order in which adjustments were made to the controls of the various modules. This allows you to undo changes by reverting to an earlier step in the history stack. You will see that a number of modules are applied automatically -- these are needed in order to generate a legible image from the Raw data.
 
@@ -82,7 +82,7 @@ The default settings in Ansel are therefore intended to provide you with a neutr
 
 ### module groups
 
-Below the scopes module, at the top right of the screen, is a set of tabs into which Ansel's modules are [grouped](../../darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it.
+Below the scopes module, at the top right of the screen, is a set of tabs into which Ansel's modules are [grouped](../../views/darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it.
 
 ---
 For the purposes of this guide, click on the hamburger icon (to the right of the tabs) and select the "workflow: scene-referred" preset now.
@@ -119,7 +119,7 @@ As you will be adjusting the tones and colors of the image, start by enabling [c
 
 4. **Color preservation**: The tone mapping in the filmic rgb module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear.
 
-5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required.
+5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../views/darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required.
 
    ---
 
@@ -198,7 +198,7 @@ Use the [_crop_](../../module-reference/processing-modules/crop.md) module to cr
 
 Dodging and burning is a traditional darkroom technique to add and remove brightness from an image. There are two recommended ways to achieve this
 
-- If you want to selectively dodge or burn only certain objects you can apply a [new instance](../../darkroom/processing-modules/multiple-instances.md) of the [_exposure_](../../module-reference/processing-modules/exposure.md) module using a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md) to isolate the effect to the required area of the image (see also the [mask refinement](../../darkroom/masking-and-blending/masks/refinement-controls.md) section for more information). Move the exposure slider to alter the brightness of the masked area.
+- If you want to selectively dodge or burn only certain objects you can apply a [new instance](../../views/darkroom/processing-modules/multiple-instances.md) of the [_exposure_](../../module-reference/processing-modules/exposure.md) module using a [drawn mask](../../views/darkroom/masking-and-blending/masks/drawn.md) to isolate the effect to the required area of the image (see also the [mask refinement](../../views/darkroom/masking-and-blending/masks/refinement-controls.md) section for more information). Move the exposure slider to alter the brightness of the masked area.
 - If you wish to dodge or burn areas with a similar brightness (for example, to brighten the shadows or darken the highlights) you should use the [_tone equalizer_](../../module-reference/processing-modules/tone-equalizer.md) module.
 
 #### convert to monochrome
@@ -213,13 +213,13 @@ The [_color balance rgb_](../../module-reference/processing-modules/color-balanc
 
 ### reuse common module settings
 
-If you find yourself using the same module parameters repeatedly, you can create [presets](../../darkroom/processing-modules/presets.md) containing your favorite settings. If you use the same settings on every image, you can also make presets apply automatically to new images. For example, you may find yourself adding the same exposure settings to every image taken by a certain camera -- in this case you can create a preset that automatically applies those corrections only to images from that camera.
+If you find yourself using the same module parameters repeatedly, you can create [presets](../../views/darkroom/processing-modules/presets.md) containing your favorite settings. If you use the same settings on every image, you can also make presets apply automatically to new images. For example, you may find yourself adding the same exposure settings to every image taken by a certain camera -- in this case you can create a preset that automatically applies those corrections only to images from that camera.
 
 You may also have groups of module settings that you commonly apply only to certain types of image. You can use [styles](../../module-reference/utility-modules/lighttable/styles.md) to apply multiple module settings at once to a selection of images.
 
 ### perform adjustments locally
 
-Most Ansel modules can either be applied to the whole image, or restricted to parts of the image using [drawn and parametric masks](../../darkroom/masking-and-blending/masks/_index.md).
+Most Ansel modules can either be applied to the whole image, or restricted to parts of the image using [drawn and parametric masks](../../views/darkroom/masking-and-blending/masks/_index.md).
 
 ### control Ansel with other input methods
 

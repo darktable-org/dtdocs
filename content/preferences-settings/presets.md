@@ -6,7 +6,7 @@ weight: 130
 draft: false
 ---
 
-This menu provides an overview of the [presets](../darkroom/processing-modules/presets.md) that are defined for Ansel's modules, and allows you to modify some of their properties.
+This menu provides an overview of the [presets](../views/darkroom/processing-modules/presets.md) that are defined for Ansel's modules, and allows you to modify some of their properties.
 
 Pre-defined presets (those that are included by default within Ansel) are shown with a lock symbol. Their properties cannot be changed.
 
@@ -16,4 +16,4 @@ Delete a user-defined preset by selecting it and pressing the Delete key.
 
 Edit a user-defined preset's properties by selecting it and pressing Enter or double-clicking. This will open a dialog that allows the preset to be edited, exported to an external `.dtpreset` file or deleted.
 
-See the [creating and editing presets](../darkroom/processing-modules/presets.md#creating-and-editing-presets) section for more information about the other properties that can be edited in this dialog.
+See the [creating and editing presets](../views/darkroom/processing-modules/presets.md#creating-and-editing-presets) section for more information about the other properties that can be edited in this dialog.

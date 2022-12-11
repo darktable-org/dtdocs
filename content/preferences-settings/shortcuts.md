@@ -94,7 +94,7 @@ The mouse cursor will change as you hover over UI widgets, to indicate whether o
 
 - A down arrow with a line ![expand icon](./shortcuts/expand-icon.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
 - A spiral ![spiral icon](./shortcuts/spiral-icon.png#icon) indicates that a shortcut can be defined for the widget under the cursor.
-- An up arrow ![up icon](./shortcuts/up-icon.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
+- An up arrow ![up icon](./shortcuts/up-icon.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../views/darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
 - A down arrow ![down icon](./shortcuts/down-icon.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
 - A cross ![cross icon](./shortcuts/cross-icon.png#icon) indicates that there is no mappable widget under the cursor.
 
@@ -196,7 +196,7 @@ _reset_
 : Acts as a _button_ that resets all module parameters when activated. The _ctrl-activate_ action can be used to re-apply any automatic presets for that module.
 
 _presets_
-: Allows you to select actions from the [presets](../darkroom/processing-modules/presets.md) menu (e.g. edit, update, previous, next). The default action, when assigning a simple shortcut to a _preset_ element, is to display a list of the available presets for selection. Extended shortcuts are not currently available for preset elements.
+: Allows you to select actions from the [presets](../views/darkroom/processing-modules/presets.md) menu (e.g. edit, update, previous, next). The default action, when assigning a simple shortcut to a _preset_ element, is to display a list of the available presets for selection. Extended shortcuts are not currently available for preset elements.
 
 The default action, when assigning a simple shortcut to a utility module, is to _toggle_ the _show_ element (expand/collapse the module).
 
@@ -213,7 +213,7 @@ _focus_
 : Acts as a _toggle_ that focuses or defocuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
 
 _instance_
-: Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action, when assigning a simple shortcut to the _instance_ element, is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
+: Allows you to select actions from the [multiple-instance](../views/darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The default action, when assigning a simple shortcut to the _instance_ element, is to display a list of the available options for selection; An extended shortcut will move the _preferred module instance_ (see below) up and down the pixelpipe.
 
 If an action affects a processing module that can have multiple instances, you can choose which instance to adjust with a given shortcut. By default, all actions will affect the "preferred" instance, as defined using the settings in [preferences > miscellaneous > shortcuts with multiple instances](./miscellaneous.md#shortcuts-with-multiple-instances).
 

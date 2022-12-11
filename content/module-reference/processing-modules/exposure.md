@@ -29,7 +29,7 @@ compensate camera exposure (manual mode)
 : Automatically remove the camera exposure bias (taken from the image's Exif data).
 
 exposure (manual mode)
-: Increase (move to the right) or decrease (move to the left) the exposure value (EV). To adjust by more than the default limits shown on the slider, right click and enter the desired value up to +/-18 EV (see [module controls](../../darkroom/processing-modules/module-controls.md)).
+: Increase (move to the right) or decrease (move to the left) the exposure value (EV). To adjust by more than the default limits shown on the slider, right click and enter the desired value up to +/-18 EV (see [module controls](../../views/darkroom/processing-modules/module-controls.md)).
 : The color picker tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in [spot exposure mapping](#spot-exposure-mapping) options.
 
 clipping threshold (manual mode)

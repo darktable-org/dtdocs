@@ -6,18 +6,18 @@ weight: 50
 draft: false
 ---
 
-Control functionality in the [darkroom](../darkroom/_index.md) view and associated modules.
+Control functionality in the [darkroom](../views/darkroom/_index.md) view and associated modules.
 
 ## general
 
 pen pressure control for brush masks
-: Controls how the pressure reading of a graphics tablet impacts newly generated [drawn mask](../darkroom/masking-and-blending/masks/drawn.md) brush strokes. You can control the brush width, hardness and opacity. “Absolute” control means that the pressure reading directly defines the attribute with a value between 0% and 100%. “Relative” means that the pressure reading adjusts the attribute between zero and the pre-defined default value (default off).
+: Controls how the pressure reading of a graphics tablet impacts newly generated [drawn mask](../views/darkroom/masking-and-blending/masks/drawn.md) brush strokes. You can control the brush width, hardness and opacity. “Absolute” control means that the pressure reading directly defines the attribute with a value between 0% and 100%. “Relative” means that the pressure reading adjusts the attribute between zero and the pre-defined default value (default off).
 
 smoothing of brush strokes
-: Sets the level for smoothing of [drawn mask](../darkroom/masking-and-blending/masks/drawn.md) brush strokes. Stronger smoothing leads to fewer nodes and easier editing at the expense of lower accuracy.
+: Sets the level for smoothing of [drawn mask](../views/darkroom/masking-and-blending/masks/drawn.md) brush strokes. Stronger smoothing leads to fewer nodes and easier editing at the expense of lower accuracy.
 
 scroll down to increase mask parameters
-: By default, scrolling your mouse up increases the value of the relevant shape parameters in [drawn masks](../darkroom/masking-and-blending/masks/drawn.md). Set this preference to reverse the behavior (default off).
+: By default, scrolling your mouse up increases the value of the relevant shape parameters in [drawn masks](../views/darkroom/masking-and-blending/masks/drawn.md). Set this preference to reverse the behavior (default off).
 
 pattern for the image information line
 : Set the information to be displayed in the [image information line](../module-reference/utility-modules/darkroom/image-info-line.md). You can use any variables in the [variables](../special-topics/variables.md) section as well as `$(NL)` for a new line. You can also include [formatting](../special-topics/variables.md#formatting) (bold, italic, colors etc).
@@ -36,7 +36,7 @@ demosaicing for zoomed out darkroom mode
 : - _always bilinear (fast)_ is fastest, but not as sharp
 : - _at most RCD (reasonable)_ uses RCD + interpolation modes. X-Trans sensors will use VNG as the middle-ground setting.
 : - _full (possibly slow)_ will use the settings from the [_demosaic_](../module-reference/processing-modules/demosaic.md) module.
-: (default "_at most RCD (reasonable)_"). 
+: (default "_at most RCD (reasonable)_").
 
 reduce resolution of preview image
 : Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color picking and masking (default "original").
@@ -47,7 +47,7 @@ show loading screen between images
 ## modules
 
 display of individual color channels
-: Control how individual color channels are displayed when activated in the [parametric masks](../darkroom/masking-and-blending/masks/parametric.md) feature. You can choose between “false color” and “gray scale” (default "false color").
+: Control how individual color channels are displayed when activated in the [parametric masks](../views/darkroom/masking-and-blending/masks/parametric.md) feature. You can choose between “false color” and “gray scale” (default "false color").
 
 hide built-in presets for processing modules
 : If enabled, only user-defined presets will be shown in the presets menu for processing modules -- built-in presets will be hidden (default off).
@@ -68,7 +68,7 @@ scroll to processing modules when expanded/collapsed
 : With this option enabled [processing modules](../module-reference/processing-modules/_index.md) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
 
 show right-side buttons in processing module headers
-: Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection:
+: Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../views/darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection:
 : - _always_: always show all buttons
 : - _active_: only show the buttons when the mouse is over the module
 : - _dim_: buttons are dimmed when mouse is not over the module
@@ -80,7 +80,7 @@ show right-side buttons in processing module headers
 : (default _always_)
 
 show mask indicator in module headers
-: If enabled, an icon will be shown in the header of any processing modules that have a [mask](../darkroom/masking-and-blending/masks/_index.md) applied (default on).
+: If enabled, an icon will be shown in the header of any processing modules that have a [mask](../views/darkroom/masking-and-blending/masks/_index.md) applied (default on).
 
 prompt for name on addition of new instance
 : If enabled, when creating a new instance of a processing module, a prompt will be immediately displayed allowing you to set a name for the new instance (default off).

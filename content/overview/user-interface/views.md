@@ -12,7 +12,7 @@ The functionality in Ansel is separated into six different views:
 [lighttable](../../lighttable/_index.md)
 : Manage images and collections.
 
-[darkroom](../../darkroom/_index.md)
+[darkroom](../../views/darkroom/_index.md)
 : Develop a single image.
 
 [map](../../map/_index.md)

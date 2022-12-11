@@ -9,7 +9,7 @@ view: darkroom
 
 Change the order of the [processing modules](../../processing-modules/_index.md) in the darkroom using presets.
 
-When processing an image, the active modules are applied in a specific order, which is shown in the right-hand panel of the darkroom view. This module provides information about the current ordering of the processing modules in the [pixelpipe](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md). The name of the currently-selected preset is shown in the module header (or "custom" if the user has manually modified the order). The following presets are available for selection.
+When processing an image, the active modules are applied in a specific order, which is shown in the right-hand panel of the darkroom view. This module provides information about the current ordering of the processing modules in the [pixelpipe](../../../views/darkroom/pixelpipe/the-pixelpipe-and-module-order.md). The name of the currently-selected preset is shown in the module header (or "custom" if the user has manually modified the order). The following presets are available for selection.
 
 v3.0 RAW
 : This is the default module order for scene-referred RAW development workflow. This should be used for new edits of RAW files and assumes a linear RGB input.
@@ -26,4 +26,4 @@ legacy
 
 ---
 
-For more information about changing module order please refer to [the pixelpipe & module order](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
+For more information about changing module order please refer to [the pixelpipe & module order](../../../views/darkroom/pixelpipe/the-pixelpipe-and-module-order.md).

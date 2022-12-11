@@ -13,7 +13,7 @@ Manage all masks and shapes for the current image.
 
 This module can be used to create, rename, edit and delete shapes. You can add shapes to and remove shapes from a mask, group shapes together, and combine them using set operators.
 
-The top line of the mask manager panel contains buttons that can be used to create new shapes. These are the same as in the [drawn mask](../../../darkroom/masking-and-blending/masks/drawn.md) interface of in processing modules.
+The top line of the mask manager panel contains buttons that can be used to create new shapes. These are the same as in the [drawn mask](../../../views/darkroom/masking-and-blending/masks/drawn.md) interface of in processing modules.
 
 The panel below these buttons displays a list of all masks and individual shapes defined for the current image.
 
