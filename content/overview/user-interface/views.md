@@ -18,10 +18,10 @@ The functionality in Ansel is separated into six different views:
 [map](../../map/_index.md)
 : Show geo-tagged images on a map and manually geo-tag new images.
 
-[print](../../print/_index.md)
+[print](../../views/print/_index.md)
 : Send images to a printer.
 
-[slideshow](../../slideshow/_index.md)
+[slideshow](../../views/slidershow/_index.md)
 : Display images as a slideshow, processing them on-the-fly.
 
 You can switch between views by clicking the view name at the top of the right-hand panel (the currently active view is highlighted) or by using one of the following keyboard shortcuts:

@@ -7,7 +7,7 @@ tags:
 view: print
 ---
 
-Manage settings for the [print view](../../../print/_index.md) and initiate printing.
+Manage settings for the [print view](../../../views/print/_index.md) and initiate printing.
 
 ## module controls
 

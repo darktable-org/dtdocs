@@ -9,7 +9,7 @@ author: "people"
 
 The central area displays the image layout on the paper (the white area). Some gray borders may be displayed around the image to represent the printable area (the page minus the borders) not filled by the image.
 
-The [filmstrip](../modules/utility-modules/shared/filmstrip.md) below the image allows you to select more images.
+The [filmstrip](../../modulesutility-modules/shared/filmstrip.md) below the image allows you to select more images.
 
 ### overlays
 
@@ -19,13 +19,13 @@ Images are inset along one dimension of their bounding box when they do not matc
 
 ## left panel
 
-[collections](../modules/utility-modules/shared/collections.md)
+[collections](../../modulesutility-modules/shared/collections.md)
 : Filter the list of images displayed in the lighttable.
 
-[image information](../modules/utility-modules/shared/image-information.md)
+[image information](../../modulesutility-modules/shared/image-information.md)
 : Display image information
 
 ## right panel
 
-[print settings](../modules/utility-modules/print/print-settings.md)
+[print settings](../../modulesutility-modules/print/print-settings.md)
 : Adjust print settings and initiate printing.
