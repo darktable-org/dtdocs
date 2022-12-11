@@ -2,7 +2,7 @@
 title: color management
 date: 2022-12-04T02:19:02+01:00
 id: color-management
-weight: 10
+weight: 95
 draft: false
 author: "people"
 ---
