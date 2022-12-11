@@ -9,7 +9,7 @@ author: "people"
 
 Processing modules are organized and accessed via the right-hand panel in the darkroom:
 
-![organization](./organization/organization.png#w33)
+![organization](./overview/organization.png#w33)
 
 Click on the icons at the top of this panel to reveal, from left to right,
 
@@ -20,7 +20,7 @@ Click on the icons at the top of this panel to reveal, from left to right,
 : A group containing the modules that are currently active in the pixelpipe.  Right-click to show all modules that are present in the [history stack](../pixelpipe/history-stack.md) within the active group, regardless of whether or not they are actually active.
 
 [module groups](./module-groups.md)
-: One or more groups of processing modules. These groups are user-defined but some default groupings are provided as presets.
+: One or more groups of processing modules. These groups are user-defined but some default groupings are provided as presets.content/darkroom/organization
 
 [presets menu](./manage-module-layouts.md)
 : A menu that allows you to access stored module layout presets and create your own (via the "manage presets.." option). You can also directly access the "manage presets" dialog by Ctrl+clicking on the presets menu.

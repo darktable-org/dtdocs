@@ -48,7 +48,7 @@ Ansel resources
 : - _default_ takes roughly 60% of your system memory and 70% of your GPU memory. This mode is recommended if you're not exporting a lot of images, have at least 16Gb of system memory and 4Gb of GPU memory, and also are running a lot of other application at the same time as Ansel.
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using Ansel on your system and/or are exporting a lot of images.
 : - _unrestricted_ is not generally recommended. In this mode Ansel may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that Ansel cannot otherwise handle.
-: See the [memory & performance tuning](../special-topics/mem-performance.md#Ansel-resources) section for more information.
+: See the [memory & performance tuning](../special-topics/mem-performance.md#ansel-resources) section for more information.
 
 prefer performance over quality
 : Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.

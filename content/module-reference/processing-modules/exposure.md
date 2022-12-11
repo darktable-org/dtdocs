@@ -50,7 +50,7 @@ black level correction (manual and automatic modes)
 
 ## spot exposure mapping
 
-The spot mapping feature is designed to help with [batch-editing](batch-editing.md) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
+The spot mapping feature is designed to help with [batch-editing](https://ansel.photos/workflows/batch-editing) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
 
 Unfortunately, the light often changes slightly between shots, even within the same series captured in the same conditions. This can be the result of a cloud passing by the sun in natural light, surface reflections having less "shine" from a different angle, or simply due to unavoidable variability in the mechanical diaphragm aperture. Each image will still need some individual fine-tuning if you want a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
 
