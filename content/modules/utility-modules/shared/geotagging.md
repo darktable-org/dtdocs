@@ -9,7 +9,7 @@ view: lighttable
 
 Import and apply GPX track data to a selection of images.
 
-This module is common to the [lighttable](../../../lighttable/_index.md) and [map](../../../map/_index.md) views. The map view provides an enhanced mode that allows you to preview the position of the images along the GPS tracks while adjusting the images' date/time offset and time zone.
+This module is common to the [lighttable](../../../views/lighttable/_index.md) and [map](../../../map/_index.md) views. The map view provides an enhanced mode that allows you to preview the position of the images along the GPS tracks while adjusting the images' date/time offset and time zone.
 
 ## workflow overview
 

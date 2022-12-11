@@ -43,10 +43,10 @@ resync local copy
 : Synchronize the XMP sidecar of the local copy of each selected image with the copy in external storage, and remove the local copies. Note that if a local copy has been modified and the external storage is not accessible the local copy will not be deleted (see [local copies](../../../overview/sidecar-files/local-copies.md)).
 
 group
-: Create a new group from the selected images (see [image grouping](../../../lighttable/digital-asset-management/grouping.md)).
+: Create a new group from the selected images (see [image grouping](../../../views/lighttable/digital-asset-management/grouping.md)).
 
 ungroup
-: Remove the selected images from their group (see [image grouping](../../../lighttable/digital-asset-management/grouping.md)).
+: Remove the selected images from their group (see [image grouping](../../../views/lighttable/digital-asset-management/grouping.md)).
 
 ### metadata tab
 

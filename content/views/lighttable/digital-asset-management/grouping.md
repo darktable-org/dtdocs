@@ -13,7 +13,7 @@ You can combine images into a group by selecting them and clicking the â€œgroupâ
 
 Duplicated images are automatically grouped together. Similarly, if you import multiple images from the same directory, having the same base name, but different extensions (eg. `IMG_1234.CR2` and `IMG_1234.JPG`), those images automatically form a group.
 
-Images that are members of a group are denoted by a group icon ![top panel_grouping icon](./grouping/top-panel_grouping.png#icon) in their thumbnails. Note that this icon is only shown when "overlays" are displayed on image thumbnails. Thumbnail overlays can be enabled by selecting the star icon in the [top panel](../../overview/user-interface/top-panel.md).
+Images that are members of a group are denoted by a group icon ![top panel_grouping icon](./grouping/top-panel_grouping.png#icon) in their thumbnails. Note that this icon is only shown when "overlays" are displayed on image thumbnails. Thumbnail overlays can be enabled by selecting the star icon in the [top panel](../../../overview/user-interface/top-panel.md).
 
 This icon also appears as a button, in the top panel of the lighttable view, that can be used to toggle grouping on and off. If grouping is off, all images are displayed as individual thumbnails. If grouping is on, the images in a group are represented by a single thumbnail image (the group leader). If you press the group icon in the group leader's thumbnail, that group is expanded (click a second time to collapse). If you then expand another group, the first group collapses.
 
