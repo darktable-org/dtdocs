@@ -9,11 +9,11 @@ author: "people"
 
 Processing modules are organized and accessed via the right-hand panel in the darkroom:
 
-![organization](overview/organization.png#w33)
+![organization](./overview/organization.png#w33)
 
 Click on the icons at the top of this panel to reveal, from left to right,
 
-![quick access](./overview/quick-access-panel-icon.png) [quick access panel](./quick-access-panel.md#icon)
+![quick access](./overview/quick-access-panel-icon.png#icon)
 : A customizable panel allowing quick access to commonly-used module controls.
 
 ![module-group-active-icon](./overview/module-group-active-icon.png#icon) active modules
