@@ -32,7 +32,7 @@ The _color balance RGB_ module is an improvement over the [American Society of C
 
 This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_), in a linear RGB color space designed specifically for color-grading. This color space exhibits a uniform spacing of perceptual hues while retaining a physically-scaled luminance[^1]. The perceptual part of the module (_saturation_ and _brilliance_) works in the JzAzBz[^2] color space, which provides a perceptual scaling of both lightness and chromaticity suitable for HDR images. Both color spaces ensure that saturation and chroma changes take place at constant hue, which is not the case for most other saturation operators in Ansel (notably in the older [_color balance RGB_](./color-balance-rgb.md) module).
 
-[^1]: Richard A. Kirk, Chromaticity coordinates for graphic arts based on CIE 2006 LMS with even spacing of Munsell colours, 2019. <https://doi.org/10.2352/issn.2169-2629.2019.27.38>
+[^1]: Richard A. Kirk, Chromaticity coordinates for graphic arts based on CIE 2006 LMS with even spacing of Munsell colours, 2019.
 
 [^2]: Safdar et al., Perceptually uniform color space for image signals including high dynamic range and wide gamut, 2017. <https://doi.org/10.1364/OE.25.015131>
 
