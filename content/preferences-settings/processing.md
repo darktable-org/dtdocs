@@ -48,7 +48,7 @@ Ansel resources
 : - _default_ takes roughly 60% of your system memory and 70% of your GPU memory. This mode is recommended if you're not exporting a lot of images, have at least 16Gb of system memory and 4Gb of GPU memory, and also are running a lot of other application at the same time as Ansel.
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using Ansel on your system and/or are exporting a lot of images.
 : - _unrestricted_ is not generally recommended. In this mode Ansel may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that Ansel cannot otherwise handle.
-: See the [memory & performance tuning](../special-topics/mem-performance.md#ansel-resources) section for more information.
+: See the [memory & performance tuning](../performance/mem-performance.md#ansel-resources) section for more information.
 
 prefer performance over quality
 : Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
@@ -59,19 +59,19 @@ enable disk backend for thumbnail cache
 enable disk backend for full preview cache
 : If enabled, Ansel writes full preview images to disk (`.cache/Ansel/`) when evicted from the memory cache. Note that this can take a lot of storage (several gigabytes for 20k images) and Ansel will never delete cached images. It's safe to delete these manually if you want. Enabling this option will greatly improve lighttable performance when zooming an image in full preview mode (default off).
 
-activate [OpenCL](../special-topics/opencl/_index.md) support
+activate [OpenCL](../performance/opencl_index.md) support
 : Your GPU can be used by Ansel to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found the option is grayed out. Can be switched on and off at any time and takes immediate effect (default on).
 
 OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems:
 : - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe,
 : - _very fast GPU_: both pixelpipes are processed sequentially on the GPU.
-: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information,
+: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../performance/openclmultiple-devices.md) section for more information,
 
 tune OpenCL performance
 : Defines how Ansel will attempt to tune OpenCL performance for your system. The following options are provided (default _nothing_):
 : - _nothing_: do not attempt to tune OpenCL performance.
-: - _memory size_: this parameter currently (by default) applies a fixed 400MB headroom to all devices and assumes the remainder (total device memory less 400MB) is available for OpenCL module processing. You can also choose to amend this value or have Ansel attempt to auto-detect available memory by changing a parameter in your `Anselrc` file. Please see the [memory & performance tuning](../special-topics/mem-performance.md#id-specific-opencl-configuration) section for more details. If you choose to enable auto-detection, switching this parameter off and on again will force a re-detection at the next pipe run.
+: - _memory size_: this parameter currently (by default) applies a fixed 400MB headroom to all devices and assumes the remainder (total device memory less 400MB) is available for OpenCL module processing. You can also choose to amend this value or have Ansel attempt to auto-detect available memory by changing a parameter in your `Anselrc` file. Please see the [memory & performance tuning](../performance/mem-performance.md#id-specific-opencl-configuration) section for more details. If you choose to enable auto-detection, switching this parameter off and on again will force a re-detection at the next pipe run.
 : - _memory transfer_: when Ansel needs more memory than it has available, it breaks your images into tiles, which are processed separately. When tiling, Ansel frequently needs to transfer data between system and GPU memory. This option tells Ansel to use a special copy mode (pinned memory transfer), which can be faster, but can also require more memory on some devices. On other devices it might degrade performance. There is no safe general way to predict how this option will function on a given device so you will have to test it for yourself. If you have multiple devices, you can switch pinned memory transfer on or off on a "per device" basis by directly editing your Anselrc file.
 : - _memory size and transfer_: use both tuning mechanisms.
-: See the [memory & performance tuning](../special-topics/mem-performance.md) section for more information.
+: See the [memory & performance tuning](../performance/mem-performance.md) section for more information.
