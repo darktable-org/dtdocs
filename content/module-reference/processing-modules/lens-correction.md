@@ -57,7 +57,7 @@ corrections done
 
 ---
 
-**Note:** TCA corrections will not be applied to images that have been identified as monochrome (see [developing monochrome images](monochrome.md) for more information).
+**Note:** TCA corrections will not be applied to images that have been identified as monochrome by their metadata, like the files produced by the Leica M10 Monochrom.
 
 **Note:** The lens correction module will fill in missing data at the borders by repeating the borders' pixels. For strong corrections, this filling can be visible (especially on noisy images). Crop the image if necessary.
 

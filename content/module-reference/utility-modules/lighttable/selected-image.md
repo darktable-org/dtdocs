@@ -69,7 +69,7 @@ refresh exif
 : Refresh the Exif data from the source file. Warning: this may overwrite some tags and metadata that you have altered in darktable (such as star ratings).
 
 monochrome
-: Flag the image as monochrome, meaning that it will receive any monochrome-specific workflow treatment that is offered by the processing modules. Refer to the [developing monochrome images](monochrome.md) section for more details.
+: Flag the image as monochrome, meaning that it will receive any monochrome-specific workflow treatment that is offered by the processing modules.
 
 color
 : Remove the monochrome flag from the image so that it will receive the default workflow treatment that is normally used when developing color photos.

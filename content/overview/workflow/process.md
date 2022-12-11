@@ -205,8 +205,6 @@ Dodging and burning is a traditional darkroom technique to add and remove bright
 
 Ansel provides a number of ways to remove the color from your image. The most flexible method is to use the [_gray tab of the color calibration module_](../../module-reference/processing-modules/color-calibration.md#gray-tab). A number of film emulation presets are available in this module to provide you with a starting point.
 
-See the [developing monochrome images](monochrome.md) section for details of other techniques.
-
 #### color grading
 
 The [_color balance rgb_](../../module-reference/processing-modules/color-balance-rgb.md) module is your one-stop-shop for controlling the colors in your image. Adjustments can be isolated to the shadows, highlights and mid-tones, or applied at a global level.

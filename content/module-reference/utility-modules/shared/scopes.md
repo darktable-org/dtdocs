@@ -49,7 +49,7 @@ Clicking the second-to-leftmost button on the panel toggles between a horizontal
 
 As with the histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
 
-See [Of Histograms and Waveforms](https://www.ansel.photos/2013/12/of-histograms-and-waveforms/) for more on Ansel's waveform scope.
+See [Of Histograms and Waveforms](https://www.darktable.org/2013/12/of-histograms-and-waveforms/) for more on Ansel's waveform scope.
 
 ## rgb parade
 
@@ -73,7 +73,7 @@ The distance from the center of the graph represents chroma and the angle repres
 
 The vectorscope chroma scale can either be linear or logarithmic. Click the second-to-leftmost button on the panel to toggle this.
 
-The vectorscope can describe the image in the [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) colorspace. Clicking the third-to-leftmost button on the panel cycles between u\*v\*, AzBz and RYB. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
+The vectorscope can describe the image in the [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://opg.optica.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) colorspace. Clicking the third-to-leftmost button on the panel cycles between u\*v\*, AzBz and RYB. The CIELUV graph will be faster to calculate, and is a well-known standard. JzAzBz may be more perceptually accurate.
 
 The graph includes a "hue ring" representing the maximum chroma of each hue (in bounded RGB) of the current histogram profile. The RGB primaries/secondaries are marked by circles.
 
