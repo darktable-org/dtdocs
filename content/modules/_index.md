@@ -5,6 +5,7 @@ id: module-reference
 weight: 80
 draft: false
 author: "people"
+alias: [module-reference]
 ---
 
 The modules in this reference section are broken down into two distinct types:
