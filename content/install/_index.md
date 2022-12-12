@@ -15,7 +15,9 @@ Ansel development and release path follows 3 channels :
 
 1. A __production channel__, which can be found on the [master branch](https://github.com/aurelienpierreeng/ansel). It contains tested code supposed to work reliably for daily use.
 2. A __pre-release channel__, backward-compatible with the production channel _(so you can switch from one to another without breaking your image edits)_, which can be found on the [candidate branch](https://github.com/aurelienpierreeng/ansel/tree/candidate). It is meant for general testing of new changes but stays relatively safe to use. The features being currently tested on this branch can be found under the _Testing_ column, in the [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1).
-3. An __experimental channel__, __non-backward-compatible__ with either the production or pre-release channels, which can be found on the [dev branch](https://github.com/aurelienpierreeng/ansel/tree/dev). This channel needs to be used aside of the production install since it contains prototypes of new modules, new versions of old modules, and other features that will update the version of the [Ansel database](../preferences-settings/storage#database), making it incompatible with previous versions.
+3. An __experimental channel__, __non-backward-compatible__ with either the production or pre-release channels, which can be found on the [dev branch](https://github.com/aurelienpierreeng/ansel/tree/dev). The features being currently tested on this branch can be found under the _In progress_ column, in the [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1).This channel needs to be used aside of the production install since it contains prototypes of new modules, new versions of old modules, and other features that will update the version of the [Ansel database](../preferences-settings/storage#database), making it incompatible with previous versions.
+
+At all time, the  [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1) will show what changes are being currently worked on in the non-production channels, with links to their pull request and issue, to help traceability of changes and bug reports.
 
 ### Ansel versioning
 
@@ -38,9 +40,10 @@ graph TD;
 	candidate[/Pre-release/];
 	dev[/Experimental/];
 	master2[/Stable/];
+	master3[/Stable/];
 
-	master -------> m1((Merge));
-	master ------> m2((Merge));
+	master --> m1((Merge));
+	master --> m2((Merge));
 	m1 --> master2;
 
 	master --> dev;
@@ -65,8 +68,9 @@ graph TD;
 	t2 --> r2{Bugs ?};
 	r2 -- no ---> p1([fa:fa-tag Tag new minor version])
 	r2 -- yes --> f2[Fix];
-	f2 ---> t2;
-	p1 -----------> master;
+	f2 --> t2;
+	p1 --> master3;
+
 ```
 
 This graph shows how tests are dispatched in the general development workflow. Pre-built "nightly" packages are provided for all the channels (stable, pre-release and experimental) for all the platforms (Linux, Windows, Mac OS) and can be tested directly by anyone without having to compile. After some time without bug reports, the pre-release and experimental channels are successively merged into the stable channel, letting some time between both merges.
