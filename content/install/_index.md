@@ -24,7 +24,7 @@ The __production channel__ is versioned as follow :
 1. All versions having the same major version number (`v0.x`, `v1.x`, `v2.x`) produce editing histories that are compatible with each other and use the same internal [database](../preferences-settings/storage#database) version. Major version numbers are upgraded every time changes are introduced that break this property, such as new modules, database structure changes, or new versions of old modules.
 2. Minor version numbers are upgraded every time new changes are made that don't break compatibility within the major version, like GUI refactorings and bug fixes.
 3. The major version `v0.x` is compatible with darktable 4.0 and 4.0.1 image editing histories, which means it is also compatible with edits made with any darktable version earlier than 4.0. Ansel will not maintain compatibility with upstream darktable for future versions after `v0.x`, since darktable 4.2 will introduce nonsensical changes that will stay the burden of the darktable team only.
-4. Versions are tested snapshots of the __production channel__. This channel will keep getting changes, notably from the __pre-release channel__, supposed to be safe between versions.
+4. Versions are tested snapshots of the __production channel__. This channel will keep getting changes in-between versions, notably from the __pre-release channel__, supposed to be safe between versions.
 
 ### Ansel testing
 
@@ -39,28 +39,31 @@ graph TD;
 	dev[/Experimental/];
 	master2[/Stable/];
 
-	master ------> m1((Merge));
+	master -------> m1((Merge));
+	master ------> m2((Merge));
 	m1 --> master2;
+
 	master --> dev;
-	master --> candidate;
-
-	candidate --> c1[fa:fa-code Make safe changes];
-	c1 --> t1[fa:fa-clock Testing];
-	t1 --> r1{Bugs ?};
-	r1 -- no ---> m1;
-	r1 -- yes --> f1[Fix];
-	f1 ---> t1;
-
 	dev --> c3[fa:fa-code Make unsafe changes];
 	c3 --> t3[fa:fa-clock Testing];
 	t3 --> r3{Bugs ?};
-	r3 -- no ---> m1;
+	r3 -- no --> m2;
 	r3 -- yes --> f3[Fix];
 	f3 --> t3;
+	m2 --> p2([fa:fa-tag Tag new major version]);
+	p2 --> master2;
+
+	master --> candidate;
+	candidate --> c1[fa:fa-code Make safe changes];
+	c1 --> t1[fa:fa-clock Testing];
+	t1 --> r1{Bugs ?};
+	r1 -- no --> m1;
+	r1 -- yes --> f1[Fix];
+	f1 ---> t1;
 
 	master2 --> t2[fa:fa-clock Testing];
 	t2 --> r2{Bugs ?};
-	r2 -- no ---> p1([fa:fa-tag Tag new release])
+	r2 -- no ---> p1([fa:fa-tag Tag new minor version])
 	r2 -- yes --> f2[Fix];
 	f2 ---> t2;
 	p1 -----------> master;
