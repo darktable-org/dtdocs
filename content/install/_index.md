@@ -88,4 +88,36 @@ Major, minor and maintenance versions are released when they are ready.
 
 ## Ugrading between major releases
 
-Major releases are defined by the fact that the [Ansel database](../preferences-settings/storage#database) structure will be upgraded and therefore will not be usable by previous major releases. Before the ugrading process starts, Ansel automatically backs up the database in the configuration folder, appending the version number to the database filename. To restore this backup, rename it by removing the version number.
+Major releases are defined by the fact that the [Ansel database](../preferences-settings/storage#database) structure will be upgraded and therefore will not be usable by previous major releases. Before the ugrading process starts, Ansel automatically backs up the database in the configuration folder, appending the new version number to the database filename. 
+
+The configuration folder of Ansel is located by default at :
+* `$HOME/.config/ansel` for Mac OS and Linux
+* `C:\%LOCALAPPDATA%\ansel` on Windows.
+
+In this configuration folder, the image editing histories are stored in the file `library.db` and the presets, styles, and other preferences are stored in the file `data.db`. 
+
+If you upgrade, for example, from version 2.6 to 3.0, both files are backed up under the respective names `library.db-pre-3.0`  and `data.db-pre-3.0`. If, for some reason, you want to go back to the previous 2.6 version after having upgraded to 3.0, you just need to remove the `pre-3.0` suffixes from the file names to restore your back-ups. Any editing you may have done with the 3.0 version will be lost without a chance of being recovered in that case, unless you manually back up `library.db` and `data.db` for a future where you will use the 3.0 version.
+
+{{< warning >}}
+There is no backup mechanism in place for the [XMP sidecar files](./overview/sidecar-files/sidecar.md), but they can be restored from the `library` database, which means you need to keep it clean and up-to-date.
+{{</ warning >}}
+
+## Importing darktable configuration files
+
+The configuration folder of darktable is located by default at :
+ - `$HOME/.config/darktable` for Mac OS and Linux
+ - `C:\%LOCALAPPDATA%\darktable` on Windows.
+
+Ansel re-uses the same folder structure, where `darktable` is replaced by `ansel`. Since Ansel is based on darktable 4.0, you can import your darktable 4.0 and earlier configuration files by copy-pasting the following files from the darktable configuration folder to the Ansel's one :
+- `library.db`, 
+- `data.db`,
+- `shortcutsrc`,
+- `darktablerc`, which will need to be renamed `anselrc` after copying.
+
+From there, you can continue to work just as before. Ansel can be installed alongside darktable.
+
+{{< danger >}}
+darktable and Ansel can store the images editing histories in [XMP sidecar files](./overview/sidecar-files/sidecar.md). Since they use the same XMP tags, the last application to have opened the image will set its own history within the XMP. This is not a real issue for darktable 4.0 and Ansel 0.0 since their [pixel pipelines](./views/darkroom/pixelpipe/_index.md) are compatible, but the compatibility will be broken in the future.
+
+Both applications load the editing histories in priority from their database and can crawl the image folders to detect if the XMP edits are more recent than the database ones. In that case, they will prompt a window asking if the files should be synchronized and in which direction. Never synchronize from XMP to database if you use both applications. 
+{{</ danger >}}

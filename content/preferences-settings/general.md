@@ -30,7 +30,7 @@ In addition to selecting a pre-built theme you can also apply additional CSS cus
 Two different methods are provided for this:
 
 create a custom theme
-: If you wish to make a large number of changes to Ansel's UI you may wish to create your own theme (in a `.css` file) and place it in `$HOME/.config/Ansel/themes` (or `C:\%LOCALAPPDATA%\Ansel\themes` on Windows). Your new theme will automatically appear in the _theme_ selection list the next time you restart Ansel.
+: If you wish to make a large number of changes to Ansel's UI you may wish to create your own theme (in a `.css` file) and place it in `$HOME/.config/ansel/themes` (or `C:\%LOCALAPPDATA%\ansel\themes` on Windows). Your new theme will automatically appear in the _theme_ selection list the next time you restart Ansel.
 
 : Please note that the structure of Ansel's internal CSS changes frequently and you may need to make significant changes to your own themes when new versions of Ansel are released. For this reason (among others) we do not recommend creating complex custom themes unless you are willing to devote a lot of time to ongoing maintenance. If your theme loads any of Ansel's pre-built themes using the `@import url` directive, note that your CSS theme file may not be portable between installations (`@import url` uses relative paths and the location of the pre-built themes is system-dependent).
 
