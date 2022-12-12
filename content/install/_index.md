@@ -1,7 +1,7 @@
 ---
 title: Install
 date: 2022-12-11
-lastmod: 2022-12-12
+lastmod: 2022-12-12
 weight: 10
 draft: false
 author: "people"
@@ -23,12 +23,12 @@ The __production channel__ is versioned as follow :
 
 1. All versions having the same major version number (`v0.x`, `v1.x`, `v2.x`) produce editing histories that are compatible with each other and use the same internal [database](../preferences-settings/storage#database) version. Major version numbers are upgraded every time changes are introduced that break this property, such as new modules, database structure changes, or new versions of old modules.
 2. Minor version numbers are upgraded every time new changes are made that don't break compatibility within the major version, like GUI refactorings and bug fixes.
-3. The major version `v0.x` is compatible with darktable 4.0 and 4.0.1 image editing histories, which means it is also compatible with edits made with any darktable version earlier than 4.0. Ansel will not maintain compatibility with upstream darktable for future versions after `v0.x`, since darktable 4.2 will introduce nonsensical changes that will stay the burden of the darktable team only. 
+3. The major version `v0.x` is compatible with darktable 4.0 and 4.0.1 image editing histories, which means it is also compatible with edits made with any darktable version earlier than 4.0. Ansel will not maintain compatibility with upstream darktable for future versions after `v0.x`, since darktable 4.2 will introduce nonsensical changes that will stay the burden of the darktable team only.
 4. Versions are tested snapshots of the __production channel__. This channel will keep getting changes, notably from the __pre-release channel__, supposed to be safe between versions.
 
 ### Ansel testing
 
-Tests are important because I develop and use Ansel on Linux Fedora, and I have no way of knowing how it works on other OS. A [continuous integration](https://github.com/aurelienpierreeng/ansel/actions/workflows/ci.yml) bot automatically tests building and basic execution (processing a test picture through the [CLI variant](../cli/ansel-cli) of the software), on Windows 10, Linux Ubuntu 20.04 and 22.04 and Mac OS 11.7 and 12.6. On each OS, the CI bot builds using GCC 9 to GCC 12 and Clang 12 to 14. 
+Tests are important because I develop and use Ansel on Linux Fedora, and I have no way of knowing how it works on other OS. A [continuous integration](https://github.com/aurelienpierreeng/ansel/actions/workflows/ci.yml) bot automatically tests building and basic execution (processing a test picture through the [CLI variant](../cli/ansel-cli) of the software), on Windows 10, Linux Ubuntu 20.04 and 22.04 and Mac OS 11.7 and 12.6. On each OS, the CI bot builds using GCC 9 to GCC 12 and Clang 12 to 14.
 
 But those continuous integration tests are not enough as they don't encompass a real desktop use with a graphical interface and will not show runtime errors. The different channels are meant to gradually push changes to production.
 
@@ -64,12 +64,9 @@ graph TD;
 	r2 -- yes --> f2[Fix];
 	f2 ---> t2;
 	p1 -----------> master;
-	
+
 ```
 
 ### Release schedule
 
 The __production channel__ is updated in a rolling-release fashion. Each change triggers automatic builds on Linux, Windows and Mac OS, producing "nightly" packages that can be directly downloaded and installed on each platform. You can subscribe to these nightly builds to update Ansel in a rolling-release fashion.
-
-
-
