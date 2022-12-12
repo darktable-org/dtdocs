@@ -47,7 +47,7 @@ graph TD;
 	dev --> c3[fa:fa-code Make unsafe changes];
 	c3 --> t3[fa:fa-clock Testing];
 	t3 --> r3{Bugs ?};
-	r3 -- no --> m2;
+	r3 -- no ---> m2;
 	r3 -- yes --> f3[Fix];
 	f3 --> t3;
 	m2 --> p2([fa:fa-tag Tag new major version]);
@@ -57,7 +57,7 @@ graph TD;
 	candidate --> c1[fa:fa-code Make safe changes];
 	c1 --> t1[fa:fa-clock Testing];
 	t1 --> r1{Bugs ?};
-	r1 -- no --> m1;
+	r1 -- no ---> m1;
 	r1 -- yes --> f1[Fix];
 	f1 ---> t1;
 
@@ -67,8 +67,11 @@ graph TD;
 	r2 -- yes --> f2[Fix];
 	f2 ---> t2;
 	p1 -----------> master;
-
 ```
+
+This graph shows how tests are dispatched in the general development workflow. Pre-built "nightly" packages are provided for all the channels (stable, pre-release and experimental) for all the platforms (Linux, Windows, Mac OS) and can be tested directly by anyone without having to compile. After some time without bug reports, the pre-release and experimental channels are successively merged into the stable channel, letting some time between both merges.
+
+After some time with no bug report in the stable channel, a new minor release gets tagged. This means that the `x.0` major versions are less tested than the `x.0.1` and `x.1.0`, and should be avoided in environments where stability is the priority.
 
 ### Release schedule
 
