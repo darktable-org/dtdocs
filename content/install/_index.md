@@ -13,9 +13,20 @@ author: "people"
 
 Ansel development and release path follows 3 channels :
 
-1. A __production channel__, which can be found on the [master branch](https://github.com/aurelienpierreeng/ansel). It contains tested code supposed to work reliably for daily use. The features being merged in this branch can be found under the _Done_ column, in the [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1).
-2. A __pre-release channel__, backward-compatible with the production channel _(so you can switch from one to another without breaking your image edits)_, which can be found on the [candidate branch](https://github.com/aurelienpierreeng/ansel/tree/candidate). It is meant for general testing of new changes but stays relatively safe to use. The features being currently tested on this branch can be found under the _Testing_ column, in the [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1).
-3. An __experimental channel__, __non-backward-compatible__ with either the production or pre-release channels, which can be found on the [dev branch](https://github.com/aurelienpierreeng/ansel/tree/dev). The features being currently tested on this branch can be found under the _In progress_ column, in the [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1).This channel needs to be used aside of the production install since it contains prototypes of new modules, new versions of old modules, and other features that will update the version of the [Ansel database](../preferences-settings/storage#database), making it incompatible with previous versions.
+1. A __production channel__ :
+	1. linked to the Git [master branch](https://github.com/aurelienpierreeng/ansel),
+	2. contains tested code supposed to work reliably for daily use,
+	3. contains features found under the _Done_ column, in the [project management board](https://github.com/orgs/aurelienpierreeng/projects/1).
+2. A __pre-release channel__ :
+	1. backward-compatible with the production channel _(so you can switch from one to another without breaking your image edits)_, 
+	2. linked to the Git [candidate branch](https://github.com/aurelienpierreeng/ansel/tree/candidate),
+	3. contains code to test before integration in production channel but still relatively safe to use,
+	4. contains features found under the _Testing_ column, in the [project management board](https://github.com/orgs/aurelienpierreeng/projects/1).
+3. An __experimental channel__ : 
+	1. __non-backward-compatible__ with either the production or pre-release channels, 
+	2. linked to the Git [dev branch](https://github.com/aurelienpierreeng/ansel/tree/dev),
+	3. contains features found under the _In progress_ column, in the [project management board](https://github.com/orgs/aurelienpierreeng/projects/1),
+	4. This channel needs to be used aside of the production install since it contains prototypes of new modules, new versions of old modules, and other features that will upgrade the version of the [Ansel database](../preferences-settings/storage#database), making it incompatible with previous versions. It can also contain prototypes that will never make it in production.
 
 At all time, the  [project management Kanban board](https://github.com/orgs/aurelienpierreeng/projects/1) will show what changes are being currently worked on in the non-production channels, with links to their pull request and issue, to help traceability of changes and bug reports.
 
