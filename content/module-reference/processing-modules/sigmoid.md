@@ -8,7 +8,7 @@ view: darkroom
 masking: true
 ---
 
-Easy to use and robust display transform.
+Display transform used for transforming scene referred image data to display referred viewable images.
 
 The sigmoid module uses a modified generalized log-logistic curve to smoothly compress the infinite scene referred space into a displayable finite space.
 
@@ -34,18 +34,15 @@ preserve hue to taste
 # module controls
 
 contrast
-: Adjust the compression aggressiveness.
-: ![sigmoid low contrast](./sigmoid/sigmoid-contrast-low.png)
-: ![sigmoid medium contrast](./sigmoid/sigmoid-contrast-mid.png)
-: ![sigmoid high contrast](./sigmoid/sigmoid-contrast-high.png)
-: Example exponential gradients with low, medium, and high contrast. Notice that middle grey is unchanged.
+: Adjust the compression aggressiveness. Middle grey is always unchanged.
+Higher contrast requires less pixel exposure to reach display white, and shadows become darker.
+Lower contrast is the reverse and is thus able to display a larger dynamic range.
 
 skew
 : Lean the compression towards shadows or highlights.
-: ![sigmoid negative skew](./sigmoid/sigmoid-skew-negative.png)
-: ![sigmoid neutral skew](./sigmoid/sigmoid-skew-neutral.png)
-: ![sigmoid positive skew](./sigmoid/sigmoid-skew-positive.png)
-: Example exponential gradients with negative, neutral, and positive skew. Notice that middle grey is unchanged.
+Skew can be used for transferring some contrast from shadows to highlights or vice versa without changing the middle grey contrast.
+Positive skew flattens shadows and compresses highlights.
+Negative skew creates darker shadows and duller highlights.
 
 color processing
 : Mode used for mapping pixel values from scene to display space.
@@ -54,8 +51,7 @@ color processing
 
 preserve hue (per channel only)
 : 0% - vanilla per channel with heavy hue skewing. 100% - preserve the spectral hue of the image, same hue definition as when using rgb ratio. An ok approximation of preserved perceptual hue is usually somewhere between the two extremes.
-: ![sigmoid preserve hue](./sigmoid/sigmoid-preserve-hue.png)
-: Per channel color processing mode, preserve hue; 0%, 50%, and 100%.
+: Short explanation of per channel hue skew. All colors between the primary colors, red, green, and blue, converge towards the closest secondary colors, yellow, magenta, and cyan. The effet creates yellow sunsets and fires, magneta-looking blue lights, and cyan skies. The skew is stronger for brighter and more saturated pixels.
 
 target black
 : Lower bound that the sigmoid curve converges to as the scene value approaches zero, usually kept as is. Possible to use for a faded analog look. It is, however, preferred to use the color balance rgb global offset for the same effect.
