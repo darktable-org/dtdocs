@@ -1,7 +1,7 @@
 ---
 title: highlight reconstruction
 id: highlight-reconstruction
-applicable-version: 4.0
+applicable-version: 4.2
 tags:
 working-color-space: not-applicable (RAW)
 view: darkroom
