@@ -90,17 +90,27 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 - Alter darktablerc to increase the last number (the OpenCL memory fraction) for your selected resource level. For example, increasing the OpenCL memory fraction to 950 would increase the available memory on a 6GB GPU to approximately 5.3GB.
 - Set [preferences > processing > cpu / gpu / memory > tune OpenCL performance](../preferences-settings/processing.md#cpu--gpu--memory) to "memory size", which will use all of your device's memory, less a 400MB headroom. Please see the [section below](#id-specific-opencl-configuration) for other options related to this setting.
 
+## balanced OpenCL versus CPU tiling
+
+On many machines we find pretty fast multicore cpus with a lot of system ram but a significantly smaller gpu memory with somewhat restricted number crunching power (like typical integrated graphics). There is no problem using OpenCL code in modules as long as that doesn't lead to excessive tiling with large overlapping areas because of large requirements.
+In such cases it might be better to run untiled cpu code instead of heavy tiling on your gpu.
+
+While processing the pipeline we estimate overall workloads for both OpenCL and CPU (this is not static but depends on parameters set in the module thus defining the tile size, number of tiles and tile overlap.
+
+In most cases we would prefer the OpenCL code to be executed even if that would mean tiling as the graphics cards is mostly much faster (often 10 times faster if it is a dedicated card).
+If the ratio of estimated workloads (CPU vs GPU) is larger than the **advantage** hint, dt will use the CPU for processing that specific module.
+
 ## device-specific OpenCL configuration
 
 The default darktable settings should deliver a reasonable GPU performance on most systems. However, if you want to try to optimize things further, this section describes the relevant configuration parameters (all of which are set in your darktablerc file).
 
 Since darktable 4.0 most of the OpenCL-related options are managed with a "per device" strategy. The configuration parameter for each device looks like:
 
-`cldevice_v4_quadrortx4000=0 250 0 16 16 1024 0 0 0.017853`
+`cldevice_v4_quadrortx4000=0 250 0 16 16 1024 0 0 0.017853 20.000`
 
 or, more generally
 
-`cldevice_version_canonicalname=a b c d e f g h i`
+`cldevice_version_canonicalname=a b c d e f g h i j`
 
 An entry will be automatically created in darktablerc for each newly-detected device when you launch darktable for the first time, with the correct canonical device name and version number. The parameters `a` - `i` are defined as follows and can be manually edited:
 
@@ -136,6 +146,15 @@ h. disable device
 
 i. benchmark
 : When darktable detects a new device on your system it will do a small benchmark and store the result here. You can change this back to 0 to force darktable to redo the benchmark but in most cases **you should not edit this setting**.
+
+j. advantage hint
+: _default 0.000_
+: How to set up the advantage hint?
+- measure performance (-d perf) in laplacian highlights after setting "diameter of reconstruction" to something high
+- while doing so make sure (by -d tiling) that the cl code doesn't tile
+- check for execution times with opencl on and off
+- the advantage option can now be set to approx (cpu-time / gpu-time)
+- if you have a fast card with lots of memory, don't bother and leave this at 0.000
 
 ---
 
