@@ -1,12 +1,12 @@
 ---
 title: mask manager
 id: mask-manager
-applicable-version: 3.2.1
+applicable-version: 4.2.0
 tags:
 view: darkroom
 ---
 
-Manage all masks and shapes for the current image.
+Manage all drawn masks and shapes for the current image.
 
 ![mask manager](./mask-manager/mask-manager.png#w25)
 
