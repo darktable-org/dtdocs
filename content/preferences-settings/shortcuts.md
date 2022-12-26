@@ -20,7 +20,7 @@ A shortcut must be initiated by either
 - pressing a key on the keyboard; or
 - pressing a button or moving a knob/joystick on an external device 
 
-You cannot initiate a shortcut by moving your mouse, or by pressing mouse buttons 1, 2 or 3, as these actions are used to interact with darktable's UI.
+You cannot initiate a shortcut by moving your mouse, or by pressing the left, right or middle mouse buttons, as these actions are used to interact with darktable's UI.
 
 ## simple shortcuts
 
