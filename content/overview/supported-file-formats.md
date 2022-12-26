@@ -12,7 +12,7 @@ In order for darktable to consider a file for import, it must have one of the fo
 
 If darktable was compiled with JPEG2000 support, the following extensions are also recognized: `J2C, J2K, JP2, JPC`.
 
-If darktable was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, DCM, GIF, JNG, JPC, JP2, MIFF, MNG, PBM, PGM, PNM, PPM`.
+If darktable was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, DCM, GIF, JNG, JPC, JP2, MIFF, MNG, PBM, PGM, PNM, PPM, WEBP`.
 
 # camera raw files
 
@@ -25,4 +25,3 @@ With the exception of Fujifilm X-Trans cameras, darktable does not decode images
 darktable natively reads “ordinary” images in JPEG, 8-bit/16-bit PNG and 8-bit/16-bit TIFF format, as well as 16-bit/32-bit floating point TIFF formats.
 
 darktable also reads high dynamic range images in OpenEXR, RGBE and PFM formats.
-
