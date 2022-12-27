@@ -35,7 +35,7 @@ At all time, the  [project management Kanban board](https://github.com/orgs/aure
 The __production channel__ is versioned as follow :
 
 1. All versions having the same major version number (`0.x`, `1.x`, `2.x`) produce editing histories that are compatible with each other and use the same internal [database](../preferences-settings/storage#database) version. Major version numbers are upgraded every time changes are introduced that break this property, such as new modules, database structure changes, or new versions of old modules.
-2. Minor version numbers are upgraded every time new changes are made that don't break compatibility within the major version, like GUI refactorings and bug fixes.
+2. Minor version numbers (`x.0`, `x.1`, `x.2`) are upgraded every time new changes are made that don't break compatibility within the major version, like GUI refactorings and bug fixes.
 3. The major version `0.x` is compatible with darktable 4.0 and 4.0.1 image editing histories, which means it is also compatible with edits made with any darktable version earlier than 4.0. Ansel will not maintain compatibility with upstream darktable for future versions after `0.x`, since darktable 4.2 will introduce nonsensical changes that will stay the burden of the darktable team only.
 4. Versions are tested snapshots of the __production channel__. This channel will keep getting changes in-between versions, notably from the __pre-release channel__, supposed to be safe between versions.
 
@@ -128,7 +128,7 @@ Ansel re-uses the same folder structure, where `darktable` is replaced by `ansel
 From there, you can continue to work just as before. Ansel can be installed alongside darktable.
 
 {{< danger >}}
-darktable and Ansel can store the images editing histories in [XMP sidecar files](./overview/sidecar-files/sidecar.md). Since they use the same XMP tags, the last application to have opened the image will set its own history within the XMP. This is not a real issue for darktable 4.0 and Ansel 0.0 since their [pixel pipelines](./views/darkroom/pixelpipe/_index.md) are compatible, but the compatibility will be broken in the future.
+darktable and Ansel can store the images editing histories in [XMP sidecar files](./overview/sidecar-files/sidecar.md) when the option is enabled. Since they both use the same XMP tags, the last application to have opened the image will overwrite its own history within the XMP. This is not a real issue for darktable 4.0 and Ansel 0.0 since their [pixel pipelines](./views/darkroom/pixelpipe/_index.md) are compatible, but the compatibility is broken between Ansel and darktable 4.2.
 
-Both applications load the editing histories in priority from their database and can crawl the image folders to detect if the XMP edits are more recent than the database ones. In that case, they will prompt a window asking if the files should be synchronized and in which direction. Never synchronize from XMP to database if you use both applications. 
+However, both applications load the editing histories first from their database. Then, if the _look for updated xmp files on startup_ is [enabled in the preferences](../preferences-settings/storage#xmp), they can crawl the image folders to detect if the XMP edits are more recent than the database ones. In that case, they will prompt a window asking if the files should be synchronized and in which direction. Never synchronize from XMP to database if you use both applications on the same files.
 {{</ danger >}}
