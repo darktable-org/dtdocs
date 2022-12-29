@@ -169,9 +169,9 @@ As with the modules mentioned in the previous section, you should take care when
 
 ### reconstruct blown highlights
 
-While a well-exposed image will make post-processing much easier, darktable provides some tools handle blown highlights, in some cases even reconstructing lost colors or structure.
+While a well-exposed image will make post-processing much easier, darktable provides some tools handle blown highlights, in some cases even reconstructing lost colors and structure.
 
-The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module provides a very basic attempt to manage blown highlights. By default, if any color channel is clipped, this module will clip the other channels, making the pixel white -- this prevents darktable from showing unnatural colors in the highlights. However it can be altered to attempt to reconstruct the lightness or color using any un-clipped channels. While this can re-introduce some detail, beware of the unrealistic colors that can result.
+The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module provides a very basic attempt to manage blown highlights. By default, this provides an inpainting algorithm making use of channels not affected by being blown out thus recovering color and detail in most cases.
 
 ### adjust angle and perspective
 
