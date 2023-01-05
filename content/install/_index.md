@@ -18,12 +18,12 @@ Ansel development and release path follows 3 channels :
 	2. contains tested code supposed to work reliably for daily use,
 	3. contains features found under the _Done_ column, in the [project management board](https://github.com/orgs/aurelienpierreeng/projects/1).
 2. A __pre-release channel__ :
-	1. backward-compatible with the production channel _(so you can switch from one to another without breaking your image edits)_, 
+	1. backward-compatible with the production channel _(so you can switch from one to another without breaking your image edits)_,
 	2. linked to the Git [candidate branch](https://github.com/aurelienpierreeng/ansel/tree/candidate),
 	3. contains code to test before integration in production channel but still relatively safe to use,
 	4. contains features found under the _Testing_ column, in the [project management board](https://github.com/orgs/aurelienpierreeng/projects/1).
-3. An __experimental channel__ : 
-	1. __non-backward-compatible__ with either the production or pre-release channels, 
+3. An __experimental channel__ :
+	1. __non-backward-compatible__ with either the production or pre-release channels,
 	2. linked to the Git [dev branch](https://github.com/aurelienpierreeng/ansel/tree/dev),
 	3. contains features found under the _In progress_ column, in the [project management board](https://github.com/orgs/aurelienpierreeng/projects/1),
 	4. This channel needs to be used aside of the production install since it contains prototypes of new modules, new versions of old modules, and other features that will upgrade the version of the [Ansel database](../preferences-settings/storage#database), making it incompatible with previous versions. It can also contain prototypes that will never make it in production.
@@ -99,36 +99,16 @@ Major, minor and maintenance versions are released when they are ready.
 
 ## Ugrading between major releases
 
-Major releases are defined by the fact that the [Ansel database](../preferences-settings/storage#database) structure will be upgraded and therefore will not be usable by previous major releases. Before the ugrading process starts, Ansel automatically backs up the database in the configuration folder, appending the new version number to the database filename. 
+Major releases are defined by the fact that the [Ansel database](../preferences-settings/storage#database) structure will be upgraded and therefore will not be usable by previous major releases. Before the ugrading process starts, Ansel automatically backs up the database in the configuration folder, appending the new version number to the database filename.
 
 The configuration folder of Ansel is located by default at :
 * `$HOME/.config/ansel` for Mac OS and Linux
 * `C:\%LOCALAPPDATA%\ansel` on Windows.
 
-In this configuration folder, the image editing histories are stored in the file `library.db` and the presets, styles, and other preferences are stored in the file `data.db`. 
+In this configuration folder, the image editing histories are stored in the file `library.db` and the presets, styles, and other preferences are stored in the file `data.db`.
 
 If you upgrade, for example, from version 2.6 to 3.0, both files are backed up under the respective names `library.db-pre-3.0`  and `data.db-pre-3.0`. If, for some reason, you want to go back to the previous 2.6 version after having upgraded to 3.0, you just need to remove the `pre-3.0` suffixes from the file names to restore your back-ups. Any editing you may have done with the 3.0 version will be lost without a chance of being recovered in that case, unless you manually back up `library.db` and `data.db` for a future where you will use the 3.0 version.
 
 {{< warning >}}
 There is no backup mechanism in place for the [XMP sidecar files](./overview/sidecar-files/sidecar.md), but they can be restored from the `library` database, which means you need to keep it clean and up-to-date.
 {{</ warning >}}
-
-## Importing darktable configuration files
-
-The configuration folder of darktable is located by default at :
- - `$HOME/.config/darktable` for Mac OS and Linux
- - `C:\%LOCALAPPDATA%\darktable` on Windows.
-
-Ansel re-uses the same folder structure, where `darktable` is replaced by `ansel`. Since Ansel is based on darktable 4.0, you can import your darktable 4.0 and earlier configuration files by copy-pasting the following files from the darktable configuration folder to the Ansel's one :
-- `library.db`, 
-- `data.db`,
-- `shortcutsrc`,
-- `darktablerc`, which will need to be renamed `anselrc` after copying.
-
-From there, you can continue to work just as before. Ansel can be installed alongside darktable.
-
-{{< danger >}}
-darktable and Ansel can store the images editing histories in [XMP sidecar files](./overview/sidecar-files/sidecar.md) when the option is enabled. Since they both use the same XMP tags, the last application to have opened the image will overwrite its own history within the XMP. This is not a real issue for darktable 4.0 and Ansel 0.0 since their [pixel pipelines](./views/darkroom/pixelpipe/_index.md) are compatible, but the compatibility is broken between Ansel and darktable 4.2.
-
-However, both applications load the editing histories first from their database. Then, if the _look for updated xmp files on startup_ is [enabled in the preferences](../preferences-settings/storage#xmp), they can crawl the image folders to detect if the XMP edits are more recent than the database ones. In that case, they will prompt a window asking if the files should be synchronized and in which direction. Never synchronize from XMP to database if you use both applications on the same files.
-{{</ danger >}}

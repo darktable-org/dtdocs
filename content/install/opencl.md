@@ -2,9 +2,10 @@
 title: Install OpenCL drivers
 date: 2022-12-27
 draft: false
+weight: 40
 ---
 
-OpenCL is a vendor-agnostic and cross-platform way of offloading computations to the GPU. GPUs are designed specifically to handle pixel operations, with an optimized memory layout and a massively multi-core architecture[^2] allowing for fast and energy-efficient image processing. 
+OpenCL is a vendor-agnostic and cross-platform way of offloading computations to the GPU. GPUs are designed specifically to handle pixel operations, with an optimized memory layout and a massively multi-core architecture[^2] allowing for fast and energy-efficient image processing.
 
 [^2]:  At least 720 cores for cheap GPUs, to almost 10.000 cores for the beasts
 
@@ -35,7 +36,7 @@ It is impossible to say how much faster a particular GPU will make image renderi
 It has been found that crazy-expensive CPUs still perform better than cheap GPUs. However, at similar performance, GPUs will typically drain less electric power and produce less heat than CPUs, which will also prevent [thermal throttling](https://pcguide101.com/cpu/what-is-cpu-throttling/) to some extent.
 
 The overall performance of OpenCL depends on :
-- the GPU raw performance, 
+- the GPU raw performance,
 - how well the driver uses the GPU (beware the power-saving modes),
 - how well the OS integrates the driver (noticeably, support in the Linux Kernel),
 - how many applications use the GPU simultaneously,
@@ -49,7 +50,7 @@ Anyone pretending to guess the overall performance by just looking at a GPU spe
 
 ### Intel
 
-Ansel can use the Intel GPU embedded on the CPU chip, provided you use recent [Intel Graphics Compute Runtime drivers](https://www.intel.com/content/www/us/en/developer/articles/tool/opencl-drivers.html) (dubbed [_Intel Neo_](https://github.com/intel/compute-runtime)). These seem to work fairly on Linux and Windows at least. 
+Ansel can use the Intel GPU embedded on the CPU chip, provided you use recent [Intel Graphics Compute Runtime drivers](https://www.intel.com/content/www/us/en/developer/articles/tool/opencl-drivers.html) (dubbed [_Intel Neo_](https://github.com/intel/compute-runtime)). These seem to work fairly on Linux and Windows at least.
 
 The previous generation of Intel OpenCL drivers, dubbed _Intel Beignet_, has never worked reliably. Fortunately, it has gradually disappeared from repositories and distributions since 2018.
 
@@ -63,17 +64,17 @@ On Linux, this technology has been properly supported only since circa 2020 (_th
 
 However, "starting an application on dGPU" only means that the GUI rendering (aka OpenGL) is piped to the dGPU. Since Ansel renders all the GUI on CPU and doesn't use OpenGL at all, it doesn't need to be explicitly started on dGPU. OpenCL will be able to work in background on all detected GPUs no matter which one renders the GUI.
 
-Ansel is able to use both the eGPU and the dGPU at the same time to render image pipelines concurrently. 
+Ansel is able to use both the eGPU and the dGPU at the same time to render image pipelines concurrently.
 
 ### AMD
 
-Only the proprietary [amdgpu-pro driver](https://amdgpu-install.readthedocs.io/en/latest/install-installing.html) supports OpenCL. 
+Only the proprietary [amdgpu-pro driver](https://amdgpu-install.readthedocs.io/en/latest/install-installing.html) supports OpenCL.
 
 On Linux, AMD has been known for several years to be very slow to update their drivers when distributions are updated. Don't upgrade your distribution before you know AMD has working drivers for it, and stick to LTS versions if using Ubuntu.
 
 ### Nvidia
 
-Only the proprietary driver supports OpenCL. 
+Only the proprietary driver supports OpenCL.
 
 On Linux, Nvidia OpenCL depends on the CUDA libraries. There are known issues of kernel panic or system crash when the computer goes in hibernate or suspend mode, because the allocated memory buffers are not preserved. If that happens to you, Linux distributions typically have packages called `nvidia-modprobe`, `nvidia-persistenced` and `nvidia-power(save)d` which should take care or that (or worsen it). In any case, avoid letting your computer go in suspend or hibernate mode while any application using OpenCL is running, and save any work in progress before.
 
@@ -91,7 +92,6 @@ Keep away from the hot new drivers for as long as you can. Linux distributions t
 
 ### Memory use
 
-All applications using the GPU, through CUDA, Vulkan, Metal, OpenCL and OpenGL will share the GPU memory, which is typically much smaller than the system RAM. The GPU memory allocation is not as predictable as the RAM allocation, and is mostly vendor/driver-dependent. 
+All applications using the GPU, through CUDA, Vulkan, Metal, OpenCL and OpenGL will share the GPU memory, which is typically much smaller than the system RAM. The GPU memory allocation is not as predictable as the RAM allocation, and is mostly vendor/driver-dependent.
 
 That is to say that running concurrently several applications all using the GPU may result in crashes if they temporarily try to use more memory than available. Try to avoid playing 4K videos in your web browser, playing games or running GPU-accelerated video encoders (Nvenc, VDPAU, etc.) when Ansel is processing 36-52 Mpx pictures.
-
