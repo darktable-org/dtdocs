@@ -116,7 +116,7 @@ This means that if you delete images from disk after having added them, darktabl
 
 ## copy & import
 
-This option copies images from another location on your filesystem (including mounted storage devices) and then adds the copied images to the darktable library. 
+This option copies images from another location on your filesystem (including mounted storage devices) and then adds the copied images to the darktable library. Using this option, if an XMP sidecar file is available with the image, it will *not* be read or copied and a new XMP will be created. 
 
 The following additional options are available to control the file and directory naming of the copied files. By default, only the "import job" option is shown -- click on the "naming rules" label or the expander icon beside it to show additional options:
 
