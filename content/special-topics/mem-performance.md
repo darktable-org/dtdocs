@@ -92,13 +92,11 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 
 ## balanced OpenCL versus CPU tiling
 
-On many machines we find pretty fast multicore cpus with a lot of system ram but a significantly smaller gpu memory with somewhat restricted number crunching power (like typical integrated graphics). There is no problem using OpenCL code in modules as long as that doesn't lead to excessive tiling with large overlapping areas because of large requirements.
-In such cases it might be better to run untiled cpu code instead of heavy tiling on your gpu.
+In most cases, running a processing module on a high-powered GPU (the OpenCL codepath) is significantly faster than running the same module using the CPU codepath. However, many users have fast multi-core CPUs with a large amount of system RAM, but a GPU with significantly lower capabilities (typically, integrated graphics with small amounts of dedicated memory). Use of OpenCL code in these cases can lead to excessive tiling, and it is often better to run a module without tiling using the CPU codepath than to attempt to use OpenCL with heavy tiling.
 
-While processing the pipeline we estimate overall workloads for both OpenCL and CPU (this is not static but depends on parameters set in the module thus defining the tile size, number of tiles and tile overlap.
+While processing the pipeline, darktable attempts to determine which mode will be best for a given module by estimating the expected workloads for both OpenCL and CPU codepaths. In most cases it will prefer the OpenCL codepath even if that would mean tiling the image, since OpenCL is typically much faster than running the CPU code (often as much as 10 times faster if it is a dedicated card).
 
-In most cases we would prefer the OpenCL code to be executed even if that would mean tiling as the graphics cards is mostly much faster (often 10 times faster if it is a dedicated card).
-If the ratio of estimated workloads (CPU vs GPU) is larger than the **advantage** hint, dt will use the CPU for processing that specific module.
+If the ratio of estimated workloads (CPU vs GPU) is larger than the **advantage hint** (see below), darktable will use the CPU for processing that module, else it will use the GPU.
 
 ## device-specific OpenCL configuration
 
@@ -148,13 +146,10 @@ i. benchmark
 : When darktable detects a new device on your system it will do a small benchmark and store the result here. You can change this back to 0 to force darktable to redo the benchmark but in most cases **you should not edit this setting**.
 
 j. advantage hint
-: _default 0.000_
-: How to set up the advantage hint?
-- measure performance (-d perf) in laplacian highlights after setting "diameter of reconstruction" to something high
-- while doing so make sure (by -d tiling) that the cl code doesn't tile
-- check for execution times with opencl on and off
-- the advantage option can now be set to approx (cpu-time / gpu-time)
-- if you have a fast card with lots of memory, don't bother and leave this at 0.000
+: This defines the advantage hint described in the [balanced OpenCL versus CPU tiling](#balanced-opencl-versus-cpu-tiling) section. If you have a fast graphics card with plenty of memory you can safely leave this at its default value of 0.000. However, if you want to adapt this number to your own system, you should use the following process:
+1. Start darktable with the tiling debug option (`darktable -d tiling`) and start editing an image in the darkroom. Open the [_highlight reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module and use the "guided laplacians" method, setting the "diameter of reconstruction" to a high value, while ensuring that tiling does not occur (check the debug information in your terminal session while adjusting the slider).
+1. Check the execution times of this module with OpenCL on and off (by running `darktable -d perf` to examine the performance).
+1. Set the "advantage hint option" to approximately (CPU execution time / GPU execution time).
 
 ---
 
