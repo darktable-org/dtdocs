@@ -11,16 +11,16 @@ This section describes how to interact with processing module controls.
 
 Sliders offer five different methods of interaction, depending on the level of control you require.
 
-left-click
+left-click (set)
 : Click anywhere in the slider area to set the value. You can also click and drag to change it. You don't have to aim for the triangle or even the line -- you can click anywhere in the entire height of the slider, including the label.
 
-mouse wheel
+mouse wheel (adjust)
 : Hover over the slider with your mouse, then use your mouse wheel to adjust the value. You can alter the default speed at which the mouse scroll adjusts a slider by scrolling over that slider while in [visual shortcut mapping mode](../../preferences-settings/shortcuts.md#visual-shortcut-mapping).
 
-keyboard arrow keys
+keyboard arrow keys (adjust)
 : When the slider has focus you can hover over the slider with your mouse, then use your keyboard's arrow keys (←/↓ and →/↑) to adjust the value. In order to give focus to the widget without changing the current value you can right-click, then right-click again.
 
-right-click
+right-click (pop-up edit)
 : When your mouse is over a slider right-clicking enables a multi-functional pop-up below the slider for fine control with your mouse or numerical entry using the keyboard.
 
 : ![bauhaus](./module-controls/bauhaus.png#w33)
@@ -33,8 +33,8 @@ right-click
 
 : You may right-click and type any value up to the hard limits for a given slider. For example, in the [_rotate and perspective_](../../module-reference/processing-modules/rotate-perspective.md) module, the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees; In the [_exposure_](../../module-reference/processing-modules/exposure.md) module, the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV. If you try to enter a value beyond the hard limit, it will be automatically be adjusted to the minimum/maximum allowable value.
 
-double-click
-: Double-click on a slider or its label to reset to the default value.
+double-click (reset)
+: Double-click on a slider or its label to reset to the default value. If controls are grouped together within a tabbed interface, you can double-click on the tab's header label to reset all settings in that tab.
 
 In addition, the speed of mouse-wheel, arrow-key and click+drag adjustments can be altered:
 
