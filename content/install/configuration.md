@@ -1,6 +1,6 @@
 ---
 title: Configuration files
-date: 2023-01-05
+date: 2023-01-18
 draft: false
 weight: 50
 ---
