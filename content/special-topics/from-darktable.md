@@ -2,6 +2,7 @@
 ---
 title: Transitioning from darktable to Ansel
 date: 2023-01-18
+lastmod: 2023-01-19
 weight: 10
 draft: false
 latex: true
@@ -134,6 +135,13 @@ Copy all
 
 CSS animations
 : Animations are basically videos that need to be computed at 30 FPS while Gtk is only single-threaded on CPU, that's just a stupid loss of CPU cycles.
+
+Filmstrip thumbnails
+: The thumbnails interaction have been synchronized with the lighttable :
+    * Opening a new image will need double-click
+    * copy/pasting editing histories in filmstrip view over arbitrary selections will need a interaction with a knobby interface (mouse over event will be disregarded),
+    * The weird selection modes relying on key modifiers are removed. Selection is done with regular single click, as in lighttable.
+    * Rating/rejecting on overlays in filmstrip is prevented because the controls are too small to prevent misclicking accidents.
 
 ### Views
 
