@@ -22,7 +22,7 @@ The configuration files of Ansel are located in :
 : contains user presets for modules, styles, tags and locations. This is an SQLite database. It is backed-up before updating to a new release and automatic snapshots can be configured (see below).
 
 `library.db`
-: contains all image known to Ansel, along with their directories (dubbed _film rolls_). Like the previous, it is an SQLite database backed-up before updating to new releases and with optional snapshots.
+: contains all images known to Ansel, along with their directories (dubbed _film rolls_). Like the previous, it is an SQLite database backed-up before updating to new releases and with optional snapshots.
 
 The frequency of snapshots can be defined in the software global _Preferences_ -> tab _Storage_ -> section _Database_ -> entry _Create database snapshots_ and _how many snapshot to keep_. By default, Ansel saves one snapshot every week when closing the software.
 
@@ -46,7 +46,7 @@ The frequency of snapshots can be defined in the software global _Preferences_ -
 
 ## XMP sidecars
 
-Ansel allows to [write XMP sidecar files](./overview/sidecar-files/sidecar.md) along the raw images. These files duplicate the content of the local `library.db` in a text file hosted on the same storage as the raw pictures (which may be a server, a NAS or an external hard-drive), while the `library.db` stays locally in the home directory of the current computer user.
+Ansel allows to [write XMP sidecar files](../overview/sidecar-files/sidecar.md) along the raw images. These files duplicate the content of the local `library.db` in a text file hosted on the same storage as the raw pictures (which may be a server, a NAS or an external hard-drive), while the `library.db` stays locally in the home directory of the current computer user.
 
 Ansel always loads the editing histories from the local `library.db` database first, and can optionally [look for updated XMP files on startup_](../preferences-settings/storage#xmp). If the editing version doesn't match between XMP and database, you will prompted with a conflict resolution window allowing to synchronize from XMP to database or from database to XMP, or to keep the most/least recent version. This can be used to synchronize edits between computers, but needs to be used carefully because the content of XMP is not checked, so all computers need to use the same version of Ansel.
 
