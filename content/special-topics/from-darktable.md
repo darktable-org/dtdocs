@@ -143,6 +143,11 @@ Filmstrip thumbnails
     * The weird selection modes relying on key modifiers are removed. Selection is done with regular single click, as in lighttable.
     * Rating/rejecting on overlays in filmstrip is prevented because the controls are too small to prevent misclicking accidents.
 
+Keyboard shortcuts
+: The great MIDI input thingy of 2021 broke basic functionality and user expectations : the numeric pad events did not listen to the state of `numlock` and were always recorded as `Home`, `End`, `PageDown` etc. Also, on AZERTY and BÉPO keyboards, the regular number keys are accessed through `Shift`. This broke the picture ratings because numbers from the numeric pad were not recorded as numbers, and the regular numbers did nothing. When reconfiguring the rating shortcuts with regular numbers, you would then see things like `Shift + &` on AZERTY or `Shift + "` on BÉPO, instead of the expected `1`.
+: Then, to get the numpad numbers to work, you had to manually add them as an alternative shortcuts. That's a backstep of more than 25 years regarding UI, all because the MIDI developer thought it was clever to disregard OS key mapping and handle it internally. This has been fixed in a way that gets the OS-decoded key (including modifiers like `Shift` and `numlock` when needed), and then remaps all numpad key strokes to regular key strokes, so the `Enter`, `*`, `/`, `Delete` and all the numeric keys will be treated equally no matter where they are input, without having to duplicate shortcuts for the numpad. It is crazy that this should be announced as a new feature in 2023 and is another proof that darktable development went south thanks to die-hard geeks.
+: Triple-click has also been removed from shortcuts because promoting repetitive stress injury by design is totally stupid.
+
 ### Views
 
 The less-used views like _Map_, _Print_ and _Slideshow_ are hidden by default, but can be re-enabled from the _Preferences_ -> _Other views_. This prevents GUI bloat since the `.so` objects of the views are simply not loaded at startup (they are not hidden from the GUI, they completely don't exist). This has the drawback of deleting user-defined shortcuts if any, for these views. But the issue is Gtk initializes and redraws all GUI widgets, whether they are visible or not, so even hidden and unused views will drain your CPU.
