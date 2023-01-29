@@ -23,3 +23,5 @@ When the color assessment button ![bulb-icon](./color-assessment/bulb-icon.png#i
 Although the color assessment mode provides a mid-gray surrounding to the image, it is recommended that you also set your user interface (in [preferences > general](../../../preferences-settings/general.md)) to one of the "grey" themes. These themes are designed to provide a user interface that is close to middle gray (it is actually slightly darker to allow better contrast with the text in the user interface). When one of these themes is used together with the color assessment mode, this will help to avoid the above perception issues.
 
 Color assessment mode can also be toggled by pressing Ctrl+B.
+
+If desired, the distance from the edge of the full view window to the edge of the image can be modified in `$HOME/.config/darktable/darktablerc` parameter `darkroom/ui/iso12464_border`. The parameter `darkroom/ui/iso12464_ratio` dertermines the percent of the area that will be part of the white border. Reduce the ratio to reduce the size of the white border. 
