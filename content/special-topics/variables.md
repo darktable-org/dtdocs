@@ -53,6 +53,8 @@ $(EXIF.HOUR)               Exif hour
 $(EXIF.MINUTE)             Exif minute
 $(EXIF.SECOND)             Exif second
 $(EXIF.MSEC)               Exif millisecond
+$(EXIF.DATE.REGIONAL)      Exif date using user's preferred regional date format
+$(EXIF.TIME.REGIONAL)      Exif time using user's preferred regional date format
 $(EXIF.ISO)                Exif ISO value
 $(EXIF.EXPOSURE)           Exif exposure
 $(EXIF.EXPOSURE.BIAS)      Exif exposure bias
