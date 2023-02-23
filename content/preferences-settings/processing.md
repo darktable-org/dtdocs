@@ -75,3 +75,46 @@ tune OpenCL performance
 : - _memory transfer_: when Ansel needs more memory than it has available, it breaks your images into tiles, which are processed separately. When tiling, Ansel frequently needs to transfer data between system and GPU memory. This option tells Ansel to use a special copy mode (pinned memory transfer), which can be faster, but can also require more memory on some devices. On other devices it might degrade performance. There is no safe general way to predict how this option will function on a given device so you will have to test it for yourself. If you have multiple devices, you can switch pinned memory transfer on or off on a "per device" basis by directly editing your Anselrc file.
 : - _memory size and transfer_: use both tuning mechanisms.
 : See the [memory & performance tuning](../performance/mem-performance.md) section for more information.
+
+
+## Libraw
+
+Ansel uses the Rawspeed library by default to decode raw image files. Rawspeed is flawlessly integrated in Ansel, but does not support Canon `.CR3` files yet. For this reason, a basic support of Libraw has been implemented such that owners of recent Canon cameras can still decode their files. Libraw also tends to support new formats faster than Rawspeed.
+
+The options of this section allow users to force the use of Libraw for any picture they want, using rules based on file extension and camera/vendor EXIF metadata. The feature is brittle and unsafe in general because we don't check and sanitize every possible flavour of encoding.
+
+Supported files
+:  * Canon `.CR3`
+
+Files that seem to be working
+:   * Olympus `.ORF`
+    * Hasselblad `.3FR`
+    * Nikon `.NEF` __non-compressed__
+
+Files that definitely don't work and make the software crash
+:   * Nikon sRAW and compressed `.NEF`
+    * Phase One `.IIQ`
+
+{{< warning >}}
+The library used to decode files is remembered at the application level, globally, not for each file. Editing pictures decoded by Libraw may not produce the exact same result if you revert to Rawspeed in the future. You should really stick to Rawspeed whenever possible.
+
+You are strongly advised to save any edited picture to 16 bits TIFF at full resolution using Rec2020 linear color space as an archival backup of your work, and not rely on the consistency of the non-destructive editing result in the future.
+{{</ warning >}}
+
+Raw file extensions to load through Libraw
+: case-insensitive, coma-separated list of the file extensions. Default : `cr3`.
+
+Camera models to load through Libraw
+: case-insensitive, coma-separated list of the camera models as they appear in the [_Display metadata_](../modules/utility-modules/shared/image-information.md) module, under the _model_ field. You may have to enable this field using the preferences of the module if it does not appear in the widget.
+
+Camera makers to load through Libraw
+: case-insensitive, coma-separated list of the camera manufacturers as they appear in the [_Display metadata_](../modules/utility-modules/shared/image-information.md) module, under the _maker_ field. You may have to enable this field using the preferences of the module if it does not appear in the widget.
+
+{{< note >}}
+For Canon files using the `.CR3` format, the _model_ and _maker_ metadata are not decoded properly and left blank. You have to filter them mandatorily by file extension.
+{{</ note >}}
+
+To debug this feature : 
+
+1. Start Ansel in command line using `ansel -d imageio`. For each loaded image, it will tell which library was used to decode it,
+1. If the settings you input make the software crash at startup, remove the `libraw/extensions`, `libraw/models`, `libraw/makers` configuration keys in the `anselrc` configuration file, located in `~./config/ansel` folder on Linux and Mac, or `APPDATA\.config\ansel` on Windows.
