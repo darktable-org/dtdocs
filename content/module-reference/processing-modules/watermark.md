@@ -52,7 +52,13 @@ rotate
 : The rotation angle of the watermark.
 
 scale on
-: The reference for the scale parameter. The default setting “image” scales the watermark relative to the horizontal image size. Alternatively you can scale the watermark relative to the “larger border” or “smaller border”.
+: The reference for the scale parameter. The default setting "image" fits the watermark into the whole image. Alternatively you can scale the watermark's larger border relative to the "larger border" or "smaller border" of the image or the "height" of the watermark to the image's height. The latter option is e.g. suitable for inserting texts with constant font height. Additionally you can select "advanced options" which activates two additional drop-down menus which give systematic control over the scaling.
+
+scale marker to (only when selected "advanced options")
+: Selects the reference to which the marker should be scaled to, which can be "image width", "image height", "larger image border" or "smaller image border". The latter two options are helpful if you want to copy the settings between images in landscape and portrait orientation.
+
+scale marker reference (only when selected "advanced options")
+: Defines which length of the unrotated marker ("marker width" or "marker height") is used as scaling reference.
 
 alignment
 : Use these controls to align the watermark to any edge or the center of the image.
