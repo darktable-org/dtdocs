@@ -14,11 +14,11 @@ Vignetting is a modification of the brightness and saturation at the borders of 
 
 ---
 
-**Note:** This module is known to provoke banding artifacts under certain conditions. You should consider activating the [_dither and posterize_](./dithering.md) module to alleviate this.
+**Note:** This module is known to provoke banding artifacts under certain conditions. You should consider activating the [_dither or posterize_](./dither-or-posterize.md) module to alleviate this.
 
 ---
 
-_**Also note:** This module can produce unnatural-looking results and should be used with care. Instead, use the [exposure](./exposure.md) module with an [elliptical mask](../../darkroom/masking-and-blending/masks/drawn.md) with a large transition area and, if necessary, use the [color balance rgb](./color-balance-rgb.md) module with the same mask to reduce saturation at the edges._
+**Also note:** This module can produce unnatural-looking results and should be used with care. Instead, use the [exposure](./exposure.md) module with an [elliptical mask](../../darkroom/masking-and-blending/masks/drawn.md) with a large transition area and, if necessary, use the [color balance rgb](./color-balance-rgb.md) module with the same mask to reduce saturation at the edges.
 
 ---
 
