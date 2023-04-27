@@ -100,7 +100,7 @@ gradient
 
 : Gradient lines can also be curved by scrolling with your mouse while hovering close to the center line. This can be useful to counteract the distortion caused by the [_lens correction_](../../../module-reference/processing-modules/lens-correction.md) module. 
 
-: Depending on the module and the underlying image, using a gradient shape might provoke banding artifacts. You should consider activating the [_dithering_](../../../module-reference/processing-modules/dithering.md) module to alleviate this.
+: Depending on the module and the underlying image, using a gradient shape might provoke banding artifacts. You should consider activating the [_dither and posterize_](../../../module-reference/processing-modules/dithering.md) module to alleviate this.
 
 # reversing the polarity of a drawn mask 
 
