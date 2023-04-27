@@ -1,5 +1,5 @@
 ---
-title: dithering
+title: dither and posterize
 id: dithering
 applicable-version: 4.4
 tags: 
@@ -23,7 +23,7 @@ method
 
 : _random dithering_: This method just adds some level of randomness to break sharp tonal value bands. 
 
-: _posterization_: This method quantizes the pixel values into the indicated number of distinct levels per color channel similar to Floyd-Steinberg, but does not redistribute the quantization errors.  Selecting two levels per channel produces eight possible output colors, three levels produces 27 (3x3x3), and so on.  Use other modules affecting colors or tone curves (such as [tone equalizer](tone-equalizer.md) or [color balance rgb](color-balance-rgb.md)) to fine-tune which pixels produce which posterized colors.
+: _posterization_: This method quantizes the pixel values into the indicated number of distinct levels per color channel similar to Floyd-Steinberg, but does not redistribute the quantization errors.  Selecting two levels per channel produces eight possible output colors, three levels produces 27 (3x3x3), and so on.  Use other modules affecting colors or tone curves (such as [tone equalizer](tone-equalizer.md) or [color balance rgb](color-balance-rgb.md)) to fine-tune which pixels produce which posterized colors.  You can also use various [blending modes](../../darkroom/masking-and-blending/blend-modes.md) to control the colors of the result.
 
 damping ("random" method only)
 : Controls the level of added random noise expressed as a damping factor in a 10*log 2 basis. A value of -80 is a good fit for 8-bit output formats as it corresponds to a maximum change of one of the 256 possible levels; -160 is a good fit for for 16-bit output.

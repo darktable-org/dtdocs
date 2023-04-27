@@ -12,7 +12,7 @@ Simulate a graduated density filter in order to correct exposure and color in a 
 
 A line is shown on screen allowing the position and rotation of the gradient to be modified with the mouse.
 
-This module is known to provoke banding artifacts under certain conditions. You should consider activating the [_dithering_](./dithering.md) module to alleviate these issues.
+This module is known to provoke banding artifacts under certain conditions. You should consider activating the [_dither and posterize_](./dithering.md) module to alleviate these issues.
 
 # module controls
 
