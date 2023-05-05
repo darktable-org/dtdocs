@@ -219,7 +219,7 @@ shadows ↔ highlights balance
 mid-tones saturation / extreme luminance saturation
 : At extreme luminances, the pixels will tend towards either white or black. Because neither white nor black have color associated with them, the saturation of these pixels must be 0%. In order to gracefully transition towards this 0% saturation point, pixels outside the mid-tone latitude range are progressively desaturated as they approach the extremes. The darker curve in the _filmic rgb_ graph indicates the amount of desaturation that is applied to pixels outside the latitude range. Moving the slider to the right pushes the point where desaturation will start to be applied towards the extremes, resulting in a steeper desaturation curve. If pushed too far, this can result in fringing around the highlights. Moving the slider to the left brings the point at which color desaturation will start to be applied closer to the center, resulting in a gentler desaturation curve. If you would like to see more color saturation in the highlights, and you have checked that the white relative exposure in the [_scene_](#scene) tab is not yet clipping those highlights, move the mid-tones saturation slider to the right to increase the saturation.
 
-: Please note that this desaturation strategy has changed compared to previous versions of _filmic rgb_ (which provided a different slider control labelled _extreme luminance saturation_). You can revert to the previous desaturation behaviour by selecting "v3 (2019)" in the _color science_ setting on the [_options_](#options) tab.
+: Please note that this desaturation strategy has changed compared to previous versions of _filmic rgb_ (which provided a different slider control labelled _extreme luminance saturation_). You can revert to the previous desaturation behaviour by selecting "v3 (2019)" in the _color science_ setting on the [_options_](#options) tab. Since _filmic_ _v6_ and _v7_ use accurate gamut mapping to the output color space, the desaturation curve is removed and the extreme luminance desaturation becomes in practice an highlights bleaching control.
 
 : This control is set to 0 by default and it is now recommended that saturation is handled earlier in the pipeline. A preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
 
@@ -243,10 +243,10 @@ target white luminance
 ### options
 
 color science
-: This setting defaults to _v6 (2022)_ for new images, and defines the algorithms used by the _filmic rgb_ module (e.g. the extreme luminance desaturation strategy). To revert to the behavior of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between these methods lies in the way in which they handle desaturation close to pure black and pure white (see the [background](#background) section for details). If you have previously edited an image using older versions of _filmic rgb_, the color science setting will be kept at the earlier version number in order to provide backward compatibility for those edits.
+: This setting defaults to _v6 (2022)_ for new images, and defines the algorithms used by the _filmic rgb_ module (e.g. the extreme luminance desaturation strategy). To revert to the behavior of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between these methods lies in the way in which they handle desaturation close to pure black and pure white (see the [background](#background) section for details). If you have previously edited an image using older versions of _filmic rgb_, the color science setting will be kept at the earlier version number in order to provide backward compatibility for those edits. The _v7 (2023)_ method removes the _preserve chrominance_ option (see the [background](#background) section for details).
 
 preserve chrominance
-: Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
+: _(This setting is not available with the v7 color science)_. Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
 
 : When applying the S-curve transformation independently on each color, the proportions of the colors are modified, which modifies the properties of the underlying spectrum, and ultimately the chrominance of the image. This is what happens if you choose "no" in the preserve chrominance parameter. This value may yield seemingly “better” results than the other values, but it may negatively impact later parts of the pipeline, for example, when it comes to global saturation.
 
@@ -307,11 +307,27 @@ This gamut mapping uses the output color profile as a definition of the display 
 
 Note that the hue used as a reference for the gamut mapping is the hue before any tone mapping, sampled at the input of filmic. This means that even the _none_ chrominance preservation mode (applied on individual RGB channels regardless of their ratios) preserves hue in _v6_. This mode will only desaturate highlights more than the other modes, and a mechanism is in place to prevent it from resaturating shadows -- this behaviour can be bypassed by increasing the _extreme luminance saturation_ setting.
 
+The _v7 (2023)_ color science improves over _v6_ and simplifies the chroma preservation options, by removing them. The chroma preservation modes aim at anchoring saturation and hue across the tone-mapping operation, by preserving RGB ratios compared to a norm. The choice of the norm is important when it comes to managing how the gamut is used and how the contrast of bright objects relatively to their neighbourhood is rendered by the tone-mapper. Several norms have been proposed since filmic _v1_, in 2018: none of them have been found to be a clear winner, and only one of them (max RGB) has some theoritical justification (allowing to reach display peak primary colors after the transform).
+
+The _v7_ approach is to offer a mix between the _max RGB_ norm and the no-preservation option (where the output hue and saturation are still forced to their input values). The proportions of the mix are driven by the _extreme luminance saturation_ setting:
+
+- 0% is an average of both,
+- -50% is strictly equivalent to the _v6_ no-preservation option,
+- +50% is strictly equivalent to the _v6_ _max RGB_ option,
+- intermediate values are weighted averages between both,
+- values beyond ±50% (up to ±200%) are linear extrapolations.
+
+Positive values will favour saturated highlights and will be suitable for skies but need to be handled with care for portraits (producing accurate skin tones… which is not what people actually find too saturated and "beefy"[^1]), negative values will favour highlights bleaching, which is the preconceived idea many people have of "film look" (which is disproved by positive film slides and Technicolor movies, in addition of being highly questionnable to render black and tanned skin, as it removes ethnical features and whitens them).
+
+[^1]: D. L. MacAdam, "Quality of Color Reproduction," in _Journal of the Society of Motion Picture and Television Engineers_, vol. 56, no. 5, pp. 487-512, May 1951, doi: 10.5594/J06314.
+
+The saturation control gives a fine control over the amount of saturation vs. bleaching expected in highlights. In any case, the saturation algo will not allow the output saturation to be higher than the input one, and it should be made very clear that this setting is not designed for creative purposes, but only to drive the complicated trade-off coming from remapping RGB values from one color space to another, having different gamut and dynamic range.
+
 ### caveats
 
 #### color artifacts
 
-As filmic v6 is so far the best version to retain saturated colors at constant hue, it gets also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, that are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
+As filmic v6 (then v7) is so far the best version to retain saturated colors at constant hue, it gets also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, that are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
 
 It is not the purpose of a tone mapping and gamut mapping operators to reconstruct damaged signals, and these flaws need to be corrected earlier in the pipeline with the specialized modules provided. However, there is a mechanism in filmic v6 that ensures that any color brighter than the _white relative exposure_ degrades to pure white, so a quick workaround is to simply set the _white relative exposure_ to a value slightly lower than the exposure of the clipped parts. In other words: if it is clipped at the input, let it be clipped at the output. Chrominance preservation options that work the best for this purpose are the _luminance_ and _euclidean_ norms, or simply _none_.
 
