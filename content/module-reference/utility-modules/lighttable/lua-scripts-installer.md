@@ -6,7 +6,7 @@ tags:
 view: lighttable
 ---
 
-As described in [lua scripts](../../../lua/_index.md), darktable provides powerful scripting capabilities to extend its functionality. Many such scripts are already available. The Lua script installer module helps to install them without the need for manual configuration. The first time it is run, instructions are displayed in the module.
+As described in [lua scripts](../../../lua/_index.md), darktable provides powerful scripting capabilities to extend its functionality and integrate with other software. Many such scripts are already available. The Lua script installer module helps to install them without the need for manual configuration. The first time it is run, instructions are displayed in the module.
 
 For the module to be able to install the scripts, you will need to have git installed and available on your path. You can get it from [git-scm.com](https://git-scm.com/).
 
