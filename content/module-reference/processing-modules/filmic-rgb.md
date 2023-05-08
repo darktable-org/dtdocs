@@ -327,7 +327,7 @@ The _highlights saturation mix_ slider provides fine control over the amount of 
 
 ### color artifacts
 
-As filmic versions 6 and 7 are so far the best approach for retaining saturated colors at constant hue, they is also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, which are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
+As filmic versions 6 and 7 are so far the best approach for retaining saturated colors at constant hue, they are also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, which are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
 
 It is not the purpose of a tone mapping and gamut mapping operators to reconstruct damaged signals, and these flaws need to be corrected earlier in the pipeline with the specialized modules provided. However, there is a mechanism in filmic v6 that ensures that any color brighter than the _white relative exposure_ degrades to pure white, so a quick workaround is to simply set the _white relative exposure_ to a value slightly lower than the exposure of the clipped parts. In other words: if it is clipped at the input, let it be clipped at the output. Chrominance preservation options that work the best for this purpose are the _luminance_ and _euclidean_ norms, or simply _none_.
 
