@@ -40,14 +40,20 @@ $(HEIGHT.EXPORT)           image height in pixels at the end of the pixelpipe an
 $(WIDTH.MAX)               maximum width entered in export module
 $(HEIGHT.MAX)              maximum height entered in export module
 $(YEAR)                    year at date of import/export
-$(MONTH)                   month at date of import/export
+$(YEAR.SHORT)              two-digit year at date of import/export
+$(MONTH)                   numeric (1-12) month at date of import/export
+$(MONTH.LONG)              full month name at date of import/export
+$(MONTH.SHORT)             abbreviated month name at date of import/export
 $(DAY)                     day at date of import/export
 $(HOUR)                    hour at time of import/export
 $(MINUTE)                  minute at time of import/export
 $(SECOND)                  second at time of import/export
 $(MSEC)                    millisecond at time of import/export
 $(EXIF.YEAR)               Exif year
-$(EXIF.MONTH)              Exif month
+$(EXIF.YEAR.SHORT)         Exif year, two-digit version
+$(EXIF.MONTH)              Exif month, numeric
+$(EXIF.MONTH.LONG)         Exif month, full name
+$(EXIF.MONTH.SHORT)        Exif month, abbreviated name
 $(EXIF.DAY)                Exif day
 $(EXIF.HOUR)               Exif hour
 $(EXIF.MINUTE)             Exif minute
@@ -61,9 +67,11 @@ $(EXIF.EXPOSURE.BIAS)      Exif exposure bias
 $(EXIF.APERTURE)           Exif aperture
 $(EXIF.FOCAL.LENGTH)       Exif focal length
 $(EXIF.FOCUS.DISTANCE)     Exif focus distance
+$(IMAGE.EXIF)              basic exposure information from Exif data (aperture, exposure, ISO)
 $(LONGITUDE)               longitude
 $(LATITUDE)                latitude
 $(ELEVATION)               elevation
+$(GPS.LOCATION)            latitude, longitude, and elevation (omitting any values which are not set)
 $(STARS)                   star rating (text only)
 $(RATING.ICONS)            star rating (using star characters)
 $(LABELS)                  colorlabels (color labels as text)
