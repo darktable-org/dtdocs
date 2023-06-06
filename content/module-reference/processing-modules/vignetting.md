@@ -1,7 +1,7 @@
 ---
 title: vignetting
 id: vignetting
-applicable-version: 3.2.1
+applicable-version: 4.4
 tags: 
 working-color-space: RGB
 view: darkroom
@@ -24,10 +24,10 @@ Vignetting is a modification of the brightness and saturation at the borders of 
 
 # module controls
 
-scale
-: The radius of the vignetting area.
+fall-off start
+: The radius of the central vignetting area.
 
-fall-off strength
+fall-off radius
 : The progressiveness of the fall-off. Lower values cause a steeper transition.
 
 brightness
