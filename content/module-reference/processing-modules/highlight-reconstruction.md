@@ -1,7 +1,7 @@
 ---
 title: highlight reconstruction
 id: highlight-reconstruction
-applicable-version: 4.2
+applicable-version: 4.4
 tags:
 working-color-space: not-applicable (RAW)
 view: darkroom
@@ -35,7 +35,7 @@ segmentation based
 : Segmentation based reconstruction is able to rebuild large areas where all channels are clipped by examining the surrounding gradients. However, you should think of this method more as a way to "disguise" clipped areas with something plausible, rather than a way to "magically" repair them.
 
 guided laplacians
-: Use an algorithm (derived from the [_diffuse or sharpen_](./diffuse.md) module) to replicate details from valid channels into clipped channels and to propagate color gradients from valid surrounding regions into clipped regions. This is a slow and computationally-intensive method designed for maximum smoothness and seamless blending of the reconstructed regions into their neighborhood, and is designed primarily to reconstruct spotlights and specular reflections. This mode is available for Bayer sensors only.
+: Use an algorithm (derived from the [_diffuse or sharpen_](./diffuse.md) module) to replicate details from valid channels into clipped channels and to propagate color gradients from valid surrounding regions into clipped regions. This is a computationally-intensive method designed for maximum smoothness and seamless blending of the reconstructed regions into their neighborhood, and is designed primarily to reconstruct spotlights and specular reflections. This mode is available for Bayer sensors only.
 
 clip highlights
 : Clamp all pixels to the white level (i.e. clip the remaining color channels). This method is most useful in cases where clipped highlights occur in naturally desaturated objects (e.g. clouds).
@@ -70,7 +70,7 @@ noise level
 : Add Poisson noise (natural photon noise such as you would find in sensor readings) to the clipped regions. For high-ISO images, the valid regions of the image will be noisy, but the reconstructed clipped areas will be smooth, which may look odd. Adding some noise in the reconstruction helps to visually blend the result with the rest of the image.
 
 iterations
-: The _guided laplacians_ mode is an iterative process that extrapolates gradients and details from the neighborhood. Each new iteration refines the previous reconstruction but adds more computations that will make the module slower. The default (1 iteration) will typically not be sufficient to completely recover magenta highlights, so you will need to increase this parameter gradually but carefully, to manage the speed/quality trade-off.
+: The _guided laplacians_ mode is an iterative process that extrapolates gradients and details from the neighborhood. Each new iteration refines the previous reconstruction but adds more computations that will make the module slower. The default number of iterations should provide reasonable results but you can increase if magenta highlights are not completely recovered -- increase this parameter gradually but carefully, to manage the speed/quality trade-off.
 
 inpaint a flat color
 : Inpainting a flat color is an algorithmic trick that may help recover magenta highlights in difficult cases (large blown areas) by smoothing RGB ratios. It can be seen as a "reconstruction booster" that may reduce the number of iterations required to entirely remove magenta in clipped highlights. However, this also makes the reconstruction less accurate and can lead to non-smooth reconstructed edges and unrelated colors being inpainted (e.g. blue sky or green leaves bleeding into white clouds). Use this setting with caution.
