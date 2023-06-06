@@ -1,7 +1,7 @@
 ---
 title: color assessment
 id: color assessment
-applicable-version: 4.0
+applicable-version: 4.4
 tags: 
 view: darkroom
 ---
@@ -24,4 +24,4 @@ Although the color assessment mode provides a mid-gray surrounding to the image,
 
 Color assessment mode can also be toggled by pressing Ctrl+B.
 
-If desired, the distance from the edge of the full view window to the edge of the image can be modified in `$HOME/.config/darktable/darktablerc` parameter `darkroom/ui/iso12464_border`. The parameter `darkroom/ui/iso12464_ratio` dertermines the percent of the area that will be part of the white border. Reduce the ratio to reduce the size of the white border. 
+You can modify the distance from the edge of the center panel to the edge of the image by adjusting the `darkroom/ui/iso12464_border` entry in the `$HOME/.config/darktable/darktablerc` file. In the same file you can modify the size of the white border (in percent) by adjusting the `darkroom/ui/iso12464_ratio` entry.
