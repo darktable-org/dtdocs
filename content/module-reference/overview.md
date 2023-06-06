@@ -35,11 +35,11 @@ Processing modules contain additional elements in their module header, as descri
 
 ## utility modules
 
-Some utility modules contain lists of information that can grow as more entries are added. To help manage screen real-estate, it is possible to increase or decrease the maximum number of entries that can be displayed before a scroll bar is added. To alter the maximum number of entries, place the mouse over an entry in the list, and hold Ctrl while scrolling your mouse wheel. If the list currently contains more entries than this maximum, a scrollbar will appear so that you can access the hidden entries.
+Some utility modules contain lists of information that can grow as more entries are added. To help manage screen real-estate, it is possible to increase or decrease the maximum number of entries that can be displayed before a scroll bar is added. To alter the maximum number of entries, place the mouse over an entry in the list, and hold Shift+Alt while scrolling your mouse wheel. If the list currently contains more entries than this maximum, a scrollbar will appear so that you can access the hidden entries. Alternatively you can click+drag the bottom of the scrollable area with your mouse.
 
 ---
 
-**Note:** It is not possible to extend these areas beyond the number of entries currently shown. If you attempt to do so using Ctrl+scroll, the maximum number of entries _will_ increase, and a toast message will appear informing you of the new maximum. However, the module itself will not be resized unless its content exceeds this maximum.
+**Note:** It is not possible to extend these areas beyond the number of entries currently shown. If you attempt to do so using Shift+Alt+scroll, the maximum number of entries _will_ increase, and a toast message will appear informing you of the new maximum. However, the module itself will not be resized unless its content exceeds this maximum.
 
 ---
 
