@@ -1,11 +1,17 @@
 ---
-title: levels
+title: levels (deprecated)
 id: levels
-applicable-version: 3.2.1
+applicable-version: 4.4
 tags: 
 working-color-space: Lab
 view: darkroom
 masking: true
+---
+
+---
+
+**Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 4.4 and should no longer be used for new edits. Please use the [_rgb levels_](./rgb-levels.md) module instead.**
+
 ---
 
 Adjust black, white and mid-gray points.
