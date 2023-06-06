@@ -1,7 +1,7 @@
 ---
 title: framing
 id: framing
-applicable-version: 3.8
+applicable-version: 4.4
 tags: 
 working-color-space: RGB 
 view: darkroom
@@ -18,7 +18,7 @@ border size
 : The size of the frame as a percentage of the underlying full image.
 
 aspect
-: The aspect ratio of the final module output (i.e. the underlying image plus the frame)
+: The aspect ratio of the final module output (i.e. the underlying image plus the frame). Right-click on the slider to enter a custom aspect as a ratio (e.g. "6:5").
 
 orientation
 : The orientation of the frame (portrait/landscape). Select 'auto' for darktable to choose the most reasonable orientation based on the underlying image.
