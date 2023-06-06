@@ -1,7 +1,7 @@
 ---
 title: lens correction
 id: lens-correction
-applicable-version: 4.2
+applicable-version: 4.4
 tags: 
 working-color-space: RGB
 view: darkroom
@@ -78,8 +78,20 @@ TCA red; TCA blue
 
 The following controls are provided for the "embedded metadata" correction method only:
 
+use latest algorithm
+: This control appears for images using an older version of the "embedded metadata" correction algorithm. Check this box to irreversably change to the newer algorithm.
+
 distortion fine-tune
-: Fine-tune the distortion correction.
+: Fine-tune the distortion / chromatic aberration correction.
 
 vignetting fine-tune
 : Fine-tune the vignetting correction.
+
+TCA red fine-tune
+: Fine-tune the red chromatic aberration correction.
+
+TCA blue fine-tune
+: Fine-tune the blue chromatic aberration correction.
+
+image scale
+: Override the image scaling.
