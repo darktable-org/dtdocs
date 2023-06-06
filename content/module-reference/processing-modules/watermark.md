@@ -1,7 +1,7 @@
 ---
 title: watermark
 id: watermark
-applicable-version: 4.0
+applicable-version: 4.4
 tags:
 working-color-space: RGB
 view: darkroom
@@ -36,29 +36,34 @@ marker
 text
 : A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
 
-text color
-: The color of the text. Click on the colored field to open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.
-
-text font
+font
 : The font to use (default "DejaVu Sans Book"). Click on the field to open a dialog box showing the fonts available on your system. Fonts can be searched by name and a preview is shown next to the font name. You may specify your own sample text.
+
+color
+: The color of the text. Click on the colored field to open a color selector dialog which offers you a choice of commonly used colors, or allows you to define a color in RGB color space.
 
 opacity
 : The opacity of the watermark's rendering.
 
-scale
-: The scale of the watermark, with respect to the option selected in the "scale on" parameter.
-
-rotate
+rotation
 : The rotation angle of the watermark.
 
+scale
+: The scale of the watermark (in per cent), with respect to the option selected in the "scale on" parameter.
+
 scale on
-: The reference for the scale parameter. The default setting "image" fits the watermark into the whole image. Alternatively you can scale the watermark's larger border relative to the "larger border" or "smaller border" of the image or the "height" of the watermark to the image's height. The latter option is e.g. suitable for inserting texts with constant font height. Additionally you can select "advanced options" which activates two additional drop-down menus which give systematic control over the scaling.
+: The reference for the scale parameter -- how the watermark is scaled relative to the image:
+: - "image" (default): Scale the watermark relative to the whole image,
+: - "larger border": Scale the larger border of the watermark relative to the larger border of the image,
+: - "smaller border": Scale the smaller border of the watermark relative to the smaller border of the image,
+: - "height": Scale the height of the watermark relative to the height of the image (useful for text with a constant font height),
+: - "advanced options": activate additional options (below) to allow you to choose which image dimension to scale to which watermark dimension. For example, you can choose to scale the watermark's height relative to the image's width.
 
-scale marker to (only when selected "advanced options")
-: Selects the reference to which the marker should be scaled to, which can be "image width", "image height", "larger image border" or "smaller image border". The latter two options are helpful if you want to copy the settings between images in landscape and portrait orientation.
+scale marker to ("advanced options" only)
+: The image reference against which the watermark should be scaled -- "image width", "image height", "larger image border" or "smaller image border".
 
-scale marker reference (only when selected "advanced options")
-: Defines which length of the unrotated marker ("marker width" or "marker height") is used as scaling reference.
+scale marker reference ("advanced options" only)
+: The dimension of the unrotated watermark ("marker width" or "marker height") to use as a scaling reference.
 
 alignment
 : Use these controls to align the watermark to any edge or the center of the image.
