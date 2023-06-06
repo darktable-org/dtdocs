@@ -1,7 +1,7 @@
 ---
 title: input color profile
 id: input-color-profile
-applicable-version: 3.2.1
+applicable-version: 4.4
 tags: 
 working-color-space: RGB 
 view: darkroom
@@ -25,7 +25,7 @@ input profile
 
 : You can also supply your own input ICC profiles and put them into `$DARKTABLE/share/darktable/color/in` or `$HOME/.config/darktable/color/in` (where `$DARKTABLE` is the darktable installation directory and `$HOME` is your home directory). Note that these `color/in` directories are not created by the darktable install; if you need to use one, you must create it yourself. One common source of ICC profiles is the software that is shipped with your camera, which often contains profiles specific to your camera model. You may need to activate the [_unbreak input profile_](./unbreak-input-profile.md) module to use your own profiles.
 
-: If your input image is a low dynamic range file like JPEG, or a raw file in DNG format, it might already contain an embedded ICC profile, which darktable will use by default. You can restore this default by selecting “embedded icc profile”.
+: If your input image is a low dynamic range file like JPEG, or a raw file in DNG format, it might already contain an embedded ICC profile, which darktable will use by default. You can restore this default by selecting “embedded icc profile”. If you hover your mouse over the input profile combobox on such an image, details of the embedded profile will be shown in a tooltip.
 
 working profile
 : The working profile used by darktable's processing modules. Each module can specify an alternative space that it will work in, and this will trigger a conversion. By default darktable will use "linear Rec2020 RGB", which is a good choice in most cases.
