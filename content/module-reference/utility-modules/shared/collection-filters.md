@@ -1,7 +1,7 @@
 ---
 title: collection filters
 id: collection-filters
-applicable-version: 4.0
+applicable-version: 4.4
 tags:
 view: lighttable, darkroom, tethering, map
 ---
@@ -128,7 +128,7 @@ Within the extension field, you can also use the keywords `RAW` (to select all h
 
 ## text search
 
-You can search images using any of their text properties (path, filename, filmroll, tags, metadata) using the text search filter. The search is performed "on-the-fly" and the widget is dimmed during the search process.
+You can search images using any of their text properties (path, filename, filmroll, tags, metadata, camera, maker) using the text search filter. The search is performed "on-the-fly" and the widget is dimmed during the search process.
 
 By default darktable performs a "fuzzy" search (wildcards are automatically added to the start and the end of the text). If you want to search for an exact match, you can enclose it with double-quotes (`"match this exactly"`).
 
