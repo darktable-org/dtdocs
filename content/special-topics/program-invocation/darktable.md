@@ -15,6 +15,9 @@ darktable [-d {all,act_on,cache,camctl,camsupport,control,demosaic,
                dev,fswatch,imageio,input,ioporder,lighttable,lua,
                masks,memory,nan,opencl,params,perf,print,pwstorage,
                signal,sql,tiling,undo,verbose}]
+          [--d-signal <signal>]
+          [--d-signal-act <all,raise,connect,disconnect,print-trace>]
+          [--disable-pipecache]
           [<input file>|<image folder>]
           [--version]
           [--disable-opencl]
@@ -27,8 +30,6 @@ darktable [-d {all,act_on,cache,camctl,camsupport,control,demosaic,
           [--localedir <locale directory>]
           [--luacmd <lua command>]
           [--noiseprofiles <noiseprofiles json file>]
-          [--d-signal <signal>]
-          [--d-signal-act <all,raise,connect,disconnect,print-trace>]
           [--conf <key>=<value>]
           [-t <num openmp threads>]
 ```
@@ -43,6 +44,9 @@ All parameters are optional. In most cases darktable should be started without a
 
 `--d-signal-act <all,raise,connect,disconnect,print-trace>`
 : If `-d signal` or `-d all` is specified, specify the signal action to debug using this option.
+
+`--disable-pipecache`
+: Disable the pixelpipe cache. This option allows only two cachelines per pipe, and should be used for debugging purposes only.
 
 `<input file>|<image folder>`
 : Optionally supply the name of an image file or folder. If a filename is given darktable starts in darkroom view with that file opened. If a folder is given darktable starts in lighttable view with the content of that folder as the current collection.
