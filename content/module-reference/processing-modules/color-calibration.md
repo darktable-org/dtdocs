@@ -1,7 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
-applicable-version: 4.0
+applicable-version: 4.4
 tags:
 working-color-space: RGB
 view: darkroom
@@ -311,7 +311,8 @@ Users are not currently permitted to use custom targets, but a limited number of
 
 - X-Rite / Gretag MacBeth Color Checker 24 (pre- and post-2014),
 - Datacolor SpyderCheckr 24 (pre- and post-2018),
-- Datacolor SpyderCheckr 48 (pre- and post-2018).
+- Datacolor SpyderCheckr 48 (pre- and post-2018),
+- Datacolor SpyderCheckr Photo.
 
 Users are discouraged from obtaining cheap, off-brand, color targets as color constancy between batches cannot possibly be asserted at such prices. Inaccurate color checkers will only defeat the purpose of color calibration and possibly make things worse.
 
