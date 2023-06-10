@@ -35,7 +35,7 @@ rm -r "${HUGO_DIR}"
 mkdir -p "$HUGO_DIR"
 
 #start hugo server
-hugo --verbose --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" serve &
+hugo --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" --verbose server &
 sleep 30
 
 #make pdfs for each language
