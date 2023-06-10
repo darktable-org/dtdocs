@@ -70,10 +70,10 @@ Set operators are used to define how grouped shapes are combined. In the followi
 
 As a convention we say that a pixel is “selected” in a mask or shape if it has an opacity greater than zero.
 
-sum (default)
+sum (default for brush shapes)
 : The shape adds to the existing mask by increasing its opacity by the opacity of the drawn shape. This allows multiple shapes (e.g. brush strokes) with low opacity to be layered on top of one another to increase the strength of the overall mask (e.g. for dodge and burn operations). The resulting opacity of a given pixel is the sum of the opacity of the individual shapes that intersect with that pixel, up to a maximum of 100%.
 
-union
+union (default for non-brush shapes)
 : The shape adds to the existing mask in such a way that the resulting mask contains the pixels that are *either* selected in the existing mask *or* in the added shape. In overlapping areas the maximum value is taken:
 
 : ![union](./mask-manager/mask-manager_ex3.png#w33)
