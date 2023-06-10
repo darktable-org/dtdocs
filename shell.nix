@@ -9,7 +9,7 @@ pkgs.mkShell {
     pkgs.rsync
     pkgs.gitFull
     pkgs.perlPackages.Po4a
-    pkgs.python38Packages.weasyprint
+    pkgs.python311Packages.weasyprint
     pkgs.linkchecker
     pkgs.zip
   ];
