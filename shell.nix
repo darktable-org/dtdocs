@@ -1,4 +1,4 @@
-{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/8b3398bc7587ebb79f93dfeea1b8c574d3c6dba1.tar.gz") {}
+{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/81ed90058a851eb73be835c770e062c6938c8a9e.tar.gz") {}
 }:
 
 pkgs.mkShell {
@@ -29,7 +29,7 @@ pkgs.mkShell {
     }
     remove-translated-files() {
       # cd $PROJECTDIR && cd tools/ && ./generate-translations.sh --rm-translations && cd $PROJECTDIR # This is really slow
-      cd $PROJECTDIR  
+      cd $PROJECTDIR
       find . -name '*.de.md' -exec rm {} \;
       find . -name '*.es.md' -exec rm {} \;
       find . -name '*.fr.md' -exec rm {} \;
