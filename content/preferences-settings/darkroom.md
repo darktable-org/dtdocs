@@ -19,7 +19,7 @@ scroll down to increase mask parameters
 : By default, scrolling your mouse up increases the value of the relevant shape parameters in [drawn masks](../darkroom/masking-and-blending/masks/drawn.md). Set this preference to reverse the behavior (default off).
 
 middle mouse button zooms to 200%
-: When enabled, clicking the middle mouse button on the image canvas causes the zoom level to toggle between fit, 100% and 200%. When disabled, the middle mouse button toggles between fit and 100%. In both cases, you can use Ctrl+scroll to access higher zoom levels (default on).
+: When enabled, clicking the middle mouse button on the image canvas causes the zoom level to toggle between fit, 100% and 200%. When disabled, the middle mouse button toggles between fit and 100%. In the latter case, you can use Ctrl+middle-click to access the 200% zoom level (default on).
 
 pattern for the image information line
 : Set the information to be displayed in the [image information line](../module-reference/utility-modules/darkroom/image-info-line.md). You can use any variables in the [variables](../special-topics/variables.md) section as well as `$(NL)` for a new line. You can also include [formatting](../special-topics/variables.md#formatting) (bold, italic, colors etc).
