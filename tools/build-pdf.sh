@@ -44,7 +44,7 @@ rm -r "${HUGO_DIR}"
 mkdir -p "$HUGO_DIR"
 
 #start hugo server
-env HUGO_DISABLELANGUAGES="$disabled_languages " hugo serve --verbose --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" &
+env HUGO_DISABLELANGUAGES="$disabled_languages " hugo --verbose --config "${HUGO_CONFIG}" --bind 127.0.0.1 --port 1313 --disableFastRender -d "${HUGO_DIR}" serve &
 sleep 30
 
 #make pdfs for each language
@@ -63,4 +63,3 @@ do
 done
 
 pkill hugo
-
