@@ -58,7 +58,7 @@ do
   then
      echo $language
      mkdir -p "$HUGO_PUBLIC/$language"
-     weasyprint -v http://127.0.0.1:1313/dtdocs/$language/index.html "$HUGO_PUBLIC/$language/darktable_user_manual.pdf"
+     weasyprint -v --uncompressed-pdf --pdf-variant pdf/ua-1 http://127.0.0.1:1313/dtdocs/$language/index.html "$HUGO_PUBLIC/$language/darktable_user_manual.pdf"
   else
      echo "$language directory not found"
   fi
