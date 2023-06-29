@@ -169,11 +169,11 @@ As with the modules mentioned in the previous section, you should take care when
 
 ### reconstruct blown highlights
 
-While a well-exposed image will make post-processing much easier, darktable provides some tools handle blown highlights, in some cases even reconstructing lost colors or structure.
+While a well-exposed image will make post-processing much easier, darktable does provide a few tools to handle blown highlights.
 
-The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module provides a very basic attempt to manage blown highlights. By default, if any color channel is clipped, this module will clip the other channels, making the pixel white -- this prevents darktable from showing unnatural colors in the highlights. However it can be altered to attempt to reconstruct the lightness or color using any un-clipped channels. While this can re-introduce some detail, beware of the unrealistic colors that can result.
+The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module attempts to reconstruct blown highlights (colors and structure) using adjacent pixels. A number of different approaches are provided, some of which may be better on certain images, however, the default algorithm produces good results in most cases.
 
-A better alternative is to disable _highlight reconstruction_ and instead use the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct). As with the _highlight reconstruction_ module, filmic is able to reconstruct detail based on unclipped channels. Where this is not possible, it can also blend blown highlights smoothly with the rest of the image or pull colors from adjacent pixels. When incorporating this step into your workflow, you should do it at the same time as other _filmic rgb_ edits, performing adjustments in each tab of the module in turn, from left to right.
+Even well-reconstructed highlights can show color and edge artefacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
 
 ### adjust angle and perspective
 
