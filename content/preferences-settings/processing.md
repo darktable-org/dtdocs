@@ -34,14 +34,13 @@ auto-apply pixel workflow defaults
 
   The _exposure_ module will include an automatic adjustment of +0.7 EV to adjust the mid-gray to match that of the majority of SLR cameras. This adjustment can be overridden with an automatically-applied preset if the default produces consistently dark images for your camera. 
 
-  Finally, this setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used.
+  This setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used.
+
+  Finally, this setting also enables the [_color calibration_](../module-reference/processing-modules/color-calibration.md) module, which acts in conjunction with the [_white balance_](../module-reference/processing-modules/white-balance.md) module as the modern way to handle white balance and chromatic adaptation with improved color science. These settings are applied by default to new edits and will not impact old edits. Note that when using the Color Calibration module, the White Balance module needs to be active and set to "Camera Reference" mode, otherwise a warning will be displayed in both the Color Calibration module ("white balance module error") and also in the White Balance module ("white balance applied twice"). When using both modules as described, it is still possible to auto-detect white-balance from a specific area of the picture by selecting the Picker tool in the CAT tab / CCT item of the Color Calibration module.
 
 - _display-referred_ workflow assumes that most processing will be performed in the Lab color space and is the legacy mode from darktable 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module and set the pixelpipe order to the _legacy_ (display-referred) order used by default up to version 2.6.
 
 - _none_ will not enable any modules by default and will set the pixelpipe to the _v3.0_ (scene-referred) order defined for darktable 3.0 and later.
-
-auto-apply chromatic adaptation defaults
-: Choose which module is responsible for performing white balance adjustments (chromatic adaptation) by default. Select "legacy" (default) to perform basic chromatic adaptation within the [_white balance_](../module-reference/processing-modules/white-balance.md) module only. Select "modern" to use a combination of the _white balance_ and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules to perform modern chromatic adaptation with improved color science. These settings are applied by default to new edits and will not impact old edits.
 
 auto-apply per camera basecurve presets
 : Use a per-camera base curve by default (if available) instead of the generic manufacturer one. This should only be used in conjunction with the _display-referred_ workflow defined above (default off).
