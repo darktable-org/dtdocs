@@ -26,23 +26,19 @@ In a scene-referred workflow many common tools (tone curves and levels, for exam
 
 The scene-referred workflow in darktable enables the [filmic rgb](../../module-reference/processing-modules/filmic-rgb.md) and [exposure](../../module-reference/processing-modules/exposure.md) modules by default when you open new images in the darkroom view.
 
----
-Set [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md) to "scene-referred" now. 
-
----
-
-_Enter preferences by clicking on the gear icon in the [top panel](../user-interface/top-panel.md)_. 
-
-## white balance and color calibration
+### white balance and color calibration
 
 Most processing software uses a traditional temperature/tint model for adjusting the white balance of an image. In darktable, the [color calibration module](../../module-reference/processing-modules/color-calibration.md) provides a much more robust and flexible approach, allowing you to explicitly define the color of the light source. This is particularly useful for scenes illuminated by artificial lighting.
 
 Please note that the [white balance](../../module-reference/processing-modules/white-balance.md) module is still enabled in this approach, but its settings normally should not be altered.
 
 ---
-Set [preferences > processing > auto-apply chromatic adaptation defaults](../../preferences-settings/processing.md) to "modern" now.
+Set [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md) to "scene-referred (filmic)" now.
 
 ---
+
+_Enter preferences by clicking on the gear icon in the [top panel](../user-interface/top-panel.md)_. 
+
 ## edit in a controlled environment
 
 Image processing should be performed in a controlled environment, lit by a white light source against a background approximating mid-gray, and on a monitor that has been properly calibrated.
