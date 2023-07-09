@@ -29,19 +29,6 @@ This preset contains all modules, sorted according to the traditional module gro
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as bloom, diffuse or sharpen, etc.
 
-# _modules: default_
-
-This preset is the default module group layout from darktable 3.4 onwards and consists of a simplified set of module groups, as follows:
-
-![module-group-technical-icon](./manage-module-layouts/module-group-technical-icon.png#icon) technical modules
-: Modules that deal with technical issues relating to the physics of sensors and denoising, lenses and associated corrections, color profiles, dynamic range and tone mapping, and recovering from damage to the image by physical limitations (hot pixels, clipped highlights, etc.).
-
-![module-group-grading-icon](./manage-module-layouts/module-group-grading-icon.png#icon) grading modules
-: Modules concerned with primary (corrective) and secondary (creative) corrections of colors and tones.
-
-![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
-: "Special effect" modules such as retouch, liquify, bloom, sharpen, etc.
-
 # _workflow: scene-referred_ & _workflow: display-referred_
 
 These presets define groups of modules relevant to the [scene-referred and display-referred workflows](../pixelpipe/the-pixelpipe-and-module-order.md#module-order-and-workflows), sorted into groups as shown below:
