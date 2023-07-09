@@ -28,23 +28,19 @@ pixel interpolator (scaling)
 : Define the root folder (and sub-folders) containing Lut files used by the [_lut 3D_](../module-reference/processing-modules/lut-3D.md) module
 
 auto-apply pixel workflow defaults
-: Choose which modules and module order to apply to new images by default:
+: Choose which modules and module order are applied to new RAW image edits by default:
 
-- _scene-referred (filmic)_ workflow (default) assumes that most processing will be performed in a linear RGB color space. Selecting this option will automatically enable the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md), [_exposure_](../module-reference/processing-modules/exposure.md) and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules and will set the pixelpipe order to _v3.0_ which is the (scene-referred) order defined for darktable 3.0 and later. 
+- _scene-referred (filmic)_ (default) assumes that most processing will be performed in a linear RGB color space. Selecting this option automatically enables the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md), [_exposure_](../module-reference/processing-modules/exposure.md) and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules for new edits and sets the module order to _v3.0 RAW_.
 
-  The _exposure_ module will include an automatic adjustment of +0.7 EV to adjust the mid-gray to match that of the majority of SLR cameras. This adjustment can be overridden with an automatically-applied preset if the default produces consistently dark images for your camera. 
+  The _exposure_ module includes an automatic exposure adjustment of +0.7 EV, and automatically enables the "compensate camera exposure" option for the filmic workflow. Both of these settings are intended to provide a reasonable starting-point for RAWs produced by a broad range of SLR and mirrorless cameras, but they can be overridden with an automatically-applied preset if the defaults produce consistently dark images for your camera. 
 
-  This setting automatically enables the "compensate camera exposure" option in the _exposure_ module to adjust the global brightness appropriately in cases where the camera's exposure compensation dial was used.
+  In the scene-referred workflows, the [_color calibration_](../module-reference/processing-modules/color-calibration.md) module acts in conjunction with the [_white balance_](../module-reference/processing-modules/white-balance.md) module as the modern way to handle white balance and chromatic adaptation with improved color science. Note that when using the color calibration module, the white balance module needs to be active and set to "Camera Reference" mode (this will be done automatically and warnings will appear if the two modules have inconsistent settings). When using both modules as prescribed, it is still possible to auto-detect white-balance from a specific area of the image by selecting the CCT picker tool in the CAT tab of color calibration.
 
-  In this workflow, the [_color calibration_](../module-reference/processing-modules/color-calibration.md) module acts in conjunction with the [_white balance_](../module-reference/processing-modules/white-balance.md) module as the modern way to handle white balance and chromatic adaptation with improved color science. Note that when using the Color Calibration module, the White Balance module needs to be active and set to "Camera Reference" mode, otherwise a warning will be displayed in both the Color Calibration module ("white balance module error") and also in the White Balance module ("white balance applied twice"). When using both modules as prescribed, it is still possible to auto-detect white-balance from a specific area of the picture by selecting the Picker tool in the CAT tab / CCT item of the Color Calibration module.
+- _scene-referred (sigmoid)_ follows the same assumptions and overall flow as _scene-referred (filmic)_, with the exception that it auto-enables the [_sigmoid_](../module-reference/processing-modules/sigmoid.md) module for tone mapping in place of _filmic rgb_.
 
-- _scene-referred (sigmoid)_ workflow follows the same assumptions and overall flow as _scene-referred (filmic)_ above, with the key difference of using the [_sigmoid_](../module-reference/processing-modules/sigmoid.md) module for tone mapping instead of _fimilc_
+- _display-referred (legacy)_ is the legacy mode (used by default in darktable 2.6 and earlier) and assumes that most processing will be performed in the Lab color space. Selecting this option automatically enables the [_base curve_](../module-reference/processing-modules/base-curve.md) module for tone mapping and sets the module order to _legacy_. This workflow uses only the _white balance_ module for chromatic adaptation.
 
-- _display-referred (legacy)_ workflow assumes that most processing will be performed in the Lab color space and is the legacy mode from darktable 2.6 and earlier. Selecting this option will automatically enable the [_base curve_](../module-reference/processing-modules/base-curve.md) module for tone mapping and will set the pixelpipe order to the _legacy_ (display-referred) order used by default up to version 2.6.
-
-  This workflow uses only the White Balance module for chromatic adaptation.
-
-- _none_ will not enable any modules by default and will set the pixelpipe to the _v3.0_ (scene-referred) order defined for darktable 3.0 and later.
+- _none_ sets the module order to _v3.0 RAW_ and uses the _white balance_ module for chromatic adaptation. No other exposure or tone mapping modules are enabled by default.
 
 auto-apply per camera basecurve presets
 : Use a per-camera base curve by default (if available) instead of the generic manufacturer one. This should only be used in conjunction with the _display-referred_ workflow defined above (default off).
