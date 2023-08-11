@@ -22,6 +22,6 @@ Click on the name of the snapshot again to disable the overlay and return to you
 
 ---
 
-**Note:** Snapshots are retained for the duration of your darktable session. This means that you can also use snapshots to compare with a another image. Just navigate to that image and enable the snapshot view as normal. When you do this, an arrow appears in the snapshot name to indicate it was not taken from the current image -- hover over the name with your mouse to see the originating image name in a tooltip.
+**Note:** Snapshots are retained for the duration of your darktable session. This means that you can also use snapshots to compare with another image. Just navigate to that image and enable the snapshot view as normal. When you do this, an arrow appears in the snapshot name to indicate it was not taken from the current image -- hover over the name with your mouse to see the originating image name in a tooltip.
 
 ---
