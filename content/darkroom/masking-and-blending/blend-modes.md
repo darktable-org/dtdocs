@@ -70,7 +70,7 @@ harmonic mean
 
 # contrast enhancing modes
 
-The following modes are not available in the "RGB (scene)" blending color space as they rely on an assumption of "50% mid gray" which only applies to display-referred and non-linear color spaces.
+The following modes are not available in the "RGB (scene)" blending color space as they rely on an assumption of "50% mid gray" which only applies to display-referred and non-linear color spaces.  In addition, they clamp pixel values of *both* input and output images as the underlying math is not valid outside the range 0..1, and can thus cause visible changes *anywhere* in the image.  To avoid these, you will need to ensure that the module's input does not exceed the display-referred range.
 
 overlay
 : This mode combines the "multiply" and "screen" blend modes: The parts of the input where the output is brighter, become brighter; The parts of the image where the output is darker, become darker; Mid-gray is unaffected. This mode is often combined with the [_lowpass_](../../../module-reference/processing-modules/lowpass.md) and [_highpass_](../../../module-reference/processing-modules/highpass.md) modules.
