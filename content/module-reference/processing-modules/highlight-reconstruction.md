@@ -62,7 +62,7 @@ method
 clipping threshold
 : Pixels above this value are considered to be clipped.
 
-: Click the icon beside the slider to visualise what areas of the image are considered to be clipped (the clipping mask). If the clipping mask does not match the [RAW over-exposed warning](../utility-modules/darkroom/raw-overexposed.md), you may need to correct this value.
+: Click the icon beside the slider to visualise what areas of the image are considered to be clipped (the clipping mask). If the clipping mask does not match the [RAW overexposed warning](../utility-modules/darkroom/raw-overexposed.md), you may need to correct this value.
 
 ## "guided laplacians" mode
 

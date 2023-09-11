@@ -56,7 +56,7 @@ whitebalance-adaptive transform
 : As the white balance amplifies each of the RGB channels differently, each channel exhibits different noise levels. This checkbox makes the selected algorithm adapt to the white balance adjustments. This option should be disabled on the second instance if you have applied a first instance with a color blend mode.
 
 adjust autoset parameters (auto modes only)
-: Automatically adjust all the other parameters on the current denoising algorithm using a single slider. This is particularly useful when you have had to increase the exposure on an under-exposed image, which normally introduces additional noise (as if you had taken the shot with a higher ISO). This control compensates for that by using settings similar to those used for a higher ISO image. The "effective ISO" used by the denoise algorithm is the actual ISO used, multiplied by the value of this slider. 
+: Automatically adjust all the other parameters on the current denoising algorithm using a single slider. This is particularly useful when you have had to increase the exposure on an underexposed image, which normally introduces additional noise (as if you had taken the shot with a higher ISO). This control compensates for that by using settings similar to those used for a higher ISO image. The "effective ISO" used by the denoise algorithm is the actual ISO used, multiplied by the value of this slider. 
 
 strength
 : Fine-tune the strength of the denoising. The default value has been chosen to maximize the peak signal-to-noise ratio. It's mostly a matter of taste -- whether you prefer a low noise level at the cost of fine details, or you accept more noise to better preserve fine detail. 
