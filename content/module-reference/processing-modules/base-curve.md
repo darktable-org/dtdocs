@@ -26,4 +26,4 @@ exposure shift (fusion)
 : The exposure difference between the merged images in EV units (default 1). This slider is only visible if the _exposure fusion_ feature is activated.
 
 exposure bias (fusion)
-: Determines how the multiple exposures are computed. With a bias of 1 (the default), the image is fused with overexposed copies of itself. With a bias of -1, it is fused with underexposed copies. A bias of 0 attempts to preserve the overall lightness of the image by combining both over- and under-exposed copies of the image. This slider is only visible if the _exposure fusion_ feature is activated.
+: Determines how the multiple exposures are computed. With a bias of 1 (the default), the image is fused with overexposed copies of itself. With a bias of -1, it is fused with underexposed copies. A bias of 0 attempts to preserve the overall lightness of the image by combining both over- and underexposed copies of the image. This slider is only visible if the _exposure fusion_ feature is activated.
