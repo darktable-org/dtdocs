@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
- When importing an image, darktable automatically checks if it is accompanied by a sidecar file. As well as looking for files named `<basename>.<extension>.xmp` and `<basename>_nn.<extension>.xmp` (darktable's XMP file naming formats) darktable also checks for the presence of a file in the form `<basename>.xmp` (the naming format for Lightroom's XMP sidecar files). Files with the latter naming format will be read by darktable but will not be written to. Once the image has been imported, darktable will generate an additional XMP file using its own naming convention.
+ When importing an image, darktable automatically checks if it is accompanied by a sidecar file. As well as looking for files named `<basename>.<extension>.xmp` and `<basename>_<number>.<extension>.xmp` (darktable's XMP file naming formats) darktable also checks for the presence of a file in the form `<basename>.xmp` (the naming format for Lightroom's XMP sidecar files). Files with the latter naming format will be read by darktable but will not be written to. Once the image has been imported, darktable will generate an additional XMP file using its own naming convention.
 
 At present, darktable is able to load the following metadata from Lightroom-generated sidecar files during the import process:
 
