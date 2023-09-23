@@ -10,6 +10,7 @@ You can perform almost any action in darktable with a keyboard/mouse shortcut. Y
 # defining shortcuts
 
 A _shortcut_ is a combination of key or button presses and/or mouse or device movements that performs an _action_ in darktable.
+The recommended way to assign shortcuts to visual elements is the [visual shortcut mapping](#visual-shortcut-mapping) mode.
 
 A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
 
