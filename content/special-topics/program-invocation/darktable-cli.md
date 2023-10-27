@@ -66,7 +66,7 @@ The user must supply an input filename and an output filename. All other paramet
 : Whether to load `data.db` which contains presets and styles. Disabling this option allows you to run multiple instances of `darktable-cli` at the cost of being unable to use the `--style` option. Defaults to true.
 
 `--out-ext <extension>`
-: Set the output extension to use. If specified takes precedence over `<output file>`. By default this is extracted from `<output file>`. Defaults to `jpg` if `<output folder>` is specified.
+: Set the export file format to use derived from the extension (jpg, tif, jxl). If specified takes precedence over `<output file>`. By default this is extracted from `<output file>`. Defaults to `jpg` if `<output folder>` is specified. Note: the extension used in the export filename is predetermined by the export format and not adjustable.
 
 `--import <file or dir>`
 : Specify input file or folder, can be used multiple times. This option cannot be combined with `<input file or folder>`.
@@ -246,3 +246,27 @@ No options provided.
 
 `bpp`
 : The bit depth (`8`, `16`, `32`)
+
+### JXL
+
+`bpp`
+: The bit depth (`8`, `10`, `12`, `16`, `32`)
+
+`pixel_type`
+: Boolean whether the (16 bit) pixel type is unsigned integer or floating point
+:  - `0`: unsigned integer
+:  - `1`: floating point
+
+`quality`
+: Integer (4-100): the quality of the image, roughly corresponding to JPEG quality (100 is lossless)
+
+`original`
+: Boolean whether to encode using the original color profile or the internal XYB one
+:  - `0`: internal
+:  - `1`: original
+
+`effort`
+: Integer between 1-9. Effort with which to encode output; higher is slower (default is 7)
+
+`tier`
+: Integer between 0-4. Higher value favors decoding speed vs quality (default is 0)
