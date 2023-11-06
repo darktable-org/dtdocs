@@ -38,7 +38,7 @@ Diffusion can be added in order to:
 Since the process is physical, even its glitches may be used for creative purposes. For example, you can:
 
 - simulate line drawing or watercolor (use the _simulate line drawing_ and _simulate watercolor_ presets),
-- create random patterns and textures by increasing noise (over time, with iterations, noise will connect with neighbours to create random specks).
+- create random patterns and textures by increasing noise (over time, with iterations, noise will connect with neighbors to create random specks).
 
 ---
 
@@ -68,7 +68,7 @@ All speeds are added (first to fourth orders), and the sums "`first order + seco
 
 ## scale
 
-Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighbours.
+Natural diffusion is supposed to happen only to the closest neighboring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighbors.
 
 Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _radius span_ parameter.
 
