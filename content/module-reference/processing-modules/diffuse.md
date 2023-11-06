@@ -68,7 +68,7 @@ All speeds are added (first to fourth orders), and the sums "`first order + seco
 
 ## scale
 
-Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighours.
+Natural diffusion is supposed to happen only to the closest neighbouring coordinates. That is, at each iteration, each pixel should only interact with its 9 nearest neighbours.
 
 Here, we fast-track things a bit to save time and reuse the multi-scale wavelets scheme from the [_contrast equalizer_](./contrast-equalizer.md) module, so that we can diffuse at different scales. The maximal scale of diffusion is defined by the _radius span_ parameter.
 
@@ -120,7 +120,7 @@ In the following controls, positive values cause diffusion to avoid edges (isoph
 3rd order anisotropy
 : The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the low-frequency (_3rd order speed_ setting).
 
-4rd order anisotropy
+4th order anisotropy
 : The direction of diffusion of the high-frequency wavelet layers relative to the orientation of the gradient of the high-frequency (_4th order speed_ setting).
 
 ## edge management
@@ -172,7 +172,7 @@ These two steps can be performed on the zoomed-out image. Remember that, while g
 
 At this point, you may want to tweak the edge sensitivity to take care of any edge artifacts. In theory, diffusing in the isophote direction ensures that diffusion is contained inside edges, but this is not sufficient when corners and sharp convex shapes are present in the image.
 
-When the edge sensitivity control has been adjusted to produce satisfying results, the image usually becomes quite soft. In most cases it will be necessary, at this point, to increase the number of iterations in order to compensate. This will come with a performance penalty so tread carefully with the performance/quality trade-off depending on your hardware. If you can't increase the number of iterations, you will have to increase the diffusing speed.
+When the edge sensitivity control has been adjusted to produce satisfying results, the image usually becomes quite soft. In most cases it will be necessary, at this point, to increase the number of iterations in order to compensate. This will come with a performance penalty so treat carefully with the performance/quality trade-off depending on your hardware. If you can't increase the number of iterations, you will have to increase the diffusing speed.
 
 The final step is to fine-tune the third and fourth order, which take care of the high frequencies of each wavelet scale. You will need to be a lot more gentle with these settings than for the first and second orders, as they can cause noise to blow-up really fast.
 

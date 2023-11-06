@@ -229,7 +229,7 @@ The following keys can be used within the tagging module:
 
 To see the images bearing a particular tag in the _tag dictionary_ window, right-click on the tag name and choose "go to tag collection" in the resulting pop-up menu. This opens a collection in the [collections](./collections.md) module showing all images containing this tag. You can also select other tags in the _collections_ module by double-clicking on the collection for the other tag.
 
-To return to the collection that was selected before opening a tag collection select the "go back to work" item from the pop-up menu. This will allow you to return to the original collection, as long ans you haven't selected any other collections in the meantime.
+To return to the collection that was selected before opening a tag collection select the "go back to work" item from the pop-up menu. This will allow you to return to the original collection, as long as you haven't selected any other collections in the meantime.
 
 # preferences
 

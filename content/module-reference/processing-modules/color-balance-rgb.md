@@ -208,7 +208,7 @@ The following is the internal order of operations within the module:
 
 # caveats
 
-Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while darktable uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between these spaces. The result will therefore be a slighly tinted black & white image. If your intent is to get a real black & white image using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
+Setting the global chroma to -100% will not produce a real monochrome image, as is customary with other algorithms. The reason for this is that the RGB space used has a D65 white point defined in CIE LMS 2006 space, while darktable uses a white point defined in CIE XYZ 1931 space, and there is no exact conversion between these spaces. The result will therefore be a slightly tinted black & white image. If your intent is to get a real black & white image using the luminance channel, the _color calibration_ module offers a _B&W : luminance-based_ preset that does exactly the same thing but without the white-point discrepancy.
 
 This module has its gamut-mapping (against pipeline RGB) permanently enabled. This means that if your original image contains some largely out-of-gamut colors to start with, simply enabling _color balance RGB_ with no particular setting will slightly alter its colors. This is probably for the best.
 

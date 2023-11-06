@@ -58,7 +58,7 @@ You can also create your own groups using existing shapes by selecting the shape
 
 ## properties
 
-Expand the *properties* section to change the proporties, such as _opacity_, _size_, _feather_, etc, of the currently selected (or created) shapes.
+Expand the *properties* section to change the properties, such as _opacity_, _size_, _feather_, etc, of the currently selected (or created) shapes.
 
 If a _group_ is selected, the soft limits of the sliders are attempt to prevent irreversible distortions (where some of the shapes are clamped at their extreme values whereas others are still adjusted, so that reversing the move does not lead to the original situation). However, like any soft limits, these can be forced.
 
