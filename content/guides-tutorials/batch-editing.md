@@ -16,7 +16,7 @@ Shooting a color checker on-location can save a tremendous amount of time during
 
 ## prefer consistent lighting conditions
 
-If possible, use controlled artifical lighting to maintain consistent lighting over the series of images. This means that you won't have to worry about light color temperature and intensity changes between images. Shoot a new image of the same color checker every time your lighting conditions change.
+If possible, use controlled artificial lighting to maintain consistent lighting over the series of images. This means that you won't have to worry about light color temperature and intensity changes between images. Shoot a new image of the same color checker every time your lighting conditions change.
 
 ## prefer manual mode
 
@@ -51,7 +51,7 @@ You will first need to extract a [color calibration profile](../module-reference
 
 ### editing the reference image
 
-Choose a reference image that was taken in the lighting conditions closest to those of the color checker image that served as your profiling reference. Your primary color-grading should already be handled by the profile used in the _color calibration_ module (in conjuction with the _input color profile_ module). What remains to complete this stage is to adjust the [_exposure_](../module-reference/processing-modules/exposure.md) setting to match the overall brightness that you expect.
+Choose a reference image that was taken in the lighting conditions closest to those of the color checker image that served as your profiling reference. Your primary color-grading should already be handled by the profile used in the _color calibration_ module (in conjunction with the _input color profile_ module). What remains to complete this stage is to adjust the [_exposure_](../module-reference/processing-modules/exposure.md) setting to match the overall brightness that you expect.
 
 Next, proceed with the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md#scene) white and black relative exposures, as well as the contrast setting. Finish with the secondary color-grading.
 

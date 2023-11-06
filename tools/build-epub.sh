@@ -111,7 +111,7 @@ do
      cp "${HUGO_DIR}/all_images/img_manifest.txt" .
      sed -i -e "/<manifest>/r img_manifest.txt" content.opf
 
-     #replace occurences of en or $language string
+     #replace occurrences of en or $language string
      find . -type f -name "*.html" -exec sed -i "s/\.\.\/$language\///g" {} +
      find . -type f -name "*.html" -exec sed -i 's/\.\.\/style\.css/style.css/' {} +
      sed -i "s/content src\=\"$language\//content src\=\"/" toc.ncx

@@ -31,7 +31,7 @@ exposure (manual mode)
 : The color picker tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in [spot exposure mapping](#spot-exposure-mapping) options.
 
 clipping threshold (manual mode)
-: Define what percentage of bright values are to be clipped in the calculation of the _exposure_ and _black level correction_. Use the color picker to sample a portion of the image to be used for this calcuation.
+: Define what percentage of bright values are to be clipped in the calculation of the _exposure_ and _black level correction_. Use the color picker to sample a portion of the image to be used for this calculation.
 
 percentile (automatic mode)
 : Define a location in the histogram to use for automatic exposure correction. A percentile of 50% denotes a position in the histogram where 50% of pixel values are above and 50% of pixel values are below that exposure.
