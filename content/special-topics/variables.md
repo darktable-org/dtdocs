@@ -65,7 +65,9 @@ $(EXIF.ISO)                Exif ISO value
 $(EXIF.EXPOSURE)           Exif exposure
 $(EXIF.EXPOSURE.BIAS)      Exif exposure bias
 $(EXIF.APERTURE)           Exif aperture
+$(EXIF.CROP_FACTOR)        Exif crop factor
 $(EXIF.FOCAL.LENGTH)       Exif focal length
+$(EXIF.FOCAL.LENGTH.EQUIV) Exif 35 mm equivalent focal length
 $(EXIF.FOCUS.DISTANCE)     Exif focus distance
 $(IMAGE.EXIF)              basic exposure information from Exif data (aperture, exposure, ISO)
 $(LONGITUDE)               longitude
