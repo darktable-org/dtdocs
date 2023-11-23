@@ -12,6 +12,8 @@ Automatically correct for (or simulate) lens distortion, transverse chromatic ab
 
 You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [lensfun library](https://lensfun.github.io/).
 
+If TCA correction is enabled in this module, then [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) should not also be enabled, as it will conflict. [_chromatic aberrations_](./chromatic-aberrations.md) may be used to correct any TCA that remains after this module's correction is applied.
+
 # lensfun correction data
 
 If your system's lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu. 
