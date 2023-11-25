@@ -15,9 +15,9 @@ create database snapshot
 how many snapshots to keep
 : Number of snapshots to keep after creating a new snapshot, not counting database backups taken when moving between darktable versions. Enter "-1" to store an unlimited number of snapshots. (default 10)
 
-# xmp
+# XMP sidecar files
 
-create sidecar files
+create XMP files
 : XMP sidecar files provide a redundant method of saving the changes that you have made to an image, in addition to the changes saved to darktable's database. This option allows you to choose when files will _first be written_. Once written, they will subsequently be updated each time you edit or add a tag to the image. Choose from:
 
 : - _never_: Don't write sidecar files. This can be useful if you are running multiple version of darktable for development/testing purposes but is not normally recommended,
