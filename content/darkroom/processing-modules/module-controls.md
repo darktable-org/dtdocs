@@ -34,7 +34,7 @@ right-click (pop-up edit)
 : You may right-click and type any value up to the hard limits for a given slider. For example, in the [_rotate and perspective_](../../module-reference/processing-modules/rotate-perspective.md) module, the soft limits for angle are -10 to +10 degrees while the hard limits are -180 to +180 degrees; In the [_exposure_](../../module-reference/processing-modules/exposure.md) module, the soft limits for the exposure slider are -3 to +4 EV while the hard limits are -18 to +18 EV. If you try to enter a value beyond the hard limit, it will be automatically be adjusted to the minimum/maximum allowable value.
 
 double-click (reset)
-: Double-click on a slider or its label to reset to the default value. If controls are grouped together within a tabbed interface, you can double-click on the tab's header label to reset all settings in that tab.
+: Double-click on a slider or its label to reset back to the default value. Ctrl+double-click to reset its value back to any auto-applied preset (if one applies for the current image). If controls are grouped together within a tabbed interface, you can double-click on the tab's header label to reset all settings in that tab.
 
 In addition, the speed of mouse-wheel, arrow-key and click+drag adjustments can be altered:
 
@@ -46,6 +46,8 @@ Both of these multipliers can be amended in [preferences > shortcuts](../../pref
 # comboboxes
 
 Click on a combobox to show a list of available options which you can click to select. Occasionally the selection list will open close to the bottom or top of the screen meaning that only some of the items are visible -- simply scroll with your mouse wheel to bring up the full list. Alternatively, you can also use the mouse wheel and keyboard arrow keys to select an option, or start typing to filter the combobox entries.
+
+As with sliders, you can double-click the combobox or its label to reset back to the default value, or Ctrl+double-click to reset back to any auto-applied preset.
 
 # color pickers
 
