@@ -14,7 +14,7 @@ This module currently only works for raw images recorded with a Bayer sensor (th
 
 The module will also not apply any corrections to any photos that have been identified as monochrome (see [developing monochrome images](../../guides-tutorials/monochrome.md) for more information).
 
-If this module is enabled, then TCA correction in [_lens correction_](./lens-correction.md) should not also be enabled, as it will conflict.
+Note that if this module is enabled, then TCA correction in the [_lens correction_](./lens-correction.md) module should be disabled, as the two modules will conflict with one another.
 
 # module controls
 
