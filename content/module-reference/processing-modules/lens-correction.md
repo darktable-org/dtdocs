@@ -1,7 +1,7 @@
 ---
 title: lens correction
 id: lens-correction
-applicable-version: 4.4
+applicable-version: 4.6
 tags: 
 working-color-space: RGB
 view: darkroom
@@ -11,6 +11,8 @@ masking: false
 Automatically correct for (or simulate) lens distortion, transverse chromatic aberrations (TCA) and vignetting.
 
 You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [lensfun library](https://lensfun.github.io/).
+
+Additional controls are also provided for manual vignetting correction, in case the profiles available for your lens are insufficient or non-existent.
 
 Note that if TCA correction is enabled in this module, also using [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) may cause artifacts from over-correction. 
 
@@ -97,3 +99,18 @@ TCA blue fine-tune
 
 image scale
 : Override the image scaling.
+
+## manual vignette correction
+
+Full vignetting correction is unavailable or inadequate for many lenses, whether using embedded metadata or the lensfun database. Click on the "manual vignetting correction" button to provide additional adjustments via the following sliders.
+
+strength
+: the overall strength of the effect.
+
+radius
+: the amount of the image that is unchanged by the correction.
+
+steepness
+: the steepness of the correction effect outside of the radius.
+
+The effect of the correction can be visualised by clicking on the mask button beside the strength slider.
