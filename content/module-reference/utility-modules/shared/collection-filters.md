@@ -1,7 +1,7 @@
 ---
 title: collection filters
 id: collection-filters
-applicable-version: 4.4
+applicable-version: 4.6
 tags:
 view: lighttable, darkroom, tethering, map
 ---
@@ -125,6 +125,10 @@ You can also use "relative" date/time values by preceding text entries with `+` 
 The filename filter allows you to search images by their filename and/or extension. You can either enter the name or extension (with the leading `.`) manually or use the right-click menu to select.
 
 Within the extension field, you can also use the keywords `RAW` (to select all handled RAW file extensions), `NOT RAW` (to select all non-RAW file extensions), `LDR` (to select low-dynamic-range extensions) or `HDR` (to select high-dynamic-range extensions).
+
+## camera, lens
+
+The camera and lens filters are presented text entry fields into which you can enter text to filter by. Alternatively, you can right-click on the text box to see a list of cameras or lenses to select from.
 
 ## text search
 
