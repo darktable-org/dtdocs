@@ -172,10 +172,6 @@ blur radius
 mask opacity
 : Alter the opacity of the mask associated with the currently-selected shape. An opacity of 1.0 indicates that the shape is completely opaque and the module's effect is fully applied, whereas a value less than 1.0 indicates that the effect applied by the shape is blended with the underlying image to the degree indicated by the slider.
 
-## show guides
-
-Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
-
 ## panning and zooming the image
 
 While creating or editing a shape, mouse actions are applied to the current shape.  If you need to move or zoom the portion of the image shown in the center view, hold down the 'a' key while dragging the mouse or using the scroll wheel.  While the key is held down, the mouse actions will apply to the entire image rather than the current shape. Holding down the key will also temporarily suppress generating new shapes in continuous-creation mode.

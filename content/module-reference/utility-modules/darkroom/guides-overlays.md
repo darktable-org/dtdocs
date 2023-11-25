@@ -1,7 +1,7 @@
 ---
 title: guides & overlays
 id: guides-overlays
-applicable-version: 4.0
+applicable-version: 4.6
 tags: 
 view: darkroom
 ---
@@ -18,7 +18,7 @@ Other darkroom functionality also draws colored overlay lines on the image (for 
 
 # local guides
 
-A more common use is to switch the guides on only when a specific module is activated. The following control is added by default to all modules that crop/distort the image (currently [crop](../../processing-modules/crop.md), [crop and rotate](../../processing-modules/crop-rotate.md), [orientation](../../processing-modules/orientation.md), [framing](../../processing-modules/framing.md), [liquify](../../processing-modules/liquify.md), [lens correction](../../processing-modules/lens-correction.md), [retouch](../../processing-modules/retouch.md) and [rotate and perspective](../../processing-modules/rotate-perspective.md)):
+A more common use is to switch the guides on only when a specific module is activated. The following control is added by default to all modules that crop/distort the image (currently [crop](../../processing-modules/crop.md), [crop and rotate](../../processing-modules/crop-rotate.md), [orientation](../../processing-modules/orientation.md), [framing](../../processing-modules/framing.md), [liquify](../../processing-modules/liquify.md), [lens correction](../../processing-modules/lens-correction.md) and [rotate and perspective](../../processing-modules/rotate-perspective.md)):
 
 ![local-controls](./guides-overlays/local-controls.png#w25)
 
