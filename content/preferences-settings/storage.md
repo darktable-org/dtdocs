@@ -29,5 +29,8 @@ create sidecar files
 store XMP tags in compressed format
 : Entries in XMP tags can get rather large and may exceed the available space to store the history stack in some output files on export. This option allows binary XMP tags to be compressed in order to save space. Available options are “never”, “always”, and “only large entries” (default).
 
+auto-save interval
+: This preference sets the interval (in seconds) after which the processing history for an image will be automatically saved (while in the darkroom view). Set to zero to disable auto-saving. Note that this option might be ignored for slow drives (default 10s).
+
 look for updated XMP files on startup
 : Scan all XMP files on startup and check if any have been updated in the meantime by some other software. If updated XMP files are found, a menu is opened for the user to choose which of the XMP files to reload (replacing darktable's database entries by the XMP file contents) and which of the XMP to overwrite from darktable's database. Activating this option also causes darktable to check for text sidecar files that have been added after import time (default off). 
