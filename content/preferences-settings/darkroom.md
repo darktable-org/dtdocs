@@ -9,12 +9,6 @@ Control functionality in the [darkroom](../darkroom/_index.md) view and associat
 
 # general
 
-pen pressure control for brush masks
-: Controls how the pressure reading of a graphics tablet impacts newly generated [drawn mask](../darkroom/masking-and-blending/masks/drawn.md) brush strokes. You can control the brush width, hardness and opacity. “Absolute” control means that the pressure reading directly defines the attribute with a value between 0% and 100%. “Relative” means that the pressure reading adjusts the attribute between zero and the pre-defined default value (default off).
-
-smoothing of brush strokes
-: Sets the level for smoothing of [drawn mask](../darkroom/masking-and-blending/masks/drawn.md) brush strokes. Stronger smoothing leads to fewer nodes and easier editing at the expense of lower accuracy.
-
 scroll down to increase mask parameters
 : By default, scrolling your mouse up increases the value of the relevant shape parameters in [drawn masks](../darkroom/masking-and-blending/masks/drawn.md). Set this preference to reverse the behavior (default off).
 

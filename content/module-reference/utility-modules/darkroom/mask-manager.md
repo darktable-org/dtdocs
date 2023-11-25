@@ -60,9 +60,17 @@ You can also create your own groups using existing shapes by selecting the shape
 
 ## properties
 
-Expand the _properties_ section to change the properties (_opacity_, _size_, _feather_, etc.) of the currently selected shape(s).
+Expand the _properties_ section to change the properties (_opacity_, _size_, _rotation_,_feather_, _hardness_) of the currently selected shape(s).
 
 If a _group_ is selected, the soft limits of the sliders are automatically adjusted in an attempt to prevent irreversible distortions (where some of the shapes are clamped at their extreme values but others can still be adjusted, so that reversing the move does not return all shapes to their previous configuration). However, like any soft limits, these can be overridden (forced) if you are happy to accept the consequences.
+
+If a pen (e.g. Wacom) is detected, some additional options are also displayed to control how it is used by darktable:
+
+pressure
+: Controls how the pressure reading of a graphics tablet impacts newly generated [drawn mask](../darkroom/masking-and-blending/masks/drawn.md) brush strokes. You can control the brush width, hardness and opacity. “Absolute” control means that the pressure reading directly defines the attribute with a value between 0% and 100%. “Relative” means that the pressure reading adjusts the attribute between zero and the pre-defined default value (default off).
+
+smoothing
+: Sets the level for smoothing of [drawn mask](../darkroom/masking-and-blending/masks/drawn.md) brush strokes. Stronger smoothing leads to fewer nodes and easier editing at the expense of lower accuracy.
 
 # set operators (modes)
 
