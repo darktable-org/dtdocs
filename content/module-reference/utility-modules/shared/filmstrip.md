@@ -1,7 +1,7 @@
 ---
 title: filmstrip
 id: filmstrip
-applicable-version: 4.0
+applicable-version: 4.6
 tags: 
 view: darkroom, tethering, map, print
 ---
@@ -12,7 +12,7 @@ The filmstrip can be used to quickly switch between images. The images shown are
 
 The filmstrip can be switched on and off using the shortcut Ctrl+F. The height of the filmstrip panel can be changed by clicking and dragging its top border.
 
-Quickly navigate through the images in the filmstrip by scrolling with the mouse. In the darkroom you can change the photo currently being processed by clicking on another image in the filmstrip.
+Quickly navigate through the images in the filmstrip by scrolling with the mouse. Increase scroll speed with Shift+scroll. Change the height of the filmstrip with Ctrl+scroll or by clicking+dragging the top of the panel. In the darkroom you can change the photo currently being processed by clicking on another image in the filmstrip.
 
 In the darkroom, the image currently being processed is selected and highlighted. Hover over an image on the filmstrip with your mouse to select it (in order to act on it with a keyboard shortcut) without changing the image being processed.
 
