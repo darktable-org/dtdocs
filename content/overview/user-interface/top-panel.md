@@ -6,14 +6,14 @@ weight: 40
 author: "people"
 ---
 
-The top panel is common to all darktable views and provides access to a number of common functions.
+The top panel appears in all darktable views and provides access to common functions.
 
 ![top-panel](./top-panel/top-panel.png#w100)
 
 # On the left-hand-side
 
 filter / sort
-: Choose how to filter and sort the images. Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collection-filters.md) module.
+: Choose how to filter and sort the images. Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collection-filters.md) module or by clicking on the ![top-panel_filter-preferences icon](./top-panel/top-panel_filter-preferences.png#icon) icon.
 
 ![top-panel_sort-order icon](./top-panel/top-panel_sort-order.png#icon) sort order
 : Switch the sort order (ascending / descending).
