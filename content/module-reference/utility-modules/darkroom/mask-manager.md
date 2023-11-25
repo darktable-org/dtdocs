@@ -51,7 +51,7 @@ use inverted shape
 : Invert the polarity of the selected shape.
 
 mode
-: Choose how this shape will be combined with the preceding mask by selecting one of the five set operators defined below.
+: Choose how this shape will be combined with the preceding mask by selecting one of the five set operators defined below. The currently-selected mode is highlighted with a check mark.
 
 move up/down
 : Move the shape up or down the list.
