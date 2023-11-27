@@ -1,7 +1,7 @@
 ---
 title: sigmoid
 id: sigmoid
-applicable-version: 4.2.0
+applicable-version: 4.6
 tags: 
 working-color-space: RGB 
 view: darkroom
@@ -56,3 +56,19 @@ target black
 
 target white
 : Upper bound that the sigmoid curve converges to as the scene value approaches infinity -- this should normally be left unchanged. You can use this to clip white at a defined scene intensity.
+
+## primaries
+
+Expand this section to set custom primaries. You are advised to use the "smooth" preset as a starting point and then adjust using the following controls:
+
+base primaries
+: Choose the set of primaries to use as the base for adjustments. This is a bit like locally overriding the working profile, and is necessary to allow presets to be created that don't change even if the user amends the working profile used in the pixel pipeline.
+
+red/green/blue attenuation
+: Attenuate (decrease) the [purity](https://en.wikipedia.org/wiki/Colorfulness#Excitation_purity) of the red/green or blue primaries before the signal is processed through _sigmoid_'s per-channel curves. An important consequence is that now even the brightest and most pure inputs get smoothly degraded to achromatic at the high end.
+
+red/green/blue rotation
+: Rotate the primaries where the per-channel curves are applied. This affects the hue paths when approaching white in the high end.
+
+recover purity
+: Recover some of the original purity. A value of 100 causes all of the attenuations to be restored after the per-channel process is done. This lands the middle range values near their original purities. A value of 0 doesn’t restore the purity at all, so the more you apply attenuation, the less purity there is in the final picture. The rotations are always restored regardless of the value of this slider.
