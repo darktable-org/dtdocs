@@ -36,7 +36,7 @@ Click on a preset name to apply the preset to the current instance of the module
 
 When creating or editing presets, the following dialog is shown:
 
-![new preset](./presets/new_preset.png#w33)
+![new preset](./presets/new_preset.png#w50)
 
 ## controls
 
@@ -45,6 +45,9 @@ name
 
 description
 : A searchable description for the preset (optional)
+
+reset all module parameters to their default values
+: Selecting this option will cause all module parameters to be reset to their default values (as if you had simply enabled the module on a new image or clicked the module reset button). This can be used to automatically set certain modules (color calibration, exposure, filmic) based on the Exif properties of the current image rather than setting to hard-coded parameters.
 
 auto apply this preset to matching images _(processing modules only)_
 : Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by Ctrl+clicking on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data (see below).
@@ -72,7 +75,7 @@ lens
 : A pattern to be matched against the Exif field that describes your lens; use % as wildcard.
 
 ISO
-: Only apply the preset if the ISO value of your image lies within the given range.
+: Only apply the preset if the ISO value of your image lies within the given range (shows ∞ if the upper range is unlimited).
 
 exposure
 : Only apply the preset if the exposure time of your image lies within the given range; set + as the upper value to match arbitrarily long exposures.
@@ -84,13 +87,7 @@ focal length
 : Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
 
 format
-: Only apply the preset to certain types of image. Check a box to include files matching a criterion; uncheck the box to exclude those files. Choose from "raw", "non-raw", "HDR", "monochrome" and "color".
-
----
-
-**Note**: If you deselect both "raw" and "non-raw" the filter will not apply to any files (since all supported files are either raw or non-raw). Similarly if you deselect both "monochrome" and "color". 
-
----
+: Only apply the preset to certain types of image. Check boxes to include files matching these criteria; uncheck boxes to exclude those files. Choose from "raw", "non-raw", "HDR", "monochrome" and "color".
 
 # managing presets
 
