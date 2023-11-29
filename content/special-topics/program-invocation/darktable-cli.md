@@ -116,21 +116,17 @@ The following sections describe the configuration options/values that are availa
 `quality`
 : The compression quality (`5` - `100`)
 
-### j2k (jpg2000)
-
-`format`
-: The format of the output
-:  - `0`: J2K
-:  - `1`: jp2
+### j2k (JPEG 2000)
 
 `quality`
 : The compression quality (`5` - `100`)
 
 `preset`
 : The DCP mode
-: - `0`: Cinema2K, 24 FPS
-: - `1`: Cinema2K, 48 FPS
-: - `2`: Cinema4K, 24 FPS
+: - `0`: off
+: - `1`: Cinema2K, 24 FPS
+: - `2`: Cinema2K, 48 FPS
+: - `3`: Cinema4K, 24 FPS
 
 ### exr (OpenEXR)
 
@@ -207,6 +203,11 @@ No options provided.
 `bpp`
 : The bit depth (`8`, `16`, `32`)
 
+`pixelformat`
+: The 16-bit pixel format
+:  - `0`: unsigned integer
+:  - `1`: floating point
+
 `compress`
 : The compression type
 :  - `0`: uncompressed
@@ -217,7 +218,7 @@ No options provided.
 : The compression level (`0` - `9`)
 
 `shortfile`
-: B&W or color image
+: B&W as grayscale
 :  - `0`: write rgb colors
 :  - `1`: write grayscale
 
@@ -247,13 +248,13 @@ No options provided.
 `bpp`
 : The bit depth (`8`, `16`, `32`)
 
-### JXL
+### jxl (JPEG XL)
 
 `bpp`
 : The bit depth (`8`, `10`, `12`, `16`, `32`)
 
 `pixel_type`
-: Boolean whether the (16 bit) pixel type is unsigned integer or floating point
+: Boolean whether the 16-bit pixel type is unsigned integer or floating point
 :  - `0`: unsigned integer
 :  - `1`: floating point
 
