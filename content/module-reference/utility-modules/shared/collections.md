@@ -1,7 +1,7 @@
 ---
 title: collections
 id: collections
-applicable-version: 4.0
+applicable-version: 4.6
 tags:
 view: lighttable, tethering, map
 ---
@@ -195,7 +195,7 @@ number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).
 
 sort film rolls by
-: Sort film rolls by either the "folder" (path) or the "id" (roughly equivalent to the date the film rolls were first imported) (default "id").
+: Sort film rolls by either the "folder name" (path) or the "import time" (the date the film rolls were first imported) (default "import time").
 
 sort collections descending
 : Sort the following collections in descending order: "film roll" (when sorted by folder), "folder", date/time (e.g. date/time taken) (default on)
