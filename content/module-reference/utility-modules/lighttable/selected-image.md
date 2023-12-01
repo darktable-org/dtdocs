@@ -1,5 +1,5 @@
 ---
-title: selected images
+title: actions on selection
 id: selected-image 
 applicable-version: 3.6
 tags: 

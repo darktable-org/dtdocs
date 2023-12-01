@@ -29,10 +29,10 @@ From top to bottom:
 
 From top to bottom:
 
-[select](../module-reference/utility-modules/lighttable/select.md)
+[selection](../module-reference/utility-modules/lighttable/select.md)
 : Select images in the lighttable using simple criteria.
 
-[selected images(s)](../module-reference/utility-modules/lighttable/selected-image.md)
+[actions on selection](../module-reference/utility-modules/lighttable/selected-image.md)
 : Perform actions on selected images.
 
 [history stack](../module-reference/utility-modules/lighttable/history-stack.md)
