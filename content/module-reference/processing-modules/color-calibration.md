@@ -1,7 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
-applicable-version: 4.4
+applicable-version: 4.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -249,13 +249,13 @@ input R/G/B
 normalize channels
 : Select this checkbox to try to keep the overall brightness constant as the sliders are adjusted.
 
-# spot color mapping
+# area color mapping
 
-The spot mapping feature is designed to help with [batch-editing](../../guides-tutorials/batch-editing.md) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
+The area mapping feature is designed to help with [batch-editing](../../guides-tutorials/batch-editing.md) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
 
 Unfortunately, the light color temperature often changes slightly between shots, even within the same series captured in the same conditions. This can be the result of a cloud passing by the sun in natural light, or a different ratio between colored bounce light and main light. Each image will still need some individual fine-tuning if you want a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
 
-Spot color mapping allows you to define a target chromaticity (hue and chroma) for a particular region of the image (the control sample), which you then match against the same target chromaticity in other images. The control sample can either be a critical part of your subject that needs to have constant color, or a non-moving and consistently-lit surface over your series of images.
+Area color mapping allows you to define a target chromaticity (hue and chroma) for a particular region of the image (the control sample), which you then match against the same target chromaticity in other images. The control sample can either be a critical part of your subject that needs to have constant color, or a non-moving and consistently-lit surface over your series of images.
 
 The mapping process consists of two steps.
 
@@ -264,7 +264,7 @@ The mapping process consists of two steps.
 There are two ways of setting the target chromaticity for your control sample:
 
 1. if you know or expect an arbitrary color for the control sample (for example, a gray card, a color chart, a product or a logo of a specified color), you can set its L, h and c values directly, in Lch derived from CIE Lab 1976 space,
-2. if you simply want to match the development of your reference image, set the _spot mode_ to _measure_, then enable the color picker (to the right of the color patch) and draw a rectangle over your control sample. The _input_ column will then be updated with the L, h, c values of the control sample before the color correction, and the _target_ column will show the resulting L, h, c values of the control sample after the current calibration setting is applied.
+2. if you simply want to match the development of your reference image, set the _area mode_ to _measure_, then enable the color picker (to the right of the color patch) and draw a rectangle over your control sample. The _input_ column will then be updated with the L, h, c values of the control sample before the color correction, and the _target_ column will show the resulting L, h, c values of the control sample after the current calibration setting is applied.
 
 If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-gray) -- this can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral gray, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral grays.
 
@@ -280,7 +280,7 @@ The _take channel mixing into account_ option lets you choose where the target i
 
 ## step 2 : match the target
 
-When you open a new image, the _spot mode_ is automatically reset to _correction_. Using the color picker attached to the color patch, you can then directly reselect your control sample in the new image. The proper illuminant settings required for the control sample to match the memorized target chromaticity will be automatically computed, and the setting will be updated in the same operation.
+When you open a new image, the _area mode_ is automatically reset to _correction_. Using the color picker attached to the color patch, you can then directly reselect your control sample in the new image. The proper illuminant settings required for the control sample to match the memorized target chromaticity will be automatically computed, and the setting will be updated in the same operation.
 
 The _take channel mixing into account_ option will need to be set the same as when the measurement of the target was performed to ensure consistent results. Note that the target matching only defines the illuminant settings used in the Chromatic Adaptation Transform  -- it does not alter the channel mixer settings, since the calibration is handled in the color checker calibration tool. However, the channel mixer settings can be used or discarded in the computation of the illuminant settings, depending on this option.
 
@@ -431,5 +431,5 @@ It is possible to alleviate this issue, if you have a computer screen calibrated
 
 1. Display a white surface on your screen, for example by opening a blank canvas in any photo editing software you like
 2. Take a blurry (out of focus) picture of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and are using an aperture between f/5.6 and f/8,
-3. Open the picture in darktable and extract the white balance by using the spot tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
+3. Open the picture in darktable and extract the white balance by using the color picker tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
 4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.

@@ -55,7 +55,7 @@ Choose a reference image that was taken in the lighting conditions closest to th
 
 Next, proceed with the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md#scene) white and black relative exposures, as well as the contrast setting. Finish with the secondary color-grading.
 
-When this is done, you can measure the brightness and chromaticity of a control sample, preferably located on a non-moving surface that is consistently lit across your series (and appearing in all the frames). These measurements are taken using the [_spot exposure mapping_](../module-reference/processing-modules/exposure.md#spot-exposure-mapping) and [_color calibration spot mapping_](../module-reference/processing-modules/color-calibration.md#spot-color-mapping) tools. They will be memorized and will serve as a target for individual images as needed.
+When this is done, you can measure the brightness and chromaticity of a control sample, preferably located on a non-moving surface that is consistently lit across your series (and appearing in all the frames). These measurements are taken using the [_area exposure mapping_](../module-reference/processing-modules/exposure.md#area-exposure-mapping) and [_color calibration area mapping_](../module-reference/processing-modules/color-calibration.md#area-color-mapping) tools. They will be memorized and will serve as a target for individual images as needed.
 
 ### propagating the look
 
@@ -67,11 +67,11 @@ However, this alone will not ensure a consistent look for the whole series.
 
 If there was some variability in your lighting conditions, each image will need some further fine-tuning adjustments. Fortunately, if you have applied the proposed method so far, this should be relatively straightforward.
 
-First, homogenize the exposure using your control sample and the [_spot exposure mapping_](../module-reference/processing-modules/exposure.md#spot-exposure-mapping) tool.
+First, homogenize the exposure using your control sample and the [_area exposure mapping_](../module-reference/processing-modules/exposure.md#area-exposure-mapping) tool.
 
 Then, adjust the _filmic rgb_ white relative exposure if needed, preferably using the color picker. The contrast should not require any adjustment since it does not depend on the dynamic-range of the image.
 
-Finally, homogenize the chromatic adaptation, using your control sample and the [_color calibration spot mapping_](../module-reference/processing-modules/color-calibration.md#spot-color-mapping) tool.
+Finally, homogenize the chromatic adaptation, using your control sample and the [_color calibration area mapping_](../module-reference/processing-modules/color-calibration.md#area-color-mapping) tool.
 
 This should get you close enough in most cases. However, if the background has changed, it is possible that these fine adjustments (aimed towards technically normalizing the primary color-grading on an individual basis) are not sufficient to give a perceptually-even look. In this case, you will need an extra step of secondary color-grading, which you are advised to perform on top of the previous one (shared with the other images of the series), in new instances of the relevant modules located later in the pipe. This ensures that the base secondary color-grading stays constant for all images and makes for a better workflow. You are not advised to make large changes in the primary color-grading to manage perceptual discrepancies involving contrast with the background.
 
