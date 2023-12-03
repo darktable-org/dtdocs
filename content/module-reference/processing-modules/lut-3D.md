@@ -1,7 +1,7 @@
 ---
-title: lut 3D
+title: LUT 3D
 id: lut-3d
-applicable-version: 3.6
+applicable-version: 4.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -26,7 +26,7 @@ The compressed format `.gmz` is only available when GMIC is installed. This form
 
 LUTs are most commonly used in darktable for color grading or film look simulation. For this reason, by default, the module is placed after the [_filmic rgb_](./filmic-rgb.md) module in the pixelpipe and should be applied to a neutral image (without first applying a specific look). While you can find hundreds of free LUTs on the internet, you should note that not all of them are compatible with the darktable environment and workflow -- incompatible LUTs will not produce the advertised look. To limit the risk, a color grading LUT should have been created to work with one of the available "application color spaces" (see below), for both the input and the output of the module.
 
-Camera log LUTs (as F-log or S-Log3) are different to color-grading and film-look-simulation LUTs, and are intended to convert the camera log raw data into something (linear raw data or other color space) that darktable is able to understand. In this case the _lut 3D_ module should be manually placed between the [_demosaic_](./demosaic) and [_input color profile_](./input-color-profile.md) modules. Once you have done this, you can no longer choose an "application color space". The "input profile" of input color profile module should be aligned with the output of the LUT. _Please note that this use case has not yet been tested._
+Camera log LUTs (as F-log or S-Log3) are different to color-grading and film-look-simulation LUTs, and are intended to convert the camera log raw data into something (linear raw data or other color space) that darktable is able to understand. In this case the _LUT 3D_ module should be manually placed between the [_demosaic_](./demosaic) and [_input color profile_](./input-color-profile.md) modules. Once you have done this, you can no longer choose an "application color space". The "input profile" of input color profile module should be aligned with the output of the LUT. _Please note that this use case has not yet been tested._
 
 # module controls
 
