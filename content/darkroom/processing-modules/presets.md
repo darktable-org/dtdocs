@@ -47,7 +47,7 @@ description
 : A searchable description for the preset (optional)
 
 reset all module parameters to their default values
-: Selecting this option will cause all module parameters to be reset to their default values (as if you had simply enabled the module on a new image or clicked the module reset button). This can be used to automatically set certain modules (color calibration, exposure, filmic) based on the Exif properties of the current image rather than setting to hard-coded parameters.
+: Selecting this option will cause all module parameters to be reset to their default values (as if you had simply enabled the module on a new image or clicked the module reset button). This can be used to automatically set certain modules (color calibration, exposure, filmic) based on the Exif properties of the current image rather than setting to hard-coded parameters. Note that this option is not available when editing presets from the [preferences > presets](../../preferences-settings/presets.md) tab.
 
 auto apply this preset to matching images _(processing modules only)_
 : Check this box to automatically apply this preset to matching images when they are opened in the darkroom for the first time (you can reapply such automatic presets by Ctrl+clicking on the _reset_ button in the [module header](./module-header.md)). Additional controls will appear to allow you to define which images the preset will be applied to based on image Exif data (see below).
