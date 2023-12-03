@@ -1,7 +1,7 @@
 ---
 title: export
 id: export-selected
-applicable-version: 3.6
+applicable-version: 4.6
 tags: 
 view: lighttable
 ---
@@ -31,6 +31,8 @@ on conflict
 : - _create unique filename_: Automatically choose a unique new file name by appending an integer to name of the conflicting file.
 
 : - _overwrite_: Automatically overwrite existing files. This option will present you with a confirmation dialog in order to protect you from accidental data loss -- you can disable this in [preferences > security > ask before exporting in overwrite mode](../../../preferences-settings/security.md). _**Note:** This dialog is not presented per-file but as a one-off confirmation before the export job starts._ 
+
+: - _overwrite if changed_: Automatically overwrite existing files if the last export timestamp stored in darktable's database does not match the last changed date/time on the existing file.
 
 : - _skip_: Do not export images where the destination filename already exists.
 
