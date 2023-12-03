@@ -90,6 +90,8 @@ Finally, along the left-hand edge of the module are a series of buttons that all
 
 Rotate the display of the overlaid harmony guides by hovering over the scopes module and scrolling with the mouse scroll wheel. Hold Ctrl while scrolling to rotate more slowly. Hold Shift while scrolling to change the area covered by the guide overlays.
 
+The type and position of the chosen harmony guides is saved alongside each image's editing data (in the XMP file and database) so can be restored whenever you return to the image for further editing.
+
 A full description of how to use this functionality is out of scope of this reference section, however, the following overview gives a basic guide as to how to use this mode to improve the color harmonies within the image.
 
 1. With the [global color picker](../darkroom/global-color-picker.md), take live samples of the key colored areas of the image. The choice of these is purely artistic, depending on the feeling you wish to convey. Choose (in the global color picker) to display the chosen samples on the RYB vectorscope.
