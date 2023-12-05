@@ -35,7 +35,7 @@ preserve hue to taste
 : This module provides a number of methods to preserve hues. You are advised to use the "per channel" mode and tune the hue preservation to your liking on a per-image basis. Sunsets and fire are two examples where users commonly reduce the hue preservation to achieve a "hotter" look.
 
 keep skew at bay
-: For pictures like portraits, it is best to refrain from using values of skew above zero. This way you will avoid harsh transitions in the skin tones. This is particularly important when hue preservation is not enabled, as the skew also affects the hue path of the skin tones.
+: For images like portraits, it is best to refrain from using skew values above zero. This way you will avoid harsh transitions in the skin tones. This is particularly important when hue preservation is not enabled, as the skew also affects the hue path of the skin tones.
 
 # module controls
 
@@ -62,18 +62,24 @@ target white
 
 ## primaries
 
-Expand this section to set custom primaries. These settings apply only to the _per channel_ processing mode. You are advised to use the "smooth" preset as a starting point and then adjust using the following controls:
+Expand this section to set custom primaries. You are advised to use the "smooth" preset as a starting point and then adjust using the following controls:
+
+---
+
+**Note**: These settings apply only to the _per channel_ processing mode.
+
+---
 
 base primaries
 : Choose the set of primaries to use as the base for adjustments. This is a bit like locally overriding the working profile, and is necessary to allow presets to be created that don't change even if the user amends the working profile used in the pixel pipeline.
 
 red/green/blue attenuation
-: Attenuate (decrease) the [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the red/green or blue primaries before the signal is processed through _sigmoid_'s per-channel curves. An important consequence is that now even the brightest and most pure inputs get smoothly degraded to achromatic at the high end. This avoids posterization and flat-looking patches like often seen with, for example, blue LED lights.
+: Attenuate (decrease) the [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the red/green or blue primaries before the signal is processed through _sigmoid_'s per-channel curves. An important consequence is that now even the brightest and most pure inputs get smoothly degraded to achromatic at the high end. This avoids posterization and flat-looking patches, which are often seen with, for example, blue LED lights.
 
 red/green/blue rotation
-: Rotate the primaries where the per-channel curves are applied. This affects the hue paths when approaching white in the high end. These should not normally need large adjustments from the starting values given in the "smooth" preset.
+: Rotate the primaries where the per-channel curves are applied. This affects the hue paths when approaching white in the high end. These controls should not normally need large adjustments from the starting values given in the "smooth" preset.
 
 recover purity
 : Recover some of the original purity. A value of 100 causes all of the attenuations to be restored after the per-channel process is done. This lands the middle range values near their original purities. A value of 0 doesn’t restore the purity at all, so the more you apply attenuation, the less purity there is in the final picture. The rotations are always restored regardless of the value of this slider. When this slider is at 0, the output of the module is guaranteed to remain within the gamut footprint of the chosen base primaries.
 
-Bear in mind that unlike [rgb primaries](./rgb-primaries.md), this is not a tool for creative color grading but rather a set of controls to provide a reasonable starting point for further edits. The effect of these adjustments is not the same as the rgb primaries module even though the interface looks similar.
+Bear in mind that unlike the [_rgb primaries_](./rgb-primaries.md) module, this is not a tool for creative color grading but rather a set of controls to provide a reasonable starting point for further edits. The effect of these adjustments is not the same as the rgb primaries module even though the interface looks similar.
