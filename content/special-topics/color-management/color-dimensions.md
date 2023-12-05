@@ -42,6 +42,9 @@ brilliance
 saturation
 : The colorfulness of an area judged in proportion to its brightness. [^7]
 
+purity
+: The distance of the pixel chromaticity from the white point in the _xy_ chromaticity plane. Zero purity means the light is achromatic. High purity, at the other extreme, means the light is laser-like, composed of a single wavelength.
+
 [^1]: CIE definition of _hue_: <https://cie.co.at/eilvterm/17-22-067>
 [^2]: CIE definition of _luminance_: <https://cie.co.at/eilvterm/17-21-050>
 [^3]: CIE definition of _brightness_: <https://cie.co.at/eilvterm/17-22-063>
