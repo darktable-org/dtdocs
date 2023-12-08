@@ -10,7 +10,7 @@ Control how images are processed.
 # image processing
 
 always use LittleCMS 2 to apply output color profile
-: If this option is activated, darktable will use the LittleCMS 2 system library to apply the output color profile instead of its own internal routines. This is significantly slower than the default but might give more accurate results in some cases. 
+: If this option is activated, darktable will use the LittleCMS 2 system library to apply the output color profile instead of its own internal routines. This is significantly slower than the default but might give more accurate results in some cases.
 
 : If the given ICC is LUT-based or contains both a LUT and a matrix, darktable will use LittleCMS 2 to render the colors regardless of this parameter's value (default off).
 
@@ -32,7 +32,7 @@ auto-apply pixel workflow defaults
 
 - _scene-referred (filmic)_ (default) assumes that most processing will be performed in a linear RGB color space. Selecting this option automatically enables the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md), [_exposure_](../module-reference/processing-modules/exposure.md) and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules for new edits and sets the module order to _v3.0 RAW_.
 
-  The _exposure_ module includes an automatic exposure adjustment of +0.7 EV (to provide a midtone brightening comparable to the +0.5 to +1.2 EV typically added by in-camera tone curves), and automatically enables the "compensate camera exposure" option for the filmic workflow. Both of these settings are intended to provide a reasonable starting-point for RAWs produced by a broad range of SLR and mirrorless cameras, but they can be overridden with an automatically-applied preset if the defaults produce consistently dark images for your camera. 
+  The _exposure_ module includes an automatic exposure adjustment of +0.7 EV (to provide a midtone brightening comparable to the +0.5 to +1.2 EV typically added by in-camera tone curves), and automatically enables the "compensate camera exposure" option for the filmic workflow. Both of these settings are intended to provide a reasonable starting-point for RAWs produced by a broad range of SLR and mirrorless cameras, but they can be overridden with an automatically-applied preset if the defaults produce consistently dark images for your camera.
 
   In the scene-referred workflows, the [_color calibration_](../module-reference/processing-modules/color-calibration.md) module acts in conjunction with the [_white balance_](../module-reference/processing-modules/white-balance.md) module as the modern way to handle white balance and chromatic adaptation with improved color science. Note that when using the color calibration module, the white balance module needs to be active and set to "Camera Reference" mode (this will be done automatically and warnings will appear if the two modules have inconsistent settings). When using both modules as prescribed, it is still possible to auto-detect white-balance from a specific area of the image by selecting the CCT picker tool in the CAT tab of color calibration.
 
@@ -59,7 +59,7 @@ darktable resources
 : - _default_ takes roughly 60% of your system memory and 70% of your GPU memory. This mode is recommended if you're not exporting a lot of images, have at least 16Gb of system memory and 4Gb of GPU memory, and also are running a lot of other application at the same time as darktable.
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using darktable on your system and/or are exporting a lot of images.
 : - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
-: See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information. 
+: See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information.
 
 prefer performance over quality
 : Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
@@ -68,15 +68,18 @@ activate [OpenCL](../special-topics/opencl/_index.md) support
 : Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found the option is grayed out. Can be switched on and off at any time and takes immediate effect (default on).
 
 OpenCL scheduling profile
-: Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems: 
-: - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe, 
-: - _very fast GPU_: both pixelpipes are processed sequentially on the GPU. 
-: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information, 
+: Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems:
+: - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe.
+: - _very fast GPU_: both pixelpipes are processed sequentially on the GPU.
+: - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information.
 
-tune OpenCL performance
-: Defines how darktable will attempt to tune OpenCL performance for your system. The following options are provided (default _nothing_):
-: - _nothing_: do not attempt to tune OpenCL performance.
-: - _memory size_: this parameter currently (by default) applies a fixed 400MB headroom to all devices and assumes the remainder (total device memory less 400MB) is available for OpenCL module processing. You can also choose to amend this value or have darktable attempt to auto-detect available memory by changing a parameter in your `darktablerc` file. Please see the [memory & performance tuning](../special-topics/mem-performance.md#id-specific-opencl-configuration) section for more details. If you choose to enable auto-detection, switching this parameter off and on again will force a re-detection at the next pipe run.
-: - _memory transfer_: when darktable needs more memory than it has available, it breaks your images into tiles, which are processed separately. When tiling, darktable frequently needs to transfer data between system and GPU memory. This option tells darktable to use a special copy mode (pinned memory transfer), which can be faster, but can also require more memory on some devices. On other devices it might degrade performance. There is no safe general way to predict how this option will function on a given device so you will have to test it for yourself. If you have multiple devices, you can switch pinned memory transfer on or off on a "per device" basis by directly editing your darktablerc file.
-: - _memory size and transfer_: use both tuning mechanisms.
+use all device memory
+: Enable this option to allow darktable to use all OpenCL memory on all devices except a safety margin (headroom). The headroom default is 600MB but may be specified per device.
+
+OpenCL drivers
+: In most cases darktable finds correct driver setups but this depends on how your linux distribution or operating system handles installation. Generally speaking, we have to make sure, we
+: - only have one active driver per hardware device. Typical problematic setups are: you have installed the vendor provided driver _plus_ another driver like `rusticl` or - if you are using windows - you have installed the `OpenCLon12` driver via the `OpenCL Compatibility Pack`.
+: - don't use unreliable drivers
+: Thus we offer toggle switches for most available drivers, on more exotic hardware like ARM boards you have to switch on the fallback "other platforms". Select the drivers you want to use from the list, in case you suspect a driver to malfunction you can switch it off here.
+
 : See the [memory & performance tuning](../special-topics/mem-performance.md) section for more information.
