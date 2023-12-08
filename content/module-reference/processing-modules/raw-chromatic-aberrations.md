@@ -14,7 +14,7 @@ This module currently only works for raw images recorded with a Bayer sensor (th
 
 The module will also not apply any corrections to any photos that have been identified as monochrome (see [developing monochrome images](../../guides-tutorials/monochrome.md) for more information).
 
-This module expects good white balance data provided by the [_white balance_](./white-balance.md) module for best results, in most cases it's _default_ settings are sufficient.
+This module expects good white balance data (provided by the [_white balance_](./white-balance.md) module) for best results. In most cases the _default_ settings are sufficient.
 
 Note that if this module is enabled, then TCA correction in the [_lens correction_](./lens-correction.md) module should be disabled, as the two modules will conflict with one another.
 
@@ -24,4 +24,4 @@ iterations
 : The number of iterations. For most images, "twice" is sufficient, and is the default value. Occasionally, increasing this control can give better results.
 
 avoid colorshift
-: If the module causes tinting - often pink or greenish - tick this box to apply a correction.
+: If the module causes tinting -- often pink or greenish -- tick this box to apply a correction.

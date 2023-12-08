@@ -1,7 +1,7 @@
 ---
 title: liquify
 id: liquify
-applicable-version: 3.8
+applicable-version: 4.6
 tags:
 working-color-space: RGB
 view: darkroom
@@ -10,7 +10,7 @@ masking:
 
 Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.
 
-As you might want to use data as source from the whole image you will be shown the uncropped image (possibly with the cropping rectangle as guide) while the module is active.
+As you might want to use source data from any part of the image you will be shown the uncropped image (possibly with the cropping rectangle overlaid as a guide) while the module is active.
 
 # nodes
 

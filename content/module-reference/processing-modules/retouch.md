@@ -1,7 +1,7 @@
 ---
 title: retouch
 id: retouch
-applicable-version: 3.8
+applicable-version: 4.6
 tags:
 working-color-space: rgb
 view: darkroom
@@ -12,7 +12,7 @@ Remove unwanted elements from your image by cloning, healing, blurring and filli
 
 This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module (equivalent to this module's "clone" tool) by including a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image.
 
-As you might want to use data as source from the whole image you will be shown the uncropped image (possibly with the cropping rectangle as guide) while the module is active.
+As you might want to use source data from any part of the image you will be shown the uncropped image (possibly with the cropping rectangle overlaid as a guide) while the module is active.
 
 # clone and heal
 
