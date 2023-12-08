@@ -11,9 +11,9 @@ The `darktable` binary starts darktable with its GUI and full functionality. Thi
 `darktable` can called with the following command line parameters:
 
 ```
-darktable [-d {all,act_on,cache,camctl,camsupport,control,demosaic,
+darktable [-d {all,act_on,cache,camctl,camsupport,common,control,
                dev,expose,fswatch,imageio,input,ioporder,lighttable,lua,
-               masks,memory,nan,opencl,params,perf,print,pwstorage,
+               masks,memory,nan,opencl,params,perf,pipe,print,pwstorage,
                signal,sql,tiling,undo,verbose}]
           [--d-signal <signal>]
           [--d-signal-act <all,raise,connect,disconnect,print-trace>]
@@ -36,8 +36,8 @@ darktable [-d {all,act_on,cache,camctl,camsupport,control,demosaic,
 
 All parameters are optional. In most cases darktable should be started without any additional parameters, in which case darktable uses suitable defaults.
 
-`-d {all,act_on,cache,camctl,camsupport,control,demosaic,dev,expose,fswatch,imageio,input,ioporder,lighttable,lua,masks,memory,nan,opencl,params,perf,print,pwstorage,signal,sql,tiling,undo,verbose}`
-: Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided, even when using `-d all`.
+`-d {all,act_on,cache,camctl,camsupport,common,control,dev,expose,fswatch,imageio,input,ioporder,lighttable,lua,masks,memory,nan,opencl,params,perf,pipe,print,pwstorage,signal,sql,tiling,undo,verbose}`
+: Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). The `-d common` switch is provided to give information about most relevant subsystems while debugging darktable or if you want to provide a log for reporting a darktable issue. Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided, even when using `-d all`.
 
 `--d-signal <signal>`
 : If `-d signal` or `-d all` is specified, specify the signal to debug using this option. Specify `ALL` to debug all signals or specify signal using it's full name. Can be used multiple times.
@@ -91,4 +91,7 @@ All parameters are optional. In most cases darktable should be started without a
 : darktable supports a rich set of configuration parameters defined by the user in file `darktablerc`, located in the directory specified by `--configdir` or defaulted to `$HOME/.config/darktable/`. You may temporarily overwrite individual settings on the command line with this option -- these settings will not be stored in `darktablerc` on exit.
 
 `-t <num openmp threads>`
-: limit number of openmp threads to use in openmp parallel sections
+: limit number of openmp threads to use in openmp parallel sections.
+
+`--dump-pfm MODULE_A,MODULE_B`, `--dump-pipe MODULE_A,MODULE_B`, `--dumpdir DIR`
+: are provided for debugging darktables internal processing pipeline. For example, if called like `--dump-pfm demosaic` darktable will dump input and output of the demosaic module as pfm files. Per default the location of those files is defined by the operating system - some temporary folder reported in the log output - but you can also define it via the `--dumpdir` option.
