@@ -2,15 +2,17 @@
 title: retouch
 id: retouch
 applicable-version: 3.8
-tags: 
+tags:
 working-color-space: rgb
 view: darkroom
-masking: 
+masking:
 ---
 
 Remove unwanted elements from your image by cloning, healing, blurring and filling using drawn shapes.
 
-This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module (equivalent to this module's "clone" tool) by including a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image. 
+This module extends the capabilities of the deprecated [_spot removal_](./spot-removal.md) module (equivalent to this module's "clone" tool) by including a "heal" tool (based on the heal tool from GIMP), as well as "fill" and "blur" modes. It can also take advantage of [wavelet decomposition](../../darkroom/processing-modules/wavelets.md), allowing the image to be separated into layers of varying detail (from coarse to fine) which can be selectively retouched before being recombined to produce the output image.
+
+As you might want to use data as source from the whole image you will be shown the uncropped image (possibly with the cropping rectangle as guide) while the module is active.
 
 # clone and heal
 
@@ -83,11 +85,11 @@ It can also be used with the blur tool to even out coarse blotches in the skin, 
 The _retouch tools_ section consists of two items:
 
 shapes
-: The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer. 
+: The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer.
 
-: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details). 
+: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details).
 
-: Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel). 
+: Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel).
 
 : Click the _show and edit shapes_ ![retouch-shapes-icon](./retouch/rt-shapes-icon.png#icon) button to show and edit any existing shapes for the currently-selected wavelet scale.
 
