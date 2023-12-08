@@ -94,4 +94,4 @@ All parameters are optional. In most cases darktable should be started without a
 : limit number of openmp threads to use in openmp parallel sections.
 
 `--dump-pfm MODULE_A,MODULE_B`, `--dump-pipe MODULE_A,MODULE_B`, `--dumpdir DIR`
-: are provided for debugging darktables internal processing pipeline. For example, if called like `--dump-pfm demosaic` darktable will dump input and output of the demosaic module as pfm files. Per default the location of those files is defined by the operating system - some temporary folder reported in the log output - but you can also define it via the `--dumpdir` option.
+: These options are provided for debugging darktable's internal processing pipeline. For example, if called with `--dump-pfm demosaic` darktable will dump the input and output of the demosaic module as pfm files. By default the location of these files is defined by the operating system -- some temporary folder reported in the log output -- but you can also explicitly define it via the `--dumpdir` option.
