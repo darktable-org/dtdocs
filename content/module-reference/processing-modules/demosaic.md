@@ -2,8 +2,8 @@
 title: demosaic
 id: demoasic
 applicable-version: 3.8
-tags: 
-working-color-space: Not Applicable (RAW) 
+tags:
+working-color-space: Not Applicable (RAW)
 view: darkroom
 masking: false
 ---
@@ -12,7 +12,7 @@ Control how raw files are demosaiced.
 
 # bayer filters
 
-The sensor cells of a digital camera are not color-sensitive -- they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a color filter (red, green or blue) that primarily passes light of that color. This means that each pixel of the raw image only contains information about a single color channel. 
+The sensor cells of a digital camera are not color-sensitive -- they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a color filter (red, green or blue) that primarily passes light of that color. This means that each pixel of the raw image only contains information about a single color channel.
 
 Color filters are commonly arranged in a mosaic pattern known as a Bayer filter array. A demosaic algorithm reconstructs the missing color channels by interpolation with data from the neighboring pixels. For further reading see the Wikipedia articles on [demosaicing](https://en.wikipedia.org/wiki/Demosaicing) and the [Bayer filter](http://en.wikipedia.org/wiki/Bayer_filter).
 
@@ -26,14 +26,14 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 - _AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_. Since _RCD_ now offers similar performance to _PPG_, but with better results, it is now the default algorithm.
 
-- _LMMSE_ is better suited for use on high ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artefacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms. 
+- _LMMSE_ is better suited for use on high ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artefacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms.
 
-- _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it often causes loss of some high-frequency details and can sometimes add local color shifts. VNG is no longer really recommended -- for most images, other available algorithms usually provide better results.
+- _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it causes loss of some high-frequency details and can sometimes add local color shifts. VNG4 is no longer recommended -- for most images, other available algorithms provide better results.
 
 ---
 
 **Note:** The performance of the demosaic algorithms differs significantly, _AMaZE_ being by far the slowest.
-  
+
 ---
 
 # sensors without bayer filters
@@ -52,9 +52,9 @@ Some images have areas best demosaiced using an algorithm that preserves high fr
 
 In dual demosaic algorithms (e.g. _RCD + VNG4_) the sensor data is demosaiced twice, first by _RCD_, _AMaZE_ or _Markesteijn 3-pass_ and then by _VNG4_. Both sets of demosaiced data are retained for subsequent processing.
 
-The data from the high frequency algorithm is then analysed for _local data change_ and, using a threshold (there is a bit more of maths involved here), the output image is written pixel-by-pixel for each color channel using data from each demosaic algorithm weighed by the local data change. 
+The data from the high frequency algorithm is then analysed for _local data change_ and, using a threshold (there is a bit more of maths involved here), the output image is written pixel-by-pixel for each color channel using data from each demosaic algorithm weighed by the local data change.
 
-In general, areas with greater detail are demosaiced by the algorithm best suited to that purpose (_RCD, AMaZe, Markesteijn 3-pass_) and any flat areas (like blue sky) are demosaiced using the second algorithm (_VNG4_). 
+In general, areas with greater detail are demosaiced by the algorithm best suited to that purpose (_RCD, AMaZe, Markesteijn 3-pass_) and any flat areas (like blue sky) are demosaiced using the second algorithm (_VNG4_).
 
 _The 'local data change' is technically implemented as a gaussian-blurred single channel selection mask calculated from a combination of the threshold value and the pixels' luminance._
 

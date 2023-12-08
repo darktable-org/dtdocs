@@ -2,25 +2,27 @@
 title: liquify
 id: liquify
 applicable-version: 3.8
-tags: 
+tags:
 working-color-space: RGB
 view: darkroom
-masking: 
+masking:
 ---
 
 Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.
+
+As you might want to use data as source from the whole image you will be shown the uncropped image (possibly with the cropping rectangle as guide) while the module is active.
 
 # nodes
 
 Each of liquify's tools is based on nodes. A point consists of a single node and a line or curve consists of a sequence of linked nodes defining a path.
 
-Each instance of the liquify module is limited to a maximum of 100 nodes -- for more nodes, use additional instances. However, please note that the liquify module consumes a lot of system resources. 
+Each instance of the liquify module is limited to a maximum of 100 nodes -- for more nodes, use additional instances. However, please note that the liquify module consumes a lot of system resources.
 
-Drag the central point of a node to move the node around. The radius describes the area of the effect (distortion occurs only within this radius). To change the radius drag the handle at the circumference. A strength vector starting from the center describes the direction of the distortion, and its strength is depicted by the length of the vector. Change the vector by dragging its arrow head. 
+Drag the central point of a node to move the node around. The radius describes the area of the effect (distortion occurs only within this radius). To change the radius drag the handle at the circumference. A strength vector starting from the center describes the direction of the distortion, and its strength is depicted by the length of the vector. Change the vector by dragging its arrow head.
 
 # points
 
-A point consists of a single node and strength vector. 
+A point consists of a single node and strength vector.
 
 Click the point icon to activate the point tool and then click on the image to place it. Hold Ctrl while clicking on the point icon to add multiple points without having to click the icon again each time. Right-click to exit creation mode.
 
@@ -61,7 +63,7 @@ A point can be removed by right-clicking on the center of the node.
 
 # lines and curves
 
-Lines and curves are sequences of points linked together by straight or curved lines. The effect is interpolated by a set of associated strength vectors. 
+Lines and curves are sequences of points linked together by straight or curved lines. The effect is interpolated by a set of associated strength vectors.
 
 Click the appropriate icon to activate the line or curve tool and then click on the image to place a sequence of points forming the path. Right-click anywhere when the last point has been placed in order to finish drawing the line/curve.
 
@@ -73,13 +75,13 @@ lines
 curves
 : ![curves](./liquify/liquify_ex6.png#w50)
 
-Ctrl+click on a line or curve segment to add a new control point. Ctrl+right-click on the center of a node to remove a control point. 
+Ctrl+click on a line or curve segment to add a new control point. Ctrl+right-click on the center of a node to remove a control point.
 
 Right-click on a segment to remove the shape completely. Ctrl+Alt+click on a segment to change that segment from a line to a curve and vice versa.
 
 # link modes
 
-Ctrl+click on the center of a node to change the way the points of a curve are linked together. There are four modes, which correspond to different ways of handling the steepness of the bezier curve using control handles: 
+Ctrl+click on the center of a node to change the way the points of a curve are linked together. There are four modes, which correspond to different ways of handling the steepness of the bezier curve using control handles:
 
 autosmooth
 : This is the default mode, in which control handles are not displayed -- controls are automatically computed to give a smooth curve.
@@ -95,7 +97,7 @@ symmetrical
 
 # view and edit nodes
 
-Click the node tool icon to activate or deactivate the node edit tool. This displays all currently-defined distortion objects and their controls. Alternatively you can right-click on the image at any time for the same effect. 
+Click the node tool icon to activate or deactivate the node edit tool. This displays all currently-defined distortion objects and their controls. Alternatively you can right-click on the image at any time for the same effect.
 
 # warps and nodes count
 
