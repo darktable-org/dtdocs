@@ -51,21 +51,28 @@ detect monochrome previews
 show warning messages
 : Enable this option to display warning messages in processing modules where non-standard and possibly harmful settings have been used in the pipeline. Such messages can sometimes be false-positives (because of intentional non-standard settings) and can be disregarded if you know what you are doing. Disable to hide these warnings. (default on).
 
-# cpu / gpu / memory
+# CPU / memory
 
 darktable resources
 : Choose how much of your system and graphics card (GPU) memory will be used by darktable. Four options are provided by default:
+
 : - _small_ takes roughly 20% of your system memory and 40% of your GPU memory. This might be acceptable on very large systems, especially if you're not exporting images. Mostly, though, this can only be recommended if you are using a lot of other demanding applications at the same time as darktable.
+
 : - _default_ takes roughly 60% of your system memory and 70% of your GPU memory. This mode is recommended if you're not exporting a lot of images, have at least 16Gb of system memory and 4Gb of GPU memory, and also are running a lot of other application at the same time as darktable.
+
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using darktable on your system and/or are exporting a lot of images.
+
 : - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
+
 : See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information.
 
 prefer performance over quality
 : Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
 
+# OpenCL
+
 activate [OpenCL](../special-topics/opencl/_index.md) support
-: Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found the option is grayed out. Can be switched on and off at any time and takes immediate effect (default on).
+: Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found this option is grayed out. OpenCL support be switched on and off at any time and takes immediate effect (default on).
 
 OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems:
@@ -74,12 +81,15 @@ OpenCL scheduling profile
 : - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information.
 
 use all device memory
-: Enable this option to allow darktable to use all OpenCL memory on all devices except a safety margin (headroom). The headroom default is 600MB but may be specified per device.
+: Enable this option to allow darktable to use all OpenCL memory on all devices except for a safety margin (headroom). The headroom default is 600MB by default but may also be specified per-device.
 
 OpenCL drivers
-: In most cases darktable finds correct driver setups but this depends on how your linux distribution or operating system handles installation. Generally speaking, we have to make sure, we
-: - only have one active driver per hardware device. Typical problematic setups are: you have installed the vendor provided driver _plus_ another driver like `rusticl` or - if you are using windows - you have installed the `OpenCLon12` driver via the `OpenCL Compatibility Pack`.
-: - don't use unreliable drivers
-: Thus we offer toggle switches for most available drivers, on more exotic hardware like ARM boards you have to switch on the fallback "other platforms". Select the drivers you want to use from the list, in case you suspect a driver to malfunction you can switch it off here.
+: In most cases darktable is able to find the correct OpenCL driver but this depends on how your operating system handles installation. Generally speaking, darktable must:
+
+: - not use unreliable drivers
+
+: - only have one active driver per hardware device. Problems are typically found where the vendor-provided driver is installed _as well as_ another driver (like `rusticl`) or (on Windows) where the `OpenCLon12` driver has been installed via the `OpenCL Compatibility Pack`.
+
+: Toggle-switches are offered for most available drivers, though on more exotic hardware like ARM boards you will have to enable the "other platforms" fallback option. Select the drivers you want to use from the list. If you suspect that a driver is malfunctioning you can explicitly disable it here.
 
 : See the [memory & performance tuning](../special-topics/mem-performance.md) section for more information.
