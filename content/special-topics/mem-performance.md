@@ -55,7 +55,7 @@ The "darktable resources" preference (in [preferences > processing > cpu/gpu/mem
 
 ---
 
-**Note**: The _unrestricted_ mode really "takes it all". This might seem to be the best setting for you but be reminded that especially while exporting large images with high quality it might lead to memory swapping leading to an impaired performance or darktable being silently killed by your operating system.
+**Note**: The _unrestricted_ mode really "takes it all". This might seem to be the best setting to use but, especially when exporting large images with high quality, unrestricted memory use can cause swapping, which might lead to impaired performance or darktable being silently killed by your operating system.
 
 ---
 
@@ -132,7 +132,7 @@ c. pinned memory
 : _0 = disable pinned transfer (default); 1 = enforce pinned transfer_
 : During tiling huge amounts of memory need to be transferred between host and device. On some devices direct memory transfers to and from an arbitrary host memory region may give a large performance penalty. This is especially noticeable when exporting large images on smaller graphics cards or while using newer modules like [_diffuse or sharpen_](../module-reference/processing-modules/diffuse.md) or the _guided laplacians_ mode in the [_highlight reconstruction_](../module-reference/processing-modules/highlight-reconstruction.md) module.
 
-: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. The chance for an improvement by using pinned transfer is pretty low though if your card is manufactured since 2015.
+: There is no safe method or general rule to predict whether or not this parameter will provide a performance benefit, so you will have to experiment for yourself. However, the chance of pinned transfer leading to an improvement is pretty low if your card was manufactured after 2015.
 
 d. clroundup wh / e. clroundup ht
 : These parameters should be left at this default value -- testing has not shown any benefit to using other values.
@@ -160,7 +160,7 @@ j. advantage hint
 1. Set the "advantage hint option" to approximately (CPU execution time / GPU execution time).
 
 k. shared memory fraction
-: Some OpenCL deviced don't have dedicated memory but share it with the CPU - Apple ARM silicon is one example but also onboard devices from Intel, AMD or ARM SOCs. As we want to keep system memory available for caching or CPU codepath we restrict the amount of all memory to the fraction. So with the default of 0.5 and an apple computer with 16GB of system ram, we would allow OpenCL to make use of 8GB.
+: Some OpenCL devices don't have dedicated memory but share it with the CPU -- Apple ARM silicon is one example but also onboard devices from Intel, AMD or ARM SOCs. As we want to keep system memory available for caching or CPU codepaths we restrict the amount of all memory used to the given fraction. So with the default of 0.5 and an Apple computer with 16GB of system RAM, OpenCL would be able to make use of 8GB.
 
 ---
 
