@@ -53,6 +53,8 @@ mode
 
 : In _overwrite_ mode the behavior is the same except that the history of the destination image is deleted before the paste operation commences. The “copy all”/“paste all” actions in this mode will precisely duplicate the copied history stack to the destination images (including any duplicate occurrences).
 
+: **Note**: If you use the "copy" button (copy all safe modules) followed by the "paste" button (paste all copied modules), the paste will always be done in _overwrite_ mode, regardless of the setting of this parameter. Similarly when performing the same operation using keyboard shortcuts.
+
 ---
 
 Notes
