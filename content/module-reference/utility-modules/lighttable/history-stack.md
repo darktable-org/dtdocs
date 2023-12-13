@@ -1,7 +1,7 @@
 ---
 title: history stack
 id: history-stack
-applicable-version: 3.6
+applicable-version: 4.6
 tags: 
 view: lighttable
 ---
@@ -11,7 +11,9 @@ Manipulate the history stack of one or more selected images.
 # module controls
 
 selective copy...
-: Copy parts of the history stack from the selected image. A dialog appears from which you may choose the items to copy from the history stack. If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on a history item to copy that item only and immediately close the dialog.
+: Copy parts of the history stack from the selected image. A dialog will appear, from which you will be able to select which history stack items you want to copy. For any module, you may also choose to "reset" that module's parameters -- this will cause the module to be copied but with all controls set to their initial (default) state (as if you had clicked the module reset button).
+
+: If more than one image is selected, the history stack is taken from the image that was selected first. Double-click on a history item to copy that item only and immediately close the dialog.
 
 copy
 : Copy the complete history stack from the selected image. If more than one image is selected, the history stack is taken from the image that was selected first.
@@ -37,7 +39,7 @@ discard history
 : Physically delete the history stack of the selected images. _Beware: this action can not be undone!_
 
 selective paste...
-: Paste parts of a copied history stack onto all selected images. A dialog appears from which you may choose the items to paste from the source history stack.
+: Paste parts of a copied history stack onto all selected images. As with the selective copy button, a dialog appears from which you may choose the items to paste (or "reset") from the source history stack.
 
 paste
 : Paste all items of a copied history stack onto all selected images.

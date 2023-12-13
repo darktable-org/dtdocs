@@ -1,7 +1,7 @@
 ---
 title: styles
 id: styles
-applicable-version: 3.6
+applicable-version: 4.6
 tags: 
 view: lighttable
 ---
@@ -29,7 +29,9 @@ mode
 : As with the [history stack](./history-stack.md) module, this combobox allows you to either "append" the style to the current history stack or to "overwrite" the history stack of the target image.
 
 create
-: Create new style(s) using the history stack of the selected image(s). For each selected image a style creation window is shown. You must supply a unique name for each new style and you can also add an optional description. You will be given the option to de-select any history stack items that you don't want to be part of the created style.
+: Create new style(s) using the history stack of the selected image(s). For each selected image a style creation window is shown. You must supply a unique name for each new style and you can also add an optional description.
+
+: You will be provided with the option to select which history stack items you want to include in the created style. For any module, you may also choose to "reset" that module's parameters -- this will cause the module to be included in the style but with all controls set to their initial (default) state (as if you had clicked the module reset button).
 
 : The panel supports a hierarchical view, meaning that you can create categories using the pipe symbol “|” as a separator. For example “print|tone curve +0.5 EV” will create a "print" category with a style of "tone curve +0.5 EV" below it.
 
