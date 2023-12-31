@@ -109,4 +109,6 @@ By default, if the current parameters of a processing module match those of a sa
 - If the module instance from which the preset was created had a manually-set name, any subsequent module that matches this preset will automatically be given the same name. Note that if this was unintentional, the only way to revert will be to drop and recreate the preset, since the automatic name is a hidden field in the database,
 - If the module instance from which the preset was created did not have a manually-set name, the name of any subsequent module that matches this preset will be set to the same as the preset name.
 
+As soon as the module parameters are changed such that it no longer matches a preset, the module's name will be reset.
+
 This functionality can be disabled in [preferences > darkroom > automatically update module name](../../preferences-settings/darkroom.md#modules).
