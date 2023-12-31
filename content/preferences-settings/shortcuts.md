@@ -132,37 +132,9 @@ restore...
 
 ## deleting default shortcuts
 
-When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). 
+When you delete a shortcut that has been created by darktable by default, that shortcut is moved to a separate "disabled defaults" category, in order to prevent it from being reloaded the next time darktable is launched. To reinstate a deleted shortcut, simply delete the shortcut from that category. You will be prompted if reinstating this shortcut overwrites another one that has been created in the meantime.
 
-There are two ways to delete default shortcuts:
-
-### prevent default shortcuts from being reloaded
-
-Disable [preferences > miscellaneous > interface > load default shortcuts at startup](./miscellaneous.md) to prevent default shortcuts from being reloaded. While this option is disabled, darktable will only load user-defined shortcuts and any defaults that you have not subsequently deleted or overridden.
-
-### override default shortcut with a no-op action
-
-You can _override_ the action of a default shortcut by assigning an identical shortcut to the "global/no-op" action (which does nothing). You can do this either in the shortcut mapping screen (above) or by directly editing your `$HOME/.config/darktable/shortcutsrc` file. If you want to disable a lot of default shortcuts the latter option is recommended (you must exit darktable first). For example, the following default shortcuts are defined in `shortcutsrc` for switching views in darktable:
-
-```
-d=global/switch views/darkroom
-l=global/switch views/lighttable
-m=global/switch views/map
-p=global/switch views/print
-s=global/switch views/slideshow
-t=global/switch views/tethering
-```
-
-You can disable all of these shortcuts by changing `shortcutsrc` as follows:
-
-```
-d=global/no-op
-l=global/no-op
-m=global/no-op
-p=global/no-op
-s=global/no-op
-t=global/no-op
-```
+Alternatively, you may disable [preferences > miscellaneous > interface > load default shortcuts at startup](./miscellaneous.md) to prevent default shortcuts from being loaded on startup. While this option is disabled, darktable will only load user-defined shortcuts and any defaults that you have not subsequently deleted or overridden.
 
 # common actions
 
