@@ -89,7 +89,7 @@ focal length
 format
 : Only apply the preset to certain types of image. Check boxes to include files matching these criteria; uncheck boxes to exclude those files. Choose from "raw", "non-raw", "HDR", "monochrome" and "color".
 
-# managing presets
+## managing presets
 
 Both user-defined and internal presets can be viewed and managed from within [preferences > presets](../../../preferences-settings/presets.md).
 
@@ -101,3 +101,12 @@ If you delete a preset that has the same name as one of the built-in presets, th
 
 ---
 
+## module naming in the darkroom view
+
+By default, if the current parameters of a processing module match those of a saved preset, darktable will attempt to automatically set the name (label) of the module in question, as follows:
+
+- If the user has manually amended the name of the module in the current image, the module name will be left unchanged,
+- If the module instance from which the preset was created had a manually-set name, any subsequent module that matches this preset will automatically be given the same name. Note that if this was unintentional, the only way to revert will be to drop and recreate the preset, since the automatic name is a hidden field in the database,
+- If the module instance from which the preset was created did not have a manually-set name, the name of any subsequent module that matches this preset will be set to the same as the preset name.
+
+This functionality can be disabled in [preferences > darkroom > automatically update module name](../../preferences-settings/darkroom.md#modules).

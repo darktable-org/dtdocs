@@ -79,3 +79,6 @@ show mask indicator in module headers
 
 prompt for name on addition of new instance
 : If enabled, when creating a new instance of a processing module, a prompt will be immediately displayed allowing you to set a name for the new instance (default off).
+
+automatically update module name
+: Automatically update the name (label) on processing modules if the current parameters of the module match those of a saved [preset](../darkroom/processing-modules/presets.md#module-naming-in-the-darkroom-view). The module name will only be updated if it hasn't already been manually amended for the current image. It will be set either to the module name from which the preset was made (if the module name was manually adjusted before the preset was created) or to the name of the preset itself (default on).
