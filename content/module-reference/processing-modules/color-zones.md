@@ -1,18 +1,18 @@
 ---
 title: color zones
 id: color-zones
-applicable-version: 3.8
+applicable-version: 4.6
 tags: 
 working-color-space: Lab
 view: darkroom
 masking: true
 ---
 
-Selectively adjust the lightness, saturation and hue of pixels based on their current lightness, saturation and hue.
+Selectively adjust the lightness, chroma and hue of pixels based on their current lightness, chroma and hue.
 
-This module works in CIE LCh color space, which separates pixels into _lightness_, chroma (_saturation_) and _hue_ components. It allows you to manipulate the lightness, saturation and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).
+This module works in CIE LCh color space, which separates pixels into _lightness_, chroma and _hue_ components. It allows you to manipulate the lightness, chroma and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).
 
-You first need to choose whether you wish to adjust (select) pixels based on their lightness, saturation or hue. You can then use three curves, on their respective tabs, to adjust the lightness, saturation and hue of ranges of pixels selected via this method.
+You first need to choose whether you wish to adjust (select) pixels based on their lightness, chroma or hue. You can then use three curves, on their respective tabs, to adjust the lightness, chroma and hue of ranges of pixels selected via this method.
 
 ---
 
@@ -34,33 +34,33 @@ select by lightness
 
 : ![color zones choose lightness](./color-zones/color-zones-choose-lightness.png#w33)
 
-select by saturation
-: Select pixels to manipulate based on their saturation. For example, you may want to tone down the saturation of some already highly saturated pixels, or to change their hue. The following image shows the range of saturation levels that you can choose to operate on, from a completely unsaturated monochrome gray through to the most highly saturated color:
+select by chroma
+: Select pixels to manipulate based on their chroma. For example, you may want to tone down the chroma of some already highly saturated pixels, or to change their hue. The following image shows the range of chroma levels that you can choose to operate on, from a completely unsaturated monochrome gray through to the most highly saturated color:
 
-: ![color zones choose saturation](./color-zones/color-zones-choose-saturation.png#w33)
+: ![color zones choose chroma](./color-zones/color-zones-choose-chroma.png#w33)
 
 # pixel manipulation curves
 
-Once you have chosen a pixel selection method, the selected range of lightness, saturation or hue levels will appear along the horizontal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, saturation, hue). 
+Once you have chosen a pixel selection method, the selected range of lightness, chroma or hue levels will appear along the horizontal axis of the three pixel manipulation curves, which can be viewed and adjusted by choosing the appropriate tab (lightness, chroma, hue). 
 
 If, for example, you were to choose to _select by hue_ (the default), the horizontal axis (below the manipulation curves) would show the range of hues you can work with, and the three pixel manipulation curves would appears as follows:
 
 lightness
-: By adjusting the lightness curve up or down in a given (hue) location, you can brighten or darken pixels matching hues where the curve has been raised or lowered, respectively. In the example below the blue sky in an image has been darkened for dramatic effect:
+: By adjusting the lightness curve up or down in a given (hue) location, you can brighten or darken pixels matching hues where the curve has been raised or lowered, respectively. The example below reduces the lightness of the blue parts of the image:
 
 : ![color zones adjust lightness](./color-zones/color-zones-adjust-lightness.png#w33)
 
-saturation
-: By adjusting the saturation curve up or down in a given (hue) location, you can desaturate (make less colorful) or resaturate (make more colorful) pixels matching hues where the curve has been raised or lowered, respectively. In the example below, a red object in the background has been desaturated so it is less of a distraction to the main subject of the photo:
+chroma
+: By adjusting the chroma curve up or down in a given (hue) location, you can desaturate (make less colorful) or resaturate (make more colorful) pixels matching hues where the curve has been raised or lowered, respectively. The example below reduces the chroma of the red parts of the image:
 
-: ![color zones adjust saturation](./color-zones/color-zones-adjust-saturation.png#w33)
+: ![color zones adjust chroma](./color-zones/color-zones-adjust-chroma.png#w33)
 
 hue
-: By adjusting the hue curve up or down in a given (hue) location, you can shift the hue of pixels matching hues where the curve has been raised or lowered, allowing you to replace one color with another. In the example below, a pink toy in an image has been changed to blue:
+: By adjusting the hue curve up or down in a given (hue) location, you can shift the hue of pixels matching hues where the curve has been raised or lowered, allowing you to replace one color with another. The example below shifts the blue parts of the image to green:
 
 : ![color zones adjust hue](./color-zones/color-zones-adjust-hue.png#w33)
 
-The curves work similarly in the lightness- and saturation-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
+The curves work similarly in the lightness- and chroma-based selection modes as well. See the section on [curves](../../darkroom/processing-modules/curves.md) to see how spline curves work in general.
 
 Note that these examples are somewhat contrived in order to illustrate the module's usage. In practical use, they would likely need to be combined with [drawn](../../darkroom/masking-and-blending/masks/drawn.md) and/or [parametric](../../darkroom/masking-and-blending/masks/parametric.md) masks to further isolate their effect. 
 
@@ -78,8 +78,8 @@ If you click on the right-hand color picker, you can similarly choose a rectangu
 
 The following controls are available in the _color zones_ module:
 
-lightness, saturation & hue tabs
-: Each tab displays a pixel manipulation curve to allow you to alter “lightness”, “saturation”, or “hue” based on the pixel selection method.
+lightness, chroma & hue tabs
+: Each tab displays a pixel manipulation curve to allow you to alter “lightness”, “chroma”, or “hue” based on the pixel selection method.
 
 edit by area
 : Choose how to interact with the curve. This setting is disabled by default, allowing the control points for the curve to be freely placed. Check the box to fall back to the legacy "edit by area" mode, which functions in a similar way to the spline curve controls used in [wavelet](../../darkroom/processing-modules/wavelets.md#spline-controls) modules.
@@ -88,7 +88,7 @@ edit by area
 : Enable the _mask display_ to highlight pixels that have been affected by _color zones_ adjustments in yellow.
 
 select by
-: Define the horizontal axis (the range of values to work on). You can choose between “lightness”, “saturation”, and “hue” (the default). Changing this parameter resets all pixel manipulation curves to their default state (horizontal straight lines). If you want to work on multiple ranges, you need to create additional instances of the module.
+: Define the horizontal axis (the range of values to work on). You can choose between “lightness”, “chroma”, and “hue” (the default). Changing this parameter resets all pixel manipulation curves to their default state (horizontal straight lines). If you want to work on multiple ranges, you need to create additional instances of the module.
 
 process mode
 : Choose between a “smooth” (default) or “strong” processing mode. The default mode is less likely to cause artifacts.
