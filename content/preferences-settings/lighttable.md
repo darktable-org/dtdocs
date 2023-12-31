@@ -18,7 +18,7 @@ use single-click in the collections module
 expand a single utility module at a time
 : Controls how utility modules are expanded. If this option is enabled, expanding a module by clicking collapses any other currently expanded panel. If you want to expand a panel without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default off).
 
-scroll to utility modules when expanded/collapsed
+scroll utility modules to the top when expanded
 : With this option enabled the side panels will scroll a utility module to the top of the panel when it is expanded or collapsed (default off).
 
 rating an image one star twice will not zero out the rating

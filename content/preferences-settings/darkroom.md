@@ -27,12 +27,6 @@ border around image in darkroom mode
 show scrollbars for center view
 : Choose whether to show scrollbars in the center view of the darkroom (default off).
 
-demosaicing for zoomed out darkroom mode
-: Choose how to demosaic images in the darkroom view when not viewing the image at 1:1 zoom scale. Note: this setting is only used for interactive work and does not affect exported images.
-: - _default_ uses the default demosaic mode for the camera's sensor (RCD or Markesteijn).
-: - _always bilinear (fast)_ is fastest, but not as sharp
-: - _full (possibly slow)_ will use the settings from the [_demosaic_](../module-reference/processing-modules/demosaic.md) module (the same settings as the export module will use).
-
 reduce resolution of preview image
 : Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color picking and masking (default "original").
 
@@ -59,7 +53,7 @@ only collapse modules in current group
 expand the module when it is activated, and collapse it when disabled
 : Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules) when they are enabled or disabled. (default off)
 
-scroll to processing modules when expanded/collapsed
+scroll processing modules to top when expanded/collapsed
 : With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
 
 show right-side buttons in processing module headers
