@@ -1,7 +1,7 @@
 ---
 title: rotate and perspective
 id: rotate-perspective
-applicable-version: 3.8
+applicable-version: 4.6
 tags: 
 working-color-space:  
 view: darkroom
@@ -17,6 +17,12 @@ This module is able to correct converging lines by warping the image in such a w
 As the most common use case for this module is for rotation, the perspective correction controls are hidden by default. Click the "perspective" header to expand the controls.
 
 While the module is active (and none of the structure buttons are selected) you can right-click and drag anywhere on the image to define a horizontal or vertical line. This will cause the rotation parameter to be automatically adjusted to make the drawn line horizontal/vertical with respect to the image frame.
+
+---
+
+**Note**: This functionality (right-click and drag to set horizontal/vertical) is also available when the module is inactive, as long as no other function (e.g. drawn mask creation) claims the right-hand mouse button.
+
+---
 
 # perspective correction workflow
 
