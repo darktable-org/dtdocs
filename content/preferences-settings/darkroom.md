@@ -53,7 +53,7 @@ only collapse modules in current group
 expand the module when it is activated, and collapse it when disabled
 : Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules) when they are enabled or disabled. (default off)
 
-scroll processing modules to top when expanded/collapsed
+scroll processing modules to the top when expanded/collapsed
 : With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
 
 show right-side buttons in processing module headers
