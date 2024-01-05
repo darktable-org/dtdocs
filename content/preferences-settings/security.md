@@ -45,7 +45,7 @@ ask before exporting in overwrite mode
 # other
 
 password storage backend to use
-: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”. 
+: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”, "Apple keychain" (on macOS). 
 
 executable for playing audio files
 : Define an external program which is used in the lighttable view to play audio files that some cameras record to keep notes for images (default “aplay”). 
