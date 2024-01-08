@@ -16,7 +16,8 @@ darktable.print("Hello, I just received '"..event..
        "' with parameter '"..shortcut.."'")
 end
 
-darktable.register_event("shortcut",hello_shortcut,
+darktable.register_event("hello shortcut",
+       "shortcut",hello_shortcut,
        "A shortcut that prints its parameters")
 ```
 
@@ -24,14 +25,15 @@ Now start darktable, go to "preferences > shortcuts > lua > A shortcut that prin
 
 Let's look at the code in detail. We first define a function that takes two strings as input parameters. The first one is the type of event triggered ("shortcut") and the second is the name of the shortcut ("A shortcut that prints its parameters"). The function itself calls `darktable.print`, which will print the message as an overlay in the main window.
 
-Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering a shortcut event, then we give the callback to call and finally, we give the string to use to describe the shortcut in the preferences window.
+Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering an event of type "shortcut" with the name "hello shortcut", then we give the callback to call and finally, we give the string to use to describe the shortcut in the preferences window.
 
 Let's try a shortcut that is a little more interactive. This one will look at the images the user is currently interested in (selected or moused-over) and increase their rating:
 
 ```
 darktable = require "darktable"
 
-darktable.register_event("shortcut",function(event,shortcut)
+darktable.register_event("increase rating","shortcut",
+  function(event,shortcut)
     local images = darktable.gui.action_images
     for _,v in pairs(images) do
       v.rating = v.rating + 1
@@ -54,16 +56,19 @@ If you select an image and press your shortcut a couple of times, it will work c
 LUA ERROR : rating too high : 6
 stack traceback:
    [C]: in ?
-   [C]: in function '__newindex'
-  ./configdir/luarc:10: in function <./configdir/luarc:7>
-      LUA ERROR : rating too high : 6
+   [C]: in ?
+   [C]: in metamethod 'newindex'
+   ./configdir/luarc:10: in function <./configdir/luarc:7>
+   [C]: in ?
+   [C]: in ?
   ]]>
 ```
 
  This is lua's way of reporting errors. We have attempted to set a rating of 6 to an image, but a rating can only go as high as 5. It would be trivial to add a check, but let's go the complicated way and catch the error instead:
 
 ```
-darktable.register_event("shortcut",function(event,shortcut)
+darktable.register_event("increase rating","shortcut",
+  function(event,shortcut)
     local images = darktable.gui.action_images
     for _,v in pairs(images) do
       result,message = pcall(function()
@@ -74,7 +79,7 @@ darktable.register_event("shortcut",function(event,shortcut)
           tostring(v).." : "..message)
       end
     end
-end,"Increase the rating of an image")
+  end,"Increase the rating of an image")
 ```
 
 `pcall` will run its first argument and catch any exception thrown by it. If there is no exception it will return `true` plus any result returned by the function. If there is an exception it will return `false` and the error message of the exception. We simply test these results and print them to the console.
