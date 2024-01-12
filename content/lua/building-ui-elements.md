@@ -11,11 +11,13 @@ Our previous example was a bit limited. In particular the use of a preference fo
 UI elements are created via the `darktable_new_widget` function. This function takes a type of widget as a parameter and returns a new object corresponding to that widget. You can then set various fields in that widget to set its parameters. You will then use that object as a parameter to various functions that will add it to the darktable UI. The following simple example adds a lib in the lighttable view with a simple label:
 
 ```
+darktable = require "darktable"
+
 local my_label = darktable.new_widget("label")
 my_label.label = "Hello, world !"
 
-dt.register_lib("test","test",false,{
-    [dt.gui.views.lighttable] = {"DT_UI_CONTAINER_PANEL_LEFT_CENTER",20},
+darktable.register_lib("test","test",false,false,{
+    [darktable.gui.views.lighttable] = {"DT_UI_CONTAINER_PANEL_LEFT_CENTER",20},
     },my_label)
 ```
 
@@ -43,7 +45,7 @@ local scp_path = darktable.new_widget("entry"){
 darktable.register_storage("scp_export","Export via scp",
   function( storage, image, format, filename,
      number, total, high_quality, extra_data)
-    if not darktable.control.execute(scp "..filename.." "..
+    if not darktable.control.execute("scp "..filename.." "..
       scp_path.text
     ) then
       darktable.print_error("scp failed for "..tostring(image))
