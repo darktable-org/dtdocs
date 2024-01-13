@@ -42,6 +42,6 @@ This code will work but it has a couple of limitations. This is just a simple ex
 
 - There is no message displayed once the example is done, only the progress bar on the lower left side tells the user that the job is complete.
 
-- We use `coroutine.yield` to call an external program. The normal `os.execute` would block other lua codes from happening.
+- We use `darktable.control.execute` to call an external program. The normal `os.execute` would block other lua codes from happening.
 
 
