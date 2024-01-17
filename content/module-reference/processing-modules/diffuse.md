@@ -145,7 +145,7 @@ The main difficulty with this module is that while its output can vary dramatica
 
 ## general advice
 
-If you intend to deblur your image using this module, always start by properly correctiong any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don't have clipped black pixels in your image. These can be corrected with the _black level correction_ of the [_exposure_](./exposure.md) module.
+If you intend to deblur your image using this module, always start by properly correcting any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don't have clipped black pixels in your image. These can be corrected with the _black level correction_ of the [_exposure_](./exposure.md) module.
 
 Since it works on separate RGB channels, it is better to apply this module after [_color calibration_](./color-calibration.md), so that you start with a fully neutral, white-balanced, input image. Note that increasing local contrast or sharpness will also lead to a slight color contrast and saturation boost, which is usually a good thing. Since it uses a variance-based regularization to detect edges, it is also better to put this module before any non-linear operation.
 
