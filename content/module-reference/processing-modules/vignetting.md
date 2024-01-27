@@ -49,4 +49,4 @@ width/height ratio
 : Manually adjust the width/height ratio of the vignetting area.
 
 dithering
-: Activate random noise dithering to alleviate banding artifacts caused by vignette gradients. Select “8-bit output” to prevent banding on monitor display and for JPEGs. When set to “16-bit output”, only a small amount of dithering is applied, just strong enough to compensate for banding on the fine grained 16-bit level. It is now recommended that you instead use the [_dither and posterize_](./dithering.md) module to alleviate banding artifacts.
+: Activate random noise dithering to alleviate banding artifacts caused by vignette gradients. Select “8-bit output” to prevent banding on monitor display and for JPEGs. When set to “16-bit output”, only a small amount of dithering is applied, just strong enough to compensate for banding on the fine grained 16-bit level. It is now recommended that you instead use the [_dither and posterize_](./dither-or-posterize.md) module to alleviate banding artifacts.
