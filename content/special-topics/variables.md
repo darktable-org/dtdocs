@@ -28,7 +28,8 @@ $(VERSION.IF_MULTI)        same as $(VERSION) but null string if only one versio
 $(VERSION.NAME)            version name from metadata
 $(DARKTABLE.VERSION)       the version of the running darktable instance
 $(DARKTABLE.NAME)          name of darktable
-$(SEQUENCE)                a sequence number within an export job
+$(SEQUENCE[n,m])           a sequence number within an export job with n digits and starting with m
+                           parameters are optional, default is [4,1]
 $(WIDTH.SENSOR)            width of RAW data in pixels before RAW crop
 $(HEIGHT.SENSOR)           height of RAW data in pixels before RAW crop
 $(WIDTH.RAW)               width of RAW data in pixels after RAW crop
@@ -87,7 +88,7 @@ $(CREATOR)                 creator from metadata
 $(PUBLISHER)               publisher from metadata
 $(RIGHTS)                  rights from metadata
 $(TAGS)                    tags list (Xmp.dc.Subject)
-$(CATEGORYn(category))     tag name of level n [0,9] of selected category (or tag)
+$(CATEGORY[n,category])    tag name of level n [0,9] of selected category (or tag)
 $(SIDECAR_TXT)             content of the text sidecar file (if any)
 $(FOLDER.PICTURES)         pictures folder
 $(FOLDER.HOME)             home folder
