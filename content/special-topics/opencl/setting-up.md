@@ -42,4 +42,4 @@ ocl-icd
 ocd-icd-devel
 ```
 
-On linux systems you might also want the `clinfo` package giving you a lot of information about your OpenCL system and settings.
+On Linux systems you might also want the `clinfo` package giving you a lot of information about your OpenCL system and settings.
