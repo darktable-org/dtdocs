@@ -31,11 +31,12 @@ LICENSE
 GPLv2
 
 ]]
+
 darktable = require "darktable"
 darktable.configuration.check_version(...,{2,0,0})
 
 local scp_path = darktable.new_widget("entry"){
-  tooltip ="Complete path to copy to. Can include user and hostname",
+  tooltip = "Complete path to copy to. Can include user and hostname",
   text = "",
   reset_callback = function(self) self.text = "" end
 }
@@ -48,13 +49,13 @@ darktable.register_storage("scp_export","Export via scp",
     ) then
       darktable.print_error("scp failed for "..tostring(image))
     end
-    end,
-    nil, --finalize
-    nil, --supported
-    nil, --initialize
-    darktable.new_widget("box") {
-    orientation ="horizontal",
-    darktable.new_widget("label"){label = "target SCP PATH "},
+  end,
+  nil, --finalize
+  nil, --supported
+  nil, --initialize
+  darktable.new_widget("box") {
+    orientation = "horizontal",
+    darktable.new_widget("label"){ label = "target SCP PATH " },
     scp_path,
 })
 ```
