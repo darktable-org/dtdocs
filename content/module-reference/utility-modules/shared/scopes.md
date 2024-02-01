@@ -28,7 +28,7 @@ The horizontal axis runs from 0% to 100% lightness for each channel. The vertica
 
 In its default state, data for all three RGB color channels is displayed. The red, green and blue colored buttons on the right-hand-side can be used to toggle the display of each color channel.
 
-The final button on the right-hand-side toggles between logarithmic and linear rendering of the vertical axis (pixel count) data.
+The first button on the right-hand-side toggles between logarithmic and linear rendering of the vertical axis (pixel count) data.
 
 # waveform
 
@@ -44,7 +44,7 @@ The brightness of each point on the waveform represents the number of pixels at 
 
 As with the histogram, you can selectively display each of the red, green, and blue channels, by clicking on the appropriate buttons.
 
-The final button on the right-hand-side toggles the display between horizontal (above) and vertical (below) mode:
+The first button on the right-hand-side toggles the display between horizontal (above) and vertical (below) mode:
 
 ![waveform scope (vertical)](./scopes/waveform-vertical.png#w50)
 
