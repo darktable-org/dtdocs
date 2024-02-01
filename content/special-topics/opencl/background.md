@@ -6,7 +6,7 @@ draft: false
 author: "people"
 ---
 
-Processing high resolution images is a demanding task requiring a modern computer. In terms of both memory and CPU power, getting the best out of a typical 15, 20 or 25 Megapixel image can quickly take your computer to its limits.
+Processing high resolution images is a demanding task requiring a modern computer. In terms of both memory and CPU power, getting the best out of a typical 15, 20 or 25 megapixel image can quickly take your computer to its limits.
 
 darktable's requirements are no exception. All calculations are performed on 4 x 32bit floating point numbers. This is slower than “ordinary” 8 or 16 bit integer algebra, but eliminates all problems of tonal breaks or loss of information.
 
