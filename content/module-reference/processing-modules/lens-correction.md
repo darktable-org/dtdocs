@@ -87,7 +87,7 @@ TCA red; TCA blue
 The following controls are provided for the "embedded metadata" correction method only:
 
 use latest algorithm
-: This control appears for images using an older version of the "embedded metadata" correction algorithm. Check this box to irreversably change to the newer algorithm.
+: This control appears for images using an older version of the "embedded metadata" correction algorithm. Check this box to irreversibly change to the newer algorithm.
 
 The following controls can be revealed by clicking the "fine tuning" button:
 
