@@ -48,7 +48,7 @@ create theme tweaks
 
 ## understanding darktable's themes
 
-All of darktable's pre-built themes are provided as CSS files in `$DARKTABLE/share/darktable/themes/` (where `$DARKTABLE` is darktable's installation directory). The default theme is `darktable.css` and this contains the bulk of the code used to control the look-and-feel of darktable. A number of other themes are also provided but most of them use `darktable.css` as a base (by importing `darktable.css` using the `@import url` directive).
+All of darktable's pre-built themes are provided as CSS files in `$DARKTABLE/share/darktable/themes/` (where `$DARKTABLE` is darktable's installation directory). The `darktable.css` theme contains the bulk of the code used to control the look-and-feel of darktable. A number of other themes are also provided but most of them use `darktable.css` as a base (by importing `darktable.css` using the `@import url` directive).
 
 If you choose to create your own custom theme file you are advised to follow a similar approach -- import one of darktable's existing theme files using `@import url` (this directive expects relative paths) and then apply your own customisations on top. You do not need to do this when using the CSS text box in the preferences dialog -- attempting to use `@import url` in the CSS tweaks text box will not work correctly.
 
