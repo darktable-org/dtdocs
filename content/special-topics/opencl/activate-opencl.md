@@ -1,5 +1,5 @@
 ---
-title: activating opencl in darktable
+title: activating OpenCL in darktable
 id: activate-opencl
 weight: 30
 draft: false

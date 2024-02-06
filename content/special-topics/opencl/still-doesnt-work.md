@@ -1,5 +1,5 @@
 ---
-title: opencl still does not run for me
+title: OpenCL still does not run for me
 id: still-doesnt-work
 weight: 100
 draft: false
