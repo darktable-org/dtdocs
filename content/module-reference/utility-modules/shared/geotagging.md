@@ -60,8 +60,8 @@ apply GPX track file (lighttable view only)
 
 # module controls (map view)
 
-gpx file
-: The path of the gpx file selected.
+GPX file
+: The path of the GPX file selected.
 
 track list
 : This table shows the start date/time of each track, along with the number of track points and the number of matching images. When a check button is activated, the related track is displayed on the map. A check button in the table header allows you to select or de-select all of the tracks at once. Hover over a row with your mouse to display the start and end times both in local time (LT) and UTC.
