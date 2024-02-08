@@ -53,8 +53,8 @@ only collapse modules in current group
 expand the module when it is activated, and collapse it when disabled
 : Select this option for the darkroom to automatically expand or collapse [processing modules](../module-reference/processing-modules) when they are enabled or disabled. (default off)
 
-scroll processing modules to the top when expanded/collapsed
-: With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded or collapsed (default on).
+scroll processing modules to the top when expanded
+: With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded. (default on)
 
 show right-side buttons in processing module headers
 : Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
