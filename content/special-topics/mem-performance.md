@@ -25,7 +25,7 @@ For most systems, tiling will probably only be used for full-sized image exports
 
 # performance tuning
 
-There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory) and others need to be modified directly in darktable's configuration file (found in `$HOME/.config/darktable/darktablerc`).
+There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory) and others need to be modified directly in darktable's configuration file (found in `$HOME/.config/darktable/darktablerc`).
 
 This section provides some guidance on how to adjust these settings.
 
@@ -51,7 +51,7 @@ On the other hand darktable's performance during file exports is more or less on
 
 ## darktable resources
 
-The "darktable resources" preference (in [preferences > processing > cpu/gpu/memory](../preferences-settings/processing.md#cpu--gpu--memory)) allows you to choose between four different approaches to allocating your system's resources to darktable. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/darktable/darktablerc`. You can amend any of these directly within your darktablerc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
+The "darktable resources" preference (in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory)) allows you to choose between four different approaches to allocating your system's resources to darktable. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/darktable/darktablerc`. You can amend any of these directly within your darktablerc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
 ---
 
@@ -94,7 +94,7 @@ If you want to make maximal use of your GPU memory for OpenCL, you have three op
 
 - Choose the "large" resource level. For a 6GB card, this will use approximately 5GB of GPU memory, leaving 1GB for the rest of your system. (recommended)
 - Alter darktablerc to increase the last number (the OpenCL memory fraction) for your selected resource level. For example, increasing the OpenCL memory fraction to 950 would increase the available memory on a 6GB GPU to approximately 5.3GB. (absolutely not recommended)
-- Set [preferences > processing > OpenCL > use all device memory](../preferences-settings/processing.md#cpu--gpu--memory) to "on", which will use all of your device's memory, less a 600MB headroom. Please see the [section below](#id-specific-opencl-configuration) for "per device setting" of headroom.
+- Set [preferences > processing > OpenCL > use all device memory](../preferences-settings/processing.md#opencl) to "on", which will use all of your device's memory, less a 600MB headroom. Please see the [section below](#id-specific-opencl-configuration) for "per device setting" of headroom.
 
 ## balanced OpenCL versus CPU tiling
 
@@ -175,7 +175,7 @@ A second device-specific configuration key is also provided, which takes into ac
 This configuration key currently only has a single parameter defined:
 
 forced headroom (default 600)
-: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is only valid if you set [preferences > processing > OpenCL > use all device memory](../preferences-settings/processing/#cpu--gpu--memory) to "on".
+: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is only valid if you set [preferences > processing > OpenCL > use all device memory](../preferences-settings/processing/#opencl) to "on".
 
 : If you are certain that no apps (or your OS) make use of the specific device you can set this parameter to 0 for the otherwise-unused device so that darktable will use all of that device's memory.
 
