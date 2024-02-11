@@ -10,28 +10,28 @@ masking: false
 
 Automatically correct for (or simulate) lens distortion, transverse chromatic aberrations (TCA) and vignetting.
 
-You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [lensfun library](https://lensfun.github.io/).
+You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [Lensfun library](https://lensfun.github.io/).
 
 Additional controls are also provided for manual vignetting correction, in case the profiles available for your lens are insufficient or non-existent.
 
 Note that if TCA correction is enabled in this module, also using [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) may cause artifacts from over-correction. 
 
-# lensfun correction data
+# Lensfun correction data
 
-If your system's lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu. 
+If your system's Lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu. 
 
 If your lens is present in the list but has not been correctly identified, this may require some adjustment within the exiv2 program (see [this post](https://dev.exiv2.org/boards/3/topics/2854) for details). Note that you may need to re-import the images once such adjustments have been made as the lens name is retrieved as part of the import process.
 
 By default, only lenses that are directly compatible with your camera's mount are listed and automatically identified. If you are using lenses for a different mount with an adapter (for example a Four Thirds lens adapted to a Micro Four Thirds body), then you must run the [`lensfun-add-adapter`](https://lensfun.github.io/manual/v0.3.2/lensfun-add-adapter.html) tool to enable those lenses.
 
-If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running the [`lensfun-update-data`](https://lensfun.github.io/manual/v0.3.2/lensfun-update-data.html) tool. If there is still no matching profile for your lens, a [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) is offered by Torsten Bronger, one of darktable's users. Alternatively you may visit the [lensfun project](https://lensfun.github.io/lenslist/) to learn how to generate your own set of correction parameters. Don't forget to share your profile with the lensfun team!
+If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running the [`lensfun-update-data`](https://lensfun.github.io/manual/v0.3.2/lensfun-update-data.html) tool. If there is still no matching profile for your lens, a [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) is offered by Torsten Bronger, one of darktable's users. Alternatively you may visit the [Lensfun project](https://lensfun.github.io/lenslist/) to learn how to generate your own set of correction parameters. Don't forget to share your profile with the Lensfun team!
 
 # module controls
 
 correction method
 : Choose which method to use to correct distortions. Additional controls will be provided depending on the option selected:
 
-: - "Lensfun database": Use corrections provided by the lensfun project.
+: - "Lensfun database": Use corrections provided by the Lensfun project.
 : - "embedded metadata": Use corrections embedded in the metadata of the Raw file. This is only available if supported metadata is found.
 : - "only manual vignette": Do not perform any automatic correction but provide manual vignette correction.
 
@@ -44,9 +44,9 @@ corrections done
 show guides
 : Tick the box at the bottom of the module to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
 
-## lensfun controls
+## Lensfun controls
 
-The following controls are provided for the "lensfun" correction method only:
+The following controls are provided for the "Lensfun" correction method only:
 
 camera
 : The camera make and model as determined by the image's Exif data. You can override this manually and select your camera from a hierarchical menu. Only lenses with correction profiles matching the selected camera will be shown.
@@ -108,7 +108,7 @@ image scale
 
 ## manual vignette correction
 
-Full vignetting correction is unavailable or inadequate for many lenses, whether using embedded metadata or the lensfun database. Click on the "manual vignetting correction" button to provide additional adjustments via the following controls.
+Full vignetting correction is unavailable or inadequate for many lenses, whether using embedded metadata or the Lensfun database. Click on the "manual vignetting correction" button to provide additional adjustments via the following controls.
 
 strength
 : the overall strength of the effect.
