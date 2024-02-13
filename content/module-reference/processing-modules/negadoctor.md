@@ -26,7 +26,7 @@ When scanning or photographing your film negative, make sure you include some un
 
 When developing the scanned/photographed film negatives, it is recommended that you disable any tone mapping modules such as [_filmic rgb_](filmic-rgb.md) and [_base curve_](base-curve.md).
 
-The _working profile_ parameter in darktable's [_input color profile_](input-color-profile.md) module should be set to either _linear Rec2020 RGB_, or to an ICC profile representing the actual color space of your film emulsion. Some examples of such ICC profiles may be found in the following forum posts:
+The _working profile_ parameter in darktable's [_input color profile_](input-color-profile.md) module should be set to either _linear Rec. 2020 RGB_, or to an ICC profile representing the actual color space of your film emulsion. Some examples of such ICC profiles may be found in the following forum posts:
 
 - [https://discuss.pixls.us/t/any-interest-in-a-film-negative-feature-in-rt/12569/177](https://discuss.pixls.us/t/any-interest-in-a-film-negative-feature-in-rt/12569/177)
 
