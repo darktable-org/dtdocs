@@ -81,7 +81,7 @@ OpenCL scheduling profile
 : - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information.
 
 use all device memory
-: Enable this option to allow darktable to use all OpenCL memory on all devices except for a safety margin (headroom). The headroom default is 600MB by default but may also be specified per-device.
+: Enable this option to allow darktable to use all OpenCL memory on all devices except for a safety margin (headroom). The default headroom is 600MB and can also be specified on a per-device basis.
 
 OpenCL drivers
 : In most cases darktable is able to find the correct OpenCL driver but this depends on how your operating system handles installation. Generally speaking, darktable must:
