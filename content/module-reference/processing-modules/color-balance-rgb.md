@@ -37,7 +37,7 @@ This module works, for the most part (_4 ways_, _chroma_, _vibrance_, _contrast_
 
 The _color balance RGB_ module expects a scene-referred linear input and produces a scene-referred RGB output, which may or may not be linear, depending on the module settings (_contrast_ and _power_ will delinearize the output).
 
-At its output, _color balance RGB_ checks that the graded colors fit inside the pipeline RGB color space (Rec 2020 by default) and applies a soft saturation clipping at constant hue, aiming to retarget out-of-gamut color to the nearest in-gamut color by scaling both chroma and lightness. This prevents the chroma and saturation settings from pushing colors outside of the valid range and allows more drastic adjustments to be safely used.
+At its output, _color balance RGB_ checks that the graded colors fit inside the pipeline RGB color space (Rec. 2020 by default) and applies a soft saturation clipping at constant hue, aiming to retarget out-of-gamut color to the nearest in-gamut color by scaling both chroma and lightness. This prevents the chroma and saturation settings from pushing colors outside of the valid range and allows more drastic adjustments to be safely used.
 
 _Note that this module abides by the CIE definitions of chroma and saturation, as explained in the [dimensions of color](../../special-topics/color-management/color-dimensions.md) section._
 
