@@ -12,7 +12,7 @@ Automatically correct for (or simulate) lens distortion, transverse chromatic ab
 
 You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [lensfun library](https://lensfun.github.io/).
 
-Additional controls are also provided for manual vignetting correction, in case the profiles available for your lens are insufficient or non-existent.
+Additional controls are also provided for manual vignetting correction, in case the profiles for your lens are insufficient or missing.
 
 Note that if TCA correction is enabled in this module, also using [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) may cause artifacts from over-correction. 
 
