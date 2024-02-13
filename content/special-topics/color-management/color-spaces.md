@@ -45,7 +45,7 @@ Each module has a position in the pixelpipe that tells you which color space the
 : Image is in RGB format within the color space of the specific camera or input file.
 
 - between [_input color profile_](../../module-reference/processing-modules/input-color-profile.md) and [_output color profile_](../../module-reference/processing-modules/output-color-profile.md)
-: Image is in the color space defined by the selected working profile (linear Rec2020 RGB by default). As darktable processes images in 4x32-bit floating point buffers, we can handle large working color spaces without risking banding or tonal breaks.
+: Image is in the color space defined by the selected working profile (linear Rec. 2020 RGB by default). As darktable processes images in 4x32-bit floating point buffers, we can handle large working color spaces without risking banding or tonal breaks.
 
 - after [_output color profile_](../../module-reference/processing-modules/output-color-profile.md)
 : Image is in RGB format as defined by the selected display or output ICC profile.

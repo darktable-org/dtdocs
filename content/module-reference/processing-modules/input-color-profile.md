@@ -28,9 +28,9 @@ input profile
 : If your input image is a low dynamic range file like JPEG, or a raw file in DNG format, it might already contain an embedded ICC profile, which darktable will use by default. You can restore this default by selecting “embedded icc profile”. If you hover your mouse over the input profile combobox on such an image, details of the embedded profile will be shown in a tooltip.
 
 working profile
-: The working profile used by darktable's processing modules. Each module can specify an alternative space that it will work in, and this will trigger a conversion. By default darktable will use "linear Rec2020 RGB", which is a good choice in most cases.
+: The working profile used by darktable's processing modules. Each module can specify an alternative space that it will work in, and this will trigger a conversion. By default darktable will use "linear Rec. 2020 RGB", which is a good choice in most cases.
 
 gamut clipping
 : Activate a color clipping mechanism. In most cases you can leave this control in its default “off” state. However, if your image shows some specific features such as highly saturated blue light sources, gamut clipping might be useful to avoid black pixel artifacts. See [possible color artifacts](../../special-topics/color-management/color-artifacts.md) for more information.
 
-: Choose from a list of RGB profiles. Input colors with a saturation that exceeds the permissible range of the selected profile are automatically clipped to a maximum value. “linear Rec2020 RGB” and “Adobe RGB (compatible)” allow for a broader range of unclipped colors, while “sRGB” and “linear Rec709 RGB” produce a tighter clipping. Select the profile that prevents artifacts while still maintaining the highest color dynamics. 
+: Choose from a list of RGB profiles. Input colors with a saturation that exceeds the permissible range of the selected profile are automatically clipped to a maximum value. “linear Rec. 2020 RGB” and “Adobe RGB (compatible)” allow for a broader range of unclipped colors, while “sRGB” and “linear Rec. 709 RGB” produce a tighter clipping. Select the profile that prevents artifacts while still maintaining the highest color dynamics. 
