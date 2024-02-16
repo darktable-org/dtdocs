@@ -16,7 +16,7 @@ The top line of the mask manager panel contains buttons that can be used to crea
 
 The panel below these buttons displays a list of all masks and individual shapes defined for the current image.
 
-Groups of shapes forming a drawn mask are displayed with a headline in the form "grp <module_name>" to indicate the module in which they are used, with the constituent shapes listed below. The list of mask groups is followed by a list of all individual shapes that have been generated in the context of the current image (which also repeats the shapes that are part of a group). If a shape is in use by any drawn masks this is indicated by a symbol to the right of the shape name.
+Groups of shapes forming a drawn mask are displayed with a headline in the form "group <module_name>" to indicate the module in which they are used, with the constituent shapes listed below. The list of mask groups is followed by a list of all individual shapes that have been generated in the context of the current image (which also repeats the shapes that are part of a group). If a shape is in use by any drawn masks this is indicated by a symbol to the right of the shape name.
 
 # shapes
 
