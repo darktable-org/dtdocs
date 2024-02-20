@@ -6,28 +6,27 @@ on:
 
 jobs:
   pull-request-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: recursive  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-      - uses: cachix/install-nix-action@v12
+      - uses: cachix/install-nix-action@v25
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
-      - run: nix-shell --run 'echo "Installed nix dependencies"'
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install assets
-        run: nix-shell --run 'cd themes/hugo-darktable-docs-theme/assets/ && yarn install'
+        run: nix develop --command bash -c "cd themes/hugo-darktable-docs-theme/assets/ && yarn install"
 
-      - name: Run linkchecker
-        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config.yaml -b https://darktable-org.github.io/dtdocs/ & sleep 30 && linkchecker --ignore-url .*pdf$ --ignore-url .*epub$ --no-status http://localhost:1313/dtdocs/index.html && pkill hugo'
+      - name: Check for broken links
+        run: nix develop --command bash -c "hugo server --disableFastRender -verbose --config config.yaml -b http://localhost:1313/dtdocs/ & sleep 30 && lychee --exclude \.*pdf$ --exclude \.*epub$ --exclude \.*#$ --no-progress http://localhost:1313/dtdocs/index.html && pkill hugo"
 
       - name: Generate translated files
-        run: nix-shell --run 'cd tools && bash generate-translations.sh --no-update'
+        run: nix develop --command bash -c "cd tools && bash generate-translations.sh --no-update"
 
       - name: Clear
-        run: nix-shell --run 'rm -rf public'
+        run: nix develop --command bash -c "rm -rf public"
 
       - name: Build
-        run: nix-shell --run 'hugo'
+        run: nix develop --command bash -c "hugo"
