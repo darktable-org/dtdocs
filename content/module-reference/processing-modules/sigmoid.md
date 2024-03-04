@@ -74,7 +74,7 @@ base primaries
 : Choose the set of primaries to use as the base for adjustments. This is a bit like locally overriding the working profile, and is necessary to allow presets to be created that don't change even if the user amends the working profile used in the pixel pipeline.
 
 red/green/blue attenuation
-: Attenuate (decrease) the [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the red/green or blue primaries before the signal is processed through _sigmoid_'s per-channel curves. An important consequence is that now even the brightest and most pure inputs get smoothly degraded to achromatic at the high end. This avoids posterization and flat-looking patches, which are often seen with, for example, blue LED lights.
+: Attenuate (decrease) the [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the red, green or blue primaries before the signal is processed through _sigmoid_'s per-channel curves. An important consequence is that now even the brightest and most pure inputs get smoothly degraded to achromatic at the high end. This avoids posterization and flat-looking patches, which are often seen with, for example, blue LED lights.
 
 red/green/blue rotation
 : Rotate the primaries where the per-channel curves are applied. This affects the hue paths when approaching white in the high end. These controls should not normally need large adjustments from the starting values given in the "smooth" preset.
