@@ -95,7 +95,7 @@ weight
 
 ## general style guidance
 
-- All content should be authored in plain markdown without shortcodes and HTML should be kept to an absolute minimum , if used at all
+- All content should be authored in plain markdown without shortcodes and HTML should be kept to an absolute minimum, if used at all
 - Minimalism is an absolute must. Fewer words are preferred
 - Markdown files should be as short as possible
 - Follow the naming and capitalization norms present in the GUI of the application -- namely all headers and titles are in lower case, except for the very top-level chapter names. Similarly, use all lower case when referencing module names and controls.
