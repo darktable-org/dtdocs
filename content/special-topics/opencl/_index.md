@@ -1,5 +1,5 @@
 ---
-title: opencl
+title: OpenCL
 id: opencl
 weight: 30
 draft: false

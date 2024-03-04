@@ -1,5 +1,5 @@
 ---
-title: setting up opencl
+title: setting up OpenCL
 id: setting-up
 weight: 40
 draft: false

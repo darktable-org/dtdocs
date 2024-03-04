@@ -1,5 +1,5 @@
 ---
-title: how opencl works
+title: how OpenCL works
 id: how-opencl-works
 weight: 20
 draft: false
