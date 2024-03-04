@@ -70,7 +70,7 @@ method
 edge threshold (_PPG_ only)
 : The threshold for an additional median pass. Defaults to “0” which disables median filtering.
 
-lmmse refine (_LMMSE_ only)
+LMMSE refine (_LMMSE_ only)
 : Refinement steps for use with the LMMSE demosaic algorithm. Median steps average the output. Refinement steps add some recalculation of red and blue channels. While the refinement options work well for luma noise, they may decrease quality on images with heavy chroma noise.
 
 color smoothing
