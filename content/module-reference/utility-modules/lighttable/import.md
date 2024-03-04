@@ -56,7 +56,7 @@ metadata
 
 : Double-click on a label to reset the corresponding field. Double-click on the "metadata presets" label to reset all fields.
 
-: When [preferences > storage > write sidecar file for each image](../../../preferences-settings/storage.md#xmp) is unchecked an additional column "from xmp" is presented so that you can choose to prevent the import of metadata from XMP files.
+: If [preferences > storage > create XMP files](../../../preferences-settings/storage.md#xmp-sidecar-files) is set to "never", an additional column "from XMP" is presented so that you can choose to prevent the import of metadata from XMP files.
 
 tags
 : If you want to add further tags by default when importing images, you can provide them here as a comma separated list. As with metadata you can also choose from any presets saved within the [tagging](../shared/tagging.md) module.
