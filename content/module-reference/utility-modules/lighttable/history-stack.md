@@ -45,7 +45,7 @@ paste
 : Paste all items of a copied history stack onto all selected images.
 
 mode
-: This setting defines how the paste actions behave when applied to an image that already has a history stack. In simple terms the “overwrite” mode deletes the previous history stack before pasting, whereas “append”  concatenates the two history stacks together.
+: This setting defines how the paste actions behave when applied to an image that already has a history stack. In simple terms the “overwrite” mode deletes the previous history stack before pasting, whereas “append” concatenates the two history stacks together.
 
 : A copied history stack can have multiple entries of the same module (with the same name or different names) and pasting behaves differently for these entries in append and overwrite modes. 
 
