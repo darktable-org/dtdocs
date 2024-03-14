@@ -6,7 +6,7 @@ weight: 30
 author: "people"
 ---
 
-Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup. The size of this cache can be adjusted in [preferences > processing > cpu/gpu/memory](../../../preferences-settings/processing#cpu--gpu--memory).
+Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup.
 
 # thumbnail creation
 
