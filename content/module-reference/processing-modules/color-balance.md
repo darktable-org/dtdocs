@@ -75,7 +75,7 @@ shadows, mid-tones, highlights
 
 ---
 
-**Note:** The shadows, mid-tones and highlights sliders can take up a great deal of space in the _color balance_ module. The overall layout of these sliders can therefore be cycled through three different layouts by clicking on the _shadows, mid-tones, highlights_ heading. You can also set the default layout with [preferences > darkroom > colorbalance slider block layout](../../preferences-settings/darkroom.md).
+**Note:** The shadows, mid-tones and highlights sliders can take up a great deal of space in the _color balance_ module. The overall layout of these sliders can therefore be cycled through three different layouts by clicking on the _shadows, mid-tones, highlights_ heading.
 
 ---
 
