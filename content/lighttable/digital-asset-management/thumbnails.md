@@ -22,7 +22,7 @@ As the thumbnail cache has a pre-defined maximum size it will eventually get fil
 
 Thumbnails are never removed from the secondary cache. You can manually clean the secondary cache by recursively deleting all images in the `$HOME/.cache/darktable/mipmaps-xyz.d` folder (where `xyz` denotes an alphanumeric identifier of the cache). After clearing the secondary cache you can simply allow darktable to re-generate thumbnails as needed, or you can generate all thumbnails in one go with [`darktable-generate-cache`](../../special-topics/program-invocation/darktable-generate-cache.md).
 
-If you choose not to activate the disk backend and select too small a cache size, darktable may become unresponsive, you may experience continuous regeneration of thumbnails when you navigate your collection or flickering of thumbnail images. A good choice of cache size is 512MB or higher (see [memory](../../../special-topics/memory.md) for more information).
+If you choose not to activate the disk backend and select too small a cache size, darktable may become unresponsive, you may experience continuous regeneration of thumbnails when you navigate your collection or flickering of thumbnail images. A good choice of cache size is 512MB or higher (see [memory & performance tuning](../../../special-topics/mem-performance.md) for more information).
 
 All thumbnails are fully color managed. Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
 
@@ -36,4 +36,4 @@ There are three main reasons this could happen:
 
 - _Invalid image format_: While the extension of an image may seem to be supported by darktable, its contents could be either an unsupported image format or a corrupt file. 
 
-- _Low memory_: If darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory](../../../special-topics/memory.md) for more information.
+- _Low memory_: If darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
