@@ -16,7 +16,7 @@ darktable.print("Hello, I just received '"..event..
        "' with parameter '"..shortcut.."'")
 end
 
-darktable.register_event("shortcut",hello_shortcut,
+darktable.register_event("example_program","shortcut",hello_shortcut,
        "A shortcut that prints its parameters")
 ```
 
@@ -31,7 +31,7 @@ Let's try a shortcut that is a little more interactive. This one will look at th
 ```
 darktable = require "darktable"
 
-darktable.register_event("shortcut",function(event,shortcut)
+darktable.register_event("another_example_program","shortcut",function(event,shortcut)
     local images = darktable.gui.action_images
     for _,v in pairs(images) do
       v.rating = v.rating + 1
