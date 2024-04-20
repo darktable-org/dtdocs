@@ -1,6 +1,7 @@
 ---
 title: contrast equalizer
 id: contrast-equalizer
+weight: 10
 applicable-version: 3.6
 tags: 
 working-color-space:  

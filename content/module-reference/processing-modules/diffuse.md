@@ -1,6 +1,7 @@
 ---
 title: diffuse or sharpen
 id: diffuse
+weight: 10
 applicable-version: 4.2
 tags:
 working-color-space: RGB

@@ -1,6 +1,7 @@
 ---
-title: basic adjustments (deprecated)
+title: (deprecated) basic adjustments
 id: basic-adjustments
+weight: 20
 applicable-version: 3.6
 tags: 
 working-color-space:  

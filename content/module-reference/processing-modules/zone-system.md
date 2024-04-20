@@ -1,6 +1,7 @@
 ---
-title: zone system (deprecated)
+title: (deprecated) zone system
 id: zone-system
+weight: 20
 applicable-version: 3.4
 tags: 
 working-color-space: Lab 

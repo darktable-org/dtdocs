@@ -1,6 +1,7 @@
 ---
 title: raw denoise
 id: raw-denoise
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: Not Applicable (RAW) 

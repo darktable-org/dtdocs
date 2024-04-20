@@ -1,6 +1,7 @@
 ---
 title: retouch
 id: retouch
+weight: 10
 applicable-version: 4.6
 tags:
 working-color-space: rgb

@@ -1,6 +1,7 @@
 ---
 title: blurs
 id: blurs
+weight: 10
 applicable-version: 3.8
 tags:
 working-color-space: RGB

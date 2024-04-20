@@ -1,6 +1,7 @@
 ---
-title: contrast brightness saturation (deprecated)
+title: (deprecated) contrast brightness saturation
 id: contrast-brightness-saturation
+weight: 20
 applicable-version: 4.4
 tags: 
 working-color-space: Lab 

@@ -1,6 +1,7 @@
 ---
 title: unbreak input profile
 id: unbreak-input-profile
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 

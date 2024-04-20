@@ -1,6 +1,7 @@
 ---
 title: haze removal
 id: haze-removal
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 

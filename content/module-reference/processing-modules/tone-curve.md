@@ -1,6 +1,7 @@
 ---
 title: tone curve
 id: tone-curve
+weight: 10
 applicable-version: 3.8
 tags: 
 working-color-space:  

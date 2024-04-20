@@ -1,6 +1,7 @@
 ---
 title: color zones
 id: color-zones
+weight: 10
 applicable-version: 4.6
 tags: 
 working-color-space: Lab

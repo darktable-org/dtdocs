@@ -1,6 +1,7 @@
 ---
-title: tone mapping (deprecated)
+title: (deprecated) tone mapping
 id: tone-mapping
+weight: 20
 applicable-version: 3.4
 tags: 
 working-color-space: RGB 

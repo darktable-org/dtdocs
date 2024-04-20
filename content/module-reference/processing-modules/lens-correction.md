@@ -1,6 +1,7 @@
 ---
 title: lens correction
 id: lens-correction
+weight: 10
 applicable-version: 4.6
 tags: 
 working-color-space: RGB

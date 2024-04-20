@@ -1,6 +1,7 @@
 ---
-title: invert (deprecated)
+title: (deprecated) invert
 id: invert
+weight: 20
 applicable-version: 3.4
 tags: 
 working-color-space: Not Applicable (RAW) 

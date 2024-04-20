@@ -1,6 +1,7 @@
 ---
 title: white balance
 id: white-blaance
+weight: 10
 applicable-version: 3.4
 tags: 
 working-color-space: not-applicable (RAW) 

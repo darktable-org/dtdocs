@@ -1,6 +1,7 @@
 ---
 title: rgb primaries
 id: rgb-primaries
+weight: 10
 applicable-version: 4.6
 tags:
 working-color-space: RGB

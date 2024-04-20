@@ -1,6 +1,7 @@
 ---
 title: chromatic aberrations
 id: chromatic-aberrations
+weight: 10
 applicable-version: 3.6
 tags: 
 working-color-space: 

@@ -1,6 +1,7 @@
 ---
 title: raw black/white point
 id: raw-black-white-point
+weight: 10
 applicable-version: 4.0
 tags: 
 working-color-space: Not Applicable (RAW) 

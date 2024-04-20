@@ -1,6 +1,7 @@
 ---
 title: graduated density
 id: graduated-density
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 

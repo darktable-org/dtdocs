@@ -1,6 +1,7 @@
 ---
 title: color balance rgb
 id: color-balance
+weight: 10
 applicable-version: 4.0
 tags:
 working-color-space: RGB

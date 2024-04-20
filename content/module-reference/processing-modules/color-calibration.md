@@ -1,6 +1,7 @@
 ---
 title: color calibration
 id: color-calibration
+weight: 10
 applicable-version: 4.6
 tags:
 working-color-space: RGB

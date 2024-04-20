@@ -1,6 +1,7 @@
 ---
 title: color contrast
 id: color-contrast
+weight: 10
 applicable-version: 3.4
 tags: 
 working-color-space: Lab

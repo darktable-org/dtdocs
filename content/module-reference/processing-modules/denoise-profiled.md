@@ -1,6 +1,7 @@
 ---
 title: denoise (profiled)
 id: denoise-profiled
+weight: 10
 applicable-version: 3.8
 tags: 
 working-color-space:  

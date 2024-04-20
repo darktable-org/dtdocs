@@ -1,6 +1,7 @@
 ---
 title: shadows and highlights
 id: shadows-and-highlights
+weight: 10
 applicable-version: 4.0.0
 tags: 
 working-color-space: Lab 

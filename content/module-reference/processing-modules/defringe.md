@@ -1,6 +1,7 @@
 ---
-title: defringe (deprecated)
+title: (deprecated) defringe
 id: defringe
+weight: 20
 applicable-version: 3.6
 tags: 
 working-color-space: Lab 

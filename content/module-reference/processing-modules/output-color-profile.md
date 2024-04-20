@@ -1,6 +1,7 @@
 ---
 title: output color profile
 id: output-color-profile
+weight: 10
 applicable-version: 3.6
 tags: 
 working-color-space: Lab 

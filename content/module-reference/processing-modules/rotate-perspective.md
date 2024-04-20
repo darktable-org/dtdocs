@@ -1,6 +1,7 @@
 ---
 title: rotate and perspective
 id: rotate-perspective
+weight: 10
 applicable-version: 4.6
 tags: 
 working-color-space:  

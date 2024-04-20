@@ -1,6 +1,7 @@
 ---
 title: orientation
 id: orientation
+weight: 10
 applicable-version: 3.8
 tags: rotate orientation basic-module-group
 working-color-space: not-applicable (RAW)

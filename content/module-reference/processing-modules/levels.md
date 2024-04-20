@@ -1,6 +1,7 @@
 ---
-title: levels (deprecated)
+title: (deprecated) levels
 id: levels
+weight: 20
 applicable-version: 4.4
 tags: 
 working-color-space: Lab

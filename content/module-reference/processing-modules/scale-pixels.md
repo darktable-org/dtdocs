@@ -1,6 +1,7 @@
 ---
 title: scale pixels
 id: scale-pixels
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 

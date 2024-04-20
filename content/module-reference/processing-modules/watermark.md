@@ -1,6 +1,7 @@
 ---
 title: watermark
 id: watermark
+weight: 10
 applicable-version: 4.4
 tags:
 working-color-space: RGB

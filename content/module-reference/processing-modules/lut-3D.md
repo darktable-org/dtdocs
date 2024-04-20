@@ -1,6 +1,7 @@
 ---
 title: LUT 3D
 id: lut-3d
+weight: 10
 applicable-version: 4.6
 tags:
 working-color-space: RGB

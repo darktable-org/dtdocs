@@ -1,6 +1,7 @@
 ---
 title: color balance
 id: color-balance
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: Lab 

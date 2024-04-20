@@ -1,6 +1,7 @@
 ---
 title: censorize
 id: censorize
+weight: 10
 applicable-version: 3.6
 tags:
 working-color-space: RGB

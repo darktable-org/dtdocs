@@ -1,6 +1,7 @@
 ---
 title: dither or posterize
 id: dither-or-posterize
+weight: 10
 applicable-version: 4.4
 tags: 
 working-color-space: RGB

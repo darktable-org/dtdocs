@@ -1,6 +1,7 @@
 ---
 title: rotate pixels
 id: rotate-pixels
+weight: 10
 applicable-version: 3.2.1
 tags: 
 working-color-space: RGB 
