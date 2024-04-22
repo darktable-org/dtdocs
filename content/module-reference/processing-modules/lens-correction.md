@@ -90,7 +90,7 @@ The following controls are provided for the "embedded metadata" correction metho
 use latest algorithm
 : This control appears for images using an older version of the "embedded metadata" correction algorithm. Check this box to irreversibly change to the newer algorithm.
 
-The following controls can be revealed by clicking the "fine tuning" button:
+The following controls can be revealed by clicking the "fine-tuning" button:
 
 distortion fine-tune
 : Fine-tune the distortion / chromatic aberration correction.
