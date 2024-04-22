@@ -92,16 +92,16 @@ use latest algorithm
 
 The following controls can be revealed by clicking the "fine-tuning" button:
 
-distortion fine-tune
+distortion
 : Fine-tune the distortion / chromatic aberration correction.
 
-vignetting fine-tune
+vignetting
 : Fine-tune the vignetting correction.
 
-TCA red fine-tune
+TCA red
 : Fine-tune the red chromatic aberration correction.
 
-TCA blue fine-tune
+TCA blue
 : Fine-tune the blue chromatic aberration correction.
 
 image scale
