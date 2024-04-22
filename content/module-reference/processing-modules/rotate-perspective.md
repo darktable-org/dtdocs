@@ -86,11 +86,11 @@ rotation
 automatic cropping
 : When activated, this feature crops the image to remove any black areas at the edges caused by the distortion correction. You can either crop to the "largest area", or to the largest rectangle that maintains the original aspect ratio ("original format"). In the latter case you can manually adjust the automatic cropping result by clicking in the clip region and moving it around. The size of the region is modified automatically to exclude any black areas.
 
-lens shift (horizontal)
-: Correct converging horizontal lines (i.e. to make the _blue_ lines parallel).
-
 lens shift (vertical)
 : Correct converging vertical lines (i.e. to make the _green_ lines parallel). In some cases you can obtain a more natural looking image if you correct vertical distortions to an 80 ~ 90% level rather than to the maximum extent. To do this, reduce the correction slider after having performed the automatic correction.
+
+lens shift (horizontal)
+: Correct converging horizontal lines (i.e. to make the _blue_ lines parallel).
 
 shear
 : Shear the image along one of its diagonals. This is required when correcting vertical and horizontal perspective distortions simultaneously.
