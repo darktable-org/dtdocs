@@ -95,9 +95,6 @@ lens shift (vertical)
 shear
 : Shear the image along one of its diagonals. This is required when correcting vertical and horizontal perspective distortions simultaneously.
 
-guides
-: When activated, a grid is overlaid on the image to help you judge the quality of the correction.
-
 lens model
 : This parameter controls the lens focal length, camera crop factor and aspect ratio that used by the correction algorithm. If set to "generic" a lens focal length of 28mm on a 35mm full-frame camera is assumed. If set to “specific”, the focal length and crop factor can be set manually using the sliders provided.
 
