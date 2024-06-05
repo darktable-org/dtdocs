@@ -287,6 +287,10 @@ The _take channel mixing into account_ option will need to be set the same as wh
 
 This operation can be repeated as many times as you have images in your series with no further work.
 
+## step 3: deactivate color mapping
+
+The settings you configured in *step 1* are sticky -- they will stay active until you manually turn them off by resetting *lightness* to 50 and *chroma* to 0.  Until then, *every* time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation.  To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever *chroma* is nonzero or *lightness* is other than 50.
+
 ---
 
 **Note:** Perfectly matching your control sample against the target chromaticity may still not yield a similar perceptual result, even if the numbers are exactly the same. The ratio of lightness between the control sample and its surrounding, as well as the color contrasts at play in the frame, will alter the perception of colors in ways that are very difficult to model. To build an intuition of this problem, see the [gray strawberries illusion](https://www.sciencealert.com/in-spite-of-what-your-eyes-tell-you-these-strawberries-aren-t-red).
