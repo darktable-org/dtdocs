@@ -2,7 +2,7 @@
 title: color calibration
 id: color-calibration
 weight: 10
-applicable-version: 4.6
+applicable-version: 4.8
 tags:
 working-color-space: RGB
 view: darkroom
@@ -289,7 +289,7 @@ This operation can be repeated as many times as you have images in your series w
 
 ## step 3: deactivate color mapping
 
-The settings you configured in *step 1* are sticky -- they will stay active until you manually turn them off by resetting *lightness* to 50 and *chroma* to 0.  Until then, *every* time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation.  To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever *chroma* is nonzero or *lightness* is other than 50.
+The settings you configured in _step 1_ are sticky -- they will stay active until you manually turn them off by resetting _lightness_ to 50 and _chroma_ to 0.  Until then, _every_ time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation.  To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever _chroma_ is nonzero or _lightness_ is other than 50.
 
 ---
 
