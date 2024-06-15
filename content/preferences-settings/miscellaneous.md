@@ -60,7 +60,7 @@ prefer unmasked instances
 selection order
 : After applying the above rules, apply the shortcut to the first or last instance remaining (default "last instance").
 
-# map / geolocalisation view
+# map / geolocalization view
 
 pretty print the image location
 : Show a more readable representation of the geo-location in the [image information](../module-reference/utility-modules/shared/image-information.md) module (default on). 

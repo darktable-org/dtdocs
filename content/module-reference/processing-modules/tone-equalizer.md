@@ -89,8 +89,8 @@ edges refinement/feathering
 mask post-processing
 : This bar provides a representation of the current span of the mask's histogram. It covers the middle 80% of the histogram, dropping the first and last decile to prevent outliers from skewing the indicator too much. Orange indicators at either end mean that the histogram exceeds the upper or lower bounds of its 9 EV range.
 
-mask quantisation
-: Apply a degree of posterisation to the mask, so that it tends to centre round a few discrete levels. In some cases, this may be useful to help separate out areas of your image into distinct masking levels.
+mask quantization
+: Apply a degree of posterization to the mask, so that it tends to centre round a few discrete levels. In some cases, this may be useful to help separate out areas of your image into distinct masking levels.
 
 mask exposure compensation
 : Adjust the mask's histogram to the left or right. If you have used the _exposure_ module to adjust the image brightness, you may need to offset that adjustment by using this slider to re-centre the mask's histogram. Click on the wand icon to the right of the slider to set the exposure compensation such that the average of the mask's histogram will coincide with the central --4EV control point. The slider can then be fine-tuned as required.
