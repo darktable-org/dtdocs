@@ -25,7 +25,7 @@ The following is an example where detail layers have been extracted from the abo
 
 ![wavelets-retouch-gui](./wavelets/clean-retouch.png#w33)
 
-The bars in the _wavelet decompose_ section indicate the layers that have been extracted at different wavelet scales. The darkest rectangle at the left represents the entire image (before decomposition) and the gray boxes each represent one of the decomposed layers. Clicking on the staircase icon below the bar graph enables the layer visualisation overlay so that you can see what the currently selected layer looks like. 
+The bars in the _wavelet decompose_ section indicate the layers that have been extracted at different wavelet scales. The darkest rectangle at the left represents the entire image (before decomposition) and the gray boxes each represent one of the decomposed layers. Clicking on the staircase icon below the bar graph enables the layer visualization overlay so that you can see what the currently selected layer looks like. 
 
 Let's take a look at some of the layers generated for the above image.
 
