@@ -44,8 +44,6 @@ scale for graph
 
 : The scale allows you to distort the graph display so that certain graphical properties emerge to help you draw more useful curves. Note that the scaling option only affects the curve display, not the actual parameters stored by the module.
 
-: By default, a “linear” scale is used (defined by a scale factor of 0). This scale uses evenly spaced horizontal and vertical axes.
+: By default, a “linear” scale is used (scale factor 0), which uses evenly spaced horizontal and vertical axes. Positive values give the graph a logarithmic scale, compressing high values and dilating low values on both the horizontal and vertical axes, so that nodes in lowlights get more space on the graph and can be controlled more precisely.
 
-: The 'scale for graph' slider sets logarithmic scales which will compress the high values and dilate the low values on both the horizontal and vertical axes so that nodes in lowlights get more space on the graph and can be controlled more clearly.
-
-: Increase the 'scale for graph' slider to set the base of the logarithm used to scale the axes. This allows you to control the amount of compression/dilation operated by the scale. If you draw purely exponential or logarithmic functions from identity lines, setting this value defines the base of such functions.
+: Increasing the 'scale for graph' slider sets the base of the logarithm used to scale the axes. This allows you to control the amount of compression/dilation operated by the scale. If you draw purely exponential or logarithmic functions from identity lines, setting this value defines the base of such functions.
