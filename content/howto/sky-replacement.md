@@ -1,7 +1,7 @@
 ---
-title: Replace the sky
+title: replace the sky
 id: sky-replacement
-weight: 30
+weight: 40
 draft: false
 author: "people"
 ---

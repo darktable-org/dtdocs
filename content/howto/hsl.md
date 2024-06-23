@@ -1,5 +1,5 @@
 ---
-title: Adjust hue/saturation/lightness (HSL)
+title: adjust hue/saturation/lightness (HSL)
 id: hsl
 weight: 10
 draft: false

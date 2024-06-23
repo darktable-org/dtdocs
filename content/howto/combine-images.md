@@ -1,7 +1,7 @@
 ---
-title: Combine multiple images
+title: combine multiple images
 id: combine-images.md
-weight: 20
+weight: 30
 draft: false
 author: "people"
 ---

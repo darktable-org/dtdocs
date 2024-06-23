@@ -1,5 +1,5 @@
 ---
-title: Unsqueeze an anamorphic image
+title: unsqueeze an anamorphic image
 id: unsqueeze-anamorphic
 weight: 100
 draft: false
