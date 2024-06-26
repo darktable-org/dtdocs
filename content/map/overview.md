@@ -20,9 +20,9 @@ In the center panel you will see a world map sourced from an Internet provider. 
 You can choose your provider from:
 OpenStreetMap, Maps-For-Free, OpenCycleMap, Public Transport, Google Maps, Google Satellite, Google Hybrid, Virtual Earth, Virtual Earth Satellite, Virtual Earth Hybrid.
 
-You can navigate within the map using either your mouse or using on screen controls. 
+You can navigate within the map using either your mouse or using on screen controls:
 
-Left-click and drag to move the map; use the scroll-wheel to zoom in and out.  A navigation area is located on top left of the map. The scale of the map is displayed at the bottom-left. At the bottom-right you can see the geographical coordinates for the center of the displayed map.
+Left-click and drag to move the map; use the scroll-wheel to zoom in and out.  Navigation buttons are located on top left of the map. The scale of the map is displayed at the bottom-left. At the bottom-right you can see the geographical coordinates for the center of the displayed map.
 
 Images that already have geo-location attributes in their metadata are displayed as small icons or thumbnails on the map. Images close to each other are grouped and a count of grouped images is displayed on the bottom-left corner.
 
