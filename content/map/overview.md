@@ -16,9 +16,9 @@ In addition, you can assign geo coordinates to an image, by activating the [film
 
 # center map view
 
-In the center panel you will see a world map sourced an Internet provider.  Darktable keeps a disk cache of previously loaded map data so new/updated map data is only available when you are online.  
+In the center panel you will see a world map sourced from an Internet provider.  Darktable keeps a disk cache of previously loaded map data so new/updated map data is only available when you are online.  
 You can choose your provider from:
-OpenStreetMap, Maps-For-Free, OpenCycleMap, PUblic Transport, Google Maps, Google Satellite, Google Hybrid, Virtual Earth, Virtual Earth Satellite, Virtual Earth Hybrid.
+OpenStreetMap, Maps-For-Free, OpenCycleMap, Public Transport, Google Maps, Google Satellite, Google Hybrid, Virtual Earth, Virtual Earth Satellite, Virtual Earth Hybrid.
 
 You can navigate within the map using either your mouse or using on screen controls. 
 
