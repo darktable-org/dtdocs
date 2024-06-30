@@ -17,7 +17,7 @@ White balance is not intended as a "creative" module -- its primary goal is to t
 
 ---
 
-**Note:** The [_color calibration_](./color-calibration.md) module now provides a more modern and flexible method of controlling white balance. The _color calibration_ module can be enabled by default for new images by selecting "modern" in [preferences > processing > auto-apply chromatic adaptation defaults](../../../preferences-settings/processing.md). Some basic settings are still required (and applied automatically) in the _white balance_ module, so that [_demosaic_](./demosaic.md) works correctly.
+**Note:** The [_color calibration_](./color-calibration.md) module now provides a more modern and flexible method of controlling white balance. The _color calibration_ module can be enabled by default for new images by selecting "scene-referred" (filmic or sigmoid) in [preferences > processing > auto-apply pixel workflow defaults](../../../preferences-settings/processing.md). Some basic settings are still required (and applied automatically) in the _white balance_ module, so that [_demosaic_](./demosaic.md) works correctly.
 
 ---
 
