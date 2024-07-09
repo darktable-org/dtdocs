@@ -21,7 +21,7 @@ All module controls default to a neutral position (zero) and provide the ability
 
 ---
 
-_**Note:** This module works in Lab color space and is prone to halos. Instead, use the [color balance rgb](./color-balance-rgb.md) module._
+_**Note:** This module works in Lab color space and is prone to halos. Instead, use the [color balance rgb](./color-balance-rgb.md) (recommended) or [rgb levels](./rgb-levels.md) modules._  The gray control in _rgb levels_ is the same gamma adjustment that the _brightness_ control in this module applies.
 
 ---
 
