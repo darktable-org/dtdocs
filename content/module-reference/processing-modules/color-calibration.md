@@ -46,13 +46,9 @@ To achieve this, create an instance of the _color calibration_ module to perform
 
 ## CAT tab workflow
 
-The default illuminant and color space used by the chromatic adaptation are initialised from the Exif metadata of the RAW file. There are four options available in the CAT tab to set these parameters manually:
+The default illuminant and color space used by the chromatic adaptation are initialised from the Exif metadata of the RAW file "as set in camera". 
 
-- Use the color picker (to the right of the color patch) to select a neutral color from the image or, if one is unavailable, select the entire image. In this case, the algorithm finds the average color within the chosen area and sets that color as the illuminant. This method relies on the "gray-world" assumption, which predicts that the average color of a natural scene will be neutral. This method will not work for artificial scenes, for example those with painted surfaces.
-
-- Select "_(AI) detect from edges_", which uses a machine-learning technique to detect the illuminant using the entire image. This algorithm finds the average gradient color over the edges in the image and sets that color as the illuminant. This method relies on the "gray-edge" assumption, which may fail if large chromatic aberrations are present. As with any edge-detection method, it is sensitive to noise and poorly suited to high-ISO images, but it is very well suited for artificial scenes where no neutral colors are available.
-
-- Select "_(AI) detect from surfaces_", which combines the two previous methods, also using the entire image. This algorithm finds the average color within the image, giving greater weight to areas where sharp details are found and colors are strongly correlated. This makes it more immune to noise than the _edge_ variant and more immune to legitimate non-neutral surfaces than the naïve average, but sharp colored textures (like green grass) are likely to make it fail.
+Alternatively you can use the color picker (to the right of the color patch) to select a neutral color from the image or, if one is unavailable, select the entire image. In this case, the algorithm finds the average color within the chosen area and sets that color as the illuminant. This method relies on the "gray-world" assumption, which predicts that the average color of a natural scene will be neutral. This method will not work for artificial scenes, for example those with painted surfaces.
 
 - Select "_as shot in camera_" to restore the camera defaults and re-read the RAW Exif.
 
