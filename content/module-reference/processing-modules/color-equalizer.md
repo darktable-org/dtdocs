@@ -1,7 +1,159 @@
 ---
-title: color equalizer (placeholder)
+title: color equalizer
 id: color-equalizer
 weight: 10
 applicable-version: 4.8
+tags: color color-processing
+working-color-space: UCS
+view: darkroom
+masking: true
+include_toc: true
 ---
 
+Selectively adjust the hue, saturation, and brightness of pixels based on the color.
+
+Color Equalizer is essentially an implementation of the Color Zones module, but works in the scene referred part of darktable's pixelpipe.
+
+This module works in darktable's UCS 22 color space.
+
+he entire hue range is represented as a curve with eight overlapping sections divided by eight fixed nodes. Choose whether you wish to adjust (select) pixels based on their hue, saturation, and brightness. You can then use the equalizer interface nodes, on their respective tabs, to adjust the hue, saturation, and brightness of ranges of pixels selected via this method.
+
+The distances between nodes cannot be changed but all nodes together can be moved by +/- 23 degrees along the color wheel using the node placement slider.
+
+---
+
+**Note**: Because all processing in color  equalizer is based on the hue data of each pixel, it can result in increased chroma noise or even increased luma noise if a lot of brightness changes are applied.
+
+---
+
+# module controls
+
+## hue tab
+
+Click+drag the control points on the curve to change the color of all pixels where the mask includes the given color.
+
+## saturation tab
+
+Click+drag the control points on the curve to change the saturation of all pixels where the mask includes the given color.
+
+## brightness tab
+
+Click+drag the control points on the curve to change the lightness of all pixels where the mask includes the given color.
+
+## node placement
+
+node placement
+: Move the position of the nodes horizontally.
+
+-   By moving the node with the left mouse button pressed.
+-   Clicking on the node with the right mouse button opens a multi-functional pop-up window where the numerical values can be entered or manipulated by using the arrow keys on the keyboard:
+
+![ce_pop_up](https://github.com/user-attachments/assets/7a967e81-be82-4100-b60c-c76841256add)
+
+
+- When hovering the mouse cursor over the node  (the node turns white) and scrolling the mouse wheel while holding down the ctrl+shift keys. Finer steps can be achieved by holding down only the ctrl key.
+
+
+: Use the color picker to show a color from the photo on the equalizer interface.
+
+## options
+
+white level
+: Set the upper bound for the brightness correction via the slider or picker.
+
+hue curve
+: Control how the curve is interpolated between control points. Move the slider to the right to make the transitions between the control points more gradual. Move the slider to the left for a sharper transition, but beware that this can result in harsher transitions.
+## guided filter
+Guided filter can help to prevent or at least reduce the harsh overlap between manipulated and non-manipulated areas. It is particularly useful for noisy photos or areas with strong local color variations that could lead to strong local color contrasts or steep color gradations.
+
+Here is a piece of meadow with darkened green grass without…
+
+![ce_guided_off](https://github.com/user-attachments/assets/6b598b31-f285-4202-ba24-257f886fd804)
+...and with the guided filter switched on. With the guided filter the texture of the grass looks much softer and calmer:
+
+![ce_guided_on](https://github.com/user-attachments/assets/cd0960ee-aa76-486e-bcf0-67827cb9ba83)
+
+
+use guided filter
+: Enable or disable the use of the guided filter to separate each color node.
+
+hue analysis radius
+
+Guided filter that is used for the chroma analysis which pixels should be considered for manipulation. 
+
+The point here is to take into account not only the pixels themselves, but also the _area around them defined by the radius of guided filter_, which ensures that, for example, in the case of very noisy photos or photos with Moiré stripes, the areas between pixels are also taken into account which, in those cases, ensures a more “homogeneous” selection.
+
+Here is an example with a noisy photo of the clothing with Moiré stripes. Hue analysis radius is in its default position (1.5. px):
+
+![ce_moire_1](https://github.com/user-attachments/assets/4538532c-a646-4543-8359-0e4dc51335ce)
+
+With hue analysis radius of 10 px. The Moiré effect is now much less pronounced:
+![ce_moire_3](https://github.com/user-attachments/assets/9c7a2c64-52f1-4444-a96c-228ce1482cf1)
+
+With additional denoising it disappears completely:
+![ce_moire_2](https://github.com/user-attachments/assets/7bf83652-d970-43f9-addc-05b51fe3074c)
+
+Note: High values can lead to haloing at the edges!
+
+
+saturation threshold
+
+The saturation threshold as additional control for the pixel selection. Especially by portraits or photos where we want to enhance the texture, it can be useful to set the saturation threshold when selecting and manipulating pixels.
+
+_Visualization indicator_  
+![grafik](https://github.com/user-attachments/assets/be6b7a37-fa9f-4f93-9af4-01c5c05f71a6)
+shows which pixels have been selected. Red color indicates the selection, and pixels in the blue area are not taken into account.
+
+Here is an example of the color selection of green leaves based on saturation threshold.
+
+With saturation threshold practically disabled (at 0.0%), visualization indicator shows that the leaves are almost completely selected:
+
+![ce_saturation_treshold_1](https://github.com/user-attachments/assets/92e77378-d9e7-4a8a-9590-75ebba05a9cf)
+
+With a 20% saturation threshold, _only part of the green with higher saturation_ in the leaves _is selected_ (the red area):
+
+![ce_saturation_treshold_2](https://github.com/user-attachments/assets/ca620d6a-2cfc-4914-9cb9-cc1c4acc1e7b)
+
+By manipulating _only that high saturation area_, we have now enhanced the texture of the leaves:
+
+![ce_saturation_treshold_4](https://github.com/user-attachments/assets/3a2d7560-a108-42fd-a023-e4c813b635f2)
+
+: Set the upper bound for the guided filter's saturation threshold. Decrase the value to allow changes to areas with low chromaticity. Increase the value to restrict changes to areas of high chromaticity.
+
+contrast
+
+Contrast slider regulates the steepness of the curve defined by saturation threshold:
+
+contrast value -1:
+
+![ce_contrast_1](https://github.com/user-attachments/assets/b4883918-3132-4536-8dac-002690610b14)
+
+contrast value 1. The transition is much sharper. Thin green curve in the visualization indicator represents steepness of transition:
+
+![ce_contrast_2](https://github.com/user-attachments/assets/afb72f21-e7bc-4921-8de0-d6b916b14ba0)
+
+: Set the color contrast for the guided filter. Incrase th value to favor sharp transitions between colors and increase color contrast. Decrease the value for smoother color transition.
+
+effect radius
+
+Radius of the guided filter which is used for pixel manipulation to smooth the result while preserving the edges. 
+This can be useful for both preserving detail or smoothing the result, depending on the subject and the manipulation  that have been performed.
+
+In this case, we want to lighten the pumpkin. Without the guided filter or with a very low radius, we are loosing the details:
+
+![ce_effect_radius_4](https://github.com/user-attachments/assets/e16f7d9d-e960-40a2-bb49-f884070d8b52)
+
+If we then increase the radius in order to smooth the result, the details are retained:
+
+![ce_effect_radius_5](https://github.com/user-attachments/assets/908744b2-7bb2-4a2f-abe0-9bad8cf14740)
+
+To prevent the “bleeding” at the edge of the pumpkin caused by large radius of the guided filter, we can also increase the saturation threshold to limit the manipulation to the pumpkin, which stands out from the surroundings through saturation:
+
+![ce_effect_radius_6](https://github.com/user-attachments/assets/4806a130-7690-4204-997e-92b8232727c5)
+
+We can also use the visualization indicator to better see which areas have been changed. The pixel areas whose value has been increased are displayed in red and the areas with a reduced value are displayed in blue:
+
+![ce_effect_radius_7](https://github.com/user-attachments/assets/3fe755d4-1fee-4876-a743-bf0db4c5d319)
+
+
+: Set the radius for the guided filter.
