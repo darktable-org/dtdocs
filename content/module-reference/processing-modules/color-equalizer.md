@@ -45,6 +45,15 @@ Click+drag the control points on the curve to change the lightness of all pixels
 node placement
 : Move the position of the nodes horizontally.
 
+-   By moving the node with the left mouse button pressed.
+-   Clicking on the node with the right mouse button opens a multi-functional pop-up window where the numerical values can be entered or manipulated by using the arrow keys on the keyboard:
+
+![ce_pop_up](https://github.com/user-attachments/assets/7a967e81-be82-4100-b60c-c76841256add)
+
+
+- When hovering the mouse cursor over the node  (the node turns white) and scrolling the mouse wheel while holding down the ctrl+shift keys. Finer steps can be achieved by holding down only the ctrl key.
+
+
 : Use the color picker to show a color from the photo on the equalizer interface.
 
 ## options
