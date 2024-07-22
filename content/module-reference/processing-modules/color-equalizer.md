@@ -63,6 +63,16 @@ white level
 
 hue curve
 : Control how the curve is interpolated between control points. Move the slider to the right to make the transitions between the control points more gradual. Move the slider to the left for a sharper transition, but beware that this can result in harsher transitions.
+## guided filter
+Guided filter can help to prevent or at least reduce the harsh overlap between manipulated and non-manipulated areas. It is particularly useful for noisy photos or areas with strong local color variations that could lead to strong local color contrasts or steep color gradations.
+
+Here is a piece of meadow with darkened green grass without…
+
+![ce_guided_off](https://github.com/user-attachments/assets/6b598b31-f285-4202-ba24-257f886fd804)
+...and with the guided filter switched on. With the guided filter the texture of the grass looks much softer and calmer:
+
+![ce_guided_on](https://github.com/user-attachments/assets/cd0960ee-aa76-486e-bcf0-67827cb9ba83)
+
 
 use guided filter
 : Enable or disable the use of the guided filter to separate each color node.
