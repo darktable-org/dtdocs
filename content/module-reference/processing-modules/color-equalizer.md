@@ -121,6 +121,17 @@ By manipulating _only that high saturation area_, we have now enhanced the textu
 : Set the upper bound for the guided filter's saturation threshold. Decrase the value to allow changes to areas with low chromaticity. Increase the value to restrict changes to areas of high chromaticity.
 
 contrast
+
+Contrast slider regulates the steepness of the curve defined by saturation threshold:
+
+contrast value -1:
+
+![ce_contrast_1](https://github.com/user-attachments/assets/b4883918-3132-4536-8dac-002690610b14)
+
+contrast value 1. The transition is much sharper. Thin green curve in the visualization indicator represents steepness of transition:
+
+![ce_contrast_2](https://github.com/user-attachments/assets/afb72f21-e7bc-4921-8de0-d6b916b14ba0)
+
 : Set the color contrast for the guided filter. Incrase th value to favor sharp transitions between colors and increase color contrast. Decrease the value for smoother color transition.
 
 effect radius
