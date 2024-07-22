@@ -78,7 +78,23 @@ use guided filter
 : Enable or disable the use of the guided filter to separate each color node.
 
 hue analysis radius
-: Set the radius for the chroma analysis guided filter. Increase the value if there is a large amount of hue variance or chroma noise.
+
+Guided filter that is used for the chroma analysis which pixels should be considered for manipulation. 
+
+The point here is to take into account not only the pixels themselves, but also the _area around them defined by the radius of guided filter_, which ensures that, for example, in the case of very noisy photos or photos with Moiré stripes, the areas between pixels are also taken into account which, in those cases, ensures a more “homogeneous” selection.
+
+Here is an example with a noisy photo of the clothing with Moiré stripes. Hue analysis radius is in its default position (1.5. px):
+
+![ce_moire_1](https://github.com/user-attachments/assets/4538532c-a646-4543-8359-0e4dc51335ce)
+
+With hue analysis radius of 10 px. The Moiré effect is now much less pronounced:
+![ce_moire_3](https://github.com/user-attachments/assets/9c7a2c64-52f1-4444-a96c-228ce1482cf1)
+
+With additional denoising it disappears completely:
+![ce_moire_2](https://github.com/user-attachments/assets/7bf83652-d970-43f9-addc-05b51fe3074c)
+
+Note: High values can lead to haloing at the edges!
+
 
 saturation threshold
 : Set the upper bound for the guided filter's saturation threshold. Decrase the value to allow changes to areas with low chromaticity. Increase the value to restrict changes to areas of high chromaticity.
