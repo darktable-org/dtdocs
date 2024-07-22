@@ -97,6 +97,27 @@ Note: High values can lead to haloing at the edges!
 
 
 saturation threshold
+
+The saturation threshold as additional control for the pixel selection. Especially by portraits or photos where we want to enhance the texture, it can be useful to set the saturation threshold when selecting and manipulating pixels.
+
+_Visualization indicator_  
+![grafik](https://github.com/user-attachments/assets/be6b7a37-fa9f-4f93-9af4-01c5c05f71a6)
+shows which pixels have been selected. Red color indicates the selection, and pixels in the blue area are not taken into account.
+
+Here is an example of the color selection of green leaves based on saturation threshold.
+
+With saturation threshold practically disabled (at 0.0%), visualization indicator shows that the leaves are almost completely selected:
+
+![ce_saturation_treshold_1](https://github.com/user-attachments/assets/92e77378-d9e7-4a8a-9590-75ebba05a9cf)
+
+With a 20% saturation threshold, _only part of the green with higher saturation_ in the leaves _is selected_ (the red area):
+
+![ce_saturation_treshold_2](https://github.com/user-attachments/assets/ca620d6a-2cfc-4914-9cb9-cc1c4acc1e7b)
+
+By manipulating _only that high saturation area_, we have now enhanced the texture of the leaves:
+
+![ce_saturation_treshold_4](https://github.com/user-attachments/assets/3a2d7560-a108-42fd-a023-e4c813b635f2)
+
 : Set the upper bound for the guided filter's saturation threshold. Decrase the value to allow changes to areas with low chromaticity. Increase the value to restrict changes to areas of high chromaticity.
 
 contrast
