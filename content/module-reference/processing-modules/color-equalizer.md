@@ -135,4 +135,25 @@ contrast value 1. The transition is much sharper. Thin green curve in the visual
 : Set the color contrast for the guided filter. Incrase th value to favor sharp transitions between colors and increase color contrast. Decrease the value for smoother color transition.
 
 effect radius
+
+Radius of the guided filter which is used for pixel manipulation to smooth the result while preserving the edges. 
+This can be useful for both preserving detail or smoothing the result, depending on the subject and the manipulation  that have been performed.
+
+In this case, we want to lighten the pumpkin. Without the guided filter or with a very low radius, we are loosing the details:
+
+![ce_effect_radius_4](https://github.com/user-attachments/assets/e16f7d9d-e960-40a2-bb49-f884070d8b52)
+
+If we then increase the radius in order to smooth the result, the details are retained:
+
+![ce_effect_radius_5](https://github.com/user-attachments/assets/908744b2-7bb2-4a2f-abe0-9bad8cf14740)
+
+To prevent the “bleeding” at the edge of the pumpkin caused by large radius of the guided filter, we can also increase the saturation threshold to limit the manipulation to the pumpkin, which stands out from the surroundings through saturation:
+
+![ce_effect_radius_6](https://github.com/user-attachments/assets/4806a130-7690-4204-997e-92b8232727c5)
+
+We can also use the visualization indicator to better see which areas have been changed. The pixel areas whose value has been increased are displayed in red and the areas with a reduced value are displayed in blue:
+
+![ce_effect_radius_7](https://github.com/user-attachments/assets/3fe755d4-1fee-4876-a743-bf0db4c5d319)
+
+
 : Set the radius for the guided filter.
