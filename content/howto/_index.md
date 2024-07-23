@@ -1,6 +1,6 @@
 ---
 title: How do I ...?
-id: hotwo
+id: howto
 weight: 75
 draft: false
 author: "people"
