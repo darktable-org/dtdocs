@@ -8,7 +8,7 @@ author: "people"
 
 Most of the automatically-applied edits you see in the
 [_darkroom_](../darkroom.md) view when opening an image are required
-o display your raw file _at all_.  Other software applies equivalent
+to display your raw file _at all_.  Other software applies equivalent
 edits, but doesn't tell you about it.
 
 Operations shown with a dot-inside-a-circle can not be turned off,

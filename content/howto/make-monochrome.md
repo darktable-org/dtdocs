@@ -11,5 +11,5 @@ See the tutorial [_developing monochrome images_](../guides-tutorial/monochrome.
 You can use the [_color calibration_](../module-reference/processing-modules/color-calibration.md),
 [_color balance rgb_](../module-reference/processing-modules/color-balance-rgb.md),
 or [_monochrome_](../module-reference/processing-modules/monochrome.md)
-to desaturate a color image to shades of gray.
+modules to desaturate a color image to shades of gray.
 
