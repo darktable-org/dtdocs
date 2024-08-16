@@ -5,7 +5,9 @@ weight: 10
 applicable-version: 4.8
 ---
 
-Drag and drop an image from the film strip onto the "drom image from filmstrip here" box to have the image overlayed ontop of the currently edited image. Then adjust the various placement and adjustment attributes of the image being overlayed.
+Overlay an already-processed image on the current image to create a composite.
+
+Drag and drop an image from the film strip onto the "drop image from filmstrip here" box to have the image overlaid on top of the currently edited image. Then adjust the various placement and adjustment attributes of the image being overlayed.
 
 The image used must be imported into darktable.
 
