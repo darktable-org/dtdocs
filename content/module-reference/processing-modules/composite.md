@@ -5,36 +5,34 @@ weight: 10
 applicable-version: 4.8
 ---
 
-Overlay an already-processed image on the current image to create a composite.
+Create a composite image by overlaying an already-processed image on top of the current image.
 
-Drag and drop an image from the film strip onto the "drop image from filmstrip here" box to have the image overlaid on top of the currently edited image. Then adjust the various placement and adjustment attributes of the image being overlayed.
+Drag and drop a processed image from the filmstrip onto the "drop image from filmstrip here" box to overlay the chosen image, and then alter the various placement and adjustment attributes of the image being overlaid.
 
-The image used must be imported into darktable.
-
-The full history stack of the overlayed image is used by the module, so if you want to drastically change the overlayed image beyond the controls of this module, you should edit the image separately.
+The full history stack of the overlayed image is used by the module, so if you want to drastically change the overlaid image beyond the controls of this module, you should first edit that image separately.
 
 # module controls
 
 drop image from filmstrip here
-: The image to overlay onto the currently edited image.
+: The image to overlay onto the currently edited image (dragged from the filmstrip).
 
 opacity
 : The percentage of transparency applied to the overlaid image.
 
 rotation
-: The amount to turn the image. Rotation is around the alignment point.
+: The amount to turn the overlaid image. Rotation is around the alignment point.
 
 scale
 : The amount to shrink the overlaid image.
 
 scale on
-: Select the criterial to base the image scaling on.
+: The criteria on which to base the overlaid image scaling.
 
 alignment
-: Select the area to align the overlaid image to.
+: The area on which to align the overlaid image.
 
 x offset
-: The amount to move the image horizontally.
+: The amount to move the overlaid image horizontally.
 
 y offset
-: The amount to move the image vertically.
+: The amount to move the overlaid image vertically.
