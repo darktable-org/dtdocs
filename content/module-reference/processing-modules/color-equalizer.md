@@ -53,7 +53,7 @@ hue curve (_N/A for saturation/brightness curves_)
 
 ### guided filter
 
-In order to reduce the amount of noise/artefacts introduced, this module uses a guided filter by default. The guided filter attempts to smooth out changes by taking into account both the hue of the neighboring pixels and their overall saturation. This guided filter is ultimately a compromise between adjustment precision (targetting colors more specifically) and avoiding artefacts (which will generally require less precise targetting). The following options allow the guided filter to be adjusted and visualised in order to better manage these compromises:
+In order to reduce the amount of noise/artefacts introduced, this module uses a guided filter by default. The guided filter attempts to smooth out changes by taking into account both the hue of the neighboring pixels and their overall saturation. This guided filter is ultimately a compromise between adjustment precision (targeting colors more specifically) and avoiding artefacts (which will generally require less precise targeting). The following options allow the guided filter to be adjusted and visualised in order to better manage these compromises:
 
 use guided filter
 : Toggle the guided filter on/off.
