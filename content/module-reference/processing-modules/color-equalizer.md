@@ -22,7 +22,7 @@ You can use each of the provided tabs (either individually or in combination) to
 
 # module controls
 
-## hue/saturation/brightness adjustment
+## hue/saturation/brightness adjustment curves
 
 The main controls of this module are the hue/saturation/brightness adjustment curves. Use these tabs to adjust the hue, saturation, or brightness of pixels based on their current hue. Click and drag on each of the nodes (up/down) to alter the properties of pixels with the given hue. You can also adjust nodes using the scroll wheel on your mouse and, as with sliders, you can change the speed of the adjustment by combining the scroll with Ctrl (to adjust more slowly) or Shift (to adjust more quickly).
 
