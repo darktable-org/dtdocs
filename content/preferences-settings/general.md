@@ -8,7 +8,7 @@ draft: false
 Control the overall look and feel of darktable.
 
 interface language
-: Set the language of the user interface. It includes the option to enable sentence case (`en@truecase`) for English (`en`). The system default is marked with an * (needs a restart)
+: Set the language of the user interface. This includes the option to enable sentence case (`en@truecase`) for English. The system default is marked with an * (needs a restart)
 
 theme
 : Set the theme for the user interface. Aside from any aesthetic considerations, the recommended interface color for color evaluation is middle gray. Visual perception is affected by ambient brightness, and a low user interface brightness causes all kinds of illusions. Using a dark interface to retouch photos can therefore lead to excessive retouching (abuse of contrast and saturation) and to a photo that is too dark when printed. It is therefore highly recommended that you use one of the "grey" themes for retouching work as these are designed so that the user interface approximates middle gray (default "darktable-elegant-grey").
