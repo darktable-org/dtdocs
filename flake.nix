@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
   };
 
@@ -30,6 +30,9 @@
           }
           update-assets() {
             cd $PROJECTDIR && cd themes/hugo-darktable-docs-theme/assets && yarn install && cd $PROJECTDIR
+          }
+          check-links() {
+            cd $PROJECTDIR/content && lychee . && cd $PROJECTDIR
           }
           generate-po() {
             cd $PROJECTDIR && cd tools/ && ./generate-translations.sh --no-translations && cd $PROJECTDIR
