@@ -73,6 +73,9 @@ From left to right:
 ![color-assessment-icon](./darkroom-view-layout/color-assessment-icon.png#icon) [color assessment](../module-reference/utility-modules/darkroom/color-assessment.md)
 : Toggle the ISO12646 color assessment view.
 
+![high-quality-processing-icon](./darkroom-view-layout/high-quality-processing-icon.png#icon) [high quality processing](../module-reference/utility-modules/darkroom/high-quality-processing.md)
+: Toggle high quality processing mode.
+
 ![raw-overexposed-icon](./darkroom-view-layout/raw-overexposed-icon.png#icon) [raw overexposed warning](../module-reference/utility-modules/darkroom/raw-overexposed.md)
 : Toggle raw overexposed indicators (right-click for options).
 
