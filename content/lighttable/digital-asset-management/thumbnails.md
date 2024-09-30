@@ -26,14 +26,14 @@ If you choose not to activate the disk backend and select too small a cache size
 
 All thumbnails are fully color managed. Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
 
-# skulls
+# skulls, question marks, and warning triangles
 
-If for some reason darktable is unable to generate a thumbnail, it displays an image of a skull ![skull icon](./thumbnails/skull.png#icon) instead. Don't panic!
-	
-There are three main reasons this could happen:
+If for some reason darktable is unable to generate a thumbnail, it displays one of three placeholder images to indicate the type of error preventing it from doing so.
 
-- _Missing image file_: darktable remembers all images it has ever imported, as long as they have not been removed from your database. If darktable wants to create a thumbnail but is not able to open the input file, a skull is displayed instead. Users are advised to remove images from the database using the [actions on selection](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script [`purge_non_existing_images.sh`](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) from darktable's toolset to clean-up your database.
+Don't panic! There are three main reasons this could happen:
 
-- _Invalid image format_: While the extension of an image may seem to be supported by darktable, its contents could be either an unsupported image format or a corrupt file. 
+- _Missing image file_: an image of a skull ![skull icon](./thumbnails/skull.png#icon) indicates that the file could not be found at the location recorded in the database. darktable remembers all images it has ever imported, as long as they have not been removed from your database. Users are advised to remove images from the database using the [actions on selection](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script [`purge_non_existing_images.sh`](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) from darktable's toolset to clean-up your database.
 
-- _Low memory_: If darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
+- _Invalid image format_: While the extension of an image may seem to be supported by darktable, its contents could be either an unsupported image format (or option within that format, such as compression mode) or a corrupt file. For an unsupported file, darktable will display a question mark ![unsupported](./thumbnails/unsupported.png#icon); for a file which appears to be corrupted, darktable will display a warning triangle icon ![error warning](./thumbnails/corrupt.png).
+
+- _Low memory_: In the rare evant that darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
