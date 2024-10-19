@@ -68,6 +68,7 @@ $(EXIF.EXPOSURE.BIAS)      Exif exposure bias
 $(EXIF.EXPOSURE.PROGRAM)   Exif exposure program set in camera
 $(EXIF.APERTURE)           Exif aperture
 $(EXIF.CROP_FACTOR)        Exif crop factor
+$(EXIF.FLASH)              Exif flash setting
 $(EXIF.FLASH.ICON)         flash symbol if Exif information says flash was fired, empty string if not
 $(EXIF.FOCAL.LENGTH)       Exif focal length
 $(EXIF.FOCAL.LENGTH.EQUIV) Exif 35 mm equivalent focal length
