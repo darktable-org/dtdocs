@@ -73,16 +73,24 @@ $(EXIF.FLASH.ICON)         flash symbol if Exif information says flash was fired
 $(EXIF.FOCAL.LENGTH)       Exif focal length
 $(EXIF.FOCAL.LENGTH.EQUIV) Exif 35 mm equivalent focal length
 $(EXIF.FOCUS.DISTANCE)     Exif focus distance
+$(EXIF.LENS)               Exif lens name
+$(EXIF.MAKER)              Exif camera maker
 $(EXIF.METERING)           Exif metering mode
+$(EXIF.MODEL)              Exif camera model
 $(EXIF.WHITEBALANCE)       Exif white balance set in camera
 $(IMAGE.EXIF)              basic exposure information from Exif data (aperture, exposure, ISO)
 $(IMAGE.ID)                the image id (note that this will be 0 during copy&import)
 $(IMAGE.ID[n])             the image id (note that this will be 0 during copy&import), zero-padded to n digits
 $(IMAGE.ID.NEXT)           the next image id to be assigned (can be used during copy&import)
 $(IMAGE.ID.NEXT[n])        the next image id to be assigned (can be used during copy&import), zero-padded to n digits
+$(IMAGE.TAGS)              tags list (Xmp.dc.Subject), with any hierarchy flattened
+$(IMAGE.TAGS.HIERARCHY)    tags list (Xmp.dc.Subject), preserving hierarchy
 $(LONGITUDE)               longitude
 $(LATITUDE)                latitude
 $(ELEVATION)               elevation
+$(GPS.ELEVATION)           elevation
+$(GPS.LATITUDE)            latitude
+$(GPS.LONGITUDE)           longitude
 $(GPS.LOCATION)            latitude, longitude, and elevation (omitting any values which are not set)
 $(GPS.LOCATION.ICON)       symbol to indicate that geolocation information is present, empty string if not
 $(STARS)                   star rating (text only)
