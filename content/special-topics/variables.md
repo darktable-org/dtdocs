@@ -65,16 +65,25 @@ $(EXIF.TIME.REGIONAL)      Exif time using user's preferred regional date format
 $(EXIF.ISO)                Exif ISO value
 $(EXIF.EXPOSURE)           Exif exposure
 $(EXIF.EXPOSURE.BIAS)      Exif exposure bias
+$(EXIF.EXPOSURE.PROGRAM)   Exif exposure program set in camera
 $(EXIF.APERTURE)           Exif aperture
 $(EXIF.CROP_FACTOR)        Exif crop factor
+$(EXIF.FLASH.ICON)         flash symbol if Exif information says flash was fired, empty string if not
 $(EXIF.FOCAL.LENGTH)       Exif focal length
 $(EXIF.FOCAL.LENGTH.EQUIV) Exif 35 mm equivalent focal length
 $(EXIF.FOCUS.DISTANCE)     Exif focus distance
+$(EXIF.METERING)           Exif metering mode
+$(EXIF.WHITEBALANCE)       Exif white balance set in camera
 $(IMAGE.EXIF)              basic exposure information from Exif data (aperture, exposure, ISO)
+$(IMAGE.ID)                the image id (note that this will be 0 during copy&import)
+$(IMAGE.ID[n])             the image id (note that this will be 0 during copy&import), zero-padded to n digits
+$(IMAGE.ID.NEXT)           the next image id to be assigned (can be used during copy&import)
+$(IMAGE.ID.NEXT[n])        the next image id to be assigned (can be used during copy&import), zero-padded to n digits
 $(LONGITUDE)               longitude
 $(LATITUDE)                latitude
 $(ELEVATION)               elevation
 $(GPS.LOCATION)            latitude, longitude, and elevation (omitting any values which are not set)
+$(GPS.LOCATION.ICON)       symbol to indicate that geolocation information is present, empty string if not
 $(STARS)                   star rating (text only)
 $(RATING.ICONS)            star rating (using star characters)
 $(LABELS)                  colorlabels (color labels as text)
