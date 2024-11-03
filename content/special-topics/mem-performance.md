@@ -190,9 +190,6 @@ cldevice\_version\_canonicalname\_building
 : This option is used when compiling OpenCL kernels and may be provided for performance tuning or to work around bugs. You must remove any existing kernels in order to recompile them with the new options. Provide an empty string to recompile without any options. Remove the setting entirely to recompile with default options, default is `-cl-fast-relaxed-math` for nvidia drivers, all other cards don't have this compiler option set.
 : The `-cl-fast-relaxed-math` option significantly improves performance but changes maths in the module's processing code possibly leading to different results. For current Intel implementations this compiler flag leads to visibly wrong results, on AMD cards the results are non-conclusive. Some card/driver combinations are fine, some are not. As the AMD drivers constantly change we don't recommend to use it on AMD cards.
 
-opencl\_synch\_cache
-: If set to "true", this parameter will force darktable to fetch image buffers from your GPU after each module and store them in its pixelpipe cache. This is a resource consuming operation, but can make sense depending on your GPU (including if the GPU is rather slow). In this case darktable might in fact save some time when module parameters have changed, as it can go back to some cached intermediate state and reprocess only part of the pixelpipe. Since darktable 4.4 the efficiacy of the pixelpipe cache has improved a lot so setting it to "active module" (the default) is good in most cases.
-
 opencl\_mandatory\_timeout
 : _default 400_
 : If darktable wants to make use of any OpenCL device it has to reserve it for further usage. If that device is current used darktable will wait up to _opencl\_mandatory\_timeout * 5ms_ before it does a fallback to CPU. Increase this value if you would prefer to use OpenCL (because your card is really fast and your CPU is not).
