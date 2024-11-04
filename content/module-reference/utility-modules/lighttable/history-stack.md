@@ -67,7 +67,7 @@ Notes
 ---
 
 load sidecar file
-: Open a dialog box which allows you to import the history stack from a selected XMP file. This copied history stack can then be pasted onto one or more images.
+: Open a dialog box which allows you to import the history stack from a selected XMP file. The imported history stack replaces the current history stack of the selected image. _Caution: this operation can not be undone!_
 
 : Images that were exported by darktable typically contain the full history stack if the file format supports embedded metadata (see the [export](../shared/export.md) module for details of this feature and its limitations). You can load an exported image as a sidecar file in the same way as you can with an XMP file. This feature allows you to recover all parameter settings if you have accidentally lost or overwritten the XMP file. All you need is the source image, typically a raw, and the exported file.
 
