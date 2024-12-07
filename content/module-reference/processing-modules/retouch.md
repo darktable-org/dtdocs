@@ -161,7 +161,7 @@ fill mode
 : If the _fill_ algorithm has been chosen for the currently-selected shape, choose whether to "erase" or fill the selected shape with a chosen "color".
 
 fill color
-: If a _fill mode_ of "color" has been chosen, select the color to fill the shape with. You can click to select or enter a custom rgb value or use the color picker to take a sample from the image.
+: If a _fill mode_ of "color" has been chosen, select the color to fill the shape with. You can click to select or enter a custom rgb value or use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) to take a sample from the image.
 
 brightness
 : If the _fill_ algorithm has been chosen for the currently-selected shape, fine-tune the color's brightness. This slider also works in "erase" mode.

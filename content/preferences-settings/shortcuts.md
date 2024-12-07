@@ -78,7 +78,7 @@ widget
 : Each visible part of the user interface is known as a _widget_. For example the darktable application window is a widget, containing side panel widgets, each of which contains module widgets, each of which contains button, slider and dropdown list widgets etc... When assigning a shortcut to an action, you must first decide which widget it is to be applied to.
 
 element
-: An _element_ is the part of a UI widget that is affected by your shortcut. For example, for a slider that has a color picker, you can make a shortcut activate the color picker _button_ element or change the _value_ element of the slider. For a row of tabs (the row is a single widget) you can select which tab element to activate or use your mouse scroll wheel to scroll through the tabs.
+: An _element_ is the part of a UI widget that is affected by your shortcut. For example, for a slider that has a [picker](../darkroom/processing-modules/module-controls.md#pickers), you can make a shortcut activate the picker _button_ element or change the _value_ element of the slider. For a row of tabs (the row is a single widget) you can select which tab element to activate or use your mouse scroll wheel to scroll through the tabs.
 
 effect
 : A shortcut can sometimes have multiple possible _effects_ on a given _element_. For example, a button can be activated as if it was pressed with a plain mouse-click or as if it was pressed with Ctrl+click. A slider's value can be edited, increased/decreased or reset.
@@ -218,7 +218,7 @@ _zoom_
 : Allows you to change the upper and lower bounds of the visual slider without altering the current value.
 
 _button_
-: A standard _button_ element that allows the button to the right of the slider (if present) to be activated. For example, a slider may include a color picker to visually set its value based on selected elements of the image.
+: A standard _button_ element that allows the button to the right of the slider (if present) to be activated. For example, a slider may include a [picker](../darkroom/processing-modules/module-controls.md#pickers) to visually set its value based on selected elements of the image.
 
 You can alter the value of a slider more quickly or slowly than normal by defining the _speed_ of the action in the shortcut mapping screen. By default a _value_ (or _force_) effect is given a speed of 1.0, which means that it is changed at the default rate defined by the given slider. You can alter the slider more quickly by increasing the speed (a speed of 10 makes the action 10x faster) or more slowly by decreasing it (a speed of 0.1 makes the action 10x slower).
 

@@ -17,7 +17,7 @@ Moving the black and white bars to match the left and right borders of the histo
 
 Moving the middle bar will modify the mid-tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
-Three color pickers are available for sampling the black, white and gray points from the image. 
+Three [pickers](../../darkroom/processing-modules/module-controls.md#pickers) are available for sampling the black, white and gray points from the image. 
 
 ---
 
@@ -31,7 +31,7 @@ mode
 : The mode of operation. "RGB, linked channels" (default) provides a single levels tool which updates all channels, taking into account the selected color preservation method (see "preserve colors" below). "RGB, independent channels" provides separate levels controls for each of the R, G and B channels.
 
 auto
-: Auto-adjust the black and white point and put the gray point exactly in the mean between them. Use the color picker to auto-adjust based on a selected region of the image.
+: Auto-adjust the black and white point and put the gray point exactly in the mean between them. Use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) to auto-adjust based on a selected region of the image.
 
 preserve colors
 : Choose a color preservation method when using "RGB, linked channels" mode (default "luminance").

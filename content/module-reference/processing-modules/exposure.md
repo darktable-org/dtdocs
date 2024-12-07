@@ -29,7 +29,7 @@ compensate camera exposure (manual mode)
 
 exposure (manual mode)
 : Increase (move to the right) or decrease (move to the left) the exposure value (EV). To adjust by more than the default limits shown on the slider, right click and enter the desired value up to +/-18 EV (see [module controls](../../darkroom/processing-modules/module-controls.md)).
-: The color picker tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in [area exposure mapping](#area-exposure-mapping) options.
+: The [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in [area exposure mapping](#area-exposure-mapping) options.
 
 percentile (automatic mode)
 : Define a location in the histogram to use for automatic exposure correction. A percentile of 50% denotes a position in the histogram where 50% of pixel values are above and 50% of pixel values are below that exposure.
@@ -61,7 +61,7 @@ The mapping process consists of two steps.
 There are two ways of setting the target brightness for your control sample:
 
 1. if you know or expect an arbitrary lightness for the control sample (for example, a gray card, a color chart, a product or a logo of a specified brightness), you can set its L value directly, in CIE Lab 1976 space,
-2. if you simply want to match the development of your reference image, set the _area mode_ to _measure_, then enable the color picker (to the right of the _exposure_ slider) and draw a rectangle over your control sample. The _input_ column will then be updated with the lightness value of the control sample before the exposure correction, and the _target_ column will show the resulting lightness of the control sample after the current exposure setting is applied.
+2. if you simply want to match the development of your reference image, set the _area mode_ to _measure_, then enable the [picker](../../darkroom/processing-modules/module-controls.md#pickers) (to the right of the _exposure_ slider) and draw a rectangle over your control sample. The _input_ column will then be updated with the lightness value of the control sample before the exposure correction, and the _target_ column will show the resulting lightness of the control sample after the current exposure setting is applied.
 
 If you reset the lightness value, the default value is 50% (middle-gray) -- this can be useful to quickly set the average exposure of any image.
 
@@ -69,7 +69,7 @@ Note that the target value is not reset when you reset the module itself, but is
 
 ## step 2 : match the target
 
-When you open a new image, the _area mode_ is automatically reset to _correction_. Using the color picker attached to the exposure slider, you can then directly reselect your control sample in the new image. The proper exposure setting required for the control sample to match the memorized target lightness will be automatically computed, and the setting will be updated in the same operation.
+When you open a new image, the _area mode_ is automatically reset to _correction_. Using the [picker](../../darkroom/processing-modules/module-controls.md#pickers) attached to the exposure slider, you can then directly reselect your control sample in the new image. The proper exposure setting required for the control sample to match the memorized target lightness will be automatically computed, and the setting will be updated in the same operation.
 
 This operation can be repeated as many times as you have images in your series with no further work.
 

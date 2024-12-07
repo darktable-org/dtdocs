@@ -25,7 +25,7 @@ exposure
 : The fill-light exposure (EV)
 
 center
-: The median lightness impacted by the fill-light. The lightness must be set manually but a color picker can be used to provide a guide based on a sample from the image. The lightness of the selected point/area is displayed in the gradient bar.
+: The median lightness impacted by the fill-light. The lightness must be set manually but a [picker](../../darkroom/processing-modules/module-controls.md#pickers) can be used to provide a guide based on a sample from the image. The lightness of the selected point/area is displayed in the gradient bar.
 
 width
 : The width of the Gaussian curve. This number is expressed in zones, with the full range being 10 zones.

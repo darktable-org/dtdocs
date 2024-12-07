@@ -84,7 +84,7 @@ Each of the settings in the 4 ways tab is composed of the same three components,
 
 Color input like this defines a color shift applied to the image globally or over the specified luminance range.
 
-Each hue slider has a color picker, which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it.
+Each hue slider has a [picker](../../darkroom/processing-modules/module-controls.md#pickers), which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it.
 
 ### global offset
 
@@ -132,12 +132,12 @@ Luminance masks are computed at the input of the module, which means that they a
 white fulcrum
 : Set the white point luminance in EV. This is used to normalize the _power_ setting in the [_4 ways_](#4-ways-tab) tab. Display-referred implementations of power functions assume that white is at 100%, which removes the need for normalization. For scene-referred purposes this needs to be taken into account.
 
-: The color picker to the right of the slider automatically sets the white fulcrum to the maximum luminance from the selected region, which should be sufficient in most cases.
+: The [picker](../../darkroom/processing-modules/module-controls.md#pickers) to the right of the slider automatically sets the white fulcrum to the maximum luminance from the selected region, which should be sufficient in most cases.
 
 contrast gray fulcrum
 : Set the fulcrum for the _contrast_ setting in the [_master_](#master-tab) tab. This corresponds to the luminance value that will be left unchanged by the contrast adjustment. This setting usually matches the middle-gray linear value. If you followed the scene-referred workflow recommendations and set the global brightness early in the pipeline, using the _exposure_ module, the correct value should usually be around 18-20%.
 
-: The color picker to the right of the slider automatically sets the contrast gray fulcrum to the average luminance from the selected region. This relies on the assumption that the average luminance is usually close to middle-gray, which is not true if you have specular highlights or primary light sources in the frame, or for low/high-key images.
+: The [picker](../../darkroom/processing-modules/module-controls.md#pickers) to the right of the slider automatically sets the contrast gray fulcrum to the average luminance from the selected region. This relies on the assumption that the average luminance is usually close to middle-gray, which is not true if you have specular highlights or primary light sources in the frame, or for low/high-key images.
 
 ### saturation formula
 

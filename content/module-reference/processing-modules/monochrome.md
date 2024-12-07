@@ -26,8 +26,7 @@ Although this module is easy to use, better results can usually be obtained by u
 filter size/position
 : The default central location of the filter has a neutral effect but dragging it to an alternate position applies a filter analogous to taking a b&w photograph through a conventional color filter.
 
-: A color picker can be activated to automatically set the position and size of the filter based on the selected portion of the image. Scroll the mouse wheel to change the filter size, making the filter's range of hues more or less selective.
+: A [picker](../../darkroom/processing-modules/module-controls.md#pickers) can be activated to automatically set the position and size of the filter based on the selected portion of the image. Scroll the mouse wheel to change the filter size, making the filter's range of hues more or less selective.
 
 highlights
 : Control how much to retain highlights.
-

@@ -53,8 +53,7 @@ vibrance
 : Accentuate the colors of the image without adding unnatural colors, as it's often the case with the _saturation_ slider. It works by reducing the lightness of already saturated pixels to make the colors more vivid. You can also achieve some interesting effects by combining it with the saturation slider to target more or less saturated areas of the image.
 
 auto
-: Automatically adjust the exposure, taking into account the entire image, or use the color picker to select a rectangular area of the image -- the exposure will be automatically adjusted based on the selected region. This allows you to prioritise which parts of the image should be well-exposed.
+: Automatically adjust the exposure, taking into account the entire image, or use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) to select a rectangular area of the image -- the exposure will be automatically adjusted based on the selected region. This allows you to prioritise which parts of the image should be well-exposed.
 
 clip
 : This affects the number of pixels that will be clipped to black or white during the auto-exposure calculation. Moving this slider to the right will allow more pixels to be clipped and increase the contrast; moving this slider to the left will compress the image more and lower the contrast.
-

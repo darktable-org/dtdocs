@@ -69,11 +69,11 @@ In this state a range select function selects the whole range of values giving a
 
 Conversely a range de-select function (enabled by toggling the polarity) by default deselects the whole range of values, giving an “all-zero” mask as a starting point. Moving the sliders inwards gradually includes more and more parts of the image except for the remaining narrow range. 
 
-# color pickers
+# pickers
 
-With the left-hand color picker button you can select a point or area probe from your image. The corresponding values for the real and virtual data channels are then displayed within each color channel slider.
+With the left-hand [picker](../../processing-modules/module-controls.md#pickers) button you can select a point or area probe from your image. The corresponding values for the real and virtual data channels are then displayed within each color channel slider.
 
-With the right-hand color picker button you can automatically set the slider's values based on the selected range. Click and drag to set the parameters for the input slider from the drawn rectangle; Ctrl+click and drag to set the parameters for the output slider.
+With the right-hand picker button you can automatically set the slider's values based on the selected range. Click and drag to set the parameters for the input slider from the drawn rectangle; Ctrl+click and drag to set the parameters for the output slider.
 
 # invert
 
@@ -82,4 +82,3 @@ Click the invert button above the sliders to invert the polarity of the entire p
 # reset
 
 Click the reset button above the sliders to revert all parametric mask parameters to their default state.
-

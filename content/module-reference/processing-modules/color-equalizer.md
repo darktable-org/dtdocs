@@ -12,7 +12,7 @@ This module is an attempt to recreate _some_ of the functionality of the [_color
 - a fixed number of equally-spaced adjustment nodes means a smoother adjustment curve
 - a guided filter is used, which attempts to smooth out changes by taking into account both the hue of the neighboring pixels and their overall saturation
 
-The provided tabs can be used (either individually or in combination) to adjust the hue, saturation, and/or brightness at each of the color nodes. While the distance between nodes cannot be changed (see above), if you wish to target a specific hue that does not currently lie on a node, the "node placement" slider can be used to move all of the nodes simultaneously. The color picker can be used to display the color of a "picked" pixel or area on the curve adjustment section of the module to allow specific colors to be targeted.
+The provided tabs can be used (either individually or in combination) to adjust the hue, saturation, and/or brightness at each of the color nodes. While the distance between nodes cannot be changed (see above), if you wish to target a specific hue that does not currently lie on a node, the "node placement" slider can be used to move all of the nodes simultaneously. The [picker](../../darkroom/processing-modules/module-controls.md#pickers) can be used to display the color of a "picked" pixel or area on the curve adjustment section of the module to allow specific colors to be targeted.
 
 ---
 
@@ -30,7 +30,7 @@ You can also adjust the color nodes using sliders, which can be shown/hidden by 
 
 As with sliders, you can also right-click on a node/slider to perform fine adjustments (see [module controls/sliders](../../darkroom/processing-modules/module-controls.md#sliders) for more details).
 
-Use the color picker to choose a pixel or area on the image and show the hue of that pixel/area on the adjustment curve.
+Use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) to choose a pixel or area on the image and show the hue of that pixel/area on the adjustment curve.
 
 node placement
 : Adjust the position of all of the nodes simultaneously (move them left/right).
