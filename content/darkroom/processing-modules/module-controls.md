@@ -51,7 +51,13 @@ As with sliders, you can double-click the combobox or its label to reset back to
 
 # pickers
 
-A number of modules allow parameters to be set using pickers (identified by the ![picker-icon](./module-controls/color-picker.png#icon) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by clicking on the picker icon. Area mode is activated with Ctrl+click or right-click.
+Many modules allow parameters to be set using pickers (identified by the ![picker-icon](./module-controls/color-picker.png#icon) icon). These allow you to select sample areas of the image from which to calculate module values. You can usually choose to select either a "point" (a single pixel) or an "area" (a rectangular selection of pixels) from the image.
+
+Selection will cause the module value to be updated, and may also cause additional visual feedback (for example, overlaying the range of selected pixels on a tone curve).
+
+Activate point mode by left-clicking the picker icon and then left-click anywhere on the image to select the pixel from which to calculate values. The selected point will be shown on-screen (with a cross icon) which you can adjust by left-clicking another pixel.
+
+Activate area mode by either right-clicking or Ctrl+clicking the picker icon and then left-click and drag to select an area of the image from which to calculate values. The selected area will be shown on-screen as an overlaid rectangle and can be moved by either drawing another rectangle elsewhere or by left-clicking and dragging the corners of the drawn rectangle. Reset the rectangle (to select the whole image) by right-clicking anywhere on the image.
 
 # keyboard shortcuts
 
