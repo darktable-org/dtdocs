@@ -15,6 +15,16 @@ The order of the pixelpipe is represented graphically by the order in which modu
 
 ---
 
+# types of pixelpipe
+
+Processing images can be very resource-intensive. For this reason, darktable includes various types of pixelpipe, optimised for different parts of the system. For example:
+
+- The export pixelpipe processes the full-sized image at full quality. This is the slowest type of pixelpipe, but provides the maximum available image quality.
+- The thumbnail pixelpipe is optimised for speed, since it needs to process multiple small images at the same time without impacting lighttable or filmstrip performance. These optimisations impact image quality, but this is not usually a problem for the small images used in thumbnail generation.
+- The standard darkroom pixelpipe attempts to produce as accurate an image as possible, while also maintaining responsiveness when modifying module parameters. It does this by only processing the pixels that are visible on-screen -- known as the "region of interest" (ROI). However, this can mean that the image doesn't accurately reflect the exported file, especially when using modules that rely on the properties of neighboring pixels. This is particularly noticeable in modules that impact local contrast (e.g. _diffuse or sharpen_, _denoise (profiled)_ and _local contrast_) and can mean that the darkroom view appears over-sharpened compared to a full-sized export.
+- A cut-down darkroom pixelpipe is used while interacting with some darkroom modules that display the full image with overlays (like _retouch_, _crop_ and _liquify_). This pixelpipe excludes some long-running modules (like _diffuse or sharpen_) in order to improve responsiveness, but can temporarily make the image look under-processed (blurred). This limitation is removed as soon as you move focus to a different module.
+- In order to overcome the above limitations within the standard darkroom pixelpipe, you can enable [high quality processing mode](../../module-reference/utility-modules/darkroom/high-quality-processing.md) in the darkroom view. This mode processes the entire image using the export pixelpipe and only downscales for display at the end of the pipe. This means that the darkroom image will very closely match the exported image, but will significantly degrade responsiveness when interacting with processing modules. You are advised to only use this mode after you have already done most of your processing. Its performance will be significantly improved by using an OpenCL-capable GPU.
+
 # module order and workflows
 
 The order in which modules are executed within the pixelpipe has been carefully chosen to give the best output quality. In previous versions of darktable it was not possible to change the module order. However, there are a number of very specific use cases where the movement of some modules within the pixelpipe is advised.
