@@ -69,7 +69,7 @@ scale
 mode
 : The default behavior of this module is to _correct_ lens flaws. Switch this combobox to "distort" in order to instead _simulate_ the flaws/distortions of a specific lens (inverted effect).
 
-TCA overwrite
+TCA override
 : Check this box to override the automatic correction parameters for TCA. This will expose the TCA red and TCA blue parameters below. Un-check the box to revert back to automatic corrections.
 
 TCA red; TCA blue
