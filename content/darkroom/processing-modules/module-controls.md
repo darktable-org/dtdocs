@@ -55,9 +55,9 @@ Many modules allow parameters to be set using pickers (identified by the ![picke
 
 Selection will cause the module value to be updated, and may also cause additional visual feedback (for example, overlaying the range of selected pixels on a tone curve).
 
-Activate point mode by left-clicking the picker icon and then left-click anywhere on the image to select the pixel from which to calculate values. The selected point will be shown on-screen (with a cross icon) which you can adjust by left-clicking another pixel.
+Activate point mode by left-clicking the picker icon and then left-click anywhere on the image to select the pixel from which to calculate values. The selected point will be shown on-screen (with a cross icon) which you can adjust by left-clicking another pixel. Deactivate the picker by left-clicking the picker icon again.
 
-Activate area mode by either right-clicking or Ctrl+clicking the picker icon and then left-click and drag to select an area of the image from which to calculate values. The selected area will be shown on-screen as an overlaid rectangle and can be moved by either drawing another rectangle elsewhere or by left-clicking and dragging the corners of the drawn rectangle. Reset the rectangle (to select the whole image) by right-clicking anywhere on the image.
+Activate area mode by either right-clicking or Ctrl+clicking the picker icon and then left-click and drag to select an area of the image from which to calculate values. The selected area will be shown on-screen as an overlaid rectangle and can be moved by either drawing another rectangle elsewhere or by left-clicking and dragging the corners of the drawn rectangle. Reset the rectangle (to select the whole image) by right-clicking anywhere on the image. Deactivate the picker by right-clicking (or Ctrl+clicking) the picker icon again.
 
 # keyboard shortcuts
 
