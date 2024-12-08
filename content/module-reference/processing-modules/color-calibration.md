@@ -250,7 +250,7 @@ normalize channels
 
 The area mapping feature is designed to help with [batch-editing](../../guides-tutorials/batch-editing.md) a series of images in an efficient way. In this scenario, you typically develop a single reference image for the whole batch and then copy&paste the development stack to all of the other images in the batch.
 
-Unfortunately, the light color temperature often changes slightly between shots, even within the same series captured in the same conditions. This can be the result of a cloud passing by the sun in natural light, or a different ratio between colored bounce light and main light. Each image will still need some individual fine-tuning if you want a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
+Unfortunately, the color temperature of the illuminating light often changes slightly between shots, even within the same series captured in the same conditions. This can be the result of a cloud passing by the sun in natural light, or a different ratio between colored bounce light and main light. Each image will still need some individual fine-tuning if you want a perfectly even look over the whole series, and this can be both time-consuming and frustrating.
 
 Area color mapping allows you to define a target chromaticity (hue and chroma) for a particular region of the image (the control sample), which you then match against the same target chromaticity in other images. The control sample can either be a critical part of your subject that needs to have constant color, or a non-moving and consistently-lit surface over your series of images.
 
@@ -265,7 +265,7 @@ There are two ways of setting the target chromaticity for your control sample:
 
 If you reset the L, h, c values, the default value is a neutral color at 50% lightness (middle-gray) -- this can be useful to quickly set the average white balance of any image. If you want to match the control sample against neutral gray, you only need to reset the chroma slider because the lightness and hue settings have no effect on chromaticity for neutral grays.
 
-Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next launch as well as for the next image you develop.
+Note that the target value is not reset when you reset the module itself, but is stored indefinitely in darktable's configuration and will be available on next launch as well as for the next image you develop. Additionally, the position of the selected rectangle is also stored for ease of use when applying the picked correction value to multiple similar images (see below under "match the target"), though you may redraw the rectangle if the position of the target object changes between images.
 
 The _take channel mixing into account_ option lets you choose where the target is sampled. If disabled, the target color is measured immediately after the _CAT_ (Chromatic Adaptation Transform) step, which takes place before any channel mixing. This means that if you have a calibrated profile in effect within the channel mixer, this profile will be discarded. If enabled, the target color is measured after the _CAT_ and the channel mixing steps, including any calibrated profile. This is the recommended option for most use cases.
 
@@ -285,7 +285,7 @@ This operation can be repeated as many times as you have images in your series w
 
 ## step 3: deactivate color mapping
 
-The settings you configured in _step 1_ are sticky -- they will stay active until you manually turn them off by resetting _lightness_ to 50 and _chroma_ to 0.  Until then, _every_ time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation.  To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever _chroma_ is nonzero or _lightness_ is other than 50.
+The settings you configured in _step 1_ are "sticky" -- they will stay active until you manually turn them off by resetting _lightness_ to 50 and _chroma_ to 0.  Until then, _every_ time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation.  To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever _chroma_ is nonzero or _lightness_ is other than 50.
 
 ---
 
