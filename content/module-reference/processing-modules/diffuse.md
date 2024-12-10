@@ -142,7 +142,7 @@ luminance masking threshold
 
 # workflow
 
-The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
+The main difficulty with this module is that while its output can vary dramatically depending on its input parameters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
 
 ## general advice
 

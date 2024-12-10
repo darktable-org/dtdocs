@@ -77,7 +77,7 @@ modification time
 : The date/time the file was last changed, in the format `YYYY:MM:DD hh:mm:ss`.
 
 export time
-: The date/time the file was last expoted, in the format `YYYY:MM:DD hh:mm:ss`.
+: The date/time the file was last exported, in the format `YYYY:MM:DD hh:mm:ss`.
 
 print time
 : The date/time the file was last printed, in the format `YYYY:MM:DD hh:mm:ss`.

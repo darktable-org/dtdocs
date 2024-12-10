@@ -51,7 +51,7 @@ As an example use case, the following matrix is useful for taming ugly out-of-ga
 └  0.05  -0.05  1.00 ┘ 
 ```
 
-In this case it is useful to use a [parameteric mask](../../darkroom/masking-and-blending/masks/parametric.md) to limit the effect of the _channel mixer_ to just the problematic colors.
+In this case it is useful to use a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md) to limit the effect of the _channel mixer_ to just the problematic colors.
 
 A more intuitive take for what the _channel mixer_ sliders do:
 
@@ -86,4 +86,3 @@ green
 
 blue
 : Defines how much the blue input channel should contribute to the selected destination channel.
-

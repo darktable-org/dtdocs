@@ -8,7 +8,7 @@ view: darkroom
 
 Highlight areas of the image that may exhibit luminance or gamut clipping.
 
-When an image is sent to a display device, each pixel is normally represented as a set of 3 numbers, representing the intensity of the red, green and blue primary colors in the output color space. Because the output color space is usually closely related to hardware with physical limations, there is a maximum permitted value for the [R,G,B] channels, representing the maximum available intensity for that color space. Similarly, there is also a minimum value below which pixel values will be mapped to zero. When we try to convert from a larger color space to the final output color space, any values exceeding this maximum will be clamped to the maximum value, and any values below the minimum will be clamped to zero. This process is called "clipping" and it will lead to lost detail, or "incorrect" colors for any pixels with clipped channels.
+When an image is sent to a display device, each pixel is normally represented as a set of 3 numbers, representing the intensity of the red, green and blue primary colors in the output color space. Because the output color space is usually closely related to hardware with physical limitations, there is a maximum permitted value for the [R,G,B] channels, representing the maximum available intensity for that color space. Similarly, there is also a minimum value below which pixel values will be mapped to zero. When we try to convert from a larger color space to the final output color space, any values exceeding this maximum will be clamped to the maximum value, and any values below the minimum will be clamped to zero. This process is called "clipping" and it will lead to lost detail, or "incorrect" colors for any pixels with clipped channels.
 
 Click the ![clipping warning](./clipping/clipping-icon.png#icon) icon to enable the clipping warning.
 
@@ -55,4 +55,3 @@ lower threshold
 
 upper threshold
 : How close a pixel should be to the upper limit before being flagged by the clipping warning, expressed as a percentage (default 98%). In the case of gamut checks, this controls how close the saturation of the pixel is allowed to get to the limits of the color space's gamut before a clipping indication is flagged.
-

@@ -71,7 +71,7 @@ When one of the above illuminant detection methods is used, the module checks wh
 
 ---
 
-When switching from one illuminant to another, the module attempts to translate the previous settings to the new illumninant as accurately as possible. Switching from any illuminant to _custom_ preserves your settings entirely, since the _custom_ illuminant is a general case. Switching between other modes, or from _custom_ to any other mode, will not precisely preserve your settings from the previous mode due to rounding errors.
+When switching from one illuminant to another, the module attempts to translate the previous settings to the new illuminant as accurately as possible. Switching from any illuminant to _custom_ preserves your settings entirely, since the _custom_ illuminant is a general case. Switching between other modes, or from _custom_ to any other mode, will not precisely preserve your settings from the previous mode due to rounding errors.
 
 Other hard-coded _illuminants_ are available (see below). Their values come from standard CIE illuminants and are absolute. You can use them directly if you know exactly what kind of light bulb was used to illuminate the scene and if you trust your camera's input profile and reference (D65) coefficients to be accurate. Otherwise, see [_caveats_](#caveats) below.
 
