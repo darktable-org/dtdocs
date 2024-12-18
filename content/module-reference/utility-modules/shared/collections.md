@@ -96,6 +96,9 @@ aperture
 exposure
 : The shutter speed, as derived from Exif data.
 
+exposure bias
+: The exposure bias, as derived from Exif data.
+
 focal length
 : The focal length, as derived from Exif data.
 
@@ -105,10 +108,22 @@ ISO
 aspect ratio
 : The aspect ratio of the image, including any cropping within darktable.
 
+white balance
+: The white balance, as derived from Exif data.
+
+flash
+: Whether flash was used or not, as derived from the Exif data.
+
+exposure program
+: The exposure program, as derived from Exif data.
+
+metering mode
+: The metering mode, as derived from Exif data.
+
 ## darktable
 
-grouping
-: Choose between "group followers" and "group leaders".
+group
+: Choose specific group(s) of imagee
 
 local copy
 : Show files that are, or are not copied locally.
@@ -120,7 +135,7 @@ module
 : Filter based on the processing modules that have been applied to the image.
 
 module order
-: Choose images with "v3.0", "legacy" or "custom" module orders.
+: Choose images with "v5.0", "v3.0", "legacy" or "custom" module orders.
 
 # module controls
 
