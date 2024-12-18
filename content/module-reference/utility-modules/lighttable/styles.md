@@ -1,7 +1,7 @@
 ---
 title: styles
 id: styles
-applicable-version: 4.6
+applicable-version: 5.0
 tags: 
 view: lighttable
 ---
@@ -19,6 +19,8 @@ Hover over the style name with your mouse to view a preview of the first selecte
 Remove all styles by clicking on the module's reset button.
 
 Please note that styles also include the active state of each module. You can use this to create your own default settings, which you can then activate on-demand. Simply set your desired defaults for each module, disable the module, and save the style.
+
+A large selection of "camera" styles is provided with darktable. These styles are designed to approximate the out-of-camera JPEG look for supported camera models and can be found within this module under the "darktable camera styles" style group. You can automatically apply these styles on import using the companion Lua script [official/camera style](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/official/apply_camera_style/).
 
 # module controls
 
