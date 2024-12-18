@@ -55,7 +55,7 @@ Pixel data within the _display-referred_ space is non-linear and is not a physic
 
 _Scene-referred_ workflow (auto-apply pixel workflow defaults = "scene-referred") was introduced as part of darktable 3.0. The module order was entirely rearranged to place the [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) and [_base curve_](../../../module-reference/processing-modules/base-curve.md) tone mapping modules much later in the pixelpipe. This means that most modules now operate in _linear rgb_ space with only a few modules remaining within the non-linear _display-referred_ space. Within this workflow it is now recommended that the majority of image processing takes place using the modules up to and including [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md). Operations in this section of the pixelpipe, being truly linear, are much more physically realistic and produce fewer artifacts.
 
-Selecting the scene-referred workflow enables the _v3.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
+Selecting the scene-referred workflow enables the _v5.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
 
 # changing module order
 
@@ -67,4 +67,4 @@ It remains highly recommended that users not change the order within the pixelpi
 
 Despite the general recommendation to leave the pixelpipe order alone, it is possible to move modules within the pixelpipe by holding Ctrl+Shift and dragging and dropping the desired module to a new location. This should only be done by experienced users who understand the impact this will have on the image.
 
-The module order can be manually changed back to either the _v3.0_ or _legacy_ versions using the [module order](../../../module-reference/utility-modules/darkroom/module-order.md) module, which can also be used to define your own custom module order presets.
+The module order can be manually changed back to either the _v5.0_, _v3.0_ or _legacy_ versions using the [module order](../../../module-reference/utility-modules/darkroom/module-order.md) module, which can also be used to define your own custom module order presets.
