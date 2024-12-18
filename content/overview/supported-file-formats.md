@@ -10,9 +10,9 @@ darktable supports a huge number of file formats from various camera manufacture
 
 In order for darktable to consider a file for import, it must have one of the following extensions (case independent): `3FR, ARI, ARW, BAY, BMQ, CAP, CINE, CR2, CR3, CRW, CS1, DC2, DCR, DNG, GPR, ERF, FFF, EXR, IA, IIQ, JPEG, JPG, JXL, K25, KC2, KDC, MDC, MEF, MOS, MRW, NEF, NRW, ORF, PEF, PFM, PNG, PXN, QTK, RAF, RAW, RDC, RW1, RW2, SR2, SRF, SRW, STI, TIF, TIFF, X3F`
 
-If darktable was compiled with JPEG2000 support, the following extensions are also recognized: `J2C, J2K, JP2, JPC`.
+If darktable was compiled with JPEG2000 support, the following extensions are also recognized: `J2C, J2K, JP2, JPC, JPF, JPX`.
 
-If darktable was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, DCM, GIF, JNG, JPC, JP2, MIFF, MNG, PBM, PGM, PNM, PPM, WEBP`.
+If darktable was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, DCM, GIF, JNG, JPC, JP2, JPF, JPX, MIFF, MNG, PBM, PGM, PNM, PPM, WEBP`.
 
 # camera raw files
 
