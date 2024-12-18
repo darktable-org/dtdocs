@@ -14,7 +14,7 @@ The computational demand varies significantly depending on the type of pixelpipe
 
 The configuration parameter “opencl\_device\_priority” holds a string with the following structure:
 
-`a,b,c.../d,e,f.../g,h,i.../j,k,l...,m,n,o...`
+`a,b,c.../d,e,f.../g,h,i.../j,k,l.../m,n,o...`
 
 Each letter represents one specific OpenCL device. There are five fields in the parameter string separated by a slash, each representing one type of pixelpipe. `a,b,c...` defines the devices that are allowed to process the center image (full) pixelpipe. Likewise devices `d,e,f...` can process the preview pixelpipe, devices `g,h,i...` the export pixelpipes, devices `j,k,l...` the thumbnail pixelpipes and finally devices `m,n,o...` preview pixelpipe for the second window. An empty field means that no OpenCL device may serve this type of pixelpipe.
 
