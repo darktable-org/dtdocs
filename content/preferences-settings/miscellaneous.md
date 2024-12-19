@@ -7,6 +7,9 @@ draft: false
 
 # interface
 
+show splash screen at startup
+: When activated, darktable will display a splash screen indicating progress loading and initializing its code and data and scanning for updated sidecars until it is ready to display its main window.  When disabled, darktable displays nothing until loading is complete and it can display the lighttable - or darkrooom, if invoked with a single filename on the command line (default on).
+
 load default shortcuts at startup
 : When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). Deactivate this preference to stop loading default shortcuts on startup -- only load the user-defined ones (including any defaults that you have not subsequently deleted or overridden). This makes deletion easier but also means that you will not benefit from new shortcuts added in future versions without first re-enabling this preference (default on).
 
