@@ -11,7 +11,7 @@ Control default file naming conventions used when [importing](../module-referenc
 
 The following options define the default naming pattern for use in the "copy & import" or "copy & import from camera" options in the import module, or when taking photos in the [tethering](../tethering/_index.md) view.
 
-The naming pattern consists of three parts: a base part defining the parent folder, a session part defining a sub directory (which is specific to the individual import session), and a file name part defining the filename structure for each imported image.
+The naming pattern consists of three parts: a base part defining the parent folder, a session part defining a filmroll (which is specific to the individual import session), and a file name part defining the filename structure for each imported image.
 
 Several pre-defined variables can be used in the pattern as placeholders:
 
@@ -42,11 +42,11 @@ $(EXIF_SECOND)       seconds the photo was taken (from Exif data)
 $(EXIF_ISO)          ISO value of the photo (from Exif data)
 ```
 
-base directory naming pattern
-: The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`).
+base filmroll's directory naming pattern
+: The base filmroll's directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`).
 
-sub directory naming pattern
-: The sub directory part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).
+filmroll naming pattern
+: The filmroll part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).
 
 keep original filename
 : Check this box to keep the original filename instead of using the pattern below when importing from a camera or card (default off).
