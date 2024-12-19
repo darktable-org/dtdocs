@@ -43,7 +43,7 @@ $(EXIF_ISO)          ISO value of the photo (from Exif data)
 ```
 
 base filmroll's directory naming pattern
-: The base filmroll's directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`).
+: The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`).
 
 filmroll naming pattern
 : The filmroll part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).
