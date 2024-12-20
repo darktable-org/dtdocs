@@ -37,7 +37,7 @@ For sample images, you are advised to use some of the more intensive modules, su
 
 In order to obtain profiling information you need to start darktable from a terminal with `darktable -d opencl -d perf`. If you want more information about tiling you should use `darktable -d opencl -d tiling -d perf`.
 
-Each time the pixelpipe is processed (when you change module parameters, zoom, pan, export etc.) you will see (in your terminal session) the total time spent in the pixelpipe and the time spent in each of the OpenCL kernels. The most reliable value is the total time spent the in pixelpipe and you should use this to assess your changes.
+Each time the pixelpipe is processed (when you change module parameters, zoom, pan, export etc.) you will see (in your terminal session) the total time spent in the pixelpipe and the time spent in each of the OpenCL kernels. The most reliable value is the total time spent in the pixelpipe and you should use this to assess your changes.
 
 ---
 
