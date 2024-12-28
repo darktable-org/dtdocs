@@ -236,7 +236,7 @@ No options provided.
 :  - `0`: default
 :  - `1`: picture: digital picture, like portrait, inner shot
 :  - `2`: photo: outdoor photograph, with natural lighting
-:  - `3`: graphic: discrete tone image (graph, map-tile etc)
+:  - `3`: graphic: discrete tone image (graph, map-tile, etc.)
 
 ### copy
 
