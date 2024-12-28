@@ -192,7 +192,7 @@ Conversely, the following optical issues may benefit from reconstruction by **un
 3. haze/fog,
 4. light diffusion (using a diffuser that is too large), leading to even lighting and lack of local contrast on the subject.
 
-While more than one of these issues can affect the same picture at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following [pipe order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md):
+While more than one of these issues can affect the same image at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following [pipe order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md):
 
 1. denoise,
 2. local contrast enhancement,

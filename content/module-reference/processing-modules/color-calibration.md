@@ -336,7 +336,7 @@ In order to use this feature you will need to take a test shot of a supported co
 
 If the lighting conditions are close to a standard D50 to D65 illuminant (direct natural light, no colored bounced light), the color checker shot can be used to produce a generic profile that will be suitable for any daylight illuminant with only a slight adjustment of the white balance.
 
-If the lighting conditions are peculiar and far from standard illuminants, the color checker shot will be only usable as an ad-hoc profile for pictures taken in the same lighting conditions.
+If the lighting conditions are peculiar and far from standard illuminants, the color checker shot will be only usable as an ad-hoc profile for images taken in the same lighting conditions.
 
 
 ## usage
@@ -351,7 +351,7 @@ Use the following process to create your profile preset/style:
 4. In the image preview, an overlay of the chart's patches will appear. Drag the corners of the chart so that they match the visual references (dots or crosses) around the target, to compensate for any perspective distortion,
 5. Click the _refresh_ button to compute the profile,
 6. Check the _Profile quality report_. If it is "good", you can click on the _validation_ button. If not, try changing the optimization strategy and refresh the profile again.
-7. Save the profile in a preset or style, or simply copy & paste the module settings to all of the pictures taken under the same lighting conditions, from within the lighttable view or filmstrip.
+7. Save the profile in a preset or style, or simply copy & paste the module settings to all of the images taken under the same lighting conditions, from within the lighttable view or filmstrip.
 
 ---
 
@@ -407,7 +407,7 @@ The _optimize for_ parameter allows you to define an optimization strategy that 
 - _none_: Don't use an explicit strategy but rely on the implicit strategy defined by the color checker manufacturer. For example, if the color checker has mostly low-saturation patches, the profile will be more accurate for less-saturated colors.
 - _neutral colors_: Give priority to grays and less-saturated colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in highly-saturated colors more than not having any profile.
 - _saturated colors_: Give priority to primary colors and highly-saturated colors. This is useful in product and commercial photography, to get brand colors right.
-- _skin and soil colors_, _foliage colors_, _sky and water colors_: Give priority to the chosen hue range. This is useful if the subject of your pictures is clearly defined and has a typical color.
+- _skin and soil colors_, _foliage colors_, _sky and water colors_: Give priority to the chosen hue range. This is useful if the subject of your images is clearly defined and has a typical color.
 - _average delta E_: Attempt to make the color error uniform across the color range and minimize the average perceptual error. This is useful for generic profiles.
 - _maximum delta E_: Attempt to minimize outliers and large errors, at the expense of the average error. This can be useful to get highly saturated blues back into line.
 
@@ -431,6 +431,6 @@ Some cameras, most notably those from Olympus and Sony, have unexpected white ba
 It is possible to alleviate this issue, if you have a computer screen calibrated for a D65 illuminant, using the following process:
 
 1. Display a white surface on your screen, for example by opening a blank canvas in any photo editing software you like
-2. Take a blurry (out of focus) picture of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and are using an aperture between f/5.6 and f/8,
-3. Open the picture in darktable and extract the white balance by using the [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
+2. Take a blurry (out of focus) image of that surface with your camera, ensuring that you don't have any "parasite" light in the frame, you have no clipping, and are using an aperture between f/5.6 and f/8,
+3. Open the image in darktable and extract the white balance by using the [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
 4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.

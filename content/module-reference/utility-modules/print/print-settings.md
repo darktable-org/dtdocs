@@ -19,7 +19,7 @@ media
 : The type of media loaded on the printer (Plain Paper, Luster Photo Paper, etc.).
 
 profile
-: The printer's ICC profile for the loaded paper. This is the profile specific to the printer and paper. This profile is the last color space transformation applied to the picture whose goal is to create a high quality print.
+: The printer's ICC profile for the loaded paper. This is the profile specific to the printer and paper. This profile is the last color space transformation applied to the image whose goal is to create a high quality print.
 
 intent
 : The print rendering intent (“perceptual”, “relative colorimetric”, “saturation” or “absolute colorimetric”). See [rendering intent](../../../special-topics/color-management/rendering-intent.md) for more details.

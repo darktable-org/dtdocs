@@ -70,5 +70,5 @@ pretty print the image location
 
 # slideshow view
 
-waiting time before each picture in slideshow
+waiting time before each image in slideshow
 : The number of seconds before displaying the next image (default 5) in the [slideshow view](../slideshow/_index.md).

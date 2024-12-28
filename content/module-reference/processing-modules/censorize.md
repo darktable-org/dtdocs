@@ -25,7 +25,7 @@ Aside from anonymization, this module can also be used for a wide range of creat
 
 If forensically safe anonymization is required, the only way to achieve this is to paint the surfaces with a solid color. 
 
-**The darktable team does not accept responsibility for poorly anonymized pictures leading to the identification of individuals or personal property.**
+**The darktable team does not accept responsibility for poorly anonymized images leading to the identification of individuals or personal property.**
 
 ---
 
