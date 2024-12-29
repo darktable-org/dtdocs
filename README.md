@@ -28,12 +28,9 @@ If you already have the site cloned, but haven't included the submodules before:
 
 ### Hugo
 
-This site is built with the static site generator Hugo (*extended*).
-Currently v0.75.1 extended:
-```
-$ ./hugo version
-Hugo Static Site Generator v0.73.0/extended windows/amd64 BuildDate: unknown
-```
+This site is built with the static site generator [Hugo](https://github.com/gohugoio/hugo) (*extended*).
+
+You can use a prebuilt binary of the latest *extended* version for your system. A detailed guide for installation of the prebuilt binaries is given in the [Hugo installation documentation](https://gohugo.io/installation/).
 
 #### SASS
 
