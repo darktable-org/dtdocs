@@ -111,7 +111,7 @@ Bear in mind that these controls are provided as a basic guide to achieving colo
 
 # exposure adjustment
 
-The histogram, waveform, and RGB parade scopes can be used to directly alter the _exposure_ and _black level_ of the [_exposure_](../../processing-modules/exposure.md) module.
+The histogram, waveform, and RGB parade scopes can be used to directly alter the exposure and black level of the exposure module.
 
 For the histogram, click towards the right-hand side of the histogram and then drag right to increase or drag left to decrease the exposure. In a similar manner you can control the black level by clicking and dragging in the left-hand side.
 
@@ -119,7 +119,13 @@ For horizontal waveform and RGB parade, drag the upper portion of the scope up/d
 
 For vertical waveform and RGB parade scopes, the corresponding regions are to the right (exposure) and left (black level).
 
-You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point. Double-click in the scope to reset the exposure module's parameters to their defaults.
+You can also scroll in the appropriate area – rather than dragging – to adjust exposure and black point. 
+
+Soft limits are respected in this module but can be overridden with ctrl+shift
+
+Fine tuning can be achieved by adjusting the speed when dragging or scrolling by using the ctrl key for fine tuning. Alternatively, a right-click will pop up a fine-tuning option.  
+
+Double-click in the appropriate part of the scope to reset the exposure or black point individually to their defaults.
 
 # histogram profile
 
