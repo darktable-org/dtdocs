@@ -6,7 +6,7 @@ tags:
 view: darkroom, tethering, map, print
 ---
 
-The filmstrip can be used to quickly switch between images. The images shown are the same as those displayed in the lighttable view and are defined by the currently-selected collection.
+The filmstrip can be used to quickly switch between images in the darkroom. The images shown are the same as those displayed in the lighttable view and are defined by the currently-selected collection.
 
 ![filmstrip](./filmstrip/filmstrip.png)
 
@@ -39,6 +39,8 @@ The following shortcuts can be used to perform operations on the selected images
 - `Ctrl+C` copies the full history stack
 
 - `Ctrl+V` pastes all of the copied history stack
+
+- `Ctrl+X` copies the settings of the of the last changed module to all selected images
 
 - `Ctrl+Shift+C` selectively copies the history stack
 
