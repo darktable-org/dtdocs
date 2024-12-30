@@ -91,4 +91,5 @@ From left to right:
 ![guides-overlays-icon](./darkroom-view-layout/guides-overlays-icon.png#icon) [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md)
 : Left-click to switch global guide overlays on/off and right-click to change the guide settings, including the color of all on-image drawing (masks, crop guides etc.)
 
-You can also enable the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen to allow you select and interact with the currently selected collection in the [lighttable](../lighttable/_index.md) view.
+[filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
+: You can also enable the filmstrip at the bottom of the screen allowing you to select and interact with the currently selected collection similar to the [lighttable](../lighttable/_index.md) view.
