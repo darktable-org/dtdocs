@@ -14,7 +14,7 @@ The filmstrip can be switched on and off using the shortcut Ctrl+F. The height o
 
 Quickly navigate through the images in the filmstrip by scrolling with the mouse. Increase scroll speed with Shift+scroll. Change the height of the filmstrip with Ctrl+scroll or by clicking+dragging the top of the panel. In the darkroom you can change the photo currently being processed by clicking on another image in the filmstrip.
 
-In the darkroom, the image currently being processed is selected and highlighted. Hover over an image on the filmstrip with your mouse to select it (in order to act on it with a keyboard shortcut) without changing the image being processed.
+In the darkroom, the image currently being processed is selected and highlighted. Click on or hover over an image on the filmstrip with your mouse to select it (in order to act on it with a keyboard shortcut) without changing the image being processed. Double-click on an image to open it for editing.
 
 If you wish to select multiple images in the filmstrip, click to select the first image followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
 
