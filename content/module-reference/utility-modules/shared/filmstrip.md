@@ -44,8 +44,4 @@ The following shortcuts can be used to perform operations on the selected images
 
 - `Ctrl+Shift+V` selectively pastes from the copied history stack
 
-- `Ctrl+Z` performs an undo on the last history stack operation
-
-- `Ctrl+Y` performs a redo on the last history stack operation
-
 See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.
