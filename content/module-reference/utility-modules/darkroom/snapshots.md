@@ -20,7 +20,7 @@ You can pan or zoom the image while using the snapshot view using your keyboard 
 
 Click on the name of the snapshot again to disable the overlay and return to your editing session. Click the module's reset button to remove all existing snapshots. 
 
-It is possible to restore a snapshot to the current history stack (erasing any steps in the history stack performed after the snapshot was taken) by clicking the ![restore-snapshot icon](./snapshots/restore-snapshot.png#icon) icon to the right of the snapshot name.
+You can restore a snapshot to the current history stack (which will replace the history stack of the current image with the stack taken from that snapshot) by clicking the ![restore-snapshot icon](./snapshots/restore-snapshot.png#icon) icon to the right of the snapshot name.
 
 ---
 
