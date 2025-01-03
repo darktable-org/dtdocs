@@ -203,13 +203,16 @@ It is possible to completely remove a tag from all images (whether selected or n
 - right-click on a tag in the _tag dictionary_ window, to show a pop-up menu, and choose "delete tag".
 - right-click on a branch node in the _tag dictionary_ window, to show a pop-up menu, and choose "delete node" to delete the selected node together with any child nodes.
 
-## import / export tags
+## import / export
 
 The “import” button allows you to choose a text file (which must comply with the Lightroom tag text file format) and import its content. If a tag in the imported file already exists, its properties will be updated, otherwise a new tag will be created.
 
 The “export” button exports your entire tag dictionary into a text file of your choice (Lightroom tag text file format).
 
+## copy tag to clipboard
+
 It is possible to copy a single selected tag to the clipboard from both _attached tags_ and _tag dictionary_ sections by using the pop-up menu entry "copy to clipboard".
+
 ## keyboard
 
 The following keys can be used within the tagging module:
