@@ -119,7 +119,13 @@ For horizontal waveform and RGB parade, drag the upper portion of the scope up/d
 
 For vertical waveform and RGB parade scopes, the corresponding regions are to the right (exposure) and left (black level).
 
-You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point. Double-click in the scope to reset the exposure module's parameters to their defaults.
+You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point.
+
+Finally, you can override the default adjustment behavior as follows:
+
+- hold Ctrl+Shift while adjusting to override the soft limits (e.g. to significantly overexpose the image)
+- hold Ctrl while adjusting to fine-tune the adjustment. Alternatively, right-click to enter a precise value for the adjustment
+- double-click on the desired area to reset to the original value
 
 # histogram profile
 
