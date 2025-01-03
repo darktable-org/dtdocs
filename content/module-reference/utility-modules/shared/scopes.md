@@ -121,7 +121,7 @@ For vertical waveform and RGB parade scopes, the corresponding regions are to th
 
 You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point.
 
-There are the following overrides for the default behavior:
+Finally, you can override the default adjustment behavior as follows:
 
 - hold Ctrl+Shift while adjusting to override the soft limits (e.g. to significantly overexpose the image)
 - hold Ctrl while adjusting to fine-tune the adjustment. Alternatively, right-click to enter a precise value for the adjustment
