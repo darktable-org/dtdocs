@@ -124,7 +124,7 @@ You can also scroll in the appropriate area -- rather than dragging -- to adjust
 There are the following overrides for the default behavior:
 
 - hold Ctrl+Shift while adjusting to override the soft limits (e.g. to significantly overexpose the image)
-- hold Ctrl while adjusting or right-click to fine-tune the adjustment
+- hold Ctrl while adjusting to fine-tune the adjustment. Alternatively, right-click to enter a precise value for the adjustment
 - double-click on the desired area to reset to the original value
 
 # histogram profile
