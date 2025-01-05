@@ -63,7 +63,7 @@ From left to right:
 : Apply star ratings to images.
 
 [color labels](./digital-asset-management/star-color.md)
-: Apply color labels to images. Right-click to assign a descriptive name to any color label.
+: Apply color labels to images. Right-click to assign a descriptive name to any color label. The description is displayed only in the tooltip that appears when hovering over the color label (and not in collection filters or any other UI element).
 
 [mode selector](./lighttable-modes/_index.md)
 : Choose a lighttable mode.
