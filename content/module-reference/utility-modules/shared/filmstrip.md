@@ -18,6 +18,8 @@ In the darkroom, the image currently being processed is selected and highlighted
 
 If you wish to select multiple images in the filmstrip, click to select the first image followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
 
+You may change the _custom sort_ order of images in the filmstrip by dragging and dropping thumbnails as described at [custom sort](../../../../lighttable/digital-asset-management/custom-sort.md).
+
 The following shortcuts can be used to select images in the filmstrip:
 
 - `Ctrl+A` selects all images in the filmstrip
@@ -25,6 +27,7 @@ The following shortcuts can be used to select images in the filmstrip:
 - `Ctrl+Shift+A` deselects all images
 
 - `Ctrl+I` inverts the current selection
+
 
 The following shortcuts can be used to perform operations on the selected images
 

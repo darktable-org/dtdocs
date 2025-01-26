@@ -10,7 +10,9 @@ The lighttable view allows you to view and manage your image collection.
 
 The centre view contains thumbnails of your images -- how they are displayed depends on which [mode](./lighttable-modes/_index.md) you are working in.
 
-While the mouse is over an image thumbnail or images are selected, there are a number of actions you can perform with keyboard shortcuts:
+While the mouse is over an image thumbnail or images are selected, there are a number of actions you can perform:
+
+# keyboard shortcuts
 
 - `F1, F2, F3, F4, F5` adds or removes a color label (red, yellow, green, blue, purple, respectively). A color label will be added if _any_ selected image does not currently have the label; otherwise the label will be removed
 
@@ -33,3 +35,9 @@ While the mouse is over an image thumbnail or images are selected, there are a n
 - `W ` fully zooms into the current image while the key is pressed
 
 - `Ctrl+W ` fully zooms into the current image and show areas in focus
+
+# drag-and-drop
+
+- You may change the sequence of images displayed, processed, or exported when _sort by_ is set to [custom sort](../../lighttable/digital-asset-management/custom-sort.md) by dragging and dropping their thumbnails.
+
+- Use of this feature requires careful attention. __Note its [cautions](./digital-asset-management/custom-sort.md#cautions).__
