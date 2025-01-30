@@ -1,7 +1,6 @@
 ---
 title: custom sort
 id: custom-sort
-draft: true
 weight: 80
 author: "wbclay"
 ---
