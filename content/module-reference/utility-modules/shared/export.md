@@ -20,7 +20,7 @@ target storage
 : The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
 
 filename template
-: Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. See the [variables](../../../special-topics/variables.md) section for details.
+: Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, `$(SEQUENCE)` in a template records sequence number of the image exported to the target. See the [variables](../../../special-topics/variables.md) section for details.
 
 output directory selector
 : The button beside the filename template entry opens a dialog to select the parent directory for export.
