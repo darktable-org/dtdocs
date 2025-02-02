@@ -19,8 +19,8 @@ There are two distinct "custom sort" sequencing regimes:
 
 When an image is imported into your darktable library, it is automatically positioned in the global sequence after all previously-imported images. A duplicated image is initially positioned in the global sequence immediately after its original, regardless of intervening image imports.
 
-Tagged images are sequenced within each attached tag in the order that the tag is attached. Selected sets of images are tagged in order of the _sort by_ setting in effect at the moment the tag is attached. Newly-tagged images are initially positioned after all images previously associated with that tag. A duplicated image inherits all of its origanal's tags and is positioned within each as a newly-tagged image.
+Tagged images are sequenced within each attached tag in the order that the tag is attached. Selected sets of images are tagged in order of the _sort by_ setting in effect at the moment the tag is attached. Newly-tagged images are initially positioned after all images previously associated with that tag. A duplicated image inherits all of its original's tags and is positioned within each as a newly-tagged image.
 
-The __primary selection criterion__ of a collection determines which sequence drag-and-drop alters while working in lighttable filemanager or the filmstrip. If the primary collection criterion is "tag", drag-and-drop alters the chosen tag-based sequence(s). Otherwise, drag-and-drop alters the global sequence of all images in the library.
+A collection's __selection criterion__ determines which sequence drag-and-drop alters while working in lighttable filemanager or the filmstrip. Drag-and-drop withn a tag-based collection alters a designated tag's sequence. Otherwise, drag-and-drop alters the global sequence of all images in the library.
 
 The next section, [custom sort](../../lighttable/digital-asset-management/custom-sort.md), suggests how to efficiently and safely use drag-and-drop image resequencing. __Note its [cautions](./custom-sort.md#cautions).__

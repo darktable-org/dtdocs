@@ -13,7 +13,7 @@ The top panel appears in all darktable views and provides access to common funct
 # On the left-hand-side
 
 ![top-panel_filter-preferences icon](./top-panel/top-panel_filter-preferences.png#icon)filter
-: Choose which of a [collection's](../../lighttable/digital-asset-management/collections/) images are displayed, making them available for different [views](../..//overview/user-interface/views/) or selection and [action](../../module-reference/utility-modules/lighttable/selected-image/). Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collection-filters.md) module or by clicking the icon.
+: Choose which of a [collection's](../../lighttable/digital-asset-management/collections/) images are displayed, making them available to different [views](../..//overview/user-interface/views/) for selection and [action](../../module-reference/utility-modules/lighttable/selected-image/). Criteria can be altered in the [collection filters](../../module-reference/utility-modules/shared/collection-filters.md) module or by clicking the icon.
 
 sort by
 : Choose the property that orders the displayed [image sequence](../../lighttable/digital-asset-management/sequence     ).
