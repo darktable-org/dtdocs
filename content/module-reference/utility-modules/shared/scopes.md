@@ -84,7 +84,7 @@ Click the right-most button to toggle the chroma scale between linear and logari
 
 Click the second-to-right-most button to toggle the color space of the vectorscope between [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) -- as previously mentioned, these color spaces exclude any luminosity component in this module. The CIELUV graph will be faster to calculate, and is a well-known standard, though JzAzBz may be more perceptually accurate.
 
-Finally, along the left-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic. For example, the following shows the "triad" color harmony:
+Finally, along the left-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic when in RYB color space. For example, the following shows the "triad" color harmony:
 
 ![vectorscope-ch-triad](./scopes/vectorscope-ch-triad.png#w50)
 
