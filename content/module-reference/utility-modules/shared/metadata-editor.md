@@ -35,10 +35,16 @@ You may use the keyboard to navigate and apply changes while any of the metadata
 
 # preferences
 
-The "preferences…" option in the presets menu brings up a dialog where you can configure how metadata is handled within darktable. For each metadata item, two check boxes allow you to restrict how metadata is handled:
+The "preferences…" option in the presets menu brings up a dialog where you can configure what metadata tags to be used and how they are handled within darktable. For each metadata item, two check boxes allow you to restrict how metadata is handled:
 
 visible
 : Show or hide this metadata field. Hidden fields are not included in exported images.
-
+ 
 private
 : Keep this metadata field private. Private fields are not included in exported images.
+
+To add new metadata tags, press the "+" button at the bottom. A dialog appears where you can search for the tags you want to add. Tags can be added by either double-click or the "add" button. Press "done" and the metadata editor is immediately updated with the new tags. The display name of the tag can be changed by clicking on it. Drag and drop the rows to change the display order.
+
+All tags in this module are available in the [image information](../../module-reference/utility-modules/shared/image-information.md) module, the [import](../../module-reference/utility-modules/lighttable/import.md) module and the [collections](../../module-reference/utility-modules/shared/collections.md) module.
+
+The tag values can be used in [variable substitution](../../../special-topics/variables.md). Use the last part of the tagname for the variable name. Example: The xmp tag `Xmp.iptc.location` is available as the variable `$(LOCATION)`.
