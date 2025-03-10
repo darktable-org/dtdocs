@@ -1,7 +1,7 @@
 ---
 title: export
 id: export-selected
-applicable-version: 4.6
+applicable-version: 5.2
 tags: 
 view: lighttable
 ---
@@ -100,7 +100,7 @@ start export
 : Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the "x" icon located close to the progress bar. 
 
 multi-preset export
-: This section allows to easily export the selected images with several different presets in a single export run. Select the desired presets and press the "start export" button. Make sure that the presets specify individual settings for filename and path so that the exported images do not overwrite each other.
+: Expanding this section allows you to easily export each of the selected images with several different presets in a single export run. For example, you may wish to export each image in multiple sizes at the same time for use in a website. Simply create a preset for each type of export you wish to make, ensuring that the file path settings for each preset is unique (so that the exported images don't overwrite one another). Select the desired presets and press the "start export" button as normal.
 
 ---
 
