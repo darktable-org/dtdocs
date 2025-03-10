@@ -117,9 +117,9 @@ $(NL)                      newline character
 $(JOBCODE)                 internal jobcode of current job
 ```
 
-# metadata tags
+# metadata
 
-Metadata tags from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substition. The last part of the xmp tagname is used for the variable name. Example: The xmp tag `Xmp.iptc.location` is available as `$(LOCATION)`.
+Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substition using the last part of the associated tag name as the variable name. For example, the xmp tag `Xmp.iptc.location` is available as the variable `$(LOCATION)`.
 
 
 # string substitution
