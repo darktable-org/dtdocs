@@ -62,8 +62,6 @@ darktable resources
 
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using darktable on your system and/or are exporting a lot of images.
 
-: - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
-
 : See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information.
 
 prefer performance over quality

@@ -53,19 +53,12 @@ On the other hand darktable's performance during file exports is more or less on
 
 The "darktable resources" preference (in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory)) allows you to choose between four different approaches to allocating your system's resources to darktable. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/darktable/darktablerc`. You can amend any of these directly within your darktablerc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
----
-
-**Note**: The _unrestricted_ mode really "takes it all". This might seem to be the best setting to use but, especially when exporting large images with high quality, unrestricted memory use can cause swapping, which might lead to impaired performance or darktable being silently killed by your operating system.
-
----
-
 Each of the four "darktable resources" options are defined as follows:
 
 ```
 resource_default=512 8 128 700
 resource_large=700 16 128 900
 resource_small=128 4 64 400
-resource_unrestricted=16384 1024 128 900
 ```
 
 More generally, these can be represented as `resource_level=a b c d` where `a` - `d` are defined as follows:
@@ -193,5 +186,3 @@ cldevice\_version\_canonicalname\_building
 opencl\_mandatory\_timeout
 : _default 400_
 : If darktable wants to make use of any OpenCL device it has to reserve it for further usage. If that device is current used darktable will wait up to _opencl\_mandatory\_timeout * 5ms_ before it does a fallback to CPU. Increase this value if you would prefer to use OpenCL (because your card is really fast and your CPU is not).
-
-
