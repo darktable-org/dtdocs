@@ -8,11 +8,11 @@ view: darkroom
 
 Store development snapshots and compare with the current edit.
 
-Snapshots can be taken at any point in the development process and later overlaid onto the current center view. This allows you to undertake a side by side comparison (by default left=snapshot, right=active edit) while you are tuning parameters of a module. It can also be combined with the [history stack](./history-stack.md) module to compare a snapshot against different stages of development. 
+Snapshots can be taken at any point in the development process and later overlaid onto the current center view or shown side-by-side. This allows you to undertake a comparison (by default left=snapshot, right=active edit) while you are tuning parameters of a module. It can also be combined with the [history stack](./history-stack.md) module to compare a snapshot against different stages of development. 
 
 To take a snapshot, click on the _take snapshot_ button. Above the button you will see a list of the snapshots that have been taken for this editing session. The name of each snapshot reflects the name of the module selected in the history stack and its position at the time the snapshot was taken. You can choose your own label for a snapshot by Ctrl+clicking on the snapshot name -- this will be displayed after the module name, separated with a bullet.
 
-Click on the name of a snapshot to show it -- this enables a split view between the saved snapshot image and the current state of the processed image. You can control the position of the split-line by clicking and dragging the line with your mouse. If you hover over the split-line with your mouse, a small rotation icon will appear on the center of the line. Click this icon to change between vertical and horizontal split view -- the positions of the snapshot and current image will be rotated anti-clockwise allowing you to choose whether they appear to the top, bottom, left or right of the screen. 
+Click on the name of a snapshot to show it.
 
 At all times, an arrow containing the letter "S" is displayed to indicate which side of the image is the snapshot and which is the current edit.
 
@@ -21,6 +21,16 @@ You can pan or zoom the image while using the snapshot view using your keyboard 
 Click on the name of the snapshot again to disable the overlay and return to your editing session. Click the module's reset button to remove all existing snapshots. 
 
 You can restore a snapshot to the current history stack (which will replace the history stack of the current image with the stack taken from that snapshot) by clicking the ![restore-snapshot icon](./snapshots/restore-snapshot.png#icon) icon to the right of the snapshot name.
+
+# overlay view
+
+By default, selecting a snapshot enables a split view between the saved snapshot image and the current state of the processed image. You can control the position of the split-line by clicking and dragging the line with your mouse. If you hover over the split-line with your mouse, a small rotation icon will appear on the center of the line. Click this icon to change between vertical and horizontal split view -- the positions of the snapshot and current image will be rotated anti-clockwise allowing you to choose whether they appear to the top, bottom, left or right of the screen. 
+
+# side-by-side view
+
+You can toggle a side-by-side snapshot view by clicking on the ![sidebyside-snapshot icon](./snapshots/sidebyside-snapshot.png#icon) icon to the right of the _take snapshot_ button.
+
+Selecting a snapshot then splits the center viewport into two equal panels, one showing the snapshot and one showing the current state of the processed image. The dividing line can not be moved and any click without "a" rotates the layout -- switching between showing the snapshot to the left, below, right, or above the current image.
 
 ---
 
