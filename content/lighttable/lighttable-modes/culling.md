@@ -8,6 +8,8 @@ author: "people"
 
 Culling mode allows you to display images side by side for easy comparison.
 
+Thumbnail overlays can be controlled by selecting the star icon in the [top panel](../../overview/user-interface/top-panel.md) and changing the "*culling overlays*" setting. If "*no overlays*" is selected, then the overlay can be shown on-demand by pressing "i".
+
 # controls
 
 zoom
@@ -27,12 +29,12 @@ fixed mode
 
 : In this mode, you will navigate through all selected images. If no selection is set (or if only one image is selected), you will navigate through all images.
 
-: The default keyboard shortcut to enter culling in fixed mode is X.
+: The default keyboard shortcut to enter culling in fixed mode is "x".
 
 dynamic mode
 : All of the selected images are shown. If no selection is set (or if only one image is selected) the last value from fixed mode is used.
 
-: The default keyboard shortcut to enter culling in dynamic mode is Ctrl+X.
+: The default keyboard shortcut to enter culling in dynamic mode is Ctrl+x.
 
 ---
 
