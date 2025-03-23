@@ -213,6 +213,10 @@ The “export” button exports your entire tag dictionary into a text file of y
 
 It is possible to copy a single selected tag to the clipboard from both _attached tags_ and _tag dictionary_ sections by using the pop-up menu entry "copy to clipboard".
 
+## find tag
+
+If you right click on a tag name in the _attached tags_ section and click _find tag_ then the _tag dictionary_ will show all matching tags.
+
 ## keyboard
 
 The following keys can be used within the tagging module:
