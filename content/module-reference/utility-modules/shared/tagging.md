@@ -215,7 +215,7 @@ It is possible to copy a single selected tag to the clipboard from both _attache
 
 ## find tag
 
-If you right click on a tag name in the _attached tags_ section and click _find tag_ then the _tag dictionary_ will show all matching tags.
+If you right click on a tag name in the _attached tags_ section and click _find tag_, then the _tag dictionary_ will show all matching tags.
 
 ## keyboard
 
