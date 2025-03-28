@@ -1,6 +1,6 @@
 ---
 title: multiple instances
-id: mutiple-instances
+id: multiple-instances
 weight: 20
 draft: false
 ---

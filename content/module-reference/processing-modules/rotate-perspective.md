@@ -120,11 +120,11 @@ show guides
 
 Here is an image with a skewed horizon and converging lines caused by directing the camera upwards:
 
-![prespective-correction-example-before](./rotate-perspective/perspective-correction-example-before.png#w66)
+![perspective-correction-example-before](./rotate-perspective/perspective-correction-example-before.png#w66)
 
 Here is the image after having corrected for vertical and horizontal perspective distortions using automatic structure detection. Note the framing adjustment made by the automatic cropping feature and the still-visible overlay of structural lines:
 
-![prespective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
+![perspective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
 
 
 

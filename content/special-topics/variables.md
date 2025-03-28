@@ -119,7 +119,7 @@ $(JOBCODE)                 internal jobcode of current job
 
 # metadata
 
-Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substition using the last part of the associated tag name as the variable name. For example, the xmp tag `Xmp.iptc.location` is available as the variable `$(LOCATION)`.
+Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substitution using the last part of the associated tag name as the variable name. For example, the xmp tag `Xmp.iptc.location` is available as the variable `$(LOCATION)`.
 
 
 # string substitution

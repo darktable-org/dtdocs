@@ -186,7 +186,7 @@ There are a number of ways to attach an existing tag to a group of selected imag
 - Press Ctrl+T to open a small text box at the bottom of the central view of the lighttable. Type in the name of a tag and press Enter. The tag will be created if it doesn't exist, and attached to all the selected images.
 - Drag an image or group of images and drop it onto the desired tag.
 
-When hovering over the images in the ligthtable you can check which tags are attached to the image, either by looking at the _attached tags_ window in the _tagging_ module, or in the _tags_ attribute in the [image information](./image-information.md) module.
+When hovering over the images in the lighttable you can check which tags are attached to the image, either by looking at the _attached tags_ window in the _tagging_ module, or in the _tags_ attribute in the [image information](./image-information.md) module.
 
 ## detach tag
 
