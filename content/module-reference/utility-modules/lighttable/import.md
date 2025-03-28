@@ -123,7 +123,7 @@ The following additional options are available to control the file and directory
 import job
 : The name of the import job (populated into the `$(JOBCODE)` variable).
 
-override todays's date
+override today's date
 : Enter a valid date/time (in `YYYY-MM-DD[Thh:mm:ss]` format) if you want to override the current date/time used when expanding the variables `$(YEAR)`, `$(MONTH)`, `$(DAY)`, `$(HOUR)`, `$(MINUTE)` and `$(SECONDS)`. Leave the field empty otherwise.
 
 base directory naming pattern

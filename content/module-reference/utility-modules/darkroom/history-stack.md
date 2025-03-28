@@ -1,6 +1,6 @@
 ---
 title: history stack
-id: history-staack
+id: history-stack
 applicable-version: 3.8
 tags: 
 view: darkroom

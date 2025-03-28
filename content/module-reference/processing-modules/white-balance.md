@@ -1,6 +1,6 @@
 ---
 title: white balance
-id: white-blaance
+id: white-balance
 weight: 10
 applicable-version: 3.4
 tags: 

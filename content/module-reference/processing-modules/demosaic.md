@@ -1,6 +1,6 @@
 ---
 title: demosaic
-id: demoasic
+id: demosaic
 weight: 10
 applicable-version: 3.8
 tags:
