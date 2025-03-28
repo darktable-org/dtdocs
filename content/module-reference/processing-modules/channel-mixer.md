@@ -76,7 +76,7 @@ Different types of traditional black and white film have differing sensitivities
 # module controls
 
 destination
-: Select the destination channel that will be affected by the slider settings immediately below. The red, green and blue destination channels are used for color mixing as described in the _matrix multiplication_ section above. The gray channel is used for making grayscale images as described in the _monochome_ section above. It is also possible to define the R, G & B input channels to produce HSL (hue, saturation and lightness) values on the output, although this is a very specialised application.
+: Select the destination channel that will be affected by the slider settings immediately below. The red, green and blue destination channels are used for color mixing as described in the _matrix multiplication_ section above. The gray channel is used for making grayscale images as described in the _monochrome_ section above. It is also possible to define the R, G & B input channels to produce HSL (hue, saturation and lightness) values on the output, although this is a very specialised application.
 
 red
 : Defines how much the red input channel should contribute to the selected destination channel.
