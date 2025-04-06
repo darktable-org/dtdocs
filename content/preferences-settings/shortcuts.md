@@ -101,7 +101,7 @@ The mouse cursor will change as you hover over UI widgets, to indicate whether o
 
 ![keyboard](./shortcuts/keyboard.png#icon) indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel.
 
-(🚫) indicates that there is no mappable widget under the cursor. 
+![Don't signal](./shortcuts/no%20signal.png#icon) indicates that there is no mappable widget under the cursor. 
 
 Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
 
