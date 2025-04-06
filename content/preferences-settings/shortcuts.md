@@ -93,10 +93,10 @@ Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
-- A normal mouse cursor (pointer) appears when you hover over a module header, to indicate that you can click to expand the module,
-- An image of a keyboard with a "+" sign indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it),
-- An image of a keyboard with a "--" sign indicates that the widget is already in the quick access panel (Ctrl+click to remove it),
-- An image of a keyboard without a "+" or "--" indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel, 
+- A modified mouse cursor (pointer) ![modified pointer](https://github.com/Dave22152/dtdocs/blob/Visual-Shortcut-Mapping/content/preferences-settings/shortcuts/modified-pointer.png) appears when you hover over a module header, to indicate that you can click to expand the module,
+- An image of a keyboard with a "+" sign ![keyboard plus sign](https://github.com/Dave22152/dtdocs/blob/Visual-Shortcut-Mapping/content/preferences-settings/shortcuts/plus-keyboard.png) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it),
+- An image of a keyboard with a "--" sign ![keyboard minus sign](https://github.com/Dave22152/dtdocs/blob/Visual-Shortcut-Mapping/content/preferences-settings/shortcuts/minus-keyboard.png) indicates that the widget is already in the quick access panel (Ctrl+click to remove it),
+- An image of a keyboard without a "+" or "--" ![keyboard](https://github.com/Dave22152/dtdocs/blob/Visual-Shortcut-Mapping/content/preferences-settings/shortcuts/keyboard.png) indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel, 
 - A circle with a line through it (🚫) indicates that there is no mappable widget under the cursor. 
 
 Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
