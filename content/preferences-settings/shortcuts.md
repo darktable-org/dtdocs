@@ -93,15 +93,15 @@ Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
- ![modified pointer](./shortcuts/modified-pointer.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
+- ![modified pointer](./shortcuts/modified-pointer.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
  
- ![keyboard plus sign](./shortcuts/plus-keyboard.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
+- ![keyboard plus sign](./shortcuts/plus-keyboard.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access -panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
  
-![keyboard minus sign](./shortcuts/minus-keyboard.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
+- ![keyboard minus sign](./shortcuts/minus-keyboard.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
 
-![keyboard](./shortcuts/keyboard.png#icon) indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel.
+- ![keyboard](./shortcuts/keyboard.png#icon) indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel.
 
-![Don't signal](./shortcuts/no%20signal.png#icon) indicates that there is no mappable widget under the cursor. 
+- ![Don't signal](./shortcuts/no-signal.png#icon) indicates that there is no mappable widget under the cursor. 
 
 Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
 
