@@ -19,8 +19,8 @@ A single action may have multiple shortcuts but a single shortcut can only be li
 
 A shortcut must be initiated by either
 
-- pressing a key on the keyboard; or
-- pressing a button or moving a knob/joystick on an external device 
+-   pressing a key on the keyboard; or
+-   pressing a button or moving a knob/joystick on an external device
 
 You cannot initiate a shortcut by moving your mouse, or by pressing the left, right or middle mouse buttons, as these actions are used to interact with darktable's UI.
 
@@ -30,9 +30,9 @@ A shortcut that only includes button and/or key presses (and not mouse/device mo
 
 A simple shortcut must be initiated as above, but can include:
 
-- One or more modifier keys (Shift, Ctrl, Alt), held down while executing the remainder of the shortcut
-- Up to three key presses, the last one of which may be a long-press (defined as a key-press longer than your system's double-click duration)
-- Similarly, up to three device-button presses or mouse-button clicks, the last of which may be long
+-   One or more modifier keys (Shift, Ctrl, Alt), held down while executing the remainder of the shortcut
+-   Up to three key presses, the last one of which may be a long-press (defined as a key-press longer than your system's double-click duration)
+-   Similarly, up to three device-button presses or mouse-button clicks, the last of which may be long
 
 Various combinations of keyboard, mouse, and device buttons can be used to create simple shortcuts.
 
@@ -44,11 +44,11 @@ The only valid modifiers are the Shift, Ctrl and Alt keys on the keyboard. You c
 
 For certain actions you can choose to _extend_ a simple shortcut using mouse/device movement. For example you might hold Ctrl+X while scrolling with your mouse to change the value of a slider. The following can be used to extend a simple shortcut:
 
-- Movement of the mouse scroll wheel
-- Horizontal, vertical or diagonal movement of the mouse cursor
-- Movement of a knob/joystick on an external device
+-   Movement of the mouse scroll wheel
+-   Horizontal, vertical or diagonal movement of the mouse cursor
+-   Movement of a knob/joystick on an external device
 
-To extend a simple shortcut, you must hold the final key/button of the simple shortcut while performing the extending mouse/device movement. 
+To extend a simple shortcut, you must hold the final key/button of the simple shortcut while performing the extending mouse/device movement.
 
 For external devices you do not need to start with a _simple_ shortcut -- you can directly assign a control knob or joystick to an action -- though this will significantly reduce the flexibility of such devices.
 
@@ -62,15 +62,15 @@ Long button and key presses cannot be extended, as the length of the click/press
 
 # actions
 
-Shortcuts are used to initiate _actions_ within darktable. 
+Shortcuts are used to initiate _actions_ within darktable.
 
 An _action_ is usually (but not always) an operation that you might undertake using darktable's point-and-click user interface. For example:
 
-- Increase, decrease or reset sliders
-- Scroll through dropdown lists
-- Enable, expand or focus modules
-- Click buttons
-- Switch between views
+-   Increase, decrease or reset sliders
+-   Scroll through dropdown lists
+-   Enable, expand or focus modules
+-   Click buttons
+-   Switch between views
 
 Such point-and-click type _actions_ are normally defined as the application of an _effect_ to an _element_ of a _widget_, where these terms are defined as follows:
 
@@ -93,17 +93,17 @@ Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon
 
 The mouse cursor will change as you hover over UI widgets, to indicate whether or not a mapping can be created:
 
-- ![modified pointer](./shortcuts/modified-pointer.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
- 
-- ![keyboard plus sign](./shortcuts/plus-keyboard.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access -panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
- 
-- ![keyboard minus sign](./shortcuts/minus-keyboard.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
+-   ![modified pointer](./shortcuts/modified-pointer.png#icon) appears when you hover over a module header, to indicate that you can click to expand the module.
 
-- ![keyboard](./shortcuts/keyboard.png#icon) indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel.
+-   ![keyboard plus sign](./shortcuts/plus-keyboard.png#icon) indicates that, in addition to assigning a shortcut, you can also add the widget to the [quick access panel](../darkroom/organization/quick-access-panel.md) in the darkroom (by Ctrl+clicking on it).
 
-- ![Don't signal](./shortcuts/no-signal.png#icon) indicates that there is no mappable widget under the cursor. 
+-   ![keyboard minus sign](./shortcuts/minus-keyboard.png#icon) indicates that the widget is already in the quick access panel (Ctrl+click to remove it).
 
-Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut.  See below for details of some of the default assigned actions. 
+-   ![keyboard](./shortcuts/keyboard.png#icon) indicates that a shortcut can be defined for the widget under the cursor but it cannot be added to or removed from the quick access panel.
+
+-   ![Don't signal](./shortcuts/no-signal.png#icon) indicates that there is no mappable widget under the cursor.
+
+Press a key combination while hovering over a mappable widget to assign a shortcut to that widget -- a default action will be assigned to that shortcut based on the type of widget and whether you have keyed a _simple_ or _extended_ shortcut. See below for details of some of the default assigned actions.
 
 Left-click on a mappable widget to open the shortcut mapping screen for that widget (see below). Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. This screen can be used to alter the action assigned to a shortcut and to configure shortcuts for non-visual actions. Entering the shortcut mapping screen exits visual shortcut mapping mode.
 
@@ -117,7 +117,7 @@ Finally, if you scroll with your mouse wheel while in visual mapping mode (witho
 
 The most flexible way to create shortcuts is by using the shortcut mapping screen, which can be accessed from the global preferences dialog or by left-clicking in visual mapping mode. This screen allows access to all available actions, including some that are not directly linked to a UI widget.
 
-The top panel of the shortcut mapping screen shows a list of available UI widgets/actions and the bottom panel shows the shortcuts currently assigned to them. You can search the top and bottom panels using the text entry boxes at the bottom of the screen (use the up/down arrow keys to navigate between matches). Fields that can be changed by user action are shown in bold. 
+The top panel of the shortcut mapping screen shows a list of available UI widgets/actions and the bottom panel shows the shortcuts currently assigned to them. You can search the top and bottom panels using the text entry boxes at the bottom of the screen (use the up/down arrow keys to navigate between matches). Fields that can be changed by user action are shown in bold.
 
 Double-click an item in the top panel to create a new shortcut for that item, and then enter your desired shortcut (right-click to cancel). Once you have done this, a new entry will appear in the bottom panel showing the shortcut you have created. You can then manually alter the _element_, _effect_, _speed_ or _instance_ of the assigned action against that shortcut in the bottom panel. To delete a user-defined shortcut, select it in the bottom panel and press the Delete key.
 
@@ -129,7 +129,7 @@ export...
 : Export the current shortcut mappings for one or all of your devices (keyboard/mouse, midi, game controller) to an external file. The dialog will show you how many shortcuts exist for each device.
 
 import...
-: Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts. 
+: Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts.
 
 restore...
 : Restore your shortcut mappings to (a) The mappings shipped with darktable by default, (b) The start of your current session, or (c) The point at which the shortcut mapping screen was last opened. When restoring, you can choose to leave any additional shortcuts that were added after the relevant checkpoint as they are, so that only changed shortcuts are restored to their previous meaning. Or you can choose to first clear all shortcuts and just load the restore point.
@@ -154,7 +154,7 @@ Actions in the "global" section of the shortcut mapping screen can be executed f
 
 Actions in the "views" section can only be executed from the specified darktable view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-## buttons 
+## buttons
 
 A button is a clickable icon in the darktable interface. The default action, when assigning a simple shortcut to a _button_, is to activate that button as if clicked with the left mouse button. You can modify this action to activate the button as if clicked while holding a modifier key.
 
@@ -203,7 +203,7 @@ You can also assign scroll shortcuts to the 'preset' menu, which allows you to u
 A dropdown is a multi-selection box and has the following elements available:
 
 _selection_
-: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a simple shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values. 
+: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a simple shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; An extended shortcut (including a mouse movement) will scroll through the available values.
 
 _button_
 : A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
@@ -213,7 +213,7 @@ _button_
 A slider allows you to continuously alter an integer or decimal value, and has the following elements available:
 
 _value_
-: Allows the current value of the slider to be altered. The default action, when assigning a simple shortcut to a slider, is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down.  Value elements are also used for modifying some on-screen graphs. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
+: Allows the current value of the slider to be altered. The default action, when assigning a simple shortcut to a slider, is to display a popup _edit_ box so you can enter a value; An extended shortcut (including a mouse movement) will change the value up and down. Value elements are also used for modifying some on-screen graphs. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
 
 _force_
 : This is the same as the _value_ element described above, but it allows you to exceed the bounds set in the visual slider.
@@ -234,11 +234,11 @@ While fallbacks are a powerful way to quickly set up multiple actions using pred
 
 To take a brief example, you could create a simple shortcut (e.g. Ctrl+R) against a processing module. This will automatically set up the following _fallback_ effects using the defined shortcut, extended with mouse-clicks. In each case (except the first) you should hold the initial shortcut while clicking with your mouse. The final mouse-click will apply the action defined below:
 
-- Ctrl+R (no mouse-click) to show/hide the module (the default fallback)
-- Ctrl+R+left-click to enable/disable the module
-- Ctrl+R+left-double-click to reset the module
-- Ctrl+R+right-click to show the module's preset menu
-- Ctrl+R+right-double-click to show the module's multiple instance menu
+-   Ctrl+R (no mouse-click) to show/hide the module (the default fallback)
+-   Ctrl+R+left-click to enable/disable the module
+-   Ctrl+R+left-double-click to reset the module
+-   Ctrl+R+right-click to show the module's preset menu
+-   Ctrl+R+right-double-click to show the module's multiple instance menu
 
 Similar fallbacks are defined for many common UI elements and all can be manually overridden.
 
@@ -248,4 +248,4 @@ To see a list of _all_ of the default fallbacks, click the "enable fallbacks" ch
 
 Fallbacks are only applied if no other shortcut using that combination has been explicitly created. In the above example, if you were to explicitly assign Ctrl+R+left-click to another action, the "enable/disable module" fallback would be ignored.
 
-As with any other shortcut, fallback settings are fully customizable. 
+As with any other shortcut, fallback settings are fully customizable.
