@@ -24,7 +24,7 @@ Although the color assessment mode provides a mid-gray surrounding to the image,
 
 Color assessment mode can also be toggled by pressing Ctrl+B.
 
-The size of the grey and white border and the relative size of the white frame may be adjusted by right-clicking ![bulb-icon](./color-assessment/bulb-icon.png#icon) with two slider controls:
+The size of the grey and white border and the relative size of the white frame may be adjusted by right-clicking ![bulb-icon](./color-assessment/bulb-icon.png#icon) , which will bring up a control panel with two slider controls:
 
 - _Total border width relative to screen_: decreasing this slider will reduce the size of the combined grey and white border and will enlarge the size of the image. Increasing this control has the opposite effect.
 
