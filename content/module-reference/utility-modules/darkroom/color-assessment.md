@@ -14,7 +14,7 @@ When developing an image, the way we perceive brightness, contrast and saturatio
 - A decrease in the perceived saturation in the image makes the colors seem less rich than they really are (the Hunt effect).
 - A decrease in the perceived contrast in the image makes the tones seem flatter than they really are (Bartleson-Breneman effect 3)
 
-The end result is that the final image can end up being too dark and overly-processed in terms of contrast and color saturation. To avoid this, the _color assessment_ module in the _darkroom_ places a grey and white border around the image to help the user better assess the colors in the image
+The end result is that the final image can end up being too dark and overly-processed in terms of contrast and color saturation. To avoid this, the _color assessment_ module in the darktroom places a grey and white border around the image to help the user better assess the colors in the image
 
 ![color-assessment-overview](./color-assessment/color-assessment-overview.png#w75)
 
@@ -26,8 +26,12 @@ Color assessment mode can also be toggled by pressing Ctrl+B.
 
 The size of the grey and white border and the relative size of the white frame may be adjusted by right-clicking ![bulb-icon](./color-assessment/bulb-icon.png#icon) , which will bring up a control panel with two slider controls:
 
-- _Total border width relative to screen_: decreasing this slider will reduce the size of the combined grey and white border and will enlarge the size of the image. Increasing this control has the opposite effect.
 
-- _White border ratio_: Increasing this slider will enlarge the size of the white border and will maintain the image size, while decreasing the control will have the opposite effect.
+total border width relative to screen
+: decreasing this slider will reduce the size of the combined grey and white border and will enlarge the size of the image. Increasing this control has the opposite effect.
+
+white border ratio
+: Increasing this slider will enlarge the size of the white border and will maintain the image size, while decreasing the control will have the opposite effect.
+
 
 Double-clicking each slider restores the controls to their default values
