@@ -6,7 +6,7 @@ tags:
 view: darkroom
 ---
 
-Assess colors and brightness in your image using ISO 12646:2008 recommended viewing conditions.
+Assess colors and brightness in your image under neutral viewing conditions to avoid perceptual issues.
 
 When developing an image, the way we perceive brightness, contrast and saturation is influenced by the surrounding ambient conditions. If an image is displayed against a dark background, this can have a number of adverse effects on our perception of that image:
 
@@ -14,7 +14,7 @@ When developing an image, the way we perceive brightness, contrast and saturatio
 - A decrease in the perceived saturation in the image makes the colors seem less rich than they really are (the Hunt effect).
 - A decrease in the perceived contrast in the image makes the tones seem flatter than they really are (Bartleson-Breneman effect 3)
 
-The end result is that the final image can end up being too dark and overly-processed in terms of contrast and color saturation. To avoid this, the "ISO 12646:2008" standard makes some recommendations about the conditions under which the colors of an image should be assessed. The _color assessment_ module in the darkroom places a frame around the image to help the user better assess the colors in the image, along the lines of those recommendations.
+The end result is that the final image can end up being too dark and overly-processed in terms of contrast and color saturation. To avoid this, the _color assessment_ module in the _darkroom_ places a grey and white border around the image to help the user better assess the colors in the image
 
 ![color-assessment-overview](./color-assessment/color-assessment-overview.png#w75)
 
@@ -24,4 +24,13 @@ Although the color assessment mode provides a mid-gray surrounding to the image,
 
 Color assessment mode can also be toggled by pressing Ctrl+B.
 
-You can modify the distance from the edge of the center panel to the edge of the image by adjusting the `darkroom/ui/iso12464_border` entry in the `$HOME/.config/darktable/darktablerc` file. In the same file you can modify the size of the white border (in percent) by adjusting the `darkroom/ui/iso12464_ratio` entry.
+The size of the grey and white border and the relative size of the white frame may be adjusted by right-clicking ![bulb-icon](./color-assessment/bulb-icon.png#icon) This will call up the following panel:
+
+![color assessment control](./color-assessment/color-assessment-control.png#w50)
+
+
+Decreasing the top slider will reduce the size of the combined grey and white border and will enlarge the size of the image. Increasing this control has the opposite effect.
+
+Increasing the lower slider will enlarge the size of the white border and will maintain the image size, while decreasing the control will have the opposite effect.
+
+Double-clicking each slider restores the controls to their default values
