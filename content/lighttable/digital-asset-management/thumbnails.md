@@ -42,6 +42,6 @@ Certain icons are displayed on thumbnails to provide additional information on i
 
 Images that are members of a group are denoted by a group icon ![light group icon](./thumbnails/Group-icon-light.png#icon) or ![dark group icon](./thumbnails/Group-icon-black.png#icon), where black identifies the leader image in that group.  See [image grouping](https://github.com/Dave22152/dtdocs/blob/master/content/lighttable/digital-asset-management/grouping.mdurl) for details
 
-Hovering of the icon identifies any tags that were applied to that image.
+Hovering over the ![tags](./thumbnails/Tag-icon.png#icon) icon identifies any tags that were applied to that image.
 
 Hovering over the ![tags](./thumbnails/History-icon.png#icon) icon identifies the processing modules that are applied to that image.
