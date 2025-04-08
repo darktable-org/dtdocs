@@ -15,7 +15,7 @@ The initial set of modules (and widgets) in the panel is determined by the _auto
 
 You can add or remove widgets in the panel by: 
 
-- right-clicking on the "hamburger" icon at the top-left of the panel.
+- right-clicking on the ![quick access panel icon](./quick-access-panel/quick-access-panel-icon.png#icon).
 - right-clicking on the module name.
 - using the [manage module layouts](./manage-module-layouts.md) screen.
 - Ctrl+clicking on a widget in a processing module while in [visual shortcut mapping mode](../../preferences-settings/shortcuts.md#visual-shortcut-mapping).
