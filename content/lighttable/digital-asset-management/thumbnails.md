@@ -35,3 +35,13 @@ There are three main reasons this could happen:
 - _Invalid image format_: While darktable will attempt to import all supported file extensions, the extension is not a guarantee that darktable will be able to interpret the file's contents. If the file format (or an option within that format, such as compressed mode) is unsupported, darktable will display a question mark ![unsupported](./thumbnails/unsupported.png#icon) in place of the image. If the file appears to be corrupted, darktable will display a warning triangle ![error warning](./thumbnails/corrupt.png#icon) in place of the image.
 
 - _Low memory_: In the rare event that darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
+
+# thumbnail icons
+
+Certain icons are displayed on thumbnails to provide additional information on images, when applicable
+
+Images that are members of a group are denoted by a group icon ![light group icon](./thumbnails/Group-icon-light.png#icon) or ![dark group icon](./thumbnails/Group-icon-black.png#icon), where black identifies the leader image in that group.  See [image grouping](https://github.com/Dave22152/dtdocs/blob/master/content/lighttable/digital-asset-management/grouping.mdurl) for details
+
+Hovering of the icon identifies any tags that were applied to that image.
+
+Hovering over the ![tags](./thumbnails/History-icon.png#icon) icon identifies the processing modules that are applied to that image.
