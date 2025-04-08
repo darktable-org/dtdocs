@@ -12,6 +12,8 @@ Importing images into darktable stores information about them (filename, path, E
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
 
+The sort order of the listed collections is toggled by clicking ![top-panel_sort-order icon](./collections/top-panel_sort-order.png#icon).
+
 # filtering attributes
 
 The images in a collection can be filtered using the following image attributes:
@@ -203,14 +205,8 @@ tag case sensitivity
 number of collections to be stored
 : Set the number of recent collections to show in the history popup (if present).
 
-hide the history button and show a specific module instead
-: Choose how to view your collections history -- you can either use the history button in this module or use the [recently used collections](./recent-collections.md) module.
-
 number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).
 
 sort film rolls by
 : Sort film rolls by either the "folder name" (path) or the "import time" (the date the film rolls were first imported) (default "import time").
-
-sort collections descending
-: Sort the following collections in descending order: "film roll" (when sorted by folder), "folder", date/time (e.g. date/time taken) (default on)
