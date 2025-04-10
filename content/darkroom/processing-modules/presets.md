@@ -16,7 +16,7 @@ Please note that, for processing modules, the saved preset also includes the act
 The presets menu will contain one or more of the following entries depending on the presets that are defined or selected for the current module:
 
 preset list
-: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold** and with a small check mark beside it.
+: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold** and with a small check mark beside it.  In addition, if the selected preset displays on a submenu, it parent entry is also highlighted in **bold**.
 
 edit this preset
 : If a preset has been selected, edit the selected preset (see below).
@@ -41,7 +41,7 @@ When creating or editing presets, the following dialog is shown:
 ## controls
 
 name
-: The name of the preset
+: The name of the preset.  You can create a hierarchy of presets with shared categories by inserting vertical bar characters ("|") in the name.  For example, "Nikon|24-70mm, F2.8" would be displayed as the category "Nikon" with a submenu  containing "24-70mm, F2.8" as well as any other presets whose names start with "Nikon|".
 
 description
 : A searchable description for the preset (optional)
