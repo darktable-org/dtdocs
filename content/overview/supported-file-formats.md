@@ -12,7 +12,7 @@ In order for darktable to consider a file for import, it must have one of the fo
 
 If darktable was compiled with JPEG2000 support, the following extensions are also recognized: `J2C, J2K, JP2, JPC, JPF, JPX`.
 
-If darktable was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, DCM, GIF, JNG, JPC, JP2, JPF, JPX, MIFF, MNG, PBM, PGM, PNM, PPM, WEBP`.
+If darktable was compiled with GraphicsMagick support, the following extensions are also recognized: `BMP, CIN, DCM, DPX, GIF, JNG, JPC, JP2, JPF, JPX, MIFF, MNG, PBM, PGM, PNM, PPM, WEBP`.
 
 # camera raw files
 
