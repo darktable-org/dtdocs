@@ -12,7 +12,7 @@ The modules in this reference section are broken down into two distinct types:
 : Processing modules are used exclusively in the darkroom view. Each module performs a processing operation on the image before passing its output to the next module for further processing. Together this sequence of processing steps forms the [pixelpipe](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
 
 [utility modules](./utility-modules/_index.md)
-: Utility modules may be used in any darktable view. They are not directly involved in processing the pixels of an image but perform other ancillary functions (managing image metadata and tags, editing history, modifying pixel pipeline order, snapshots and duplicates, image export etc.). Right-click in a side panel (outside of any module) to list the available utility modules and to toggle their visibility.
+: Utility modules may be used in any darktable view. They are not directly involved in processing the pixels of an image but perform other ancillary functions (managing image metadata and tags, editing history, modifying pixel pipeline order, snapshots and duplicates, image export etc.). Right-click in a side panel (outside of any module) to list the available utility modules and toggle their visibility. Drag-and-drop a module to change its position.
 
 The two types of modules have a few aspects in common, described below.
 
@@ -26,9 +26,9 @@ module name
 reset parameters button
 : This normally appears to the right of the module name and is used to reset the state of the module back to its original condition.
 
-presets  menu
+presets menu
 : This normally appears at the far right of the module header. The [presets](../darkroom/processing-modules/presets.md) menu is predominantly used in processing modules, but many of the utility modules allow presets to be defined as well. You can also access this menu by right-clicking anywhere on the module header.
- 
+
 Processing modules contain additional elements in their module header, as described in the [processing module header](../darkroom/processing-modules/module-header.md) section.
 
 # module resizing
@@ -46,4 +46,3 @@ Some utility modules contain lists of information that can grow as more entries 
 ## processing modules
 
 Some processing modules contain drawn graphical elements that can take up too much or too little screen space depending on the width of your side panels. These drawing areas usually default to a 16:9 aspect ratio and can be similarly resized by hovering over them and holding Ctrl while scrolling.
-
