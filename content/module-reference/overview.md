@@ -12,7 +12,7 @@ The modules in this reference section are broken down into two distinct types:
 : Processing modules are used exclusively in the darkroom view. Each module performs a processing operation on the image before passing its output to the next module for further processing. Together this sequence of processing steps forms the [pixelpipe](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
 
 [utility modules](./utility-modules/_index.md)
-: Utility modules may be used in any darktable view. They are not directly involved in processing the pixels of an image but perform other ancillary functions (managing image metadata and tags, editing history, modifying pixel pipeline order, snapshots and duplicates, image export etc.). Right-click in a side panel (outside of any module) to list the available utility modules and toggle their visibility. Drag-and-drop a module to change its position.
+: Utility modules may be used in any darktable view. They are not directly involved in processing the pixels of an image but perform other ancillary functions (managing image metadata and tags, editing history, modifying pixel pipeline order, snapshots and duplicates, image export etc.).
 
 The two types of modules have a few aspects in common, described below.
 
@@ -46,3 +46,13 @@ Some utility modules contain lists of information that can grow as more entries 
 ## processing modules
 
 Some processing modules contain drawn graphical elements that can take up too much or too little screen space depending on the width of your side panels. These drawing areas usually default to a 16:9 aspect ratio and can be similarly resized by hovering over them and holding Ctrl while scrolling.
+
+# visibility and ordering
+
+## utility modules
+
+Right-click in a side panel (outside of any module) to list the available utility modules and toggle their visibility. Drag-and-drop a module to change its position. Select [preferences > general > reset view panels](../preferences-settings/general.md) to reset to default values.
+
+## processing modules
+
+Please see [mange module layouts](../darkroom/organization/manage-module-layouts.md) for information about how to organise processing modules. Please note that you cannot reorder them without changing how an image is processed. See [the pixelpipe and module order](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md) for more information.
