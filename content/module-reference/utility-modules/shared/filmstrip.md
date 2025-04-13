@@ -12,11 +12,13 @@ The filmstrip can be used to quickly switch between images. The images shown are
 
 The filmstrip can be switched on and off using the shortcut Ctrl+F. The height of the filmstrip panel can be changed by clicking and dragging its top border.
 
-Quickly navigate through the images in the filmstrip by scrolling with the mouse. Increase scroll speed with Shift+scroll. Change the height of the filmstrip with Ctrl+scroll or by clicking+dragging the top of the panel. In the darkroom you can change the photo currently being processed by clicking on another image in the filmstrip.
+Quickly navigate through the images in the filmstrip by scrolling with the mouse. Increase scroll speed with Shift+scroll. Change the height of the filmstrip with Ctrl+scroll or by clicking+dragging the top of the panel. Change the _custom sort_ order of images by dragging and dropping thumbnails as described at [custom sort](../../../../lighttable/digital-asset-management/custom-sort.md).
 
-In the darkroom, the image currently being processed is selected and highlighted. Click on or hover over an image on the filmstrip with your mouse to select it (in order to act on it with a keyboard shortcut) without changing the image being processed. Double-click on an image to open it for editing.
+In the darkroom, the image currently being processed is selected and highlighted. Click on or hover over a different image on the filmstrip with your mouse in order to act on it with a keyboard shortcut _without changing the image being processed_. Double-click on an image to open it for editing.
 
 If you wish to select multiple images in the filmstrip, click to select the first image followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
+
+
 
 The following shortcuts can be used to select images in the filmstrip:
 
@@ -25,6 +27,7 @@ The following shortcuts can be used to select images in the filmstrip:
 - `Ctrl+Shift+A` deselects all images
 
 - `Ctrl+I` inverts the current selection
+
 
 The following shortcuts can be used to perform operations on the selected images
 
