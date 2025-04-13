@@ -55,4 +55,4 @@ Right-click in a side panel (outside of any module) to list the available utilit
 
 ## processing modules
 
-Please see [mange module layouts](../darkroom/organization/manage-module-layouts.md) for information about how to organise processing modules. Please note that you cannot reorder them without changing how an image is processed. See [the pixelpipe and module order](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md) for more information.
+Please see [mange module layouts](../darkroom/organization/manage-module-layouts.md) for information about how to organize processing modules. Please note that you cannot reorder them without changing how an image is processed. See [the pixelpipe and module order](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md) for more information.
