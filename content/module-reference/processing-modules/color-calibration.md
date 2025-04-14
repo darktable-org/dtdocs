@@ -14,15 +14,15 @@ A fully-featured color-space correction, white balance adjustment and channel mi
 
 This simple yet powerful module can be used in the following ways:
 
-- To adjust the white balance ([chromatic adaptation](#white-balance-in-the-chromatic-adaptation-transformation-cat-tab)), working in tandem with the [_white balance_](./white-balance.md) module. Here, the _white balance_ module makes some initial adjustments (required for the [_demosaic_](./demosaic.md) module to work effectively), and the _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
+-   To adjust the white balance ([chromatic adaptation](#white-balance-in-the-chromatic-adaptation-transformation-cat-tab)), working in tandem with the [_white balance_](./white-balance.md) module. Here, the _white balance_ module makes some initial adjustments (required for the [_demosaic_](./demosaic.md) module to work effectively), and the _color calibration_ module then calculates a more perceptually-accurate white balance after the input color profile has been applied.
 
-- As a simple RGB [channel mixer](#channel-mixing), adjusting the R, G and B output channels based on the R, G and B input channels, to perform cross-talk color-grading.
+-   As a simple RGB [channel mixer](#channel-mixing), adjusting the R, G and B output channels based on the R, G and B input channels, to perform cross-talk color-grading.
 
-- To adjust the [color saturation and brightness](#brightness-and-colorfulness-tabs) of the image, based on the relative strength of the R, G and B channels of each pixel.
+-   To adjust the [color saturation and brightness](#brightness-and-colorfulness-tabs) of the image, based on the relative strength of the R, G and B channels of each pixel.
 
-- To produce a [grayscale output](#gray-tab) based on the relative strengths of the R, G and B channels, in a way similar to the response of black and white film to a light spectrum.
+-   To produce a [grayscale output](#gray-tab) based on the relative strengths of the R, G and B channels, in a way similar to the response of black and white film to a light spectrum.
 
-- To improve the color accuracy of the input color profile using a [color checker](#extracting-settings-using-a-color-checker) chart.
+-   To improve the color accuracy of the input color profile using a [color checker](#extracting-settings-using-a-color-checker) chart.
 
 # White Balance in the Chromatic Adaptation Transformation (CAT) tab
 
@@ -34,9 +34,9 @@ The _color calibration_ and _white balance_ modules can be automatically applied
 
 By default, _color calibration_ performs chromatic adaptation by:
 
-- reading the RAW file's Exif data to fetch the scene white balance set by the camera,
-- adjusting this setting using the camera reference white balance from the _white balance_ module,
-- further adjusting this setting with the input color profile in use (standard matrix only).
+-   reading the RAW file's Exif data to fetch the scene white balance set by the camera,
+-   adjusting this setting using the camera reference white balance from the _white balance_ module,
+-   further adjusting this setting with the input color profile in use (standard matrix only).
 
 For consistency, the _color calibration_ module's default settings always assume that the standard matrix is used in the _input color profile_ module -- any non-standard settings in this module are ignored. However, _color calibration_'s defaults can read any auto-applied preset in the _white balance_ module.
 
@@ -46,24 +46,24 @@ To achieve this, create an instance of the _color calibration_ module to perform
 
 ## CAT tab workflow
 
-The default illuminant and color space used by the chromatic adaptation are initialised from the Exif metadata of the RAW file "as set in camera". 
+The default illuminant and color space used by the chromatic adaptation are initialised from the Exif metadata of the RAW file "as set in camera".
 
 Alternatively you can use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) (to the right of the color patch) to select a neutral color from the image or, if one is unavailable, select the entire image. In this case, the algorithm finds the average color within the chosen area and sets that color as the illuminant. This method relies on the "gray-world" assumption, which predicts that the average color of a natural scene will be neutral. This method will not work for artificial scenes, for example those with painted surfaces.
 
-- Select "_as shot in camera_" to restore the camera defaults and re-read the RAW Exif.
+-   Select "_as shot in camera_" to restore the camera defaults and re-read the RAW Exif.
 
-The color patch shows the color of the currently calculated illuminant projected into sRGB space. The aim of the chromatic adaptation algorithm is to turn this color into pure white, which does not necessarily means shifting the image toward its *perceptual* opponent color. If the illuminant is properly set, the image will be given the same tint as shown in the color patch when the module is disabled.
+The color patch shows the color of the currently calculated illuminant projected into sRGB space. The aim of the chromatic adaptation algorithm is to turn this color into pure white, which does not necessarily means shifting the image toward its _perceptual_ opponent color. If the illuminant is properly set, the image will be given the same tint as shown in the color patch when the module is disabled.
 
 To the left of the color patch is the _CCT_ (correlated color temperature) approximation. This is the closest temperature, in kelvin, to the illuminant currently in use. In most image processing software it is customary to set the white balance using a combination of temperature and tint. However, when the illuminant is far from daylight, the CCT becomes inaccurate and irrelevant, and the CIE (International Commission on Illumination) discourages its use in such conditions. The CCT reading informs you of the closest CCT match found:
 
-- When the CCT is followed by "_(daylight)_", this means that the current illuminant is close to an ideal daylight spectrum ± 0.5 %, and the CCT figure is therefore meaningful. In this case, you are advised to use the "_D (daylight)_" illuminant.
-- When the CCT is followed by "_(black  body)_", this means that the current illuminant is close to an ideal black body (Planckian) spectrum ± 0.5 %, and the CCT figure is therefore meaningful. In this case, you are advised to use the "_Planckian (black body)_" illuminant.
-- When the CCT is followed by "_(invalid)_", this means that the CCT figure is meaningless and wrong, because we are too far from either a daylight or a black body light spectrum. In this case, you are advised to use the _custom_ illuminant. The chromatic adaptation will still perform as expected (see the note below), so the "_(invalid)_" tag only means that the current illuminant color is not accurately tied to the displayed CCT. This tag is nothing to be concerned about -- it is merely there to tell you to stay away from the daylight and planckian illuminants because they will not behave as you might expect.
+-   When the CCT is followed by "_(daylight)_", this means that the current illuminant is close to an ideal daylight spectrum ± 0.5 %, and the CCT figure is therefore meaningful. In this case, you are advised to use the "_D (daylight)_" illuminant.
+-   When the CCT is followed by "_(black body)_", this means that the current illuminant is close to an ideal black body (Planckian) spectrum ± 0.5 %, and the CCT figure is therefore meaningful. In this case, you are advised to use the "_Planckian (black body)_" illuminant.
+-   When the CCT is followed by "_(invalid)_", this means that the CCT figure is meaningless and wrong, because we are too far from either a daylight or a black body light spectrum. In this case, you are advised to use the _custom_ illuminant. The chromatic adaptation will still perform as expected (see the note below), so the "_(invalid)_" tag only means that the current illuminant color is not accurately tied to the displayed CCT. This tag is nothing to be concerned about -- it is merely there to tell you to stay away from the daylight and planckian illuminants because they will not behave as you might expect.
 
 When one of the above illuminant detection methods is used, the module checks where the calculated illuminant sits using the two idealized spectra (daylight and black body) and chooses the most accurate spectrum model to use in its _illuminant_ parameter. The user-interface will change accordingly:
 
-- A temperature slider will be provided if the detected illuminant is close to a _D (daylight)_ or _Planckian (black body)_ spectrum, for which the CCT is meaningful.
-- Hue and chroma sliders in CIE 1976 Luv space are offered for the _custom_ illuminant, which allows direct selection of the illuminant color in a perceptual framework without any intermediate assumption.
+-   A temperature slider will be provided if the detected illuminant is close to a _D (daylight)_ or _Planckian (black body)_ spectrum, for which the CCT is meaningful.
+-   Hue and chroma sliders in CIE 1976 Luv space are offered for the _custom_ illuminant, which allows direct selection of the illuminant color in a perceptual framework without any intermediate assumption.
 
 ---
 
@@ -91,9 +91,7 @@ illuminant
 
 : - _same as pipeline (D50)_: Do not perform chromatic adaptation in this module instance but just perform channel mixing, using the selected _adaptation_ color space.
 : - _CIE standard illuminant_: Choose from one of the CIE standard illuminants (daylight, incandescent, fluorescent, equi-energy, or black body), or a non-standard "LED light" illuminant. These values are all pre-computed -- as long as your camera sensor is properly profiled, you can just use them as-is. For illuminants that lie near the Planckian locus, an additional "temperature" control is also provided (see below).
-: - _custom_: If a neutral gray patch is available in the image, the color of the illuminant can be selected using the [picker](../../darkroom/processing-modules/module-controls.md#pickers), or can be manually specified using hue and saturation sliders (in LCh perceptual color space). The color swatch next to the picker shows the color of the calculated illuminant used in the CAT compensation. The picker can also be used to restrict the area used for AI detection (below).
-: - _(AI) detect from image surfaces_: This algorithm obtains the average color of image patches that have a high covariance between chroma channels in YUV space and a high intra-channel variance. In other words, it looks for parts of the image that appear as though they should be gray, and discards flat colored surfaces that may be legitimately non-gray. It also discards chroma noise as well as chromatic aberrations.
-: - _(AI) detect from image edges_: Unlike the _white balance_ module's auto-white-balancing which relies on the "gray world" assumption, this method auto-detects a suitable illuminant using the "gray edge" assumption, by calculating the Minkowski p-norm (p = 8) of the laplacian and trying to minimize it. That is to say, it assumes that edges should have the same gradient over all channels (gray edges). It is more sensitive to noise than the previous surface-based detection method.
+: - _custom_: If a neutral gray patch is available in the image, the color of the illuminant can be selected using the [picker](../../darkroom/processing-modules/module-controls.md#pickers), or can be manually specified using hue and saturation sliders (in LCh perceptual color space). The color swatch next to the picker shows the color of the calculated illuminant used in the CAT compensation.
 : - _as shot in camera_: Calculate the illuminant based on the white balance settings provided by the camera.
 
 temperature
@@ -108,7 +106,7 @@ chroma
 : For custom white balance, set the _chroma_ (or saturation) of the illuminant color in LCh color space (derived from CIE Luv space).
 
 gamut compression
-:  Most camera sensors are slightly sensitive to invisible UV wavelengths, which are recorded on the blue channel and produce "imaginary" colors. Once corrected by the input color profile, these colors will end up out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet with positive values in the working color space) and produce visual artifacts in gradients. The chromatic adaptation may also push other valid colors out of gamut, at the same time pushing any already out-of-gamut colors even further out of gamut.
+: Most camera sensors are slightly sensitive to invisible UV wavelengths, which are recorded on the blue channel and produce "imaginary" colors. Once corrected by the input color profile, these colors will end up out of gamut (that is, it may no longer be possible to represent certain colors as a valid [R,G,B] triplet with positive values in the working color space) and produce visual artifacts in gradients. The chromatic adaptation may also push other valid colors out of gamut, at the same time pushing any already out-of-gamut colors even further out of gamut.
 : _Gamut compression_ uses a perceptual, non-destructive, method to attempt to compress the chroma while preserving the luminance as-is and the hue as close as possible, in order to fit the whole image into the gamut of the pipeline working color space. One example where this feature is very useful is for scenes containing blue LED lights, which are often quite problematic and can result in ugly gamut clipping in the final image.
 
 clip negative RGB from gamut
@@ -128,11 +126,11 @@ In all these cases, you **must** enable the "clip negative RGB from gamut" optio
 
 The chromatic adaptation in this module relies on a number of assumptions about the earlier processing steps in the pipeline in order to work correctly, and it can be easy to inadvertently break those assumptions in subtle ways. To help you to avoid these kinds of mistakes, the _color calibration_ module will show warnings in the following circumstances.
 
-- If the _color calibration_ module is set up to perform chromatic adaptation but the _white balance_ module is not set to "camera reference", warnings will be shown in both modules. These errors can be resolved either by setting the _white balance_ module to "camera reference" or by disabling chromatic adaptation in the _color calibration_ module. Note that some sensors may require minor corrections within the _white balance_ module in which case these warnings can be ignored.
+-   If the _color calibration_ module is set up to perform chromatic adaptation but the _white balance_ module is not set to "camera reference", warnings will be shown in both modules. These errors can be resolved either by setting the _white balance_ module to "camera reference" or by disabling chromatic adaptation in the _color calibration_ module. Note that some sensors may require minor corrections within the _white balance_ module in which case these warnings can be ignored.
 
-- If two or more instances of _color calibration_ have been created, each attempting to perform chromatic adaptation, an error will be shown on the second instance. This could be a valid use case (for instance where masks have been set up to apply different white balances to different non-overlapping areas of the image) in which case the warnings can be ignored. For most other cases, chromatic adaptation should be disabled in one of the instances to avoid double-corrections.
+-   If two or more instances of _color calibration_ have been created, each attempting to perform chromatic adaptation, an error will be shown on the second instance. This could be a valid use case (for instance where masks have been set up to apply different white balances to different non-overlapping areas of the image) in which case the warnings can be ignored. For most other cases, chromatic adaptation should be disabled in one of the instances to avoid double-corrections.
 
-  By default, if an instance of the _color calibration_ module is already performing chromatic adaptation, each new instance you create will automatically have its adaptation set to "none (bypass)" to avoid this "double-correction" error.
+    By default, if an instance of the _color calibration_ module is already performing chromatic adaptation, each new instance you create will automatically have its adaptation set to "none (bypass)" to avoid this "double-correction" error.
 
 The chromatic adaptation modes in _color calibration_ can be disabled by either setting the _adaptation_ to "none (bypass)" or setting the _illuminant_ to "same as pipeline (D50)" in the CAT tab.
 
@@ -176,9 +174,9 @@ At its most basic level, you can think of the R, G and B tabs of the _color cali
 
 If, for example, you've been provided with a matrix to transform from one color space to another, you can enter the matrix coefficients into the _channel mixer_ as follows:
 
-- select the _R_ tab and then set the Rr, Rg & Rb values using the R, G and B input sliders
-- select the _G_ tab and then set the Gr, Gg & Gb values using the R, G and B input sliders
-- select the _B_ tab and then set the Br, Bg & Bb values using the R, G and B input sliders
+-   select the _R_ tab and then set the Rr, Rg & Rb values using the R, G and B input sliders
+-   select the _G_ tab and then set the Gr, Gg & Gb values using the R, G and B input sliders
+-   select the _B_ tab and then set the Br, Bg & Bb values using the R, G and B input sliders
 
 By default, the mixing function in _color calibration_ just copies the input [R G B] channels straight over to the matching output channels. This is equivalent to multiplying by the identity matrix:
 
@@ -190,9 +188,9 @@ By default, the mixing function in _color calibration_ just copies the input [R 
 
 For a more intuitive understanding of how the mixing sliders on the R, G and B tabs behave, consider the following:
 
-- for the _R_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "red". Moving the slider to the left will make those areas more "cyan".
-- for the _G_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "green". Moving the slider to the left will make those areas more "magenta".
-- for the _B_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "blue". Moving the slider to the left will make those areas more "yellow".
+-   for the _R_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "red". Moving the slider to the left will make those areas more "cyan".
+-   for the _G_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "green". Moving the slider to the left will make those areas more "magenta".
+-   for the _B_ destination channel, adjusting sliders to the right will make the R, G or B areas of the image more "blue". Moving the slider to the left will make those areas more "yellow".
 
 ## R, G and B tab controls
 
@@ -230,6 +228,7 @@ normalize channels
 # gray tab
 
 Another very useful application of _color calibration_ is the ability to mix the channels together to produce a grayscale output -- a monochrome image. Select the _gray_ tab, and set the R, G and B sliders to control how much each channel contributes to the brightness of the output. This is equivalent to the following matrix multiplication:
+
 ```
 GRAY_out  =   [ r  g  b ]  X  ┌ R_in ┐
                               │ G_in │
@@ -279,13 +278,13 @@ The _take channel mixing into account_ option lets you choose where the target i
 
 When you open a new image, the _area mode_ is automatically reset to _correction_. Using the [picker](../../darkroom/processing-modules/module-controls.md#pickers) attached to the color patch, you can then directly reselect your control sample in the new image. The proper illuminant settings required for the control sample to match the memorized target chromaticity will be automatically computed, and the setting will be updated in the same operation.
 
-The _take channel mixing into account_ option will need to be set the same as when the measurement of the target was performed to ensure consistent results. Note that the target matching only defines the illuminant settings used in the Chromatic Adaptation Transform  -- it does not alter the channel mixer settings, since the calibration is handled in the color checker calibration tool. However, the channel mixer settings can be used or discarded in the computation of the illuminant settings, depending on this option.
+The _take channel mixing into account_ option will need to be set the same as when the measurement of the target was performed to ensure consistent results. Note that the target matching only defines the illuminant settings used in the Chromatic Adaptation Transform -- it does not alter the channel mixer settings, since the calibration is handled in the color checker calibration tool. However, the channel mixer settings can be used or discarded in the computation of the illuminant settings, depending on this option.
 
 This operation can be repeated as many times as you have images in your series with no further work.
 
 ## step 3: deactivate color mapping
 
-The settings you configured in _step 1_ are "sticky" -- they will stay active until you manually turn them off by resetting _lightness_ to 50 and _chroma_ to 0.  Until then, _every_ time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation.  To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever _chroma_ is nonzero or _lightness_ is other than 50.
+The settings you configured in _step 1_ are "sticky" -- they will stay active until you manually turn them off by resetting _lightness_ to 50 and _chroma_ to 0. Until then, _every_ time you use this module (even after closing and restarting darktable), those settings will affect the results of an auto-whitebalance operation. To remind you that color mapping is active, especially while the section is collapsed, the heading will change from "area color mapping" to "area color mapping (active)" whenever _chroma_ is nonzero or _lightness_ is other than 50.
 
 ---
 
@@ -301,19 +300,19 @@ These computed settings aim to minimize the color difference between the scene r
 
 This feature can assist with:
 
-* handling difficult illuminants, such as low [CRI](https://en.wikipedia.org/wiki/Color_rendering_index) light bulbs, for which a mere white balancing will never suffice,
-* digitizing artworks or commercial products where an accurate rendition of the original colors is required,
-* neutralizing a number of different cameras to the same ground-truth, in multi-camera photo sessions, in order to obtain a consistent base look and share the color editing settings with a consistent final look,
-* obtaining a sane color pipeline from the start, nailing white balance and removing any bounced-light color cast at once, with minimal effort and time.
+-   handling difficult illuminants, such as low [CRI](https://en.wikipedia.org/wiki/Color_rendering_index) light bulbs, for which a mere white balancing will never suffice,
+-   digitizing artworks or commercial products where an accurate rendition of the original colors is required,
+-   neutralizing a number of different cameras to the same ground-truth, in multi-camera photo sessions, in order to obtain a consistent base look and share the color editing settings with a consistent final look,
+-   obtaining a sane color pipeline from the start, nailing white balance and removing any bounced-light color cast at once, with minimal effort and time.
 
 ## supported color checker targets
 
 Users are not currently permitted to use custom targets, but a limited number of verified color checkers (from reputable manufacturers) are supported:
 
-- X-Rite / Gretag MacBeth Color Checker 24 (pre- and post-2014),
-- Datacolor SpyderCheckr 24 (pre- and post-2018),
-- Datacolor SpyderCheckr 48 (pre- and post-2018),
-- Datacolor SpyderCheckr Photo.
+-   X-Rite / Gretag MacBeth Color Checker 24 (pre- and post-2014),
+-   Datacolor SpyderCheckr 24 (pre- and post-2018),
+-   Datacolor SpyderCheckr 48 (pre- and post-2018),
+-   Datacolor SpyderCheckr Photo.
 
 Users are discouraged from obtaining cheap, off-brand, color targets as color constancy between batches cannot possibly be asserted at such prices. Inaccurate color checkers will only defeat the purpose of color calibration and possibly make things worse.
 
@@ -329,15 +328,14 @@ IT7 and IT8 charts are not supported since they are hardly portable and not prac
 
 In order to use this feature you will need to take a test shot of a supported color checker chart, on-location, under appropriate lighting conditions:
 
-* frame the chart in the center 50% of the camera's field, to ensure that the image is free of vignetting,
-* ensure that the main light source is far enough from the chart to give an even lighting field over the surface of the chart,
-* adjust the angle between the light, chart and lens to prevent reflections and gloss on the color patches,
-* for the best quality profile you should capture an image with the appropriate brightness. To achieve this, take a few bracketed images (between -1 and +1 EV) of your color checker and load them into darktable, ensuring that all modules between _color calibration_ and _output color profile_ are disabled. Choose the image where the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space (use the [global color picker](../utility-modules/darkroom/global-color-picker.md)). This step is not strictly necessary -- alternatively you can take a single image and apply the exposure compensation as recommended in the profile report.
+-   frame the chart in the center 50% of the camera's field, to ensure that the image is free of vignetting,
+-   ensure that the main light source is far enough from the chart to give an even lighting field over the surface of the chart,
+-   adjust the angle between the light, chart and lens to prevent reflections and gloss on the color patches,
+-   for the best quality profile you should capture an image with the appropriate brightness. To achieve this, take a few bracketed images (between -1 and +1 EV) of your color checker and load them into darktable, ensuring that all modules between _color calibration_ and _output color profile_ are disabled. Choose the image where the white patch has a brightness L of 94-96% in CIE Lab space or a luminance Y of 83-88% in CIE XYZ space (use the [global color picker](../utility-modules/darkroom/global-color-picker.md)). This step is not strictly necessary -- alternatively you can take a single image and apply the exposure compensation as recommended in the profile report.
 
 If the lighting conditions are close to a standard D50 to D65 illuminant (direct natural light, no colored bounced light), the color checker shot can be used to produce a generic profile that will be suitable for any daylight illuminant with only a slight adjustment of the white balance.
 
 If the lighting conditions are peculiar and far from standard illuminants, the color checker shot will be only usable as an ad-hoc profile for images taken in the same lighting conditions.
-
 
 ## usage
 
@@ -369,10 +367,10 @@ Bad profiles can happen and will do more harm than good if used.
 
 The [CIE delta E 2000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) (ΔE) is used as a perceptual metric of the error between the reference color of the patches and the color obtained after each step of calibration:
 
-- ΔE = 0 means that there is no error -- the obtained color is exactly the reference color. Unfortunately, this will never happen in practice.
-- ΔE = 2.3 is defined as the Just Noticeable Difference (JND).
-- ΔE < 2.3 means that the average observer will not be able to tell the difference between the expected reference color and the obtained color. This is a satisfactory result.
-- ΔE > 2.3 means that the color difference between the expected reference and the obtained color is noticeable for the average observer. This is unsatisfactory but sometimes unavoidable.
+-   ΔE = 0 means that there is no error -- the obtained color is exactly the reference color. Unfortunately, this will never happen in practice.
+-   ΔE = 2.3 is defined as the Just Noticeable Difference (JND).
+-   ΔE < 2.3 means that the average observer will not be able to tell the difference between the expected reference color and the obtained color. This is a satisfactory result.
+-   ΔE > 2.3 means that the color difference between the expected reference and the obtained color is noticeable for the average observer. This is unsatisfactory but sometimes unavoidable.
 
 The quality report tracks the average and maximum ΔE at the input of the module (before anything is done), after the chromatic adaptation step (white balance only), and at the output of the module (white balance and channel mixing). At each step, the ΔE should be lower than at the previous step, if everything goes as planned.
 
@@ -392,9 +390,9 @@ The chart overlay displays a disc in the center of each color patch, which repre
 
 Once the profile has been calibrated, some of the square patches will be crossed in the background by one or two diagonals:
 
-* patches that are not crossed have ΔE < 2.3 (JND), meaning they are accurate enough that the average observer will be unable to notice the deviation,
-* patches crossed with one diagonal have 2.3 < ΔE < 4.6, meaning that they are mildly inaccurate,
-* patches crossed with two diagonals have ΔE > 4.6 (2 × JND), meaning that they are highly inaccurate.
+-   patches that are not crossed have ΔE < 2.3 (JND), meaning they are accurate enough that the average observer will be unable to notice the deviation,
+-   patches crossed with one diagonal have 2.3 < ΔE < 4.6, meaning that they are mildly inaccurate,
+-   patches crossed with two diagonals have ΔE > 4.6 (2 × JND), meaning that they are highly inaccurate.
 
 This visual feedback will help you to set up the optimization trade-off to check which colors are more or less accurate.
 
@@ -404,12 +402,12 @@ Because any calibration is merely a "best fit" optimization (using a weighted le
 
 The _optimize for_ parameter allows you to define an optimization strategy that attempts to increase the profile accuracy in some colors at the expense of others. The following options are available:
 
-- _none_: Don't use an explicit strategy but rely on the implicit strategy defined by the color checker manufacturer. For example, if the color checker has mostly low-saturation patches, the profile will be more accurate for less-saturated colors.
-- _neutral colors_: Give priority to grays and less-saturated colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in highly-saturated colors more than not having any profile.
-- _saturated colors_: Give priority to primary colors and highly-saturated colors. This is useful in product and commercial photography, to get brand colors right.
-- _skin and soil colors_, _foliage colors_, _sky and water colors_: Give priority to the chosen hue range. This is useful if the subject of your images is clearly defined and has a typical color.
-- _average delta E_: Attempt to make the color error uniform across the color range and minimize the average perceptual error. This is useful for generic profiles.
-- _maximum delta E_: Attempt to minimize outliers and large errors, at the expense of the average error. This can be useful to get highly saturated blues back into line.
+-   _none_: Don't use an explicit strategy but rely on the implicit strategy defined by the color checker manufacturer. For example, if the color checker has mostly low-saturation patches, the profile will be more accurate for less-saturated colors.
+-   _neutral colors_: Give priority to grays and less-saturated colors. This is useful for desperate cases involving cheap fluorescent and LED lightings, having low CRI. However, it may increase the error in highly-saturated colors more than not having any profile.
+-   _saturated colors_: Give priority to primary colors and highly-saturated colors. This is useful in product and commercial photography, to get brand colors right.
+-   _skin and soil colors_, _foliage colors_, _sky and water colors_: Give priority to the chosen hue range. This is useful if the subject of your images is clearly defined and has a typical color.
+-   _average delta E_: Attempt to make the color error uniform across the color range and minimize the average perceptual error. This is useful for generic profiles.
+-   _maximum delta E_: Attempt to minimize outliers and large errors, at the expense of the average error. This can be useful to get highly saturated blues back into line.
 
 No matter what you do, strategies that favor a low average ΔE will usually have a higher maximum ΔE, and vice versa. Also, blues are always the more challenging color range to get correct, so the calibration usually falls back to protecting blues at the expense of everything else, or everything else at the expense of blues.
 

@@ -8,7 +8,7 @@ draft: false
 Control the overall look and feel of darktable.
 
 interface language
-: Set the language of the user interface. This includes the option to enable sentence case (`en@truecase`) for English. The system default is marked with an * (needs a restart)
+: Set the language of the user interface. This includes the option to enable sentence case (`en@truecase`) for English. The system default is marked with an \* (needs a restart)
 
 theme
 : Set the theme for the user interface. Aside from any aesthetic considerations, the recommended interface color for color evaluation is middle gray. Visual perception is affected by ambient brightness, and a low user interface brightness causes all kinds of illusions. Using a dark interface to retouch photos can therefore lead to excessive retouching (abuse of contrast and saturation) and to a photo that is too dark when printed. It is therefore highly recommended that you use one of the "grey" themes for retouching work as these are designed so that the user interface approximates middle gray. For those who have difficulty reading text in the default theme, darktable includes two "highcontrast" themes with white text on a dark background, but the caveats mentioned previously apply if you select one of them (default "darktable-elegant-grey").
@@ -22,6 +22,9 @@ font size in points
 GUI controls and text DPI
 : Adjust the global GUI resolution to rescale controls, buttons, labels, etc. Increase for a magnified GUI, decrease to fit more content in the window. Set to -1 to use the system-defined global resolution. The default is 96 DPI on most systems. (needs a restart)
 
+reset view panels
+: The order and visibility of utility modules can be manually changed by the user (see [modules overview](../module-reference/overview.md)). Click this button to reset to default values.
+
 # CSS theme modifications
 
 In addition to selecting a pre-built theme you can also apply additional CSS customizations of your own to tweak the look-and-feel of darktable.
@@ -29,7 +32,7 @@ In addition to selecting a pre-built theme you can also apply additional CSS cus
 Two different methods are provided for this:
 
 create a custom theme
-: If you wish to make a large number of changes to darktable's UI you may wish to create your own theme (in a `.css` file) and place it in `$HOME/.config/darktable/themes` (or `C:\%LOCALAPPDATA%\darktable\themes` on Windows). Your new theme will automatically appear in the _theme_ selection list the next time you restart darktable. 
+: If you wish to make a large number of changes to darktable's UI you may wish to create your own theme (in a `.css` file) and place it in `$HOME/.config/darktable/themes` (or `C:\%LOCALAPPDATA%\darktable\themes` on Windows). Your new theme will automatically appear in the _theme_ selection list the next time you restart darktable.
 
 : Please note that the structure of darktable's internal CSS changes frequently and you may need to make significant changes to your own themes when new versions of darktable are released. For this reason (among others) we do not recommend creating complex custom themes unless you are willing to devote a lot of time to ongoing maintenance. If your theme loads any of darktable's pre-built themes using the `@import url` directive, note that your CSS theme file may not be portable between installations (`@import url` uses relative paths and the location of the pre-built themes is system-dependent).
 
@@ -54,9 +57,9 @@ If you choose to create your own custom theme file you are advised to follow a s
 
 Themes use the same basic CSS principles as in html browsers (with some minor exceptions -- see the [Gtk documentation](https://developer-old.gnome.org/gtk3/stable/chap-css-overview.html) for details):
 
-- The majority of the style properties are assigned to broad groups of UI elements, for example, Gtk buttons and text entry fields
-- Next, related groups of darktable-specific UI elements are given _class names_ allowing them to be styled as a group
-- Finally, some unique UI elements are assigned a CSS _id_ so that they can be styled independently
+-   The majority of the style properties are assigned to broad groups of UI elements, for example, Gtk buttons and text entry fields
+-   Next, related groups of darktable-specific UI elements are given _class names_ allowing them to be styled as a group
+-   Finally, some unique UI elements are assigned a CSS _id_ so that they can be styled independently
 
 You are encouraged to explore the existing themes (`darktable.css` in particular is very well commented) and to make use of the [Gtk Inspector](https://wiki.gnome.org/Projects/GTK/Inspector) tool to figure out how to select the specific UI element (or class of elements) you wish to modify. Some experimentation will be required.
 

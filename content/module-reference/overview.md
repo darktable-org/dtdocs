@@ -26,9 +26,9 @@ module name
 reset parameters button
 : This normally appears to the right of the module name and is used to reset the state of the module back to its original condition.
 
-presets  menu
+presets menu
 : This normally appears at the far right of the module header. The [presets](../darkroom/processing-modules/presets.md) menu is predominantly used in processing modules, but many of the utility modules allow presets to be defined as well. You can also access this menu by right-clicking anywhere on the module header.
- 
+
 Processing modules contain additional elements in their module header, as described in the [processing module header](../darkroom/processing-modules/module-header.md) section.
 
 # module resizing
@@ -47,3 +47,12 @@ Some utility modules contain lists of information that can grow as more entries 
 
 Some processing modules contain drawn graphical elements that can take up too much or too little screen space depending on the width of your side panels. These drawing areas usually default to a 16:9 aspect ratio and can be similarly resized by hovering over them and holding Ctrl while scrolling.
 
+# visibility and ordering
+
+## utility modules
+
+Right-click in a side panel (outside of any module) to list the available utility modules and toggle their visibility. Drag-and-drop a module to change its position. Select [preferences > general > reset view panels](../preferences-settings/general.md) to reset to default values.
+
+## processing modules
+
+Please see [mange module layouts](../darkroom/organization/manage-module-layouts.md) for information about how to organize processing modules. Please note that you cannot reorder them without changing how an image is processed. See [the pixelpipe and module order](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md) for more information.

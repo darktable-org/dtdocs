@@ -22,7 +22,7 @@ The following is a list of variable strings that are supported for substitution 
 In addition to this list you can also use the variable strings defined in the [variables](../../special-topics/variables.md) section.
 
 ```
-$(WATERMARK_TEXT)             A short free text (max. 63 characters)
+$(WATERMARK_TEXT)             A short free text (max. 511 characters)
 $(WATERMARK_COLOR)            The color to use for $WATERMARK_TEXT
 $(WATERMARK_FONT_FAMILY)      The font family to use for $WATERMARK_TEXT
 $(WATERMARK_FONT_STYLE)       The font style (normal, oblique, italic)
@@ -35,7 +35,7 @@ marker
 : Choose the watermark to apply. Use the reload button to update the list to include any newly-added watermarks. The extension of the file (png/svg) is shown in brackets.
 
 text
-: A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
+: A free text field in which you can enter up to 511 characters to be printed where referenced by the corresponding watermark. Any [variables](../../special-topics/variables.md) contained in the string will be replaced by their current values before the watermark is applied. An example watermark using the text from this field is supplied as `simple-text.svg`.
 
 font
 : The font to use (default "DejaVu Sans Book"). Click on the field to open a dialog box showing the fonts available on your system. Fonts can be searched by name and a preview is shown next to the font name. You may specify your own sample text.

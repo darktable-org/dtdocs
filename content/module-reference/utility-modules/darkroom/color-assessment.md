@@ -1,20 +1,20 @@
 ---
 title: color assessment
 id: color assessment
-applicable-version: 4.4
-tags: 
+applicable-version: 5.2
+tags:
 view: darkroom
 ---
 
-Assess colors and brightness in your image using ISO 12646:2008 recommended viewing conditions.
+Assess colors and brightness in your image under neutral viewing conditions to avoid perceptual issues.
 
 When developing an image, the way we perceive brightness, contrast and saturation is influenced by the surrounding ambient conditions. If an image is displayed against a dark background, this can have a number of adverse effects on our perception of that image:
 
-- Exaggeration of the perceived exposure makes the image seems brighter than it really is. This is nicely illustrated by the [Adelson checkerboard shadow effect](https://en.wikipedia.org/wiki/Checker_shadow_illusion).
-- A decrease in the perceived saturation in the image makes the colors seem less rich than they really are (the Hunt effect).
-- A decrease in the perceived contrast in the image makes the tones seem flatter than they really are (Bartleson-Breneman effect 3)
+-   Exaggeration of the perceived exposure makes the image seems brighter than it really is. This is nicely illustrated by the [Adelson checkerboard shadow effect](https://en.wikipedia.org/wiki/Checker_shadow_illusion).
+-   A decrease in the perceived saturation in the image makes the colors seem less rich than they really are (the Hunt effect).
+-   A decrease in the perceived contrast in the image makes the tones seem flatter than they really are (Bartleson-Breneman effect 3)
 
-The end result is that the final image can end up being too dark and overly-processed in terms of contrast and color saturation. To avoid this, the "ISO 12646:2008" standard makes some recommendations about the conditions under which the colors of an image should be assessed. The _color assessment_ module in the darkroom places a frame around the image to help the user better assess the colors in the image, along the lines of those recommendations.
+The end result is that the final image can end up being too dark and overly-processed in terms of contrast and color saturation. To avoid this, the _color assessment_ module in the darktroom places a grey and white frame around the image to help the user better assess the colors in the image
 
 ![color-assessment-overview](./color-assessment/color-assessment-overview.png#w75)
 
@@ -24,4 +24,10 @@ Although the color assessment mode provides a mid-gray surrounding to the image,
 
 Color assessment mode can also be toggled by pressing Ctrl+B.
 
-You can modify the distance from the edge of the center panel to the edge of the image by adjusting the `darkroom/ui/iso12464_border` entry in the `$HOME/.config/darktable/darktablerc` file. In the same file you can modify the size of the white border (in percent) by adjusting the `darkroom/ui/iso12464_ratio` entry.
+The total size of the grey and white frame and the relative size of the white frame may be adjusted by right-clicking ![bulb-icon](./color-assessment/bulb-icon.png#icon). This will bring up a control panel with two slider controls:
+
+total border width relative to screen
+: Adjust the size of the combined grey and white border. Increase to grow the total border (and shrink the image). Decrease shrink the border (and grow the image).
+
+white border ratio
+: Adjust the white border relative to the screen. Increase this slider to enlarge the the white border. Decrease to shrink the white border. The image size will remain unaffected.
