@@ -42,7 +42,7 @@ There are three main reasons this could happen:
 
 Certain icons are displayed on thumbnails to provide additional information on images, when applicable
 
-Images that are members of a group are denoted by a group icon ![light group icon](./thumbnails/Group-icon-light.png#icon) or ![dark group icon](./thumbnails/Group-icon-black.png#icon), where black identifies the leader image in that group.  See [image grouping](https://github.com/Dave22152/dtdocs/blob/master/content/lighttable/digital-asset-management/grouping.md) for details
+Images that are members of a group are denoted by a group icon ![light group icon](./thumbnails/Group-icon-light.png#icon) or ![dark group icon](./thumbnails/Group-icon-black.png#icon), where black identifies the leader image in that group.  See [image grouping](./digital-asset-management/grouping.md) for details
 
 Hovering over the ![tags](./thumbnails/Tag-icon.png#icon) icon identifies any tags that were applied to that image.
 
