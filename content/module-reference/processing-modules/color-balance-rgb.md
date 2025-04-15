@@ -84,7 +84,7 @@ Each of the settings in the 4 ways tab is composed of the same three components,
 
 Color input like this defines a color shift applied to the image globally or over the specified luminance range.
 
-Each hue slider has a [picker](../../darkroom/processing-modules/module-controls.md#pickers), which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it.
+Each hue slider has a [picker](../../darkroom/processing-modules/module-controls.md#pickers), which may be used to select the current or opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it. Click the pointer to select the opposite color and ctrl+click to select the current color.
 
 ### global offset
 
