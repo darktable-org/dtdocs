@@ -64,9 +64,6 @@ darktable resources
 
 : See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information.
 
-prefer performance over quality
-: Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
-
 # OpenCL
 
 activate [OpenCL](../special-topics/opencl/_index.md) support
