@@ -27,9 +27,6 @@ border around image in darkroom mode
 show scrollbars for center view
 : Choose whether to show scrollbars in the center view of the darkroom (default off).
 
-reduce resolution of preview image
-: Reduce the resolution of the [navigation preview](../module-reference/utility-modules/darkroom/navigation.md) image (choose from "original", "1/2", "1/3" or "1/4" size). This may improve the speed of the rendering but take care as it can also hinder accurate color picking and masking (default "original").
-
 show loading screen between images
 : Show gray loading screen when navigating between images in the darkroom. Switch this option off to just show a simple toast message and leave the previous image in place until the next image is loaded. Note that switching this option off can be very useful to quickly compare duplicate images, however, there might be issues with long loading times (leading you to think the next image has already loaded) and you may observe visual artifacts while the next image is loading (default on).
 
@@ -55,6 +52,9 @@ expand the module when it is activated, and collapse it when disabled
 
 scroll processing modules to the top when expanded
 : With this option enabled [processing modules](../module-reference/processing-modules) are scrolled to the top of the right-hand panel when expanded. (default on)
+
+swap the utility and processing modules panels
+: If enabled, swap the left and right side panels in the darkroom view (default off).
 
 show right-side buttons in processing module headers
 : Choose whether to show the four buttons (mask indicator, multi-instance menu, reset, presets menu) on the right-hand-side of the [module header](../darkroom/processing-modules/module-header.md) for processing modules. These buttons will always appear when the mouse is over the module. At other times they will be shown or hidden according to this preference selection: 
