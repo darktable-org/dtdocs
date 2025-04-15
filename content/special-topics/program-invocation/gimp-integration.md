@@ -35,5 +35,3 @@ Only one of the commands should be present on the command line.
 
 * The full path of the exported file on the first line.
 * The width and height of the original file as space-separated integers on the second line. These dimensions are informational and may not be accurate. For RAW files these are the sensor size.
-
-
