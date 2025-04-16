@@ -50,15 +50,17 @@ Click+drag the control points on the curve to adjust the brightness of all pixel
 curve smoothing
 : Control how the curve is interpolated between control points. Move the slider to the right to make the transitions between the control points more gradual, but beware that going past about 0.6 can introduce some instability (oscillations) in the curve due to mathematical constraints. Move the slider to the left for a more well-behaved curve, but beware that this can result in harsher tonal transitions that may damage local contrast.
 
+mask exposure compensation
+: Adjust the mask's histogram to the left or right. If you have used the _exposure_ module to adjust the image brightness, you may need to offset that adjustment by using this slider to re-centre the mask's histogram. Click on the wand icon to the right of the slider to set the exposure compensation such that the average of the mask's histogram will coincide with the central --4EV control point. The slider can then be fine-tuned as required.
+
+mask contrast compensation
+: Dilate (spread out) or compress the mask's histogram. The wand icon to the right of the slider will propose a reasonable starting point, which can then be fine-tuned to optimize the spread of the histogram under the tone equalizer control points.
+
 ## masking tab
 
 This tab contains controls for adjusting the guided mask. 
 
 The purpose of the guided mask is to separate out areas with different tonal ranges so that they can be independently brightened or darkened by the tone equalizer. The masking filters are designed to allow sharp edges between these areas to be preserved, while blurring details within a given tonal range, so that the brightness can be adjusted without adversely impacting local contrast. Ideally the mask histogram shown in the _advanced_ tab should be spread out across all of the control points. 
-
-To avoid having to switch back and forth between the _advanced_ and _masking_ tabs, a gray bar under the "mask post processing" label displays a representation of the middle 80% of the histogram. By using the controls in this tab to center and spread out this gray bar, you can expect to have a nicely shaped histogram when you return to the "advanced" tab. If you see orange at either end of the gray bar, this means that part of the histogram is outside of the 9 EV range of the mask, and needs to be further adjusted.
-
-![tone-equalizer-mask-histogram](./tone-equalizer/tone-equalizer-mask-histogram.png#w33)
 
 When setting up the guided mask you will need to strike a balance between obtaining a smooth blur within tonal regions (to preserve local contrast) and preservation of the boundaries between those regions. Some experimentation will be required to find the best settings. Often the key controls to adjust are the _exposure/contrast compensation_ sliders at the bottom of the module.
 
@@ -86,17 +88,8 @@ smoothing diameter
 edges refinement/feathering
 : Higher values force the mask to follow high contrast edges more closely. Lower values give smoother gradients, but may introduce halos. If required, feathering can be set to values as high as 10,000.
 
-mask post-processing
-: This bar provides a representation of the current span of the mask's histogram. It covers the middle 80% of the histogram, dropping the first and last decile to prevent outliers from skewing the indicator too much. Orange indicators at either end mean that the histogram exceeds the upper or lower bounds of its 9 EV range.
-
 mask quantization
 : Apply a degree of posterization to the mask, so that it tends to centre round a few discrete levels. In some cases, this may be useful to help separate out areas of your image into distinct masking levels.
-
-mask exposure compensation
-: Adjust the mask's histogram to the left or right. If you have used the _exposure_ module to adjust the image brightness, you may need to offset that adjustment by using this slider to re-centre the mask's histogram. Click on the wand icon to the right of the slider to set the exposure compensation such that the average of the mask's histogram will coincide with the central --4EV control point. The slider can then be fine-tuned as required.
-
-mask contrast compensation
-: Dilate (spread out) or compress the mask's histogram. The wand icon to the right of the slider will propose a reasonable starting point, which can then be fine-tuned to optimize the spread of the histogram under the tone equalizer control points.
 
 ## cursor indicator/control
 
