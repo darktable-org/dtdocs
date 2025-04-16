@@ -2,7 +2,7 @@
 title: color balance rgb
 id: color-balance
 weight: 10
-applicable-version: 4.0
+applicable-version: 5.2
 tags:
 working-color-space: RGB
 view: darkroom
@@ -84,7 +84,7 @@ Each of the settings in the 4 ways tab is composed of the same three components,
 
 Color input like this defines a color shift applied to the image globally or over the specified luminance range.
 
-Each hue slider has a [picker](../../darkroom/processing-modules/module-controls.md#pickers), which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it.  You can also select the current color by ctrl+clicking on the picker.
+Each hue slider has a [picker](../../darkroom/processing-modules/module-controls.md#pickers), which may be used to compute the opponent color of the selected region. This is useful to revert unwanted color casts (e.g. skin redness), since shifting the color to its opponent cast neutralizes it.  You can also select the current color by Ctrl+clicking on the picker.
 
 ### global offset
 
