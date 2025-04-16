@@ -5,7 +5,7 @@ weight: 50
 draft: false
 ---
 
-When a parametric or drawn mask is active, several additional sliders are shown which allow the mask to be further refined.
+When a parametric or drawn mask is active, several additional sliders are shown which allow the mask to be further refined. Raster masks may also be refined using these same controls.
 
 details threshold
 : This control allows you to alter the opacity of the mask based on the amount of detail in the image. Use this slider to select either areas with lots of detail (positive values) or areas that are flat and lacking in detail (negative values). The default (zero) effectively bypasses details refinement. This is mostly useful to apply sharpening and blurring effects that ignore out-of-focus (bokeh) regions or to sharpen only blurry parts, preventing over-sharpening of in-focus regions.
