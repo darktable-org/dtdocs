@@ -8,7 +8,7 @@ view: darkroom
 
 Take color samples from the current darkroom image, display their values in multiple ways and compare colors from different locations. 
 
-The color picker is activated by pressing the [picker](../../darkroom/processing-modules/module-controls.md#pickers) icon. The module's parameters will remain in effect until you leave the darkroom mode.
+The color picker is activated by pressing the ![global-color-picker-icon](./global-color-picker/global-color-picker.png#icon) icon. The module's parameters will remain in effect until you leave the darkroom mode.
 
 Besides the global color picker described here, many darktable modules (e.g. [_tone curve_](../../processing-modules/tone-curve.md)) also contain local pickers which are used to set individual module parameters. You should be aware that these two forms of picker do not always work in the same color space. The global color picker works in the histogram color space and takes its samples after the complete pixelpipe has been processed. Local pickers run in the color space of the module in which they are activated and reflect the input or output data of that module within the pixelpipe.
 
@@ -16,12 +16,14 @@ You can right-click on the sampled color values to copy them to the clipboard.
 
 As the global color picker runs at the end of the preview pixelpipe, it receives data in display color space then converts it to histogram color space. If you are using a display color space which is not "well behaved" (this is common for a device profile), then colors that are outside of the gamut of the display profile will clip or distort.
 
+Color picker positions are defined by image coordinates instead of output. They will stay at the same location, whatever distorting modules are used.
+
 Hover over any of the color values to show a tooltip containing more detailed information about the picked color or live color sample. This information includes RGB and Lab values as well as an approximate color name. An attempt is also made to detect skin tones and provide an appropriate description. Skin tone detection needs proper Lightness scaling (44 to 48% for African and 58 to 64% for all others) and neutral white balance.
 
 # module controls
 
 point/area mode
-: The global color picker can be activated in point or area mode with the [picker](../../darkroom/processing-modules/module-controls.md#pickers) icon. In point mode only a small spot under your cursor is taken as a sample. In area mode darktable samples the area within a drawn rectangle.
+: The global color picker can be activated in point or area mode with the ![global-color-picker-icon](./global-color-picker/global-color-picker.png#icon) icon. In point mode only a small spot under your cursor is taken as a sample. In area mode darktable samples the area within a drawn rectangle.
 
 mean/min/max
 : If samples are taken in area mode, darktable will calculate mean, minimum and maximum color channel values. This combobox allows you to select which of those are displayed. For obvious statistical reasons mean, min and max are identical for the single sample of point mode.
