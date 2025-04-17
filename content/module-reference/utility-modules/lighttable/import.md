@@ -73,7 +73,7 @@ The following example screenshot is taken from the "add to library" button:
 
 ### places and folders
 
-The import dialog is intended to allow you to set up common import locations, to make subsequent imports as simple as possible. When you first open the dialog, darktable attempts to add some common locations (home, pictures, mounted devices) to the places pane. You can add new places to the list by clicking on the + button and you can remove places from the list by right-clicking on them. If you wish to restore a default location that you have deleted, you can do this with the reset button.
+The import dialog is intended to allow you to set up common import locations, to make subsequent imports as simple as possible. When you first open the dialog, darktable attempts to add some common locations (home, pictures, mounted devices) to the places pane. You can add new places to the list by clicking on the + button and you can remove places from the list by clicking on the - button. If you wish to restore a default location that you have deleted, you can do this with the reset button.
 
 When you choose a place, the folder tree is automatically populated (into the folders pane) from the root directory of the selected place. You can then navigate the folder tree and select a folder for import. The last selected place/folder is automatically reloaded the next time you open the dialog.
 
@@ -96,8 +96,8 @@ The following additional options are common to all import dialogs:
 recursive directory
 : Check this option to import images in the selected folder _and all subfolders_. It is recommended that you not use this option to import a large number of images at the same time. The import process causes darktable to generate thumbnails for all of the imported images, but in the end it will only be able to keep the most recent in its cache. It is therefore better to import images in smaller chunks to avoid the performance penalty this imposes.
 
-ignore JPEG images
-: Check this option if there are `JPEG` images in the same folder that you do not wish to import. This option is usually used where the camera stores `RAW+JPEG` and you only want to work on the `RAW` files, leaving the `JPEG` images untouched.
+ignore non-raw images
+: Check this option if there are non-RAW images in the same folder that you do not wish to import. This option is usually used where the camera stores RAW+JPEG and you only want to work on the RAW files, leaving the JPEG images untouched.
 
 ## add to library
 
@@ -126,10 +126,10 @@ import job
 override today's date
 : Enter a valid date/time (in `YYYY-MM-DD[Thh:mm:ss]` format) if you want to override the current date/time used when expanding the variables `$(YEAR)`, `$(MONTH)`, `$(DAY)`, `$(HOUR)`, `$(MINUTE)` and `$(SECONDS)`. Leave the field empty otherwise.
 
-base directory naming pattern
+base filmroll's directory
 : The base directory part of the naming pattern (default `$(PICTURES_FOLDER)/Darktable`). Click on the icon beside the input field to choose a directory manually.
 
-sub directory naming pattern
+filmroll name
 : The sub directory part of the naming pattern (default `$(YEAR)$(MONTH)$(DAY)_$(JOBCODE)`).
 
 keep original filename
