@@ -8,7 +8,7 @@ view: darkroom
 
 Take color samples from the current darkroom image, display their values in multiple ways and compare colors from different locations. 
 
-The color picker is activated by pressing the [picker](../../darkroom/processing-modules/module-controls.md#pickers) icon. The module's parameters will remain in effect until you leave the darkroom mode.
+The color picker is activated by pressing the [picker](../../../darkroom/processing-modules/module-controls.md#pickers) icon. The module's parameters will remain in effect until you leave the darkroom mode.
 
 Besides the global color picker described here, many darktable modules (e.g. [_tone curve_](../../processing-modules/tone-curve.md)) also contain local pickers which are used to set individual module parameters. You should be aware that these two forms of picker do not always work in the same color space. The global color picker works in the histogram color space and takes its samples after the complete pixelpipe has been processed. Local pickers run in the color space of the module in which they are activated and reflect the input or output data of that module within the pixelpipe.
 
@@ -21,7 +21,7 @@ Hover over any of the color values to show a tooltip containing more detailed in
 # module controls
 
 point/area mode
-: The global color picker can be activated in point or area mode with the [picker](../../darkroom/processing-modules/module-controls.md#pickers) icon. In point mode only a small spot under your cursor is taken as a sample. In area mode darktable samples the area within a drawn rectangle.
+: The global color picker can be activated in point or area mode with the [picker](../../../darkroom/processing-modules/module-controls.md#pickers) icon. In point mode only a small spot under your cursor is taken as a sample. In area mode darktable samples the area within a drawn rectangle.
 
 mean/min/max
 : If samples are taken in area mode, darktable will calculate mean, minimum and maximum color channel values. This combobox allows you to select which of those are displayed. For obvious statistical reasons mean, min and max are identical for the single sample of point mode.
