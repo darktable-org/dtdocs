@@ -20,7 +20,7 @@ jobs:
         run: nix develop --command bash -c "cd themes/hugo-darktable-docs-theme/assets/ && yarn install"
 
       - name: Check for broken links
-        run: nix develop --command bash -c "hugo server --disableFastRender -verbose --config config.yaml -b http://localhost:1313/dtdocs/ & sleep 30 && lychee --exclude \.*pdf$ --exclude \.*epub$ --exclude \.*#$ --no-progress http://localhost:1313/dtdocs/index.html && pkill hugo"
+        run: nix develop --command bash -c "hugo server --disableFastRender --logLevel debug --config config.yaml -b http://localhost:1313/dtdocs/ & sleep 30 && lychee --exclude \.*pdf$ --exclude \.*epub$ --exclude \.*#$ --no-progress http://localhost:1313/dtdocs/index.html && pkill hugo"
 
       - name: Generate translated files
         run: nix develop --command bash -c "cd tools && bash generate-translations.sh --no-update"
