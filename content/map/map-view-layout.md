@@ -35,9 +35,9 @@ Here you can find the modules specific to the map view. From top to bottom:
 : Tag selected images.
 
 [geotagging](../module-reference/utility-modules/shared/geotagging.md)
-: Apply GPX track data to selected images.
+: Load, manage and apply GPX track data to selected images.
 
 # bottom panel
 
 [filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
-: Drag images from the filmstrip onto the map as described in the map [overview](./overview.md).
+: Drag and drop images from the filmstrip onto the map as described in the map [overview](./overview.md).
