@@ -9,7 +9,9 @@ Create a composite image by overlaying an already-processed image on top of the 
 
 Drag and drop a processed image from the filmstrip onto the "drop image from filmstrip here" box to overlay the chosen image, and then alter the various placement and adjustment attributes of the image being overlaid.
 
-The full history stack of the overlayed image is used by the module, so if you want to drastically change the overlaid image beyond the controls of this module, you should first edit that image separately.
+The overlay image is first processed using its own history stack, except that modules in the current image's history stack which occur after `composite` in the pixelpipe are skipped to avoid double application.  Since _composite_ occurs fairly early by default, usually much of the overlay image's stack will be skipped; if you want to have very different processing for the overlay and the current image, you should move _composite_ later in the pixelpipe by dragging it upward.  Note that doing so will slow down processing, since modules will be applied separately to each image rather than once to the combined result.
+
+You may also wish to move the module later in processing if the overlay contains smooth gradients and your base image's processing includes substantial changes in brightness or saturation, as you may experience banding in the overlay.  This is a result of the current implementation rendering the overlay to eight bits per channel before combining it with the base image.
 
 # module controls
 
