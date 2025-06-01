@@ -28,14 +28,14 @@ $(MAX_WIDTH)         maximum image width to limit within export session
 $(MAX_HEIGHT)        maximum image height to limit within export session
 $(ID)                unique identification number of the image in darktable's database
 $(YEAR)              year at the date of import
-$(MONTH)             month at the date of import
-$(DAY)               day at the date of import
+$(MONTH)             numerical month at the date of import
+$(DAY)               numerical day at the date of import
 $(HOUR)              hour at the time of import
 $(MINUTE)            minute at the time of import
 $(SECOND)            second at the time of import
 $(EXIF_YEAR)         year the photo was taken (from Exif data)
-$(EXIF_MONTH)        month the photo was taken (from Exif data)
-$(EXIF_DAY)          day the photo was taken (from Exif data)
+$(EXIF_MONTH)        numerical month the photo was taken (from Exif data)
+$(EXIF_DAY)          numerical day the photo was taken (from Exif data)
 $(EXIF_HOUR)         hour the photo was taken (from Exif data)
 $(EXIF_MINUTE)       minute the photo was taken (from Exif data)
 $(EXIF_SECOND)       seconds the photo was taken (from Exif data)
