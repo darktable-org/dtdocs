@@ -53,6 +53,6 @@ If any of the above steps failed, there are problems with your specific camera a
 If you successfully completed all of the above tests, your camera is probably supported by darktable. If these tests were successful but you nevertheless stumble upon a problem in darktable, please file an issue on the [darktable github page](https://github.com/darktable-org/darktable/issues). Please attach the log output from the commands above and the log file output produced by starting darktable with the following command:
 
 ```
-darktable -d camctl 2>1 >camctl.log
+darktable -d camctl 2>&1 >camctl.log
 ```
 
