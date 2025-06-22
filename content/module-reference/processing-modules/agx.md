@@ -9,7 +9,7 @@ view: darkroom
 masking: true
 ---
 
-Remap the tonal range of an image using a sigmoidal function applied to log-transformed data.
+Remap the tonal range of an image using a sigmoidal function (an 'S-curve') applied to log-transformed data.
 
 This module can be used to expand or contract the dynamic range of the scene to fit the dynamic range of the display. It is derived from another module of the same name in [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka.
 
@@ -27,7 +27,7 @@ only use one display transform
 : Never use agx together with another display transform module (i.e. [_sigmoid_](./sigmoid.md), [_filmic rgb_](./filmic-rgb.md) or [_base curve_](./base-curve.md)).
 
 adjust for the mid-tones first
-: The sigmoid curve pivots around middle gray. Before using agx, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
+: The curve pivots around middle gray. Before using agx, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
 
 # module controls
 
