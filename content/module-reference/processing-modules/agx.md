@@ -27,7 +27,12 @@ only use one display transform
 : Never use agx together with another display transform module (i.e. [_sigmoid_](./sigmoid.md), [_filmic rgb_](./filmic-rgb.md) or [_base curve_](./base-curve.md)).
 
 adjust for the mid-tones first
-: The curve pivots around middle gray. Before using agx, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
+: The curve pivots around middle gray. Before using _agx_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
+
+usage guidelines
+: to help you navigating the module, some practical advice is provided after a description of the controls
+
+**=> FIXME TODO**
 
 # module controls
 
@@ -36,7 +41,7 @@ The module's controls are divided into three categories:
 - tone mapping controls
 - color-related controls.
 
-Due to the high number of controls, several related controls are often grouped together in collapsible sections, and the controls are distributed between two or three tabs.
+Due to the high number of controls, related controls are often grouped together in collapsible sections, and the controls are distributed between two or three tabs.
 
 The tabs are:
 - settings
@@ -45,7 +50,7 @@ The tabs are:
 
 First, we will list the contents of the various tabs (as some controls may appear at different places, depending on the choice of 2 or 3-tab mode). Then, each control will be described in detail.
 
-## The settings tab
+## The _settings_ tab
 
 The _settings_ tab holds the most often-used controls:
 
@@ -55,7 +60,7 @@ The _settings_ tab holds the most often-used controls:
 - the _basic curve parameters_
 - the collapsible _advanced curve parameters_ section (in 2-tab mode)
 
-## The curve tab
+## The _curve_ tab
 
 Controls on the _curve_ tab:
 
@@ -63,18 +68,18 @@ Controls on the _curve_ tab:
 - the _basic curve parameters_ (also visible on the _settings_ tab, repeated here for convenience)
 - the collapsible _advanced curve parameters_ section
 
-The _curve_ tab is only visible in 3-tab mode, controlled via the `plugins/darkroom/agx/curve_tab_enabled` variable in `darktablerc`. When the variable is enabled, the curve plot and the advanced parameters are removed from the _settings_ tab, and can be accessed via the _curve_ tab, saving vertical space. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
+The _curve_ tab is only visible in 3-tab mode, controlled via the `plugins/darkroom/agx/enable_curve_tab` variable in `darktablerc`. If the variable is enabled, the curve plot and the advanced parameters are removed from the _settings_ tab, and can be accessed via the _curve_ tab, saving vertical space. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
 
-## The primaries tab
+## The _primaries_ tab
 
 This tab holds controls similar to, but more extensive than, the [_sigmoid_](./sigmoid.md) module's _primaries_ collapsible section:
 
+- _disable adjustments_ checkbox
 - preset selector
-- disable adjustments checkbox
 - attenuation and rotation sliders for preprocessing before tone mapping
 - attenuation and rotation reversal sliders for postprocessing after tone mapping
 
-## The look section
+## The _look_ section
 
 These controls allow post-processing after the tone mapping operation, to fine-tune the result. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them for gentle adjustments.
 
@@ -82,13 +87,59 @@ offset
 : Brighten or darken the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control. Negative values can crush shadows; positive values can produce a faded look.
 
 slope
-: A simple multiplication of brightness. Higher values brighten the image and increase contrast. Can lead to blown highlights.
+: A simple multiplication of brightness. Values above 1 brighten the image and increase contrast. Can lead to blown highlights.
 
 power
 : Affects brightness and contrast. Values above 1 make the image more contrasty and darker; those below brighten the image and reduce contrast. 
 
 saturation
-: Controls color intensity. Zero turns the image black-and-white. High values can lead to oversaturation. You can control image saturation in more detail via the 
+: Controls color intensity. Zero turns the image black-and-white. High values can lead to oversaturation. You can control image saturation in more detail via the controls on the _primaries_ tab.
+
+## The _input exposure range_
+
+Provides controls similar to the [_fimic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. Any channel value lower than the selected _black relative exposure_ will be clipped to 0; any above the selected _white relative exposure_ will be clipped to 1. Due to implementation differences, the values will be similar to, but not identical with, the values _filmic rgb_ would pick.
+
+Color pickers are provided to quickly pick the black or white point, or both. A safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
+
+The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
+
+## The curve
+
+The plot of curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, this is visible on the _settings_ page; in 3-curve mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls; after some practice, unless large adjustments are made to curve parameters, you may to prefer to keep it collapsed most of the time, to save space on the screen. 
+
+The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output brightness, 0.18 indicating mid-gray. The scaling of the y-axis is not linear; values are scaled according to a gamma value. The default gamma is 2.2, so the 18% mid-gray value is about halfway up the y-axis. More information on the gamma is provided in the description of the _advanced curve parameters_.
+
+The curve has 5 important points:
+- The _black and white points_ are at the left and right edges of the graph, respectively; their y values (by default, 0 and 1) can be controlled by the _target black_ and _target white_ sliders in the _advanced_ section. Adjusting those values is rarely needed, although the black point may be raised to give the image a faded look, similar to the _offset_ control in the _look_ section.
+- the _pivot_ is the point around which the curve is built; by default, its input and output are set to mid-gray (0 EV and 0.18 on the x and y-axis, respectively). The contrast of the curve is set for this point.
+- _toe and shoulder starting points_: it is possible to maintain a linear section above and below the pivot point. By default, in order to provide the smoothest possible transition, the toe and shoulder starting points are set to the pivot point, effectively disabling this linear section. The steepness of the toe and shoulder section has a decisive effect on contrast in shadows and highlights, respectively, and the tool provides detailed control over this behavior, which will be discussed below (see _toe / shoulder power_ and _toe / shoulder start_).   
+
+show curve
+: Expands or collapses the plot of the curve.
+
+### basic curve parameters
+
+This section is always available on the _settings_ page, both 2 and 3-tab mode. In 3-tab mode, it is also available on the _curve_ tab, and changes are synchronized between the pages.
+
+pivot x shift
+: Allows you to slide the pivot towards the left (darker tones) or right (brighter tones), without affecting its output brightness; however, using this control without changing the _pivot y (linear)_ output will affect the brightness distribution of midtones. For example, starting from the defaults, the pivot set to map mid-gray to mid-gray, sliding it towards the left will result in a darker tone (corresponding to the updated x coordinate of the pivot, now below mid-gray) to be mapped to mid-gray, effectively brightening the image.
+
+Since normally contrast is highest around the pivot, this slider also allows you to choose at which part of the input tonal range you want to make most contrasty.
+
+pivot y (linear)
+: Sets the output brightness belonging to tone selected by the pivot's x-coordinate. Increasing it brightens, decreasing it darkens the value.
+
+A color picker, placed next to _pivot x shift_, is provided to pick an image area. The pivot x and y values will be adjusted so that the average value of the selected area is mapped to the current average output. This allows you to quickly select the area around which you want to center the tones of your image. You may wish to subsequently adjust the _pivot y linear_ value to fine-tune the brightness of the selected area.
+
+While you can select any value between 0 and 1, the y coordinate of the pivot is constrained by the _target black / white_ values (set to 0% and 100%, respectively). 
+
+contrast around the pivot
+: Sets the contrast. This value is scaled internally, to make sure changing the exposure range does not affect apparent contrast around the pivot.
+
+**Note:** While, like with any S-shaped curve, the contrast is normally highest in the middle of the curve, around the pivot, too low values of contrast will cause the toe and/or shoulder to become inverted, as the curve will always make sure the selected black and white points are mapped to the selected black and white target values. In these cases, the inverted toe/shoulder will have a higher, instead of lower, contrast than the value selected here. This can be easily seen on the curve's graph. When such an inversion occurs, the respective _toe/shoulder power_ control becomes ineffective.
+
+toe power / shoulder power
+: These controls how quickly the contrast drops below (above) the starting point of the toe (shoulder), that is, the lower (higher) end of the linear range around the pivot. If the toe (shoulder) starting point coincides with the pivot itself (the default), it defines how quickly the contrast drops below (above) the pivot. Lower values mean the contrast starts dropping quickly, while higher values cause the contrast to remain _almost_ constant over a longer range, followed by a more sudden drop.
 
 # TO BE CONTINUED, below is just a copy of sigmoid's docs.
 
