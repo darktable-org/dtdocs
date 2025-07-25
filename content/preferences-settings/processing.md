@@ -25,7 +25,11 @@ pixel interpolator (scaling)
 : lanczos3 can cause pixel overshoots leading to artefacts but sometimes gives a more crisp visual appearance. This option is therefore only provided for transforming (scaling) algorithms and is the default value.
 
 LUT 3D root folder
-: Define the root folder (and sub-folders) containing LUT files used by the [_LUT 3D_](../module-reference/processing-modules/lut-3D.md) module
+: Define the root folder (and sub-folders) containing LUT files used by the [_LUT 3D_](../module-reference/processing-modules/lut-3D.md) module.
+
+Raster mask files root folder
+: Define the root folder (and sub-folders) containing raster mask files used by the [external-raster-mask](../module-reference/processing-modules/external_raster.md) module.
+
 
 auto-apply pixel workflow defaults
 : Choose which modules and module order are applied to new RAW image edits by default:

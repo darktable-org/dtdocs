@@ -12,12 +12,12 @@ details threshold
 
 ---
 
-**Note:** The data used for the detail mask refinement is taken from the demosaic stage in the processing pipeline, and not from the module's input (which is used for the other parametric mask criteria). None of the processing modules after demosaic will have any effect on the detail mask and it is not currently available for non-RAW images.
+**Note:** The data used for the detail mask refinement is taken from the demosaic or rawprepare stage in the processing pipeline and not from the module's input (which is used for the other parametric mask criteria). None of the processing modules after demosaic will have any effect on the detail mask and it is not available for non-RAW images.
 
 ---
 
 feathering guide
-: Mask feathering smooths a drawn or parametric mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending), and may happen before or after the mask blurring, depending on what is selected in the “feathering guide” combobox. Feathering is particularly sensitive to the choice of guide image when used with edge-modifying modules (modules for sharpening or blurring an image).
+: Mask feathering smooths a mask such that the mask's edges automatically align with the edges of features in the image. The smoothing is guided either by the module's input or output (before blending) and may happen before or after the mask blurring, depending on what is selected in the “feathering guide” combobox. Feathering is particularly sensitive to the choice of guide image when used with edge-modifying modules (modules for sharpening or blurring an image).
 : - _output before blur_: feathering is guided using the _output_ image of the module and takes place _before_ the mask is blurred
 : - _input before blur_: feathering is guided using the _input_ image of the module and takes place _before_ the mask is blurred
 : - _output after blur_: feathering is guided using the _output_ image of the module and takes place _after_ the mask has been blurred
@@ -49,7 +49,7 @@ It can be rather tedious to create a drawn mask that precisely covers a particul
 
 1. The first image above shows the original, unaltered image.
 2. The second image shows a rough selection of the sculpture created with a drawn mask. Note that the mask is rather fuzzy and does not precisely follow the outline of the lion sculpture.
-3. The third image shows the effect of adjusting the feathering radius, mask opacity and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask opacity and mask contrast have been increased to 0.3 and 0.5, respectively. 
+3. The third image shows the effect of adjusting the feathering radius, mask opacity and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask opacity and mask contrast have been increased to 0.3 and 0.5, respectively.
 4. The final image above shows the end result, where the color enhancement (via the [_color contrast_](../../../module-reference/processing-modules/color-contrast.md) module) is restricted to only the lion sculpture.
 
-Mask feathering works particularly well in this example because the sculpture is well separated from the out-of-focus background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture. 
+Mask feathering works particularly well in this example because the sculpture is well separated from the out-of-focus background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture.
