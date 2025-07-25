@@ -9,11 +9,13 @@ view: darkroom
 masking: false
 ---
 
-Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically. 
+Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically.
 
 The module is enabled by default and the orientation (rotation) is automatically set based on the image's Exif data.
 
 The orientation can also be set using the [actions on selection](../utility-modules/lighttable/selected-image.md) module in the [lighttable](../../lighttable/_index.md) view.
+
+**Note:** The crop area defined in [_crop_](./crop.md) module is kept when the orientation is changed.
 
 # module controls
 
