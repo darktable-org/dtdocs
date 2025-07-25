@@ -9,7 +9,7 @@ view: darkroom
 masking: true
 ---
 
-Attempt to reconstruct color information for pixels that are clipped in one or more RGB channel.
+Attempt to reconstruct color information for pixels that are clipped in one or more RGB channels.
 
 # clipping
 
@@ -31,7 +31,7 @@ inpaint opposed (default)
 : Restore clipped pixels by using an average of adjacent unclipped pixels to estimate the correct color. This works well for the majority of images but may fail where the clipped areas are adjacent to areas of a different color.
 
 segmentation based
-: A more sophisticated algorithm that uses adjacent unclipped pixels to estimate the correct color, by treating each clipped area separately (as an individual segment). The color of each clipped segment is estimated by analysing the color ratios of the adjacent pixels. Pixels that are too dark or appear to be an edge are rejected by the algorithm. If all surrounding pixels are rejected, that segment is reconstructed using the "inpaint opposed" method (above). Segments that are close together are often parts of the same object and so can be treated as if they were a single segment. 
+: A more sophisticated algorithm that uses adjacent unclipped pixels to estimate the correct color, by treating each clipped area separately (as an individual segment). The color of each clipped segment is estimated by analysing the color ratios of the adjacent pixels. Pixels that are too dark or appear to be an edge are rejected by the algorithm. If all surrounding pixels are rejected, that segment is reconstructed using the "inpaint opposed" method (above). Segments that are close together are often parts of the same object and so can be treated as if they were a single segment.
 
 : Segmentation based reconstruction is able to rebuild large areas where all channels are clipped by examining the surrounding gradients. However, you should think of this method more as a way to "disguise" clipped areas with something plausible, rather than a way to "magically" repair them.
 
@@ -50,6 +50,8 @@ reconstruct color
 ---
 
 **Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be better to avoid using this module in _clip highlights_ mode (so that _filmic rgb_ has more information to work with).
+
+**Note 2:** The amount of 'clipped signal' is advertised as a raster mask that can be used by other modules as usual.
 
 ---
 
@@ -82,7 +84,7 @@ diameter of the reconstruction
 ## "segmentation based" mode
 
 clipping threshold
-: Since this controls the number of pixels that are considered to be clipped, it also changes the size of the resulting segments and the location of the adjacent pixels used for the reconstruction. For accurate adjustment, you can use the exposure module to ensure that no highlights are clipped in the histogram (or the image you see on screen). Then raise the clipping threshold until the highlights are no longer white and slowly lower it again until they look acceptable.
+: Since this controls the locations of pixels that are considered to be clipped, it also changes the size of the resulting segments and the location of the adjacent pixels used for the reconstruction. For accurate adjustment, you can use the exposure module to ensure that no highlights are clipped in the histogram (or the image you see on screen). Then raise the clipping threshold until the highlights are no longer white and slowly lower it again until they look acceptable.
 
 combine
 : The radius at which close segments are combined and considered to be part of the same segment. Increase (to combine more segments) when different parts of the same object have been incorrectly reconstructed to different colors. Decrease (to separate segments) when different objects have been incorrectly reconstructed to the same color. Click on the button beside the slider to see the outlines of the resulting segments.

@@ -5,22 +5,22 @@ weight: 10
 draft: false
 ---
 
-Each processing module takes its input from the preceding module in the pixelpipe, performs its operation on the image data, and then hands the output to the next module in the pixelpipe. 
+Each processing module takes it's input from the preceding module in the pixelpipe, performs it's operation on the image data, and then hands the output to the next module in the pixelpipe.
 
-A module's output data can optionally be reprocessed (combined) with its input data before being handed to the next module. This additional processing step is called _blending_ -- input and output data is reprocessed using algorithms called blending operators or [blend modes](./blend-modes.md).
+A module's output data can optionally be reprocessed (combined) with it's input data before being handed to the next module. This additional processing step is called _blending_ -- input and output data is reprocessed using algorithms called blending operators or [blend modes](./blend-modes.md).
 
 Each blend mode is further controlled by the _opacity_ parameter (having a value between 0% and 100%) which defines how much the input and output images contribute to the final result. Typically an opacity of 0% outputs an image which is identical to the input image (the module has no effect) whereas an opacity of 100% delivers the maximum effect of the module.
 
-This opacity can be the same for every pixel (using the global opacity slider), in which case blending acts uniformly over the entire image. Alternatively the opacity values can vary depending on the properties or location of each pixel. This local modification of opacity is called a _mask_. Masks provide the user with fine control over which parts of an image are affected by a module and to what extent. The user may choose to activate a [drawn mask](./masks/drawn.md), a [parametric mask](./masks/parametric.md) or a [combination](./masks/drawn-and-parametric.md). 
+This opacity can be the same for every pixel (using the global opacity slider), in which case blending acts uniformly over the entire image. Alternatively the opacity values can vary depending on the properties or location of each pixel. This local modification of opacity is called a _mask_. Masks provide the user with fine control over which parts of an image are affected by a module and to what extent. The user may choose to activate a [drawn mask](./masks/drawn.md), a [parametric mask](./masks/parametric.md) or a [combination](./masks/drawn-and-parametric.md).
 
-Blending and masking functionality is controlled via a group of icons located at the bottom of each applicable module. 
+Blending and masking functionality is controlled via a group of icons located at the bottom of each applicable module.
 
 ![mask & blend options](./overview/mask-blend-options.png#w33)
 
 These icons enable the following masking and blending options, from left to right:
 
 off
-: Module output is passed to the next module in the pixelpipe without additional reprocessing. No further controls are displayed. 
+: Module output is passed to the next module in the pixelpipe without additional reprocessing. No further controls are displayed.
 
 uniformly
 : Input and output images are reprocessed uniformly with the chosen blend mode, where the amount of blending is controlled by a single opacity slider. Additional controls are displayed to allow the blend mode and opacity to be selected. The default is a blend mode of “normal” with an opacity of 100%.
