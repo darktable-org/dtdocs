@@ -28,7 +28,7 @@ Only one of the commands should be present on the command line.
 : `<res>` is the version of the GIMP API (_not_ the darktable version).
 
 `file <path>`
-: Starts darktable in darkroom mode with the image from the `<path>` loaded. The user is prevented from switching to another darktable mode. When the user closes the darkroom window, the result is exported as an EXR file to a temporary location. The returned `<res>` is the full path of the exported file.
+: Starts darktable in darkroom mode with the image from the `<path>` loaded. The user is prevented from switching to another darktable mode. When the user closes the darkroom window, the result is exported as an EXR file to a temporary location. The returned `<res>` is the full path of the exported file. If the image is already in the darktable database, then any edits previously done in darktable will be part of the image exported. Any edits during the GIMP invocation of darktable will not, however, be saved to the database.
 
 `thumb <path> <dim>`
 : darktable writes a thumbnail JPEG file to a temporary location. `<path>` is the RAW file path, `<dim>` (in pixels) is used for the greater of width or height required for the thumbnail. The original ratio of dimensions is maintained. The returned `<res>` has the following format:
