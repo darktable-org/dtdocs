@@ -51,4 +51,4 @@ To add new metadata fields to the module, press the "+" button at the bottom of 
 
 All tags in this module are available for display in the [image information](./image-information.md) module, updating in the [import](../lighttable/import.md) module and filtering in the [collections](./collections.md) module.
 
-The field values can be used in [variable substitution](../../../special-topics/variables.md) using the last part of the associated tag name as the variable name. For example, the xmp tag `Xmp.iptc.location` is available as the variable `$(LOCATION)`.
+The field values can be used in [variable substitution](../../../special-topics/variables.md) using the full case sensitive Xmp tag name as the variable name, i.e. `Xmp.iptc.location`.
