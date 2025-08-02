@@ -100,11 +100,11 @@ $(LABELS.ICONS)            colorlabels (color labels as icons)
 $(MAKER)                   camera maker
 $(MODEL)                   camera model
 $(LENS)                    lens
-$(TITLE)                   title from metadata
-$(DESCRIPTION)             description from metadata
-$(CREATOR)                 creator from metadata
-$(PUBLISHER)               publisher from metadata
-$(RIGHTS)                  rights from metadata
+$(Xmp.dc.title)            title from metadata
+$(Xmp.dc.description)      description from metadata
+$(Xmp.dc.creator)          creator from metadata
+$(Xmp.dc.publisher)        publisher from metadata
+$(Xmp.dc.rights)           rights from metadata
 $(TAGS)                    tags list (Xmp.dc.Subject)
 $(CATEGORY[n,category])    tag name of level n [0,9] of selected category (or tag)
 $(SIDECAR_TXT)             content of the text sidecar file (if any)
@@ -119,7 +119,7 @@ $(JOBCODE)                 internal jobcode of current job
 
 # metadata
 
-Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substitution using the last part of the associated tag name as the variable name. For example, the xmp tag `Xmp.iptc.location` is available as the variable `$(LOCATION)`.
+Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substitution using the full case sensitive Xmp tag name as the variable name, i.e. `Xmp.iptc.location`.
 
 
 # string substitution
