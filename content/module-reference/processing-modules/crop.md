@@ -2,7 +2,7 @@
 title: crop
 id: crop
 weight: 10
-applicable-version: 3.8
+applicable-version: 5.2
 tags:
 working-color-space:
 view: darkroom
@@ -44,7 +44,7 @@ aspect
 
 **Note:** When resizing an image in freehand mode you may retain the currently-set aspect ratio by holding Shift while dragging on any of the resize controls.
 
-**Note 2:** The crop area is kept when changing the orientation in [_orientation_](./orientation.md) module.
+**Note 2:** The crop area is retained when changing [_orientation_](./orientation.md).
 
 ---
 

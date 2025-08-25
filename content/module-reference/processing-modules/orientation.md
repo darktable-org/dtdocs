@@ -15,7 +15,7 @@ The module is enabled by default and the orientation (rotation) is automatically
 
 The orientation can also be set using the [actions on selection](../utility-modules/lighttable/selected-image.md) module in the [lighttable](../../lighttable/_index.md) view.
 
-**Note:** The crop area defined in [_crop_](./crop.md) module is kept when the orientation is changed.
+**Note:** The [_crop_](./crop.md) area is retained when the orientation is changed.
 
 # module controls
 
@@ -36,4 +36,3 @@ transform
 
 show guides
 : Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
-
