@@ -1,7 +1,7 @@
 ---
 title: import
 id: import
-applicable-version: 3.8
+applicable-version: 5.0
 tags:
 view: lighttable
 ---
@@ -14,23 +14,23 @@ See [supported file formats](../../../overview/supported-file-formats.md) for mo
 
 The following buttons are shown in the module's UI by default:
 
-[add to library](#add-to-library) 
+[add to library](#add-to-library)
 : Add existing images to the darktable library without copying or moving files. If you only add a single image to the library it will be automatically loaded in the darkroom.
 
-[copy & import](#copy--import) 
+[copy & import](#copy--import)
 : Create copies of images from the filesystem and then add those copies to the darktable library.
 
-When a camera is detected, a new section will appear in the module for that device. If you hover your mouse over the camera label, a tooltip will display information about the camera (model, firmware version etc.) 
+When a camera is detected, a new section will appear in the module for that device. If you hover your mouse over the camera label, a tooltip will display information about the camera (model, firmware version etc.)
 
 Depending on the capabilities of the camera, the following additional buttons may be displayed:
 
 mount camera
 : Mount the camera for exclusive use by darktable. This button only appears if the camera is not currently mounted and is not locked by another process.
 
-[copy & import from camera](#copy--import-from-camera) 
+[copy & import from camera](#copy--import-from-camera)
 : Create copies of images from the connected camera and then add those images to the darktable library. This button only appears if the camera is currently mounted.
 
-[tethered shoot](../../../../tethering/_index.md) 
+[tethered shoot](../../../../tethering/_index.md)
 : Open the tethering view so that you can take images with your connected camera using darktable. This button only appears if the camera is currently mounted.
 
 unmount camera
@@ -63,7 +63,7 @@ tags
 
 # import dialog
 
-Each of the three import buttons (add to library, copy & import, copy & import from camera) uses a similar dialog for the import process, described in this section. 
+Each of the three import buttons (add to library, copy & import, copy & import from camera) uses a similar dialog for the import process, described in this section.
 
 The following example screenshot is taken from the "add to library" button:
 
@@ -73,7 +73,7 @@ The following example screenshot is taken from the "add to library" button:
 
 ### places and folders
 
-The import dialog is intended to allow you to set up common import locations, to make subsequent imports as simple as possible. When you first open the dialog, darktable attempts to add some common locations (home, pictures, mounted devices) to the places pane. You can add new places to the list by clicking on the + button and you can remove places from the list by clicking on the - button. If you wish to restore a default location that you have deleted, you can do this with the reset button.
+The import dialog is intended to allow you to set up common import locations, to make subsequent imports as simple as possible. When you first open the dialog, darktable attempts to add some common locations (home, pictures, mounted devices) to the places pane. You can add new places to the list by clicking on the "+" button and you can remove places from the list by clicking on the "--" button. If you wish to restore a default location that you have deleted, you can do this with the reset button.
 
 When you choose a place, the folder tree is automatically populated (into the folders pane) from the root directory of the selected place. You can then navigate the folder tree and select a folder for import. The last selected place/folder is automatically reloaded the next time you open the dialog.
 
@@ -116,7 +116,7 @@ This means that if you delete images from disk after having added them, darktabl
 
 ## copy & import
 
-This option copies images from another location on your filesystem (including mounted storage devices) and then adds the copied images to the darktable library. Using this option, if an existing XMP sidecar file is available for the image, it will *not* be read or copied and a new XMP will be created. 
+This option copies images from another location on your filesystem (including mounted storage devices) and then adds the copied images to the darktable library. Using this option, if an existing XMP sidecar file is available for the image, it will _not_ be read or copied and a new XMP will be created.
 
 The following additional options are available to control the file and directory naming of the copied files. By default, only the "import job" option is shown -- click on the "naming rules" label or the expander icon beside it to show additional options:
 
@@ -145,4 +145,4 @@ Most of these options can also be set in [preferences > import](../../../../pref
 
 ## copy & import from camera
 
-This option copies files from a connected camera to the local filesystem and then adds the copied images to the darktable library. It provides the same naming options as the "copy & import" dialog but does not allow places or folders to be selected. 
+This option copies files from a connected camera to the local filesystem and then adds the copied images to the darktable library. It provides the same naming options as the "copy & import" dialog but does not allow places or folders to be selected.
