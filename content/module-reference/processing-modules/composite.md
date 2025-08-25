@@ -9,9 +9,11 @@ Create a composite image by overlaying an already-processed image on top of the 
 
 Drag and drop a processed image from the filmstrip onto the "drop image from filmstrip here" box to overlay the chosen image, and then alter the various placement and adjustment attributes of the image being overlaid.
 
-The full pixel pipe of the overlayed image *before the point at which this module appears in the base image's pixel pipe* is used by the module, so if you want to drastically change the overlaid image beyond the controls of this module, you should first edit that image separately.  If the overlaid image needs *different* processing than the base image for modules coming after *composite*, you should move this module later in the pixel pipe by dragging it upwards in the right-hand panel.  Note that doing so will slow down processing, as modules which were previously applied a single time to the combined image will now be run separately for the base and overlay images.
+Please note the following points:
 
-Due to internal implementation reasons, the overlaid image only uses eight bits per channel, not the full floating-point values normally used internally.  If you are making large changes in color or tonality, this can lead to noticeable banding.  When this happens, move *composite* above the modules where you make those changes.
+-   This module does not include the entire pixelpipe of the overlaid image -- only that part of the pixelpipe up to the composite module. If you wish to include any modules after that point, you should move the composite module within the overlaid image first and complete your edit before dropping it onto your target image.
+-   Because the darktable will now be processes two images, this could significantly degrade performance, so try to avoid too many large edits on both images.
+-   The overlaid image is imported with only eight bits per pixel rather than the full floating point values normally used within darktable's internal pipeline. This means that any major changes made after the composite module might introduce banding. In such cases you are advised to do as much processing as possible before the composite module in the pixelpipe. Move the composite module as needed to achieve this.
 
 # module controls
 
