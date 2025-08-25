@@ -12,7 +12,7 @@ Drag and drop a processed image from the filmstrip onto the "drop image from fil
 Please note the following points:
 
 -   This module does not include the entire pixelpipe of the overlaid image -- only that part of the pixelpipe up to the composite module. If you wish to include any modules after that point, you should move the composite module within the overlaid image first and complete your edit before dropping it onto your target image.
--   Because the darktable will now be processes two images, this could significantly degrade performance, so try to avoid too many large edits on both images.
+-   Because the darktable will now be processing two images, this could significantly degrade performance, so try to avoid too many large edits on both images.
 -   The overlaid image is imported with only eight bits per pixel rather than the full floating point values normally used within darktable's internal pipeline. This means that any major changes made after the composite module might introduce banding. In such cases you are advised to do as much processing as possible before the composite module in the pixelpipe. Move the composite module as needed to achieve this.
 
 # module controls
