@@ -13,7 +13,7 @@ cd "$PROJECT_ROOT"
 ./tools/build-html.sh "$base_url"
 
 #build epubs
-./tools/build-epub.sh
+#./tools/build-epub.sh
 
 #build pdfs
-./tools/build-pdf.sh
+#./tools/build-pdf.sh
