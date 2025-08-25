@@ -1,7 +1,7 @@
 ---
 title: metadata editor
 id: metadata-editor
-applicable-version: 5.2
+applicable-version: 5.4
 tags:
 view: lighttable, tethering
 ---
@@ -20,7 +20,7 @@ metadata entry fields
 
 : When several images are selected that have differing values for a given field, the module displays "_\<leave unchanged\>_" for that field -- if you choose to apply changes, these fields will not be changed. If you right-click on such a field, the different values are listed at the end of the contextual menu. Select one of those values to apply that value to all of the selected images.
 
-: Hold Ctrl while scrolling with your mouse to increase the height of a field's entry box. 
+: Hold Ctrl while scrolling with your mouse to increase the height of a field's entry box.
 
 apply
 : Apply new settings from the metadata entry fields to the selected images.
@@ -29,11 +29,11 @@ apply
 
 You may use the keyboard to navigate and apply changes while any of the metadata entry boxes have focus, as follows:
 
-- The Tab key saves the current field and moves the cursor to the next field. When the last field is reached, the Tab key returns focus to the first field.
+-   The Tab key saves the current field and moves the cursor to the next field. When the last field is reached, the Tab key returns focus to the first field.
 
-- Shift+Tab works the same as Tab, but in the opposite direction.
+-   Shift+Tab works the same as Tab, but in the opposite direction.
 
-- The Enter key saves the current field without moving the cursor.
+-   The Enter key saves the current field without moving the cursor.
 
 # preferences
 
@@ -41,7 +41,7 @@ The "preferences" option in the presets menu brings up a dialog where you can co
 
 visible
 : Show or hide this metadata field. Hidden fields are not included in exported images.
- 
+
 private
 : Keep this metadata field private. Private fields are not included in exported images.
 
@@ -51,4 +51,4 @@ To add new metadata fields to the module, press the "+" button at the bottom of 
 
 All tags in this module are available for display in the [image information](./image-information.md) module, updating in the [import](../lighttable/import.md) module and filtering in the [collections](./collections.md) module.
 
-The field values can be used in [variable substitution](../../../special-topics/variables.md) using the full case sensitive Xmp tag name as the variable name, i.e. `Xmp.iptc.location`.
+The field values can be used in [variable substitution](../../../special-topics/variables.md) using the full case-sensitive Xmp tag name as the variable name (e.g. `Xmp.iptc.location`).

@@ -8,10 +8,10 @@ author: "people"
 
 darktable supports variable substitution in a number of modules and preference settings. For example:
 
-- Defining file names in the [export](../module-reference/utility-modules/shared/export.md) module
-- Displaying image information in the darkroom's [image information line](../module-reference/utility-modules/darkroom/image-info-line.md)
-- Displaying image information in the lighttable's overlays and tooltips (see [preferences > lighttable](../preferences-settings/lighttable.md))
-- Placing text on an image in the [_watermark_](../module-reference/processing-modules/watermark.md) processing module
+-   Defining file names in the [export](../module-reference/utility-modules/shared/export.md) module
+-   Displaying image information in the darkroom's [image information line](../module-reference/utility-modules/darkroom/image-info-line.md)
+-   Displaying image information in the lighttable's overlays and tooltips (see [preferences > lighttable](../preferences-settings/lighttable.md))
+-   Placing text on an image in the [_watermark_](../module-reference/processing-modules/watermark.md) processing module
 
 # available variables
 
@@ -119,8 +119,7 @@ $(JOBCODE)                 internal jobcode of current job
 
 # metadata
 
-Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substitution using the full case sensitive Xmp tag name as the variable name, i.e. `Xmp.iptc.location`.
-
+Fields from the [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md) can be used for variable substitution using the full case-sensitive Xmp tag name as the variable name (e.g.`Xmp.iptc.location`).
 
 # string substitution
 
