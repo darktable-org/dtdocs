@@ -3,8 +3,8 @@ title: haze removal
 id: haze-removal
 weight: 10
 applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
+tags:
+working-color-space: RGB
 view: darkroom
 masking: true
 ---
@@ -15,7 +15,7 @@ Haze absorbs light from objects in the scene but it is also a source of diffuse 
 
 Setting both of the module's controls to unity maximizes the amount of haze removal but is also likely to produce some artifacts. Removing the atmospheric light entirely may render the image flat and result in an unnatural looking style. Optimal values are typically below unity and are rather image dependent, but also a matter of personal aesthetic preferences.
 
-**Important note**: This module is not intended to be used for increasing contrast, even though that is the resulting effect from removing haze.  It _will_ fail on many images which do not contain actual haze.  To increase contrast on non-hazy images, apply the [_local contrast_](../local-contrast.md) module or use the 4-ways tab in [_color balance rgb_](../color-balance-rgb.md) and reduce the shadows lift luminance.
+**Note**: While this module does increase contrast, is not intended for this purpose, and will fail on many images that do not contain actual haze. To increase contrast on non-hazy images, you can use [_local contrast_](../local-contrast.md), [_diffuse or sharpen_](./diffuse.md), or use the 4-ways tab in [_color balance rgb_](../color-balance-rgb.md) (reduce the shadows and lift luminance).
 
 # module controls
 
