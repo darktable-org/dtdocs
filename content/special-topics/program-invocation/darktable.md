@@ -40,7 +40,7 @@ All parameters are optional. In most cases darktable should be started without a
 : Enable debug output to the terminal. There are several subsystems of darktable and each of them can be debugged separately. You can use this option multiple times if you want to debug more than one subsystem (e.g. `darktable -d opencl -d camctl`) or debug all of them at once (with `-d all`). The `-d common` switch is provided to give information about most relevant subsystems while debugging darktable or if you want to provide a log for reporting a darktable issue. Some debug options (like `-d opencl`) can also provide more verbose output, which can be invoked with the additional option `-d verbose`. The verbose option must be explicitly provided, even when using `-d all`.
 
 `--d-signal <signal>`
-: If `-d signal` or `-d all` is specified, specify the signal to debug using this option. Specify `ALL` to debug all signals or specify signal using it's full name. Can be used multiple times.
+: If `-d signal` or `-d all` is specified, specify the signal to debug using this option. Specify `ALL` to debug all signals or specify signal using its full name. Can be used multiple times.
 
 `--d-signal-act <all,raise,connect,disconnect,print-trace>`
 : If `-d signal` or `-d all` is specified, specify the signal action to debug using this option.

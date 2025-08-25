@@ -5,9 +5,9 @@ weight: 10
 draft: false
 ---
 
-Each processing module takes it's input from the preceding module in the pixelpipe, performs it's operation on the image data, and then hands the output to the next module in the pixelpipe.
+Each processing module takes its input from the preceding module in the pixelpipe, performs its operation on the image data, and then hands the output to the next module in the pixelpipe.
 
-A module's output data can optionally be reprocessed (combined) with it's input data before being handed to the next module. This additional processing step is called _blending_ -- input and output data is reprocessed using algorithms called blending operators or [blend modes](./blend-modes.md).
+A module's output data can optionally be reprocessed (combined) with its input data before being handed to the next module. This additional processing step is called _blending_ -- input and output data is reprocessed using algorithms called blending operators or [blend modes](./blend-modes.md).
 
 Each blend mode is further controlled by the _opacity_ parameter (having a value between 0% and 100%) which defines how much the input and output images contribute to the final result. Typically an opacity of 0% outputs an image which is identical to the input image (the module has no effect) whereas an opacity of 100% delivers the maximum effect of the module.
 
@@ -50,4 +50,3 @@ blending options
 **Note:** Not all of these blending options are available for every module.
 
 ---
-
