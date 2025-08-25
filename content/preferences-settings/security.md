@@ -34,10 +34,10 @@ ask before deleting a tag
 : Always ask before deleting a tag from an image (default on).
 
 ask before deleting a style
-: Always ask before deleting a style (default on). 
+: Always ask before deleting a style (default on).
 
 ask before deleting a preset
-: Always ask before deleting a preset (default on). 
+: Always ask before deleting a preset (default on).
 
 ask before exporting in overwrite mode
 : Always ask before [exporting](../module-reference/utility-modules/shared/export.md) images in overwrite mode.
@@ -45,10 +45,10 @@ ask before exporting in overwrite mode
 # other
 
 password storage backend to use
-: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”, "apple_keychain" (on macOS), "windows_credentials" (on Windows). 
+: The backend to use for password storage. Options: “auto” (default), “none”, “libsecret”, “kwallet”, "apple_keychain" (on macOS), "windows_credentials" (on Windows).
 
 auto login to storage server
-: When exporting images to an external storage server (i.e. Piwigo) this option allows to automatically perform a login to the server. A password storage backend is required to be set.
+: When exporting images to an external storage server (Piwigo) select this option to automatically log in to the server. You must set a password storage backend (above) to use this option.
 
 executable for playing audio files
-: Define an external program which is used in the lighttable view to play audio files that some cameras record to keep notes for images (default “aplay”). 
+: Define an external program which is used in the lighttable view to play audio files that some cameras record to keep notes for images (default “aplay”).
