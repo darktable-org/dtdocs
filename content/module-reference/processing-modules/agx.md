@@ -87,11 +87,11 @@ This tab holds controls similar to, but more extensive than, the [_sigmoid_](./s
 
 These controls allow post-processing after the tone mapping operation, to fine-tune the result. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully. Middle gray is not preserved when using these sliders. 
 
-offset
-: Brighten or darken the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values can crush shadows; positive values can produce a faded look.
-
 slope
 : A simple multiplication of brightness. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
+
+offset
+: Brightens or darkens the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
 
 power
 : Affects brightness and contrast. Values above 1 make the image darker and compress shadows; those below 1 brighten the image, opening up shadows. The black and white points are not affected. 
@@ -100,11 +100,11 @@ saturation
 : Controls color intensity. Zero turns the image black-and-white. High values can lead to oversaturation. You can control image saturation in more detail via the controls on the _primaries_ tab.
 
 preserve hue
-: At a value of 0%, the colors output by the module will be based solely on the colors resulting from processing by the AgX algorithm (which itself is a complex one, described in the section on _primaries_). (**TODO** describe it in primaries) By raising the slider, the original input colours can be fully or partially restored, if desired. 
+: At a value of 0%, the colors output by the module will be based solely on the colors resulting from processing by the AgX algorithm, details of which will be provided in the section about the _primaries_ tab.. (**TODO** describe it in primaries) By raising the slider, the original input colours can be fully or partially restored, if desired. 
 
 ## The _input exposure range_
 
-Provides controls similar to the [_fimic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. Any channel value lower than the selected _black relative exposure_ will be clipped to 0; any above the selected _white relative exposure_ will be clipped to 1. Due to implementation differences, the values will be similar to, but not identical with, the values _filmic rgb_ would pick.
+Provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. Any channel value lower than the selected _black relative exposure_ will be clipped to 0; any above the selected _white relative exposure_ will be clipped to 1. Due to implementation differences, the values will be similar to, but not identical with, the values _filmic rgb_ would pick.
 
 Color pickers are provided to quickly pick the black or white point, or both. A safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
 
@@ -114,12 +114,12 @@ The selected exposure range will then be used as the input range of a logarithmi
 
 The plot of curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, this is visible on the _settings_ page; in 3-curve mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls; after some practice, unless large adjustments are made to curve parameters, you may prefer to keep it collapsed most of the time, to save space on the screen. The plot is not interactive (does not react to dragging by the mouse, for example); it simply illustrates the effect of the sliders.
 
-The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output brightness, 0.18 indicating mid-gray. The scaling of the y-axis is not linear; values are scaled according to a gamma value. The default gamma is 2.2, so the 18% mid-gray value is about halfway up the y-axis. More information on the gamma is provided in the description of the _advanced curve parameters_.
+The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output brightness, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualise the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2, so the 18% mid-gray value is about halfway up the y-axis). More information on the gamma is provided in the description of the _advanced curve parameters_.
 
 The curve has 5 important points:
 - The _black and white points_ are at the left and right edges of the graph, respectively; their y values (by default, 0 and 1) can be controlled by the _target black_ and _target white_ sliders in the _advanced_ section. Adjusting those values is rarely needed, although the black point may be raised to give the image a faded look, similar to the _offset_ control in the _look_ section.
 - the _pivot_ is the point around which the curve is built, and is indicated by a dot; by default, its input and output are set to mid-gray (0 EV and 18% on the x and y-axis, respectively). The contrast of the curve is set for this point.
-- _toe and shoulder starting points_: it is possible to maintain a linear section above and below the pivot point. By default, in order to provide the smoothest possible transition, the toe and shoulder starting points are set to the pivot point, effectively disabling this linear section. The steepness of the toe and shoulder section has a decisive effect on contrast in shadows and highlights, respectively, and the tool provides detailed control over this behavior, which will be discussed below (see _toe / shoulder power_ and _toe / shoulder start_).
+- _toe and shoulder starting points_: it is possible to maintain a section of constant contrast above and below the pivot point. By default, in order to provide the smoothest possible transition, the toe and shoulder starting points are set to the pivot point, effectively removing this section. The steepness of the toe and shoulder section has a decisive effect on contrast in shadows and highlights, respectively, and the tool provides detailed control over this behavior, which will be discussed below (see _toe / shoulder power_ and _toe / shoulder start_).
 
 show curve
 : Expands or collapses the plot of the curve.
@@ -146,29 +146,27 @@ contrast around the pivot
 **Note:** While, like with any S-shaped curve, the contrast is normally highest in the middle of the curve, around the pivot, too low values of contrast will cause the toe and/or shoulder to become 'inverted', as the curve will always make sure the selected black and white points are mapped to the selected black and white target values. In these cases, the inverted toe/shoulder will have a higher, instead of lower, contrast than the value selected here. This can be easily seen on the curve's graph. When such an inversion occurs, the respective _toe/shoulder power_ control becomes ineffective. This may sound complicated, but you will understand it immediately if you display the curve, and set a low contrast value.
 
 toe power / shoulder power
-: These controls how quickly the contrast drops below (above) the starting point of the toe (shoulder), that is, the lower (higher) end of the linear range around the pivot. If the toe (shoulder) starting point coincides with the pivot itself (the default), it defines how quickly the contrast drops below (above) the pivot. Lower values mean the contrast starts dropping quickly, while higher values cause the contrast to remain _almost_ constant over a longer range, followed by a more sudden drop.
+: The word _toe_ refers to the lower bend of the curve, while the _shoulder_ is the higher bend. Normally (for an S-curve), these are the sections where the curve's contrast gradually drops as it approaches black or white, for the toe and shoulder, respectively. The _toe / shoulder power_ sliders determine how long the contrast remains mostly unchanged. Higher power values result in the contrast remaining close to the value set around the pivot for longer, followed by a more abrupt, quicker drop, and lower final contrast around the black or white point. As already noted above in the description of _contrast around the pivot_, if the initial contrast is not enough to reach the black or white point from the pivot, the corresponding section of the curve becomes inverted (the toe may become convex, pointing downwards, or the shoulder may become concave, pointing upwards), rendering the toe or shoulder power control ineffective.  
 
 ### advanced curve parameters
-**TODO** review
+
 toe start
-:Defines when the curve will start on the darker end. Higher values will push shadows earlier towards the blackpoint so the curve will be more aggressive on this end and it is possible that it gets completely flat on the lower end. This can cause a loss of details in the shadows.
+: Defines the left-hand side point where the linear portion of the curve ends, and below which the curve starts losing slope, becoming flatter, therefore adjusting the handling of shadows. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target black_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _toe power_, but allows hard clipping, leading to a loss of details in the shadows.
 
 target black
-: Lower bound that the sigmoid curve converges to as the scene value approaches zero -- this should normally be left unchanged. You _can_ use this to give a faded analog look, but should instead prefer to use the "global offset" slider in [_color balance rgb_](./color-balance-rgb.md) to achieve a similar effect.
+: Lower bound that the sigmoid curve converges to as the scene value approaches the selected black point. The control can be used to create a faded analog look. Another way to achieve a similar effect is Another way to create a similar effect is the _look offset_. Alternatively, you may prefer the _global offset_ slider in the [_color balance rgb_](./color-balance-rgb.md) module.
 
 shoulder start
-::Defines when the curve will start on the on the brighter end. Higher values will push bright areas earlier towards the whitepoint so curve will be more aggressive on this end and it is possible that it gets completely flat on the higher end. This can cause a loss of details in the highlights.
+: Defines the right-hand side point where the linear portion of the curve ends, and above which the curve starts losing slope, becoming flatter, therefore adjusting the handling of highlights. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target white_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _shadow power_, but allows hard clipping, leading to a loss of details in the highlights.
 
 target white
-: Upper bound that the sigmoid curve converges to as the scene value approaches infinity -- this should normally be left unchanged. You can use this to clip white at a defined scene intensity.
+: Upper bound that the sigmoid curve converges to as the scene value approaches the selected white point. The control can be used to limit the maximum output brightness.
 
 keep the pivot on identity line
-:tries to make sure the curve always stays S-shaped to keep toe and shoulder conrols effecive. This has an impact on the overall contrast, so it may be necessary to counteract with the contrast slider.
+: Automatically adjusts _curve y gamma_ to guarantee that the curve always stays S-shaped, keeping toe and shoulder controls effective. See more below, at _curve y gamma_.
 
 curve y gamma
-:shifts the representation of the pivot along the y-axis without yhnaging the brightness. This has an impact on the overall contrast, so it may be necessary to counteract with the contrast slider.
-
-
+: Shifts the representation of the pivot along the y-axis without changing its output brightness. This has nothing to do with the 'gamma' of the screen was calibrated to, but is an internal parameter of the algorithm. High values increase overall contrast (between the darkest and brightness regions) and saturation; low values make the image more washed-out. The immediate brightness range around the pivot, and therefore contrast around the pivot, are not affected.
 
 
 # TO BE CONTINUED, below is just a copy of sigmoid's docs.
