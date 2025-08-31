@@ -51,8 +51,6 @@ reconstruct color
 
 **Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be better to avoid using this module in _clip highlights_ mode (so that _filmic rgb_ has more information to work with).
 
-**Note 2:** The amount of 'clipped signal' is also provided as a raster mask that can be used by subsequent modules in the pixelpipe.
-
 ---
 
 # module controls
@@ -65,7 +63,14 @@ method
 clipping threshold
 : Pixels above this value are considered to be clipped.
 
+clipping mask
 : Click the icon beside the slider to visualise what areas of the image are considered to be clipped (the clipping mask). If the clipping mask does not match the [RAW overexposed warning](../utility-modules/darkroom/raw-overexposed.md), you may need to correct this value.
+
+---
+
+**Note**: The clipping mask is also available as a [raster mask](../../../darkroom/masking-and-blending/masks/raster.md) for use in subsequent modules. This can be used, for example, to manage any color cast that remains after highlight reconstruction.
+
+---
 
 ## "guided laplacians" mode
 
