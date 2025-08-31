@@ -32,14 +32,12 @@ adjust for the mid-tones first
 usage guidelines
 : to help you navigate the module, some practical advice is provided after a description of the controls.
 
-**=> TODO add guidelines later at the end**
-
 # module controls
 
 The module's controls are divided into three categories:
-- look
 - tone mapping controls
-- color-related controls.
+- color-related controls
+- post tone-mapping adjustments ('look') 
 
 Due to the high number of controls, related controls are often grouped together in collapsible sections, and the controls are distributed between either two or three tabs.
 
@@ -48,19 +46,19 @@ The tabs are:
 - curve (if enabled)
 - primaries.
 
-First, the contents of the various tabs (as some controls may appear at different places, depending on the choice of 2 or 3-tab mode) are listed. Then, each control will be described in detail.
+First, the contents of the various tabs are listed (note that some controls may appear at different places, depending on the choice of 2 or 3-tab mode). Then, each control will be described in detail.
 
-# Tabs
+# tabs
 
 ## _settings_
 
 The _settings_ tab holds the most often-used controls:
 
-- the _look_ section
 - the _input exposure range_ section
 - the collapsible curve plot (in 2-tab mode)
 - the _basic curve parameters_
 - the collapsible _advanced curve parameters_ section (in 2-tab mode)
+- the _look_ section
 
 ## _curve_
 
@@ -70,7 +68,7 @@ Controls on the _curve_ tab:
 - the _basic curve parameters_ (also visible on the _settings_ tab, repeated here for convenience)
 - the collapsible _advanced curve parameters_ section (moved from the _settings_ tab)
 
-The _curve_ tab is only visible in 3-tab mode, controlled via the `plugins/darkroom/agx/enable_curve_tab` variable in `darktablerc`. If the variable is set to `true`, the curve plot and the advanced parameters are removed from the _settings_ tab, and can be accessed via the _curve_ tab, saving vertical space. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
+The _curve_ tab is only visible in 3-tab mode, controlled via the `plugins/darkroom/agx/enable_curve_tab` variable in `darktablerc`. If the variable is set to `TRUE`, the curve plot and the advanced parameters are removed from the _settings_ tab, and can be accessed via the _curve_ tab, saving vertical space. When set to `FALSE`, all curve controls appear on the _settings_ tab. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
 
 ## _primaries_
 
@@ -81,26 +79,7 @@ This tab holds controls similar to, but more extensive than, the [_sigmoid_](./s
 - attenuation and rotation sliders for preprocessing before tone mapping
 - attenuation and rotation reversal sliders for postprocessing after tone mapping
 
-# Controls
-
-## The _look_ section
-
-These controls allow post-processing after the tone mapping operation, to fine-tune the result. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully. Middle gray is not preserved when using these sliders. 
-
-slope
-: A simple multiplication of brightness. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
-
-offset
-: Brightens or darkens the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
-
-power
-: Affects brightness and contrast. Values above 1 make the image darker and compress shadows; those below 1 brighten the image, opening up shadows. The black and white points are not affected. 
-
-saturation
-: Controls color intensity. Zero turns the image black-and-white. High values can lead to oversaturation. You can control image saturation in more detail via the controls on the _primaries_ tab.
-
-preserve hue
-: At a value of 0%, the colors output by the module will be based solely on the colors resulting from processing by the AgX algorithm, details of which will be provided in the section about the _primaries_ tab.. (**TODO** describe it in primaries) By raising the slider, the original input colours can be fully or partially restored, if desired. 
+# controls
 
 ## The _input exposure range_
 
@@ -122,11 +101,11 @@ The curve has 5 important points:
 - _toe and shoulder starting points_: it is possible to maintain a section of constant contrast above and below the pivot point. By default, in order to provide the smoothest possible transition, the toe and shoulder starting points are set to the pivot point, effectively removing this section. The steepness of the toe and shoulder section has a decisive effect on contrast in shadows and highlights, respectively, and the tool provides detailed control over this behavior, which will be discussed below (see _toe / shoulder power_ and _toe / shoulder start_).
 
 show curve
-: Expands or collapses the plot of the curve.
+: Expands or collapses the plot of the curve. In 2-tab mode, the plot is shown on the _settings_ page, along with other curve-related controls. In 3-tab mode, it is moved to the _curve_ tab.
 
 ### basic curve parameters
 
-This section is always available on the _settings_ page, both 2 and 3-tab mode. In 3-tab mode, it is also available on the _curve_ tab, and changes are synchronized between the pages.
+This section is always available on the _settings_ page, both 2 and 3-tab mode. In 3-tab mode, it is also available on the _curve_ tab, and changes are synchronized between the tabs.
 
 pivot input shift
 : Allows you to slide the pivot towards the left (darker tones) or right (brighter tones), without affecting its output brightness; however, using this control without changing the _pivot target output_ will affect the brightness distribution of midtones. For example, starting with the defaults, the pivot is set to map mid-gray to mid-gray; sliding it towards the left will result in an input tone that is below mid-gray to be mapped to mid-gray, effectively brightening the image.
@@ -150,6 +129,8 @@ toe power / shoulder power
 
 ### advanced curve parameters
 
+When in 2-tab mode, these controls appear on the _settings_ page. In 3-tab mode, they only appear on the _curve_ tab.
+
 toe start
 : Defines the left-hand side point where the linear portion of the curve ends, and below which the curve starts losing slope, becoming flatter, therefore adjusting the handling of shadows. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target black_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _toe power_, but allows hard clipping, leading to a loss of details in the shadows.
 
@@ -168,50 +149,84 @@ keep the pivot on identity line
 curve y gamma
 : Shifts the representation of the pivot along the y-axis without changing its output brightness. This has nothing to do with the 'gamma' of the screen was calibrated to, but is an internal parameter of the algorithm. High values increase overall contrast (between the darkest and brightness regions) and saturation; low values make the image more washed-out. The immediate brightness range around the pivot, and therefore contrast around the pivot, are not affected.
 
+## The _look_ section
 
-# TO BE CONTINUED, below is just a copy of sigmoid's docs.
+These controls allow post-processing after the tone mapping operation, to fine-tune the result. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully. Middle gray is not preserved when using these sliders.
 
-contrast
-: Adjust the aggressiveness of the compression while leaving middle-gray unchanged. Higher values require lower exposure to reach display white, and shadows become darker. Lower contrast is able to display a larger dynamic range.
+slope
+: A simple multiplication of brightness. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
 
-skew
-: Lean the compression towards shadows or highlights. Skew can be used to transfer some contrast from shadows to highlights or vice versa without changing the amount of contrast at middle gray. Positive skew flattens shadows and compresses highlights. Negative skew creates darker shadows and duller highlights.
+offset
+: Brightens or darkens the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
 
-color processing
-: The mode used to map pixel values from scene to display space.
-: - _per channel_ mode applies the sigmoid curve to each rgb channel separately, affecting luminance, chroma, and hue. Hue can be optionally preserved using the _preserve hue_ option (below). This mode is in line with the behavior of the color layers in analog film, and handles smooth roll-off to bright areas very well.
-: - _rgb ratio_ is similar to _preserve color_ in [filmic rgb](./filmic-rgb.md). It maps the rgb triplet uniformly using the sigmoid curve, which preserves the spectral color of the pixel. Bright colorful pixels are desaturated along spectral lines as they would otherwise end up outside the display gamut.
+power
+: Affects brightness and contrast. Values above 1 make the image darker and compress shadows; those below 1 brighten the image, opening up shadows. The black and white points are not affected.
 
-preserve hue _(per channel mode only)_
-: Choose how much to preserve hue -- 100% preserves the spectral hue of the image (identical to using the "rgb ratio" color processing mode); 0% uses the per-channel mode with heavy hue skewing (see below). An acceptable approximation of preserved perceptual hue is usually somewhere between the two extremes.
-: All colors that lie between the primary colors (red, green, and blue) converge towards the closest secondary colors (yellow, magenta, and cyan). The _per channel hue skew_ effect creates yellow sunsets and fires, magenta-looking blue lights, and cyan skies. The skew is stronger for brighter and more saturated pixels.
+saturation
+: Controls color intensity. Zero turns the image black-and-white. High values can lead to oversaturation. You can control image saturation in more detail via the controls on the _primaries_ tab.
 
-target black
-: Lower bound that the sigmoid curve converges to as the scene value approaches zero -- this should normally be left unchanged. You _can_ use this to give a faded analog look, but should instead prefer to use the "global offset" slider in [_color balance rgb_](./color-balance-rgb.md) to achieve a similar effect.
+preserve hue
+: At a value of 0%, the colors output by the module will be based solely on the colors resulting from processing by the AgX algorithm, details of which will be provided in the section about the _primaries_ tab. By raising the slider, the original input colours can be fully or partially restored, if desired.
 
-target white
-: Upper bound that the sigmoid curve converges to as the scene value approaches infinity -- this should normally be left unchanged. You can use this to clip white at a defined scene intensity.
+## The primaries
 
-## primaries
+These controls are the defining feature of AgX (not just of the present module, but also the underlying Blender algorithm); they control what is called 'the path to white': how bright areas are gradually desaturated, and how their colors are shifted, as we approach pure white.
 
-Expand this section to set custom primaries. You are advised to use the "smooth" preset as a starting point and then adjust using the following controls:
+AgX processing applies the tone mapping curve on a per-channel basis. Such application of curves has a number of side effects: contrast affects not only the tonal contrast, but also saturation.
+Another effect is the convergence of all non-pure primary colors (red, green, blue) to the secondaries (yellow, cyan, magenta). Since it involves the full spectrum of colors collapsing to the 3 primary and 3 secondary colors, the effect has been nicknamed 'Notorious 6'. An example can be seen below:
+![](agx/Sweep-no-primaries.png)
 
----
+By desaturating the input and tweaking its colors slightly before applying the tone mapping curve, and then resaturating the result, much more pleasing results can be achieved:
+![](agx/Sweep-with-primaries.png)
 
-**Note**: These settings apply only to the _per channel_ processing mode.
+The same technique also allows handling bright, highly saturated lights, for example LED stage lighting, neon signs and the like.
 
----
+### disable adjustments
+: Turns off manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons.
 
-base primaries
-: Choose the set of primaries to use as the base for adjustments. This is a bit like locally overriding the working profile, and is necessary to allow presets to be created that don't change even if the user amends the working profile used in the pixel pipeline.
+### load primaries from preset
+: Below _disable adjustments_ you can find a drop-down list and an _apply_ button. The drop-down list can be used to select a preset, and pressing _apply_ will load the primaries settings of that preset _without changing any other parameter_. That is, it's a partial application of the selected preset, concerning only the _primaries_ tab. If there are presets with identical primaries settings, only the first of those is included. The list of presets is loaded when the darkroom is opened, and also when _apply_ is pressed, even if no preset is selected (_select a preset..._ is shown in the drop-down). If you created a new preset after entering the darkroom, and wish to apply its primaries, you'll either have to leave and re-enter the darkroom, or press _apply_, then select your new preset.
 
-red/green/blue attenuation
-: Attenuate (decrease) the [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the red, green or blue primaries before the signal is processed through _sigmoid_'s per-channel curves. An important consequence is that now even the brightest and most pure inputs get smoothly degraded to achromatic at the high end. This avoids posterization and flat-looking patches, which are often seen with, for example, blue LED lights.
+### base primaries
+: Defines which color space is used as the basis of the AgX processing space (to what primaries the attenuation and rotation controls below are applied). Options include common spaces like sRGB and Rec2020, as well as the working space (set in the [_input color profile_](./input-color-profile.md) module), as well as the export profile (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
 
-red/green/blue rotation
-: Rotate the primaries where the per-channel curves are applied. This affects the hue paths when approaching white in the high end. These controls should not normally need large adjustments from the starting values given in the "smooth" preset.
+### before tone mapping
 
-recover purity
-: Recover some of the original purity. A value of 100 causes all of the attenuations to be restored after the per-channel process is done. This lands the middle range values near their original purities. A value of 0 doesn’t restore the purity at all, so the more you apply attenuation, the less purity there is in the final image. The rotations are always restored regardless of the value of this slider. When this slider is at 0, the output of the module is guaranteed to remain within the gamut footprint of the chosen base primaries.
+The controls in this group affect the operations performed before tone mapping occurs. Consider them mostly technical. They are identical in function to the corresponding controls in _sigmoid_.
 
-Bear in mind that unlike the [_rgb primaries_](./rgb-primaries.md) module, this is not a tool for creative color grading but rather a set of controls to provide a reasonable starting point for further edits. The effect of these adjustments is not the same as the rgb primaries module even though the interface looks similar.
+#### red/green/blue attenuation
+: These controls define how much the corresponding component of the input color before processing. They are your primary tools to fix highly monochromatic, saturated input colors, such as stage lighting.
+
+#### red/green/blue rotation
+: This group of sliders determine to which secondary colors bright pixels converge. This can be used to simulate some features of human vision, where colors may be perceived as different hues depending on brightness.
+
+### after tone mapping
+
+The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
+
+#### master purity boost, master rotation reversal
+: These affect the individual red/green/blue controls below. For example, you may use the red/green/blue purity boost controls to control relative purity boost, and reduce or increase it using the master control. They are simply multipliers applied to the individual controls, for example a _master purity boost_ of 90%, combined with a _red purity boost_ of 20% results in a purity boost of 18%, or a _master rotation reversal_ of 120%, combined with a 5-degree _red reverse rotation_ results in a 6-degree rotation. Moving those sliders quickly between 0% and 100% is an easy way to observe the effect of the corresponding group of individual controls.
+
+#### red/green/blue purity boost
+: Use them to selectively control re-saturating the corresponding color.
+
+#### red/green/blue reverse rotation
+: Adjust the final hue for each primary color.
+
+### A bit of background
+
+If you are interested in the reasons behind manipulating the primaries to create a custom color space, read on. Otherwise, skip this section: it is not necessary in order to use the module.
+
+With a per-channel curve, input component values that are below the pivot are attenuated by the curve; those above the pivot will be accentuated. Saturated colors have at least one component that is close to 0 (recall that if R, G and B are similar in value, the color is closer to gray, whereas fully saturated display-referred primary and secondary colors only have components with 0 and 1 values, like (1, 0, 0) for red, or (0, 1, 1) for cyan). The tone mapping curve will push those 'close to 0' input components even closer to 0, and high values towards 1, leading to either pure primary or pure secondary colors. And, since at least one component will end up near 0, no matter how bright the input is, it will never be mapped to white: not only is its hue determined by the Notorious 6 effect, its brightness is also limited to the brightness of the primary or secondary color it ends up mapped to. Its saturation will also never drop, due to the close-to-0 component.
+
+AgX applies a trick to get around this: it uses a custom color space to apply the curves. This space has 'inset' and 'rotated' primaries; the first of those means desaturated colours, the second a skew (shifting slightly shifting reds towards blue or green, and a similar shift for the other two primary colors). Desaturation helps, because less saturated colors are less affected by the Notorious 6 (the lowest component of the color is increased, while the high-valued components are reduced). Rotation of the primaries changes to what secondary colors the tone-mapped colors converge.
+
+# guidelines
+
+TBC: community, share your wisdom here :-)
+
+## Tone mapping curve
+
+## Primaries
+
+## Look
