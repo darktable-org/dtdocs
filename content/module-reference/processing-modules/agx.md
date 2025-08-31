@@ -181,36 +181,36 @@ By desaturating the input and tweaking its colors slightly before applying the t
 
 The same technique also allows handling bright, highly saturated lights, for example LED stage lighting, neon signs and the like.
 
-### disable adjustments
+disable adjustments
 : Turns off manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons.
 
-### load primaries from preset
+load primaries from preset
 : Below _disable adjustments_ you can find a drop-down list and an _apply_ button. The drop-down list can be used to select a preset, and pressing _apply_ will load the primaries settings of that preset _without changing any other parameter_. That is, it's a partial application of the selected preset, concerning only the _primaries_ tab. If there are presets with identical primaries settings, only the first of those is included. The list of presets is loaded when the darkroom is opened, and also when _apply_ is pressed, even if no preset is selected (_select a preset..._ is shown in the drop-down). If you created a new preset after entering the darkroom, and wish to apply its primaries, you'll either have to leave and re-enter the darkroom, or press _apply_, then select your new preset.
 
-### base primaries
+base primaries
 : Defines which color space is used as the basis of the AgX processing space (to what primaries the attenuation and rotation controls below are applied). Options include common spaces like sRGB and Rec2020, as well as the working space (set in the [_input color profile_](./input-color-profile.md) module), as well as the export profile (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
 
 ### before tone mapping
 
 The controls in this group affect the operations performed before tone mapping occurs. Consider them mostly technical. They are identical in function to the corresponding controls in _sigmoid_.
 
-#### red/green/blue attenuation
+red/green/blue attenuation
 : These controls define how much the corresponding component of the input color before processing. They are your primary tools to fix highly monochromatic, saturated input colors, such as stage lighting.
 
-#### red/green/blue rotation
+red/green/blue rotation
 : This group of sliders determine to which secondary colors bright pixels converge. This can be used to simulate some features of human vision, where colors may be perceived as different hues depending on brightness.
 
 ### after tone mapping
 
 The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
 
-#### master purity boost, master rotation reversal
+master purity boost, master rotation reversal
 : These affect the individual red/green/blue controls below. For example, you may use the red/green/blue purity boost controls to control relative purity boost, and reduce or increase it using the master control. They are simply multipliers applied to the individual controls, for example a _master purity boost_ of 90%, combined with a _red purity boost_ of 20% results in a purity boost of 18%, or a _master rotation reversal_ of 120%, combined with a 5-degree _red reverse rotation_ results in a 6-degree rotation. Moving those sliders quickly between 0% and 100% is an easy way to observe the effect of the corresponding group of individual controls.
 
-#### red/green/blue purity boost
+red/green/blue purity boost
 : Use them to selectively control re-saturating the corresponding color.
 
-#### red/green/blue reverse rotation
+red/green/blue reverse rotation
 : Adjust the final hue for each primary color.
 
 ### A bit of background
