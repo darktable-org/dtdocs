@@ -85,7 +85,7 @@ This tab holds controls similar to, but more extensive than, the [_sigmoid_](./s
 
 Provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. Any channel value lower than the selected _black relative exposure_ will be clipped to 0; any above the selected _white relative exposure_ will be clipped to 1. Due to implementation differences, the values will be similar to, but not identical with, the values _filmic rgb_ would pick.
 
-Color pickers are provided to quickly pick the black or white point, or both. A safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
+Color pickers are provided to quickly pick the black or white point (_black_ and _white relative exposure_), or both (_auto tune levels_). A safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
 
 The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
 
@@ -144,14 +144,16 @@ target white
 : Upper bound that the sigmoid curve converges to as the scene value approaches the selected white point. The control can be used to limit the maximum output brightness.
 
 keep the pivot on identity line
-: Automatically adjusts _curve y gamma_ to guarantee that the curve always stays S-shaped, keeping toe and shoulder controls effective. See more below, at _curve y gamma_.
+: Automatically adjusts _curve y gamma_ to guarantee that the curve always stays S-shaped, keeping toe and shoulder controls effective. It works much like _auto adjust hardness_ in _filmic rgb_. See more below, at _curve y gamma_.
 
 curve y gamma
-: Shifts the representation of the pivot along the y-axis without changing its output brightness. This has nothing to do with the 'gamma' of the screen was calibrated to, but is an internal parameter of the algorithm. High values increase overall contrast (between the darkest and brightness regions) and saturation; low values make the image more washed-out. The immediate brightness range around the pivot, and therefore contrast around the pivot, are not affected.
+: Shifts the representation of the pivot along the y-axis without changing its output brightness. This does not need to match the gamma of the display you are editing on, or the gamma of the destination (export) color space; regard it as an internal parameter of the algorithm. Also, unlike 'gamma' controls in most other software, this control has very little effect on contrast and saturation; it is similar to _hardness_ in _filmic rgb_. Contrast around the pivot is maintained; the slider controls the distribution of overall contrast in the image. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective.
 
 ## The _look_ section
 
 These controls allow post-processing after the tone mapping operation, to fine-tune the result. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully. Middle gray is not preserved when using these sliders.
+
+By default, the _look_ controls are placed inside a collapsible section. If you desire to keep them visible at all times, you can save some space by setting `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
 
 slope
 : A simple multiplication of brightness. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
@@ -224,6 +226,17 @@ AgX applies a trick to get around this: it uses a custom color space to apply th
 # guidelines
 
 TBC: community, share your wisdom here :-)
+
+## Recommended workflow
+
+- set overall exposure for the midtones using the _exposure_ module
+- start with the preset _blender-like|base_ (the default)
+- use the _auto tune levels_ picker to set the desired exposure range
+- if desired, set the pivot on the subject using the picker next to _pivot input shift_; this makes sure contrast is maximised around the selected area
+- if you wish, move the _pivot target output_ slider to make the pivot brighter or darker
+- set the contrast in midtones using _contrast around the pivot_
+- if needed, adjust _toe_ and _shoulder power_ to set contrast in shadows and highlights, respectively
+- finally, if desired, add 'drama' by adjusting _look | power_, set overall saturation using _look | saturation_, and adjust colours using _look | preserve hue_.
 
 ## Tone mapping curve
 
