@@ -16,10 +16,10 @@ Hot pixels are pixels which have failed to record a light level correctly. Detec
 # module controls
 
 threshold
-: How strong a pixel's value needs to deviate from that of its neighbors to be regarded as a hot pixel.
+: The minimum brightness for a pixel to be considered a hot pixel candidate.
 
 strength
-: The blending strength of the hot pixels with their surrounding.
+: The sensitivity of detection; higher values will fix more pixels by requiring less deviation from their neighbors.
 
 detect by 3 neighbours
 : Extend the detection of hot pixels -- regard a pixel as hot if a minimum of only three (instead of four) neighbor pixels deviate by more than the threshold level.
