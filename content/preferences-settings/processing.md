@@ -46,7 +46,7 @@ auto-apply pixel workflow defaults
 -   _none_ sets the module order to _v3.0 RAW_ and uses the _white balance_ module for chromatic adaptation. No other exposure or tone mapping modules are enabled by default.
 
 auto-apply per camera basecurve presets
-: Use a per-camera base curve by default (if available) instead of the generic manufacturer one. This should only be used in conjunction with the _display-referred_ workflow defined above (default off).
+: Use a per-camera base curve by default (if available) instead of the generic maker one. This should only be used in conjunction with the _display-referred_ workflow defined above (default off).
 
 detect monochrome previews
 : Enable this option to analyse images during import and tag them with the `darkroom|mode|monochrome` tag if they are found to be monochrome. The analysis is based on the preview image embedded within the imported file. This makes for a more convenient workflow when working with monochrome images, but it slows down the import, so this setting is disabled by default.
