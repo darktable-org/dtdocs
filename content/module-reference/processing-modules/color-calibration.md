@@ -307,7 +307,7 @@ This feature can assist with:
 
 ## supported color checker targets
 
-Users are not currently permitted to use custom targets, but a limited number of verified color checkers (from reputable manufacturers) are supported:
+Users are not currently permitted to use custom targets, but a limited number of verified color checkers (from reputable makers) are supported:
 
 -   X-Rite / Gretag MacBeth Color Checker 24 (pre- and post-2014),
 -   Datacolor SpyderCheckr 24 (pre- and post-2018),
