@@ -24,7 +24,7 @@ In the real world, "pure black" does not really exist (there is always _some_ li
 
 In a scene-referred workflow many common tools (tone curves and levels, for example) are no longer useful ways to manipulate the image, since they rely on now-invalid definitions of black, white and gray. Experienced users may need to learn new techniques and discard old ones, but will be rewarded with much more robust and predictable outputs.
 
-The scene-referred workflow in darktable enables the [filmic rgb](../../module-reference/processing-modules/filmic-rgb.md) and [exposure](../../module-reference/processing-modules/exposure.md) modules by default when you open new images in the darkroom view.
+The scene-referred workflow in darktable enables the [exposure](../../module-reference/processing-modules/exposure.md) and either [sigmoid](../../module-reference/processing-modules/sigmoid.md) or [filmic rgb](../../module-reference/processing-modules/filmic-rgb.md) modules by default when you open new images in the darkroom view.
 
 ### white balance and color calibration
 
