@@ -72,7 +72,11 @@ path
 
 : In edit mode Ctrl+click on an existing node to convert it from smooth to sharp corners and vice versa. Ctrl+click on one of the line segments to insert an additional node. Right-click on a node to delete it. Take care to ensure that the mouse pointer is over the desired node and the node is highlighted, to avoid accidentally removing the whole path.
 
-: The size of the completed shape can be modified by scrolling. The same holds true for the width of the border (the area with a gradual opacity decay), which can also be changed with Shift+scroll (with the mouse wheel) from anywhere within the shape. Single nodes as well as path segments can be moved by dragging them with the mouse. If a node is selected by clicking on it, a further control point appears which allows you to modify the curvature of the line (reset to default by right-clicking). Dragging one of the control points on the border adjusts the border width just in that part of the shape.
+: The size of the completed shape can be modified by scrolling. The same holds true for the width of the border (the area with a gradual opacity decay), which can also be changed with Shift+scroll (with the mouse wheel) from anywhere within the shape. Single nodes as well as path segments can be moved by dragging them with the mouse. If a node is selected by clicking on it, two Bézier handles appear which allow you to modify the curvature of the line (reset to the default curvature by right-clicking on either of the handles). In the image below, the selected node (2) has two handles (4 and 5). Altering the position or length of the handles alters the curvature between node 2 and the adjacent nodes (1 and 3).
+
+: ![Bézier handles](./drawn/bezier.png)
+
+: Dragging one of the control points on the border adjusts the border width just in that part of the shape.
 
 : Consider fine-tuning paths in restricted edit mode (enabled by Ctrl+clicking on the 'show and edit mask elements' icon). This allows you to adjust single nodes and segments without the risk of accidentally shifting or resizing the whole shape. 
 
