@@ -125,7 +125,7 @@ contrast around the pivot
 **Note:** While, like with any S-shaped curve, the contrast is normally highest in the middle of the curve, around the pivot, too low values of contrast will cause the toe and/or shoulder to become 'inverted', as the curve will always make sure the selected black and white points are mapped to the selected black and white target values. In these cases, the inverted toe/shoulder will have a higher, instead of lower, contrast than the value selected here. This can be easily seen on the curve's graph. When such an inversion occurs, the respective _toe/shoulder power_ control becomes ineffective. This may sound complicated, but you will understand it immediately if you display the curve, and set a low contrast value.
 
 toe power / shoulder power
-: The word _toe_ refers to the lower bend of the curve, while the _shoulder_ is the higher bend. Normally (for an S-curve), these are the sections where the curve's contrast gradually drops as it approaches black or white, for the toe and shoulder, respectively. The _toe / shoulder power_ sliders determine how long the contrast remains mostly unchanged. Higher power values result in the contrast remaining close to the value set around the pivot for longer, followed by a more abrupt, quicker drop, and lower final contrast around the black or white point. A **high** _shoulder power_ may, for example, make white clouds brighter and keep the contrast higher in light areas, as the cost of compressing the brightest tones; a **low** _shoulder power_, on the other hand, may prevent harsh contrasts on light skin. As already noted above in the description of _contrast around the pivot_, if the initial contrast is not enough to reach the black or white point from the pivot, the corresponding section of the curve becomes inverted (the toe may become convex, pointing downwards, or the shoulder may become concave, pointing upwards), rendering the toe or shoulder power control ineffective.
+: The word _toe_ refers to the lower bend of the curve, while the _shoulder_ is the higher bend. Normally (for an S-curve), these are the sections where the curve's contrast gradually drops as it approaches black or white, for the toe and shoulder, respectively. The _toe / shoulder power_ sliders determine how long the contrast remains mostly unchanged. Higher power values result in the contrast remaining close to the value set around the pivot for longer, followed by a more abrupt, quicker drop, and lower final contrast around the black or white point. A **high** _shoulder power_ may, for example, make white clouds brighter and keep the contrast higher in light areas, as the cost of compressing the brightest tones; a **low** _shoulder power_, on the other hand, may prevent harsh contrasts on light skin. As already noted above in the description of _contrast around the pivot_, if the initial contrast is not enough to reach the black or white point from the pivot, the corresponding section of the curve becomes inverted (the toe may become convex, pointing downwards, or the shoulder may become concave, pointing upwards), rendering the toe or shoulder power control ineffective. Should this occur, a warning will appear next to the affected slider. When hovering over the warning, a list of suggested actions (such as increasing the contrast or adjusting the position of the pivot) will pop up as a tooltip. The affected part of the curve will be highlighted in yellow. The warning may be disabled in `darktablerc` by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE`.
 
 ### advanced curve parameters
 
@@ -135,10 +135,10 @@ toe start
 : Defines the left-hand side point where the linear portion of the curve ends, and below which the curve starts losing slope, becoming flatter, therefore adjusting the handling of shadows. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target black_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _toe power_, but allows hard clipping, leading to a loss of details in the shadows.
 
 target black
-: Lower bound that the sigmoid curve converges to as the scene value approaches the selected black point. The control can be used to create a faded analog look. Another way to achieve a similar effect is Another way to create a similar effect is the _look offset_. Alternatively, you may prefer the _global offset_ slider in the [_color balance rgb_](./color-balance-rgb.md) module.
+: Lower bound that the sigmoid curve converges to as the scene value approaches the selected black point. The control can be used to create a faded analog look. Another way to achieve a similar effect is the _look offset_. Alternatively, you may prefer the _global offset_ slider in the [_color balance rgb_](./color-balance-rgb.md) module.
 
 shoulder start
-: Defines the right-hand side point where the linear portion of the curve ends, and above which the curve starts losing slope, becoming flatter, therefore adjusting the handling of highlights. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target white_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _shadow power_, but allows hard clipping, leading to a loss of details in the highlights.
+: Defines the right-hand side point where the linear portion of the curve ends, and above which the curve starts losing slope, becoming flatter, therefore adjusting the handling of highlights. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target white_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _shoulder power_, but allows hard clipping, leading to a loss of details in the highlights.
 
 target white
 : Upper bound that the sigmoid curve converges to as the scene value approaches the selected white point. The control can be used to limit the maximum output brightness.
@@ -159,7 +159,7 @@ slope
 : A simple multiplication of brightness. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
 
 offset
-: Brightens or darkens the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
+: Brightens or darkens the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all, if _slope_ is left at the default value of 1. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
 
 power
 : Affects brightness and contrast. Values above 1 make the image darker and compress shadows; those below 1 brighten the image, opening up shadows. The black and white points are not affected.
@@ -184,13 +184,13 @@ By desaturating the input and tweaking its colors slightly before applying the t
 The same technique also allows handling bright, highly saturated lights, for example LED stage lighting, neon signs and the like.
 
 disable adjustments
-: Turns off manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons.
+: Turns off manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. The preset _unmodified primaries_ leaves the checkbox enabled, but loads 0 values for primaries modifications, resulting in an identical look that can be adjusted later. 
 
 load primaries from preset
-: Below _disable adjustments_ you can find a drop-down list and an _apply_ button. The drop-down list can be used to select a preset, and pressing _apply_ will load the primaries settings of that preset _without changing any other parameter_. That is, it's a partial application of the selected preset, concerning only the _primaries_ tab. If there are presets with identical primaries settings, only the first of those is included. The list of presets is loaded when the darkroom is opened, and also when _apply_ is pressed, even if no preset is selected (_select a preset..._ is shown in the drop-down). If you created a new preset after entering the darkroom, and wish to apply its primaries, you'll either have to leave and re-enter the darkroom, or press _apply_, then select your new preset.
+: Below _disable adjustments_ you can find a drop-down list and an _apply_ button. These can be used to load one of the built-in primaries configurations, without altering other settings of the module.
 
 base primaries
-: Defines which color space is used as the basis of the AgX processing space (to what primaries the attenuation and rotation controls below are applied). Options include common spaces like sRGB and Rec2020, as well as the working space (set in the [_input color profile_](./input-color-profile.md) module), as well as the export profile (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
+: Defines which color space is used as the basis of the AgX processing space (to what primaries the attenuation and rotation controls below are applied). Options include common spaces sRGB, Rec2020 and others; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
 
 ### before tone mapping
 
@@ -225,15 +225,18 @@ AgX applies a trick to get around this: it uses a custom color space to apply th
 
 # guidelines
 
+Note that unless [high quality processing](../utility-modules/darkroom/high-quality-processing.md) is enabled, the effect of adjusting the primaries cannot be judged properly, especially with highly saturated colors and narrow-spectrum light sources like LEDs.
+
 TBC: community, share your wisdom here :-)
 
 ## Recommended workflow
 
 - set overall exposure for the midtones using the _exposure_ module
-- start with the preset _blender-like|base_ (the default)
+- if darktable is set to apply any of the scene-referred workflow types, the module will apply reasonable defaults to primaries; in other cases (for example, if you are only testing the module, but normally use the legacy display-referred workflow or set your workflow preference to 'none'), manually select the preset _blender-like|base_ or _smooth|base_ for best results
+- the 'punchy' presets are more contrasty and colorful
 - use the _auto tune levels_ picker to set the desired exposure range
 - if desired, set the pivot on the subject using the picker next to _pivot input shift_; this makes sure contrast is maximised around the selected area
-- if you wish, move the _pivot target output_ slider to make the pivot brighter or darker
+- if you wish, move the _pivot target output_ slider to make the pivot brighter or darker, without altering the white and black point
 - set the contrast using _contrast around the pivot_
 - if needed, adjust _toe_ and _shoulder power_ to set contrast in shadows and highlights, respectively
 - finally, if desired, add 'drama' by adjusting _look | power_, set overall saturation using _look | saturation_, and adjust colours using _look | preserve hue_.
