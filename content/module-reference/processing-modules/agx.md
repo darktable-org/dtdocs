@@ -76,6 +76,7 @@ This tab holds controls similar to, but more extensive than, the [_sigmoid_](./s
 
 - _disable adjustments_ checkbox
 - preset selector
+- base color space selector
 - attenuation and rotation sliders for preprocessing before tone mapping
 - attenuation and rotation reversal sliders for postprocessing after tone mapping
 
@@ -93,10 +94,10 @@ The selected exposure range will then be used as the input range of a logarithmi
 
 The plot of curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, this is visible on the _settings_ page; in 3-curve mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls; after some practice, unless large adjustments are made to curve parameters, you may prefer to keep it collapsed most of the time, to save space on the screen. The plot is not interactive (does not react to dragging by the mouse, for example); it simply illustrates the effect of the sliders.
 
-The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output brightness, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualise the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2, so the 18% mid-gray value is about halfway up the y-axis). More information on the gamma is provided in the description of the _advanced curve parameters_.
+The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualise the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2, so the 18% mid-gray value is about halfway up the y-axis). More information on the gamma is provided in the description of the _advanced curve parameters_.
 
 The curve has 5 important points:
-- The _black and white points_ are at the left and right edges of the graph, respectively; their y values (by default, 0 and 1) can be controlled by the _target black_ and _target white_ sliders in the _advanced_ section. Adjusting those values is rarely needed, although the black point may be raised to give the image a faded look, similar to the _offset_ control in the _look_ section.
+- The _black and white points_ are at the left and right edges of the graph, respectively; their linear output values (by default, 0% and 100%) can be controlled by the _target black_ and _target white_ sliders in the _advanced_ section. Adjusting those values is rarely needed, although the black point may be raised to give the image a faded look, similar to the _offset_ control in the _look_ section.
 - the _pivot_ is the point around which the curve is built, and is indicated by a dot; by default, its input and output are set to mid-gray (0 EV and 18% on the x and y-axis, respectively). The contrast of the curve is set for this point. You may want to move this point to match the main subject using the provided picker.
 - _toe and shoulder starting points_: it is possible to maintain a section of constant contrast above and below the pivot point. By default, in order to provide the smoothest possible transition, the toe and shoulder starting points are set to the pivot point, effectively removing this section. The steepness of the toe and shoulder section has a decisive effect on contrast in shadows and highlights, respectively, and the tool provides detailed control over this behavior, which will be discussed below (see _toe / shoulder power_ and _toe / shoulder start_).
 
@@ -108,19 +109,19 @@ show curve
 This section is always available on the _settings_ page, both 2 and 3-tab mode. In 3-tab mode, it is also available on the _curve_ tab, and changes are synchronized between the tabs.
 
 pivot input shift
-: Allows you to slide the pivot towards the left (darker tones) or right (brighter tones), without affecting its output brightness; however, using this control without changing the _pivot target output_ will affect the brightness distribution of midtones. For example, starting with the defaults, the pivot is set to map mid-gray to mid-gray; sliding it towards the left will result in an input tone that is below mid-gray to be mapped to mid-gray, effectively brightening the image.
+: Allows you to slide the pivot towards the left (darker tones) or right (brighter tones), without affecting its output value; however, using this control without changing the _pivot target output_ will affect the luminance distribution of midtones. For example, starting with the defaults, the pivot is set to map mid-gray to mid-gray; sliding it towards the left will result in an input tone that is below mid-gray to be mapped to mid-gray, effectively brightening the image.
 
 Since normally contrast is highest around the pivot, this slider also allows you to choose at which part of the input tonal range you want to make most contrasty.
 
 pivot target output
-: Sets the output brightness belonging to tone selected by the pivot's x-coordinate. Increasing it brightens, decreasing it darkens the image.
+: Sets the output luminance belonging to tone selected by the pivot's x-coordinate. Increasing it brightens, decreasing it darkens the image.
 
-A color picker, placed next to _pivot input shift_, is provided to pick an image area. The pivot x and y values will be adjusted so that the average value of the selected area is mapped to the current average output. This allows you to quickly select the area around which you want to center the tones of your image, without altering its brightness. You may wish to subsequently adjust the _pivot target output_ value to fine-tune the brightness of the selected area.
+A color picker, placed next to _pivot input shift_, is provided to pick an image area. The pivot x and y values will be adjusted so that the average value of the selected area is mapped to the current average output. This allows you to quickly select the area around which you want to center the tones of your image, without altering its luminance. You may wish to subsequently adjust the _pivot target output_ value to fine-tune the luminance of the selected area.
 
 While you can select any value between 0 and 1, the y coordinate of the pivot is constrained by the _target black / white_ values (set to 0% and 100%, respectively).
 
 contrast around the pivot
-: Sets the contrast. This value is scaled internally, to make sure changing the exposure range does not affect apparent contrast around the pivot. This behavior is similar to that of _filmic rgb_.
+: Sets the contrast. This value is scaled internally, to make sure changing the exposure range or the gamma does not affect apparent contrast around the pivot. This behavior is similar to that of _filmic rgb_.
 
 **Note:** While, like with any S-shaped curve, the contrast is normally highest in the middle of the curve, around the pivot, too low values of contrast will cause the toe and/or shoulder to become 'inverted', as the curve will always make sure the selected black and white points are mapped to the selected black and white target values. In these cases, the inverted toe/shoulder will have a higher, instead of lower, contrast than the value selected here. This can be easily seen on the curve's graph. When such an inversion occurs, the respective _toe/shoulder power_ control becomes ineffective. This may sound complicated, but you will understand it immediately if you display the curve, and set a low contrast value.
 
@@ -141,13 +142,13 @@ shoulder start
 : Defines the right-hand side point where the linear portion of the curve ends, and above which the curve starts losing slope, becoming flatter, therefore adjusting the handling of highlights. Keeping the value at 0% allows transition to start at the pivot; higher values push the transition point down towards the chosen _target white_, which is reached at 100% (provided that the curve has enough contrast). The effect is similar to the _shoulder power_, but allows hard clipping, leading to a loss of details in the highlights.
 
 target white
-: Upper bound that the sigmoid curve converges to as the scene value approaches the selected white point. The control can be used to limit the maximum output brightness.
+: Upper bound that the sigmoid curve converges to as the scene value approaches the selected white point. The control can be used to limit the maximum output luminance.
 
 keep the pivot on identity line
-: Automatically adjusts _curve y gamma_ to guarantee that the curve always stays S-shaped, keeping toe and shoulder controls effective. It works much like _auto adjust hardness_ in _filmic rgb_. See more below, at _curve y gamma_.
+: Automatically adjusts _curve y gamma_, trying to maintain the S-shape of the curve, as long as contrast is high enough, keeping toe and shoulder controls effective. It works much like _auto adjust hardness_ in _filmic rgb_. See more below, at _curve y gamma_.
 
 curve y gamma
-: Shifts the representation of the pivot along the y-axis without changing its output brightness. This does not need to match the gamma of the display you are editing on, or the gamma of the destination (export) color space; regard it as an internal parameter of the algorithm. Also, unlike 'gamma' controls in most other software, this control has very little effect on contrast and saturation; it is similar to _hardness_ in _filmic rgb_. Contrast around the pivot is maintained; the slider controls the distribution of overall contrast in the image. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective.
+: Shifts the representation of the pivot along the y-axis without changing its output luminance. This does not need to match the gamma of the display you are editing on, or the gamma of the destination (export) color space; regard it as an internal parameter of the algorithm. Also, unlike 'gamma' controls in most other software, this control has very little effect on contrast and saturation; it is similar to _hardness_ in _filmic rgb_. Contrast around the pivot is maintained; the slider controls the distribution of overall contrast in the image. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective.
 
 ## The _look_ section
 
@@ -156,10 +157,10 @@ These controls allow post-processing after the tone mapping operation, to fine-t
 By default, the _look_ controls are placed inside a collapsible section. If you desire to keep them visible at all times, you can save some space by setting `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
 
 slope
-: A simple multiplication of brightness. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
+: A simple multiplication of the curve's output value. Values above 1 brighten the image, increase contrast, and can lead to blown highlights; those below darken the image and reduce contrast. Black is not affected by this slider.
 
 offset
-: Brightens or darkens the image by shifting brightness up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing brightness; whites are not affected at all, if _slope_ is left at the default value of 1. It is important to note that the brightness range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
+: Brightens or darkens the image by shifting values up or down. Contrary to many implementations, only blacks are fully affected, and the effect is gradually reduced with increasing value; whites are not affected at all, if _slope_ is left at the default value of 1. It is important to note that the range below the selected _relative black exposure_ (see _Input exposure range_ below) cannot be recovered using this control; also, valued pushed to black using the _offset_ control cannot be brightened using _slope_. Negative values crush shadows (they move the black point to the right along the x-axis); positive values can produce a faded look (they lift the black point along the y-axis).
 
 power
 : Affects brightness and contrast. Values above 1 make the image darker and compress shadows; those below 1 brighten the image, opening up shadows. The black and white points are not affected.
@@ -186,7 +187,7 @@ The same technique also allows handling bright, highly saturated lights, for exa
 disable adjustments
 : Turns off manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. The preset _unmodified primaries_ leaves the checkbox enabled, but loads 0 values for primaries modifications, resulting in an identical look that can be adjusted later. 
 
-load primaries from preset
+load primaries
 : Below _disable adjustments_ you can find a drop-down list and an _apply_ button. These can be used to load one of the built-in primaries configurations, without altering other settings of the module.
 
 base primaries
@@ -219,7 +220,7 @@ red/green/blue reverse rotation
 
 If you are interested in the reasons behind manipulating the primaries to create a custom color space, read on. Otherwise, skip this section: it is not necessary in order to use the module.
 
-With a per-channel curve, input component values that are below the pivot are attenuated by the curve; those above the pivot will be accentuated. Saturated colors have at least one component that is close to 0 (recall that if R, G and B are similar in value, the color is closer to gray, whereas fully saturated display-referred primary and secondary colors only have components with 0 and 1 values, like (1, 0, 0) for red, or (0, 1, 1) for cyan). The tone mapping curve will push those 'close to 0' input components even closer to 0, and high values towards 1, leading to either pure primary or pure secondary colors. And, since at least one component will end up near 0, no matter how bright the input is, it will never be mapped to white: not only is its hue determined by the Notorious 6 effect, its brightness is also limited to the brightness of the primary or secondary color it ends up mapped to. Its saturation will also never drop, due to the close-to-0 component.
+With a per-channel curve, input component values that are below the pivot are attenuated by the curve; those above the pivot will be amplified. Saturated colors have at least one component that is close to 0 (recall that if R, G and B are similar in value, the color is closer to gray, whereas fully saturated display-referred primary and secondary colors only have components with 0 and 1 values, like (1, 0, 0) for red, or (0, 1, 1) for cyan). The tone mapping curve will push those 'close to 0' input components even closer to 0, and high values towards 1, leading to either pure primary or pure secondary colors. And, since at least one component will end up near 0, no matter how bright the input is, it will never be mapped to white: not only is its hue determined by the Notorious 6 effect, its luminance is also limited to the luminance of the primary or secondary color it ends up mapped to. Its saturation will also never drop, due to the close-to-0 component.
 
 AgX applies a trick to get around this: it uses a custom color space to apply the curves. This space has 'inset' and 'rotated' primaries; the first of those means desaturated colours, the second a skew (shifting slightly shifting reds towards blue or green, and a similar shift for the other two primary colors). Desaturation helps, because less saturated colors are less affected by the Notorious 6 (the lowest component of the color is increased, while the high-valued components are reduced). Rotation of the primaries changes to what secondary colors the tone-mapped colors converge.
 
