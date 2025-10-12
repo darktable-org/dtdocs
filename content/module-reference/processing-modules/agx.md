@@ -104,7 +104,7 @@ base primaries
 The controls in this group affect the operations performed before the tone mapping curve is applied.
 
 red/green/blue attenuation
-: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts.
+: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and midtones using the _purity boost_ sliders described below, the overall effect being a desaturation of highlights.
 
 red/green/blue rotation
 : Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
@@ -124,7 +124,7 @@ master purity boost, master rotation reversal
 : These are multipliers that affect the individual red/green/blue controls below, allowing you to globally increase or decrease their effect.
 
 red/green/blue purity boost
-: Restores color purity *after* the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far.
+: Restores color purity *after* the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being are strongly desaturated by the tone mapping process).
 
 red/green/blue reverse rotation
 : Reverses the initial primary rotation after the tone curve. This offers a final creative control over the rendered hues.
@@ -181,7 +181,7 @@ toe start
 : Defines the point where the linear portion of the curve ends and the toe begins. Keeping the value at 0% allows the smooth transition to start at the pivot; higher values push the transition point down towards the chosen _target black_. This may result in hard clipping, which can lead to a loss of detail in the shadows.
 
 target black
-: The lower bound that the curve converges to. This can be used to create a faded analog look, similar to the _offset_ control in the _look_ section or the _global offset_ in [_color balance rgb_](./color-balance-rgb.md).
+: The lower bound that the curve converges to. This can be used to create a faded analog look, similar to the _lift_ control in the _look_ section or the _global offset_ in [_color balance rgb_](./color-balance-rgb.md).
 
 shoulder start
 : Defines the point where the linear portion of the curve ends and the shoulder begins. Keeping the value at 0% allows the smooth transition to start at the pivot; higher values push the transition point up towards the chosen _target white_. This may result in hard clipping, which can lead to a loss of detail in the highlights.
@@ -204,34 +204,36 @@ By default, the _look_ controls are placed inside a collapsible section. If you 
 slope
 : Multiplies the output values by this factor. Black (a value of 0) is not affected. Values above 1 brighten the image and increase contrast; those below darken the image and reduce contrast.
 
-offset
+lift
 : Shifts values up or down. Only blacks are fully affected, with the effect gradually reduced for brighter tones; whites are not affected if _slope_ is at its default value of 1. Negative values crush shadows; positive values can produce a faded look.
 
-power
-: Applies a power function (gamma adjustment) to the image. The black and white points are not affected. Values above 1 will darken the mid-tones and compress shadows; values below 1 will raise the mid-tones, opening up shadows.
+brightness
+: Applies a power function (gamma adjustment) to the image. The black and white points are not affected. Values above 1 will raise the mid-tones, opening up shadows; those below will darken the mid-tones and compress shadows.
 
 saturation
 : Controls color intensity by adjusting the image's chroma. For a precise definition of chroma vs. saturation, please see [_darktable's color dimensions_](./color-dimensions.md). Zero turns the image black-and-white.
 
 preserve hue
-: At a value of 0%, the output colors are based solely on the AgX algorithm. By raising this slider, the original input hues can be partially or fully restored.
+: The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are kept. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored. Note that the input hues themselves are affected by the primaries manipulations performed before tone mapping, and the final hues are affected by the primaries manipulations applied after tone mapping. For a detailed order of the operations involved in processing, see [internal processing details](#internal-processing-details)
 
 # guidelines
 
 Note that unless [high quality processing](../utility-modules/darkroom/high-quality-processing.md) is enabled, the effect of adjusting the primaries cannot be judged properly, especially with highly saturated colors and narrow-spectrum light sources like LEDs.
 
-## Recommended workflow
+## recommended workflow
 
-- Set overall exposure for the mid-tones using the _exposure_ module.
+- Set overall exposure for the mid-tones using the _exposure_ module. Alternatively, use _contrast_ and _toe / shoulder power_ to fill the output tonal range.
 - If darktable is set to apply a scene-referred workflow, the module will apply reasonable defaults. In other cases (for example, when using the legacy display-referred workflow or if the workflow preference is set to 'none'), manually select the preset _blender-like|base_ or _smooth|base_ for best results. The _punchy_ presets are more contrasty and colorful.
+- The provided presets, except for _unmodified base primaries_, provide carefully tuned primaries. When starting out, it is best to rely on those settings. Adjusting them, based on individual taste and/or special lighting conditions (e.g. LED lights, stage lighting) is part of a more advanced workflow.
 - Use the _auto tune levels_ picker to set the desired exposure range.
 - If desired, set the pivot on the subject using the picker next to _pivot input shift_; this ensures contrast is maximized around the selected area.
 - You may then move the _pivot target output_ slider to adjust the brightness of the pivot point.
 - Set the contrast using _contrast around the pivot_.
 - If needed, adjust _toe_ and _shoulder power_ to set contrast in shadows and highlights, respectively.
-- Finally, if desired, add 'drama' by adjusting _look | power_, set overall saturation using _look | saturation_, and adjust colors using _look | preserve hue_.
+- Finally, if desired, add 'drama' by adjusting _look | brightness_, set overall saturation using _look | saturation_, and adjust colors using _look | preserve hue_.
+- Do not forget that the _agx_ module is just another tone mapper. As flexible as it is, it is not intended to solve all image processing tasks related to color and contrast. Continue to use darktable's other modules that target general image editing.
 
-# Internal processing workflow
+# internal processing details
 The following is a detailed description of the steps taken when processing with the _agx_ module. Reading this section is not required to use the module; it is provided as a reference for interested readers.
 
 - linear, scene-referred data arrives in the pipe's working space, defined in the _input color profile_ module (e.g. Rec 2020)
@@ -243,16 +245,16 @@ The following is a detailed description of the steps taken when processing with 
     - log encoding is applied: for input x, log2(x) is calculated (_x_ would be the value of the red, green or blue channel)
     - the log value is scaled and shifted according to the selected exposure parameters, so the selected black point becomes 0, the white point 1, and the value corresponding to mid-gray (18%) ends up on the x-axis of the curve in a ratio _black relative exposure : _white relative exposure_ (by default, 10 : 6.5, or at about 0.61)
     - the curve is applied; this produces and output that is considered to be encoded according to the 'gamma'. This can be considered as data ready to be displayed on a monitor using the specified gamma value (the gamma is only used for processing, and does not have to match the gamma of the display used for editing, or that of the output color space).
-    - the 'look' is applied in pure display-referred mode, like legacy editing of gamma-encoded images, similar to editing sRGB JPGs in traditional editors:
-        - first the slope and the offset
-        - then the power
-        - finally the saturation
-    - the gamma-encoded data is linearised by applying linear = gamma_encoded ^ gamma (so it is scene-referred 0..1, but the encoding is linear, like always in darktable's pipeline; mid-gray is at 0.18)
-    - the HSV representation of the result is calculated; the resulting hue (from the H component) and the original hue are mixed together according to the _preserve hue_ setting to produce the final hue. This does not guarantee complete preservation of color, as the 'original' hue was already recorded after the input matrix, and after this mix, the output matrix (see below) modifies colors again
-    - the output matrix is applied, which:
-        - performs the rotation reversal (this is a difference with _sigmoid_: the latter always completely reverses the rotation, in _agx_, reversal is up to the user)
-        - applies the purity boost (just like _sigmoid_)
-        - converts the result back into the pipe working space.
+- the 'look' is applied in pure display-referred mode, like legacy editing of gamma-encoded images, similar to editing sRGB JPGs in traditional editors. Except for _saturation_, these are also per-channel operations: 
+    - first the _slope_ and the _lift_
+    - then the _brightness_
+    - finally the _saturation_
+- for each channel, the gamma-encoded data is linearised by applying `linear = gamma_encoded ^ gamma` (so it is scene-referred 0..1, but the encoding is linear, like always in darktable's pipeline; mid-gray is at 0.18)
+- the HSV representation of the result is calculated; the resulting hue (from the H component) and the original hue are mixed together according to the _preserve hue_ setting to produce the final hue. This does not guarantee complete preservation of color, as the 'original' hue was already recorded after the input matrix, and after this mix, the output matrix (see the next step) modifies colors again.
+- the output matrix is applied to each channel, which:
+    - performs the rotation reversal (this is a difference with _sigmoid_: the latter always completely reverses the rotation, in _agx_, reversal is up to the user)
+    - applies the purity boost (just like _sigmoid_)
+    - converts the result back into the pipe working space.
 
 # Further Reading
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
