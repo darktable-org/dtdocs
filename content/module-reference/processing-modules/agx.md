@@ -82,7 +82,7 @@ This tab holds controls similar to, but more extensive than, the [_sigmoid_](./s
 
 ## The primaries
 
-These controls are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image *before* the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](./color-dimensions.md).
+These controls are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image *before* the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
 
 ### A bit of background
 
