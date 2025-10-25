@@ -69,3 +69,8 @@ bottom
 ## guides
 
 Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
+
+# shortcut keys
+
+c
+: Toggle the on-image crop box even if the _crop_ module is currently not expanded.  This is useful for cropping from the [quick access panel](../darkroom/organization/quick-access-panel.md), which would otherwise require navigating to teh full crop module.

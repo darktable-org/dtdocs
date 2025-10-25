@@ -83,3 +83,8 @@ This operation can be repeated as many times as you have images in your series w
 **Note 3:** Perfectly matching your control sample against the target lightness may still not yield a similar perceptual result, even if the numbers are exactly the same. For example, if your subject sits in front of a background made of some bright parts and some dark parts, the ratio of bright areas / dark areas will affect the perception of contrast and brightness. If this ratio changes across your series, the subject brightness will not appear constant even though the lightness value is exactly constant. For more details, see the [checker shadow illusion](https://en.wikipedia.org/wiki/Checker_shadow_illusion) and the [Chubb illusion](https://en.wikipedia.org/wiki/Chubb_illusion).
 
 ---
+
+# shortcut keys
+
+e
+: Pop up the bauhaus control for the `exposure` slider, allowing adjustment of its value (including by typing a number) even if the module is currently collapsed or hidden.
