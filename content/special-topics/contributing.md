@@ -26,11 +26,22 @@ We are generally **not** interested in:
 We **are** interested in 
 1. Spelling and grammar corrections 
 1. Clarification of text 
-1. Documentation for new features
+1. [Documentation for new features](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3Adocumentation-pending+)
 
 We are always extremely interested in hearing about which sections of the manual did not make sense to you and *why*, so that we can improve the documentation.
 
 In general, if you wish to make a major change, please open an issue and discuss it with the maintainers first. This is to avoid doing work that wouldn't be accepted.
+
+# modality
+
+In summary:
+
+1. Fork the [`dtdocs`](https://github.com/darktable-org/dtdocs) repository.
+1. For each new contribution:
+   1. Create a new branch with a descriptive name
+   1. Submit a [pull request](https://github.com/darktable-org/darktable/pulls) to have your changes merged into the master branch
+
+See [this Pixls.us post](https://discuss.pixls.us/t/a-plea-for-help-writing-the-docs/47049/22) for a detailed step-by-step guide.
 
 # format
 
