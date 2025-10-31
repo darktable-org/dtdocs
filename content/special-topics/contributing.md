@@ -34,14 +34,9 @@ In general, if you wish to make a major change, please open an issue and discuss
 
 # modality
 
-In summary:
+The preferred way is to create a pull request. See [this Pixls.us post](https://discuss.pixls.us/t/a-plea-for-help-writing-the-docs/47049/22) for a detailed step-by-step guide.
 
-1. Fork the [`dtdocs`](https://github.com/darktable-org/dtdocs) repository.
-1. For each new contribution:
-   1. Create a new branch with a descriptive name
-   1. Submit a [pull request](https://github.com/darktable-org/darktable/pulls) to have your changes merged into the master branch
-
-See [this Pixls.us post](https://discuss.pixls.us/t/a-plea-for-help-writing-the-docs/47049/22) for a detailed step-by-step guide.
+If you do not know what that is or don't feel comfortable doing it, feel free to suggest minor improvements to the docs opening [a new issue](https://github.com/darktable-org/dtdocs/issues/new) on github.
 
 # format
 
