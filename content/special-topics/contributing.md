@@ -36,7 +36,7 @@ In general, if you wish to make a major change, please open an issue and discuss
 
 The preferred way is to create a pull request. See [this Pixls.us post](https://discuss.pixls.us/t/a-plea-for-help-writing-the-docs/47049/22) for a detailed step-by-step guide.
 
-If you do not know what that is or don't feel comfortable doing it, feel free to suggest minor improvements to the docs opening [a new issue](https://github.com/darktable-org/dtdocs/issues/new) on github.
+If you do not know what that is or don't feel comfortable doing it, feel free to suggest minor improvements to the docs by opening [a new issue](https://github.com/darktable-org/dtdocs/issues/new) on github.
 
 # format
 
