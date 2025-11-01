@@ -6,7 +6,7 @@ weight: 20
 author: "people"
 ---
 
-darktable supports a huge number of file formats from various camera manufacturers. In addition darktable can read a wide range of low- and high-dynamic-range images -- mainly for data exchange between darktable and other software.
+darktable supports a huge number of file formats from various camera makers. In addition darktable can read a wide range of low- and high-dynamic-range images -- mainly for data exchange between darktable and other software.
 
 In order for darktable to consider a file for import, it must have one of the following extensions (case independent): `3FR, ARI, ARW, BAY, BMQ, CAP, CINE, CR2, CR3, CRW, CS1, DC2, DCR, DNG, GPR, ERF, FFF, EXR, IA, IIQ, JPEG, JPG, JXL, K25, KC2, KDC, MDC, MEF, MOS, MRW, NEF, NRW, ORF, PEF, PFM, PNG, PXN, QTK, RAF, RAW, RDC, RW1, RW2, SR2, SRF, SRW, STI, TIF, TIFF, X3F`
 
