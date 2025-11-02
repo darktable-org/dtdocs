@@ -433,16 +433,3 @@ It is possible to alleviate this issue, if you have a computer screen calibrated
 3. Open the image in darktable and extract the white balance by using the [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool in the _white balance_ module on the center area of the image (non-central regions might be subject to chromatic aberrations). This will generate a set of 3 RGB coefficients.
 4. [Save a preset](../../darkroom/processing-modules/presets.md#creating-and-editing-presets) for the _white balance_ module with these coefficients and auto-apply it to any color RAW image created by the same camera.
 
-# shortcut keys
-
-The following shortcuts are available after selecting `import extras` on the Shortcuts tab in Preferences.
-
-scroll while holding c
-: Adjust the value of the `temperature` slider up or down.  This is a fine adjustment, 1 degree per scroll click.
-
-horizontal mouse move while holding c
-: Adjust the value of the 'hue' slider up or down.
-
-vertical mouse move while holding c
-: Adjust the value of the `chroma` slider up or down.
-

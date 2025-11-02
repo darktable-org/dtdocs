@@ -87,7 +87,5 @@ This operation can be repeated as many times as you have images in your series w
 # shortcut keys
 
 e
-: Pop up the bauhaus control for the `exposure` slider, allowing adjustment of its value (including by typing a number) even if the module is currently collapsed or hidden.
+: Pop up the bauhaus control for the `exposure` slider, allowing adjustment of its value (including by typing a number) even if the module is currently collapsed or hidden.  This is equivalent to right-clicking on the `exposure` slider.
 
-scroll while holding e
-: Adjust the value of the `exposure` slider up or down.  This shortcut is only available after selecting `import extras` on the Shortcuts tab in Preferences.
