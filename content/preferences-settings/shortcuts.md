@@ -38,7 +38,7 @@ As the two action types are inherently different, so are the shortcuts you can u
 For example:
 
 - The key `e` can be used to focus a module, or to toggle it on/off
-- The key `e`, combined with up/down movements or your pointing device, can be used to control the value of a slider 
+- The key `e`, combined with up/down movements or your pointing device, can be used to control the value of a slider
 
 If you are using keyboard and mouse, **all shortcuts must start with one or more key presses**, as mouse actions in isolation are used to navigate and interact with the UI.
 
@@ -48,12 +48,12 @@ If you have an external controller, you can trigger discrete actions by pressing
 
 The simplest shortcut consists of just one key press (e.g., `E`).
 The same key can be repeated up to three times, so also `E + E` and `E + E + E` are valid, and distinct, shortcuts.
-You can further extend a shortcut with up to three clicks of the same mouse button. So, `E + E + left-click` or `E + right-click + right-click` are also valid shortcuts.
-Finally, if your fingers are very nimble and you really need to go there, you can add either or both of the mouse buttons that you haven't incorporated yet. So, also `E + left-click + middle-click` and `E + E + right-click + right-click + right-click + left-click + middle-click` are valid shortcuts.
+You can further extend a shortcut with up to three clicks of different mouse buttons. So, `E + E + left-click` or `E + right-click + left-click` are also valid shortcuts.
+Finally, if your fingers are very nimble and you really need to go there, you can repeat the last click up to three times. So, also `E + left-click + middle-click + middle-click` and `E + E + middle-click + left-click + right-click + right-click + right-click` are valid shortcuts.
 Hence, the most complex shortcut can consist of 8 key/button presses:
 * Three key presses of the same `key`, followed by
-* Three presses of any mouse button, followed by
-* 1 press of each remaining mouse button.
+* Three presses of the three mouse buttons, followed by
+* 2 more repetions of the last click.
 
 Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In this case, the modifier(s) have to be held down while executing the remainder of the shortcut. So, `Ctrl + E + E` means holding down `Ctrl` while pressing `E` twice in a rapid sequence.
 
@@ -67,6 +67,9 @@ If you are a MacOs user, your shortcuts will use `Cmd` instead of `Ctrl` and `Op
 If you are defining a continuous shortcut, then the movement part of the shortcut must be executed while the last key, mouse or controller button is held down.
 
 For example, the shortcut `E + E + pan`, can be activated by pressing `E` twice, holding down `E` on the second press and moving the mouse horizontally. While you are holding down `E`, moving the mouse horizontally will adjust the value associated with the shortcut's action. As you release the `E` key, moving the mouse horizontally will just move the mouse on the screen.
+
+**Long keypresses.** 
+The last repetition of a key in a shortcut can be either a _short_ (i.e., normal) or _long_ keypress, defined as holding down the key for a bit longer than the duration of a double click. Hence `E + E` and `E + E(long)` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
 
 **Triggering multiple shortcuts at once.** Note that `E + A` is not a valid shortcut, and darktable will interpret it as a two different shortcuts: `E` followed by `A`. This is by design, as the system allows one to trigger multiple continuous shortcuts at once.
 For example, if both `E + scroll` and `A + scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling with the mouse while holding down both `E` and `A` will move both sliders. If you have a series of keys assigned to nodes in a curve (e.g, tone equalizer) this allows you to move multiple nodes in parallel.
