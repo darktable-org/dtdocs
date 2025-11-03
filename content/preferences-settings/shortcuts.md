@@ -60,7 +60,7 @@ Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In 
 ---
 
 **Note:**
-If you are a MacOs user, your shortcuts will use `Cmd` instead of `Ctrl` and `Option` instead of `Alt`
+If you are a MacOs user, your shortcuts will use `Cmd` instead of `Ctrl` and `Option` instead of `Alt`.
 
 ---
 
