@@ -55,7 +55,14 @@ Hence, the most complex shortcut can consist of 8 key/button presses:
 * Three presses of any mouse button, followed by
 * 1 press of each remaining mouse button.
 
-Your shortcut can include one or more modifiers (`Shift`, `Ctrl/Cmd` and `Alt/Option`). In this case, the modifier(s) have to be held down while executing the remainder of the shortcut. So, `Ctrl + E + E` means holding down `Ctrl` while pressing `E` twice in a rapid sequence.
+Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In this case, the modifier(s) have to be held down while executing the remainder of the shortcut. So, `Ctrl + E + E` means holding down `Ctrl` while pressing `E` twice in a rapid sequence.
+
+---
+
+**Note:**
+If you are a MacOs user, your shortcuts will use `Cmd` instead of `Ctrl` and `Option` instead of `Alt`
+
+---
 
 If you are defining a continuous shortcut, then the movement part of the shortcut must be executed while the last key, mouse or controller button is held down.
 
@@ -64,11 +71,10 @@ For example, the shortcut `E + E + pan`, can be activated by pressing `E` twice,
 **Triggering multiple shortcuts at once.** Note that `E + A` is not a valid shortcut, and darktable will interpret it as a two different shortcuts: `E` followed by `A`. This is by design, as the system allows one to trigger multiple continuous shortcuts at once.
 For example, if both `E + scroll` and `A + scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling with the mouse while holding down both `E` and `A` will move both sliders. If you have a series of keys assigned to nodes in a curve (e.g, tone equalizer) this allows you to move multiple nodes in parallel.
 
-
 **Shortcuts must be unique within a view.**
 A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
 
-**Additional modifiers.** As mentioned above, the only valid modifiers are the Shift, Ctrl/Cmd and Alt/Option keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the "global/modifier" action. However, these will merely function as extra Ctrl, Alt or Shift keys -- you cannot create "new" modifiers.
+**Additional modifiers.** As mentioned above, the only valid modifiers are the `Shift`, `Ctrl` and `Alt` keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the "global/modifier" action. However, these will merely function as extra `Ctrl`, `Alt` or `Shift` keys -- you cannot create "new" modifiers.
 
 ## defining continuous shortcuts
 
@@ -190,7 +196,7 @@ For example, the predefined shortcut `Tab` triggers the action `globals/panels/a
 
 Actions in the "views" section can only be executed from the specified darktable view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-For example, the predefined shortcut `Ctrl/Cmd + B` triggers the action `views/darktable/guide lines/toggle`, which toggles guide lines in the darktable view.
+For example, the predefined shortcut `Ctrl + B` triggers the action `views/darktable/guide lines/toggle`, which toggles guide lines in the darktable view.
 
 ## actions on modules
 
