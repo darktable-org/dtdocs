@@ -40,6 +40,13 @@ For example:
 - The key `E` can be used to focus a module, or to toggle it on/off
 - The key `E`, combined with up/down movements or your pointing device, can be used to control the value of a slider
 
+---
+
+**Note:**
+By construction, a _continuous shortcut_ is sufficiently expressive to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _continuous action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action) below).
+
+---
+
 If you are using keyboard and mouse, **all shortcuts must start with one or more key presses**, as mouse actions in isolation are used to navigate and interact with the UI.
 
 If you have an external controller, you can trigger discrete actions by pressing one or more buttons on the controller. Continuous actions can use a combination of buttons and a knob/joystick movement, or just knob/joystick movement.
@@ -310,9 +317,3 @@ To see a list of _all_ of the default fallbacks, click the "enable fallbacks" ch
 Fallbacks are only applied if no other shortcut using the resulting combination has been explicitly created. In the above example, if you were to explicitly assign `Ctrl + R + left-click` to another action, the "enable/disable module" fallback would be ignored.
 
 Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign `Ctrl + R` to an action, you cannot use a `Ctrl+` fallback. Some default fallbacks of this type are provided for the _value_ element and for horizontal/vertical movements in the (zoomed) central area -- in this case, `Shift+` increases the speed to 10.0 and `Ctrl+` decreases the speed to 0.1.
-
-# implementation details
-
-This section covers some technical aspects that can be interesting for power users.
-
-**Continuous actions:** Continuous actions are convenience abstractions to make assigning shortcuts faster, but are actually implemented as two discrete actions that target the appropriate effects (e.g., `up` and `down`) of a widget. For example, assigning `E + pan` to a slider assignes `E + left` to the `down` action and `E + right` to the `up` action.
