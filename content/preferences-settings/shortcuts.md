@@ -64,7 +64,7 @@ Finally, if your fingers are very nimble and you really need to go there, you ca
 Hence, the most complex shortcut can consist of 8 key/button presses:
 * Three key presses of the same `key`, followed by
 * Three presses of the three mouse buttons, followed by
-* 2 more repetions of the last click.
+* 2 more repetitions of the last click.
 
 Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In this case, the modifier(s) have to be held down while executing the remainder of the shortcut. So, `Ctrl + E + E` means holding down `Ctrl` while pressing `E` twice in a rapid sequence.
 
@@ -79,11 +79,12 @@ If you are defining a continuous shortcut, then the movement part of the shortcu
 
 For example, the shortcut `E + E + pan`, can be activated by pressing `E` twice, holding down `E` on the second press and moving the mouse horizontally and moving the mouse horizontally will the key is pressed.
 
-**Short and long keypresses.** 
-By default, all keypresses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ keypress, defined as holding down the key for a bit longer than the duration of a double click. Hence `E + E` and `E + E(long)` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
+**Short and long key presses.** 
+By default, all key presses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ keypress, defined as holding down the key for a bit longer than the duration of a double click. Hence `E + E` and `E + E(long)` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
 
-**Triggering multiple shortcuts at once.** Note that `E + A` is not a valid shortcut, and darktable will interpret it as a two different shortcuts: `E` followed by `A`. This is by design, as the system allows one to trigger multiple continuous shortcuts at once.
-For example, if both `E + mouse-scroll` and `A + mouse-scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling with the mouse while holding down both `E` and `A` will move both sliders. If you have a series of keys assigned to nodes in a curve (e.g, tone equalizer) this allows you to move multiple nodes in parallel.
+**Triggering multiple shortcuts at once.** 
+If both `E + mouse-scroll` and `F + mouse-scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling the mouse wheel while holding down both `E` and `F` will move both sliders.
+Similarly, you could map, say, `E + E + mouse-scroll` and `F + F + mouse-scroll` to two nodes in a graph (say, `yellow` and `green` in color equalizer). You can then use `E + E(hold) + F(hold) + mouse-scroll` to move both sliders at once. This works because the repeat key counter is per-shortcut, not per key, and it is reset only after the current shortcut ends (i.e., when the repeated key is released). Thus it is possible to trigger as many actions at once as your fingers can handle, provided that all the shortcuts involved have the same number of key presses (i.e., single, double or triple presses).
 
 **Shortcuts must be unique within a view.**
 A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
@@ -235,7 +236,7 @@ _enable_
 : Acts as a _toggle_ that switches the module on and off.
 
 _focus_
-: Acts as a _toggle_ that focuses or defocuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
+: Acts as a _toggle_ that focuses or de-focuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
 
 _instance_
 : Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The discrete action associated to the _instance_ element displays a list of the available options for selection; a continuous action is also available and will move the _preferred module instance_ (see below) up and down the pixelpipe.
