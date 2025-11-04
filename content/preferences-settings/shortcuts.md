@@ -37,8 +37,8 @@ As the two action types are inherently different, so are the shortcuts you can u
 
 For example:
 
-- The key `e` can be used to focus a module, or to toggle it on/off
-- The key `e`, combined with up/down movements or your pointing device, can be used to control the value of a slider
+- The key `E` can be used to focus a module, or to toggle it on/off
+- The key `E`, combined with up/down movements or your pointing device, can be used to control the value of a slider
 
 If you are using keyboard and mouse, **all shortcuts must start with one or more key presses**, as mouse actions in isolation are used to navigate and interact with the UI.
 
