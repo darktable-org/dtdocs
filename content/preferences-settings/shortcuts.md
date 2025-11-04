@@ -66,7 +66,7 @@ Hence, the most complex shortcut can consist of 8 key/button presses:
 * Three presses of the three mouse buttons, followed by
 * 2 more repetitions of the last click.
 
-Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In this case, the modifier(s) have to be held down while executing the remainder of the shortcut. So, `Ctrl + E + E` means holding down `Ctrl` while pressing `E` twice in a rapid sequence.
+Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In this case, for a continuous shortcut, both the last key and the modifier must be pressed down when you execute the movement. For example, `Ctrl + E + E + pan` means that while moving the mouse left and/or right both  `E` and `Ctrl` must be pressed down.
 
 ---
 
