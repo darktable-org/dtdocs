@@ -80,7 +80,7 @@ If you are defining a continuous shortcut, then the movement part of the shortcu
 For example, the shortcut `E + E + pan`, can be activated by pressing `E` twice, holding down `E` on the second press and moving the mouse horizontally while the key is pressed.
 
 **Short and long key presses.** 
-By default, all key presses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ keypress, defined as holding down the key for a bit longer than the duration of a double click. Hence `E + E` and `E + E(long)` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
+By default, all key presses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ key press, defined as holding down the key for a bit longer than the duration of a double click. Hence `E + E` and `E + E(long)` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
 
 **Triggering multiple shortcuts at once.** 
 If both `E + mouse-scroll` and `F + mouse-scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling the mouse wheel while holding down both `E` and `F` will move both sliders.
