@@ -11,9 +11,9 @@ masking: true
 
 Simulate the in-camera JPEG by applying a characteristic base curve to the image.
 
-darktable comes with a number of base curve presets that attempt to mimic the curves of various camera makers. These presets are automatically applied according to the maker ID found in the image's Exif data. Camera-specific base curve presets are also available for some camera models. 
+darktable comes with a number of base curve presets that attempt to mimic the curves of various camera manufacturers. These presets are automatically applied according to the "maker ID" found in the image's Exif data. Camera-specific base curve presets are also available for some camera models. 
 
-This module will be enabled by default if [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md) is set to "display-referred".  A second option in the preferences dialog allows you to choose whether darktable should attempt to apply a camera-specific base curve (if found) or the generic maker one.
+This module will be enabled by default if [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md) is set to "display-referred".  A second option in the preferences dialog allows you to choose whether darktable should attempt to apply a camera-specific base curve (if found) or the generic manufacturer one.
 
 # module controls
 
