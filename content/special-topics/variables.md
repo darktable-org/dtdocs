@@ -18,7 +18,8 @@ darktable supports variable substitution in a number of modules and preference s
 The following variables are available, though they may not all be applicable in every context:
 
 ```
-$(ROLL.NAME[n])            roll of the input image, n: levels used, default n=1
+$(ROLL.NAME[n])            film roll of the input image, where n specifies the folder level
+                           counting from the right, default n=1
 $(FILE.FOLDER)             folder containing the input image
 $(FILE.NAME)               basename of the input image
 $(FILE.EXTENSION)          extension of the input image
