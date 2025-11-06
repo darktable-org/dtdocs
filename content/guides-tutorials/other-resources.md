@@ -23,11 +23,6 @@ The following articles provide some useful background information about darktabl
 
 The following resources can provide a deeper understanding of the functionality of some specific processing modules:
 
-- [Image processing and the pixel pipeline in darktable 3.0](https://youtu.be/3FFU-Ltvm0I)
-- [Filmic RGB v3: remapping any dynamic range in darktable 3.0](https://youtu.be/zbPj_TqTF88)
-- [Filmic RGB v4: highlights reconstruction in darktable 3.2](https://youtu.be/leZVK2s68QA)
-- [Dodging and burning with tone equalizer in darktable 3.0](https://youtu.be/kzACn3l49HM)
-- [Noise reduction (profiled) with non-local means in darktable 3.0](https://youtu.be/InsCJAPSdjI)
 - [Noise reduction (profiled) with wavelets in darktable 3.0](https://youtu.be/7ZhbeXpx2W8)
 - [Contrast equalizer modules in darktable](https://youtu.be/zzVXK4eAM5E)
 
@@ -36,3 +31,6 @@ Some other YouTube channels with recent content on using darktable are:
 - [Bruce Williams Photography](https://www.youtube.com/user/audio2u)
 - [Boris Hajdukovic](https://www.youtube.com/user/s7habo)
 
+A continuously updated list of recent darktable resources:
+
+- [planet darktable](https://planet.darktable.org/)
