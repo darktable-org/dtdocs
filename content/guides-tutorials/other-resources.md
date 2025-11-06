@@ -23,6 +23,7 @@ The following articles provide some useful background information about darktabl
 
 The following resources can provide a deeper understanding of the functionality of some specific processing modules:
 
+- [Noise reduction (profiled) with non-local means in darktable 3.0](https://youtu.be/InsCJAPSdjI)
 - [Noise reduction (profiled) with wavelets in darktable 3.0](https://youtu.be/7ZhbeXpx2W8)
 - [Contrast equalizer modules in darktable](https://youtu.be/zzVXK4eAM5E)
 
