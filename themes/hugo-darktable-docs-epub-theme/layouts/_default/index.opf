@@ -1,0 +1,51 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" | safeHTML }}
+<package xmlns="http://www.idpf.org/2007/opf" 
+         xmlns:opf="http://www.idpf.org/2007/opf"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         version="3.0"
+         xml:lang="{{ .Lang }}"
+         unique-identifier="id"
+         prefix="rendition: http://www.idpf.org/vocab/rendition/#">
+
+ <metadata>
+  <dc:identifier id="id">{{ .Site.Params.bookid | default now.Unix }}</dc:identifier>      
+  <dc:language>{{ .Lang }}</dc:language>
+  <dc:title>{{ .Site.Title }}</dc:title>
+  <dc:description>{{ .Site.Params.description }}</dc:description>
+  <dc:creator id="c1">{{ .Site.Params.creator }}</dc:creator>
+  <meta refines="#c1" property="file-as">{{ .Site.Params.creator }}</meta>
+  <meta refines="#c1" property="role" scheme="marc:relators">aut</meta>
+  <meta property="dcterms:modified">{{ now.Format "2006-01-02T15:04:05Z" }}</meta> 
+  <meta property="dcterms:created">{{ now.Format "2006-01-02T15:04:05 MST" }}</meta>
+  <dc:publisher>{{ .Site.Params.publisher }}</dc:publisher>
+  <dc:format>application/epub+zip</dc:format>
+  <meta property="dcterms:type">Text</meta>
+  {{ range .Site.Params.subject -}}
+  <dc:subject>{{ . }}</dc:subject>
+  {{ end -}}
+  <meta property="dcterms:audience">{{ .Site.Params.audience }}</meta> 
+  <meta property="rendition:flow">scrolled-doc</meta>
+ </metadata>
+
+
+ <manifest>
+ 
+   <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
+   <item href="toc.xhtml" id="nav" properties="nav" media-type="application/xhtml+xml" />
+   <item href="index.html" id="book-start" media-type="application/xhtml+xml" />   
+   <item href="front-cover.png" id="cover-image" media-type="image/png" properties="cover-image" />
+   <item href="front-cover.html" id="front-cover" media-type="application/xhtml+xml" />
+   <item href="style.css" id="styles-css" media-type="text/css"/>
+
+   {{ partial "manifest.opf" . }}
+ </manifest>
+
+
+ <spine toc="ncx">
+   <itemref idref="front-cover" />   
+   <itemref idref="book-start" />   
+   <itemref idref="nav" />   
+  {{ partial "spine.opf" . }}
+ </spine>
+ 
+</package>

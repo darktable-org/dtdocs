@@ -1,0 +1,34 @@
+{{- .Scratch.Set "i" 2 -}}
+{{- with .Site.GetPage "/" -}}
+{{- template "nav-children" (dict "Section" . "CurrentPage" .) -}}
+{{- end -}}
+
+{{- define "nav-children" -}}{{- /* (dict "Section" .Section "CurrentPage" .CurrentPage) */ -}}
+   {{- range .Section.Pages -}}
+   {{ $i := ( $.CurrentPage.Scratch.Get "i" ) -}}
+   {{ if .IsSection }}
+    <navPoint id="Z_{{ with .Page.File }}{{ .UniqueID }}{{ end }}"
+              playOrder="{{ $i }}">
+      <navLabel>
+        <text>{{ .Title }}</text>
+      </navLabel>
+      <content src="{{ replace .Permalink "/" "" 1 }}" />
+      {{ $i := ( $.CurrentPage.Scratch.Get "i" ) -}}
+      {{ $i = add $i 1 -}}
+      {{- $.CurrentPage.Scratch.Set "i" $i -}}
+   {{ template "nav-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+    </navPoint>
+   {{ else if and .IsPage .Content }}
+    <navPoint id="Z_{{ with .Page.File }}{{ .UniqueID }}{{ end }}"
+              playOrder="{{ $i }}">
+      <navLabel>
+        <text>{{ .Title }}</text>
+      </navLabel>
+      <content src="{{ replace .Permalink "/" "" 1 }}" />
+    </navPoint>
+    {{ $i := ( $.CurrentPage.Scratch.Get "i" ) -}}
+    {{ $i = add $i 1 -}}
+    {{- $.CurrentPage.Scratch.Set "i" $i -}}
+   {{ end }}
+   {{- end -}}
+{{- end -}}
