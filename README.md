@@ -16,14 +16,9 @@ For a complete list of the outstanding work please see the [issues](https://gith
 
 ### Cloning
 
-The themes for the site and PDF use [hugo-darktable-docs-theme](https://github.com/pixlsus/hugo-darktable-docs-theme.git) and [hugo-darktable-docs-pdf-theme](https://github.com/pixlsus/hugo-darktable-docs-pdf-theme.git) as git submodules.
-In order to clone these submodules along with the site you just need to add the flag `--recurse-submodules` to the clone command:
+From a terminal:
 
-    git clone --recurse-submodules https://github.com/darktable-org/dtdocs.git
-
-If you already have the site cloned, but haven't included the submodules before:
-
-    git submodule update --init --recursive
+    git clone https://github.com/darktable-org/dtdocs.git
 
 
 ### Hugo
@@ -50,11 +45,6 @@ If you have the repo cloned but need to update things, it helps to make sure eve
 As normal, from the project root directory, update things like normal:
 ```
 git pull
-```
-
-Double check that the submodule is being updated as well:
-```
-git submodule update --init --recursive
 ```
 
 And finally make sure the assets are built:

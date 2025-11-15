@@ -1,0 +1,21 @@
+{{- .Scratch.Set "i" 1 -}}
+{{- with .Site.GetPage "/" -}}
+{{- template "nav-nav-children" (dict "Section" . "CurrentPage" .) -}}
+{{- end -}}
+
+{{- define "nav-nav-children" -}}{{- /* (dict "Section" .Section "CurrentPage" .CurrentPage) */ -}}
+   {{- range .Section.Pages -}}
+   {{ $i := ( $.CurrentPage.Scratch.Get "i" ) -}}
+   {{ if .IsSection }}
+    <li>
+       <a href="{{ replace .Permalink "/" "" 1 }}">{{ .Title }}</a>
+      {{ $i := ( $.CurrentPage.Scratch.Get "i" ) -}}
+      <ol>
+      {{ template "nav-nav-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+      </ol>
+    </li>
+   {{ else if and .IsPage .Content }}
+    <li><a href="{{ replace .Permalink "/" "" 1 }}">{{ .Title }}</a></li>
+   {{ end }}
+   {{- end -}}
+{{- end -}}

@@ -1,0 +1,20 @@
+<div id="body">
+    {{ with .Site.GetPage "/" }}
+        {{ range .Sections.ByWeight }}
+            {{/* We don't want a menu item for specific pages listed here */}}
+            {{ if (and (ne .Title "Posts") (ne .Title "Test Page")) }}
+<div class="section" id="{{ with .Page.File}}{{ .UniqueID }}{{ end }}">
+        <h1 class="title">
+	    {{ .Title }}
+	</h1>
+    {{ if gt (countwords .Content) 1 }}
+	<div class="content">
+       {{- .Content -}}
+	</div>
+    {{ end }}
+        {{ partial "content_recursive.html" . }}
+    </div>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+</div>

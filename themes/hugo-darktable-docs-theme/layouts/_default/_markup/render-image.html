@@ -1,0 +1,17 @@
+{{ $link := string .Destination }}
+{{ $imgBase := path.Base .Destination }}
+{{ $Scratch := newScratch }}
+{{ $Scratch.Set "enLink" .Page.RelPermalink }}
+
+{{ $classSplit := split $imgBase "#" }}
+
+{{ if hasPrefix $link "http" }}
+<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
+{{ else }}
+{{ range .Page.Translations }}
+  {{ if eq .Language.LanguageName "English" }}
+    {{ $Scratch.Set "enLink" .RelPermalink }}
+  {{ end }}
+{{ end }}
+<a href="{{ $Scratch.Get "enLink" }}{{ range first 1 $classSplit }}{{- . | safeURL -}}{{ end }}" target="_blank" rel="noopener noreferrer"><img src="{{ $Scratch.Get "enLink" }}{{ range first 1 $classSplit }}{{- . | safeURL -}}{{ end }}" alt="{{ .Text }}" {{ if gt (len $classSplit) 1}} class="{{ $classes := after 1 $classSplit }}{{ delimit $classes " " }}"  {{ end }} {{ with .Title}} title="{{ . }}"{{ end }} /></a>
+{{ end }}

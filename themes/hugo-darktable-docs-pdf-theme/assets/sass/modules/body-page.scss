@@ -1,0 +1,61 @@
+#body > .section {
+    page: body;
+}
+
+#cover-front > .title {
+    string-set: front-cover-title content();
+}
+
+#body > .section  > h1.title {
+    string-set: chapter content();
+}
+
+#body > .section > .section  > h1.title {
+    string-set: section content();
+}
+
+@mixin border-top {
+    border-top: 1px solid gray;
+}
+
+@mixin border-bottom {
+    border-bottom: 1px solid gray;
+}
+
+@page body {
+    @include border-top;
+    @include border-bottom;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    @top-left-corner {
+	content: "";
+    }
+    @top-left {
+	content: string(chapter);
+    }
+    @top-center {
+	content: "";
+    }
+    @top-right {
+	content: string(section);
+    }
+    @top-right-corner {
+	content: "";
+    }
+
+    @bottom-left-corner {
+	content: "";
+    }
+    @bottom-left {
+	content: string(front-cover-title);
+    }
+    @bottom-center {
+	content: "";
+    }
+    @bottom-right {
+	content: counter(page);
+    }
+    @bottom-right-corner {
+	content: "";
+    }
+}
