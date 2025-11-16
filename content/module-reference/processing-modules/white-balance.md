@@ -38,7 +38,7 @@ tint
 setting
 : Choose from a predetermined list of white balances. The available settings are derived from the presets available in the camera used to take the photograph. The following options are provided in addition to any camera-defined white balance presets.
 
-: - _as shot_ (default): The white balance as reported by the camera
+: - _as shot_: The white balance as reported by the camera
 
 : - _from image area_: Draw a rectangle over a neutral color in the image to calculate white balance from that area.
 
@@ -46,7 +46,9 @@ setting
 
 : - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value). 
 
-For convenience the final four modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
+: - _as shot to reference_: (default) The white balance as reported by the camera is used in processing modules before _colorin_ for slightly better results in [_highlights reconstruction_](./highlight-reconstruction.md), [_raw chromatic aberrations_](./raw-chromatic-aberrations.md), [_demosaic_](./demosaic.md) or [_denoise profiled_](./denoise-profiled.md). This is correcter later in the pipe in [_colorin_](./colorin.md) to the camera reference white point as in _camera reference_. Please note: In a few cases the coefficients reported by the camera for 'as shot' are bad so you might prefer _camera reference_ in those cases. 
+
+For convenience the final five modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
 
 finetune
 : Finetune a camera-specific white balance preset. This is only shown if it is available for the camera in question. The direction of adjustment is dependent on the provided presets. If your camera doesn't have white balance presets available, check [this guide](https://github.com/darktable-org/darktable/wiki/White-balance-presets) to see how you can submit your own.
