@@ -64,7 +64,7 @@ GPX file
 : The path of the GPX file selected.
 
 track list
-: This table shows the start date/time of each track, along with the number of track points and the number of matching images. When a check button is activated, the related track is displayed on the map. A check button in the table header allows you to select or de-select all of the tracks at once. Hover over a row with your mouse to display the start and end times both in local time (LT) and UTC.
+: This table shows the start date/time of each track, along with the number of track points and the number of matching images. When a check button is activated, the related track is displayed on the map. A check button in the table header allows you to select or de-select all of the tracks at once. Hover over a row with your mouse to display the start and end times both in local time (LT) and UTC. To reset the map zoom to show the complete set of tracks, double-click on a track in the list, or single-click on the track list header. Additionally, a keyboard shortcut can be be configured in [preferences > shortcuts > utility modules > geotagging > view entire track](../../../preferences-settings/shortcuts.md).
 
 preview images
 : If checked, the matching images are displayed on the map along the visible tracks.
