@@ -61,6 +61,6 @@ Themes use the same basic CSS principles as in html browsers (with some minor ex
 -   Next, related groups of darktable-specific UI elements are given _class names_ allowing them to be styled as a group
 -   Finally, some unique UI elements are assigned a CSS _id_ so that they can be styled independently
 
-You are encouraged to explore the existing themes (`darktable.css` in particular is very well commented) and to make use of the [Gtk Inspector](https://wiki.gnome.org/Projects/GTK/Inspector) tool to figure out how to select the specific UI element (or class of elements) you wish to modify. Some experimentation will be required.
+You are encouraged to explore the existing themes (`darktable.css` in particular is very well commented) and to make use of the [Gtk Inspector](https://developer.gnome.org/documentation/tools/inspector.html) tool to figure out how to select the specific UI element (or class of elements) you wish to modify. Some experimentation will be required.
 
 Please note that darktable themes are grayscale by default in order that users not be distracted by strong colors while editing images. You are advised to retain this practice in your own themes and to keep the average shade as close to middle-gray as possible. In addition you are advised to review your custom CSS each time darktable is updated, to ensure that changes to the application have not adversely affected your tweaks.
