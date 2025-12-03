@@ -5,10 +5,10 @@ weight: 120
 draft: false
 ---
 
-_Shortcuts_ are a way to control darktable using your keyboard, pointing device or external controller. They allow you to perform _actions_ without interacting directly with a UI element.
+_Shortcuts_ are a way to control darktable using your keyboard, mouse or trackpad and other input devices. They allow you to perform _actions_ without interacting directly with a UI element.
 
-An _action_ is usually (but not always) an operation that you might undertake using darktable's point-and-click user interface.
-See [common actions](#common-actions) below for a list of the most common ones. For example:
+An _action_ is usually an operation that you might undertake using darktable's point-and-click user interface.
+See [common actions](#common-actions) for a list of the most common ones. For example:
 
 -   Increase, decrease or reset sliders
 -   Scroll through dropdown lists
@@ -18,7 +18,9 @@ See [common actions](#common-actions) below for a list of the most common ones. 
 
 A _shortcut_ is a combination of inputs that triggers one of the actions available in a given context.
 
-Darktable comes with many predefined shortcuts that use a combination of key presses and mouse movements, but you can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _external devices_ or just _devices_ in this guide.
+Darktable comes with many predefined shortcuts using keyboard or keyboard and mouse, but you can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _input devices_ in this guide.
+
+The recommended way to assign shortcuts to visual elements is the [visual shortcut mapping](#visual-shortcut-mapping) mode.
 
 # types of actions and shortcuts
 
@@ -37,75 +39,82 @@ As the two action types are inherently different, so are the shortcuts you can u
 
 For example:
 
-- The key `E` can be used to focus a module, or to toggle it on/off
-- The key `E`, combined with up/down movements or your pointing device, can be used to control the value of a slider
+- The key `e` can be used to focus a module, or to toggle it on/off
+- The key `e`, combined with up/down movements or your pointing device, can be used to control the value of a slider
 
 ---
 
 **Note:**
-By construction, a _continuous shortcut_ is sufficiently expressive to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _continuous action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action) below).
+By construction, a _continuous shortcut_ is sufficiently expressive to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _continuous action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action)).
 
 ---
 
 If you are using keyboard and mouse, **all shortcuts must start with one or more key presses**, as mouse actions in isolation are used to navigate and interact with the UI.
 
-If you have an external controller, you can trigger discrete actions by pressing one or more buttons on the controller. Continuous actions can use a combination of buttons and a knob/joystick movement, or just knob/joystick movement.
+If you have an input device, you can trigger discrete actions by pressing one or more buttons on the controller. Continuous actions can use a combination of buttons and a knob/joystick movement, or just knob/joystick movement.
 
 # anatomy of a shortcut
 
-The simplest shortcut consists of just one key press (e.g., `E`).
+The simplest shortcut consists of just one key press (e.g., `e`).
 
-The same key can be repeated up to three times, so also `E + E` and `E + E + E` are valid, and distinct, shortcuts.
+The same key can be repeated up to three times, so also `e double-press` and `e triple-press` are valid, and distinct, shortcuts.
 
-You can further extend a shortcut with up to three clicks of different mouse buttons. So, `E + E + left-click` or `E + right-click + left-click` are also valid shortcuts.
+You can further extend a shortcut with up to three clicks of different mouse buttons. So, `e double-press + left click` or `e + right click + left click` are also valid shortcuts.
 
-Finally, if your fingers are very nimble and you really need to go there, you can repeat the last click up to three times. So, also `E + left-click + middle-click + middle-click` and `E + E + middle-click + left-click + right-click + right-click + right-click` are valid shortcuts.
+Finally, if your fingers are very nimble and you really need to go there, you can repeat the last click up to three times. So, also `e + left click + middle double-click` and `e double press + middle click + left click + right triple-click` are valid shortcuts.
 
 Hence, the most complex shortcut can consist of 8 key/button presses:
-* Three key presses of the same `key`, followed by
+* Three key presses of the same key, (e.g., `e`), followed by
 * Three presses of the three mouse buttons, followed by
 * 2 more repetitions of the last click.
 
-Your shortcut can include one or more modifiers (`Shift`, `Ctrl` and `Alt`). In this case, for a continuous shortcut, both the last key and the modifier must be pressed down when you execute the movement. For example, `Ctrl + E + E + pan` means that while moving the mouse left and/or right both  `E` and `Ctrl` must be pressed down.
+Your shortcut can include one or more modifiers (`shift`, `ctrl` and `alt`). In this case, for a continuous shortcut, both the last key and the modifier must be pressed down when you execute the movement. For example, `ctrl + e double-press + pan` means that while moving the mouse left and/or right both  `e` and `ctrl` must be pressed down.
 
 ---
 
 **Note:**
-If you are a MacOs user, your shortcuts will use `Cmd` instead of `Ctrl` and `Option` instead of `Alt`.
+If you are a MacOs user, your shortcuts will use `cmd` instead of `ctrl` and `option` instead of `alt`.
 
 ---
 
 If you are defining a continuous shortcut, then the movement part of the shortcut must be executed while the last key, mouse or controller button is held down.
 
-For example, the shortcut `E + E + pan`, can be activated by pressing `E` twice, holding down `E` on the second press and moving the mouse horizontally while the key is pressed.
+For example, the shortcut `e double-press + pan`, can be activated by pressing `e` twice, holding down `e` on the second press and moving the mouse horizontally while the key is pressed.
 
-**Short and long key presses.** 
-By default, all key presses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ key press, defined as holding down the key for a bit longer than the duration of a double click. Hence `E + E` and `E + E(long)` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
+## short and long key presses
 
-**Triggering multiple shortcuts at once.** 
-If both `E + mouse-scroll` and `F + mouse-scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling the mouse wheel while holding down both `E` and `F` will move both sliders.
-Similarly, you could map, say, `E + E + mouse-scroll` and `F + F + mouse-scroll` to two nodes in a graph (say, `yellow` and `green` in color equalizer). You can then use `E + E(hold) + F(hold) + mouse-scroll` to move both sliders at once. This works because the repeat key counter is per-shortcut, not per key, and it is reset only after the current shortcut ends (i.e., when the repeated key is released). Thus it is possible to trigger as many actions at once as your fingers can handle, provided that all the shortcuts involved have the same number of key presses (i.e., single, double or triple presses).
+By default, all key presses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ key press, defined as holding down the key for a bit longer than the duration of a double click. Hence `e double-press` and `e long double-press` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
 
-**Shortcuts must be unique within a view.**
-A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
-
-**Additional modifiers.** As mentioned above, the only valid modifiers are the `Shift`, `Ctrl` and `Alt` keys on the keyboard. You can define additional keys (or device buttons) as modifiers by assigning keys/buttons to the "global/modifier" action. However, these will merely function as extra `Ctrl`, `Alt` or `Shift` keys -- you cannot create "new" modifiers.
-
-## defining continuous shortcuts
+## movements in continuous shortcuts
 
 The following movements are supported when defining continuous shortcuts:
 
 -   Movement of the mouse scroll wheel
 -   Horizontal, vertical or diagonal movement of the mouse cursor
--   Movement of a knob/joystick on an external device
+-   Movement of a knob/joystick on an input device
 
----
+When employing an input device, you can directly assign a control knob or joystick to an action. However, this will significantly reduce the flexibility of such devices, as you will be able to use the knob/joystick only to control one action. Conversely, by prefixing the movement with a key or button press you can use the same knob/joystick to control multiple actions.
 
-**Note:** You may need to switch off the "disable touchpad while typing" setting if you want to use continuous shortcuts with a laptop touchpad.
 
----
+## triggering multiple shortcuts at once
 
-As mentioned above, when employing an external device you can directly assign a control knob or joystick to an action. However, this will significantly reduce the flexibility of such devices, as you will be able to use the knob/joystick only to control one action. Conversely, by prefixing the movement with a key or button press you can use the same knob/joystick to control multiple actions.
+If both `e + scroll` and `f + scroll` are mapped to a slider (or if you have fallbacks enabled), then scrolling the mouse wheel while holding down both `e` and `f` will move both sliders.
+Similarly, you could map `e double-press + scroll` and `f double-press + scroll` to two nodes in a graph (say, `yellow` and `green` in color equalizer). You can then move both sliders at once by:
+
+1. pressing and releasing `e` once;
+2. pressing and holding `e`;
+3. pressing and holding `f`;
+4. using the scroll wheel while both `e` and `f` are pressed.
+
+This works because the repeat key counter is per-shortcut, not per key, and it is reset only after the current shortcut ends (i.e., when the repeated key is released). Thus it is possible to trigger as many actions at once as your fingers can handle, provided that all the shortcuts involved have the same number of key presses (i.e., single, double or triple presses).
+
+## shortcuts must be unique within a view
+
+A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view and another in the darkroom view.
+
+## additional modifiers
+
+The only valid modifiers are the `shift`, `ctrl` and `alt` keys on the keyboard. You can assign any key (or input device buttons) to function as one of the existing modifier types by assigning keys/buttons to the "global/modifier" action. However, you cannot define new modifier types.
 
 # anatomy of an action
 
@@ -120,7 +129,7 @@ element
 effect
 : A shortcut can sometimes have multiple possible _effects_ on a given _element_. For example, a button can be activated as if it was pressed with a plain mouse-click or as if it was pressed with Ctrl+click. A slider's value can be edited, increased/decreased or reset.
 
-So, for example, you can assign the shortcut `E + mouse-scroll` to change the value (the _effect_) of the exposure slider (the _element_) of the exposure correction _widget_.
+So, for example, you can assign the shortcut `e + scroll` to change the value (the _effect_) of the exposure slider (the _element_) of the exposure correction _widget_.
 
 # assigning shortcuts to actions
 
@@ -143,7 +152,7 @@ The mouse cursor will change as you hover over UI widgets, to indicate whether o
 -   ![Don't signal](./shortcuts/no-signal.png#icon) indicates that there is no mappable widget under the cursor.
 
 **To define new shortcuts:**
-press a key combination while hovering over a mappable widget. A _default action_ will be assigned to that shortcut based on the type of widget and whether your shortcut includes a movement. See the [common actions](#common-actions) section below for examples of some of the defaults.
+press a key combination while hovering over a mappable widget. A _default action_ will be assigned to that shortcut based on the type of widget and whether your shortcut includes a movement. See the [common actions](#common-actions) section for examples of some of the defaults.
 You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon again or right-clicking anywhere on the screen.
 
 **To explore already defined shortcuts:**
@@ -205,13 +214,13 @@ some actions may have no effect. For example, all sliders include a _button_ ele
 
 Actions in the "global" section of the shortcut mapping screen can be executed from any darktable view. Most of these actions do not have specific _elements_ as they are used to perform one-off operations.
 
-For example, the predefined shortcut `Tab` triggers the action `globals/panels/all`, which toggles the visibility of all the side panels in the current view.
+For example, the predefined shortcut `tab` triggers the action `globals/panels/all`, which toggles the visibility of all the side panels in the current view.
 
 ## view-specific actions
 
 Actions in the "views" section can only be executed from the specified darktable view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-For example, the predefined shortcut `Ctrl + B` triggers the action `views/darktable/guide lines/toggle`, which toggles guide lines in the darktable view.
+For example, the predefined shortcut `ctrl + b` triggers the action `views/darktable/guide lines/toggle`, which toggles guide lines in the darktable view.
 
 ## actions on modules
 
@@ -245,7 +254,7 @@ If an action affects a processing module that can have multiple instances, you c
 
 Additional options are available in the shortcuts mapping screen to adjust the blend parameters (the \<blending\> section) and module controls (the \<focused\> section) for the currently-focused module. The latter section allows you to assign shortcuts to the first, second, third (etc.) button, drop-down, slider and tab on the module. The shortcuts will affect different module controls depending on which module currently has focus (as the available list of controls changes).
 
-For example, you if you assign `' + mouse-scroll` to `processing modules/\<focused\>/sliders` and set `element` to `1st`, you will be able to use the scroll wheel while holding down `'` to adjust the value of the first slider of the currently focused module. If `exposure` is focused you will affect the `exposure correction` slider, if `denoise (profiled)` is focused you will affect the `denoising strength` slider.
+For example, you if you assign `' + scroll` to `processing modules/\<focused\>/sliders` and set `element` to `1st`, you will be able to use the scroll wheel while holding down `'` to adjust the value of the first slider of the currently focused module. If `exposure` is focused you will affect the `exposure correction` slider, if `denoise (profiled)` is focused you will affect the `denoising strength` slider.
 
 ## actions on specific widget types
 
@@ -257,7 +266,7 @@ A button is a clickable icon in the darktable interface. The default action is t
 
 A toggle is a button that has a persistent on/off state. It therefore has additional _effects_ to allow you to toggle it or explicitly set its state. As with a normal button, the default action is to activate the toggle as if clicked with the left mouse button (which toggles the button on/off).
 
-For example, the predefined shortcut `Shift + O` is associated to `views/darkroom/raw overexposed/toggle`, which toggles on/off the raw overexposure indicator in the darkroom.
+For example, the predefined shortcut `shift + O` is associated to `views/darkroom/raw overexposed/toggle`, which toggles on/off the raw overexposure indicator in the darkroom.
 
 ### dropdowns
 
@@ -300,13 +309,13 @@ Fallbacks are a powerful way to quickly set up multiple actions using predefined
 
 ---
 
-If they are enabled, when you create a discrete shortcut (e.g., `Ctrl + R`) against a processing module the following shortcuts will be defined automatically:
+If they are enabled, when you create a discrete shortcut (e.g., `ctrl + r`) against a processing module the following shortcuts will be defined automatically:
 
--  `Ctrl + R` to show/hide the module (the default fallback)
--  `Ctrl + R + left-click` to enable/disable the module
--  `Ctrl + R + left-double-click` to reset the module
--  `Ctrl + R + right-click` to show the module's preset menu
--  `Ctrl + R + right-double-click` to show the module's multiple instance menu
+-  `ctrl + r` to show/hide the module (the default fallback)
+-  `ctrl + r + left click` to enable/disable the module
+-  `ctrl + r + left double-click` to reset the module
+-  `ctrl + r + right click` to show the module's preset menu
+-  `ctrl + r + right double-click` to show the module's multiple instance menu
 
 In each case (except the first) you should hold the initial shortcut while clicking with your mouse. The final single/double mouse-click will apply the corresponding action.
 
@@ -315,6 +324,6 @@ As with any other shortcut, fallback settings are fully customizable.
 
 To see a list of _all_ of the default fallbacks, click the "enable fallbacks" checkbox in the shortcut mapping screen and select the "fallbacks" category in the top panel. To see the fallbacks for a given widget (e.g. a slider) just select that widget in the top panel. In both cases an additional item (also named "fallbacks") will then appear in the bottom panel containing full details of the available fallbacks.
 
-Fallbacks are only applied if no other shortcut using the resulting combination has been explicitly created. In the above example, if you were to explicitly assign `Ctrl + R + left-click` to another action, the "enable/disable module" fallback would be ignored.
+Fallbacks are only applied if no other shortcut using the resulting combination has been explicitly created. In the above example, if you were to explicitly assign `ctrl + r + left click` to another action, the "enable/disable module" fallback would be ignored.
 
-Some fallback actions are defined using modifier keys (usually `Ctrl+` and `Shift+`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign `Ctrl + R` to an action, you cannot use a `Ctrl+` fallback. Some default fallbacks of this type are provided for the _value_ element and for horizontal/vertical movements in the (zoomed) central area -- in this case, `Shift+` increases the speed to 10.0 and `Ctrl+` decreases the speed to 0.1.
+Some fallback actions are defined using modifier keys (usually `ctrl +` and `shift +`). In this case you must define an initial shortcut without such a modifier in order to be able to use these fallbacks. For example, if you assign `ctrl + r` to an action, you cannot use a `ctrl +` fallback. Some default fallbacks of this type are provided for the _value_ element and for horizontal/vertical movements in the (zoomed) central area -- in this case, `shift +` increases the speed to 10.0 and `ctrl +` decreases the speed to 0.1.
