@@ -55,7 +55,7 @@ All of darktable's pre-built themes are provided as CSS files in `$DARKTABLE/sha
 
 If you choose to create your own custom theme file you are advised to follow a similar approach -- import one of darktable's existing theme files using `@import url` (this directive expects relative paths) and then apply your own customizations on top. You do not need to do this when using the CSS text box in the preferences dialog -- attempting to use `@import url` in the CSS tweaks text box will not work correctly.
 
-Themes use the same basic CSS principles as in html browsers (with some minor exceptions -- see the [Gtk documentation](https://developer-old.gnome.org/gtk3/stable/chap-css-overview.html) for details):
+Themes use the same basic CSS principles as in html browsers (with some minor exceptions -- see the [Gtk documentation](https://docs.gtk.org/gtk3/css-overview.html) for details):
 
 -   The majority of the style properties are assigned to broad groups of UI elements, for example, Gtk buttons and text entry fields
 -   Next, related groups of darktable-specific UI elements are given _class names_ allowing them to be styled as a group
