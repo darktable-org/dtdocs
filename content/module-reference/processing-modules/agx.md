@@ -97,6 +97,8 @@ A simple per-channel curve often causes colorful objects to shift to pure, unnat
 The primaries controls in AgX work to prevent this by building a custom color space for the tone curve. By adjusting the primaries *before* the curve is applied, AgX creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
 ![naive per-channel processing](agx/sweep_agx.jpg)
 
+### controls on the _primaries_ tab
+
 disable adjustments
 : Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
 
@@ -106,7 +108,7 @@ reset primaries
 base primaries
 : Defines which color space is used as the basis of the AgX processing space. The attenuation and rotation controls below are applied relative to this space. Options include common spaces like sRGB, Display P3, Adobe RGB (compatible), and Rec2020; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
 
-### before tone mapping
+#### before tone mapping
 
 The controls in this group affect the operations performed before the tone mapping curve is applied.
 
@@ -116,7 +118,7 @@ red/green/blue attenuation
 red/green/blue rotation
 : Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
 
-### after tone mapping
+#### after tone mapping
 
 The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
 
@@ -139,7 +141,15 @@ red/green/blue purity boost
 : Restores color purity *after* the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
 
 red/green/blue reverse rotation
-: Reverses the initial primary rotation after the tone curve. This offers a final creative control over the rendered hues.
+: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and midtones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
+
+## selective tuning for mid-tones and highlights 
+It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to midtones and highlights, even though this may not be evident at the first glance.
+
+Per-channel S-curves have the property of desaturating highlights, independently of our _attenuation_ control. This means, we _can_ reverse the attenuation (restore saturation) for midtones using _purity boost_, but not so for highlights.
+
+Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
+ 
 
 ## The _input exposure range_
 
