@@ -22,6 +22,23 @@ Darktable comes with many predefined shortcuts using keyboard or keyboard and mo
 
 The recommended way to assign shortcuts to visual elements is the [visual shortcut mapping](#visual-shortcut-mapping) mode.
 
+# in a nutshell
+
+If you just want to assign a specific key to toggle a button, the process is the following:
+
+1. Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon in the [top panel](../overview/user-interface/top-panel.md)
+2. Hover the button that you want to control
+3. Press the key that you want to use to control the button
+
+Similarly, to control a slider with a shortcut you can:
+
+1. Click on the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon
+2. Hover the slider that you want to control
+3. Press the key that you want to use to control the slider, and scroll the mouse wheel or move the mouse horizontally, vertically or diagonally
+
+The system is very flexible and powerful, and this is just scratching the surface.
+Keep on reading to understand it better and learn how to make the most of it.
+
 # types of actions and shortcuts
 
 There are two types of actions:
@@ -29,35 +46,35 @@ There are two types of actions:
 _Discrete_ actions
 : E.g., executing a command, focusing a UI element or resetting a slider
 
-_Continuous actions_
+_Directional actions_
 : E.g., adjusting the value of a slider or scrolling through a list of presets
 
 As the two action types are inherently different, so are the shortcuts you can use to trigger them:
 
 - _Discrete actions_ can be triggered by _discrete shortcuts_ consisting only of key presses and optionally mouse clicks
-- _Continuous actions_ need also a direction (and, in the case of sliders, a magnitude). Hence, the corresponding _continuous shortcuts_ will also incorporate a mouse movement
+- _Directional actions_ need also a direction (and, in the case of sliders, a magnitude). Hence, the corresponding _directional shortcuts_ will also incorporate a mouse movement
 
 For example:
 
 - The key `e` can be used to focus a module, or to toggle it on/off
-- The key `e`, combined with up/down movements or your pointing device, can be used to control the value of a slider
+- The key `e`, combined with up/down movements or the mouse, can be used to control the value of a slider
 
 ---
 
 **Note:**
-By construction, a _continuous shortcut_ is sufficiently expressive to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _continuous action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action)).
+By construction, a _directional shortcut_ is sufficiently expressive to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _directional action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action)).
 
 ---
 
 If you are using keyboard and mouse, **all shortcuts must start with one or more key presses**, as mouse actions in isolation are used to navigate and interact with the UI.
 
-If you have an input device, you can trigger discrete actions by pressing one or more buttons on the controller. Continuous actions can use a combination of buttons and a knob/joystick movement, or just knob/joystick movement.
+If you have an input device, you can trigger discrete actions by pressing one or more buttons on the controller. Directional actions can use a combination of buttons and a knob/joystick movement, or just knob/joystick movement.
 
 # anatomy of a shortcut
 
 The simplest shortcut consists of just one key press (e.g., `e`).
 
-The same key can be repeated up to three times, so also `e double-press` and `e triple-press` are valid, and distinct, shortcuts.
+The same key can be repeated up to three times, so also `e double-press` (i.e., `e` pressed and released twice in quick succession) and `e triple-press` (i.e., `e` pressed and released three times in quick succession) are valid, and distinct, shortcuts.
 
 You can further extend a shortcut with up to three clicks of different mouse buttons. So, `e double-press + left click` or `e + right click + left click` are also valid shortcuts.
 
@@ -68,7 +85,7 @@ Hence, the most complex shortcut can consist of 8 key/button presses:
 * Three presses of the three mouse buttons, followed by
 * 2 more repetitions of the last click.
 
-Your shortcut can include one or more modifiers (`shift`, `ctrl` and `alt`). In this case, for a continuous shortcut, both the last key and the modifier must be pressed down when you execute the movement. For example, `ctrl + e double-press + pan` means that while moving the mouse left and/or right both  `e` and `ctrl` must be pressed down.
+Your shortcut can include one or more modifiers (`shift`, `ctrl` and `alt`). In this case, for a directional shortcut, both the last key and the modifier must be pressed down when you execute the movement. For example, `ctrl + e double-press + pan` means that while moving the mouse left and/or right both  `e` and `ctrl` must be pressed down.
 
 ---
 
@@ -77,17 +94,19 @@ If you are a MacOs user, your shortcuts will use `cmd` instead of `ctrl` and `op
 
 ---
 
-If you are defining a continuous shortcut, then the movement part of the shortcut must be executed while the last key, mouse or controller button is held down.
+If you are defining a directional shortcut, then the movement part of the shortcut must be executed while the last key, mouse or controller button is held down.
 
 For example, the shortcut `e double-press + pan`, can be activated by pressing `e` twice, holding down `e` on the second press and moving the mouse horizontally while the key is pressed.
 
-## short and long key presses
+## short and long presses
 
-By default, all key presses in a shortcut are _short_, i.e., the key is pressed and immediately released. However, the last repetition of a key in a shortcut can also be a _long_ key press, defined as holding down the key for a bit longer than the duration of a double click. Hence `e double-press` and `e long double-press` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a continuos shortcut.
+By default, all key presses and button clicks in a shortcut are _short_, i.e., the key/button is pressed and immediately released. However, the last repetition of a key/button press in a shortcut can also be a _long_ one.
+You can turn a normal key/button press into a long press by simply holding it a little longer before releasing it (longer than double-click speed but shorter than twice double-click speed). This applies to key presses and mouse clicks alike.
+Hence `e double-press` and `e long double-press` are two distinct shortcuts that can be assigned to different actions. The associated action triggers when the key is released, which entails that a shortcut ending with a long press cannot be used for a directional shortcut.
 
-## movements in continuous shortcuts
+## movements in directional shortcuts
 
-The following movements are supported when defining continuous shortcuts:
+The following movements are supported when defining directional shortcuts:
 
 -   Movement of the mouse scroll wheel
 -   Horizontal, vertical or diagonal movement of the mouse cursor
@@ -152,7 +171,7 @@ The mouse cursor will change as you hover over UI widgets, to indicate whether o
 -   ![Don't signal](./shortcuts/no-signal.png#icon) indicates that there is no mappable widget under the cursor.
 
 **To define new shortcuts:**
-press a key combination while hovering over a mappable widget. A _default action_ will be assigned to that shortcut based on the type of widget and whether your shortcut includes a movement. See the [common actions](#common-actions) section for examples of some of the defaults.
+press a key combination while hovering over a mappable widget. A _default action_ will be assigned to that shortcut based on the type of widget and whether it is directional. See the [common actions](#common-actions) section for examples of some of the defaults.
 You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon again or right-clicking anywhere on the screen.
 
 **To explore already defined shortcuts:**
@@ -220,7 +239,7 @@ For example, the predefined shortcut `tab` triggers the action `globals/panels/a
 
 Actions in the "views" section can only be executed from the specified darktable view. As with global actions, most do not have specific _elements_ as they are used to perform one-off operations.
 
-For example, the predefined shortcut `ctrl + b` triggers the action `views/darktable/guide lines/toggle`, which toggles guide lines in the darktable view.
+For example, the predefined shortcut `ctrl + b` triggers the action `views/darkroom/guide lines/toggle`, which toggles guide lines in the darktable view. It has an `effect` setting which allows you to directly simulate a right-click on the button, which in this case opens the guide lines configuration popup.
 
 ## actions on modules
 
@@ -248,7 +267,7 @@ _focus_
 : Acts as a _toggle_ that focuses or de-focuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
 
 _instance_
-: Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The discrete action associated to the _instance_ element displays a list of the available options for selection; a continuous action is also available and will move the _preferred module instance_ (see below) up and down the pixelpipe.
+: Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The discrete action associated to the _instance_ element displays a list of the available options for selection; a directional action is also available and will move the _preferred module instance_ (see below) up and down the pixelpipe.
 
 If an action affects a processing module that can have multiple instances, you can choose which instance to adjust with a given shortcut. By default, all actions will affect the "preferred" instance, as defined using the settings in [preferences > miscellaneous > shortcuts with multiple instances](./miscellaneous.md#shortcuts-with-multiple-instances).
 
@@ -273,7 +292,7 @@ For example, the predefined shortcut `shift + O` is associated to `views/darkroo
 A dropdown is a multi-selection box and has the following elements available:
 
 _selection_
-: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a discrete shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; A continuous shortcut (i.e., including a mouse movement) will scroll through the available values.
+: Allows values to be selected from the dropdown list in various ways. The default action, when assigning a discrete shortcut to a dropdown, is to display a popup _edit_ box with a list of the available values for selection; A directional shortcut (i.e., including a mouse movement) will scroll through the available values.
 
 _button_
 : A standard _button_ element that allows the button to the right of the dropdown (if present) to be activated. For example, the _aspect_ dropdown in the [_crop_](../module-reference/processing-modules/crop.md) module has a button that allows the crop controls to be changed from portrait to landscape and vice versa.
@@ -283,7 +302,7 @@ _button_
 A slider allows you to continuously alter an integer or decimal value, and has the following elements available:
 
 _value_
-: Allows the current value of the slider to be altered. The default action, when assigning a discrete shortcut to a slider, is to display a popup _edit_ box so you can enter a value; A continuous shortcut will change the value up and down. Value elements are also used for modifying some on-screen graphs. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
+: Allows the current value of the slider to be altered. The default action, when assigning a discrete shortcut to a slider, is to display a popup _edit_ box so you can enter a value; A directional shortcut will change the value up and down. Value elements are also used for modifying some on-screen graphs. When modifying the _value_ element with a shortcut you may not exceed the bounds set in the visual slider.
 
 _force_
 : This is the same as the _value_ element described above, but it allows you to exceed the bounds set in the visual slider.
