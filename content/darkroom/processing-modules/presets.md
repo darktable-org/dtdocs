@@ -58,6 +58,8 @@ auto apply this preset to matching images _(processing modules only)_
 
 : _The [image information](../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
 
+: If there is more than one preset with matching parameters for a given image, darktable creates multiple instances of the module, one for each matching preset, in the order they were defined. I.e., the last preset that was created will be placed after all other instances of the module in the pipeline.
+
 only show this preset for matching images _(processing modules only)_
 : Check this box to automatically show the preset in the preset menu, using the same set of filters.
 
