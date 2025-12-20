@@ -14,4 +14,4 @@ Metadata (e.g. title, description) is free-format text that usually differs for 
 
 # tagging
 
-Tags are usually shared between multiple images and are used to categorise and group them. You can add tags to images in the [tagging](../../module-reference/utility-modules/shared/tagging.md) module.
+Tags are usually shared between multiple images and are used to categorise, group, and/or [sequence](../../lighttable/digital-asset-management/sequence.md) them. You can add tags to images in the [tagging](../../module-reference/utility-modules/shared/tagging.md) module.

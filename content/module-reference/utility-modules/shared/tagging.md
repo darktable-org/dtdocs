@@ -21,6 +21,8 @@ tag
 
 : You can assign properties (name, private, category, synonyms and image order) to a tag.
 
+: You can use tag names to define  [collections](../collections/) that are displayed, processed, and exported in a _durable_ [custom sort](../../../lighttable/digital-asset-management/custom-sort/) order, unchanging when other collections sharing some of the same images are reordered.
+
 node
 : Any path that forms part of a tag is a node. In the above example, "`places`", "`places|France`", "`places|France|Nord`" and "`places|France|Nord|Lille`" are all nodes. In the hierarchical tree view, the nodes form the branches and leaves of the tree.
 
