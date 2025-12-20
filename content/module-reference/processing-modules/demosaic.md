@@ -41,7 +41,7 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 There are a few cameras whose sensors do not use a Bayer filter. Cameras with an "X-Trans" sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is _Markesteijn 1-pass_, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose _Markesteijn 3-pass_. Though _VNG_ is faster than _Markesteijn 1-pass_ on some computers, it is more prone to artifacts.
 
-Images from monochrome cameras do not require demosaicing, since darktable 5.4 they use this module to for _capture sharpen_ support.
+Images from monochrome cameras do not require demosaicing, since darktable 5.4 they use this module for _capture sharpen_ support.
 
 # special algorithms
 
@@ -58,16 +58,16 @@ CS is done inside the demosaic module as some parts of the algorithm require raw
 CS is not intended to be used as a general sharpening / local contrast enhancing tool, it should be understood as a way to increase micro-contrast in structures with lots of detail and leads to better results for further processing. Excellent examples would be details of surfaces like wood, brick walls, hair ...
 
 Prerequisites for optimal results are
-- decent white balance parameters (same requirement as for highlights reconstruction or demosaic), in very rare cases this could lead to inferiour sharpening quality.
+- decent white balance parameters (same requirement as for highlights reconstruction or demosaic), in very rare cases this could lead to inferior sharpening quality.
 - low chromatic aberration, you might want to add the [_raw chromatic aberration_](./raw-chromatic-aberrations.md) module to reduce problems, there will still likely be more and stronger halo artefacts. 
 - acceptable sensor noise as that will generally be amplified by CS. (See _contrast sensitivity_).
 
 CS works in an iterative process using specialized gaussian kernels using a different sigma in the range of 0.0 -> 1.5 for every single pixel location.
 
-It's main parameters are
+Its main parameters are
 
 _Iterations_
-: The strenght of effect increases with more iterations, for most images a setting of 8 will be fully sufficient.
+: The strength of effect increases with more iterations, for most images a setting of 8 will be fully sufficient.
 
 _Radius_
 : defines the maths (sigma) for the special gaussian kernels.
@@ -77,13 +77,13 @@ Note: Do not manually increase the radius much further as that will soon lead to
 
 _Edge sensitivity_
 : As sensor noise principally will be amplified by CS we take care about this problem by doing an analysis of local variance, luminance and an interactive user provided threshold.
-The sharpening is applied only to regions that are concidered to be safe in the analysis, the mask providing this information can be inspected by a click on the button as usual.
+The sharpening is applied only to regions that are considered to be safe in the analysis, the mask providing this information can be inspected by a click on the button as usual.
 
    For a good default we check the image ISO and sensor readout precision as a starting point.
    Very noisy images will require larger values than default, for very low sensor noise you can decrease the threshold to improve capture sharpening also in very dark parts of the image.
 
 _Corner boost/Sharp center_
-: Most lenses are sharper in the central part than the corners of the image, increasing the corner boost results in a larger per-pixel radius to be used for the CS kernels for the image corners. The extra radius is controlled by _corner boost_, the affected area follwows a very simple model using the distance from the image center and is controlled by _sharp center_. Again - the mask button visualizes the effect.
+: Most lenses are sharper in the central part than the corners of the image, increasing the corner boost results in a larger per-pixel radius to be used for the CS kernels for the image corners. The extra radius is controlled by _corner boost_, the affected area follows a very simple model using the distance from the image center and is controlled by _sharp center_. Again - the mask button visualizes the effect.
 
 # dual demosaic algorithms
 
@@ -135,7 +135,7 @@ Defining demosaic presets or using demosaic parameters for styles or copy of his
    - dual demosaicing will also be available on bayer and xtrans sensors
 3. Extra options like _green equalizing_ will only be done if supported by the current sensor.
 4. Some special care has been done for capture sharpening radius and edge sensitivity parameters.
-   In auto-applied presets you might want to use the auto-calculated radius (or eddge sensitivity) for CS instead of a specified value.
+   In auto-applied presets you might want to use the auto-calculated radius (or edge sensitivity) for CS instead of a specified value.
    To achieve this, you must set the radius to zero before saving the preset. If this preset is applied, dt accepts this as a request for autocalculation of the radius.
 
 We don't have CS enabled by default but you could define an auto-applied preset after setting radius and edge threshold to zero. For iterations a setting of 8 is recommended, this leads to good sharpening with very low risk for artefacts if used with auto-radius.
