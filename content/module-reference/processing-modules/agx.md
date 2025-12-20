@@ -9,7 +9,7 @@ view: darkroom
 masking: true
 ---
 
-Transforms the colors and tonal range of an image to fit a display. Its primary innovation is an advanced color handling method that ensures a natural and film-like appearance, preventing the oversaturation artifacts common with simpler tone mapping techniques. It is derived from the display transform of the same name, used in the [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka, Eary_Chow, Sakari Kapanen and others.
+Transforms the colors and tonal range of an image to fit a display. Its primary innovation is an advanced color handling method that ensures a natural and film-like appearance, preventing the oversaturation artifacts common with simpler tone mapping techniques. It is derived from the display transform of the same name, used in the [Blender 3D modeler](https://www.blender.org/) by T. J. Sobotka, Eary_Chow, Sakari Kapanen and others.
 
 ---
 
@@ -46,7 +46,9 @@ The tabs are:
 - curve (if enabled)
 - primaries.
 
-First, the contents of the various tabs are listed (note that some controls may appear at different places, depending on the choice of 2 or 3-tab mode). Then, each control will be described in detail.
+The _curve_ tab is only visible in 3-tab mode, enabled by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. In that mode, the plot of the curve and the advanced parameters, both of which are described below, are removed from the _settings_ tab. In 3-tab mode, they can be accessed via the dedicated _curve_ tab, saving vertical space. When set to `FALSE`, all curve controls appear on the _settings_ tab. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
+
+Below, the contents of the various tabs are listed (note that some controls may appear at different places, depending on the choice of 2 or 3-tab mode). Then, each control will be described in detail.
 
 # tabs
 
@@ -68,8 +70,6 @@ Controls on the _curve_ tab:
 - the _basic curve parameters_ (also visible on the _settings_ tab, repeated here for convenience)
 - the collapsible _advanced curve parameters_ section (moved from the _settings_ tab)
 
-The _curve_ tab is only visible in 3-tab mode, enabled by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. In that mode, the plot of the curve and the advanced parameters are removed from the _settings_ tab, and can be accessed via the _curve_ tab, saving vertical space. When set to `FALSE`, all curve controls appear on the _settings_ tab. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
-
 ## _primaries_
 
 This tab holds controls similar to, but more extensive than, the [_sigmoid_](./sigmoid.md) module's _primaries_ collapsible section:
@@ -88,7 +88,7 @@ These controls are the defining feature of AgX and the core of how it handles co
 
 ### a bit of background
 
-The core challenge in fitting a scene's wide range of light into a display's limited range is managing color across the entire tonal scale. Without tone mapping, a transitions would be abrupt, and lead to color distortions:
+The core challenge in fitting a scene's wide range of light into a display's limited range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
 ![no tone mapping](agx/sweep_no_tone_mapping.jpg)
 
 A simple per-channel curve often causes colorful objects to shift to pure, unnatural-looking primary or secondary colors as their intensity changes—an effect sometimes called the "Notorious 6":
@@ -103,7 +103,7 @@ disable adjustments
 : Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
 
 reset primaries
-: Clicking this button reveals a pop-up menu to apply one of the built-in set of primaries, without altering any of the other settings. Click an item to select it, or press Escape or click outside the menu to dismiss it without applying any setting.
+: Clicking this button reveals a pop-up menu to apply one of the built-in sets of primaries, without altering any of the other settings. Click an item to select it, or press Escape or click outside the menu to dismiss it without applying any setting.
 
 base primaries
 : Defines which color space is used as the basis of the AgX processing space. The attenuation and rotation controls below are applied relative to this space. Options include common spaces like sRGB, Display P3, Adobe RGB (compatible), and Rec2020; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
@@ -113,7 +113,7 @@ base primaries
 The controls in this group affect the operations performed before the tone mapping curve is applied.
 
 red/green/blue attenuation
-: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and midtones using the _purity boost_ sliders described below, in the section _after tone mapping_, the overall effect being a desaturation of highlights.
+: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and mid-tones using the _purity boost_ sliders described below, in the section _after tone mapping_, the overall effect being a desaturation of highlights.
 
 red/green/blue rotation
 : Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
@@ -141,12 +141,12 @@ red/green/blue purity boost
 : Restores color purity *after* the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
 
 red/green/blue reverse rotation
-: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and midtones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
+: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
 
 ## selective tuning for mid-tones and highlights 
-It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to midtones and highlights, even though this may not be evident at the first glance.
+It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to mid-tones and highlights, even though this may not be evident at the first glance.
 
-Per-channel S-curves have the property of desaturating highlights, independently of our _attenuation_ control. This means, we _can_ reverse the attenuation (restore saturation) for midtones using _purity boost_, but not so for highlights.
+Per-channel S-curves have the property of desaturating highlights, independently of our _attenuation_ control. This means we _can_ reverse the attenuation (restore saturation) for mid-tones using _purity boost_, but not so for highlights.
 
 Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
  
@@ -155,7 +155,7 @@ Another property of per-channel S-curves is the skewing of bright colors mention
 
 This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes. Any channel value lower than the selected _black relative exposure_ will be treated as 0; any above the selected _white relative exposure_ will be clipped to 1.
 
-Color pickers are provided to quickly pick the black or white point (_black_ and _white relative exposure_), or both (_auto tune levels_ and the _read exposure_ button, symbolized by a camera icon). Due to implementation differences, the values will be similar to, but not identical with, the values _filmic rgb_ would pick. For the pickers, but not for the "camera" button, a safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
+Color pickers are provided to quickly pick the black or white point (_black_ and _white relative exposure_), or both (_auto tune levels_ and the _read exposure_ button, symbolized by a camera icon). Due to implementation differences, the values will be similar, but not identical, to the values _filmic rgb_ would pick. For the pickers, but not for the "camera" button, a safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
 
 The _read exposure_ button does not analyse the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.    
 
@@ -163,7 +163,7 @@ The selected exposure range will then be used as the input range of a logarithmi
 
 ## The curve
 
-The plot of curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, the plot is visible on the _settings_ page; in 3-tab mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
+The plot of the curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, the plot is visible on the _settings_ page; in 3-tab mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
 
 The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualise the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
 
@@ -270,7 +270,7 @@ The following is a detailed description of the steps taken when processing with 
 - for each component (RGB channel), the same processing steps are executed independently (but, since the desaturation (primaries attenuation) mixes channels into each-other, this means that with respect to the original color, the processing is not independent at all):
     - log encoding is applied: for input x, log2(x) is calculated (_x_ would be the value of the red, green or blue channel)
     - the log value is scaled and shifted according to the selected exposure parameters, so the selected black point becomes 0, the white point 1, and the value corresponding to mid-gray (18%) ends up on the x-axis of the curve in a ratio _black relative exposure : _white relative exposure_ (by default, 10 : 6.5, or at about 0.61)
-    - the curve is applied; this produces and output that is considered to be encoded according to the _gamma_. This can be considered as data ready to be displayed on a monitor using the specified gamma value (the gamma is only used for processing, and does not have to match the gamma of the display used for editing, or that of the output color space).
+    - the curve is applied; this produces an output that is considered to be encoded according to the _gamma_. This can be considered as data ready to be displayed on a monitor using the specified gamma value (the gamma is only used for processing, and does not have to match the gamma of the display used for editing, or that of the output color space).
 - the _look_ is applied in pure display-referred mode, like legacy editing of gamma-encoded images, similar to editing sRGB JPGs in traditional editors. Except for _saturation_, these are also per-channel operations: 
     - first the _slope_ and the _lift_
     - then the _brightness_
