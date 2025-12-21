@@ -16,7 +16,7 @@ Please note that, for processing modules, the saved preset also includes the act
 The presets menu will contain one or more of the following entries depending on the presets that are defined or selected for the current module:
 
 preset list
-: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold** and with a small check mark beside it.  In addition, if the selected preset displays on a submenu, it parent entry is also highlighted in **bold**.
+: A list of the presets available for the current module. The currently selected preset (if any) is shown in **bold** and with a small check mark beside it. In addition, if the selected preset displays on a submenu, it parent entry is also highlighted in **bold**.
 
 edit this preset
 : If a preset has been selected, edit the selected preset (see below).
@@ -30,7 +30,7 @@ update preset \[name\]
 store new preset
 : Create a new preset using the module's current parameters.
 
-Click on a preset name to apply the preset to the current instance of the module. Long-left-click on a preset name to apply the preset but keep the preset list open (so that you can experiment with multiple presets without needing to re-open the menu).  Right-click on a preset name to create a new instance of the module and apply the selected preset to it.  You can also apply a preset at any time while you are in the darkroom using a keyboard shortcut -- if you have assigned one (see [preferences > shortcuts](../../preferences-settings/shortcuts.md)).
+Click on a preset name to apply the preset to the current instance of the module. Long-left-click on a preset name to apply the preset but keep the preset list open (so that you can experiment with multiple presets without needing to re-open the menu). Right-click on a preset name to create a new instance of the module and apply the selected preset to it. You can also apply a preset at any time while you are in the darkroom using a keyboard shortcut -- if you have assigned one (see [preferences > shortcuts](../../preferences-settings/shortcuts.md)).
 
 # creating and editing presets
 
@@ -41,7 +41,7 @@ When creating or editing presets, the following dialog is shown:
 ## controls
 
 name
-: The name of the preset.  You can create a hierarchy of presets with shared categories by inserting vertical bar characters ("|") in the name.  For example, "Nikon|24-70mm, F2.8" would be displayed as the category "Nikon" with a submenu  containing "24-70mm, F2.8" as well as any other presets whose names start with "Nikon|".
+: The name of the preset. You can create a hierarchy of presets with shared categories by inserting vertical bar characters ("|") in the name. For example, "Nikon|24-70mm, F2.8" would be displayed as the category "Nikon" with a submenu containing "24-70mm, F2.8" as well as any other presets whose names start with "Nikon|".
 
 description
 : A searchable description for the preset (optional)
@@ -54,11 +54,11 @@ auto apply this preset to matching images _(processing modules only)_
 
 : For example, if you want a preset to be applied to all images from a specific camera leave all fields at default values except for "model". Leave all fields unchanged to auto-apply a preset to all images.
 
-: The example dialog above sets up following rules: if the lens name matches, the aperture is greater than or equal to f/8 and the focal length is between 24 and 35mm the preset will be automatically applied. 
+: The example dialog above sets up following rules: if the lens name matches, the aperture is greater than or equal to f/8 and the focal length is between 24 and 35mm the preset will be automatically applied.
 
 : _The [image information](../../module-reference/utility-modules/shared/image-information.md) module displays the camera model and lens name for each image. Use this to ensure you have the correct spelling._
 
-: If there is more than one preset with matching parameters for a given image, darktable creates multiple instances of the module, one for each matching preset, in the order they were defined. I.e., the last preset that was created will be placed after all other instances of the module in the pipeline.
+: If there is more than one preset with matching parameters for a given image, darktable creates a separate module instance for each matching preset, in the order they were defined -- the last preset that was created will be placed after all other instances of the module in the pipeline.
 
 only show this preset for matching images _(processing modules only)_
 : Check this box to automatically show the preset in the preset menu, using the same set of filters.
@@ -86,7 +86,7 @@ aperture
 : Only apply the preset if the aperture of your image lies within the given range; set f/0 as the lower value to match arbitrarily open apertures; set f/+ as the upper value to match arbitrarily closed apertures.
 
 focal length
-: Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000). 
+: Only apply the preset if the focal length of your image lies within the given range (from 0 to 1000).
 
 format
 : Only apply the preset to certain types of image. Check boxes to include files matching these criteria; uncheck boxes to exclude those files. Choose from "raw", "non-raw", "HDR", "monochrome" and "color".
@@ -107,9 +107,9 @@ If you delete a preset that has the same name as one of the built-in presets, th
 
 By default, if the current parameters of a processing module match those of a saved preset, darktable will attempt to automatically set the name (label) of the module in question, as follows:
 
-- If the user has manually amended the name of the module in the current image, the module name will be left unchanged,
-- If the module instance from which the preset was created had a manually-set name, any subsequent module that matches this preset will automatically be given the same name. Note that if this was unintentional, the only way to revert will be to drop and recreate the preset, since the automatic name is a hidden field in the database,
-- If the module instance from which the preset was created did not have a manually-set name, the name of any subsequent module that matches this preset will be set to the same as the preset name.
+-   If the user has manually amended the name of the module in the current image, the module name will be left unchanged,
+-   If the module instance from which the preset was created had a manually-set name, any subsequent module that matches this preset will automatically be given the same name. Note that if this was unintentional, the only way to revert will be to drop and recreate the preset, since the automatic name is a hidden field in the database,
+-   If the module instance from which the preset was created did not have a manually-set name, the name of any subsequent module that matches this preset will be set to the same as the preset name.
 
 As soon as the module parameters are changed such that it no longer matches a preset, the module's name will be reset.
 
