@@ -28,7 +28,7 @@ adjust for the mid-tones first
 : By default, the module preserves middle gray. Before using _AgX_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
 
 usage guidelines
-: To help you navigate the module, some practical advice is provided after a description of the controls.
+: To help you navigate the module, some [practical advice](#guidelines) is provided after a description of the controls.
 
 # module controls
 
@@ -157,7 +157,7 @@ This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) mo
 
 Color pickers are provided to quickly pick the black or white point (_black_ and _white relative exposure_), or both (_auto tune levels_ and the _read exposure_ button, symbolized by a camera icon). Due to implementation differences, the values will be similar, but not identical, to the values _filmic rgb_ would pick. For the pickers, but not for the "camera" button, a safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
 
-The _read exposure_ button does not analyse the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.    
+The _read exposure_ button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.    
 
 The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
 
@@ -165,7 +165,7 @@ The selected exposure range will then be used as the input range of a logarithmi
 
 The plot of the curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, the plot is visible on the _settings_ page; in 3-tab mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
 
-The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualise the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
+The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualize the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
 
 The curve has 5 important points:
 - The _black and white points_ are at the left and right edges of the graph, respectively; their final linear output values can be controlled by the _target black_ and _target white_ sliders (see _advanced curve parameters_).
@@ -275,7 +275,7 @@ The following is a detailed description of the steps taken when processing with 
     - first the _slope_ and the _lift_
     - then the _brightness_
     - finally the _saturation_
-- for each channel, the gamma-encoded data is linearised by applying `linear = gamma_encoded ^ gamma` (so it is scene-referred 0..1, but the encoding is linear, like always in darktable's pipeline; mid-gray is at 0.18)
+- for each channel, the gamma-encoded data is linearized by applying `linear = gamma_encoded ^ gamma` (so it is scene-referred 0..1, but the encoding is linear, like always in darktable's pipeline; mid-gray is at 0.18)
 - the HSV representation of the result is calculated; the resulting hue (from the H component) and the original hue are mixed together according to the _preserve hue_ setting to produce the final hue. This does not guarantee complete preservation of color, as the "original" hue was already recorded after the input matrix, and after this mix, the output matrix (see the next step) modifies colors again.
 - the output matrix is applied to each channel, which:
     - performs the rotation reversal (this is a difference with _sigmoid_: the latter always completely reverses the rotation, in _AgX_, reversal is up to the user)
