@@ -97,7 +97,7 @@ A simple per-channel curve often causes colorful objects to shift to pure, unnat
 The primaries controls in AgX work to prevent this by building a custom color space for the tone curve. By adjusting the primaries *before* the curve is applied, AgX creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
 ![naive per-channel processing](agx/sweep_agx.jpg)
 
-### controls on the _primaries_ tab
+## controls on the _primaries_ tab
 
 disable adjustments
 : Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
@@ -108,7 +108,7 @@ reset primaries
 base primaries
 : Defines which color space is used as the basis of the AgX processing space. The attenuation and rotation controls below are applied relative to this space. Options include common spaces like sRGB, Display P3, Adobe RGB (compatible), and Rec2020; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
 
-#### before tone mapping
+### before tone mapping
 
 The controls in this group affect the operations performed before the tone mapping curve is applied.
 
@@ -118,7 +118,7 @@ red/green/blue attenuation
 red/green/blue rotation
 : Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
 
-#### after tone mapping
+### after tone mapping
 
 The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
 
