@@ -42,7 +42,7 @@ The user must supply an input filename and an output filename. All other paramet
 : The optional name of an XMP sidecar file containing the history stack data to be applied during export. If this option is not provided darktable will search for an XMP file that belongs to the given input file(s).
 
 `<output file or folder>`
-: The name of the output file or destination folder. The export file format is derived from the file extension or from the `--out-ext` option. You can also use a number of [variables](../variables.md) in the output filename. For obvious reasons this parameter is mandatory if you use the program on an image folder containing multiple images. If you specify output folder it is recommended that you also specify the file format with `--out-ext`.
+: The name of the output file or destination folder. The parameter is mandatory if you use the program on an image folder containing multiple images, and it must point to an existing folder. If the specified path does not point to an existing folder, it is interpreted as a filename. If the path is interpreted as a filename, the export file format is derived from the file extension, unless the `--out-ext` option is present (see below). Note that the file extension is only used to determine the **export format**, which then enforces the actual output extension (e.g. `image.jpeg` sets the format to JPEG, which results in the filename `image.jpg`). You can also use a number of [variables](../variables.md) in the output filename. If you specify output folder it is recommended that you also specify the file format with `--out-ext`.
 
 `--width <max width>`
 : Limit the width of the exported image to the given number of pixels.
@@ -66,7 +66,7 @@ The user must supply an input filename and an output filename. All other paramet
 : Whether to load `data.db` which contains presets and styles. Disabling this option allows you to run multiple instances of `darktable-cli` at the cost of being unable to use the `--style` option. Defaults to true.
 
 `--out-ext <extension>`
-: Set the export file format to use derived from the extension (jpg, tif, jxl). If specified takes precedence over `<output file>`. By default this is extracted from `<output file>`. Defaults to `jpg` if `<output folder>` is specified. Note: the extension used in the export filename is predetermined by the export format and not adjustable.
+: Defines the export format to use (e.g. `jpeg`, `tiff`, `openexr`) based on the provided argument string, which can be a common extension (e.g. `jpg`, `tif`, `exr`) or a format (e.g. `jpeg`, `tiff`). The name `--out-ext` is preserved for compatibility with existing scripts, but it is actually used to determine the **format**, not the file extension; the extension, as always, is determined by the format. If specified, this format takes precedence over the one derived from `<output file>`. If the output filename already contains an extension, it is removed **only if** it exactly matches the string passed to `--out-ext`. Otherwise, it is treated as part of the filename (e.g. `output.jpg` with `--out-ext jpeg` results in `output.jpg.jpg`, because `jpg` does not match `jpeg`). Defaults to `jpg` if `<output folder>` is specified.
 
 `--import <file or dir>`
 : Specify input file or folder, can be used multiple times. This option cannot be combined with `<input file or folder>`.
