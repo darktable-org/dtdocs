@@ -9,6 +9,9 @@ The following options are related to darktable's library database and [XMP sidec
 
 # database
 
+allow for multiple workspaces
+: allows for multiple workspaces that can be selected via a popup window at startup. It is possible to create a new workspace or to work from memory (no database). A workspace is a combination of a library database and a darktablerc using the same shared configuration folder settings (data database and shortcuts). (default off)
+
 create database snapshot
 : Specifies how often darktable should create database snapshots. Options are "never", "once a month", "once a week", "once a day" and "on close" (default "once a week")
 
