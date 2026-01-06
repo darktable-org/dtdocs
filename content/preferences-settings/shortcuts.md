@@ -13,7 +13,7 @@ A _shortcut_ is a combination of key or button presses and/or mouse or device mo
 
 The recommended way to assign shortcuts to visual elements is the [visual shortcut mapping](#visual-shortcut-mapping) mode.
 
-A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the darkroom view.
+A single action may have multiple shortcuts but a single shortcut can only be linked to one action in a given darktable view -- you can't chain actions together except by applying a preset or style. You can, however, set up a single shortcut that does one thing in the lighttable view, say, and another in the [darkroom](../darkroom/darkrom-view-layout.md)  view.
 
 ## initiating a shortcut
 
@@ -127,6 +127,10 @@ The following additional options are provided in the shortcut mapping screen:
 
 export...
 : Export the current shortcut mappings for one or all of your devices (keyboard/mouse, midi, game controller) to an external file. The dialog will show you how many shortcuts exist for each device.
+
+import extras
+: Import extended default shortcuts from a system file.  This adds a substantial number of shortcuts for controlling processing modules.  As when importing shortcuts from an external file, existing shortcuts matching any in the system file will be replaced.  You can undo the import using the `restore...` button until you exit darktable if you notice that one of your existing shortcuts has been replaced.  Most of the extended shortcuts use key+mouse combinations, and many use a mnemonic key for the module the shortcut controls.  These mnemonic shortcuts can be localized to your preferred language, if a localized version of the system file is available (currently, only German in addition to the default English).
+: You can review the added shortcuts by pressing and holding the 'h' key in the [darkroom](../darkroom/darkroom-view-layout.md).
 
 import...
 : Import shortcut mappings from an external file for one or all of your devices. When loading a device, you can chose to assign it a different number. This can for example be used to exchange midi layouts. Before loading, you can chose to wipe the specific device first. When loading all from an empty file, this will effectively delete all your shortcuts.

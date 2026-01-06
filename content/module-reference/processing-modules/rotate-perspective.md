@@ -126,5 +126,13 @@ Here is the image after having corrected for vertical and horizontal perspective
 
 ![perspective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
 
+# shortcut keys
 
+alt+[
+: Rotate the image clockwise by 0.1 degrees.
 
+alt+]
+: Rotate the image counterclockwise by 0.1 degrees.
+
+alt+r
+: Pop up the bauhaus control for the `rotation` slider, allowing adjustment of its value (including by typing a number) even if the module is currently collapsed or hidden.  This is equivalent to right-clicking on the slider.
