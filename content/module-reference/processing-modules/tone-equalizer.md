@@ -11,7 +11,7 @@ masking: true
 
 Dodge and burn while preserving local contrast.
 
-When used together with [_filmic rgb_](./filmic-rgb.md), this module replaces the need for other tone-mapping modules such as the [_base curve_](./base-curve.md), [_shadows and highlights_](./shadows-and-highlights.md), [_tone curve_](./tone-curve.md) and [_zone system (deprecated)_](./zone-system.md) modules. It works in linear RGB space and utilizes a user-defined mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.
+The Tone Equalizer module replaces the need for other tone-mapping modules such as the [_shadows and highlights_](./shadows-and-highlights.md), [_tone curve_](./tone-curve.md), [_zone system (deprecated)_](./zone-system.md), and similar modules. It works in linear RGB space and utilizes a user-defined mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.
 
 The following diagram describes how the tone equalizer works:
 
