@@ -252,4 +252,4 @@ suggested tags level of confidence
 : - 100: this is essentially an unreachable level of confidence and so returns no matching tags. Use 100% to disable the best-matched tag suggestion list (faster).
 
 number of recently attached tags
-: Number of recently attached tags to include in the suggestions list (default 20). A value of "-1" can be used to disable the the most-recently-attached suggestions list.
+: Number of recently attached tags to include in the suggestions list (default 20). A value of "-1" can be used to disable the most-recently-attached suggestions list.
