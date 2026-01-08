@@ -15,6 +15,11 @@ The official places to obtain information concerning darktable are the following
 
 The following articles provide some useful background information about darktable's scene-referred workflow:
 
+- [darktable 5.4 - A Simple Beginner Workflow and Interactive Walkthrough](https://www.darktable.org/2025/12/darktable-5.4-beginner-workflow)
+- [How do I ... in darktable 5.x?](https://www.darktable.org/2024/12/howto-in-5.0)
+- [darktable 4.0: 3763 Days Later](https://www.darktable.org/2022/07/darktable-4.0)
+
+Legacy articles:
 - [darktable 3.0 for dummies in 3 modules](https://discuss.pixls.us/t/darktable-3-0-for-dummies-in-3-modules/15849)
 - [darktable 3.0 for dummies -- hardcore edition](https://discuss.pixls.us/t/darktable-3-0-for-dummies-hardcore-edition/15864)
 - [darktable 3.0: RGB or Lab? Which modules? Help!](https://pixls.us/articles/darktable-3-rgb-or-lab-which-modules-help/)
