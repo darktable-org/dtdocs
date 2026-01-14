@@ -21,7 +21,7 @@ This will take you into the creation mode for that shape. Once you have finished
 
 Ctrl+click on the shape icon to continuously draw multiple shapes of the same type -- each time a shape is completed, you will re-enter creation mode for a new instance of that shape. While in continuous creation mode, right-click on the image to stop drawing shapes and enter edit mode.
 
-For all drawn shapes, you can hold Shift while scrolling with the mouse wheel to change the extent of the shape's feathering (the blur at the edge of the shape) and use Ctrl+scroll to change the shape's opacity (how transparent it is). These operations are available in both creation and edit modes (as long as your mouse is over the shape in question).
+For all drawn shapes, you can hold Shift while scrolling with the mouse wheel to change the extent of the shape's feathering (the blur at the edge of the shape) and use Ctrl+scroll to change the shape's opacity (how transparent it is). The feathering shape can also be changed by dragging a node on the feathering outline. If the feathering node coincides with a path node, hold Shift when selecting the node to limit selection to feathering nodes. These operations are available in both creation and edit modes (as long as your mouse is over the shape in question).
 
 By default, scrolling your mouse up increases the value of the relevant shape parameters. This behavior can be changed in [preferences > darkroom > scroll down to increase mask parameters](../../../preferences-settings/darkroom.md).
 
