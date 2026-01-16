@@ -25,3 +25,16 @@ With the exception of Fujifilm X-Trans cameras, darktable does not decode images
 darktable natively reads “ordinary” images in JPEG, 8-bit/16-bit PNG and 8-bit/16-bit TIFF format, as well as 16-bit/32-bit floating point TIFF formats.
 
 darktable also reads high dynamic range images in OpenEXR, RGBE and PFM formats.
+
+
+# explicitly not supported
+
+The following formats are explicitly not supported:
+
+- Apple ProRAW DNGs (iPhone)
+- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)
+- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)
+- Fujifilm lossy RAFs
+- Nikon high efficiency NEFs
+- Phase One other than IIQ L
+- Sony ARW 4.0/5.0 downsized lossless (“M” for full-frame, “S” for full-frame & APS-C) and ARW 6.0 lossy
