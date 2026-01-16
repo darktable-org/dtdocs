@@ -3,8 +3,8 @@ title: white balance
 id: white-balance
 weight: 10
 applicable-version: 3.4
-tags: 
-working-color-space: not-applicable (RAW) 
+tags:
+working-color-space: not-applicable (RAW)
 view: darkroom
 masking: false
 ---
@@ -25,7 +25,7 @@ White balance is not intended as a "creative" module -- its primary goal is to t
 
 ## scene illuminant temp
 
-This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balance of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders. 
+This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balance of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders.
 
 temperature
 : Set the color temperature in kelvin.
@@ -44,11 +44,11 @@ setting
 
 : - _user modified_: The most recently modified setting. Manual adjustment of temperature, tint or r/g/b channel coefficients will automatically select this option. Choose this setting after selecting any other preset to return parameters to the most recent user-modified state
 
-: - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value). 
+: - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value).
 
-: - _as shot to reference_: (default) The white balance as reported by the camera is used in processing modules before _colorin_ for slightly better results in [_highlights reconstruction_](./highlight-reconstruction.md), [_raw chromatic aberrations_](./raw-chromatic-aberrations.md), [_demosaic_](./demosaic.md) or [_denoise profiled_](./denoise-profiled.md). This is correcter later in the pipe in [_colorin_](./colorin.md) to the camera reference white point as in _camera reference_. Please note: In a few cases the coefficients reported by the camera for 'as shot' are bad so you might prefer _camera reference_ in those cases. 
+: - _as shot to reference_ (default): The white balance as reported by the camera is used in processing modules before [_input color profile_](./input-color-profile.md) for slightly better results in [_highlights reconstruction_](./highlight-reconstruction.md), [_raw chromatic aberrations_](./raw-chromatic-aberrations.md), [_demosaic_](./demosaic.md) or [_denoise (profiled)_](./denoise-profiled.md). This is corrected later in the pipe in _input color profile_ to the camera reference white point as in _camera reference_. Please note that, in a few cases, the coefficients reported by the camera for 'as shot' are bad so you might prefer _camera reference_ for those cameras.
 
-For convenience the final five modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
+: For convenience these modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
 
 finetune
 : Finetune a camera-specific white balance preset. This is only shown if it is available for the camera in question. The direction of adjustment is dependent on the provided presets. If your camera doesn't have white balance presets available, check [this guide](https://github.com/darktable-org/darktable/wiki/White-balance-presets) to see how you can submit your own.
