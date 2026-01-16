@@ -2,7 +2,7 @@
 title: white balance
 id: white-balance
 weight: 10
-applicable-version: 3.4
+applicable-version: 4.8
 tags:
 working-color-space: not-applicable (RAW)
 view: darkroom
