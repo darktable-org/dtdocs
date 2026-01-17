@@ -79,61 +79,6 @@ The _primaries_ tab holds controls similar to, but more extensive than, those of
 -   attenuation and rotation sliders for preprocessing before tone mapping
 -   attenuation and rotation reversal sliders for postprocessing after tone mapping
 
-## the _primaries_ tab
-
-disable adjustments
-: Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
-
-reset primaries
-: Clicking this button reveals a pop-up menu to apply one of the built-in sets of primaries, without altering any of the other settings. Click an item to select it, or press Escape or click outside the menu to dismiss it without applying any setting.
-
-base primaries
-: Defines which color space is used as the basis of the AgX processing space. The attenuation and rotation controls below are applied relative to this space. Options include common spaces like sRGB, Display P3, Adobe RGB (compatible), and Rec2020; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
-
-### before tone mapping
-
-The controls in this group affect the operations performed before the tone mapping curve is applied.
-
-red/green/blue attenuation
-: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and mid-tones using the _purity boost_ sliders described below, in the section _after tone mapping_, the overall effect being a desaturation of highlights.
-
-red/green/blue rotation
-: Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
-
-### after tone mapping
-
-The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
-
-reverse all
-: Ticking this checkbox will hide the other controls in the group, and adjust processing settings as if the _master_ reversal sliders, discussed below, were set to 100%, the _purity boost_ parameters to match the values of the corresponding _attenuation_ sliders, and the _reverse rotation_ parameters to mirror the values set with the _rotation_ sliders. The values of the hidden sliders will be retained, but not used for processing. Unchecking the checkbox will make them visible, and their settings effective, again.
-The checkbox is intended to simplify the user interface (users may wish to create presets with the checkbox ticked), and for quick "what-if" checks.
-
-set from above
-: Clicking the button will _copy_ the values of the sliders from the _before tone mapping_ section, and set the _master_ controls to 100%, producing the same visual effect as ticking _reverse all_. However, this only provides a starting point: the sliders will not be hidden, and may be adjusted to taste.
-
-master purity boost, master rotation reversal
-: These are multipliers that affect the individual red/green/blue controls below, allowing you to globally increase or decrease their effect.
-
-**Note** The module provides built-in presets, based on Blender, and on the _smooth_ preset of the _sigmoid_ module. When adjusting primaries starting from those presets, you will need to take the following into account:
-
--   In Blender, the rotation of primaries is not reversed, and purity is restored using values different from those used for attenuation. Therefore, the corresponding _blender-like_ and _scene-referred default_ presets of _AgX_ come with _master purity boost = 100%, master rotation reversal = 0%_. This means that although the per-channel rotation reversal sliders are set up for complete reversal, they have no effect; you can turn them on gradually by raising the _master rotation reversal_ control, and, once that is no longer set to 0%, adjust the individual channel sliders according to taste.
--   In the _sigmoid_ module's _smooth_ preset, rotations are always completely reversed, but purity is not boosted at all by default. Therefore, the corresponding _AgX_ presets, also called _smooth_, set _master purity boost = 0%, master rotation reversal = 100%_. The per-channel purity boost sliders are set to completely reverse the attenuation, but are effectively disabled by the master slider; the per-channel rotation reversal sliders mirror the settings of the reversal slider, and are fully enabled by the master control.
--   You are, of course, free to create your own presets with your favourite combination of master and per-channel controls (for example, having the master reversal controls at 100% and the per-channel controls set to your preferred values).
-
-red/green/blue purity boost
-: Restores color purity _after_ the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
-
-red/green/blue reverse rotation
-: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
-
-### selective tuning for mid-tones and highlights
-
-It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to mid-tones and highlights, even though this may not be evident at the first glance.
-
-Per-channel S-curves have the property of desaturating highlights, independently of our _attenuation_ control. This means we _can_ reverse the attenuation (restore saturation) for mid-tones using _purity boost_, but not so for highlights.
-
-Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
-
 ## the _settings_ tab
 
 ### the _input exposure range_
@@ -223,6 +168,61 @@ saturation
 
 preserve hue
 : The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are kept. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored. Note that the input hues themselves are affected by the primaries manipulations performed before tone mapping, and the final hues are affected by the primaries manipulations applied after tone mapping. For a detailed order of the operations involved in processing, see [internal processing details](#internal-processing-details) below.
+
+## the _primaries_ tab
+
+disable adjustments
+: Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
+
+reset primaries
+: Clicking this button reveals a pop-up menu to apply one of the built-in sets of primaries, without altering any of the other settings. Click an item to select it, or press Escape or click outside the menu to dismiss it without applying any setting.
+
+base primaries
+: Defines which color space is used as the basis of the AgX processing space. The attenuation and rotation controls below are applied relative to this space. Options include common spaces like sRGB, Display P3, Adobe RGB (compatible), and Rec2020; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
+
+### before tone mapping
+
+The controls in this group affect the operations performed before the tone mapping curve is applied.
+
+red/green/blue attenuation
+: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and mid-tones using the _purity boost_ sliders described below, in the section _after tone mapping_, the overall effect being a desaturation of highlights.
+
+red/green/blue rotation
+: Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
+
+### after tone mapping
+
+The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
+
+reverse all
+: Ticking this checkbox will hide the other controls in the group, and adjust processing settings as if the _master_ reversal sliders, discussed below, were set to 100%, the _purity boost_ parameters to match the values of the corresponding _attenuation_ sliders, and the _reverse rotation_ parameters to mirror the values set with the _rotation_ sliders. The values of the hidden sliders will be retained, but not used for processing. Unchecking the checkbox will make them visible, and their settings effective, again.
+The checkbox is intended to simplify the user interface (users may wish to create presets with the checkbox ticked), and for quick "what-if" checks.
+
+set from above
+: Clicking the button will _copy_ the values of the sliders from the _before tone mapping_ section, and set the _master_ controls to 100%, producing the same visual effect as ticking _reverse all_. However, this only provides a starting point: the sliders will not be hidden, and may be adjusted to taste.
+
+master purity boost, master rotation reversal
+: These are multipliers that affect the individual red/green/blue controls below, allowing you to globally increase or decrease their effect.
+
+**Note** The module provides built-in presets, based on Blender, and on the _smooth_ preset of the _sigmoid_ module. When adjusting primaries starting from those presets, you will need to take the following into account:
+
+-   In Blender, the rotation of primaries is not reversed, and purity is restored using values different from those used for attenuation. Therefore, the corresponding _blender-like_ and _scene-referred default_ presets of _AgX_ come with _master purity boost = 100%, master rotation reversal = 0%_. This means that although the per-channel rotation reversal sliders are set up for complete reversal, they have no effect; you can turn them on gradually by raising the _master rotation reversal_ control, and, once that is no longer set to 0%, adjust the individual channel sliders according to taste.
+-   In the _sigmoid_ module's _smooth_ preset, rotations are always completely reversed, but purity is not boosted at all by default. Therefore, the corresponding _AgX_ presets, also called _smooth_, set _master purity boost = 0%, master rotation reversal = 100%_. The per-channel purity boost sliders are set to completely reverse the attenuation, but are effectively disabled by the master slider; the per-channel rotation reversal sliders mirror the settings of the reversal slider, and are fully enabled by the master control.
+-   You are, of course, free to create your own presets with your favourite combination of master and per-channel controls (for example, having the master reversal controls at 100% and the per-channel controls set to your preferred values).
+
+red/green/blue purity boost
+: Restores color purity _after_ the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
+
+red/green/blue reverse rotation
+: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
+
+### selective tuning for mid-tones and highlights
+
+It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to mid-tones and highlights, even though this may not be evident at the first glance.
+
+Per-channel S-curves have the property of desaturating highlights, independently of our _attenuation_ control. This means we _can_ reverse the attenuation (restore saturation) for mid-tones using _purity boost_, but not so for highlights.
+
+Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
 
 # recommended workflow
 
