@@ -143,6 +143,6 @@ Defining demosaic [presets](../../darkroom/processing-modules/presets.md) or usi
 1. Extra options like _green equalizing_ will only be applied where they are supported by the current sensor.
 1. In auto-applied presets with capture sharpen enabled, you might want to use the auto-calculated radius (or contrast sensitivity) instead of using hard-coded values. To achieve this, you must set the radius (or contrast sensitivity) to zero before saving the preset. If this preset is then applied to another image, darktable accepts this as a request for these values to be automatically recalculated.
 
-Capture sharpening is not enabled by default but you could achieve this by defining an auto-applied preset after setting radius and contrast threshold to zero. You are advised to leave the iterations setting to 8, as this leads to good sharpening with very low risk for artifacts when used with an auto-calculated radius.
+Capture sharpening is not enabled by default but you could achieve this by defining an auto-applied preset after setting radius and contrast threshold to zero. You are advised to leave the iterations setting at its default setting of 8, as this leads to good sharpening with very low risk for artifacts when used with an auto-calculated radius.
 
 For the auto-apply rules, capture sharpening is generally safe for ISO values below 1000. If you have a good sensor, with low noise even on high ISO values, you might be able to use it for ISOs as high as 3200.
