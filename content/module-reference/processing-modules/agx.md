@@ -234,7 +234,7 @@ preserve hue
 
 Note that unless [high quality processing](../utility-modules/darkroom/high-quality-processing.md) is enabled, the effect of adjusting the primaries cannot be judged properly, especially with highly saturated colors and narrow-spectrum light sources like LEDs.
 
-## recommended workflow
+The following workflow is recommended when using this module:
 
 -   Set overall exposure for the mid-tones using the _exposure_ module. Alternatively, use _contrast_ and _toe / shoulder power_ to fill the output tonal range.
 -   If darktable is set to apply a scene-referred workflow, the module will apply reasonable defaults. In other cases (for example, when using the legacy display-referred workflow or if the workflow preference is set to "none"), manually select the preset _blender-like|base_ or _smooth|base_ for best results. The _punchy_ presets are more contrasty and colorful.
