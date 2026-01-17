@@ -79,9 +79,9 @@ The _primaries_ tab holds controls similar to, but more extensive than, those of
 -   attenuation and rotation sliders for preprocessing before tone mapping
 -   attenuation and rotation reversal sliders for postprocessing after tone mapping
 
-## the _settings_ tab
+## the settings tab
 
-### the _input exposure range_
+### input exposure range
 
 This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes. Any channel value lower than the selected _black relative exposure_ will be treated as 0; any above the selected _white relative exposure_ will be clipped to 1.
 
@@ -99,11 +99,13 @@ pivot relative exposure and pivot target output
 -   The point of the input tonal range at which contrast will be highest, controlled by _pivot relative exposure_.
 -   The output value (power) of the pivot point, set via the _pivot target output_ slider.
 
-**pivot relative exposure**: sets the input value of the pivot point, in EV relative to mid-gray. Since contrast is normally highest around the pivot, this slider allows you to choose at which part of the input tonal range you want to have the most contrast. The corresponding color picker adjusts only this slider, but not _pivot target output_. You may be tempted to use it as a brightness control (moving the pivot towards black, without modifying its output value, will brighten the image, while moving it towards white will darken the image), but the _pivot target output_ is better suited for that, as it directly influences brightness, without changing the point of highest contrast.
+pivot relative exposure
+: Sets the input value of the pivot point, in EV relative to mid-gray. Since contrast is normally highest around the pivot, this slider allows you to choose at which part of the input tonal range you want to have the most contrast. The corresponding color picker adjusts only this slider, but not _pivot target output_. You may be tempted to use it as a brightness control (moving the pivot towards black, without modifying its output value, will brighten the image, while moving it towards white will darken the image), but the _pivot target output_ is better suited for that, as it directly influences brightness, without changing the point of highest contrast.
 
-When adjusting the _black/white relative exposure_ values, the _pivot relative exposure_ (its distance to mid-gray) will be maintained, as long as possible. This will cause it to move along the x-axis, as the preserved quantity is the exposure value relative to mid-gray, and where that falls on the x-axis depends on the endpoints of the axis (the black and white relative exposure values). In case the pivot input would fall outside the exposure boundaries, it will be forced inside the available range.
+: When adjusting the _black/white relative exposure_ values, the _pivot relative exposure_ (its distance to mid-gray) will be maintained, as long as possible. This will cause it to move along the x-axis, as the preserved quantity is the exposure value relative to mid-gray, and where that falls on the x-axis depends on the endpoints of the axis (the black and white relative exposure values). In case the pivot input would fall outside the exposure boundaries, it will be forced inside the available range.
 
-**pivot target output**: sets the target output linear value (power) for the tone selected by the pivot's input. The value is indicated on the y-axis. Note that the scale of the y-axis is not uniform, and depends on the _curve y gamma_, described in the section [advanced curve parameters](#advanced-curve-parameters). The corresponding color picker adjusts both _pivot relative exposure_ (setting the point of highest contrast) and _pivot target output_, attempting to preserve the average brightness of the selected region.
+pivot target output
+: Sets the target output linear value (power) for the tone selected by the pivot's input. The value is indicated on the y-axis. Note that the scale of the y-axis is not uniform, and depends on the _curve y gamma_, described in the section [advanced curve parameters](#advanced-curve-parameters). The corresponding color picker adjusts both _pivot relative exposure_ (setting the point of highest contrast) and _pivot target output_, attempting to preserve the average brightness of the selected region.
 
 For more predictable results, it is advised to use the color pickers on uniform areas, as sudden tonal transitions in the selected area will cause the average values to change rapidly, leading to fluctuations in both pivot input and output.
 
@@ -113,9 +115,9 @@ contrast
 shoulder power / toe power
 : The word _shoulder_ refers to the higher bend of the curve (highlights), while the _toe_ is the lower bend. These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow. This warning may be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
 
-### the curve
+### show curve
 
-The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
+The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls, or when investigating issues like loss of detail or curve "inversion" (documented under _toe power / shoulder power_). The plot is not interactive; it simply illustrates the effect of the sliders.
 
 The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualize the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
 
@@ -124,9 +126,6 @@ The curve has 5 important points:
 -   The _black and white points_ are at the left and right edges of the graph, respectively; their final linear output values can be controlled by the _target black_ and _target white_ sliders (see _advanced curve parameters_).
 -   the _pivot_ is the point around which the curve is built, indicated by a dot. By default, it maps mid-gray to mid-gray. You may move this point to match your main subject using the provided picker.
 -   _toe and shoulder starting points_: These define where the curve transitions from a linear section to the compressed toe (shadows) and shoulder (highlights). By default, they are set to the pivot point.
-
-show curve
-: Expands or collapses the plot of the curve. It is recommended to expand this section while getting familiar with the curve, or when investigating issues like loss of detail or curve "inversion" (documented under _toe power / shoulder power_).
 
 ### advanced curve parameters
 
@@ -148,9 +147,9 @@ keep the pivot on the diagonal
 curve y gamma
 : Shifts the representation of the pivot along the y-axis without changing its output luminance. This is an internal parameter of the algorithm and does not need to match your display's gamma. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective. Manual adjustments are disabled while _keep the pivot on the diagonal_ is enabled.
 
-### the _look_ section
+### look
 
-These controls allow post-processing after the tone mapping operation. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully.
+The "look" controls allow post-processing after the tone mapping operation. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully.
 
 By default, the _look_ controls are placed inside a collapsible section. If you desire to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
 
@@ -169,7 +168,7 @@ saturation
 preserve hue
 : The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are kept. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored. Note that the input hues themselves are affected by the primaries manipulations performed before tone mapping, and the final hues are affected by the primaries manipulations applied after tone mapping. For a detailed order of the operations involved in processing, see [internal processing details](#internal-processing-details) below.
 
-## the _primaries_ tab
+## the primaries tab
 
 disable adjustments
 : Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
@@ -204,17 +203,21 @@ set from above
 master purity boost, master rotation reversal
 : These are multipliers that affect the individual red/green/blue controls below, allowing you to globally increase or decrease their effect.
 
-**Note** The module provides built-in presets, based on Blender, and on the _smooth_ preset of the _sigmoid_ module. When adjusting primaries starting from those presets, you will need to take the following into account:
-
--   In Blender, the rotation of primaries is not reversed, and purity is restored using values different from those used for attenuation. Therefore, the corresponding _blender-like_ and _scene-referred default_ presets of _AgX_ come with _master purity boost = 100%, master rotation reversal = 0%_. This means that although the per-channel rotation reversal sliders are set up for complete reversal, they have no effect; you can turn them on gradually by raising the _master rotation reversal_ control, and, once that is no longer set to 0%, adjust the individual channel sliders according to taste.
--   In the _sigmoid_ module's _smooth_ preset, rotations are always completely reversed, but purity is not boosted at all by default. Therefore, the corresponding _AgX_ presets, also called _smooth_, set _master purity boost = 0%, master rotation reversal = 100%_. The per-channel purity boost sliders are set to completely reverse the attenuation, but are effectively disabled by the master slider; the per-channel rotation reversal sliders mirror the settings of the reversal slider, and are fully enabled by the master control.
--   You are, of course, free to create your own presets with your favourite combination of master and per-channel controls (for example, having the master reversal controls at 100% and the per-channel controls set to your preferred values).
-
 red/green/blue purity boost
 : Restores color purity _after_ the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
 
 red/green/blue reverse rotation
 : Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
+
+---
+
+**Note:** The module provides built-in presets, based on Blender, and on the _smooth_ preset of the _sigmoid_ module. When adjusting primaries starting from those presets, you will need to take the following into account:
+
+-   In Blender, the rotation of primaries is not reversed, and purity is restored using values different from those used for attenuation. Therefore, the corresponding _blender-like_ and _scene-referred default_ presets of _AgX_ come with _master purity boost = 100%, master rotation reversal = 0%_. This means that although the per-channel rotation reversal sliders are set up for complete reversal, they have no effect; you can turn them on gradually by raising the _master rotation reversal_ control, and, once that is no longer set to 0%, adjust the individual channel sliders according to taste.
+-   In the _sigmoid_ module's _smooth_ preset, rotations are always completely reversed, but purity is not boosted at all by default. Therefore, the corresponding _AgX_ presets, also called _smooth_, set _master purity boost = 0%, master rotation reversal = 100%_. The per-channel purity boost sliders are set to completely reverse the attenuation, but are effectively disabled by the master slider; the per-channel rotation reversal sliders mirror the settings of the reversal slider, and are fully enabled by the master control.
+-   You are, of course, free to create your own presets with your favourite combination of master and per-channel controls (for example, having the master reversal controls at 100% and the per-channel controls set to your preferred values).
+
+---
 
 ### selective tuning for mid-tones and highlights
 
