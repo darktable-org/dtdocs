@@ -14,6 +14,8 @@ While the mouse is over an image thumbnail or images are selected, there are a n
 
 # keyboard shortcuts
 
+The following keyboard shortcuts are enabled by default in the lighttable view:
+
 -   `F1, F2, F3, F4, F5` adds or removes a color label (red, yellow, green, blue, purple, respectively). A color label will be added if _any_ selected image does not currently have the label; otherwise the label will be removed
 
 -   `0, 1, 2, 3, 4, 5` sets the star rating
@@ -38,4 +40,4 @@ While the mouse is over an image thumbnail or images are selected, there are a n
 
 # drag-and-drop
 
--   You may change the sequence of images displayed, processed, or exported when _sort by_ is set to [custom sort](../module-reference/utility-modules/shared/collection-filters.md#custom-sort) by dragging and dropping their thumbnails.
+You may change the sequence of images displayed, processed, or exported when _sort by_ is set to [custom sort](../module-reference/utility-modules/shared/collection-filters.md#custom-sort) by dragging and dropping their thumbnails.
