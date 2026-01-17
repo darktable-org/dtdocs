@@ -6,7 +6,7 @@ weight: 30
 author: "people"
 ---
 
-This section is intended to get you comfortable processing images in the darkroom view using a _scene-referred_ workflow. You are advised to follow the guidelines provided below, up to the end of the [_image processing in 3 modules_](#image-processing-in-3-modules) section and then choose other areas to learn as-and-when you need to use those techniques in your images.
+This section is intended to get you comfortable processing images in the darkroom view using a _scene-referred_ workflow. You are advised to follow the guidelines provided below, up to the end of the [_image processing in 3 modules_](#image-processing-in-3-modules) section and then choose other areas to learn as-and-when you need to use those techniques in your images. 
 
 # getting started
 
@@ -33,12 +33,11 @@ Most processing software uses a traditional temperature/tint model for adjusting
 Please note that the [white balance](../../module-reference/processing-modules/white-balance.md) module is still enabled in this approach, but its settings normally should not be altered.
 
 ---
-
 Set [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md) to "scene-referred (filmic)" now.
 
 ---
 
-_Enter preferences by clicking on the gear icon in the [top panel](../user-interface/top-panel.md)_.
+_Enter preferences by clicking on the gear icon in the [top panel](../user-interface/top-panel.md)_. 
 
 ## edit in a controlled environment
 
@@ -47,11 +46,9 @@ Image processing should be performed in a controlled environment, lit by a white
 While this may not be practical in many home editing environments you _can_ control the background colors on your monitor's display. You should set the darktable color scheme to use one of the "grey" themes and use the [color assessment mode](../../module-reference/utility-modules/darkroom/color-assessment.md) when altering tones and colors in your image. Dark themes might look good but, unless you are processing images to be viewed on a cinema screen in a darkened room, they should not be used for photo processing.
 
 ---
-
 Set [preferences > general > theme](../../preferences-settings/general.md) to "darktable-elegant-grey" or "darktable-icons-grey" now.
 
 ---
-
 ## enter the darkroom
 
 Choose an image to edit from the lighttable view and double-click to load that image into the darkroom view. For now try to choose an image that is well exposed -- we will discuss some techniques to recover badly-exposed images later.
@@ -65,27 +62,24 @@ It is important to understand the distinction between the order of the modules o
 To the top right is the [scopes](../../module-reference/utility-modules/shared/scopes.md) module, which shows the spread of tones/colors in your image.
 
 ---
-
 If you have previously viewed or edited the image in the darkroom view, start by _discarding history_ (click the _reset_ button in the [_history stack_](../../module-reference/utility-modules/darkroom/history-stack.md)). This will reapply defaults using your new settings and provide a clean starting point for editing.
 
 ---
-
 ## why doesn't the raw image look like the JPEG?
 
 _...because you haven't processed it yet_
 
 One of the first things people notice when switching from lighttable to darkroom view is that the image looks different -- often flatter and less saturated than that shown in the lighttable view. This is because the darkroom view displays the (mostly unprocessed) Raw image, but the lighttable view initially displays the (in-camera) JPEG preview. Now that you have opened the image in the darkroom view, the lighttable view will update to show the edited version.
 
-Most Raw software goes to great lengths to reproduce the look of standard camera JPEGs out of the box. While this can be useful (if you only want to make very minor adjustments to the camera's rendition of an image) we assume that you are using a Raw editor to make the image your own, and that the camera does not know how to do this. Certainly, if you are using the ETTR techniques mentioned above, the camera JPEG will rarely be close to how you want the final image to look.
+Most Raw software goes to great lengths to reproduce the look of standard camera JPEGs out of the box. While this can be useful (if you only want to make very minor adjustments to the camera's rendition of an image) we assume that you are using a Raw editor to make the image your own, and that the camera does not know how to do this. Certainly, if you are using the ETTR techniques mentioned above, the camera JPEG will rarely be close to how you want the final image to look. 
 
 The default settings in darktable are therefore intended to provide you with a neutral _starting point_ for further editing and nothing more. _We do not intend to change this_.
 
 ## module groups
 
-Below the scopes module, at the top right of the screen, is a set of tabs into which darktable's modules are [grouped](../../darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it.
+Below the scopes module, at the top right of the screen, is a set of tabs into which darktable's modules are [grouped](../../darkroom/organization/module-groups.md). If you cannot find a module in one of the tabs you can use the search feature to locate it. 
 
 ---
-
 For the purposes of this guide, click on the hamburger icon (to the right of the tabs) and select the "workflow: scene-referred" preset now.
 
 ---
@@ -96,37 +90,37 @@ The following basic adjustments are fundamental to scene-referred editing and wi
 
 As you will be adjusting the tones and colors of the image, start by enabling [color assessment mode](../../module-reference/utility-modules/darkroom/color-assessment.md) (press Ctrl+B) and perform the following edits on the zoomed-out image while in this mode.
 
-1. **Set overall image brightness**: First, set the overall (average) brightness of the image (the mid-gray point) by adjusting the _exposure_ slider in the [_exposure_](../../module-reference/processing-modules/exposure.md) module. This is a purely artistic setting and should be defined based on your intent -- for example, for a high-key image you will set the average brightness to be lighter than for a low-key image. The color assessment mode provides you with two reference points to assist with this by surrounding the image with a white frame against a middle-gray background.
+1. **Set overall image brightness**: First, set the overall (average) brightness of the image (the mid-gray point) by adjusting the _exposure_ slider in the [_exposure_](../../module-reference/processing-modules/exposure.md) module. This is a purely artistic setting and should be defined based on your intent -- for example, for a high-key image you will set the average brightness to be lighter than for a low-key image. The color assessment mode provides you with two reference points to assist with this by surrounding the image with a white frame against a middle-gray background. 
 
-    At this point, don't worry if the brightest parts of your image lose detail -- this can be recovered in the next step.
+   At this point, don't worry if the brightest parts of your image lose detail -- this can be recovered in the next step.
 
-    ***
+   ---
 
-    _**Note:** The [lens correction](#correct-lens-distortions) module can also affect the image brightness so you may want to consider enabling it before adjusting exposure._
+   _**Note:** The [lens correction](#correct-lens-distortions) module can also affect the image brightness so you may want to consider enabling it before adjusting exposure._
 
-    ***
+   ---
 
 2. **Set white and black points**: The next two steps use the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module to define how the tones in your image will be mapped to the dynamic range of your display. Start by setting the _white_ and _black_ relative exposure sliders in the [_scene tab_](../../module-reference/processing-modules/filmic-rgb.md#scene). These are purely technical settings, defining white and black relative to the mid-gray point you set in the previous step. If your image contains tones you want to treat as pure white or pure black you can use the [pickers](../../darkroom/processing-modules/module-controls.md#pickers) beside the sliders to set these values (using the maximum and minimum brightness of the image). Otherwise set the values manually using the color assessment frames as a reference.
 
-3. **Adjust the contrast**: Now move to the [_look tab_](../../module-reference/processing-modules/filmic-rgb.md#look) in _filmic rgb_ (for now we will skip the [_reconstruct tab_](../../module-reference/processing-modules/filmic-rgb#reconstruct)). Enable the [_look only_ view](../../module-reference/processing-modules/filmic-rgb.md#graphic-display) at the top of the module to see a representation of the filmic tone curve, which consists of a straight section in the middle (used to set the contrast of the mid-tones) and curved sections at the top and bottom (where the shadows and highlights are compressed to fit the dynamic range of the display).
+3. **Adjust the contrast**: Now move to the [_look tab_](../../module-reference/processing-modules/filmic-rgb.md#look) in _filmic rgb_ (for now we will skip the [_reconstruct tab_](../../module-reference/processing-modules/filmic-rgb#reconstruct)). Enable the [_look only_ view](../../module-reference/processing-modules/filmic-rgb.md#graphic-display) at the top of the module to see a representation of the filmic tone curve, which consists of a straight section in the middle (used to set the contrast of the mid-tones) and curved sections at the top and bottom (where the shadows and highlights are compressed to fit the dynamic range of the display). 
 
-    The _contrast_ slider changes the slope of the straight section (the mid-tone image contrast), the _latitude_ slider changes its length and the _shadows/highlights balance_ slider changes its position. There is a lot of give-and-take involved here -- if you want to increase the contrast of the mid-tones, you must sacrifice contrast in the shadows/highlights and vice versa. The default settings of this module are tuned to work for the majority of images but you should experiment with these sliders to understand how they affect the image.
+   The _contrast_ slider changes the slope of the straight section (the mid-tone image contrast), the _latitude_ slider changes its length and the _shadows/highlights balance_ slider changes its position. There is a lot of give-and-take involved here -- if you want to increase the contrast of the mid-tones, you must sacrifice contrast in the shadows/highlights and vice versa. The default settings of this module are tuned to work for the majority of images but you should experiment with these sliders to understand how they affect the image.
+   
+   ---
 
-    ***
+   _**Note:** The highlight compression in the filmic rgb module can cause detail to be lost in the highlights. You can mitigate this to some extent by reducing the _white relative exposure_, adjusting the _shadows/highlights balance_ or changing the _contrast in highlights_ setting in the [options tab](../../module-reference/processing-modules/filmic-rgb.md#options). The [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) module can also be used to reduce the relative brightness of the sky._
 
-    _**Note:** The highlight compression in the filmic rgb module can cause detail to be lost in the highlights. You can mitigate this to some extent by reducing the \_white relative exposure_, adjusting the _shadows/highlights balance_ or changing the _contrast in highlights_ setting in the [options tab](../../module-reference/processing-modules/filmic-rgb.md#options). The [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) module can also be used to reduce the relative brightness of the sky.\_
+   ---
 
-    ***
+4. **Color preservation**: The tone mapping in the filmic rgb module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear. 
 
-4. **Color preservation**: The tone mapping in the filmic rgb module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear.
+5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required. 
 
-5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required.
+   ---
 
-    ***
+   _**Note:** This guide assumes that the white balance of the image has been correctly captured by your camera. If this is not the case, you may need to make some corrections in the [color calibration](#color-calibration) module first._
 
-    _**Note:** This guide assumes that the white balance of the image has been correctly captured by your camera. If this is not the case, you may need to make some corrections in the [color calibration](#color-calibration) module first._
-
-    ***
+   ---
 
 You can now switch off _color assessment mode_ by pressing Ctrl+B again.
 
@@ -162,10 +156,10 @@ Demosaic algorithms can only do so much to manage noise in your image. The [_den
 
 A number of modules can be used to adjust the local contrast and sharpness of your image. Most of these modules aim to enhance the apparent contrast of edges and do not add "real" sharpness (they are not the same as lens deconvolution). You should take care when using these modules as most of them can introduce artifacts (such as halos) when settings are pushed too far:
 
--   the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module allows you to adjust contrast, limiting the effect to certain feature sizes. For example you can use it to increase the contrast of fine details without impacting larger-scale objects, or vice versa
--   the [_diffuse or sharpen_](../../module-reference/processing-modules/diffuse.md) module offers a number of presets for sharpening, lens deblurring and the addition of local contrast
--   the [_local contrast_](../../module-reference/processing-modules/local-contrast.md) module provides a simpler interface for quickly adding local contrast to your images -- just enabling the module or selecting one of the presets is often all that is required
--   the [_sharpen_](../../module-reference/processing-modules/sharpen.md) module is intended to re-introduce sharpness that was removed by your camera's anti-alias filter (if present) and can be enabled by default in [preferences > processing](../../preferences-settings/processing.md). The methods listed above are usually preferred to this legacy module.
+- the [_contrast equalizer_](../../module-reference/processing-modules/contrast-equalizer.md) module allows you to adjust contrast, limiting the effect to certain feature sizes. For example you can use it to increase the contrast of fine details without impacting larger-scale objects, or vice versa
+- the [_diffuse or sharpen_](../../module-reference/processing-modules/diffuse.md) module offers a number of presets for sharpening, lens deblurring and the addition of local contrast
+- the [_local contrast_](../../module-reference/processing-modules/local-contrast.md) module provides a simpler interface for quickly adding local contrast to your images -- just enabling the module or selecting one of the presets is often all that is required
+- the [_sharpen_](../../module-reference/processing-modules/sharpen.md) module is intended to re-introduce sharpness that was removed by your camera's anti-alias filter (if present) and can be enabled by default in [preferences > processing](../../preferences-settings/processing.md). The methods listed above are usually preferred to this legacy module.
 
 As with the modules mentioned in the previous section, you should take care when adding contrast to small-scale objects -- an image viewed at 100% is not a realistic representation of your final edit and local contrast adjustments are usually better judged when zoomed out.
 
@@ -175,7 +169,7 @@ While a well-exposed image will make post-processing much easier, darktable does
 
 The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module attempts to reconstruct blown highlights (colors and structure) using adjacent pixels. A number of different approaches are provided, some of which may be better on certain images, however, the default algorithm produces good results in most cases.
 
-Even well-reconstructed highlights can show color and edge artifacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
+Even well-reconstructed highlights can show color and edge artefacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
 
 ### adjust angle and perspective
 
@@ -199,8 +193,8 @@ Use the [_crop_](../../module-reference/processing-modules/crop.md) module to cr
 
 Dodging and burning is a traditional darkroom technique to add and remove brightness from an image. There are two recommended ways to achieve this
 
--   If you want to selectively dodge or burn only certain objects you can apply a [new instance](../../darkroom/processing-modules/multiple-instances.md) of the [_exposure_](../../module-reference/processing-modules/exposure.md) module using a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md) to isolate the effect to the required area of the image (see also the [mask refinement](../../darkroom/masking-and-blending/masks/refinement-controls.md) section for more information). Move the exposure slider to alter the brightness of the masked area.
--   If you wish to dodge or burn areas with a similar brightness (for example, to brighten the shadows or darken the highlights) you should use the [_tone equalizer_](../../module-reference/processing-modules/tone-equalizer.md) module.
+- If you want to selectively dodge or burn only certain objects you can apply a [new instance](../../darkroom/processing-modules/multiple-instances.md) of the [_exposure_](../../module-reference/processing-modules/exposure.md) module using a [drawn mask](../../darkroom/masking-and-blending/masks/drawn.md) to isolate the effect to the required area of the image (see also the [mask refinement](../../darkroom/masking-and-blending/masks/refinement-controls.md) section for more information). Move the exposure slider to alter the brightness of the masked area.
+- If you wish to dodge or burn areas with a similar brightness (for example, to brighten the shadows or darken the highlights) you should use the [_tone equalizer_](../../module-reference/processing-modules/tone-equalizer.md) module.
 
 ### convert to monochrome
 
