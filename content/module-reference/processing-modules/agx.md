@@ -69,7 +69,7 @@ This tab holds controls similar to, but more extensive than, the [_sigmoid_](./s
 
 # controls
 
-## The primaries
+## the primaries
 
 These controls are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
 
@@ -142,7 +142,7 @@ Per-channel S-curves have the property of desaturating highlights, independently
 
 Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
 
-## The _input exposure range_
+## the _input exposure range_
 
 This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes. Any channel value lower than the selected _black relative exposure_ will be treated as 0; any above the selected _white relative exposure_ will be clipped to 1.
 
@@ -152,7 +152,7 @@ The _read exposure_ button does not analyze the contents of the image, like the 
 
 The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
 
-## The curve
+## the curve
 
 The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
 
@@ -209,7 +209,7 @@ keep the pivot on the diagonal
 curve y gamma
 : Shifts the representation of the pivot along the y-axis without changing its output luminance. This is an internal parameter of the algorithm and does not need to match your display's gamma. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective. Manual adjustments are disabled while _keep the pivot on the diagonal_ is enabled.
 
-## The _look_ section
+## the _look_ section
 
 These controls allow post-processing after the tone mapping operation. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully.
 
@@ -271,7 +271,7 @@ The following is a detailed description of the steps taken when processing with 
     -   applies the purity boost (just like _sigmoid_)
     -   converts the result back into the pipe working space.
 
-# Further Reading
+# further reading
 
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
 
