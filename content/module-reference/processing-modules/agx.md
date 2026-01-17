@@ -244,11 +244,27 @@ The following workflow is recommended when using this module:
 -   Finally, if desired, add "drama" by adjusting _look | brightness_, set overall saturation using _look | saturation_, and adjust colors using _look | preserve hue_.
 -   Do not forget that the _AgX_ module is just another tone mapper. As flexible as it is, it is not intended to solve all image processing tasks related to color and contrast. Continue to use darktable's other modules that target general image editing.
 
+# additional options
+
+The following additional options are disabled by default and can be enabled by manually editing your `darktablerc` file while darktable is closed.
+
+## "3 tab" mode
+
+For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves the plot of the curve and advanced parameters from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the _settings_ tab for convenience.
+
+You can enable this mode by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. When set to `FALSE`, all curve controls appear on the _settings_ tab as normal.
+
+## disabling curve warnings
+
+The warnings documented within the [basic curve parameters](#basic-curve-parameters) can be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
+
+## always expand the "look" section
+
+By default, the _look_ controls are placed inside a collapsible section. If you want to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
+
 ---
 
-# additional information
-
-## technical details
+# technical details
 
 The following is a detailed description of the steps taken when processing with the _AgX_ module. Reading this section is not required to use the module; it is provided as a reference for interested readers.
 
@@ -273,21 +289,3 @@ The following is a detailed description of the steps taken when processing with 
     -   converts the result back into the pipe working space.
 
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
-
-## additional options
-
-The following additional options are disabled by default and can be enabled by manually editing your `darktablerc` file while darktable is closed.
-
-### "3 tab" mode
-
-For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves the plot of the curve and advanced parameters from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the _settings_ tab for convenience.
-
-You can enable this mode by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. When set to `FALSE`, all curve controls appear on the _settings_ tab as normal.
-
-### disabling curve warnings
-
-The warnings documented within the [basic curve parameters](#basic-curve-parameters) can be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
-
-### always expand the "look" section
-
-By default, the _look_ controls are placed inside a collapsible section. If you want to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
