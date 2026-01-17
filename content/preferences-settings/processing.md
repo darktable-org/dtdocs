@@ -22,7 +22,7 @@ pixel interpolator (warp)
 pixel interpolator (scaling)
 : The pixel interpolator used for scaling. The same options are provided as for the warp modules, but with the addition of lanczos3.
 
-: lanczos3 can cause pixel overshoots leading to artefacts but sometimes gives a more crisp visual appearance. This option is therefore only provided for transforming (scaling) algorithms and is the default value.
+: lanczos3 can cause pixel overshoots leading to artifacts but sometimes gives a more crisp visual appearance. This option is therefore only provided for transforming (scaling) algorithms and is the default value.
 
 LUT 3D root folder
 : Define the root folder (and sub-folders) containing LUT files used by the [_LUT 3D_](../module-reference/processing-modules/lut-3D.md) module.

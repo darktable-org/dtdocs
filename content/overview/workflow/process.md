@@ -169,7 +169,7 @@ While a well-exposed image will make post-processing much easier, darktable does
 
 The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module attempts to reconstruct blown highlights (colors and structure) using adjacent pixels. A number of different approaches are provided, some of which may be better on certain images, however, the default algorithm produces good results in most cases.
 
-Even well-reconstructed highlights can show color and edge artefacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
+Even well-reconstructed highlights can show color and edge artifacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
 
 ### adjust angle and perspective
 
