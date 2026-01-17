@@ -31,7 +31,7 @@ only use one display transform
 adjust for the mid-tones first
 : By default, the module preserves middle gray. Before using _AgX_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
 
-Further usage [guidelines](#guidelines) are provided towards the end of this page.
+A [recommended workflow](#recommended-workflow) for using this module is provided at the end of this section.
 
 # module controls
 
@@ -230,7 +230,7 @@ saturation
 preserve hue
 : The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are kept. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored. Note that the input hues themselves are affected by the primaries manipulations performed before tone mapping, and the final hues are affected by the primaries manipulations applied after tone mapping. For a detailed order of the operations involved in processing, see [internal processing details](#internal-processing-details) below.
 
-# guidelines
+# recommended workflow
 
 Note that unless [high quality processing](../utility-modules/darkroom/high-quality-processing.md) is enabled, the effect of adjusting the primaries cannot be judged properly, especially with highly saturated colors and narrow-spectrum light sources like LEDs.
 
