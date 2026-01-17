@@ -130,7 +130,7 @@ contrast sensitivity (capture sharpen)
 corner boost / sharp center (capture sharpen)
 : Most lenses are sharper in the central part than the corners of the image. Increasing the _corner boost_ parameter causes a larger per-pixel radius to be used in the capture sharpen kernels for the image corners. This extra radius is controlled by the _corner boost_ control. Adjusting the _corner boost_ will cause an additional slider (_sharp center_) to appear. This controls the affected area using the distance from the image center. Again, the mask button to the right of the slider allows you to visualize the effect.
 
-# Notes about presets, styles and copy/paste
+# presets, styles and copy/paste
 
 Defining demosaic [presets](../../darkroom/processing-modules/presets.md) or using demosaic parameters for [styles](../../module-reference/utility-modules/lighttable/styles.md) or copying/pasting [history stacks](../../module-reference/utility-modules/lighttable/history-stack.md) is a bit more tricky than for other modules. Please bear in mind that demosaic works for a range of sensors each offering different algorithms and some specific options. Here are some reminders:
 
