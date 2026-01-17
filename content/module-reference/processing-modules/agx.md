@@ -53,7 +53,7 @@ The module's controls are divided into three categories:
 -   Post tone-mapping adjustments ("look")
 -   Color-related controls (primaries)
 
-Throughout this description, references will be made to other tone mappers, namely _filmic rgb_ and _sigmoid_. This is to support users already familiar with those modules; however, familiarity with those modules is not required to use _AgX_; it is perfectly safe to skip over such references.
+Throughout this module's documentation, references will be made to other tone mappers, namely [_filmic rgb_](./filmic-rgb.md) and [_sigmoid_](./sigmoid.md). This is to support users already familiar with those modules, however, familiarity with these modules is not required to use _AgX_.
 
 Due to the complex nature of this module, related controls are grouped together in collapsible sections, and the controls are distributed over two tabs.
 
@@ -63,7 +63,7 @@ The settings tab holds the most commonly-used controls.
 
 ### input exposure range
 
-This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes.
+This section provides controls similar to the _filmic rgb_ module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes.
 
 white relative exposure
 : Set the white point. Any value above this will be clipped to 1. Use the picker to automatically set this value.
