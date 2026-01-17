@@ -33,47 +33,9 @@ adjust for the mid-tones first
 
 A [recommended workflow](#recommended-workflow) for using this module is provided at the end of this page.
 
-# module controls
+# primaries
 
-The module's controls are divided into four categories, presented in order of importance to the AgX process:
-
--   Color-related controls (primaries)
--   Tone mapping controls (input range and the curve)
--   Post tone-mapping adjustments ("look")
-
-Throughout this description, references will be made to other tone mappers, namely _filmic rgb_ and _sigmoid_. This is to support users already familiar with those modules; however, familiarity with those modules is not required to use _AgX_; it is perfectly safe to skip over such references.
-
-Due to the high number of controls, related controls are often grouped together in collapsible sections, and the controls are distributed over two tabs.
-
-# tabs
-
-## _settings_
-
-The _settings_ tab holds the most often-used controls:
-
--   the _input exposure range_ section
--   the collapsible curve plot
--   the _basic curve parameters_
--   the collapsible _advanced curve parameters_ section
--   the _look_ section
-
-## _primaries_
-
-This tab holds controls similar to, but more extensive than, the [_sigmoid_](./sigmoid.md) module's _primaries_ collapsible section:
-
--   _disable adjustments_ checkbox
--   preset selector
--   base color space selector
--   attenuation and rotation sliders for preprocessing before tone mapping
--   attenuation and rotation reversal sliders for postprocessing after tone mapping
-
-# controls
-
-## the primaries
-
-These controls are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
-
-### a bit of background
+The "primaries" are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
 
 The core challenge in fitting a scene's wide range of light into a display's limited range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
 
@@ -87,7 +49,37 @@ The primaries controls in AgX work to prevent this by building a custom color sp
 
 ![naive per-channel processing](agx/sweep_agx.jpg)
 
-## controls on the _primaries_ tab
+# module controls
+
+The module's controls are divided into three categories, presented in order of importance to the AgX process:
+
+-   Color-related controls (primaries)
+-   Tone mapping controls (input range and the curve)
+-   Post tone-mapping adjustments ("look")
+
+Throughout this description, references will be made to other tone mappers, namely _filmic rgb_ and _sigmoid_. This is to support users already familiar with those modules; however, familiarity with those modules is not required to use _AgX_; it is perfectly safe to skip over such references.
+
+## tabs and sections
+
+Due to the complex nature of this module, related controls are grouped together in collapsible sections, and the controls are distributed over two tabs.
+
+The _settings_ tab holds the most often-used controls:
+
+-   the _input exposure range_ section
+-   the collapsible curve plot
+-   the _basic curve parameters_
+-   the collapsible _advanced curve parameters_ section
+-   the _look_ section
+
+The _primaries_ tab holds controls similar to, but more extensive than, those of the collapsible _primaries_ section in the [_sigmoid_](./sigmoid.md) module:
+
+-   _disable adjustments_ checkbox
+-   preset selector
+-   base color space selector
+-   attenuation and rotation sliders for preprocessing before tone mapping
+-   attenuation and rotation reversal sliders for postprocessing after tone mapping
+
+## the _primaries_ tab
 
 disable adjustments
 : Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
@@ -134,7 +126,7 @@ red/green/blue purity boost
 red/green/blue reverse rotation
 : Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
 
-## selective tuning for mid-tones and highlights
+### selective tuning for mid-tones and highlights
 
 It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to mid-tones and highlights, even though this may not be evident at the first glance.
 
@@ -142,7 +134,9 @@ Per-channel S-curves have the property of desaturating highlights, independently
 
 Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
 
-## the _input exposure range_
+## the _settings_ tab
+
+### the _input exposure range_
 
 This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes. Any channel value lower than the selected _black relative exposure_ will be treated as 0; any above the selected _white relative exposure_ will be clipped to 1.
 
@@ -151,21 +145,6 @@ Color pickers are provided to quickly pick the black or white point (_black_ and
 The _read exposure_ button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.
 
 The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
-
-## the curve
-
-The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
-
-The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualize the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
-
-The curve has 5 important points:
-
--   The _black and white points_ are at the left and right edges of the graph, respectively; their final linear output values can be controlled by the _target black_ and _target white_ sliders (see _advanced curve parameters_).
--   the _pivot_ is the point around which the curve is built, indicated by a dot. By default, it maps mid-gray to mid-gray. You may move this point to match your main subject using the provided picker.
--   _toe and shoulder starting points_: These define where the curve transitions from a linear section to the compressed toe (shadows) and shoulder (highlights). By default, they are set to the pivot point.
-
-show curve
-: Expands or collapses the plot of the curve. It is recommended to expand this section while getting familiar with the curve, or when investigating issues like loss of detail or curve "inversion" (documented under _toe power / shoulder power_).
 
 ### basic curve parameters
 
@@ -189,6 +168,21 @@ contrast
 shoulder power / toe power
 : The word _shoulder_ refers to the higher bend of the curve (highlights), while the _toe_ is the lower bend. These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow. This warning may be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
 
+### the curve
+
+The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
+
+The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualize the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
+
+The curve has 5 important points:
+
+-   The _black and white points_ are at the left and right edges of the graph, respectively; their final linear output values can be controlled by the _target black_ and _target white_ sliders (see _advanced curve parameters_).
+-   the _pivot_ is the point around which the curve is built, indicated by a dot. By default, it maps mid-gray to mid-gray. You may move this point to match your main subject using the provided picker.
+-   _toe and shoulder starting points_: These define where the curve transitions from a linear section to the compressed toe (shadows) and shoulder (highlights). By default, they are set to the pivot point.
+
+show curve
+: Expands or collapses the plot of the curve. It is recommended to expand this section while getting familiar with the curve, or when investigating issues like loss of detail or curve "inversion" (documented under _toe power / shoulder power_).
+
 ### advanced curve parameters
 
 shoulder start
@@ -209,7 +203,7 @@ keep the pivot on the diagonal
 curve y gamma
 : Shifts the representation of the pivot along the y-axis without changing its output luminance. This is an internal parameter of the algorithm and does not need to match your display's gamma. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective. Manual adjustments are disabled while _keep the pivot on the diagonal_ is enabled.
 
-## the _look_ section
+### the _look_ section
 
 These controls allow post-processing after the tone mapping operation. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully.
 
