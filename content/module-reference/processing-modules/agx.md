@@ -31,7 +31,7 @@ only use one display transform
 adjust for the mid-tones first
 : By default, the module preserves middle gray. Before using _AgX_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
 
-A [recommended workflow](#recommended-workflow) for using this module is provided at the end of this section.
+A [recommended workflow](#recommended-workflow) for using this module is provided at the end of this page.
 
 # module controls
 
