@@ -18,7 +18,7 @@ The module is derived from another module of the same name in [Blender 3D modell
 
 _filmic rgb_ is the successor to the _filmic_ module from darktable 2.6. While the underlying principles have not changed much, the default settings and their assumptions have, so users of the previous version should not expect a 1:1 translation of their workflow to the new version.
 
-You can have this module auto-enabled in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (filmic)'.
+You can automatically enable in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (filmic)'.
 
 ---
 

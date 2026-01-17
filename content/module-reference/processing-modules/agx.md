@@ -13,7 +13,7 @@ Transform the colors and tonal range of an image to fit a display.
 
 The primary innovation of the AgX module is an advanced color handling method that ensures a natural and film-like appearance, preventing the oversaturation artifacts common with simpler tone mapping techniques. It is derived from the display transform of the same name, used in the [Blender 3D modeler](https://www.blender.org/) by T. J. Sobotka, Eary_Chow, Sakari Kapanen and others.
 
-You can have this module auto-enabled in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (AgX)'.
+You can automatically enable in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (AgX)'.
 
 ---
 

@@ -19,7 +19,7 @@ This module can be used to expand or contract the dynamic range of the scene to 
 
 ---
 
-You can have this module auto-enabled in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (sigmoid)' (this is the default setting for new installations).
+You automatically enable this module in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (sigmoid)' (this is the default setting for new installations).
 
 # usage
 
