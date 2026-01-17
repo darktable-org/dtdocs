@@ -247,7 +247,11 @@ Note that unless [high quality processing](../utility-modules/darkroom/high-qual
 -   Finally, if desired, add "drama" by adjusting _look | brightness_, set overall saturation using _look | saturation_, and adjust colors using _look | preserve hue_.
 -   Do not forget that the _AgX_ module is just another tone mapper. As flexible as it is, it is not intended to solve all image processing tasks related to color and contrast. Continue to use darktable's other modules that target general image editing.
 
-# internal processing details
+---
+
+# additional information
+
+## technical details
 
 The following is a detailed description of the steps taken when processing with the _AgX_ module. Reading this section is not required to use the module; it is provided as a reference for interested readers.
 
@@ -271,11 +275,9 @@ The following is a detailed description of the steps taken when processing with 
     -   applies the purity boost (just like _sigmoid_)
     -   converts the result back into the pipe working space.
 
-# further reading
-
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
 
-# optional "3 tab" mode
+## optional "3 tab" mode
 
 For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves the plot of the curve and advanced parameters from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the _settings_ tab for convenience.
 
