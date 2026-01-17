@@ -20,7 +20,7 @@ select
 : You can select the image under the pointer by clicking on its thumbnail or by pressing Enter. To select a range of images, click on the first image and then Shift+click on the last one. To add or remove images in a selection, Ctrl+click on a thumbnail or hover over a thumbnail and press Spacebar.
 
 hover
-: When the pointer hovers over any image's thumbnail, it is highlighted and its image implicitly selected for keyboard shortcuts. If that thumbnail is part of a currently-selected set, certain shortcuts will be applied to _all_ images of the set (for example, a numeric digit star rating). 
+: When the pointer hovers over any image's thumbnail, it is highlighted and its image implicitly selected for keyboard shortcuts. If that thumbnail is part of a currently-selected set, certain shortcuts will be applied to _all_ images of the set (for example, a numeric digit star rating).
 
 drag
-: You can drag a thumbnail (__along with any selected set__ to which it may belong) to set its [custom sort](../../lighttable/digital-asset-management/custom-sort.md) position just before or after the image it's dropped upon.
+: You can drag a thumbnail (**along with any selected set** to which it may belong) to set its [custom sort](../../module-reference/utility-modules/shared/collection-filters.md#custom-sort) position just before or after the image it's dropped upon.

@@ -14,30 +14,28 @@ While the mouse is over an image thumbnail or images are selected, there are a n
 
 # keyboard shortcuts
 
-- `F1, F2, F3, F4, F5` adds or removes a color label (red, yellow, green, blue, purple, respectively). A color label will be added if _any_ selected image does not currently have the label; otherwise the label will be removed
+-   `F1, F2, F3, F4, F5` adds or removes a color label (red, yellow, green, blue, purple, respectively). A color label will be added if _any_ selected image does not currently have the label; otherwise the label will be removed
 
-- `0, 1, 2, 3, 4, 5` sets the star rating
+-   `0, 1, 2, 3, 4, 5` sets the star rating
 
-- `R` rejects the image(s)
+-   `R` rejects the image(s)
 
-- `Ctrl+D` duplicates the image(s)
+-   `Ctrl+D` duplicates the image(s)
 
-- `Ctrl+C` copies the full history stack
+-   `Ctrl+C` copies the full history stack
 
-- `Ctrl+V` pastes all of the copied history stack
+-   `Ctrl+V` pastes all of the copied history stack
 
-- `Ctrl+Shift+C` selectively copies the history stack
+-   `Ctrl+Shift+C` selectively copies the history stack
 
-- `Ctrl+Shift+V` selectively pastes from the copied history stack
+-   `Ctrl+Shift+V` selectively pastes from the copied history stack
 
-- `D` opens the image in the darkroom view for developing
+-   `D` opens the image in the darkroom view for developing
 
-- `W ` fully zooms into the current image while the key is pressed
+-   `W ` fully zooms into the current image while the key is pressed
 
-- `Ctrl+W ` fully zooms into the current image and show areas in focus
+-   `Ctrl+W ` fully zooms into the current image and show areas in focus
 
 # drag-and-drop
 
-- You may change the sequence of images displayed, processed, or exported when _sort by_ is set to [custom sort](../../lighttable/digital-asset-management/custom-sort.md) by dragging and dropping their thumbnails.
-
-- Use of this feature requires careful attention. __Note its [cautions](./digital-asset-management/custom-sort.md#cautions).__
+-   You may change the sequence of images displayed, processed, or exported when _sort by_ is set to [custom sort](../module-reference/utility-modules/shared/collection-filters.md#custom-sort) by dragging and dropping their thumbnails.

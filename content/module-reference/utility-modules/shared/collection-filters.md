@@ -73,10 +73,10 @@ The following image shows the color labels widget, set to filter images having y
 
 You can interact with this filter widget as follows:
 
-- Click on a color label to include images with that label
-- Ctrl+click on a color label to include images without that label
-- Click or Ctrl+click on the gray icon to act on all color labels simultaneously
-- Use the last button to define how to handle the selection of multiple color labels. Select ![and](./collection-filters/color-filter-and.png#icon) (and) to filter images having _all_ of the selected color labels; Select ![or](./collection-filters/color-filter-or.png#icon) (or) to filter images with _at least one_ of the selected color labels.
+-   Click on a color label to include images with that label
+-   Ctrl+click on a color label to include images without that label
+-   Click or Ctrl+click on the gray icon to act on all color labels simultaneously
+-   Use the last button to define how to handle the selection of multiple color labels. Select ![and](./collection-filters/color-filter-and.png#icon) (and) to filter images having _all_ of the selected color labels; Select ![or](./collection-filters/color-filter-or.png#icon) (or) to filter images with _at least one_ of the selected color labels.
 
 ## rating
 
@@ -143,3 +143,76 @@ The bottom part of the module allows you to define the sort order of the images 
 As with filter criteria, the history button allows you to access any previously-used sort criteria.
 
 The button to the right of the attribute selection allows you to choose whether to sort that criteria in ascending or descending order.
+
+## custom sort
+
+Setting the sort order to "custom sort" presents images in any sequence you define. Images are initally ordered by an image property (import order, image capture time, file name, etc.) but you can then incrementally alter "custom sort" sequences by dragging-and-dropping images within the lighttable view. Be careful: an erroneous drag-and-drop can easily ruin one or more painstakingly-created image sequences.
+
+### warnings
+
+Please bear the following warnings in mind when using custom sort
+
+-   "Undo" does not reverse drag-and-drop resequencing.
+
+-   Drag-and-drop resequencing is _always_ enabled in lighttable filemanager and in the filmstrip, but any resulting changes _are invisible_ if "custom sort" is not currently in effect.
+
+-   Ensure any image you drag is _not selected_ unless you want to reposition the entire currently-selected set.
+
+-   Aim your "drops" accurately: verify the correct target is _highlighted_ before dropping!
+
+-   Custom sort positions are lost if images are removed from darktable or their tags are detached or deleted (since sort order is not stored in an image's [sidecar file](../../../overview/sidecar-files/sidecar.md)).
+
+-   Do not use "custom sort" for tag-based collections that specify a wild-card ("\*" or "%") expression.
+
+    When a wild-card tag expression does not resolve to a _single_ tag, drag-and-drop operates only on the sequence of the first matching tag. If that tag is attached to a source image, that image is resequenced. If the same tag is also attached to the target image, the drop occurs there; if not, resequenced images appear at the top or bottom of the collection's "custom sort". If the first matching tag is not attached to a source image, the image is not repositioned. The "tag case sensitivity" preference is also relevant here: "insensitive" treats "%" (but not "\*") as a string-match wild card. The global sequence is not affected in any of these cases.
+
+### which custom sort sequence?
+
+The collection type determines which [image sequence](../../../lighttable/digital-asset-management/sequence.md) drag-and-drop changes. If the collection's selection criteria includes _tag_, then a _tag-based_ "custom sort" sequence is altered. Otherwise, the _global_ "custom sort" sequence is altered. Collection filters (even if tag-based) do not influence which sequence is changed by drag-and-drop.
+
+When "custom sort" is in effect, dragged-and-dropped images are immediately presented in their new (tag-based or global) "custom sort" sequence.
+
+### what to drag, where to drop?
+
+While viewing a collection in filemanager or the filmstrip, you may drag any hovered-over (highlighted) image to any other image in the displayed collection. Empty space before, between, or after images is not a recognized drop target.
+
+You may relocate a single image (unselected or single selection) or a selected set of images by dragging one of them to the desired position as follows:
+
+-   When _sort order_ is "ascending" the dragged image/set will be placed _before_ the image you drop it on to.
+
+-   When _sort order_ is "descending" the dragged image/set will be placed _after_ the image you drop it on to.
+
+-   Abort an accidental drag by dropping the dragged image _outside_ of the thumbnail display. If all peripheral panels are hidden, then drop the dragged image on _itself_. If multiple images were selected, the entire selected set will be relocated to that spot.
+
+-   If the "dropped on" image is subsequently resequenced, filtered out, or even deleted, the dropped image(s) remain where the "dropped on" image was located.
+
+### which image is last (or, in descending sort, first)?
+
+-   An image dropped after the last image on lighttable is regarded as dropped _on the last image_, thus positioned before it.
+
+-   To change the last image in an "ascending" "custom sort" display, drop it on the existing last image, then drag-and-drop that last image on its intended replacement.
+
+-   If you expect to use a "descending" sort, do the opposite to change the first image.
+
+### suggested process
+
+1. If you intend to present a collection in more than one "custom sort" sequence or if some images in a collection are included in other collections to be displayed with a different global "custom sort", then tag-based collections should be used.
+
+1. For tag-based "custom sort" only:
+
+    - Set _sort by_ to the image attribute and _sort order_ (ascending or descending) you want as your tag's initial sequence,
+    - Select the images to be sequenced, and
+    - in the right-hand panel at _tagging_ (bottom half) add a new tag or click on an existing tag.
+    - The tag is now attached to the selected images in the displayed sequence. Note the tag's increased image count.
+    - Change _collections_ selection crierion to "tag" and choose the newly-applied tag. Note that the newly-tagged images are shown.
+
+1. Long-distance drags are difficult because neither _filemanager_ nor _filmstrip_ scroll while you drag. Try to fit drag sources and targets onto the same screen by maximizing the the window and scrolling the display. If that's not sufficient:
+
+    - increase the number of images displayed (thus shrinking thumbnails) or
+    - hide images between drag source and drop target using _collection filters_ (e.g. by ranges of "datetime captured" or "image id").
+
+1. Rearrange the images as you desire:
+
+-   Clear any active selection (_selection_ > _select none_).
+-   Set _sort by_ > "custom sort" so you can verify your changes immediately.
+-   Remember the **[warnings](#warnings)** above as you drag-and-drop.
