@@ -55,27 +55,11 @@ The module's controls are divided into three categories:
 
 Throughout this description, references will be made to other tone mappers, namely _filmic rgb_ and _sigmoid_. This is to support users already familiar with those modules; however, familiarity with those modules is not required to use _AgX_; it is perfectly safe to skip over such references.
 
-## tabs and sections
-
 Due to the complex nature of this module, related controls are grouped together in collapsible sections, and the controls are distributed over two tabs.
 
-The _settings_ tab holds the most often-used controls:
-
--   the _input exposure range_ section
--   the collapsible curve plot
--   the _basic curve parameters_
--   the collapsible _advanced curve parameters_ section
--   the _look_ section
-
-The _primaries_ tab holds controls similar to, but more extensive than, those of the collapsible _primaries_ section in the [_sigmoid_](./sigmoid.md) module:
-
--   _disable adjustments_ checkbox
--   preset selector
--   base color space selector
--   attenuation and rotation sliders for preprocessing before tone mapping
--   attenuation and rotation reversal sliders for postprocessing after tone mapping
-
 ## the settings tab
+
+The settings tab holds the most commonly-used controls.
 
 ### input exposure range
 
@@ -174,6 +158,8 @@ preserve hue
 : The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are kept. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored. Note that the input hues themselves are affected by the primaries manipulations performed before tone mapping, and the final hues are affected by the primaries manipulations applied after tone mapping. For a detailed order of the operations involved in processing, see [internal processing details](#internal-processing-details) below.
 
 ## the primaries tab
+
+The _primaries_ tab holds controls similar to, but more extensive than, those of the collapsible _primaries_ section in the [_sigmoid_](./sigmoid.md) module:
 
 disable adjustments
 : Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
