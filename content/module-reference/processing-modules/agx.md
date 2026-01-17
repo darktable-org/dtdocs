@@ -218,15 +218,13 @@ red/green/blue purity boost
 red/green/blue reverse rotation
 : Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
 
----
+### presets
 
-**Note:** The module provides built-in presets, based on Blender, and on the _smooth_ preset of the _sigmoid_ module. When adjusting primaries starting from those presets, you will need to take the following into account:
+The module provides built-in presets, based on Blender, and on the _smooth_ preset of the _sigmoid_ module. When adjusting primaries starting from those presets, you will need to take the following into account:
 
 -   In Blender, the rotation of primaries is not reversed, and purity is restored using values different from those used for attenuation. Therefore, the corresponding _blender-like_ and _scene-referred default_ presets of _AgX_ come with _master purity boost = 100%, master rotation reversal = 0%_. This means that although the per-channel rotation reversal sliders are set up for complete reversal, they have no effect; you can turn them on gradually by raising the _master rotation reversal_ control, and, once that is no longer set to 0%, adjust the individual channel sliders according to taste.
 -   In the _sigmoid_ module's _smooth_ preset, rotations are always completely reversed, but purity is not boosted at all by default. Therefore, the corresponding _AgX_ presets, also called _smooth_, set _master purity boost = 0%, master rotation reversal = 100%_. The per-channel purity boost sliders are set to completely reverse the attenuation, but are effectively disabled by the master slider; the per-channel rotation reversal sliders mirror the settings of the reversal slider, and are fully enabled by the master control.
 -   You are, of course, free to create your own presets with your favourite combination of master and per-channel controls (for example, having the master reversal controls at 100% and the per-channel controls set to your preferred values).
-
----
 
 ### selective tuning for mid-tones and highlights
 
