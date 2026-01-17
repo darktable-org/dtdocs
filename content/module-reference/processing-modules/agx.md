@@ -17,18 +17,6 @@ Modules placed before _AgX_ in the pipeline operate in [scene-referred](../../..
 
 You can automatically enable in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (AgX)'.
 
-# usage
-
-Please take note of the following guidelines while using this module within your workflow:
-
-only use one display transform
-: Never use _AgX_ together with another display transform module (i.e. [_sigmoid_](./sigmoid.md), [_filmic rgb_](./filmic-rgb.md) or [_base curve_](./base-curve.md)).
-
-adjust for the mid-tones first
-: By default, the module preserves middle gray. Before using _AgX_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
-
-A [recommended workflow](#recommended-workflow) for using this module is provided at the end of this page.
-
 # primaries
 
 The "primaries" are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
@@ -44,6 +32,18 @@ A simple per-channel curve often causes colorful objects to shift to pure, unnat
 The primaries controls in AgX work to prevent this by building a custom color space for the tone curve. By adjusting the primaries _before_ the curve is applied, AgX creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
 
 ![naive per-channel processing](agx/sweep_agx.jpg#w75)
+
+# usage
+
+Please take note of the following guidelines while using this module within your workflow:
+
+only use one display transform
+: Never use _AgX_ together with another display transform module (i.e. [_sigmoid_](./sigmoid.md), [_filmic rgb_](./filmic-rgb.md) or [_base curve_](./base-curve.md)).
+
+adjust for the mid-tones first
+: By default, the module preserves middle gray. Before using _AgX_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
+
+A [recommended workflow](#recommended-workflow) for using this module is provided at the end of this page.
 
 # module controls
 
