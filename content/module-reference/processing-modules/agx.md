@@ -43,17 +43,7 @@ The module's controls are divided into four categories, presented in order of im
 
 Throughout this description, references will be made to other tone mappers, namely _filmic rgb_ and _sigmoid_. This is to support users already familiar with those modules; however, familiarity with those modules is not required to use _AgX_; it is perfectly safe to skip over such references.
 
-Due to the high number of controls, related controls are often grouped together in collapsible sections, and the controls are distributed between either two or three tabs.
-
-The tabs are:
-
--   settings
--   curve (if enabled)
--   primaries.
-
-The _curve_ tab is only visible in 3-tab mode, enabled by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. In that mode, the plot of the curve and the advanced parameters, both of which are described below, are removed from the _settings_ tab. In 3-tab mode, they can be accessed via the dedicated _curve_ tab, saving vertical space. When set to `FALSE`, all curve controls appear on the _settings_ tab. The setting is intended to be used with lower-resolution displays, to avoid the need to scroll the module.
-
-Below, the contents of the various tabs are listed (note that some controls may appear at different places, depending on the choice of 2 or 3-tab mode). Then, each control will be described in detail.
+Due to the high number of controls, related controls are often grouped together in collapsible sections, and the controls are distributed over two tabs.
 
 # tabs
 
@@ -62,18 +52,10 @@ Below, the contents of the various tabs are listed (note that some controls may 
 The _settings_ tab holds the most often-used controls:
 
 -   the _input exposure range_ section
--   the collapsible curve plot (in 2-tab mode)
+-   the collapsible curve plot
 -   the _basic curve parameters_
--   the collapsible _advanced curve parameters_ section (in 2-tab mode)
+-   the collapsible _advanced curve parameters_ section
 -   the _look_ section
-
-## _curve_
-
-Controls on the _curve_ tab:
-
--   the collapsible curve plot (moved from the _settings_ tab)
--   the _basic curve parameters_ (also visible on the _settings_ tab, repeated here for convenience)
--   the collapsible _advanced curve parameters_ section (moved from the _settings_ tab)
 
 ## _primaries_
 
@@ -94,12 +76,15 @@ These controls are the defining feature of AgX and the core of how it handles co
 ### a bit of background
 
 The core challenge in fitting a scene's wide range of light into a display's limited range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
+
 ![no tone mapping](agx/sweep_no_tone_mapping.jpg)
 
 A simple per-channel curve often causes colorful objects to shift to pure, unnatural-looking primary or secondary colors as their intensity changes—an effect sometimes called the "Notorious 6":
+
 ![naive per-channel processing](agx/sweep_n6.jpg)
 
 The primaries controls in AgX work to prevent this by building a custom color space for the tone curve. By adjusting the primaries _before_ the curve is applied, AgX creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
+
 ![naive per-channel processing](agx/sweep_agx.jpg)
 
 ## controls on the _primaries_ tab
@@ -169,7 +154,7 @@ The selected exposure range will then be used as the input range of a logarithmi
 
 ## The curve
 
-The plot of the curve can be displayed by opening the _show curve_ collapsible section. In 2-tab mode, the plot is visible on the _settings_ page; in 3-tab mode, it is available on the _curve_ page. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
+The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls. The plot is not interactive; it simply illustrates the effect of the sliders.
 
 The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualize the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
 
@@ -183,8 +168,6 @@ show curve
 : Expands or collapses the plot of the curve. It is recommended to expand this section while getting familiar with the curve, or when investigating issues like loss of detail or curve "inversion" (documented under _toe power / shoulder power_).
 
 ### basic curve parameters
-
-This section is always available on the _settings_ page, and in 3-tab mode, it is also available on the _curve_ tab.
 
 pivot relative exposure and pivot target output
 : The pivot is the point on the curve around which contrast is adjusted. There are two controls:
@@ -207,8 +190,6 @@ shoulder power / toe power
 : The word _shoulder_ refers to the higher bend of the curve (highlights), while the _toe_ is the lower bend. These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow. This warning may be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
 
 ### advanced curve parameters
-
-When in 2-tab mode, these controls appear on the _settings_ page. In 3-tab mode, they only appear on the _curve_ tab.
 
 shoulder start
 : Defines the point where the linear portion of the curve ends and the shoulder begins. Keeping the value at 0% allows the smooth transition to start at the pivot; higher values push the transition point up towards the chosen _target white_. This may result in hard clipping, which can lead to a loss of detail in the highlights.
@@ -293,3 +274,9 @@ The following is a detailed description of the steps taken when processing with 
 # Further Reading
 
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
+
+# optional "3 tab" mode
+
+For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves the plot of the curve and advanced parameters from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the _settings_ tab for convenience.
+
+You can enable this mode by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in your `darktablerc` file (while darktable is closed). When set to `FALSE`, all curve controls appear on the _settings_ tab as normal.
