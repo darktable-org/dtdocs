@@ -93,14 +93,16 @@ The selected exposure range will then be used as the input range of a logarithmi
 
 ### basic curve parameters
 
-pivot relative exposure and pivot target output
-: The pivot is the point on the curve around which contrast is adjusted. There are two controls:
+In the following explanations, the parts of the tone curve are defined as follows:
+ - The _pivot_ is the point on the curve around which contrast is adjusted
+ - The _shoulder_ is the higher bend of the curve (the highlights)
+ - The _toe_ is the lower bend of the curve (the shadows)
+ - The _contrast_ is the slope of the curve (steeper curve = higher contrast)
 
--   The point of the input tonal range at which contrast will be highest, controlled by _pivot relative exposure_.
--   The output value (power) of the pivot point, set via the _pivot target output_ slider.
+It will be useful to [show the curve](#show-curve) while adjusting these parameters to see the effect they have.
 
 pivot relative exposure
-: Sets the input value of the pivot point, in EV relative to mid-gray. Since contrast is normally highest around the pivot, this slider allows you to choose at which part of the input tonal range you want to have the most contrast. The corresponding color picker adjusts only this slider, but not _pivot target output_. You may be tempted to use it as a brightness control (moving the pivot towards black, without modifying its output value, will brighten the image, while moving it towards white will darken the image), but the _pivot target output_ is better suited for that, as it directly influences brightness, without changing the point of highest contrast.
+: Sets the input value of the pivot point (the point in the tonal range where the contrast will be highest), in EV relative to mid-gray. Since contrast is normally highest around the pivot, this slider allows you to choose at which part of the input tonal range you want to have the most contrast. The corresponding color picker adjusts only this slider, but not _pivot target output_. You may be tempted to use it as a brightness control (moving the pivot towards black, without modifying its output value, will brighten the image, while moving it towards white will darken the image), but the _pivot target output_ is better suited for that, as it directly influences brightness, without changing the point of highest contrast.
 
 : When adjusting the _black/white relative exposure_ values, the _pivot relative exposure_ (its distance to mid-gray) will be maintained, as long as possible. This will cause it to move along the x-axis, as the preserved quantity is the exposure value relative to mid-gray, and where that falls on the x-axis depends on the endpoints of the axis (the black and white relative exposure values). In case the pivot input would fall outside the exposure boundaries, it will be forced inside the available range.
 
@@ -113,7 +115,7 @@ contrast
 : Sets the slope of the curve at the pivot point. This value is scaled internally to maintain a consistent final (linear) output contrast, compensating for changes to both the dynamic range and the _curve y gamma_ setting.
 
 shoulder power / toe power
-: The word _shoulder_ refers to the higher bend of the curve (highlights), while the _toe_ is the lower bend. These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow. This warning may be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
+: These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow. This warning may be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
 
 ### show curve
 
