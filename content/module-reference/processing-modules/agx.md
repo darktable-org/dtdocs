@@ -246,7 +246,7 @@ The following workflow is recommended when using this module:
 
 # additional options
 
-The following additional options are disabled by default and can be enabled by manually editing your `darktablerc` file while darktable is closed.
+The following additional options are "hidden" by default but can be toggled by manually editing your `darktablerc` file while darktable is closed.
 
 ## "3 tab" mode
 
