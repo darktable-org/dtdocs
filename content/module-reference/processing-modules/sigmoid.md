@@ -3,8 +3,8 @@ title: sigmoid
 id: sigmoid
 weight: 10
 applicable-version: 4.6
-tags: 
-working-color-space: RGB 
+tags:
+working-color-space: RGB
 view: darkroom
 masking: true
 ---
@@ -18,6 +18,8 @@ This module can be used to expand or contract the dynamic range of the scene to 
 **Note**: Modules placed before sigmoid in the pipeline operate in [scene-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#scene-referred-workflow) space. Modules after sigmoid work in [display-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#display-referred-workflow) space.
 
 ---
+
+You can have this module auto-enabled in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (sigmoid)' (this is the default setting for new installations).
 
 # usage
 

@@ -9,6 +9,7 @@ view: darkroom
 masking: true
 include_toc: true
 ---
+
 Remap the tonal range of an image by reproducing the tone and color response of classic film.
 
 This module can be used either to expand or to contract the dynamic range of the scene to fit the dynamic range of the display. It protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights and dark shadows. Highlights will need extra care when details need to be preserved (e.g. clouds).
@@ -16,6 +17,8 @@ This module can be used either to expand or to contract the dynamic range of the
 The module is derived from another module of the same name in [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module. The following video (by the developer of this module) provides a useful introduction: [filmic rgb: remap any dynamic range in darktable 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
 
 _filmic rgb_ is the successor to the _filmic_ module from darktable 2.6. While the underlying principles have not changed much, the default settings and their assumptions have, so users of the previous version should not expect a 1:1 translation of their workflow to the new version.
+
+You can have this module auto-enabled in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (filmic)'.
 
 ---
 
@@ -49,15 +52,15 @@ The _filmic rgb_ module is designed to map the dynamic range of the photographed
 
 This mapping is defined in three steps, each handled in a separate tab in the interface:
 
- - The [_scene_](#scene) tab contains the “input” settings of the scene, defining what constitutes white and black in the photographed scene.
+-   The [_scene_](#scene) tab contains the “input” settings of the scene, defining what constitutes white and black in the photographed scene.
 
- - The [_reconstruct_](#reconstruct) tab offers tools to handle blown highlights.
+-   The [_reconstruct_](#reconstruct) tab offers tools to handle blown highlights.
 
- - The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you should aim to increase the latitude as much as possible without clipping the extremes of the curve.
+-   The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you should aim to increase the latitude as much as possible without clipping the extremes of the curve.
 
- - The [_display_](#display) tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab rarely require adjustment.
+-   The [_display_](#display) tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab rarely require adjustment.
 
- - The [_options_](#options) tab includes some optional advanced settings and parameters.
+-   The [_options_](#options) tab includes some optional advanced settings and parameters.
 
 _filmic rgb_ tends to compress local contrast, so after you have finished adjusting settings here, you may wish to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance rgb_](color-balance-rgb.md) module, and perhaps to further adjust the tones using the [_tone equalizer_](tone-equalizer.md).
 
@@ -67,8 +70,8 @@ The ranges of _filmic rgb_'s sliders are limited to typical and safe values, but
 
 **Note**: _filmic rgb_ cannot be set with entirely neutral parameters (resulting in a "no-operation") -- as soon as the module is enabled, the image is always at least slightly affected. You can, however, come close to neutral with the following settings:
 
-- in the [_look_](#look) tab, set contrast to 1.0, latitude to 99 % and mid-tones saturation to 0 %,
-- in the [_options_](#options) tab, set contrast in shadows and in highlights to _soft_.
+-   in the [_look_](#look) tab, set contrast to 1.0, latitude to 99 % and mid-tones saturation to 0 %,
+-   in the [_options_](#options) tab, set contrast in shadows and in highlights to _soft_.
 
 In this configuration, filmic will only perform a logarithmic tone mapping between the bounds set in the [_scene_](#scene) tab.
 
@@ -104,8 +107,8 @@ dynamic range mapping
 
 **Note:** When some parameters are too extreme, resulting in an unfeasible curve, _filmic rgb_ will sanitize them internally. Sanitizing is illustrated in two ways on the look views:
 
-- A dot becoming red indicates that the linear part of the curve is pushed too far towards the top or the bottom. In the [_look_](#look) tab, reduce the _latitude_ or recenter the linear part using the _shadows ↔ highlights balance_ parameter.
-- A dot becoming a half circle indicates that contrast is too low given the dynamic range of the image. Increase _contrast_ in the [_look_](#look) tab, or the _dynamic range_ in the [_scene_](#scene) tab.
+-   A dot becoming red indicates that the linear part of the curve is pushed too far towards the top or the bottom. In the [_look_](#look) tab, reduce the _latitude_ or recenter the linear part using the _shadows ↔ highlights balance_ parameter.
+-   A dot becoming a half circle indicates that contrast is too low given the dynamic range of the image. Increase _contrast_ in the [_look_](#look) tab, or the _dynamic range_ in the [_scene_](#scene) tab.
 
 ---
 
@@ -189,13 +192,13 @@ When working on the _look_ tab, it is recommended that you monitor the S-curve s
 
 If you see the orange warning indicator at either end of the S-curve, corrective actions should be performed to bring the S-curve back to a smooth monotonically increasing curve. This may involve:
 
-- reducing the latitude and/or contrast,
+-   reducing the latitude and/or contrast,
 
-- adjusting the shadows/highlights slider to shift the latitude and allow more room for the spline,
+-   adjusting the shadows/highlights slider to shift the latitude and allow more room for the spline,
 
-- ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
+-   ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
 
-- setting one or both of the contrast settings on the [_options_](#options) tab to _safe_ or _hard_.
+-   setting one or both of the contrast settings on the [_options_](#options) tab to _safe_ or _hard_.
 
 If the _target black luminance_ setting on the [_display_](#display) tab is non-zero, this can also make it difficult for _filmic rgb_ to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the [_display_](#display) section to understand the implications of this.
 
@@ -287,7 +290,7 @@ iterations of high-quality reconstruction
 : The default reconstruction works on separate RGB channels and has only one iteration applied, whereas the _high quality_ reconstruction uses a different algorithm that works on RGB ratios (which is a way of breaking down chromaticity from luminance) and can use several iterations to gradually propagate colors from neighbouring pixels into clipped areas. However, if too many iterations are used, the reconstruction can degenerate, which will result in far colors being improperly inpainted into clipped objects (color bleeding) -- for example white clouds being inpainted with blue sky, or the sun disc shot through trees being inpainted with leaf-green.
 
 add noise in highlights
-: This artificially introduces noise into the reconstructed  highlights to prevent them from looking too smooth compared to surrounding areas that may already contain noise. This can help to blend the reconstructed areas more naturally with the surrounding non-clipped areas.
+: This artificially introduces noise into the reconstructed highlights to prevent them from looking too smooth compared to surrounding areas that may already contain noise. This can help to blend the reconstructed areas more naturally with the surrounding non-clipped areas.
 
 type of noise
 : This specifies the statistical distribution of the added noise. It can be helpful to match the look of the artificially generated noise with the naturally occurring noise in the surrounding areas from the camera's sensor. The _poissonian_ noise is the closest to natural sensor noise but is less visually pleasing than _gaussian_, which is probably closer to film grain. Also note that most denoising modules will turn the sensor noise from poissonian to slightly gaussian, so you should pick the variant that blends better into the actual noise in your image.
@@ -314,11 +317,11 @@ _v7 (2023)_ improves over _v6 (2022)_ by replacing the chroma preservation metho
 
 The approach in _v7_ is to offer a mix between the _max RGB_ norm and the no-preservation option (where the output hue and saturation are still forced to their input values). The proportions of the mix are driven by the _highlights saturation mix_ setting as follows:
 
-- -50% is strictly equivalent to the _v6_ no-preservation option,
-- +50% is strictly equivalent to the _v6_ _max RGB_ option,
-- 0% is an average of no-preservation and _max RGB_,
-- intermediate values are weighted averages between no-preservation and _max RGB_,
-- values beyond ±50% (up to ±200%) are linear extrapolations.
+-   -50% is strictly equivalent to the _v6_ no-preservation option,
+-   +50% is strictly equivalent to the _v6_ _max RGB_ option,
+-   0% is an average of no-preservation and _max RGB_,
+-   intermediate values are weighted averages between no-preservation and _max RGB_,
+-   values beyond ±50% (up to ±200%) are linear extrapolations.
 
 Positive values favor saturated highlights and are generally suitable for skies, but need to be handled with care for portraits (producing accurate skin tones), whereas negative values favor bleaching of highlights.
 
@@ -328,7 +331,7 @@ The _highlights saturation mix_ slider provides fine control over the amount of 
 
 ### color artifacts
 
-As filmic versions 6 and 7 are so far the best approach for retaining saturated colors at constant hue, they are also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, which are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
+As filmic versions 6 and 7 are so far the best approach for retaining saturated colors at constant hue, they are also much less forgiving to **invalid** colors like chromatic aberrations and clipped magenta highlights, which are much better hidden (albeit **not solved**) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
 
 It is not the purpose of a tone mapping and gamut mapping operators to reconstruct damaged signals, and these flaws need to be corrected earlier in the pipeline with the specialized modules provided. However, there is a mechanism in filmic v6 that ensures that any color brighter than the _white relative exposure_ degrades to pure white, so a quick workaround is to simply set the _white relative exposure_ to a value slightly lower than the exposure of the clipped parts. In other words: if it is clipped at the input, let it be clipped at the output. Chrominance preservation options that work the best for this purpose are the _luminance_ and _euclidean_ norms, or simply _none_.
 
