@@ -10,12 +10,16 @@ darktable is a non-destructive editor, which means that all changes are recorded
 
 1. Choose an export scenario.
 
-   The export module offers many options, but by far the most common use is to “save a developed raw image as a JPEG”. You can either export the currently-edited image directly from the darkroom view or select one or more images from the lighttable view and export them all at once. 
+    The export module offers many options, but by far the most common use is to “save a developed raw image as a JPEG”. You can either export the currently-edited image directly from the darkroom view or select one or more images from the lighttable view and export them all at once.
 
-2. Select which images to export (if you are in the lighttable view), open the export module, set _target storage_ to "file on disk" and select a location to save your images -- by default, they will be exported to a "darktable_exported" directory within the directory that contains your Raw file(s). Choose a "file format" of JPEG and keep the default settings. 
+1. Select which images to export (if you are in the lighttable view), open the export module, set _target storage_ to "file on disk" and select a location to save your images -- by default, they will be exported to a "darktable_exported" directory within the directory that contains your Raw file(s). Choose a "file format" of JPEG and keep the default settings.
 
-3. If the exported collection's [image sequence](../../lighttable/digital-asset-management/sequence.md) is important (_e.g._, a slideshow or to merge photos into a document) and not reflected by file names, select appropriate "sort by" criteria and include `$(SEQUENCE)` in the export file name template.
+1. If the exported collection's [image sequence](../../lighttable/digital-asset-management/sequence.md) is important (e.g. a slideshow or to merge photos into a document) and not reflected by file names, select the appropriate "sort by" criteria and include `$(SEQUENCE)` in the export file name template.
 
-4. Click the "export" button to save your processed images in the selected location.
+1. Click the "export" button to save your processed images in the selected location.
 
-_**Note:** While JPEG is useful for most purposes, if you wish to perform further edits in a raster editor like GIMP or Krita, it is normally better to export in TIFF format._
+---
+
+**Note:** While JPEG is useful for most purposes, if you wish to perform further edits in a raster editor like GIMP or Krita, it is normally better to export in TIFF format.
+
+---
