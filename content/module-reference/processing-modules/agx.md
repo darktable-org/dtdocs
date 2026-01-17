@@ -83,11 +83,20 @@ The _primaries_ tab holds controls similar to, but more extensive than, those of
 
 ### input exposure range
 
-This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes. Any channel value lower than the selected _black relative exposure_ will be treated as 0; any above the selected _white relative exposure_ will be clipped to 1.
+This section provides controls similar to the [_filmic rgb_](./filmic-rgb.md) module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes.
 
-Color pickers are provided to quickly pick the black or white point (_black_ and _white relative exposure_), or both (_auto tune levels_ and the _read exposure_ button, symbolized by a camera icon). Due to implementation differences, the values will be similar, but not identical, to the values _filmic rgb_ would pick. For the pickers, but not for the "camera" button, a safety margin can be applied via the _dynamic range scaling_ slider: contrast at the ends of the dynamic range is more easily controlled via the _toe_ and _shoulder_ controls described below.
+white relative exposure
+: Set the white point. Any value above this will be clipped to 1. Use the picker to automatically set this value.
 
-The _read exposure_ button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.
+black relative exposure
+: Set the black point. Any value below this will be clipped to 0. Use the picker to automatically set this value.
+
+dynamic range scaling
+: Apply a safety margin when using pickers to select the white and black relative exposure.
+
+auto tune levels
+: Select the picker icon to set both the white and black relative exposures (same as clicking both pickers above).
+: The _read exposure_ (camera icon) button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.
 
 The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
 
