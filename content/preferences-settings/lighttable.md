@@ -16,13 +16,13 @@ use single-click in the collections module
 : Enable "single click" mode in the [collections](../module-reference/utility-modules/shared/collections.md) module, which allows ranges to be selected (default off).
 
 prioritize the hovered image over the selected images
-: Controls which images are affected by an action (e.g. using the keyboard to set the number of stars). If this option is enabled, only the image hovered over is affected. If disabled, all the selected images are affected and the hovered over image is only affected if it is also one of the selected images. (default on)
+: Controls which images are affected by an action (e.g. using the keyboard to set the number of stars). If this option is enabled, only the image hovered over is affected by the action. If disabled, all the selected images are affected (i.e. selection is prioritized) and the hovered-over image is only affected if it is also one of the selected images. (default on)
 
 expand a single utility module at a time
 : Controls how utility modules are expanded. If this option is enabled, expanding a module by clicking collapses any other currently expanded panel. If you want to expand a panel without collapsing the others you can do so with Shift+click. Disabling this option inverts the meaning of click and Shift+click (default off).
 
 scroll utility modules to the top when expanded
-: With this option enabled the side panels will scroll a utility module to the top of the panel when it is expanded. (default off)
+: With this option enabled the side panerepresent will scroll a utility module to the top of the panel when it is expanded. (default off)
 
 rating an image one star twice will not zero out the rating
 : Normally clicking a one star rating twice will set a zero star rating to that image. Check this option to disable this functionality (default off).
