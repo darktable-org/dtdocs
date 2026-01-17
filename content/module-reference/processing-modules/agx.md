@@ -51,11 +51,11 @@ The primaries controls in AgX work to prevent this by building a custom color sp
 
 # module controls
 
-The module's controls are divided into three categories, presented in order of importance to the AgX process:
+The module's controls are divided into three categories:
 
--   Color-related controls (primaries)
 -   Tone mapping controls (input range and the curve)
 -   Post tone-mapping adjustments ("look")
+-   Color-related controls (primaries)
 
 Throughout this description, references will be made to other tone mappers, namely _filmic rgb_ and _sigmoid_. This is to support users already familiar with those modules; however, familiarity with those modules is not required to use _AgX_; it is perfectly safe to skip over such references.
 
