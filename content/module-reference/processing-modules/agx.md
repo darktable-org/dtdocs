@@ -115,7 +115,7 @@ contrast
 : Sets the slope of the curve at the pivot point. This value is scaled internally to maintain a consistent final (linear) output contrast, compensating for changes to both the dynamic range and the _curve y gamma_ setting.
 
 shoulder power / toe power
-: These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow. This warning may be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
+: These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow.
 
 ### show curve
 
@@ -152,8 +152,6 @@ curve y gamma
 ### look
 
 The "look" controls allow post-processing after the tone mapping operation. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully.
-
-By default, the _look_ controls are placed inside a collapsible section. If you desire to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
 
 slope
 : Multiplies the output values by this factor. Black (a value of 0) is not affected. Values above 1 brighten the image and increase contrast; those below darken the image and reduce contrast.
@@ -276,8 +274,20 @@ The following is a detailed description of the steps taken when processing with 
 
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
 
-## optional "3 tab" mode
+## additional options
+
+The following additional options are disabled by default and can be enabled by manually editing your `darktablerc` file while darktable is closed.
+
+### "3 tab" mode
 
 For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves the plot of the curve and advanced parameters from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the _settings_ tab for convenience.
 
-You can enable this mode by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in your `darktablerc` file (while darktable is closed). When set to `FALSE`, all curve controls appear on the _settings_ tab as normal.
+You can enable this mode by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. When set to `FALSE`, all curve controls appear on the _settings_ tab as normal.
+
+### disabling curve warnings
+
+The warnings documented within the [basic curve parameters](#basic-curve-parameters) can be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
+
+### always expand the "look" section
+
+By default, the _look_ controls are placed inside a collapsible section. If you want to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
