@@ -39,15 +39,15 @@ The "primaries" are the defining feature of AgX and the core of how it handles c
 
 The core challenge in fitting a scene's wide range of light into a display's limited range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
 
-![no tone mapping](agx/sweep_no_tone_mapping.jpg)
+![no tone mapping](agx/sweep_no_tone_mapping.jpg#w75)
 
 A simple per-channel curve often causes colorful objects to shift to pure, unnatural-looking primary or secondary colors as their intensity changes—an effect sometimes called the "Notorious 6":
 
-![naive per-channel processing](agx/sweep_n6.jpg)
+![naive per-channel processing](agx/sweep_n6.jpg#w75)
 
 The primaries controls in AgX work to prevent this by building a custom color space for the tone curve. By adjusting the primaries _before_ the curve is applied, AgX creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
 
-![naive per-channel processing](agx/sweep_agx.jpg)
+![naive per-channel processing](agx/sweep_agx.jpg#w75)
 
 # module controls
 
