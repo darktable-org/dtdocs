@@ -13,9 +13,9 @@ Control how raw files are demosaiced and optionally apply capture sharpening.
 
 # bayer filters
 
-The sensor cells of a digital camera are not color-sensitive -- they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a color filter (red, green or blue) that primarily passes light of that color. This means that each pixel of the raw image only contains information about a single color channel.
+The sensor cells of a digital camera (commonly named "photosites") are not color-sensitive -- they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a colored filter (red, green or blue) that primarily passes light of that color. This means that each photosite (and therefore each "pixel" of the raw image) only contains information about a single color channel.
 
-Color filters are commonly arranged in a mosaic pattern known as a Bayer filter array. A demosaic algorithm reconstructs the missing color channels by interpolation with data from the neighboring pixels. For further reading see the Wikipedia articles on [demosaicing](https://en.wikipedia.org/wiki/Demosaicing) and the [Bayer filter](http://en.wikipedia.org/wiki/Bayer_filter).
+The array of color filters covering the sensor, known as a color filter array (CFA), is commonly arranged in a mosaic pattern known as a Bayer filter (though other patterns are also used). A demosaic algorithm reconstructs the other color channels by interpolation with data from the neighboring photosites. For further reading see the Wikipedia articles on [demosaicing](https://en.wikipedia.org/wiki/Demosaicing) and the [Bayer filter](http://en.wikipedia.org/wiki/Bayer_filter).
 
 Darktable offers several demosaic algorithms, each with its own characteristics. The differences between them are often very subtle and might only be visible while pixel-peeping. However, as the program works on a pixel-by-pixel basis and demosaic generates the base data for the other modules, the choice of the algorithm can have a visually significant effect on the quality of very fine details in the image. This can include the appearance of false maze patterns as well as the rendering quality of colored edges.
 
@@ -29,7 +29,7 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 -   _LMMSE_ is better suited for use on high ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artifacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms.
 
--   _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it causes loss of some high-frequency details and can sometimes add local color shifts. VNG4 is no longer recommended -- for most images, other available algorithms provide better results.
+-   _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky or snow-fields). Compared to _AMaZE_ and _RCD_, it causes loss of some details but is very stable for maze artifacts. VNG4 is no longer recommended -- for most images, other algorithms provide better results.
 
 ---
 
@@ -39,13 +39,13 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 # sensors without bayer filters
 
-There are a few cameras whose sensors do not use a Bayer filter. Cameras with an "X-Trans" sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is _Markesteijn 1-pass_, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose _Markesteijn 3-pass_. Though _VNG_ is faster than _Markesteijn 1-pass_ on some computers, it is more prone to artifacts.
+There are a few cameras whose sensors do not use a Bayer filter. Cameras with an "X-Trans" sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is _Markesteijn 1-pass_, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose _Markesteijn 3-pass_. Though _VNG_ is faster than _Markesteijn 1-pass_ on some computers, it is prone to artifacts.
 
 Images from monochrome cameras do not require demosaicing, however, since darktable 5.4 they use this module to support [capture sharpening](#capture-sharpen).
 
 # special algorithms
 
-_passthrough (monochrome)_ is only useful for cameras that have had the color filter array physically removed from the sensor (e.g. scratched off). Demosaic algorithms usually reconstruct missing color channels by interpolation with data from the neighboring pixels. However, if the color filter array is not present, there is nothing to interpolate, so this algorithm simply sets all the color channels to the same value, resulting in a monochrome image. This method avoids the interpolation artifacts that the standard demosaic algorithms might introduce.
+_passthrough (monochrome)_ is only useful for cameras that have had the color filter array physically removed from the sensor (e.g. scratched off). Demosaic algorithms usually reconstruct other color channels by interpolation with data from the neighboring pixels. However, if the color filter array is not present, there is nothing to interpolate, so this algorithm simply sets all the color channels to the same value, resulting in a monochrome image. This method avoids the interpolation artifacts that the standard demosaic algorithms might introduce.
 
 _photosite_color_ is not meant to be used for image processing. It takes the raw photosite data and presents it as red, blue or green pixels. This is designed for debugging purposes in order to see the raw data and can assist with analysis of errors produced by the other demosaic algorithms.
 
@@ -100,7 +100,7 @@ color smoothing
 match greens
 : In some cameras the green filters have slightly varying properties. This parameter adds an additional equalization step to suppress artifacts. Available options are “disabled”, “local average”, “full average” and “full and local average”. This option is not shown for X-Trans sensors.
 
-switch dual threshold _(dual demosaic modes only)_
+dual threshold _(dual demosaic modes only)_
 : Set the contrast threshold for dual demosaic modes. Lower values favor the high frequency demosaic algorithm and higher values favor the low frequency algorithm.
 
 display blending mask _(dual demosaic modes only)_
