@@ -9,7 +9,7 @@ view: darkroom
 masking: false
 ---
 
-Control how raw files are demosaiced.
+Control how raw files are demosaiced and optionally apply capture sharpening.
 
 # bayer filters
 
@@ -41,7 +41,7 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 There are a few cameras whose sensors do not use a Bayer filter. Cameras with an "X-Trans" sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is _Markesteijn 1-pass_, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose _Markesteijn 3-pass_. Though _VNG_ is faster than _Markesteijn 1-pass_ on some computers, it is more prone to artifacts.
 
-Images from monochrome cameras do not require demosaicing, since darktable 5.4 they use this module for _capture sharpen_ support.
+Images from monochrome cameras do not require demosaicing, however, since darktable 5.4 they use this module to support [capture sharpening](#capture-sharpen).
 
 # special algorithms
 
@@ -50,40 +50,6 @@ _passthrough (monochrome)_ is only useful for cameras that have had the color fi
 _photosite_color_ is not meant to be used for image processing. It takes the raw photosite data and presents it as red, blue or green pixels. This is designed for debugging purposes in order to see the raw data and can assist with analysis of errors produced by the other demosaic algorithms.
 
 _monochrome_ is only available for monochrome cameras.
-
-# capture sharpen
-Capture sharpening (CS) recovers details lost due to in-camera or lens blurring which can be caused by diffraction, the anti-aliasing filter or other sources of gaussian-type blur.
-CS is done inside the demosaic module as some parts of the algorithm require raw cfa data, the sharpening itself is done on demosaiced RGB data. It is available for bayer, xtrans and monochrome sensors.
-
-CS is not intended to be used as a general sharpening / local contrast enhancing tool, it should be understood as a way to increase micro-contrast in structures with lots of detail and leads to better results for further processing. Excellent examples would be details of surfaces like wood, brick walls, hair ...
-
-Prerequisites for optimal results are
-- decent white balance parameters (same requirement as for highlights reconstruction or demosaic), in very rare cases this could lead to inferior sharpening quality.
-- low chromatic aberration, you might want to add the [_raw chromatic aberration_](./raw-chromatic-aberrations.md) module to reduce problems, there will still likely be more and stronger halo artefacts. 
-- acceptable sensor noise as that will generally be amplified by CS. (See _contrast sensitivity_).
-
-CS works in an iterative process using specialized gaussian kernels using a different sigma in the range of 0.0 -> 1.5 for every single pixel location.
-
-Its main parameters are
-
-_Iterations_
-: The strength of effect increases with more iterations, for most images a setting of 8 will be fully sufficient.
-
-_Radius_
-: defines the maths (sigma) for the special gaussian kernels.
-Analysis of many images (also from the RT community) show, on modern sensors using a good lens and a high quality demosaicer the radius will be in the 0.5 -> 0.8 range.
-Please note the autocalculate button on the right of the radius, a click will enforce a calculation of the radius based on raw sensor data, the underlying algorithm has been used for some time with reliable results - it might fail on images with lots of chroma noise.
-Note: Do not manually increase the radius much further as that will soon lead to halo artefacts.
-
-_Edge sensitivity_
-: As sensor noise principally will be amplified by CS we take care about this problem by doing an analysis of local variance, luminance and an interactive user provided threshold.
-The sharpening is applied only to regions that are considered to be safe in the analysis, the mask providing this information can be inspected by a click on the button as usual.
-
-   For a good default we check the image ISO and sensor readout precision as a starting point.
-   Very noisy images will require larger values than default, for very low sensor noise you can decrease the threshold to improve capture sharpening also in very dark parts of the image.
-
-_Corner boost/Sharp center_
-: Most lenses are sharper in the central part than the corners of the image, increasing the corner boost results in a larger per-pixel radius to be used for the CS kernels for the image corners. The extra radius is controlled by _corner boost_, the affected area follows a very simple model using the distance from the image center and is controlled by _sharp center_. Again - the mask button visualizes the effect.
 
 # dual demosaic algorithms
 
@@ -100,6 +66,22 @@ _The 'local data change' is technically implemented as a gaussian-blurred single
 ## selecting the threshold
 
 An automatically-calculated threshold is difficult to implement. Instead, the "display blending mask" button can be used to display the _selection mask_ so you can control the selection of the algorithm manually. The brighter the pixel in the displayed mask, the more the output is taken from the high-frequency algorithm.
+
+# capture sharpen
+
+Capture sharpening recovers details lost due to in-camera or lens blurring, which can be caused by diffraction, the anti-aliasing filter or other sources of gaussian-type blur.
+
+Capture sharpening is performed inside the demosaic module because some parts of the algorithm require raw CFA data. The sharpening itself is performed on demosaiced RGB data and is available for bayer, xtrans and monochrome sensors.
+
+Capture sharpening is not intended to be used as a general sharpening / local contrast enhancing tool. It should instead be understood as a way to increase micro-contrast in structures with lots of detail, and leads to better results for further processing. Excellent examples would be details of surfaces like wood, brick walls, hair etc.
+
+Prerequisites for optimal results are:
+
+-   Decent white balance parameters (same requirement as for [_highlight reconstruction_](./highlight-reconstruction.md) or _demosaic_) -- in very rare cases this could lead to inferior sharpening quality.
+-   Low chromatic aberration -- you might want to use the [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) module to reduce problems -- there will still likely be more and stronger halo artefacts.
+-   Acceptable sensor noise, as noise will generally be amplified by capture sharpening (see _contrast sensitivity_ below).
+
+Capture sharpening works in an iterative process using specialized gaussian kernels using a different sigma (in the range of 0.0 -> 1.5) for every single pixel location.
 
 # module controls
 
@@ -124,21 +106,43 @@ switch dual threshold _(dual demosaic modes only)_
 display blending mask _(dual demosaic modes only)_
 : Show the blending mask that is used to differentiate between high and low frequency areas (adjusted by the "switch dual threshold" parameter). For each pixel, the brighter the mask, the more the module's output is taken from the high frequency demosaic algorithm.
 
-# Notes about presets
+capture sharpen
+: Enable capture sharpening. Selecting this option will enable additional controls (see below) and attempt to auto-calculate the _radius_ and _contrast sensitivity_ based on the current image's raw sensor data (see below).
 
-Defining demosaic presets or using demosaic parameters for styles or copy of history is a bit more tricky than for other modules. Please bear in mind that demosaic works for a range of sensors each offering certain algorithms and some specific options. Here are some reminders
-1. You are safe when using a preset for a specified camera of course.
-2. If a preset was defined while working on an image with a different sensor than the current one, darktable translates the algorithm as follows:
-   - bayer sensors fall back to _RCD_
-   - xtrans sensors fall back to _markjestejn_
-   - bayer4 sensors always use _vng4_.
-   - dual demosaicing will also be available on bayer and xtrans sensors
-3. Extra options like _green equalizing_ will only be done if supported by the current sensor.
-4. Some special care has been done for capture sharpening radius and edge sensitivity parameters.
-   In auto-applied presets you might want to use the auto-calculated radius (or edge sensitivity) for CS instead of a specified value.
-   To achieve this, you must set the radius to zero before saving the preset. If this preset is applied, dt accepts this as a request for autocalculation of the radius.
+iterations (capture sharpen)
+: The strength of the effect increases with more iterations. For most images a setting of 8 will be sufficient.
 
-We don't have CS enabled by default but you could define an auto-applied preset after setting radius and edge threshold to zero. For iterations a setting of 8 is recommended, this leads to good sharpening with very low risk for artefacts if used with auto-radius.
+radius (capture sharpen)
+: Defines the mathematics used (sigma) for the special gaussian kernels. Analysis of many images (also from the RawTherapee community) show that, on modern sensors, using a good lens and a high quality demosaicer, a typical radius will be between 0.5 and 0.8.
+: To auto-calculate the _radius_ for the current image (based on raw sensor data), click the button on the right of the radius slider. The underlying algorithm has been used for some time with reliable results, though it might fail on images with lots of chroma noise. This calculation works better when the image is fully-zoomed out and uncropped in the darkroom view.
 
-For the auto-apply rules it is also safe for ISO values below 1000. If you have a good sensor with low noise even on high ISO you might go for ISO below 3200.
+---
 
+**Note:** Do not manually increase the radius much further than the auto-calculated value, as this will soon lead to halo artefacts.
+
+---
+
+contrast sensitivity (capture sharpen)
+: As sensor noise will typically be amplified by capture sharpening, we try to counter this problem by performing an analysis of local variance, luminance and a user-defined threshold. Sharpening is applied only to regions that are considered by this analysis to be safe. This analysis results in a mask that can be visualised by clicking the button to the right of the contrast sensitivity slider.
+: For a good default we check the image ISO and sensor readout precision as a starting point.
+: Very noisy images will require larger values than default. For very low sensor noise you can decrease the threshold to also improve capture sharpening in very dark parts of the image.
+
+corner boost / sharp center (capture sharpen)
+: Most lenses are sharper in the central part than the corners of the image. Increasing the _corner boost_ parameter causes a larger per-pixel radius to be used in the capture sharpen kernels for the image corners. This extra radius is controlled by the _corner boost_ control. Adjusting the _corner boost_ will cause an additional slider (_sharp center_) to appear. This controls the affected area using the distance from the image center. Again, the mask button to the right of the slider allows you to visualize the effect.
+
+# Notes about presets, styles and copy/paste
+
+Defining demosaic [presets](../../darkroom/processing-modules/presets.md) or using demosaic parameters for [styles](../../module-reference/utility-modules/lighttable/styles.md) or copying/pasting [history stacks](../../module-reference/utility-modules/lighttable/history-stack.md) is a bit more tricky than for other modules. Please bear in mind that demosaic works for a range of sensors each offering different algorithms and some specific options. Here are some reminders:
+
+1. It should always be safe to create an automatic preset that only applies to a specific camera.
+1. If a preset was defined while working on an image with a different sensor than the current image, darktable translates the algorithm as follows:
+    - bayer sensors fall back to _RCD_
+    - xtrans sensors fall back to _markjestejn_
+    - bayer4 sensors always use _vng4_.
+    - dual demosaicing will also be available on bayer and xtrans sensors
+1. Extra options like _green equalizing_ will only be applied where they are supported by the current sensor.
+1. In auto-applied presets with capture sharpen enabled, you might want to use the auto-calculated radius (or contrast sensitivity) instead of using hard-coded values. To achieve this, you must set the radius (or contrast sensitivity) to zero before saving the preset. If this preset is then applied to another image, darktable accepts this as a request for these values to be automatically recalculated.
+
+Capture sharpening is not enabled by default but you could achieve this by defining an auto-applied preset after setting radius and contrast threshold to zero. You are advised to leave the iterations setting to 8, as this leads to good sharpening with very low risk for artefacts when used with an auto-calculated radius.
+
+For the auto-apply rules, capture sharpening is generally safe for ISO values below 1000. If you have a good sensor, with low noise even on high ISO values, you might be able to use it for ISOs as high as 3200.
