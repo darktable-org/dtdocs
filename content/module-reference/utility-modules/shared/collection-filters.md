@@ -213,6 +213,6 @@ You may relocate a single image (unselected or single selection) or a selected s
 
 1. Rearrange the images as you desire:
 
--   Clear any active selection (_selection_ > _select none_).
--   Set _sort by_ > "custom sort" so you can verify your changes immediately.
--   Remember the **[warnings](#warnings)** above as you drag-and-drop.
+    - Clear any active selection (_selection_ > _select none_).
+    - Set _sort by_ > "custom sort" so you can verify your changes immediately.
+    - Remember the **[warnings](#warnings)** above as you drag-and-drop.
