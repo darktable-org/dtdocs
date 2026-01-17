@@ -27,7 +27,7 @@ The following demosaic algorithms are available for sensors with Bayer filters:
 
 -   _AMaZE_ and _RCD_ offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While _AMaZE_ often retains more high-frequency details it is also more prone to color overshoots than _RCD_. Since _RCD_ now offers similar performance to _PPG_, but with better results, it is now the default algorithm.
 
--   _LMMSE_ is better suited for use on high ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artefacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms.
+-   _LMMSE_ is better suited for use on high ISO and noisy images than _AMaZE_ or _RCD_, both of which tend to generate overshooting artifacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms.
 
 -   _VNG4_ is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky) but, compared to _AMaZE_ and _RCD_, it causes loss of some high-frequency details and can sometimes add local color shifts. VNG4 is no longer recommended -- for most images, other available algorithms provide better results.
 
@@ -78,7 +78,7 @@ Capture sharpening is not intended to be used as a general sharpening / local co
 Prerequisites for optimal results are:
 
 -   Decent white balance parameters (same requirement as for [_highlight reconstruction_](./highlight-reconstruction.md) or _demosaic_) -- in very rare cases this could lead to inferior sharpening quality.
--   Low chromatic aberration -- you might want to use the [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) module to reduce problems -- there will still likely be more and stronger halo artefacts.
+-   Low chromatic aberration -- you might want to use the [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) module to reduce problems -- there will still likely be more and stronger halo artifacts.
 -   Acceptable sensor noise, as noise will generally be amplified by capture sharpening (see _contrast sensitivity_ below).
 
 Capture sharpening works in an iterative process using specialized gaussian kernels using a different sigma (in the range of 0.0 -> 1.5) for every single pixel location.
@@ -118,7 +118,7 @@ radius (capture sharpen)
 
 ---
 
-**Note:** Do not manually increase the radius much further than the auto-calculated value, as this will soon lead to halo artefacts.
+**Note:** Do not manually increase the radius much further than the auto-calculated value, as this will soon lead to halo artifacts.
 
 ---
 
@@ -143,6 +143,6 @@ Defining demosaic [presets](../../darkroom/processing-modules/presets.md) or usi
 1. Extra options like _green equalizing_ will only be applied where they are supported by the current sensor.
 1. In auto-applied presets with capture sharpen enabled, you might want to use the auto-calculated radius (or contrast sensitivity) instead of using hard-coded values. To achieve this, you must set the radius (or contrast sensitivity) to zero before saving the preset. If this preset is then applied to another image, darktable accepts this as a request for these values to be automatically recalculated.
 
-Capture sharpening is not enabled by default but you could achieve this by defining an auto-applied preset after setting radius and contrast threshold to zero. You are advised to leave the iterations setting to 8, as this leads to good sharpening with very low risk for artefacts when used with an auto-calculated radius.
+Capture sharpening is not enabled by default but you could achieve this by defining an auto-applied preset after setting radius and contrast threshold to zero. You are advised to leave the iterations setting to 8, as this leads to good sharpening with very low risk for artifacts when used with an auto-calculated radius.
 
 For the auto-apply rules, capture sharpening is generally safe for ISO values below 1000. If you have a good sensor, with low noise even on high ISO values, you might be able to use it for ISOs as high as 3200.

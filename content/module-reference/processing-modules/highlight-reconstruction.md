@@ -21,7 +21,7 @@ When a camera captures light (using a normal Bayer sensor) each pixel represents
 
 If these pixels are left partially clipped it can result in unrealistic colors appearing in the image. These incorrect colors can then be further skewed by the white balance module, which adjusts the ratios of the R, G, and B channels to account for the overall color of the scene. For example, where only the G channel is clipped (and R and B are close to clipping) the white balance module can cause the R and B channels to be adjusted above the clipping point of the G channel leading to pink highlights that would otherwise have been white.
 
-The crude method to resolve this is to clip the R and B channels to the clipping point of the G channel (the "clip highlights" reconstruction method), but this can result in the loss of valid pixel data that may be useful in highlight reconstruction, and may also cause other artefacts and hue shifts.
+The crude method to resolve this is to clip the R and B channels to the clipping point of the G channel (the "clip highlights" reconstruction method), but this can result in the loss of valid pixel data that may be useful in highlight reconstruction, and may also cause other artifacts and hue shifts.
 
 # highlight reconstruction methods
 
