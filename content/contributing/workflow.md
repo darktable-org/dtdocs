@@ -18,7 +18,7 @@ This will ensure that you have your keys and credentials setup correctly.
 
 We are particularly interested in documenting pull requests that require new or changes to this manual. Pull requests that require documentation are cataloged with github labal `documentation-pending`.
 
-The high-level steps to do this is:
+The high-level steps to do this are:
 
 1. View the list of [Pull Requests that need documentation](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3Adocumentation-pending+).
 2. Select an Pull Request where you understand what has changed.
