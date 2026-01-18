@@ -184,23 +184,23 @@ red/green/blue rotation
 
 ### after tone mapping
 
-The controls in this group affect the post-processing done after tone mapping. Use them as artistic controls to help you achieve the desired final look.
+The controls in this group affect the processing performed after tone mapping. Use them as artistic controls to help you achieve the desired final look.
 
 reverse all
 : Ticking this checkbox will hide the other controls in the group, and adjust processing settings as if the _master_ reversal sliders, discussed below, were set to 100%, the _purity boost_ parameters to match the values of the corresponding _attenuation_ sliders, and the _reverse rotation_ parameters to mirror the values set with the _rotation_ sliders. The values of the hidden sliders will be retained, but not used for processing. Unchecking the checkbox will make them visible, and their settings effective, again.
-The checkbox is intended to simplify the user interface (users may wish to create presets with the checkbox ticked), and for quick "what-if" checks.
+: The checkbox is intended to simplify the user interface (users may wish to create presets with the checkbox ticked), and for quick "what-if" checks.
 
 set from above
-: Clicking the button will _copy_ the values of the sliders from the _before tone mapping_ section, and set the _master_ controls to 100%, producing the same visual effect as ticking _reverse all_. However, this only provides a starting point: the sliders will not be hidden, and may be adjusted to taste.
+: Clicking the button will _copy_ the values of the sliders from the [before tone mapping](#before-tone-mapping) section, and set the _master_ controls to 100%, producing the same visual effect as ticking _reverse all_. However, this only provides a starting point -- the sliders will not be hidden, and may be adjusted to taste.
 
 master purity boost, master rotation reversal
 : These are multipliers that affect the individual red/green/blue controls below, allowing you to globally increase or decrease their effect.
 
 red/green/blue purity boost
-: Restores color purity _after_ the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (see above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
+: Restores color purity _after_ the tone curve is applied. Higher values make the image look more colorful and chroma-laden, but can introduce artifacts if pushed too far. When combined with _attenuation_ (above), the net effect is a selective desaturation of highlights (since the purity boost does not fully recover purity in highlights, due to them being strongly desaturated by the tone mapping process).
 
 red/green/blue reverse rotation
-: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affects highlights.
+: Reverses the initial primary rotation after the tone curve. This offers a final control over the rendered hues. This can be used to partly or fully reverse the hue shifts introduced by the corresponding rotation sliders, mostly in the shadows and mid-tones. Since the curve is applied per-channel, it is subject to the "Notorious 6" shifts, which mostly affect highlights.
 
 ### presets
 
