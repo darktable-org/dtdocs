@@ -122,13 +122,13 @@ The curve has 5 important points:
 ### advanced curve parameters
 
 shoulder start
-: Defines the point where the linear portion of the curve ends and the shoulder begins. Keeping the value at 0% allows the smooth transition to start at the pivot; higher values push the transition point up towards the chosen _target white_. This may result in hard clipping, which can lead to a loss of detail in the highlights.
+: Defines the point where the linear portion of the curve ends and the shoulder begins. Keeping the value at 0% allows the smooth transition to start at the pivot. Higher values push the transition point up towards the chosen _target white_. This may result in hard clipping, which can lead to a loss of detail in the highlights.
 
 target white
 : The upper bound that the curve converges to. This can be used to limit the maximum output luminance.
 
 toe start
-: Defines the point where the linear portion of the curve ends and the toe begins. Keeping the value at 0% allows the smooth transition to start at the pivot; higher values push the transition point down towards the chosen _target black_. This may result in hard clipping, which can lead to a loss of detail in the shadows.
+: Defines the point where the linear portion of the curve ends and the toe begins. Keeping the value at 0% allows the smooth transition to start at the pivot. Higher values push the transition point down towards the chosen _target black_. This may result in hard clipping, which can lead to a loss of detail in the shadows.
 
 target black
 : The lower bound that the curve converges to. This can be used to create a faded analog look, similar to the _lift_ control in the _look_ section or the _global offset_ in [_color balance rgb_](./color-balance-rgb.md).
@@ -137,7 +137,7 @@ keep the pivot on the diagonal
 : Automatically adjusts _curve y gamma_ in an attempt to ensure the curve remains S-shaped, as long as the contrast setting is high enough. It works much like _auto adjust hardness_ in _filmic rgb_. While the checkbox is ticked, _curve y gamma_ cannot be adjusted manually, and is hidden.
 
 curve y gamma
-: Shifts the representation of the pivot along the y-axis without changing its output luminance. This is an internal parameter of the algorithm and does not need to match your display's gamma. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring the _shoulder_ and _toe power_ controls remain effective. Manual adjustments are disabled while _keep the pivot on the diagonal_ is enabled.
+: Shifts the representation of the pivot along the y-axis without changing its output luminance. This is an internal parameter of the algorithm and does not need to match your display's gamma. Its purpose is mainly to enable you to keep the S-shape of the curve, thereby ensuring that the _shoulder power_ and _toe power_ controls remain effective. Manual adjustments are disabled while _keep the pivot on the diagonal_ is enabled.
 
 ### look
 
