@@ -245,17 +245,17 @@ The following additional options are "hidden" by default but can be toggled by m
 
 ## "3 tab" mode
 
-For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves the plot of the curve and advanced parameters from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the _settings_ tab for convenience.
+For people with small screens, where vertical screen-space is at a premium, an optional "3 tab" mode is provided in order to reduce the need to scroll the module. This mode moves [the plot of the curve](#show-curve) and [advanced curve parameters](#advanced-curve-parameters) from the _settings_ tab into a dedicated _curve_ tab, and duplicates some other controls from the [settings tab](#the-settings-tab) for convenience.
 
 You can enable this mode by setting `plugins/darkroom/agx/enable_curve_tab=TRUE` in `darktablerc`. When set to `FALSE`, all curve controls appear on the _settings_ tab as normal.
 
 ## disabling curve warnings
 
-The warnings documented within the [basic curve parameters](#basic-curve-parameters) can be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
+The warnings documented within the [basic curve parameters](#basic-curve-parameters) section can be disabled by setting `plugins/darkroom/agx/enable_curve_warnings=FALSE` in `darktablerc`.
 
 ## always expand the "look" section
 
-By default, the _look_ controls are placed inside a collapsible section. If you want to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
+By default, the _look_ controls are placed inside a [collapsible section](#look). If you want to keep them visible at all times, you can set `plugins/darkroom/agx/look_always_visible=TRUE` in `darktablerc`.
 
 ---
 
