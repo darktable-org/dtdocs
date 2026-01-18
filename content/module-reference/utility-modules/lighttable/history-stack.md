@@ -42,16 +42,16 @@ selective paste...
 : The "append" button will take each module from the copied history stack, and if there is a module in the destination image with the same name it will be replaced and added to the top of the history stack. If there is no such module, a new instance will be created and added to the top of the history stack. If a module has multiple instances in either history stack, only the last occurence of that module will be added.
 
 paste
-: Paste all items of a copied history stack onto all selected images.
-
-: If you use the "copy" button (copy all safe modules) followed by the "paste" button (paste all copied modules), the paste will have the same behavior as the "overwrite" button in the "selective paste..." controls. This behavior also applies when using copy and past keyboard shortcuts.
+: Paste all items of a copied history stack onto all selected images. This has the same behavior as the "overwrite" button in the "selective paste..." controls. This behavior also applies when using copy and paste keyboard shortcuts.
 
 ---
 
-Notes
+notes
 : - Automatic module presets are only added to an image when it is first opened in the darkroom or its history stack is discarded. If you use the "overwrite" mode to paste history stack entries to images that haven't previously been opened in the darkroom, then the next time that image is opened in the darkroom automatic presets will be applied to the image. It may therefore seem as if the "overwrite" behavior did not accurately duplicate the existing history stack, but in this case, those automatic modules were added after the paste action.
 
 : - The "append" mode allows you to later reconstruct your pre-existing history stack (because previous history items are retained in the stack of the destination image). However, with the "overwrite" mode all previous edits are irrevocably lost.
+
+: - Previous versions allowed selecting an "overwrite" or "append" mode for any paste operation. To control the behavior of the paste operation you must use the "selective paste..." feature.
 
 ---
 
