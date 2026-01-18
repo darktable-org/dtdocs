@@ -78,7 +78,7 @@ auto tune levels
 : Select the picker icon to set both the white and black relative exposures (same as clicking both pickers above).
 : The _read exposure_ (camera icon) button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.
 
-The selected exposure range will then be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
+The selected exposure range will be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
 
 ### basic curve parameters
 
