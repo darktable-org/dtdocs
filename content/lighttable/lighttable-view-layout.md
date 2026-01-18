@@ -69,7 +69,7 @@ From left to right:
 : Choose a lighttable mode.
 
 [zoom](./lighttable-modes/filemanager.md)
-: Adjust the size of thumbnails.
+: Adjust the number of thumbnails displayed in each row of the file manager view.
 
 ![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png#icon) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
 : Highlight the parts of the image that are in focus.
