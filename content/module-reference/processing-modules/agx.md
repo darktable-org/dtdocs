@@ -215,26 +215,29 @@ You are, of course, free to create your own presets with your favorite combinati
 
 It is important to note that using the primaries controls, the properties of the S-curve (lower contrast in highlights), and per-channel application of the curve together make it possible to apply different adjustments to mid-tones and highlights, even though this may not be evident at the first glance.
 
-Per-channel S-curves have the property of desaturating highlights, independently of our _attenuation_ control. This means we _can_ reverse the attenuation (restore saturation) for mid-tones using _purity boost_, but not so for highlights.
+Per-channel S-curves have the property of desaturating highlights, independently of the _attenuation_ control. This means you _can_ reverse the attenuation (restore saturation) for mid-tones using _purity boost_, but not so for highlights.
 
-Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing us to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the _look_ section.
+Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing you to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the [look](#look) section.
 
 # recommended workflow
 
-Note that unless [high quality processing](../utility-modules/darkroom/high-quality-processing.md) is enabled, the effect of adjusting the primaries cannot be judged properly, especially with highly saturated colors and narrow-spectrum light sources like LEDs.
-
 The following workflow is recommended when using this module:
 
--   Set overall exposure for the mid-tones using the _exposure_ module. Alternatively, use _contrast_ and _toe / shoulder power_ to fill the output tonal range.
--   If darktable is set to apply a scene-referred workflow, the module will apply reasonable defaults. In other cases (for example, when using the legacy display-referred workflow or if the workflow preference is set to "none"), manually select the preset _blender-like|base_ or _smooth|base_ for best results. The _punchy_ presets are more contrasty and colorful.
--   The provided presets, except for _unmodified base primaries_, provide carefully tuned primaries. When starting out, it is best to rely on those settings. Adjusting them, based on individual taste and/or special lighting conditions (e.g. LED lights, stage lighting) is part of a more advanced workflow.
--   Use the _auto tune levels_ picker to set the desired exposure range.
--   If desired, set the pivot on the subject using the picker next to _pivot relative exposure_; this ensures contrast is maximized around the selected area.
--   You may then move the _pivot target output_ slider to adjust the brightness of the pivot point.
--   Set the _contrast_.
--   If needed, adjust _toe_ and _shoulder power_ to set contrast in shadows and highlights, respectively.
--   Finally, if desired, add "drama" by adjusting _look | brightness_, set overall saturation using _look | saturation_, and adjust colors using _look | preserve hue_.
--   Do not forget that the _AgX_ module is just another tone mapper. As flexible as it is, it is not intended to solve all image processing tasks related to color and contrast. Continue to use darktable's other modules that target general image editing.
+1.   Set overall exposure for the mid-tones using the _exposure_ module. Alternatively, use _contrast_ and _toe / shoulder power_ to fill the output tonal range.
+1.   Choose a preset as a starting point. If darktable is set to apply a scene-referred workflow by default (see [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing)), the module will apply reasonable defaults automatically. In other cases (for example, when using the legacy display-referred workflow or if the workflow preference is set to "none"), manually select the preset _blender-like|base_ or _smooth|base_ for best results. The _punchy_ presets are more contrasty and colorful.
+1.   Use the _auto tune levels_ picker to set the desired exposure range.
+1.   Set the pivot on the subject using the picker next to _pivot relative exposure_ (optional) -- this ensures that contrast is maximized around the selected area.
+1.   Move the _pivot target output_ slider to adjust the brightness of the pivot point (optional).
+1.   Set the _contrast_.
+1.   Adjust _toe_ and _shoulder power_ to set contrast in shadows and highlights, respectively (optional).
+1.   Finally, if desired, you may add "drama" by adjusting the controls in the [look](#look) section --  add _brightness_, set overall _saturation_, and adjust colors with _preserve hue_.
+
+Please also note the following:
+
+-   The provided presets (with the exception of _unmodified base primaries_) provide carefully tuned primaries. When starting out, it is best to rely on those settings. Adjusting them, based on individual taste and/or special lighting conditions (e.g. LED lights, stage lighting) is part of a more advanced workflow.
+-   Unless [high quality processing](../utility-modules/darkroom/high-quality-processing.md) is enabled, the effect of adjusting the primaries cannot be judged properly, especially with highly saturated colors and narrow-spectrum light sources like LEDs.
+-   Don't forget that the _AgX_ module is just another tone mapper. As flexible as it is, it is not intended to solve all image processing tasks related to color and contrast, many of which will be better resolved by using other modules.
+
 
 # additional options
 
