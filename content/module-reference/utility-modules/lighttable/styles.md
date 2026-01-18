@@ -37,6 +37,8 @@ create
 
 : The panel supports a hierarchical view, meaning that you can create categories using the pipe symbol “|” as a separator. For example “print|tone curve +0.5 EV” will create a "print" category with a style of "tone curve +0.5 EV" below it.
 
+: You can cancel the creation process by pressing the Cancel button or pressing the Esc key on your keyboard.
+
 edit
 : Select "edit" to bring up a dialog which allows you to include or exclude specific items from the stack of an existing style. Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
 
