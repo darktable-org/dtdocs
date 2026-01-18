@@ -161,16 +161,16 @@ preserve hue
 
 ## the primaries tab
 
-The _primaries_ tab holds controls similar to, but more extensive than, those of the collapsible _primaries_ section in the [_sigmoid_](./sigmoid.md) module:
+The _primaries_ tab controls are similar to, but more extensive than, those of the collapsible _primaries_ section in the [_sigmoid_](./sigmoid.md#primaries) module:
 
 disable adjustments
-: Turns off all manipulation of primaries. It is not recommended to tick this checkbox for actual processing; it is intended as a learning tool for quick comparisons. For a starting point without adjustments, that can be fine-tuned manually, use the _unmodified_ configuration.
+: Turns off all manipulation of primaries. You are not avised to tick this checkbox for actual processing -- it is intended more as a learning tool for quick comparisons. For a starting point without adjustments that can be fine-tuned manually, use the _unmodified_ configuration.
 
 reset primaries
-: Clicking this button reveals a pop-up menu to apply one of the built-in sets of primaries, without altering any of the other settings. Click an item to select it, or press Escape or click outside the menu to dismiss it without applying any setting.
+: Clicking this button reveals a pop-up menu to apply one of the built-in sets of primaries, without altering any of the other settings.
 
 base primaries
-: Defines which color space is used as the basis of the AgX processing space. The attenuation and rotation controls below are applied relative to this space. Options include common spaces like sRGB, Display P3, Adobe RGB (compatible), and Rec2020; the working space (set in the [_input color profile_](./input-color-profile.md) module), and the export space (set in the [_output color profile_](./output-color-profile.md) module). For especially problematic colors, you may find that wider spaces provide better control.
+: Defines which color space is used as the basis of the _AgX_ processing space. The attenuation and rotation controls below are applied relative to this space. For especially problematic colors, you may find that wider spaces provide better control.
 
 ### before tone mapping
 
