@@ -177,7 +177,7 @@ base primaries
 The controls in this group affect the operations performed before the tone mapping curve is applied.
 
 red/green/blue attenuation
-: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and mid-tones using the _purity boost_ sliders described below, in the section _after tone mapping_, the overall effect being a desaturation of highlights.
+: Controls the amount of desaturation applied to the primary color. This adjusts the rate of the color's shift towards white as its intensity increases. Lower values result in a slower shift and more pronounced hue changes, at the risk of artifacts. The saturation of all colors will be reduced, regardless of luminosity, but this can be reversed for shadows and mid-tones using the _purity boost_ sliders in the [after tone mapping](#after-tone-mapping) section, the overall effect being a desaturation of highlights.
 
 red/green/blue rotation
 : Rotates the hue angle of the primary color. This affects the direction of the hue shift for colors as their intensity changes. For example, rotating red can influence whether it bends towards yellow or magenta.
