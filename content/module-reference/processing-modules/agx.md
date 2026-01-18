@@ -261,26 +261,26 @@ By default, the _look_ controls are placed inside a [collapsible section](#look)
 
 # technical details
 
-The following is a detailed description of the steps taken when processing with the _AgX_ module. Reading this section is not required to use the module; it is provided as a reference for interested readers.
+The following is a detailed description of the steps taken when processing with the _AgX_ module. This section is provided as a reference for interested readers, but is not required to use the module.
 
--   linear, scene-referred data arrives in the pipe's working space, defined in the _input color profile_ module (e.g. Rec 2020)
--   if needed, it is converted to the selected "base" space
--   colors that are out-of-gamut for the "base" space (RGB triplets that have any negative component in that space) are "slid" into gamut (in-gamut colors are not modified; it is possible that a previously out-of-gamut color "lands on top of" an in-gamut color). _sigmoid_ performs a similar operation, but the method is different.
--   an input matrix is calculated and applied, based on the RGB attenuation and primaries rotation values: this desaturates the colors (mixing channels into each-other), and rotates the primaries. This is the same as with _sigmoid_.
--   the HSV representation is calculated from the inset+rotated RGB; the hue (H) will be used later to restore the hue according to the _look / preserve hue_ slider.
--   for each component (RGB channel), the same processing steps are executed independently (but, since the desaturation (primaries attenuation) mixes channels into each-other, this means that with respect to the original color, the processing is not independent at all):
-    -   log encoding is applied: for input x, log2(x) is calculated (_x_ would be the value of the red, green or blue channel)
-    -   the log value is scaled and shifted according to the selected exposure parameters, so the selected black point becomes 0, the white point 1, and the value corresponding to mid-gray (18%) ends up on the x-axis of the curve in a ratio _black relative exposure : \_white relative exposure_ (by default, 10 : 6.5, or at about 0.61)
-    -   the curve is applied; this produces an output that is considered to be encoded according to the _gamma_. This can be considered as data ready to be displayed on a monitor using the specified gamma value (the gamma is only used for processing, and does not have to match the gamma of the display used for editing, or that of the output color space).
--   the _look_ is applied in pure display-referred mode, like legacy editing of gamma-encoded images, similar to editing sRGB JPGs in traditional editors. Except for _saturation_, these are also per-channel operations:
-    -   first the _slope_ and the _lift_
-    -   then the _brightness_
-    -   finally the _saturation_
--   for each channel, the gamma-encoded data is linearized by applying `linear = gamma_encoded ^ gamma` (so it is scene-referred 0..1, but the encoding is linear, like always in darktable's pipeline; mid-gray is at 0.18)
--   the HSV representation of the result is calculated; the resulting hue (from the H component) and the original hue are mixed together according to the _preserve hue_ setting to produce the final hue. This does not guarantee complete preservation of color, as the "original" hue was already recorded after the input matrix, and after this mix, the output matrix (see the next step) modifies colors again.
--   the output matrix is applied to each channel, which:
-    -   performs the rotation reversal (this is a difference with _sigmoid_: the latter always completely reverses the rotation, in _AgX_, reversal is up to the user)
-    -   applies the purity boost (just like _sigmoid_)
-    -   converts the result back into the pipe working space.
+1. Linear, scene-referred data arrives in the pipe's working space, defined in the [_input color profile_](./input-color-profile.md) module (e.g. Rec 2020)
+1. If needed, data is converted to the selected "base" space
+1. Colors that are out-of-gamut for the "base" space (RGB triplets that have any negative component in that space) are "slid" into gamut (in-gamut colors are not modified, though it is possible that a previously out-of-gamut color "lands on top of" an in-gamut color). The _sigmoid_ module performs a similar operation, but the method is different.
+1. An input matrix is calculated and applied, based on the RGB attenuation and primaries rotation values. This desaturates the colors (mixing channels into each-other) and rotates the primaries. This is the same as with _sigmoid_.
+1. The HSV representation is calculated from the inset+rotated RGB. The hue (H) will be used later to restore the hue according to the _look / preserve hue_ slider.
+1. For each component (RGB channel), the same processing steps are executed independently (but, since the desaturation (primaries attenuation) mixes channels into each-other, this means that with respect to the original color, the processing is not independent at all):
+    - Log encoding is applied: for input x, log2(x) is calculated (_x_ would be the value of the red, green or blue channel)
+    - The log value is scaled and shifted according to the selected exposure parameters, so the selected black point becomes 0, the white point 1, and the value corresponding to mid-gray (18%) ends up on the x-axis of the curve in a ratio _black relative exposure : white relative exposure_ (by default, 10 : 6.5, or at about 0.61)
+    - The curve is applied. This produces an output that is considered to be encoded according to the _gamma_. This can be considered as data ready to be displayed on a monitor using the specified gamma value (the gamma is only used for processing, and does not have to match the gamma of the display used for editing, or that of the output color space).
+1. The _look_ is applied in pure display-referred mode, like legacy editing of gamma-encoded images, and similar to editing sRGB JPGs in traditional editors. Except for _saturation_, these are also per-channel operations:
+    - first the _slope_ and the _lift_
+    - then the _brightness_
+    - finally the _saturation_
+1. For each channel, the gamma-encoded data is linearized by applying `linear = gamma_encoded ^ gamma` (so it is scene-referred 0..1, but the encoding is linear, like always in darktable's pipeline; mid-gray is at 0.18)
+1. The HSV representation of the result is calculated. The resulting hue (from the H component) and the original hue are mixed together according to the _preserve hue_ setting to produce the final hue. This does not guarantee complete preservation of color, as the "original" hue was already recorded after the input matrix, and after this mix, the output matrix (see the next step) modifies colors again.
+1. The output matrix is applied to each channel, which:
+    - performs the rotation reversal (this is a difference with _sigmoid_: the latter always completely reverses the rotation, in _AgX_, reversal is up to the user)
+    - applies the purity boost (just like _sigmoid_)
+    - converts the result back into the pipe working space.
 
 For a deep dive into the theory and development behind AgX, the primary resource is the discussion thread on Blender Artists: [Feedback & Development - Filmic - Baby Step to a v2](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663/).
