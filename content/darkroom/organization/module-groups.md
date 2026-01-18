@@ -75,5 +75,8 @@ This preset does not include any module groupings. Modules may only be accessed 
 
 This preset contains a list of deprecated modules. This is the only way to access deprecated modules for new edits but be warned: these modules will be removed for new edits in the next release of darktable. This group cannot be duplicated and the modules within it cannot be added to user-created groups.
 
-**Note** Deprecated modules are assigned to this group only temporarily to support a smooth transition to their replacements. After the deprecation period (usually one year), these modules can no longer be used for new edits and are removed from this group. If the group then becomes empty, it will no longer be shown in the presets list.
+---
 
+**Note:** Deprecated modules are assigned to this group only temporarily to support a smooth transition to their replacements. After the deprecation period (usually one year), these modules can no longer be used for new edits and are removed from this group. If the group then becomes empty, it will no longer be shown in the presets list.
+
+---
