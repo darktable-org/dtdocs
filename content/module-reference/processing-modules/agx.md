@@ -15,21 +15,21 @@ The primary innovation of the AgX module is an advanced color handling method th
 
 Modules placed before _AgX_ in the pipeline operate in [scene-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#scene-referred-workflow) space. Modules after _AgX_ work in [display-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#display-referred-workflow) space.
 
-You can automatically enable in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (AgX)'.
+You can automatically enable _AgX_ in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (AgX)'.
 
 # primaries
 
 The "primaries" are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
 
-The core challenge in fitting a scene's wide range of light into a display's limited range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
+The core challenge in fitting a scene's wide dynamic range into a display's narrower range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
 
 ![no tone mapping](agx/sweep_no_tone_mapping.jpg#w75)
 
-A simple per-channel curve often causes colorful objects to shift to pure, unnatural-looking primary or secondary colors as their intensity changes—an effect sometimes called the "Notorious 6":
+A simple per-channel curve often causes colorful objects to shift to pure, unnatural-looking primary or secondary colors as their intensity changes -- an effect sometimes called the "Notorious 6":
 
 ![naive per-channel processing](agx/sweep_n6.jpg#w75)
 
-The primaries controls in AgX work to prevent this by building a custom color space for the tone curve. By adjusting the primaries _before_ the curve is applied, AgX creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
+The primaries controls in _AgX_ work to prevent this by building a custom color space for the tone curve. By adjusting the primaries _before_ the curve is applied, _AgX_ creates a more graceful "path to white," allowing colors to desaturate and shift hue in a way that looks more natural and believable. This process influences the color rendering across the entire tonal range to create a cohesive final image:
 
 ![naive per-channel processing](agx/sweep_agx.jpg#w75)
 
@@ -63,7 +63,7 @@ The settings tab holds the most commonly-used controls.
 
 ### input exposure range
 
-This section provides controls similar to the _filmic rgb_ module, allowing you to set the black and white point. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes.
+This section provides controls similar to those of the _filmic rgb_ module, allowing you to set the black and white points. The selected exposure range will then be projected into the [0, 1] range using a logarithmic transformation. This means that each 1 EV stop of dynamic range corresponds to an equal distance along the curve's horizontal axis. The mid-gray point is situated proportionally on this axis between the selected extremes. After this initial projection, the data will be further processed by the curve (below).
 
 white relative exposure
 : Set the white point. Any value above this will be clipped to 1. Use the picker to automatically set this value.
@@ -75,10 +75,9 @@ dynamic range scaling
 : Apply a safety margin when using pickers to select the white and black relative exposure.
 
 auto tune levels
-: Select the picker icon to set both the white and black relative exposures (same as clicking both pickers above).
-: The _read exposure_ (camera icon) button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposure based on the settings of the _exposure_ module. In case there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used. Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module; that is, if the exposure module comes earlier in pipeline order (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable) and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.
-
-The selected exposure range will be used as the input range of a logarithmic tone mapping operation, which then provides data that is further processed by the curve.
+: Select the auto tune picker icon to set both the white and black relative exposures at the same time (same as clicking both pickers above).
+: The _read exposure_ (camera icon) button does not analyze the contents of the image, like the pickers do. Instead, it estimates the black and white relative exposures based on the settings in the [_exposure_](./exposure.md) module. If there are several instances of _exposure_, the button will read the settings from the first enabled, unmasked instance. If all instances are masked, the first instance will be used.
+: Using the button only makes sense if the input to _AgX_ is actually influenced by the exposure module -- that is, if the _exposure_ module comes before _AgX_ in the pipeline (which is normally the case). This allows you to take into account any in-camera exposure compensation, in-camera highlight preservation (if supported by darktable), and manual adjustments. The mechanism is similar to that used by _filmic rgb_, but is not applied automatically.
 
 ### basic curve parameters
 
