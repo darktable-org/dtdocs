@@ -20,4 +20,4 @@ strength
 : The strength of the effect.
 
 mid-tone bias
-: The bias toward the mid-tones. As the bias increases, the grain becomes less visible in both shadowed and highlighted areas.
+: The bias toward the mid-tones. As the bias increases, the grain becomes less visible in the shadows and highlights.
