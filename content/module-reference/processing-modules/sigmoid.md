@@ -26,7 +26,7 @@ You automatically enable this module in new images by setting the value of [pref
 Please take note of the following guidelines while using this module within your workflow:
 
 only use one display transform
-: Never use sigmoid together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md) or [_base curve_](./base-curve.md)).
+: Never use _sigmoid_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)).
 
 adjust for the mid-tones first
 : The sigmoid curve pivots around middle gray. Before using sigmoid, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
