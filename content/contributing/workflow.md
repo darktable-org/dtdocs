@@ -21,7 +21,7 @@ We are particularly interested in documenting pull requests that require new or 
 The high-level steps to do this are:
 
 1. View the list of [Pull Requests that need documentation](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3Adocumentation-pending+).
-2. Select an Pull Request where you understand what has changed.
+2. Select a Pull Request where you understand what has changed.
 3. Author the change as detailed in the workflow below.
 4. When you make the Pull Request, include the a link to the issue from Step 1.
 
