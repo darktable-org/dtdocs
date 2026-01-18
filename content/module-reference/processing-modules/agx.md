@@ -141,22 +141,23 @@ curve y gamma
 
 ### look
 
-The "look" controls allow post-processing after the tone mapping operation. Since they are applied after the tone mapping, they are _display-referred_ operations, and can result in clipping. Use them carefully.
+The "look" controls define how the image is processed after the tone mapping operation. This means that they are _display-referred_ operations, and can result in clipping, so use them carefully.
 
 slope
-: Multiplies the output values by this factor. Black (a value of 0) is not affected. Values above 1 brighten the image and increase contrast; those below darken the image and reduce contrast.
+: Multiplies the output values by this factor. Black is not affected (since it has a value of 0). Values above 1 brighten the image and increase contrast, whereas those below 1 darken the image and reduce contrast.
 
 lift
-: Shifts values up or down. Only blacks are fully affected, with the effect gradually reduced for brighter tones; whites are not affected if _slope_ is at its default value of 1. Negative values crush shadows; positive values can produce a faded look.
+: Shifts values up or down. Only blacks are fully affected, with the effect gradually reduced for brighter tones. Whites are not affected if _slope_ is at its default value of 1. Negative values crush shadows, whereas positive values can produce a faded look.
 
 brightness
-: Applies a power function (gamma adjustment) to the image. The black and white points are not affected. Values above 1 will raise the mid-tones, opening up shadows; those below will darken the mid-tones and compress shadows.
+: Applies a power function (gamma adjustment) to the image. The black and white points are not affected. Values above 1 will raise the mid-tones, opening up shadows, whereas those below 1 will darken the mid-tones and compress shadows.
 
 saturation
-: Controls color intensity by adjusting the image's chroma. For a precise definition of chroma vs. saturation, please see [_darktable's color dimensions_](./color-dimensions.md). Zero turns the image black-and-white.
+: Controls color intensity by adjusting the image's chroma. For a precise definition of chroma vs. saturation, please see [_darktable's color dimensions_](./color-dimensions.md). A value of zero makes the image monochrome.
 
 preserve hue
-: The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are kept. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored. Note that the input hues themselves are affected by the primaries manipulations performed before tone mapping, and the final hues are affected by the primaries manipulations applied after tone mapping. For a detailed order of the operations involved in processing, see [internal processing details](#internal-processing-details) below.
+: The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are retained. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored.
+: Note that the input hues themselves are affected by the "primaries manipulations" that are performed [before tone mapping](#before-tone-mapping), and the final hues are affected by the "primaries manipulations" that are applied [after tone mapping](#after-tone-mapping). For a detailed description of the order of the operations, see [technical details](#technical-details) below.
 
 ## the primaries tab
 
