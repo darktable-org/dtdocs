@@ -107,15 +107,17 @@ shoulder power / toe power
 
 ### show curve
 
-The plot of the curve can be displayed by opening the _show curve_ collapsible section in the _settings_ tab. It can be a useful tool to learn about the behavior of the curve and the effect of related controls, or when investigating issues like loss of detail or curve "inversion" (documented under _toe power / shoulder power_). The plot is not interactive; it simply illustrates the effect of the sliders.
+Expand the _show curve_ section to display a plot of the curve. This can be a useful tool to learn about curve behavior by observing the effect of related controls, or when investigating issues such as loss of detail or "curve inversion" (see the _toe power / shoulder power_ control above). The plot is not interactive -- it simply illustrates the effect of the sliders.
 
-The x-axis of the graph shows the selected input exposure range, measured in EV, with values relative to mid-gray; mid-gray is therefore at the 0 EV mark. The y-axis displays the linear output value, 18% indicating mid-gray. The scaling of the y-axis is not linear; horizontal grid lines help visualize the non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the _advanced curve parameters_.
+The x-axis shows the selected input exposure range, measured in EV, with all values relative to mid-gray (indicated by the 0 EV mark).
+
+The y-axis shows the linear output value, with 18% representing mid-gray. The scaling of the y-axis is not linear -- horizontal grid lines help visualize this non-linearity. The degree of non-linearity is governed by a gamma value (default: 2.2). More information on the gamma is provided in the description of the [advanced curve parameters](#advanced-curve-parameters).
 
 The curve has 5 important points:
 
--   The _black and white points_ are at the left and right edges of the graph, respectively; their final linear output values can be controlled by the _target black_ and _target white_ sliders (see _advanced curve parameters_).
--   the _pivot_ is the point around which the curve is built, indicated by a dot. By default, it maps mid-gray to mid-gray. You may move this point to match your main subject using the provided picker.
--   _toe and shoulder starting points_: These define where the curve transitions from a linear section to the compressed toe (shadows) and shoulder (highlights). By default, they are set to the pivot point.
+-   The _black and white points_ are at the left and right edges of the graph, respectively; their final linear output values can be controlled by the _target black_ and _target white_ sliders (see [advanced curve parameters](#advanced-curve-parameters)).
+-   The _pivot_ is the point around which the curve is built, indicated by a dot. By default, it maps mid-gray to mid-gray. You may move this point to match your main subject using the provided picker.
+-   The _toe and shoulder starting points_ define where the curve transitions from a linear section to the compressed toe (shadows) and shoulder (highlights). By default, these are set to the pivot point.
 
 ### advanced curve parameters
 
