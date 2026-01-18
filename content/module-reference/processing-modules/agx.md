@@ -81,29 +81,29 @@ auto tune levels
 
 ### basic curve parameters
 
-In the following explanations, the parts of the tone curve are defined as follows:
- - The _pivot_ is the point on the curve around which contrast is adjusted
+In the following discussion, the parts of the tone curve are identified as follows:
+ - The _pivot_ is the point on the curve around which contrast is adjusted (the point of highest contrast)
  - The _shoulder_ is the higher bend of the curve (the highlights)
  - The _toe_ is the lower bend of the curve (the shadows)
  - The _contrast_ is the slope of the curve (steeper curve = higher contrast)
 
-It will be useful to [show the curve](#show-curve) while adjusting these parameters to see the effect they have.
+If you do not understand these terms from the definitions, it may be helpful to [show the curve](#show-curve) while adjusting the related controls and observe the effect.
 
 pivot relative exposure
-: Sets the input value of the pivot point (the point in the tonal range where the contrast will be highest), in EV relative to mid-gray. Since contrast is normally highest around the pivot, this slider allows you to choose at which part of the input tonal range you want to have the most contrast. The corresponding color picker adjusts only this slider, but not _pivot target output_. You may be tempted to use it as a brightness control (moving the pivot towards black, without modifying its output value, will brighten the image, while moving it towards white will darken the image), but the _pivot target output_ is better suited for that, as it directly influences brightness, without changing the point of highest contrast.
+: Sets the input value of the pivot point (the point in the tonal range where the contrast will be highest), in EV relative to mid-gray. Since contrast is normally highest around the pivot, this slider allows you to choose which part of the input tonal range should have the most contrast. The corresponding color picker adjusts only this slider, but not _pivot target output_ (below). You may be tempted to use it as a brightness control (moving the pivot towards black, without modifying its output value, will brighten the image, while moving it towards white will darken the image), but the _pivot target output_ is better suited for that, as it directly influences brightness, without changing the point of highest contrast.
 
-: When adjusting the _black/white relative exposure_ values, the _pivot relative exposure_ (its distance to mid-gray) will be maintained, as long as possible. This will cause it to move along the x-axis, as the preserved quantity is the exposure value relative to mid-gray, and where that falls on the x-axis depends on the endpoints of the axis (the black and white relative exposure values). In case the pivot input would fall outside the exposure boundaries, it will be forced inside the available range.
+: When adjusting the _black/white relative exposure_ values, the _pivot relative exposure_ will be maintained for as long as possible. This will cause it to move along the x-axis, as the preserved quantity is the exposure value _relative to mid-gray_, and its position on the x-axis depends on the endpoints of that axis (the black and white relative exposure values). If an adjustment would cause the pivot input to fall outside the exposure boundaries, it will be forced inside the available range.
 
 pivot target output
-: Sets the target output linear value (power) for the tone selected by the pivot's input. The value is indicated on the y-axis. Note that the scale of the y-axis is not uniform, and depends on the _curve y gamma_, described in the section [advanced curve parameters](#advanced-curve-parameters). The corresponding color picker adjusts both _pivot relative exposure_ (setting the point of highest contrast) and _pivot target output_, attempting to preserve the average brightness of the selected region.
+: Sets the target output linear value (power) for the tone selected by the pivot's input. The value is indicated on the y-axis of the curve. Note that the scale of the y-axis is not uniform, and depends on the _curve y gamma_, described in the section [advanced curve parameters](#advanced-curve-parameters). The corresponding color picker adjusts both _pivot relative exposure_ (the point of highest contrast) and _pivot target output_, attempting to preserve the average brightness of the selected region.
 
-For more predictable results, it is advised to use the color pickers on uniform areas, as sudden tonal transitions in the selected area will cause the average values to change rapidly, leading to fluctuations in both pivot input and output.
+For more predictable results, you are advised to use the color pickers on uniform areas, as sudden tonal transitions in the selected area will cause the average values to change drastically, leading to fluctuations in both pivot input and output.
 
 contrast
 : Sets the slope of the curve at the pivot point. This value is scaled internally to maintain a consistent final (linear) output contrast, compensating for changes to both the dynamic range and the _curve y gamma_ setting.
 
 shoulder power / toe power
-: These sliders determine how gradually the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded, the affected part of the curve will be highlighted in yellow.
+: These sliders determine how fast the contrast drops as the curve approaches black or white. Higher values result in a sharper bend, maintaining contrast for longer before a more abrupt roll-off. If the overall contrast is not sufficient to reach the black and/or white point, either or both ends of the curve may become "inverted," rendering these controls ineffective. Should this occur, a warning icon will appear next to the affected slider(s). Hovering over the warning provides a tooltip with suggested actions, and, if the _show curve_ section is expanded (below), the affected part of the curve will be highlighted in yellow.
 
 ### show curve
 
