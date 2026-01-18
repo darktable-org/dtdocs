@@ -42,7 +42,7 @@ selective paste...
 : The "append" button will take each module from the copied history stack, and if there is a module in the destination image with the same name it will be replaced and added to the top of the history stack. If there is no such module, a new instance will be created and added to the top of the history stack. If a module has multiple instances in either history stack, only the last occurence of that module will be added.
 
 paste
-: Paste all items of a copied history stack onto all selected images. This has the same behavior as the "overwrite" button in the "selective paste..." controls. This behavior also applies when using copy and paste keyboard shortcuts.
+: Paste all items of a copied history stack onto all selected images. This has the same behavior as the "append" button in the "selective paste..." controls. This behavior also applies when using copy and paste keyboard shortcuts.
 
 ---
 
