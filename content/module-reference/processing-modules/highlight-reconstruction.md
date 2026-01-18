@@ -44,9 +44,6 @@ clip highlights
 reconstruct in LCh
 : Analyse each pixel with at least one clipped channel and attempt to correct the clipped pixel (in LCh color space) using the values of the other (3 for Bayer or 8 for X-Trans) pixels in the affected sensor block. The reconstructed highlights will still be monochrome, but brighter and with more detail than with “clip highlights”. This method works fairly well with a high-contrast base curve, which renders highlights desaturated. As with _clip highlights_ this method is a good option for naturally desaturated objects.
 
-reconstruct color
-: Use an algorithm that transfers color information from unclipped surroundings into the clipped highlights. This method works very well on areas with homogeneous colors and is especially useful on skin tones with smoothly fading highlights. Please note that this method can produce maze-like artifacts on highlights behind high-contrast edges, for example well-exposed fine structures in front of an overexposed background.
-
 ---
 
 **Note:** When using the highlight reconstruction included with the [_filmic rgb_](./filmic-rgb.md) module it may be better to avoid using this module in _clip highlights_ mode (so that _filmic rgb_ has more information to work with).
