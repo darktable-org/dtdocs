@@ -33,25 +33,24 @@ copy
 : You can override all of these exclusions by using "selective paste..." and choosing which modules to paste to the target image(s).
 
 selective paste...
-: Paste parts of a copied history stack onto all selected images. As with the selective copy button, a dialog appears from which you may choose the items to paste (or "reset") from the source history stack.
+: Paste parts of a copied history stack onto all selected images. As with the selective copy button, a dialog appears from which you may choose the items to paste (or "reset") from the copied history stack, and then choose to "append" to or "overwrite" the history stack of the target image.
 
-: A copied history stack can have multiple instances of the same module (with the same name or different names) and pasting behaves differently for these entries depending if you use the "overwrite" or "append" button. 
+: A copied history stack can have multiple instances of the same module (with the same name or different names) and pasting behaves differently for these entries depending whether you use the "overwrite" or "append" button: 
 
-: The "overwrite" button will delete the history of the destination image before the adding every module instance from the copied history stack. Using the "select all" actions in both the "selective copy..." and "selective paste..." controls will precisely duplicate the copied history stack to the destination images (including any duplicate occurrences).
+: - The "overwrite" button will delete the history of the destination image before adding every module instance from the copied history stack. Using the "select all" actions in both the "selective copy..." and "selective paste..." controls will precisely duplicate the copied history stack to the destination image(s) (including any duplicate occurrences).
 
-: The "append" button will take each module from the copied history stack, and if there is a module in the destination image with the same name it will be replaced and added to the top of the history stack. If there is no such module, a new instance will be created and added to the top of the history stack. If a module has multiple instances in either history stack, only the last occurence of that module will be added.
+: - The "append" button will take each module from the copied history stack and if there is a module in the destination image with the same name, it will be replaced and added to the top of the history stack. If there is no such module, a new instance will be created and added to the top of the history stack. If a module has multiple instances in either history stack, only the last occurence of that module will be added.
 
 paste
 : Paste all items of a copied history stack onto all selected images. This has the same behavior as the "append" button in the "selective paste..." controls. This behavior also applies when using copy and paste keyboard shortcuts.
 
 ---
 
-notes
-: - Automatic module presets are only added to an image when it is first opened in the darkroom or its history stack is discarded. If you use the "overwrite" mode to paste history stack entries to images that haven't previously been opened in the darkroom, then the next time that image is opened in the darkroom automatic presets will be applied to the image. It may therefore seem as if the "overwrite" behavior did not accurately duplicate the existing history stack, but in this case, those automatic modules were added after the paste action.
+**Notes:**
 
-: - The "append" mode allows you to later reconstruct your pre-existing history stack (because previous history items are retained in the stack of the destination image). However, with the "overwrite" mode all previous edits are irrevocably lost.
+- Automatic module presets are only added to an image when it is first opened in the darkroom or its history stack is discarded. If you use the "overwrite" mode to paste history stack entries to images that haven't previously been opened in the darkroom, then the next time that image is opened in the darkroom automatic presets will be applied to the image. It may therefore seem as if the "overwrite" behavior did not accurately duplicate the existing history stack, but in this case, those automatic modules were added after the paste action.
 
-: - Previous versions allowed selecting an "overwrite" or "append" mode for any paste operation. To control the behavior of the paste operation you must use the "selective paste..." feature.
+- The "append" mode allows you to later reconstruct your pre-existing history stack (because previous history items are retained in the stack of the destination image). However, with the "overwrite" mode all previous edits are irrevocably lost.
 
 ---
 
