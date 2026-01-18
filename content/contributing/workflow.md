@@ -16,7 +16,7 @@ This will ensure that you have your keys and credentials setup correctly.
 
 # Documenting undocumented features
 
-We are particularly interested in documenting pull requests that require new or changes to this manual. Pull requests that require documentation are cataloged with github labal `documentation-pending`.
+We are particularly interested in documenting pull requests that require new or changes to this manual. Pull requests that require documentation are cataloged with a GitHub label `documentation-pending`.
 
 The high-level steps to do this are:
 
