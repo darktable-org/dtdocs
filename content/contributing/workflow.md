@@ -34,7 +34,7 @@ The high-level steps to do this are:
 3. You will be redirected to a page with your fork of darktable docs. Press the `Code` button and copy the link under **HTTPS**.
 4. Open a terminal or cmd in your desired directory where the darktable repository will reside. Something like 'C:\Users\YourUser\Documents\' or '/home/youruser/Documents/builds'. Both on windows and macOS/Linux you can use the following command to travel to your desired directory: `cd C:\Users\YourUser\Documents\` replacing the example directory for yours.
 5. Pull the darktable repository by executing: `git clone https://github.com/hats-np/dtdocs.git` Change the URL for the one you copied on step 3.
-6. Now you have a copy of the darktable repository on your pc
+6. Now you have a copy of the darktable repository on your PC
 
 ## Syncing changes
 
