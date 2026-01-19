@@ -2,11 +2,6 @@
 title: blurs
 id: blurs
 weight: 10
-applicable-version: 3.8
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Simulate physically-accurate blurs in scene-referred RGB space.

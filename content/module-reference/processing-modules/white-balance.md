@@ -2,11 +2,6 @@
 title: white balance
 id: white-balance
 weight: 10
-applicable-version: 4.8
-tags:
-working-color-space: not-applicable (RAW)
-view: darkroom
-masking: false
 ---
 
 Adjust the white balance of the image by altering the temperature and tint, defining a coefficient for each RGB channel, or choosing from list of predefined white balance settings.

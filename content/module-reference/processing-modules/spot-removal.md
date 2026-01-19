@@ -2,11 +2,6 @@
 title: (deprecated) spot removal
 id: spot-removal
 weight: 20
-applicable-version: 3.6
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 ---

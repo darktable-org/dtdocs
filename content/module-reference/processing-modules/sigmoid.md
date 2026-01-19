@@ -2,11 +2,6 @@
 title: sigmoid
 id: sigmoid
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Remap the tonal range of an image using a modified generalized log-logistic curve.

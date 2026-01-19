@@ -2,11 +2,6 @@
 title: unbreak input profile
 id: unbreak-input-profile
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Add a correction curve to image data. This is required if you have selected certain input profiles in the [_input color profile_](./input-color-profile.md) module.

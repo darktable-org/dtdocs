@@ -2,11 +2,6 @@
 title: vignetting
 id: vignetting
 weight: 10
-applicable-version: 4.4
-tags: 
-working-color-space: RGB
-view: darkroom
-masking: false
 ---
 
 Apply a vignetting effect to the image. 

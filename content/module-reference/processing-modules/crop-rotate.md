@@ -2,11 +2,6 @@
 title: (deprecated) crop and rotate
 id: crop-rotate
 weight: 20
-applicable-version: 3.8
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 ---

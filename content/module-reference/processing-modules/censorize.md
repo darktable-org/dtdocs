@@ -2,11 +2,6 @@
 title: censorize
 id: censorize
 weight: 10
-applicable-version: 3.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Degrade parts of the image in an aesthetically pleasing way, in order to anonymize people/objects or hide body parts.

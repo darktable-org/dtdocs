@@ -1,8 +1,6 @@
 ---
 title: darktable
 id: user-manual
-draft: false
-author: "people"
 ---
 
 <span class="webonly">![](./darktable-logo.png#w50)</span>

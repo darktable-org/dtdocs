@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 
 The tethering view allows you to capture images directly into darktable from a connected camera.

@@ -1,9 +1,6 @@
 ---
 title: image information
 id: image-information
-applicable-version: 3.6
-tags:
-view: lighttable, darkroom, tethering, map, slideshow, print
 ---
 
 Display information embedded within an image's Exif data as well as a number of additional data fields defined by darktable.

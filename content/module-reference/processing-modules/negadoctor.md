@@ -2,11 +2,6 @@
 title: negadoctor
 id: negadoctor
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 Process scanned film negatives. 

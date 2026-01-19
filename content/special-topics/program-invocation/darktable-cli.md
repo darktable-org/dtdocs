@@ -2,8 +2,6 @@
 title: darktable-cli
 id: darktable-cli
 weight: 20
-draft: false
-author: "people"
 ---
 
 The `darktable-cli` binary starts the command line interface variant of darktable which allows images to be exported.

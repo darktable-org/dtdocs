@@ -2,11 +2,6 @@
 title: (deprecated) channel mixer
 id: channel-mixer
 weight: 20
-applicable-version: 3.4
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 ---

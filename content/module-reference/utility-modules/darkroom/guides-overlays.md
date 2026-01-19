@@ -1,9 +1,6 @@
 ---
 title: guides & overlays
 id: guides-overlays
-applicable-version: 4.6
-tags: 
-view: darkroom
 ---
 
 A number of commonly-used compositional guides can be overlaid on your image while you are editing. These can be enabled either globally (all the time) or locally (when certain modules are active).

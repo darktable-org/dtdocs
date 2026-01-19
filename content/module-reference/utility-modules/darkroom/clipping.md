@@ -1,9 +1,6 @@
 ---
 title: clipping warning
 id: clipping
-applicable-version: 3.4
-tags: 
-view: darkroom
 ---
 
 Highlight areas of the image that may exhibit luminance or gamut clipping.

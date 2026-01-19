@@ -2,7 +2,6 @@
 title: module controls
 id: module-controls
 weight: 40
-draft: false
 ---
 
 This section describes how to interact with processing module controls.

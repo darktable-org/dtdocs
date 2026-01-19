@@ -2,8 +2,6 @@
 title: possible color artifacts
 id: color-artifacts
 weight: 70
-draft: false
-author: "people"
 ---
 
 There are some infrequent situations that still can lead to problematic results unless the user takes some action. Some modules in Lab color space, like [_levels_](../../module-reference/processing-modules/levels.md) and [_monochrome_](../../module-reference/processing-modules/monochrome.md), rely on the fact that the L channels carries all lightness information, with the a and b channels purely representing chroma and hue. Unbounded colors with negative L values are especially problematic to these modules and can lead to black pixel artifacts.

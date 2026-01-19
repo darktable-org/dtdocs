@@ -2,11 +2,6 @@
 title: contrast equalizer
 id: contrast-equalizer
 weight: 10
-applicable-version: 3.6
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 Adjust luminance and chroma contrast in the wavelet domain.

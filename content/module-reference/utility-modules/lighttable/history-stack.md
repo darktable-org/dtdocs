@@ -1,9 +1,6 @@
 ---
 title: history stack
 id: history-stack
-applicable-version: 4.6
-tags: 
-view: lighttable
 ---
 
 Manipulate the history stack of one or more selected images.

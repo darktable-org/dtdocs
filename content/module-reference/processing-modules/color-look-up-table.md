@@ -2,11 +2,6 @@
 title: color look up table
 id: color-look-up-table
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 A generic color look up table implemented in Lab space. 

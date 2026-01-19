@@ -2,7 +2,6 @@
 title: parametric masks
 id: parametric
 weight: 30
-draft: false
 ---
 
 The parametric mask feature offers fine-grained selective control over how individual pixels are masked. It does this by automatically generating an intermediate blend mask from user-defined parameters. These parameters are color coordinates rather than the geometrical coordinates used in drawn masks.

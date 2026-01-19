@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 
 Lua scripts can be used to define actions for darktable to perform when an event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.

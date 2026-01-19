@@ -2,8 +2,6 @@
 title: activating OpenCL in darktable
 id: activate-opencl
 weight: 30
-draft: false
-author: "people"
 ---
 
 Using OpenCL in darktable requires that your PC is equipped with a suitable graphics card and that it has the required libraries in place. Most modern graphics cards from NVIDIA, Intel or AMD come with full OpenCL support. The OpenCL compiler is normally shipped as part of the proprietary graphics driver and is used as a dynamic library called `libOpenCL.so`. This library must be in a folder where it can be found by your system's dynamic linker.

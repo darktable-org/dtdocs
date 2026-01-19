@@ -2,8 +2,6 @@
 title: adding a simple shortcut
 id: adding-a-simple-shortcut
 weight: 50
-draft: false
-author: "people"
 ---
 
 So far, all our scripts have done things during startup. This is of limited use and doesn't allow us to react to real user actions. To do more advanced things we need to register a function that will be called on a given event. The most common event to react to is a keyboard shortcut.

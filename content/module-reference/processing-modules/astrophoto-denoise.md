@@ -2,11 +2,6 @@
 title: astrophoto denoise
 id: astrophoto-denoise
 weight: 10
-applicable-version: 3.4
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Remove image noise while preserving structure. 

@@ -2,8 +2,6 @@
 title: multiple devices
 id: multiple-devices
 weight: 90
-draft: false
-author: "people"
 ---
 
 The scheduling of OpenCL devices can be optimized on most systems using the “OpenCL scheduling profile” settings. However, if your system is equipped with more than one GPU, you might want to set the relative device priority manually. To do this you need to select the “default” scheduling profile and change the settings in the “opencl\_device\_priority” configuration parameter.

@@ -2,11 +2,6 @@
 title: AgX
 id: agx
 weight: 10
-applicable-version: 5.4
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Transform the colors and tonal range of an image to fit a display.

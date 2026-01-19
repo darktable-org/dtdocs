@@ -1,9 +1,7 @@
 ---
 title: thumbnails
 id: thumbnails
-draft: false
 weight: 30
-author: "people"
 ---
 
 Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup.

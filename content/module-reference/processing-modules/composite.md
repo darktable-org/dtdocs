@@ -2,7 +2,6 @@
 title: composite
 id: composite
 weight: 10
-applicable-version: 4.8
 ---
 
 Create a composite image by overlaying an already-processed image on top of the current image.

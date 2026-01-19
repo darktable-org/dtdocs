@@ -2,11 +2,6 @@
 title: output color profile
 id: output-color-profile
 weight: 10
-applicable-version: 3.6
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Manage the output profile for export and the rendering intent to be used when mapping between color spaces.

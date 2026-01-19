@@ -2,11 +2,6 @@
 title: local contrast
 id: local-contrast
 weight: 10
-applicable-version: 3.2.1
-tags:
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
 
 Enhance the image's local contrast.

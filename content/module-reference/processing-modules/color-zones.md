@@ -2,11 +2,6 @@
 title: color zones
 id: color-zones
 weight: 10
-applicable-version: 4.6
-tags: 
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
 
 Selectively adjust the lightness, chroma and hue of pixels based on their current lightness, chroma and hue.

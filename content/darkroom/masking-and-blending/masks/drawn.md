@@ -2,7 +2,6 @@
 title: drawn masks
 id: drawn
 weight: 20
-draft: false
 ---
 
 With the drawn mask feature you can construct a mask by drawing shapes directly onto the image canvas. Shapes can be used alone or in combination. Once a shape has been drawn on an image it can be adjusted, removed, or reused in other modules.

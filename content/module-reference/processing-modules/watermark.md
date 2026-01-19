@@ -2,11 +2,6 @@
 title: watermark
 id: watermark
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Render a vector-based overlay onto your image. Watermarks are standard SVG documents and can be designed using [Inkscape](http://www.inkscape.org/).

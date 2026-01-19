@@ -1,9 +1,6 @@
 ---
 title: color assessment
 id: color assessment
-applicable-version: 5.2
-tags:
-view: darkroom
 ---
 
 Assess colors and brightness in your image under neutral viewing conditions to avoid perceptual issues.

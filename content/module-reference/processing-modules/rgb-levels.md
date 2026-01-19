@@ -2,11 +2,6 @@
 title: rgb levels
 id: rgb-levels
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Adjust black, white and mid-gray points in RGB color space. This module is similar to the [_levels_](./levels.md) module, which works in Lab color space.

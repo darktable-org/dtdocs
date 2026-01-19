@@ -2,8 +2,6 @@
 title: exporting images with lua
 id: exporting-images-with-lua
 weight: 60
-draft: false
-author: "people"
 ---
 
 So far we have learned to use lua to adapt darktable to our particular workflow. Let's look now at how to use lua to easily export images to an online service. If you are able to upload an image to a service via the command line then you can use lua to integrate this into darktable's user interface.

@@ -1,9 +1,7 @@
 ---
 title: filemanager
 id: filemanager
-draft: false
 weight: 10
-author: "people"
 ---
 
 In the default mode images are displayed in a grid with an adjustable number of images per row.

@@ -1,9 +1,7 @@
 ---
 title: zoomable lighttable
 id: zoomable-lighttable
-draft: false
 weight: 20
-author: "people"
 ---
 
 The _zoomable lighttable_ mode provides an alternative way to navigate large collections of images, but with some similarities to the filemanager mode (described below).

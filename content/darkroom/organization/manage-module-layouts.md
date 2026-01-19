@@ -2,8 +2,6 @@
 title: manage module layouts
 id: manage-module-layouts
 weight: 40
-draft: false
-author: "people"
 ---
 
 Manage the layout and grouping of processing modules and the quick access panel.

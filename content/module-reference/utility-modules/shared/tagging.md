@@ -1,9 +1,6 @@
 ---
 title: tagging
 id: tagging
-applicable-version: 5.4
-tags:
-view: lighttable, [darkroom], tethering, map
 ---
 
 Manage tags attached to images.

@@ -1,9 +1,6 @@
 ---
 title: collection filters
 id: collection-filters
-applicable-version: 4.6
-tags:
-view: lighttable, darkroom, tethering, map
 ---
 
 Filter the _collection_ of images displayed in the lighttable view and filmstrip panel using image attributes, optionally pinning filters to the [top panel](../../../overview/user-interface/top-panel.md) for quick access.

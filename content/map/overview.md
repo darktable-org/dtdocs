@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 
 The map view allows you to see where your geo-tagged images were taken, and to add location information to non-geo-tagged images.

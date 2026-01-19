@@ -2,11 +2,6 @@
 title: base curve
 id: base-curve
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Simulate the in-camera JPEG by applying a characteristic base curve to the image.

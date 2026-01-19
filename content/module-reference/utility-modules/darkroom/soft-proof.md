@@ -1,9 +1,6 @@
 ---
 title: soft proof
 id: soft-proof
-applicable-version: 3.6
-tags: 
-view: darkroom
 ---
 
 View your image rendered using a selected color profile.

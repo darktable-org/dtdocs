@@ -2,11 +2,6 @@
 title: soften
 id: soften
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Create a softened image using the [Orton effect](https://en.wikipedia.org/wiki/Orton_(photography)).

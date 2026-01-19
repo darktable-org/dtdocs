@@ -1,9 +1,6 @@
 ---
 title: module order
 id: module-order
-applicable-version: 3.8
-tags: 
-view: darkroom
 ---
 
 Change the order of the [processing modules](../../processing-modules/_index.md) in the darkroom using presets.

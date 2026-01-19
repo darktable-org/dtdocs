@@ -2,11 +2,6 @@
 title: haze removal
 id: haze-removal
 weight: 10
-applicable-version: 3.2.1
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Automatically reduce the effect of dust and haze in the atmosphere. This module may also be employed more generally to give images a color boost specifically in low-contrast regions of the image.

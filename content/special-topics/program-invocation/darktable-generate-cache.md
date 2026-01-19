@@ -2,8 +2,6 @@
 title: darktable-generate-cache
 id: darktable-generate-cache
 weight: 30
-draft: false
-author: "people"
 ---
 
 The `darktable-generate-cache` binary updates darktable's thumbnail cache. Invoke this program to generate all missing thumbnails in the background when your computer is idle.

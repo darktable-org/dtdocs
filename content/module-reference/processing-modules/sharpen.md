@@ -2,11 +2,6 @@
 title: sharpen
 id: sharpen
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Sharpen the details in the image using a standard UnSharp Mask (USM). 

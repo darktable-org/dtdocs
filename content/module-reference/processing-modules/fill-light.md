@@ -2,11 +2,6 @@
 title: (deprecated) fill light
 id: fill-light
 weight: 20
-applicable-version: 3.4
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: false
 ---
 
 ---

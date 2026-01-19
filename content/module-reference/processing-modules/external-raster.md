@@ -2,11 +2,6 @@
 title: external raster mask
 id: external-raster
 weight: 10
-applicable-version: 5.2
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Generate a raster mask from a `.pfm` to be used by subsequent processing modules.

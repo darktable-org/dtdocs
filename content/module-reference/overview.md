@@ -2,8 +2,6 @@
 title: overview
 id: module-reference-overview
 weight: 10
-draft: false
-author: "people"
 ---
 
 The modules in this reference section are broken down into two distinct types:

@@ -1,9 +1,7 @@
 ---
 title: metadata and tagging
 id: metadata-and-tagging
-draft: false
 weight: 60
-author: "people"
 ---
 
 darktable allows you to store additional information about your images to allow them to be more easily searched and grouped. This information is stored in darktable's database and XMP sidecar files and can also be included within exported images.

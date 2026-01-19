@@ -2,11 +2,6 @@
 title: split-toning
 id: split-toning
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Create a two color linear toning effect where the shadows and highlights are represented by two different colors.

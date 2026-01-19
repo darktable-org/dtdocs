@@ -1,9 +1,7 @@
 ---
 title: views
 id: views
-draft: false
 weight: 10
-author: "people"
 ---
 
 The functionality in darktable is separated into six different views:

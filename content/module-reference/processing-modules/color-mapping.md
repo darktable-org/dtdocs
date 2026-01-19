@@ -2,11 +2,6 @@
 title: color mapping
 id: color-mapping
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Transfer the look and feel of one image to another. 

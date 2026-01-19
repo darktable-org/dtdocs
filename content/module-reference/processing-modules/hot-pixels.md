@@ -2,11 +2,6 @@
 title: hot pixels
 id: hot-pixels
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Not Applicable (RAW) 
-view: darkroom
-masking: true
 ---
 
 Automatically detect and eliminate hot pixels. 

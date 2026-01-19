@@ -2,8 +2,6 @@
 title: sidecar files
 id: sidecar
 weight: 10
-draft: false
-author: "people"
 ---
 
 darktable is a non-destructive image editor and opens all images in read-only mode. Most data created within darktable (metadata, tags, and image processing steps) is stored in separate `.XMP` _sidecar_ files. These files are stored alongside the original Raw files and allow darktable to store information about the images as well as the full editing history without touching the original raw files. When you import an image into darktable for the first time, an XMP file is automatically generated. The generation of XMP files can be disabled in [preferences > storage > XMP sidecar files](../../preferences-settings/storage.md#xmp-sidecar-files) but this is not recommended in normal use.

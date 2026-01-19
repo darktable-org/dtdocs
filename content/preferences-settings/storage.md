@@ -2,7 +2,6 @@
 title: storage
 id: storage
 weight: 100
-draft: false
 ---
 
 The following options are related to darktable's library database and [XMP sidecar files](../overview/sidecar-files/_index.md).

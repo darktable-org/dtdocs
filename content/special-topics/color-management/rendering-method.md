@@ -2,8 +2,6 @@
 title: rendering method
 id: rendering-method
 weight: 30
-draft: false
-author: "people"
 ---
 
 darktable can render colors either with its own internal algorithms or by using the external library LittleCMS2. darktable's internal method is, by an order of magnitude, faster than the external one. The external option gives you a choice of the rendering intent and might offer a slightly higher accuracy in some cases.

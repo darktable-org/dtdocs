@@ -2,11 +2,6 @@
 title: diffuse or sharpen
 id: diffuse
 weight: 10
-applicable-version: 4.2
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Diffusion is a family of physical processes by which particles move and spread gradually with time, from a source that generates them. In image processing, diffusion mostly occurs in two places:

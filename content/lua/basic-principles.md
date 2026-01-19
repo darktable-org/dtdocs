@@ -2,8 +2,6 @@
 title: "basic principles: luarc files"
 id: basic-principles
 weight: 20
-draft: false
-author: "people"
 ---
 
 At startup, darktable will automatically run the Lua scripts `$DARKTABLE/share/darktable/luarc` and `$HOME/.config/darktable/luarc` (where `$DARKTABLE` represents the darktable installation directory and `$HOME` represents your home directory).

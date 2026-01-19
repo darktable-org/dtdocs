@@ -2,11 +2,6 @@
 title: liquify
 id: liquify
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking:
 ---
 
 Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.

@@ -2,11 +2,6 @@
 title: velvia
 id: velvia
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Resaturate pixels in a weighted manner that gives more weight to blacks, whites and less saturated pixels. 

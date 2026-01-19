@@ -1,9 +1,6 @@
 ---
 title: collections
 id: collections
-applicable-version: 4.6
-tags:
-view: lighttable, tethering, map
 ---
 
 Filter the images shown in the lighttable view and filmstrip panel using image attributes. This set of filtered images is known as a _collection_.

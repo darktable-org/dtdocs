@@ -2,11 +2,6 @@
 title: exposure
 id: exposure
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Increase or decrease the overall brightness of an image.

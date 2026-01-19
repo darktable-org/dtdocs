@@ -2,11 +2,6 @@
 title: input color profile
 id: input-color-profile
 weight: 10
-applicable-version: 4.4
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Define how darktable will interpret the colors of the image. 

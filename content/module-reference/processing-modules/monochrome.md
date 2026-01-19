@@ -2,11 +2,6 @@
 title: monochrome
 id: monochrome
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Quickly convert an image to black & white using a variable color filter.

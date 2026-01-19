@@ -1,9 +1,6 @@
 ---
 title: print settings
 id: print-settings
-applicable-version: 3.8
-tags:
-view: print
 ---
 
 Manage settings for the [print view](../../../print/_index.md) and initiate printing.

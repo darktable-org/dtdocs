@@ -2,7 +2,6 @@
 title: image seqence
 id: sequence
 weight: 25
-author: "wbclay"
 ---
 
 A collection of images is always presented in a specific _sort by_ sequence that determines the order of their display, processing, and export. It is often convenient to be able to control this sequence (e.g. for a slideshow or document).

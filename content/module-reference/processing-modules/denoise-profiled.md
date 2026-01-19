@@ -2,11 +2,6 @@
 title: denoise (profiled)
 id: denoise-profiled
 weight: 10
-applicable-version: 3.8
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 An easy to use and highly efficient denoise module, adapted to the individual noise profiles of a wide range of camera sensors.

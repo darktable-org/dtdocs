@@ -1,9 +1,7 @@
 ---
 title: filmstrip
 id: filmstrip
-draft: false
 weight: 30
-author: "people"
 ---
 
 The filmstrip, when enabled, is shown at the bottom of the screen (except in the lighttable view, where it is replaced with the [timeline](../../module-reference/utility-modules/lighttable/timeline.md) module) and displays the images from the current [collection](../../lighttable/digital-asset-management/collections.md) (set in the lighttable view). You can navigate the filmstrip by scrolling with the mouse wheel.

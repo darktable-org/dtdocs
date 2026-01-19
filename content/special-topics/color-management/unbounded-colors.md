@@ -2,8 +2,6 @@
 title: unbounded colors
 id: unbounded-colors
 weight: 60
-draft: false
-author: "people"
 ---
 
 Screens and most image file formats can only encode RGB intensities confined within a certain range. For example, images encoded on 8 bits can only contain values from 0 to 255, images on 10 bits from 0 to 1023, and so on… Graphic standards postulate that the maximum of that range, no matter its actual value, will always represent the maximum brightness that the display medium is able to render, usually between 100 and 160 Cd/m² (or nits) depending on the actual standard. We generally call this maximum "100 % display-referred". The minimum of the range, encoded 0 no matter the bit-depth used, becomes then "0 % display-referred". 100 % encodes pure white, 0 % encodes pure black.

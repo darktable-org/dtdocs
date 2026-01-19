@@ -2,8 +2,6 @@
 title: variables
 id: variables
 weight: 60
-draft: false
-author: "people"
 ---
 
 darktable supports variable substitution in a number of modules and preference settings. For example:

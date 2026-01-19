@@ -2,11 +2,6 @@
 title: (deprecated) vibrance
 id: vibrance
 weight: 20
-applicable-version: 3.6
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 ---

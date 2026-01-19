@@ -2,8 +2,6 @@
 title: darktable
 id: darktable
 weight: 10
-draft: false
-author: "people"
 ---
 
 The `darktable` binary starts darktable with its GUI and full functionality. This is the standard way to use darktable.

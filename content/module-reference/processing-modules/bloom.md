@@ -2,11 +2,6 @@
 title: bloom
 id: bloom
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Create a soft bloom effect. 

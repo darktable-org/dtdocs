@@ -2,11 +2,6 @@
 title: colorize
 id: colorize
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Add a solid layer of color to the image.

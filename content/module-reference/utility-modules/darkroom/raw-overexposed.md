@@ -1,9 +1,6 @@
 ---
 title: raw overexposed warning
 id: raw-overexposed
-applicable-version: 3.2.1
-tags: 
-view: darkroom
 ---
 
 Highlight areas of the image where color channels of the raw input file are clipped. 

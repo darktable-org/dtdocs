@@ -2,7 +2,6 @@
 title: security
 id: security
 weight: 80
-draft: false
 ---
 
 Control whether warning messages are shown before undertaking certain activities.

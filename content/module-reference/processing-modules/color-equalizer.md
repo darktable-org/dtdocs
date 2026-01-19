@@ -2,7 +2,6 @@
 title: color equalizer
 id: color-equalizer
 weight: 10
-applicable-version: 4.8
 ---
 
 Selectively adjust the hue, saturation, and/or brightness of pixels based on their current hue.

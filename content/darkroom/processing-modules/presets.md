@@ -2,7 +2,6 @@
 title: presets
 id: presets
 weight: 30
-draft: false
 ---
 
 Presets allow you to store commonly-used module settings for future use. Some modules already come with pre-defined (internal) presets and you may also define your own (user-defined). Both internal and user-defined presets can be shown by clicking the _presets menu_ in the [module header](./module-header.md).

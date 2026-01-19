@@ -1,9 +1,6 @@
 ---
 title: geotagging
 id: geotagging
-applicable-version: 4.0
-tags:
-view: lighttable
 ---
 
 Import and apply GPX track data to a selection of images.

@@ -1,9 +1,6 @@
 ---
 title: global color picker
 id: global-color-picker
-applicable-version: 4.0
-tags: 
-view: darkroom
 ---
 
 Take color samples from the current darkroom image, display their values in multiple ways and compare colors from different locations. 

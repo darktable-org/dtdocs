@@ -2,8 +2,6 @@
 title: sharing scripts
 id: sharing-scripts
 weight: 80
-draft: false
-author: "people"
 ---
 
 So far, all of our lua code has been in _luarc_. That's a good way to develop your script but not very practical for distribution. We need to make this into a proper lua module. To do that, we save the code in a separate file (`scp-storage.lua` in this case):

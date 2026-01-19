@@ -2,11 +2,6 @@
 title: color balance rgb
 id: color-balance
 weight: 10
-applicable-version: 5.2
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 An advanced module which brings color-grading tools from cinematography into the photographic scene-referred pipeline.

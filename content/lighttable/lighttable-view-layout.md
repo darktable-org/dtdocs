@@ -1,9 +1,7 @@
 ---
 title: lighttable view layout
 id: lighttable-view-layout
-draft: false
 weight: 20
-author: "people"
 ---
 
 # left panel

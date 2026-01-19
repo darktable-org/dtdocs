@@ -2,7 +2,6 @@
 title: enlarge canvas
 id: enlarge-canvas
 weight: 10
-applicable-version: 4.8
 ---
 
 Increase the size of the image canvas and fill the additional area with the selected color.

@@ -2,7 +2,6 @@
 title: mask refinement & additional controls
 id: masks
 weight: 50
-draft: false
 ---
 
 When a mask is active, several additional sliders are shown which allow the mask to be further refined.

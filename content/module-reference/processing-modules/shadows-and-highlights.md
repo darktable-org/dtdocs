@@ -2,11 +2,6 @@
 title: shadows and highlights
 id: shadows-and-highlights
 weight: 10
-applicable-version: 4.0.0
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Modify the tonal range of the shadows and highlights of an image by enhancing local contrast.

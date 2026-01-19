@@ -1,9 +1,7 @@
 ---
 title: collections & film rolls
 id: collections
-draft: false
 weight: 20
-author: "people"
 ---
 
 A collection is a group of images matching a given set of selection criteria.
