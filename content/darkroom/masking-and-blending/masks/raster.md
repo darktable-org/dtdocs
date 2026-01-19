@@ -2,7 +2,6 @@
 title: raster masks
 id: raster
 weight: 60
-draft: false
 ---
 
 As described in the previous sections, the final output of a module's mask (the combined effect of any drawn and parametric masks) is a grayscale raster image representing the extent to which the module's effect should be applied to each pixel. This raster image is stored internally for active modules and can be subsequently reused by other modules in the pixelpipe.

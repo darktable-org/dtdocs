@@ -1,9 +1,6 @@
 ---
 title: gamut check
 id: gamut
-applicable-version: 3.2.1
-tags: 
-view: darkroom
 ---
 
 Highlight areas of the image that may exhibit gamut clipping.

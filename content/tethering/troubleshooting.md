@@ -2,8 +2,6 @@
 title: troubleshooting
 id: troubleshooting
 weight: 40
-draft: false
-author: "people"
 ---
 
 This troubleshooting guide can be used to verify whether or not your camera can be used with tethering. This is done using the same ([gphoto2](https://github.com/gphoto/gphoto2)) tool that darktable uses to interface with your camera.

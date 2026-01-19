@@ -2,11 +2,6 @@
 title: tone equalizer
 id: tone-equalizer
 weight: 10
-applicable-version: 3.8
-tags: 
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Dodge and burn while preserving local contrast.

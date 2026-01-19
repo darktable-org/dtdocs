@@ -1,9 +1,6 @@
 ---
 title: scopes
 id: scopes
-applicable-version: 4.6
-tags: 
-view: lighttable, tethering
 ---
 
 This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions/#definitions).

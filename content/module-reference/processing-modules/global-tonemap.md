@@ -2,11 +2,6 @@
 title: (deprecated) global tonemap
 id: global-tonemap
 weight: 20
-applicable-version: 3.4
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 ---

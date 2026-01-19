@@ -2,8 +2,6 @@
 title: possible problems & solutions
 id: problems-solutions
 weight: 50
-draft: false
-author: "people"
 ---
 
 darktable will detect OpenCL run-time errors automatically. On detecting an error, it will then reprocess everything on the CPU. While this will slow down processing it should not affect the end result.

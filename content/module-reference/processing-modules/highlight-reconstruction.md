@@ -2,11 +2,6 @@
 title: highlight reconstruction
 id: highlight-reconstruction
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: not-applicable (RAW)
-view: darkroom
-masking: true
 ---
 
 Attempt to reconstruct color information for pixels that are clipped in one or more RGB channel.

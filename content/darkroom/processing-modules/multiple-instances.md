@@ -2,7 +2,6 @@
 title: multiple instances
 id: multiple-instances
 weight: 20
-draft: false
 ---
 
 Many of darktable's modules can be applied more than once in the pixelpipe. Each instance of a module behaves independently, taking its input from the module below it in the pixelpipe and delivering its output to the next module.

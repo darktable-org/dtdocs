@@ -1,9 +1,7 @@
 ---
 title: top panel
 id: top-panel
-draft: false
 weight: 40
-author: "people"
 ---
 
 The top panel appears in all darktable views and provides access to common functions.

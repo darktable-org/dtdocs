@@ -1,9 +1,6 @@
 ---
 title: find location
 id: find-location
-applicable-version: 3.6
-tags:
-view: map
 ---
 
 Search for a location on the map. You must be connected to the internet to use this feature.

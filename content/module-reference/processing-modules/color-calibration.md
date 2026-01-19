@@ -2,11 +2,6 @@
 title: color calibration
 id: color-calibration
 weight: 10
-applicable-version: 4.8
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 include_toc: true
 ---
 

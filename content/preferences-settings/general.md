@@ -2,7 +2,6 @@
 title: general
 id: general
 weight: 20
-draft: false
 ---
 
 Control the overall look and feel of darktable.

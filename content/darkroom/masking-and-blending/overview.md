@@ -2,7 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
 ---
 
 Each processing module takes its input from the preceding module in the pixelpipe, performs its operation on the image data, and then hands the output to the next module in the pixelpipe.

@@ -1,9 +1,6 @@
 ---
 title: mask manager
 id: mask-manager
-applicable-version: 4.6
-tags:
-view: darkroom
 ---
 
 Manage all drawn masks and shapes for the current image.

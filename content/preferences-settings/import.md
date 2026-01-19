@@ -2,7 +2,6 @@
 title: import
 id: import
 weight: 30
-draft: false
 ---
 
 Control default file naming conventions used when [importing](../module-reference/utility-modules/lighttable/import.md) images.

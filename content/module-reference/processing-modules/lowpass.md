@@ -2,11 +2,6 @@
 title: lowpass
 id: lowpass
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
 
 Apply a low pass filter (for example, a Gaussian blur) to the image, while controlling the output contrast and saturation. 

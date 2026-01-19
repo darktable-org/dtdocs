@@ -1,9 +1,6 @@
 ---
 title: high quality processing
 id: hq-processing
-applicable-version: 4.8
-tags:
-view: darkroom
 ---
 
 Process the image in the darkroom view using "high quality mode", so that the displayed image reflects the appearance of a full-sized export.

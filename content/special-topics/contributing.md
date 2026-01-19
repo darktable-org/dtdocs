@@ -2,8 +2,6 @@
 title: contributing to dtdocs
 id: contributing
 weight: 90
-draft: false
-author: "people"
 ---
 
 This page defines the style guide for dtdocs and information about how to contribute to the project.

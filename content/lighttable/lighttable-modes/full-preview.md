@@ -1,9 +1,7 @@
 ---
 title: full preview
 id: full-preview
-draft: false
 weight: 40
-author: "people"
 ---
 
 From any of the lighttable modes, you can display a fully-zoomed preview of the image that is currently under the mouse pointer by pressing and holding down W. This is useful to more closely inspect an image while rating and selecting images.

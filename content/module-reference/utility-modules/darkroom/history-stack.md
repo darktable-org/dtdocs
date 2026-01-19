@@ -1,9 +1,6 @@
 ---
 title: history stack
 id: history-stack
-applicable-version: 3.8
-tags: 
-view: darkroom
 ---
 
 View and modify the [history stack](../../../darkroom/pixelpipe/history-stack.md) of the current darkroom image.

@@ -1,9 +1,6 @@
 ---
 title: styles
 id: styles
-applicable-version: 5.0
-tags: 
-view: lighttable
 ---
 
 Create named styles from selected images' [history stacks](../../../darkroom/pixelpipe/history-stack.md) and apply styles to selected images. 

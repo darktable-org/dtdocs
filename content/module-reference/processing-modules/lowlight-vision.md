@@ -2,11 +2,6 @@
 title: lowlight vision
 id: lowlight-vision
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Simulate human lowlight vision. This module can also be used to perform a day-to-night conversion.

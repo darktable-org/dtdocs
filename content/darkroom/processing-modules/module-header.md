@@ -2,7 +2,6 @@
 title: module header
 id: module-header
 weight: 10
-draft: false
 ---
 
 At the top of each processing module is the _module header_. 

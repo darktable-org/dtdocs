@@ -2,8 +2,6 @@
 title: translating dtdocs
 id: translating
 weight: 100
-draft: false
-author: "people"
 ---
 
 Translation of the darktable documentation is done via our [Weblate instance](https://weblate.pixls.us/projects/darktable/).

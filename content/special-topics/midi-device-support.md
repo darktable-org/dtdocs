@@ -2,8 +2,6 @@
 title: midi device support
 id: midi-device-support
 weight: 85
-draft: false
-author: "people"
 ---
 
 # introduction

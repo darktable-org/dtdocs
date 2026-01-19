@@ -2,11 +2,6 @@
 title: graduated density
 id: graduated-density
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 Simulate a graduated density filter in order to correct exposure and color in a progressive manner.

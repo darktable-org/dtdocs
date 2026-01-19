@@ -2,7 +2,6 @@
 title: lua options
 id: lua-options
 weight: 140
-draft: false
 ---
 
 Control the behavior of the [Lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md).

@@ -1,9 +1,6 @@
 ---
 title: actions on selection
 id: selected-image 
-applicable-version: 3.6
-tags: 
-view: lighttable
 ---
 
 Perform actions on images that have been selected in the lighttable view.

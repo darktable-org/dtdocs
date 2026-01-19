@@ -2,7 +2,6 @@
 title: shortcuts
 id: shortcuts
 weight: 120
-draft: false
 ---
 
 You can perform almost any action in darktable with a keyboard/mouse shortcut. You can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _external devices_ or just _devices_ in this guide.

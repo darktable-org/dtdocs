@@ -1,9 +1,7 @@
 ---
 title: other resources
 id: other-resources
-draft: false
 weight: 120
-author: "people"
 ---
 
 For help and support with using darktable you are encouraged to ask questions on the main discussion forums at [discuss.pixls.us](https://discuss.pixls.us/).

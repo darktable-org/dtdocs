@@ -2,11 +2,6 @@
 title: filmic rgb
 id: filmic-rgb
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 include_toc: true
 ---
 

@@ -1,9 +1,7 @@
 ---
 title: screen layout
 id: screen-layout
-draft: false
 weight: 20
-author: "people"
 ---
 
 The layout of all darktable views is similar and consists of a center area with panels at the edges: 

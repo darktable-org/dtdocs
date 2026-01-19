@@ -2,8 +2,6 @@
 title: print view layout
 id: overview
 weight: 20
-draft: false
-author: "people"
 ---
 
 The central area displays the image layout on the paper (the white area). Some gray borders may be displayed around the image to represent the printable area (the page minus the borders) not filled by the image.

@@ -2,8 +2,6 @@
 title: gimp integration
 id: gimp-integration
 weight: 85
-draft: false
-author: "people"
 ---
 
 GIMP can use darktable to open a Raw file if the darktable executable is on the PATH. If the GIMP user opens a RAW file, then GIMP invokes darktable with some special command line parameters to get a temporary file for GIMP to work with, as follows:

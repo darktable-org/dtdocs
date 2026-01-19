@@ -1,9 +1,6 @@
 ---
 title: selection
 id: select
-applicable-version: 3.2.1
-tags: 
-view: lighttable
 ---
 
 Select images in the lighttable according to simple criteria.

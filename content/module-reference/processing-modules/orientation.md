@@ -2,11 +2,6 @@
 title: orientation
 id: orientation
 weight: 10
-applicable-version: 3.8
-tags: rotate orientation basic-module-group
-working-color-space: not-applicable (RAW)
-view: darkroom
-masking: false
 ---
 
 Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically.

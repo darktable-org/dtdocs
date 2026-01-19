@@ -2,11 +2,6 @@
 title: demosaic
 id: demosaic
 weight: 10
-applicable-version: 5.4
-tags:
-working-color-space: Not Applicable (RAW)
-view: darkroom
-masking: false
 ---
 
 Control how raw files are demosaiced and optionally apply capture sharpening.

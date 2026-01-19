@@ -2,8 +2,6 @@
 title: tethering view layout
 id: tethering-view-layout
 weight: 20
-draft: false
-author: "people"
 ---
 
 # left panel

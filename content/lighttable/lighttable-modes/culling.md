@@ -1,9 +1,7 @@
 ---
 title: culling
 id: culling
-draft: false
 weight: 30
-author: "people"
 ---
 
 Culling mode allows you to display images side by side for easy comparison.

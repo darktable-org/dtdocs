@@ -2,8 +2,6 @@
 title: purge_non_existing_images.sh
 id: purge-non-existing-images-sh
 weight: 70
-draft: false
-author: "people"
 ---
 
 Find and remove entries from the library database referencing images that no longer exist in the filesystem. You must close darktable before running this script.

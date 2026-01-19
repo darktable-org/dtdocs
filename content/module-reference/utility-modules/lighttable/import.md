@@ -1,9 +1,6 @@
 ---
 title: import
 id: import
-applicable-version: 5.0
-tags:
-view: lighttable
 ---
 
 Add images to the darktable library, optionally copying them from another location on the filesystem or from a connected camera.

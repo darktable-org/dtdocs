@@ -2,11 +2,6 @@
 title: retouch
 id: retouch
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: rgb
-view: darkroom
-masking:
 ---
 
 Remove unwanted elements from your image by cloning, healing, blurring and filling using drawn shapes.

@@ -1,9 +1,6 @@
 ---
 title: locations
 id: locations
-applicable-version: 3.6
-tags:
-view: map
 ---
 
 Create areas or locations and organize them as hierarchical tags. 

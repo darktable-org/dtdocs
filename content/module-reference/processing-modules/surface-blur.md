@@ -2,10 +2,6 @@
 title: surface blur
 id: surface-blur
 weight: 10
-applicable-version: 3.4
-tags: 
-working-color-space: RGB 
-masking: true
 ---
 
 Smooth image surfaces while preserving sharp edges using a bilateral filter. 

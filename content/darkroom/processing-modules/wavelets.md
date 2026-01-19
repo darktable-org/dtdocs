@@ -2,7 +2,6 @@
 title: wavelets
 id: wavelets
 weight: 55
-draft: false
 ---
 
 Wavelets are used to separate (or _decompose_) an image into a number of distinct _layers_, each containing a different level of detail. After decomposing an image in this way, a module can limit its processing to one or more of these detail layers, and then piece the layers back together again at the end to form its output. This allows us to be surgical about which features in the image we wish to impact when working with a module. 

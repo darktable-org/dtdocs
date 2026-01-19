@@ -2,7 +2,6 @@
 title: lighttable
 id: lighttable
 weight: 40
-draft: false
 ---
 
 Control functionality in the [lighttable](../lighttable/_index.md) view and modules.

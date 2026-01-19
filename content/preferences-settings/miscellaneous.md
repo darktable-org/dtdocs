@@ -2,7 +2,6 @@
 title: miscellaneous
 id: miscellaneous
 weight: 110
-draft: false
 ---
 
 # interface

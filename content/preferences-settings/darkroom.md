@@ -2,7 +2,6 @@
 title: darkroom
 id: darkroom
 weight: 50
-draft: false
 ---
 
 Control functionality in the [darkroom](../darkroom/_index.md) view and associated modules.

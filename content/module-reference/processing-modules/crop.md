@@ -2,11 +2,6 @@
 title: crop
 id: crop
 weight: 10
-applicable-version: 5.2
-tags:
-working-color-space:
-view: darkroom
-masking:
 ---
 
 Crop an image using on-screen guides.

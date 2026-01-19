@@ -1,9 +1,6 @@
 ---
 title: snapshots
 id: snapshots
-applicable-version: 4.4
-tags: 
-view: darkroom
 ---
 
 Store development snapshots and compare with the current edit.

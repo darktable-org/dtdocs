@@ -2,8 +2,6 @@
 title: map view layout
 id: map-view-layout
 weight: 20
-draft: false
-author: "people"
 ---
 
 # left panel

@@ -2,8 +2,6 @@
 title: examples
 id: examples
 weight: 30
-draft: false
-author: "people"
 ---
 
 The following sections show two typical use cases for the tethering view.

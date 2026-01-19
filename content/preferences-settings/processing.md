@@ -2,7 +2,6 @@
 title: processing
 id: processing
 weight: 70
-draft: false
 ---
 
 Control how images are processed.

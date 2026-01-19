@@ -2,11 +2,6 @@
 title: color balance
 id: color-balance
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 A versatile tool for adjusting the image's color balance. 

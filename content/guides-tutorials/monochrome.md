@@ -1,9 +1,7 @@
 ---
 title: developing monochrome images
 id: monochrome-images
-draft: false
 weight: 10
-author: "people"
 ---
 
 Photography has a long history of producing monochrome images, and many still enjoy this aspect of photography. While there are some specialized/modified cameras with a truly monochrome sensor, most still use a regular camera to capture a color image and transform it into a monochrome image during post-processing.

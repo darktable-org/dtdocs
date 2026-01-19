@@ -2,11 +2,6 @@
 title: rotate and perspective
 id: rotate-perspective
 weight: 10
-applicable-version: 4.6
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 Automatically correct for converging lines, a form of perspective distortion. The underlying mechanism is inspired by Markus Hebel's [_ShiftN_](http://www.shiftn.de/) program. This module also allows for the rotation of the image to be adjusted.

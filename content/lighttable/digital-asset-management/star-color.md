@@ -1,9 +1,7 @@
 ---
 title: star ratings & color labels
 id: star-color
-draft: false
 weight: 40
-author: "people"
 ---
 
 Star ratings and color labels help you to sort and rank images according to your own criteria. An image's star rating and color labels can be displayed over thumbnails in the lighttable view and filmstrip module.

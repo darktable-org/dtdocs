@@ -2,11 +2,6 @@
 title: color correction
 id: color-correction
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 Modify the global image saturation to give the image a tint or as an alternative method to split-tone the image.

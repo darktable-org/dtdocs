@@ -2,8 +2,6 @@
 title: module groups
 id: module-groups
 weight: 20
-draft: false
-author: "people"
 ---
 
 A number of pre-defined module groups are shipped with darktable and are selectable as presets. These are summarized below.

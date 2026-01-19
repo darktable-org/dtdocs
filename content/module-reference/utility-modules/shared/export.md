@@ -1,9 +1,6 @@
 ---
 title: export
 id: export-selected
-applicable-version: 5.2
-tags: 
-view: lighttable
 ---
 
 Export selected images.

@@ -2,8 +2,6 @@
 title: memory & performance tuning
 id: mem-performance
 weight: 35
-draft: false
-author: "people"
 ---
 
 # memory requirements

@@ -1,9 +1,7 @@
 ---
 title: supported file formats
 id: supported-file-formats
-draft: false
 weight: 20
-author: "people"
 ---
 
 darktable supports a huge number of file formats from various camera manufacturers. In addition darktable can read a wide range of low- and high-dynamic-range images -- mainly for data exchange between darktable and other software.

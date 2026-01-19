@@ -1,9 +1,6 @@
 ---
 title: metadata editor
 id: metadata-editor
-applicable-version: 5.4
-tags:
-view: lighttable, tethering
 ---
 
 Edit the metadata of selected images.

@@ -2,8 +2,6 @@
 title: darktable's color pipeline
 id: color-pipeline
 weight: 80
-draft: false
-author: "people"
 ---
 
 Most image processing applications come from the 1990s and/or inherit a 1990s workflow. These applications processed images encoded with 8 bit unsigned integers because it was more memory- and computationally-efficient. However, due to the use of an integer format (which implies rounding errors) they had to apply a "gamma" (essentially a transfer function applying a power 1/2.2 or 1/2.4 to encode the RGB values) and increase the bit-depth in the low-lights in order to reduce rounding errors there (humans are very sensitive to low-light details). The 8 bit integer formats are also technically limited to the 0-255 range. Anything outside of this range overflows and is clipped to the nearest bound.

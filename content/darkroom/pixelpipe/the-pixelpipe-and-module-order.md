@@ -2,7 +2,6 @@
 title: the pixelpipe & module order
 id: the-pixelpipe-and-module-order
 weight: 20
-draft: false
 ---
 
 The ordered sequence of [processing modules](../../module-reference/processing-modules/_index.md) operating on an input file to generate an output image is known as the "pixelpipe". 

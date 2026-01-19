@@ -2,11 +2,6 @@
 title: rgb primaries
 id: rgb-primaries
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
 Adjust the hue and [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the RGB primary colors (i.e. _which_ red, green and blue they represent), while leaving uncolored (gray) pixels unchanged. In addition to preserving gray pixels, the opponency relationships between the colors are also preserved under this adjustment: If you increase the purity of the blue primary, the opponent yellow's intensity increases to balance things out; If you twist the blue hue toward cyan, the opponent yellow is twisted toward orange.

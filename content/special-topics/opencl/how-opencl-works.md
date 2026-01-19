@@ -2,8 +2,6 @@
 title: how OpenCL works
 id: how-opencl-works
 weight: 20
-draft: false
-author: "people"
 ---
 
 As you can imagine, the hardware architecture of GPUs can vary significantly. There are different manufacturers, and even different generations of GPUs from the same manufacturer may not be comparable. At the same time GPU manufacturers don't normally disclose all the hardware details of their products to the public. One of the consequences of this is the need to use proprietary drivers under Linux, if you want to take full advantage of your graphics card.
