@@ -2,8 +2,6 @@
 title: workflow
 id: contributing-workflow
 weight: 5
-draft: false
-author: "people"
 ---
 
 These instructions assume that you already have a github account and have installed **Git** as well. Make sure that git is in your PATH by executing the command `git` in any terminal or cmd and checking that it doesn't output an error such as "command not found". If you don't have git installed, [follow these instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
