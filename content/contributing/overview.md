@@ -2,8 +2,6 @@
 title: overview
 id: contributing-overview
 weight: 1
-draft: false
-author: "people"
 ---
 
 This page defines the style guide for dtdocs and information about how to contribute to the project.
