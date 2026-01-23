@@ -38,7 +38,7 @@ The _working profile_ parameter in darktable's [_input color profile_](input-col
 
 It is strongly recommended that you set the parameters following the order in which they are presented in the GUI. Start by setting the _film stock_, then work through each of the tabs ([_film properties_](#film-properties), [_corrections_](#corrections), [_print properties_](#print-properties)) in order, working from top to bottom in each tab.
 
-When using ,[pickers](../../darkroom/processing-modules/module-controls.md#pickers) be careful to avoid including dust and scratches, which can skew the data taken from the sampled region.
+When using [pickers](../../darkroom/processing-modules/module-controls.md#pickers), be careful to avoid including dust and scratches, which can skew the data taken from the sampled region.
 
 film stock
 : The first step is to choose "color" or "black and white" in the _film stock_ drop-down. If you select "black and white", any sliders that are only used for color will be hidden from view.
