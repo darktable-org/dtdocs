@@ -5,7 +5,7 @@ weight: 120
 draft: false
 ---
 
-_Shortcuts_ are a way to control darktable using your keyboard, mouse or trackpad and other input devices. They allow you to perform _actions_ without interacting directly with a UI element.
+_Shortcuts_ are a way to control darktable using your keyboard, mouse, trackpad, or other input devices. They allow you to perform _actions_ without interacting directly with a UI element.
 
 An _action_ is usually an operation that you might undertake using darktable's point-and-click user interface.
 See [common actions](#common-actions) for a list of the most common ones. For example:
