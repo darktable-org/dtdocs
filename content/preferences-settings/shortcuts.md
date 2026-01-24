@@ -264,7 +264,7 @@ _enable_
 : Acts as a _toggle_ that switches the module on and off.
 
 _focus_
-: Acts as a _toggle_ that focuses or de-focuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
+: Acts as a _toggle_ that focuses or unfocuses the module. This is useful for modules such as [_crop_](../module-reference/processing-modules/crop.md) or [_tone equalizer_](../module-reference/processing-modules/tone-equalizer.md), whose on-screen controls are only activated when those modules have focus. For _crop_, changes are saved only when the module loses focus.
 
 _instance_
 : Allows you to select actions from the [multiple-instance](../darkroom/processing-modules/multiple-instances.md) menu (e.g. move up/down, create new instance). The discrete action associated to the _instance_ element displays a list of the available options for selection; a directional action is also available and will move the _preferred module instance_ (see below) up and down the pixelpipe.
