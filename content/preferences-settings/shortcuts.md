@@ -181,7 +181,7 @@ left-click on a mappable widget to open the shortcut mapping screen for that wid
 define a second shortcut against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and prompted to replace the existing shortcut.
 
 **To change the default speed of a slider:**
-scroll with your mouse wheel while in visual mapping mode (without pressing any other buttons/keys) when hovering over the slider -- scroll up to increase and down to decrease. When you leave mapping mode, normal mouse scrolls over that slider will change its value with the adjusted speed.
+Scroll with your mouse wheel while in visual mapping mode (without pressing any other buttons/keys) when hovering over the slider -- scroll up to increase and down to decrease. When you leave mapping mode, normal mouse scrolls over that slider will change its value with the adjusted speed.
 
 ## shortcut mapping screen
 
