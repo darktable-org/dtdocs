@@ -37,7 +37,7 @@ live samples
 
 : To update a live sample:
    - right-click on a live sample, which will copy the selected live sample color to the primary sample. To show that live sample editing is in progress an icon ![save icon](.global-color-picker/save-icon.png#icon) is shown on the live sample.
-   - make a new color selection on the primary sample. It is not necessary to click the picker to start the new color selection.
+   - make a new color selection on the primary sample. It is not necessary to click the picker to start the new color selection, but you can still use the picker to alter the picker mode (point or area). Note that using the picker to select the existing picker mode will cancel the edit.
    - to save the new color selection, right-click on _any_ live sample to update that sample (it does not have to be the originally selected live sample). The save icon will be removed.
 
 display samples on image/vectorscope
