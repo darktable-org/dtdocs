@@ -192,7 +192,7 @@ The top panel of the shortcut mapping screen shows a list of available UI widget
 ---
 
 **Note:**
-You can **search** the top and bottom panels using the text entry boxes at the bottom of the screen, and use the **up/down** arrow keys to navigate between matches. 
+You can search the top and bottom panels using the text entry boxes at the bottom of the screen, and use the up/down arrow keys to navigate between matches. 
 
 ---
 
