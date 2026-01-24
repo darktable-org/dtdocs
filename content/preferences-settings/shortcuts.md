@@ -167,7 +167,7 @@ The mouse cursor will change as you hover over UI widgets, to indicate whether o
 -   ![Don't signal](./shortcuts/no-signal.png#icon) indicates that there is no mappable widget under the cursor.
 
 **To define new shortcuts:**
-press a key combination while hovering over a mappable widget. A _default action_ will be assigned to that shortcut based on the type of widget and whether it is directional. See the [common actions](#common-actions) section for examples of some of the defaults.
+Press a key combination while hovering over a mappable widget. A _default action_ will be assigned to that shortcut based on the type of widget and whether it is directional. See the [common actions](#common-actions) section for examples of some of the defaults.
 You can assign as many shortcuts as you like in a single mapping session and then exit mapping mode when you are finished by clicking the ![visual mapping button](./shortcuts/visual-mapping-button.png#icon) icon again or right-clicking anywhere on the screen.
 
 **To explore already defined shortcuts:**
