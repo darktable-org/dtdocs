@@ -62,7 +62,7 @@ For example:
 ---
 
 **Note:**
-By construction, a _directional shortcut_ is sufficiently expressive to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _directional action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action)).
+A _directional shortcut_ is sufficient to trigger a _discrete action_. The opposite is not true. However, it is possible to use a combination of two _discrete shortcuts_ to control a _directional action_. For example, you can use two different shortcuts to trigger the `up` and `down` effects of a slider (see [anatomy of an action](#anatomy-of-an-action)).
 
 ---
 
