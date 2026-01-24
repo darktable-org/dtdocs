@@ -108,7 +108,7 @@ The following movements are supported when defining directional shortcuts:
 -   Horizontal, vertical or diagonal movement of the mouse cursor
 -   Movement of a knob/joystick on an input device
 
-When employing an input device, you can directly assign a control knob or joystick to an action. However, this will significantly reduce the flexibility of such devices, as you will be able to use the knob/joystick only to control one action. Conversely, by prefixing the movement with a key or button press you can use the same knob/joystick to control multiple actions.
+When using an input device, you can directly assign a control knob or joystick to an action. However, this will significantly reduce the flexibility of such devices, as you will be able to use the knob/joystick only to control one action. By prefixing the movement with a key or button press you can use the same knob/joystick to control multiple actions.
 
 
 ## triggering multiple shortcuts at once
