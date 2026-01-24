@@ -144,7 +144,7 @@ element
 effect
 : A shortcut can sometimes have multiple possible _effects_ on a given _element_. For example, a button can be activated as if it was pressed with a plain mouse-click or as if it was pressed with Ctrl+click. A slider's value can be edited, increased/decreased or reset.
 
-So, for example, you can assign the shortcut `e + scroll` to change the value (the _effect_) of the exposure slider (the _element_) of the exposure correction _widget_.
+For example, you can assign the shortcut `e + scroll` to change the value (the _effect_) of the exposure slider (the _element_) of the exposure correction _widget_.
 
 # assigning shortcuts to actions
 
