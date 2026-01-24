@@ -174,7 +174,7 @@ You can assign as many shortcuts as you like in a single mapping session and the
 Left-click on a mappable widget to open the shortcut mapping screen for that widget (see below). Left-click anywhere else on the screen to open the shortcut mapping screen, expanded (where possible) based on the part of the screen you have clicked on. This screen can be used to alter the action assigned to a shortcut and to configure shortcuts for non-visual actions. Entering the shortcut mapping screen exits visual shortcut mapping mode.
 
 **To update existing shortcuts:**
-define a second shortcut against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and prompted to replace the existing shortcut.
+Define a second shortcut against the same widget. If you attempt to reallocate an existing shortcut to a new action, you will be notified of the conflict and prompted to replace the existing shortcut.
 
 **To change the default speed of a slider:**
 Scroll with your mouse wheel while in visual mapping mode (without pressing any other buttons/keys) when hovering over the slider -- scroll up to increase and down to decrease. When you leave mapping mode, normal mouse scrolls over that slider will change its value with the adjusted speed.
