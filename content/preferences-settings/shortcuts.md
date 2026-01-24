@@ -5,7 +5,7 @@ weight: 120
 draft: false
 ---
 
-_Shortcuts_ are a way to control darktable using your keyboard, mouse, trackpad, or other input devices. They allow you to perform _actions_ without interacting directly with a UI element.
+_Shortcuts_ are a way to control darktable using your keyboard, mouse, trackpad, or other _input devices_, such as MIDI and game controllers (as detailed in the [midi device support](../special-topics/midi-device-support.md) section). They allow you to perform _actions_ without interacting directly with a UI element.
 
 An _action_ is usually an operation that you might undertake using darktable's point-and-click user interface.
 See [common actions](#common-actions) for a list of the most common ones. For example:
@@ -15,10 +15,6 @@ See [common actions](#common-actions) for a list of the most common ones. For ex
 -   Enable, expand or focus modules
 -   Click buttons
 -   Switch between views
-
-A _shortcut_ is a combination of inputs that triggers one of the actions available in a given context.
-
-Darktable comes with many predefined shortcuts using keyboard or keyboard and mouse, but you can also use various other input devices, including MIDI devices and game controllers -- see the [midi device support](../special-topics/midi-device-support.md) section for details. These are referred to as _input devices_ in this guide.
 
 The recommended way to assign shortcuts to visual elements is the [visual shortcut mapping](#visual-shortcut-mapping) mode.
 
