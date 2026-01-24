@@ -8,7 +8,7 @@ The user manual for the current stable release of darktable can be found at [dar
 
 ## Contributing
 
-Please see https://darktable-org.github.io/dtdocs/en/special-topics/contributing/ for information about contributing content
+Please see https://darktable-org.github.io/dtdocs/en/contributing for information about contributing content
 
 For a complete list of the outstanding work please see the [issues](https://github.com/darktable-org/dtdocs/issues) in this repository and a list of [undocumented pull requests](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+label%3Adocumentation-pending+is%3Aclosed) in the darktable repository.
 
