@@ -148,7 +148,7 @@ For example, you can assign the shortcut `e + scroll` to change the value (the _
 
 # assigning shortcuts to actions
 
-There are two primary methods of assigning shortcuts to actions: [visual shortcut mapping](#visual-shortcut-mapping) (recommended) and the [shortcut mapping screen](#shortcut-mapping-screen). The former makes it easier to remap multiple shortcuts at once, while the latter allows for finer control and more flexibility. Both options are detailed below.
+There are two primary methods of assigning shortcuts to actions: [visual shortcut mapping](#visual-shortcut-mapping) (recommended) and the [shortcut mapping screen](#shortcut-mapping-screen). The former makes it easier to remap multiple shortcuts at once, while the latter allows for finer control and more flexibility.
 
 ## visual shortcut mapping
 
