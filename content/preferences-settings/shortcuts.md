@@ -225,7 +225,7 @@ The following is a list of some of the actions to which you can assign shortcuts
 ---
 
 **Note:**
-some actions may have no effect. For example, all sliders include a _button_ element, regardless of whether such a button is actually present alongside a given slider.
+Some actions may have no effect. For example, all sliders include a _button_ element, regardless of whether such a button is actually present alongside a given slider.
 
 ---
 
