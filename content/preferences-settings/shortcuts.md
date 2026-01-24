@@ -39,7 +39,7 @@ Similarly, to control a slider with a shortcut you can:
 The system is very flexible and powerful, and this is just scratching the surface.
 Keep on reading to understand it better and learn how to make the most of it.
 
-# types of actions and shortcuts
+# types of shortcuts and actions
 
 There are two types of actions:
 
