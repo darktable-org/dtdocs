@@ -92,7 +92,10 @@ pivot relative exposure
 pivot target output
 : Sets the target output linear value (power) for the tone selected by the pivot's input. The value is indicated on the y-axis of the curve. Note that the scale of the y-axis is not uniform, and depends on the _curve y gamma_, described in the section [advanced curve parameters](#advanced-curve-parameters). The corresponding color picker adjusts both _pivot relative exposure_ (the point of highest contrast) and _pivot target output_, attempting to preserve the average brightness of the selected region.
 
-For more predictable results, you are advised to use the color pickers on uniform areas, as sudden tonal transitions in the selected area will cause the average values to change drastically, leading to fluctuations in both pivot input and output.
+For more predictable results, you are advised to keep the following in mind:
+- use the color pickers on uniform areas, as sudden tonal transitions in the selected area will cause the average values to change drastically, leading to fluctuations in both pivot input and output;
+- start picking well inside such a uniform area, as when you first place the picker's starting point, darktable automatically selects an area _around_ that point; if this area contains pixels whose tonality differs substantially from those in the area you intend to pick, the initial average, the pivot will be shifted based on that initial measurement;
+- when activating the picker for the first time, the whole image will be selected by darktable, adjusting the pivot based on the whole image. To work around this, select the area you intend to use for the pivot adjustment, then deactivate the picker. If you started from the default pivot position (0 EV input mapped to 18% output), double-click the sliders to reset them; otherwise, press Ctrl+Z a few times, until your previous pivot values are restored (each mouse movement must be undone separately). Now activate the picker again; since the selection is restored to what you selected, the picker will read the correct area.
 
 contrast
 : Sets the slope of the curve at the pivot point. This value is scaled internally to maintain a consistent final (linear) output contrast, compensating for changes to both the dynamic range and the _curve y gamma_ setting.
