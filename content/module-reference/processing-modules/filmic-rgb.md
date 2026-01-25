@@ -120,7 +120,7 @@ middle-gray luminance (hidden by default)
 
 ---
 
-**Note:** You are not advised to use this control to set middle-gray, hence it is now hidden by default. You should instead use the _exposure_ module to set the middle-gray level (see [_usage_](#usage), above). However, if you wish to make this slider visible, you can enable it with the _use custom mid-gray values_ checkbox in the [_options_](#options) tab.
+**Note:** You are not advised to use this control to set middle-gray, hence it is now hidden by default. You should instead use the _exposure_ module to set the middle-gray level (see [_usage_](#usage), above). However, if you wish to make this slider visible, you can enable it with the _use custom middle-gray values_ checkbox in the [_options_](#options) tab.
 
 ---
 
@@ -157,8 +157,11 @@ Firstly, a mask needs to be set up to identify the parts of the image that will 
 
 These controls allow you to choose which areas of the image are impacted by the highlight reconstruction algorithms.
 
+enable highlight reconstruction
+: Highlight reconstruction is disabled by default (for performance reasons -- it should only be enabled when required). Use this option to enable it. Highlight reconstruction is also automatically enabled if the threshold or transition sliders are adjusted.
+
 threshold
-: Any pixels brighter than this threshold will be affected by the reconstruction algorithm. The units are in EV, relative to the white point set in the _scene_ tab. By default, this control is set to +3 EV, meaning that pixels need to be at least +3 EV brighter than the white point set in the [_scene tab_](#scene) in order for the highlight reconstruction to have any effect. In practise, this means that highlight reconstruction is effectively disabled by default (for performance reasons -- it should only be enabled when required). Therefore, to use the _highlights reconstruction_ feature, first click the _display highlight reconstruction mask_ icon to show the mask, and lower this threshold until the highlight areas you want to reconstruct are selected in white by the mask. It may be useful to first review the image using the [raw overexposed warning](../utility-modules/darkroom/raw-overexposed.md) to show you which pixels in the raw file have been clipped, and whether those pixels are clipped on just one RGB channel or all of them.
+: Any pixels brighter than this threshold will be affected by the reconstruction algorithm. The units are in EV, relative to the white point set in the _scene_ tab. To use the _highlights reconstruction_ feature, click the _display highlight reconstruction mask_ icon to show the mask, and alter this threshold until the highlight areas you want to reconstruct are selected in white by the mask. It may be useful to first review the image using the [raw overexposed warning](../utility-modules/darkroom/raw-overexposed.md) to show you which pixels in the raw file have been clipped, and whether those pixels are clipped on just one RGB channel or all of them.
 
 transition
 : Use this control to soften the transition between clipped and valid pixels. Moving this control to the right will increase the amount of blur in the mask, so that the transition between clipped and non-clipped areas is softer. This allows for a smoother blending between the clipped and non-clipped regions. Moving this control to the left will reduce the blur in the mask, making the transition in the mask much sharper and therefore reducing the amount of feathering between clipped and non-clipped areas.
@@ -245,7 +248,7 @@ color science
 : This setting defaults to _v7 (2023)_ for new images, and defines the algorithms used by the _filmic rgb_ module (e.g. the extreme luminance desaturation strategy). To revert to the behavior of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between these methods lies in the way in which they handle desaturation close to pure black and pure white (see the [background](#background) section for details). If you have previously edited an image using older versions of _filmic rgb_, the color science setting will be kept at the earlier version number in order to provide backward compatibility for those edits. _v7 (2023)_ removes the _preserve chrominance_ option (see [background](#background)).
 
 preserve chrominance (not available with color science _v7_)
-: Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
+: Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the four provided norms.
 
 : When applying the S-curve transformation independently on each color, the proportions of the colors are modified, which modifies the properties of the underlying spectrum, and ultimately the chrominance of the image. This is what happens if you choose "no" in the preserve chrominance parameter. This value may yield seemingly “better” results than the other values, but it may negatively impact later parts of the pipeline, for example, when it comes to global saturation.
 
@@ -266,10 +269,10 @@ preserve chrominance (not available with color science _v7_)
 : There is no "right" choice for the norm, and the appropriate choice depends strongly on the image to which it is applied. You are advised to experiment and decide for yourself which setting gives the most pleasing result with the fewest artifacts.
 
 contrast in highlights
-: This control selects the desired curvature at the highlights end of the _filmic rgb_ spline curve. The default setting (_safe_) is guaranteed not to over- or under-shoot but has quite muted contrast near white. Selecting _hard_ places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the highlights. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the highlights.
+: This control selects the desired curvature at the highlights end of the _filmic rgb_ spline curve. Selecting _safe_ is guaranteed not to over- or under-shoot but has quite muted contrast near white. The default setting (_hard_) places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the highlights. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the highlights.
 
 contrast in shadows
-: This control selects the desired curvature at the shadows end of the _filmic rgb_ spline curve. The default setting (_safe_) is guaranteed not to over- or under-shoot but has quite muted contrast near black. Selecting _hard_ places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the shadows. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the shadows.
+: This control selects the desired curvature at the shadows end of the _filmic rgb_ spline curve. Selecting _safe_ is guaranteed not to over- or under-shoot but has quite muted contrast near black. The default setting (_hard_) places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the shadows. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the shadows.
 
 use custom middle-gray values
 : Enabling this setting makes the _middle-gray luminance_ slider visible on the [_scene_](#scene) tab. With the current version of _filmic rgb_, you are advised to use the _exposure_ module to set the middle-gray level, so this setting is disabled by default (and the _middle-gray luminance slider_ is hidden).
