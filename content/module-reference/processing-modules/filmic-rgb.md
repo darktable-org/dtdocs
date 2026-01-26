@@ -224,7 +224,7 @@ highlights saturation mix
 
 ---
 
-**Note:** The _highlights saturation mix_ control has changed name and functionality a number of times as the developer refined its functionality. The above description documents the current (v7) functionality, which is the default and recommended version to use. In earlier versions, this control had different names ("extreme luminance saturation" in v3 and v6, "mid-tones saturation" in versions 4-5), and filmic's graph also included a darker "desaturation curve" indicating the amount of desaturation applied to pixels outside the latitude range. You can still access older versions by changing the "color science" setting in the [options](#options) tab. For more information on the operation of this control in older versions please see the tooltips that are displayed when you hover over the slider within darktable.
+**Note:** The _highlights saturation mix_ control has changed a number of times as the developer refined its functionality. The above description documents the current version (v7), which is the default and recommended version to use. In earlier versions, this control had different names ("extreme luminance saturation" in v3 and v6, "mid-tones saturation" in versions 4-5), and filmic's graph also included a darker "desaturation curve" indicating the amount of desaturation applied to pixels outside the latitude range. You can still access older versions by changing the "color science" setting in the [options](#options) tab. For more information on the operation of this control in older versions please see the tooltips that are displayed when you hover over the slider within darktable.
 
 ---
 
