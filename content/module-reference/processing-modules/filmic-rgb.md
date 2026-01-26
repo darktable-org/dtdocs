@@ -49,7 +49,7 @@ This mapping is defined in three steps, each handled in a separate tab in the in
 
 -   The [_reconstruct_](#reconstruct) tab offers tools to handle blown highlights.
 
--   The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you should aim to increase the latitude as much as possible without clipping the extremes of the curve.
+-   The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do.
 
 -   The [_display_](#display) tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab rarely require adjustment.
 
@@ -211,19 +211,22 @@ hardness (previously _target power factor function_)
 : This parameter is the power function applied to the output transfer function, and it is often improperly called the _gamma_ (which can mean too many things in imaging applications, so we should stop using that term). It is used to raise or compress the mid-tones to account for display non-linearities or to avoid quantization artifacts when encoding in 8 bit file formats. This is a common operation when applying ICC color profiles (except for linear RGB spaces, like Rec. 709 or Rec. 2020, which have a linear “gamma” of 1.0). However, at the output of _filmic rgb_, the signal is logarithmically encoded, which is not something ICC color profiles know to handle. As a consequence, if we let them apply a gamma of 1/2.2 on top, it will result in a double-up, which would cause the middle-gray to be remapped to 76% instead of 45% as it should in display-referred space.
 
 latitude
-: The latitude is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the [_scene_](#scene) tab (white relative exposure minus black relative exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. It is usually advisable to keep the latitude as large as possible, while avoiding clipping. If clipping is observed, you can compensate by either decreasing the latitude, shifting the latitude interval with the _shadow ↔ highlights balance_ parameter, or decreasing the contrast.
+: The latitude is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the [_scene_](#scene) tab (white relative exposure minus black relative exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. If clipping is observed when increasing the latitude, you can compensate by either decreasing the latitude, shifting the latitude interval with the _shadow ↔ highlights balance_ parameter, or decreasing the contrast.
 
 : The latitude also defines the range of luminances that are not desaturated at the extremities of the luminance range (See _mid-tones saturation_).
 
 shadows ↔ highlights balance
 : By default, the latitude is centered in the middle of the dynamic range. If this produces clipping at one end of the curve, the balance parameter allows you to slide the latitude along the slope, towards the shadows or towards the highlights. This allows more room to be given to one extremity of the dynamic range than to the other, if the properties of the image demand it.
 
-mid-tones saturation / extreme luminance saturation / highlights saturation mix
-: At extreme luminances, the pixels will tend towards either white or black. Because neither white nor black have color associated with them, the saturation of these pixels must be 0%. In order to gracefully transition towards this 0% saturation point, pixels outside the mid-tone latitude range are progressively desaturated as they approach the extremes. The darker curve in the _filmic rgb_ graph indicates the amount of desaturation that is applied to pixels outside the latitude range. Moving the slider to the right pushes the point where desaturation will start to be applied towards the extremes, resulting in a steeper desaturation curve. If pushed too far, this can result in fringing around the highlights. Moving the slider to the left brings the point at which color desaturation will start to be applied closer to the center, resulting in a gentler desaturation curve. If you would like to see more color saturation in the highlights, and you have checked that the white relative exposure in the [_scene_](#scene) tab is not yet clipping those highlights, move the mid-tones saturation slider to the right to increase the saturation.
+highlights saturation mix
+: At extreme luminances, pixels will tend towards either white or black. Because neither white nor black have color associated with them, the saturation of these pixels must be 0%. In order to gracefully transition towards this 0% saturation point, pixels outside the mid-tone latitude range are progressively desaturated as they approach the extremes. This setting controls how that is achieved. Positive values ensure that saturation is kept unchanged over the entire tonal range. Negative values bleach highlights at constant hue and luminance. Zero is an equal mix of both strategies.
+: This control is set to 0 by default and should normally be left unchanged as you are now advised to handle saturation earlier in the pipeline -- a preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
 
-: Please note that this desaturation strategy has changed compared to previous versions of _filmic rgb_ (which provided a different slider control labelled _extreme luminance saturation_). You can revert to the previous desaturation behaviour by selecting "v3 (2019)" in the _color science_ setting on the [_options_](#options) tab. Since _filmic_ _v6_ and _v7_ use accurate gamut mapping to the output color space, the desaturation curve is removed and the extreme luminance desaturation becomes a method to control the bleaching of highlights.
+---
 
-: This control is set to 0 by default and it is now recommended that saturation is handled earlier in the pipeline. A preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
+**Note:** The _highlights saturation mix_ control has changed name and functionality a number of times as the developer refined its functionality. The above description documents the current (v7) functionality, which is the default and recommended version to use. In earlier versions, this control had different names ("extreme luminance saturation" in v3 and v6, "mid-tones saturation" in versions 4-5), and filmic's graph also included a darker "desaturation curve" indicating the amount of desaturation applied to pixels outside the latitude range. You can still access older versions by changing the "color science" setting in the [options](#options) tab. For more information on the operation of this control in older versions please see the tooltips that are displayed when you hover over the slider within darktable.
+
+---
 
 ## display
 
@@ -234,8 +237,8 @@ target black luminance
 
 : The target black luminance parameter sets the ground-level black of the target medium. By default it is set to the minimum non-zero value that can be encoded by the available number of bits in the output color space. Reducing it to zero means that some non-zero luminances will be mapped to 0 in the output, potentially losing some detail in the very darkest parts of the shadows. Increasing this slider will produce raised, faded blacks that can provide something of a "retro" look.
 
-target middle-gray
-: This is the middle-gray of the output medium that is used as a target for the S-curve's central node. On gamma-corrected media, the actual gray is computed with the gamma correction (middle-gray^(1/gamma)), so a middle-gray parameter of 18% with a gamma of 2.2 gives an actual middle-gray target of 45.87%.
+target middle-gray (hidden by default)
+: This is the middle-gray of the output medium that is used as a target for the S-curve's central node. On gamma-corrected media, the actual gray is computed with the gamma correction (middle-gray^(1/gamma)), so a middle-gray parameter of 18% with a gamma of 2.2 gives an actual middle-gray target of 45.87%. This control is hidden by default as it is essentially a duplication of the _exposure_ control within the [_exposure_](./exposure.md) module. You should use this module to set an appropriate mid-gray value before tone mapping with _filmic rgb_.
 
 target white luminance
 : This parameter allows you to set the ceiling level white of the target medium. Set it lower than 100% if you want dampened, muted whites to achieve a retro look.
