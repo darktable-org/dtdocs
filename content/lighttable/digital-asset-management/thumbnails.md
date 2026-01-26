@@ -38,10 +38,8 @@ There are three main reasons this could happen:
 
 # thumbnail icons
 
-Certain icons are displayed on thumbnails to provide additional information on images, when applicable
+The following icons may be displayed over the top of thumbnails to provide additional information:
 
-Images that are members of a group are denoted by a group icon ![light group icon](./thumbnails/Group-icon-light.png#icon) or ![dark group icon](./thumbnails/Group-icon-black.png#icon), where black identifies the leader image in that group.  See [image grouping](./digital-asset-management/grouping.md) for details
-
-Hovering over the ![tags](./thumbnails/Tag-icon.png#icon) icon identifies any tags that were applied to that image.
-
-Hovering over the ![tags](./thumbnails/History-icon.png#icon) icon identifies the processing modules that are applied to that image.
+- Images that are members of a group are denoted by a light ![light group icon](./thumbnails/Group-icon-light.png#icon) or dark ![dark group icon](./thumbnails/Group-icon-black.png#icon) group icon, where the darker icon identifies the lead image in that group.  See [image grouping](./grouping.md) for details
+- A ![tags](./thumbnails/Tag-icon.png#icon) icon identifies that tags have been added to the image. Hover over the icon to see a list of the applied tags.
+- A ![history](./thumbnails/History-icon.png#icon) icon identifies that the image has been processed. Hover over the icon to see a list of the processing modules that have been applied.
