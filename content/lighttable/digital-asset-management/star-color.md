@@ -22,6 +22,8 @@ To rate multiple images at once, select those images in the lighttable or filmst
 
 You can filter images by star rating in the [top panel](../../overview/user-interface/top-panel.md).
 
+The rating of an image is written to the xmp:Rating metadata field, and is compatible with other applications.
+
 # color labels
 
 Color labels are another way to classify images, and can be used as an alternative to star ratings or to work alongside them. Each image can carry any combination of one or more color labels (red, yellow, green, blue, or purple).
@@ -31,3 +33,5 @@ You can set the color labels for a single image by hovering your cursor over the
 To set the color labels of one or more images, select the desired images in the lighttable or filmstrip and then press the appropriate shortcut key or click the corresponding color button in the bottom panel. A color label will be added to all selected images if **any** of them do not currently have the label; otherwise the label will be removed from all selected images. To remove all labels (of any color) from the selected images, press the gray button.
 
 You can filter images by color label in the [collections](../../module-reference/utility-modules/shared/collections.md) module.
+
+The color labels of an image are written to the darktable:colorlabels metadata field, and are not compatible with other applications, because there is no standardized way to exchange this information.
