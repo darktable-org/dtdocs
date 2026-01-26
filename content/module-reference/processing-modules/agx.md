@@ -159,7 +159,7 @@ preserve hue
 The _primaries_ tab controls are similar to, but more extensive than, those of the collapsible _primaries_ section in the [_sigmoid_](./sigmoid.md#primaries) module:
 
 disable adjustments
-: Turns off all manipulation of primaries. You are not avised to tick this checkbox for actual processing -- it is intended more as a learning tool for quick comparisons. For a starting point without adjustments that can be fine-tuned manually, use the _unmodified_ configuration.
+: Turns off all manipulation of primaries. You are not advised to tick this checkbox for actual processing -- it is intended more as a learning tool for quick comparisons. For a starting point without adjustments that can be fine-tuned manually, use the _unmodified_ configuration.
 
 reset primaries
 : Clicking this button reveals a pop-up menu to apply one of the built-in sets of primaries, without altering any of the other settings.
