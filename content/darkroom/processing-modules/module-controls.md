@@ -60,6 +60,8 @@ Activate area mode by either right-clicking or Ctrl+clicking the picker icon and
 
 In modules where only one mode is available, left-clicking the icon will usually toggle that mode on and off.
 
+In modules where both modes are available, Ctrl+clicking anywhere on the image will switch modes.
+
 # keyboard shortcuts
 
 Module parameters can also be adjusted using keyboard shortcuts. See [preferences > shortcuts](../../preferences-settings/shortcuts.md) for more information.
