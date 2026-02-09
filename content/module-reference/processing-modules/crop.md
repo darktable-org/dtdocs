@@ -12,7 +12,7 @@ Whenever this module is in focus, the full uncropped image will be shown, overla
 
 ![screen controls](./crop/screen-controls.png#w75)
 
-Resize the crop by dragging the border and corner handles.
+Resize the crop by dragging the border and corner handles. During resizing, the dimensions (in pixels) and aspect ratio of the crop area are shown in the center of the crop area.
 
 Move the crop rectangle by clicking and dragging inside the crop area. Constrain movement to the horizontal/vertical axis by holding Ctrl/Shift, respectively while dragging. Commit changes by giving focus to another module.
 
