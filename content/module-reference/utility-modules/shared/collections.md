@@ -206,4 +206,8 @@ number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).
 
 sort film rolls by
-: Sort film rolls by either the "folder name" (path) or the "import time" (the date the film rolls were first imported) (default "import time").
+: Sort film rolls by one of the following options:
+
+-   "folder name" (path)
+-   "display name" (the roll label shown in the list)
+-   "import time" (the date the film rolls were first imported, default)
