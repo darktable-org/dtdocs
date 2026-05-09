@@ -73,15 +73,15 @@ The graph includes a "hue ring" representing the maximum chroma of each hue (in 
 
 ## color harmony and additional vectorscope controls
 
-The vectorscope provides some additional controls beyond those provided by the other modes, which deserve separate discussion. Hovering over the scopes module while in vectorscope mode shows the following additional buttons:
+The vectorscope provides some additional controls beyond those provided by the other modes, which deserve separate discussion. Hovering over the scopes module while in vectorscope mode shows the following additional buttons to the right:
 
 ![vectorscope-options](./scopes/vectorscope-options.png#w50)
 
-Click the right-most button to toggle the chroma scale between linear and logarithmic mode.
+Click the button second to the right to toggle the chroma scale between linear and logarithmic mode.
 
-Click the second-to-right-most button to toggle the color space of the vectorscope between [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) -- as previously mentioned, these color spaces exclude any luminosity component in this module. The CIELUV graph will be faster to calculate, and is a well-known standard, though JzAzBz may be more perceptually accurate.
+Click the right-most button to toggle the color space of the vectorscope between [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) -- as previously mentioned, these color spaces exclude any luminosity component in this module. The CIELUV graph will be faster to calculate, and is a well-known standard, though JzAzBz may be more perceptually accurate.
 
-Finally, along the left-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic when in RYB color space. For example, the following shows the "triad" color harmony:
+Finally, along the right-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic when in RYB color space. For example, the following shows the "triad" color harmony:
 
 ![vectorscope-ch-triad](./scopes/vectorscope-ch-triad.png#w50)
 
@@ -105,6 +105,12 @@ Bear in mind that these controls are provided as a basic guide to achieving colo
 - When adjusting an image based upon a color checker, faster and more accurate results will come from using [calibrate with a color checker](../../processing-modules/color-calibration/#extracting-settings-using-a-color-checker) in the _color calibration_ module.
 - The vectorscope does not have a "skin tone line", which is a flawed generalization rather than a universal standard.
 - The vectorscope represents a colorimetric encoding of an image, which inevitably diverges from a viewer's perception of the image.
+
+# Split Scope Mode
+
+![vectorscope-ch-triad](./scopes/split-mode.png#w50)
+
+Selecting the third scope mode activates split mode with waveform and vectorscope next to each other. This allows for a sense of both the lightness and chromaticity of an image without flipping between scopes. 
 
 # exposure adjustment
 
