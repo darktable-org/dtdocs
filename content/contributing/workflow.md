@@ -60,7 +60,7 @@ You will also have to setup your identity to commit to the repository with these
 7. Execute `git commit -m "Added documentation for yada yada"`. Inside the "" you will put a small message about the work you did
 8. Execute `git push --set-upstream origin branch-name` Changing the branch name by the one you picked before
 9. Create your pull request by following the instructions bellow.
-10. If you need to make changes, simply repeat 3-7. For the command in step 2 you can omit `-b` and in step 7 you can just do `git push`.
+10. If you need to make changes, simply repeat 4-8. For the command in step 3 you can omit `-b` and in step 8 you can just do `git push`.
 11. After you are done and your pull request is merged or you are finished with your work for this specific pull request, execute `git checkout master` to return to the master branch. I recommend working on only one branch/pr at a time if you don't know how git works.
 
 ## Pull request
