@@ -9,11 +9,11 @@ These instructions assume that you already have a github account and have instal
 
 # Documenting undocumented features
 
-We are particularly interested in documenting closed pull requests that require additions or changes to this manual. Pull requests that require documentation are cataloged with a GitHub label `documentation-pending`.
+We are particularly interested in documenting closed pull requests that require additions or changes to this manual. Pull requests that require documentation are cataloged with a GitHub label `documentation: pending`.
 
 The high-level steps to do this are:
 
-1. View the list of [Pull Requests that need documentation](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3Adocumentation-pending+).
+1. View the list of [Pull Requests that need documentation](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3A%22documentation:%20pending%22).
 2. Select a Pull Request where you understand what has changed.
 3. Author the change as detailed in the workflow below.
 4. When you make the Pull Request, include a link to the pull request from Step 1.
