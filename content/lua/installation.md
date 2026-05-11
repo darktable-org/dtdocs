@@ -28,7 +28,9 @@ Restart darktable twice, and the scripts module should appear in the lower-left 
 
 ### macOS
 
-Ensure git is installed on your system. If it isn't, use the package manager to install it. Then open a terminal and:
+The Lua scripts can be installed by using darktable's GUI. In lighttable view, expand the lua scripts installer module in the lower-left corner. Ensure that select action: install scripts is selected, then click execute. Restart darktable once for the scripts module to appear in the lower-left corner.
+
+Alternatively you could use the console. Ensure git is installed on your system. If it isn't, use the package manager to install it. Then open a terminal and:
 
     cd ~/.config/darktable/
     git clone https://github.com/darktable-org/lua-scripts.git lua
