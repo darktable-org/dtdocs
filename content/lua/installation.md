@@ -8,7 +8,7 @@ author: "people"
 
 ## Download and Install
 
-Before you can use existing scripts, they must be installed in darktable. This also installs the script manager, which makes it easier to enable or disable individual scripts from the GUI.
+A collection of scripts is available in the [lua-scripts repository](https://github.com/darktable-org/lua-scripts). This also includes the script manager, which makes it easier to enable or disable individual scripts from the GUI. To use these existing scripts, they must be installed in darktable.
 
 In most cases the Lua scripts can be installed via the GUI, but this depends on your OS and chosen method of installation. 
 
