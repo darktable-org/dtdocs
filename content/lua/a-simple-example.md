@@ -10,7 +10,9 @@ Let's start with a simple example that will print some code on the console. Crea
 print("Hello World !")
 ```
 
-Start darktable and you will see the sentence "`Hello World !`" printed on the console. Nothing fancy but it's a start.
+Start darktable from the console and you will see the sentence "`Hello World !`" printed on the console. Nothing fancy but it's a start. 
+
+Note that in case you are using the AppImage nothing will be printed to the console. 
 
 At this point, there is nothing darktable-specific in the script. We simply use Lua's standard print function to print a string. That's nice and all, but we can do better than that. To access the darktable API you first need to `require` it and save the returned object in a variable. Once this is done you can access the darktable API as subfields of the returned object. All of this is documented in darktable's [Lua API](./api.md) reference manual.
 
