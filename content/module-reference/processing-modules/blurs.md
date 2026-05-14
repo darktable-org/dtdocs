@@ -21,7 +21,7 @@ A diagram at the top of the module shows the shape of the blurring operator (kno
 ## general
 
 blur radius
-: The spreading size of the blur.
+: The spreading size of the blur (4-256 px).
 
 blur type
 : Choose between the different blur variants (above).
