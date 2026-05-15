@@ -4,7 +4,7 @@ id: basic-principles
 weight: 20
 ---
 
-At startup, darktable will automatically run the Lua scripts `$DARKTABLE/share/darktable/luarc` and `$HOME/.config/darktable/luarc` (where `$DARKTABLE` represents the darktable installation directory and `$HOME` represents your home directory).
+At startup, darktable will automatically run the Lua scripts `$DARKTABLE/share/darktable/luarc` (where `$DARKTABLE` represents the darktable installation directory) and `$HOME/.config/darktable/luarc` (or `%LOCALAPPDATA%/darktable/luarc` on Windows).
 
 The specific path of luarc depends on your OS and chosen method of installation. See [config-dirs](../content/preferences-settings/config-folder.md) for detailed information.
 
