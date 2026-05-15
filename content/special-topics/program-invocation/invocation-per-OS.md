@@ -16,8 +16,10 @@ Linux
 Windows
 * Navigate to darktable's program folder: `cd "\Program Files\darktable\bin"`
 * Then `.\darktable.exe` 
-* the other binaries e.g. `darktable-cltest.exe` are also located in this folder and can be called accordingly
+* The other binaries e.g. `darktable-cltest.exe` are also located in this folder and can be called accordingly
 
 macOS
 * `/Applications/darktable.app/Contents/MacOS/darktable`
 * The other binaries e.g. `darktable-cltest` are also located in this folder and can be called accordingly
+
+Command line options are in any case simply appended. 
