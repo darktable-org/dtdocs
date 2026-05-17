@@ -21,10 +21,10 @@ The layout of all darktable views is similar and consists of a center area with 
 : Contains information about the current darktable version and allows you to switch between views. Also used by some modules to show additional hints and messages.
 
 5. [top panel](./top-panel.md)
-: Provides access to global settings and shortcuts
+: Provides access to global settings and shortcuts.
 
-6. bottom panel
-: Provides access to view-specific settings and shortcuts.
+6. [bottom panel](./bottom-panel.md)
+: Provides access to mostly view-specific settings and shortcuts.
 
 7. [filmstrip](../../module-reference/utility-modules/shared/filmstrip.md)/[timeline](../../module-reference/utility-modules/lighttable/timeline.md) panel
 : An optional panel that can be enabled at the bottom of the screen to display a timeline (in the lighttable view) or a filmstrip (in other views) of images in the current collection.
