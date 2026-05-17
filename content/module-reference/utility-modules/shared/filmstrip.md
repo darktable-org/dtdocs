@@ -44,3 +44,5 @@ The following shortcuts can be used to perform operations on the selected images
 -   `Ctrl+Shift+V` selectively pastes from the copied history stack
 
 See the lighttable's [history stack](../lighttable/history-stack.md) module documentation for more information about the copy and paste functionality.
+
+The filmstrip image under the cursor can be pinned to the [second darkroom window](../../../darkroom/darkroom-view-layout/#bottom-panel) by assigning a shortcut to [utility modules > filmstrip > pin in second window](../../../preferences-settings/shortcuts.md).
