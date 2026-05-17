@@ -4,9 +4,9 @@ id: darktable
 weight: 10
 ---
 
-The `darktable` binary starts darktable with its GUI and full functionality. This is the standard way to use darktable.
+The `darktable` binary starts darktable with its GUI and full functionality. This is the standard way to use darktable. The exact command to launch the binary [depends on your OS](../../special-topics/program-invocation/invocation-per-OS.md).
 
-`darktable` can called with the following command line parameters:
+The following command line parameters are available:
 
 ```
 darktable [-d {all,act_on,cache,camctl,camsupport,common,control,
