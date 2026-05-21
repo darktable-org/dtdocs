@@ -46,6 +46,15 @@ Then you can clone a copy of dtdocs to your computer.
 4. Ensure you have no local pending changes by executing `git status` and then execute `git checkout master` (if you followed this guide for the first time you will already be on master).
 5. Execute `git pull` (this ensures your local copy is up to date with your fork on github).
 
+Alternatively you can sync your fork and local copy via terminal:
+
+1. Ensure you have no local pending changes by executing `git status` and then execute `git checkout master`.
+2. Check your remote repositories: `git remote -v`. You should at least see `origin` (your fork). If `upstream` is missing, add it in the next step. 
+3. Add the dtdocs repository as upstream (only once): `git remote add upstream https://github.com/darktable-org/dtdocs.git`. 
+4. Pull the current state from the main repository to your local copy: `git pull upstream master`. 
+5. Push your now synced local copy to your fork: `git push origin master`
+    
+
 ## Branch, edit and create a pull request
 
 1. Open a terminal or cmd in your darktable documentation repository directory
