@@ -4,7 +4,12 @@ id: bottom-panel
 weight: 50
 ---
 
-The bottom panel appears in all darktable views. Common controls are described here; view-specific controls are described in the appropriate pages.
+The bottom panel appears in all darktable views. Common controls are described here. View-specific controls are described in the appropriate pages:
+
+* [lighttable view](../../../lighttable/lighttable-view-layout/#bottom-panel)
+* [darkroom view](../../../darkroom/darkroom-view-layout/#bottom-panel)
+* [map view](../../../map/map-view-layout/#bottom-panel)
+* [tethering view](../../../tethering/tethering-view-layout/#bottom-panel)
 
 # common controls
 
