@@ -4,11 +4,12 @@ id: color-harmonizer
 weight: 10
 ---
 
-The color harmonizer nudges hues — and optionally chroma — toward a selected color palette: a set
-of geometrically related hue angles called *harmony nodes*. The goal is to reduce chromatic discord
-in an image. Colors that are "off-palette" are gently pulled toward the nearest node; colors
-already on a node are left unchanged. A per-node saturation multiplier can additionally boost or
-reduce the colorfulness of colors near each node.
+The color harmonizer reduces chromatic dissonance by pushing hues toward a selected color palette.
+This palette is defined by a set of hue angles called harmony nodes.
+Colors that are "off-palette" are gently pulled toward the nearest node; colors already on a node are left unchanged.
+A per-node saturation multiplier can additionally boost or reduce the colorfulness of colors near each node.
+
+If the _vectorscope two-way sync_ option is enabled then the scopes modules automatically switches to show the vectorscope.
 
 # module controls
 
@@ -73,15 +74,13 @@ desired hue directly from the image.
 ## Effect controls
 
 pull strength
-: Global scale on the hue pull. At 0 nothing changes. At 1 the Gaussian proximity weight is the
-only limit on how far each pixel moves. A pixel exactly on a node shifts by 0; a pixel at the
-midpoint between two nodes is shifted by the Gaussian weight at that distance multiplied by its
-angular gap to the nearest node.
+: Colours will be shifted depending on their proximity to the nodes. The shift is strongest for pixels between nodes,
+and weakest (or zero) for pixels exactly on a node.
 
     Note: pull strength scales the **hue** correction only. The saturation correction (per-node saturation multipliers) is applied independently, at full strength regardless of this slider.
 
 pull width
-: Scales the standard deviation σ of each node's Gaussian attraction zone. Range: 0.25–4.0.
+: Scales the standard deviation σ of each node's Gaussian attraction zone.
 
 - **< 1 (narrow):** the Gaussian decays quickly with distance; only hues very close to a node
   are attracted. The rest of the hue wheel is barely touched. Useful for images already close to
@@ -95,11 +94,7 @@ pull width
     Increasing pull width never displaces pixels that are already exactly on a harmony node — their angular distance to the nearest node is zero, so their hue shift is always zero.
 
 neutral color protection
-: Shields low-chroma pixels from correction. The weight for each pixel is:
-
-    ```
-    chroma_weight = C / (C + t³ · 0.03)
-    ```
+: Shields low-chroma pixels from correction. The weight for each pixel is: _chroma_weight = C / (C + t³ · 0.03)_
 
     At C = 0 the weight is always zero regardless of the slider: fully achromatic pixels (pure
     grays) are never touched. As C grows, the weight approaches 1. The slider sets how aggressively
@@ -109,8 +104,7 @@ neutral color protection
     Default: 0.50.
 
 smoothing
-: Applies a Gaussian blur to the correction maps (hue delta and saturation delta) before they are
-applied to the image. This smooths the spatial transitions at zone boundaries — visible as subtle
+: This smooths the spatial transitions at zone boundaries — visible as subtle
 colour steps in smooth gradients like skies or skin when adjacent regions fall in different
 attraction zones.
 
@@ -165,7 +159,7 @@ node saturation sliders
    (architecture, faded film looks) to exempt pastels and muted tones from correction.
 
 6. **Use the saturation section for palette polishing.** Once the hue pull is set, open the
-   Saturation section to boost or calm chroma per node — e.g. boost the warm nodes and desaturate
+   saturation section to boost or calm chroma per node — e.g. boost the warm nodes and desaturate
    the cool ones for a cinematic split-tone look.
 
 ### Custom harmony mode
@@ -187,6 +181,7 @@ no standard rule name for custom palettes).
 With *vectorscope two-way sync* enabled, the vectorscope overlays the harmony guide on the
 image's color distribution. Colors inside the guide arcs are on-palette; colors outside are
 being corrected. Use this to verify the pull is moving in the intended direction.
+Aside from using the hue slider the anchor hue can be moved by scrolling with the cursor over the vectorscope.
 
 To start from a palette already set in the vectorscope panel, click the *import from vectorscope*
 button (![import-from-vectorscope](./color-harmonizer/import-from-vectorscope.png#icon)).
