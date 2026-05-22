@@ -73,11 +73,17 @@ darktable resources
 activate [OpenCL](../special-topics/opencl/_index.md) support
 : Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found this option is grayed out. OpenCL support can be switched on and off at any time and takes immediate effect (default on).
 
+OpenCL fast mode
+: If set, the OpenCL compiler uses aggressive optimizing for better performance with reduced precision while having some very subtle quality loss.
+
 OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems:
 : - _default_: the GPU processes the center view pixelpipe; the CPU processes the preview pipe.
 : - _very fast GPU_: both pixelpipes are processed sequentially on the GPU.
 : - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information.
+
+tuned GPU memory
+: If enabled on a system with multiple OpenCL devices you may specify a safety margin per device (headroom, default is 600MB).
 
 OpenCL drivers
 : In most cases darktable is able to find the correct OpenCL driver but this depends on how your operating system handles installation. Generally speaking, darktable must:
