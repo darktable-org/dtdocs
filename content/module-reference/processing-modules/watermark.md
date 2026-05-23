@@ -72,6 +72,6 @@ y offset
 
 ---
 
-**Note**: When using the watermark in combination with the framing module, the added frame affects the watermark’s position. For example, if you align the watermark to an edge, it may appear within the frame instead of on the actual image. To ensure the watermark is positioned relative to the image itself, you can manually manually [adjust the module order](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md#changing-module-order) so that the framing module comes after the watermark module in the pixelpipe.
+**Note**: When using the watermark in combination with the framing module, the added frame affects the watermark’s position. For example, if you align the watermark to an edge, it may appear within the frame instead of on the actual image. To ensure the watermark is positioned relative to the image itself, you can manually manually [adjust the module order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md#changing-module-order) so that the framing module comes after the watermark module in the pixelpipe.
 
 ---
