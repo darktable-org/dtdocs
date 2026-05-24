@@ -9,8 +9,6 @@ This palette is defined by a set of hue angles called harmony nodes.
 Colors that are "off-palette" are gently pulled toward the nearest node; colors already on a node are left unchanged.
 A per-node saturation multiplier can additionally boost or reduce the colorfulness of colors near each node.
 
-If the _vectorscope two-way sync_ option is enabled then the scopes modules automatically switches to show the vectorscope.
-
 # module controls
 
 harmony rule
@@ -46,7 +44,8 @@ vectorscope two-way sync
 : When enabled (default), any change to the harmony rule, anchor hue, or custom node positions is
 immediately reflected in the vectorscope harmony overlay, and changes made in the vectorscope are
 reflected back in the module. Disable to make adjustments without disturbing the vectorscope
-display.
+display. If enabled, using the module will automatically switch the scopes module to show the vectorscope.
+
 
 ![import-from-vectorscope](./color-harmonizer/import-from-vectorscope.png#icon) import from vectorscope *(standard modes only)*
 : Imports the harmony rule and anchor hue currently configured in the vectorscope panel, then
