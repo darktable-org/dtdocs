@@ -126,6 +126,8 @@ node saturation sliders
 
 ### Basic workflow
 
+When the module is first activated it is in a neutral state and so there will be no visible change in the image.
+
 1. **Set the anchor hue.** Use the eyedropper to pick the dominant or most important color in
    the scene — a sky, a garment, a skin tone — or drag the slider manually while watching the
    swatch strip.
@@ -135,11 +137,10 @@ node saturation sliders
    complementary* often work well. Enable *vectorscope two-way sync* (under the harmony rule
    heading) to see the palette on the vectorscope while you choose.
 
-3. **Raise pull strength.** Start around 0.2–0.3. The effect is graduated; values
-   above 0.6 are rarely needed for a convincing result.
+3. **Raise pull strength.** Start around 0.2–0.3. The effect is graduated.
 
 4. **Adjust pull width if needed.** If many off-palette hues are not moving enough, widen the
-   zones. If you want to correct only specific hue ranges without touching the rest, narrow them.
+   zones. If you want to correct only specific hue ranges without touching the rest, narrow them. The result may be very subtle if the image already has an inherent harmony and the module is set to match. In this case, setting both strength and width to their maximum values and then reducing them gradually may be a more effective strategy.
 
 5. **Use neutral color protection to taste.** Raise it for images with many desaturated tones
    (architecture, faded film looks) to exempt pastels and muted tones from correction.
@@ -171,20 +172,3 @@ Aside from using the hue slider the anchor hue can be moved by scrolling with th
 
 To start from a palette already set in the vectorscope panel, click the *import from vectorscope*
 button (![import-from-vectorscope](./color-harmonizer/import-from-vectorscope.png#icon)).
-
-### Interaction with blending
-
-The module supports parametric and drawn masking. Common uses:
-
-- Apply harmonization only to the background by masking out the subject.
-- Use a luminance mask to restrict corrections to mid-tones.
-- Reduce opacity as a global intensity control on top of pull strength.
-
-### Typical parameter ranges
-
-| Goal | Pull strength | Pull width | Neutral color protection |
-|------|--------------|------------|-------------------------|
-| Subtle finishing touch | 0.1–0.25 | 1.0–1.5 | 0.2–0.4 |
-| Moderate creative grade | 0.3–0.5 | 1.5–2.5 | 0.2–0.5 |
-| Aggressive stylization | 0.5–0.9 | 2.5–4.0 | 0.0–0.3 |
-| Fix specific off-hues only | 0.4–0.8 | 0.25–0.7 | 0.2 |
