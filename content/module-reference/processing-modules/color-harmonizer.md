@@ -42,7 +42,7 @@ The color swatch strip below the slider shows the actual node colors for quick v
 
 vectorscope two-way sync
 : When enabled (default), any change to the harmony rule, anchor hue, or custom node positions is
-immediately reflected in the vectorscope harmony overlay, and changes made in the vectorscope are
+immediately reflected in the vectorscope harmony overlay, and changes made in the vectorscope, i.e. changing the overlayed rule or rotating the overlay, are
 reflected back in the module. Disable to make adjustments without disturbing the vectorscope
 display. If enabled, using the module will automatically switch the scopes module to show the vectorscope.
 
@@ -50,16 +50,6 @@ display. If enabled, using the module will automatically switch the scopes modul
 ![import-from-vectorscope](./color-harmonizer/import-from-vectorscope.png#icon) import from vectorscope *(standard modes only)*
 : Imports the harmony rule and anchor hue currently configured in the vectorscope panel, then
 switches the histogram panel to the vectorscope view.
-
-    The algorithm:
-    1. Builds a 360-bin hue histogram weighted by chroma (achromatic pixels are ignored).
-    2. Smooths it with three passes of a circular box filter to suppress noise.
-    3. Scores all 9 × 360 = 3,240 (rule, anchor) combinations at 1° resolution by computing what
-       fraction of chromatic energy falls within the Gaussian attraction zones of each rule's nodes.
-    4. Sets the rule and anchor hue to the combination with the highest coverage score.
-
-    The result replaces the current rule and anchor. Use **pull strength** to control how strongly
-    the remaining off-palette hues are then pulled toward the detected palette.
 
 nodes *(custom mode only)*
 : Number of active harmony nodes in custom mode (2–4). Only the first N node rows are shown and
@@ -79,24 +69,21 @@ and weakest (or zero) for pixels exactly on a node.
     Note: pull strength scales the **hue** correction only. The saturation correction (per-node saturation multipliers) is applied independently, at full strength regardless of this slider.
 
 pull width
-: Scales the standard deviation σ of each node's Gaussian attraction zone.
+: Scales the width of each node's attraction zone.
 
-- **< 1 (narrow):** the Gaussian decays quickly with distance; only hues very close to a node
+- **< 1 (narrow):** quick decay; only hues very close to a node
   are attracted. The rest of the hue wheel is barely touched. Useful for images already close to
   harmonic, or when precise, surgical correction of specific hues is needed.
-- **= 1 (default):** the Gaussian tapers to roughly 14 % at the midpoint between adjacent nodes —
-  clean zone separation with smooth transitions.
-- **> 1 (wide):** the Gaussian stays high across most of the hue circle; all pixels are
-  attracted noticeably regardless of how far they are from a node. Useful for strongly discordant
-  images or a painterly look.
+- **= 1 (default):** medium decay — clean zone separation with smooth transitions.
+- **> 1 (wide):** no decay; all pixels are
+  attracted noticeably regardless of how far they are from a node. Useful to suppress colors outside the target harmony.
 
     Increasing pull width never displaces pixels that are already exactly on a harmony node — their angular distance to the nearest node is zero, so their hue shift is always zero.
 
 neutral color protection
-: Shields low-chroma pixels from correction. The weight for each pixel is: _chroma_weight = C / (C + t³ · 0.03)_
+: Shields low-chroma pixels from correction.
 
-    At C = 0 the weight is always zero regardless of the slider: fully achromatic pixels (pure
-    grays) are never touched. As C grows, the weight approaches 1. The slider sets how aggressively
+    The slider sets how aggressively
     low-chroma pixels are exempted: low values protect only near-absolute grays; high values extend
     protection to muted and pastel tones. Even at the maximum, vivid colors remain largely unaffected.
 
