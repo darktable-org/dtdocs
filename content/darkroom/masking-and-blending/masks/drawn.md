@@ -12,7 +12,7 @@ The controls required to create and alter drawn masks may be enabled by selectin
 
 # creating shapes
 
-Choose a shape by clicking on the appropriate shape icon (from left to right: circle, ellipse, path, brush, gradient).
+Choose a shape by clicking on the appropriate shape icon (from left to right: brush, circle, ellipse, path, gradient, and – when [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active – object).
 
 ![shape icons](./drawn/shape-icons.png)
 
@@ -104,6 +104,24 @@ gradient
 : Gradient lines can also be curved by scrolling with your mouse while hovering close to the center line. This can be useful to counteract the distortion caused by the [_lens correction_](../../../module-reference/processing-modules/lens-correction.md) module. 
 
 : Depending on the module and the underlying image, using a gradient shape might provoke banding artifacts. You should consider activating the [_dither or posterize_](../../../module-reference/processing-modules/dither-or-posterize.md) module to alleviate this.
+
+object _(requires AI features)_
+: An AI-generated mask: instead of drawing the outline by hand, click on the subject and a segmentation model produces the mask for you. Iterate by adding more clicks until the mask covers exactly what you want, then apply it. Requires AI features to be enabled and a model for the _mask_ task active in [AI preferences](../../../preferences-settings/ai.md) – see the [AI features overview](../../../special-topics/ai/overview.md) for what runs where.
+
+: - **click** on the subject to add a foreground (positive) prompt point – the model produces a mask around the clicked region.
+: - **shift+click** to add a background (negative) point, telling the model "exclude this area from the mask". Useful when the mask spills onto a neighbouring object you didn't want.
+: - **ctrl+shift+click** to clear all prompt points and start over.
+: - **right-click** to apply the mask. The result is vectorized into a group of path shapes and registered with the [mask manager](../../../module-reference/utility-modules/darkroom/mask-manager.md).
+
+: After applying, the result is _stored_ as a regular path shape – the AI-segmentation output is vectorized into Bézier paths once and persisted in that form. Nodes are editable, the group can be combined with other shapes via set operators, polarity can be reversed, and so on. The AI model is not involved beyond the initial generation, so the mask renders just as cheaply as any other vector shape and works in modules and styles that have no AI dependency.
+
+: First click on a new image runs the encoder once and caches the result on disk; later clicks reuse the cache (even across restarts) so only the lightweight decoder re-runs per prompt point. Changing any module that distorts or crops the image (crop, rotate and perspective, lens correction, etc.) invalidates the cache and forces a re-encode on the next click.
+
+---
+
+**Tips for better results:** The model selects one visually distinct object at a time. If the first click picks only part of the subject (an arm rather than the whole person, a wheel rather than the whole car), add more clicks on _adjacent_ parts to extend the mask. Clicking on a visually separate area usually switches the model to a new selection rather than extending the current one – when that happens, reset with **ctrl+shift+click** and start over instead of trying to repair the mask with corrections.
+
+---
 
 # reversing the polarity of a drawn mask 
 
