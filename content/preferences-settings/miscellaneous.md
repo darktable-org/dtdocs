@@ -25,7 +25,7 @@ enable touchpad gestures in darkroom
 : When enabled, use two-finger touchpad gestures in darkroom for panning (two-finger touchpad scrolling) and pinch-to-zoom. When disabled, touchpad gestures are ignored and darkroom uses only the mouse scrolling behavior for zooming in and out (default on).
 
 constrain darkroom zoom between screen fit and 100%
-: When enabled, limits scroll-wheel and pinch-to-zoom in the darkroom to the range between screen fit (zoom out) and 100% (zoom in). Hold <i>Ctrl</i> while zooming to temporarily lift the limit and zoom beyond 100%. When disabled, zoom is never constrained and the additional <i>Ctrl</i> key press is not needed to zoom beyond 100% (default on).
+: When enabled, limits scroll-wheel and pinch-to-zoom in the darkroom to the range between screen fit (zoom out) and 100% (zoom in). Hold _Ctrl_ while zooming to temporarily lift the limit and zoom beyond 100%. When disabled, zoom is never constrained and the additional _Ctrl_ key press is not needed to zoom beyond 100% (default on).
 
 always show panels' scrollbars
 : Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart) 
