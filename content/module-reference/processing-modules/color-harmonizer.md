@@ -112,13 +112,13 @@ multiplier slider.
 node saturation sliders
 : Saturation multiplier for colors near the corresponding harmony node.
 
-    - **100 % (default):** chroma is unchanged.
+    - **100 % (default):** saturation is unchanged.
     - **< 100 %:** desaturates colors near this node, proportionally to their Gaussian proximity.
-    - **> 100 %:** boosts chroma near this node.
+    - **> 100 %:** boosts saturation near this node.
 
-    The effect is weighted by the pixel's Gaussian proximity to the node (`w_nearest`) and further
+    The effect is weighted by the pixel's Gaussian proximity to the node and further
     modulated by **neutral color protection** so near-achromatic pixels are spared. At the node itself
-    (maximum weight) the chroma is multiplied by exactly the slider value.
+    (maximum weight) the saturation is multiplied by exactly the slider value.
 
 ---
 
@@ -135,7 +135,7 @@ node saturation sliders
    complementary* often work well. Enable *vectorscope two-way sync* (under the harmony rule
    heading) to see the palette on the vectorscope while you choose.
 
-3. **Raise pull strength slowly.** Start around 0.2–0.3. The effect is graduated; values
+3. **Raise pull strength.** Start around 0.2–0.3. The effect is graduated; values
    above 0.6 are rarely needed for a convincing result.
 
 4. **Adjust pull width if needed.** If many off-palette hues are not moving enough, widen the
