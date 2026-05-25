@@ -9,7 +9,7 @@ The `darktable` binary starts darktable with its GUI and full functionality. Thi
 `darktable` can called with the following command line parameters:
 
 ```
-darktable [-d {all,act_on,cache,camctl,camsupport,common,control,
+darktable [-d {all,act_on,ai,cache,camctl,camsupport,common,control,
                dev,expose,fswatch,imageio,input,ioporder,lighttable,lua,
                masks,memory,nan,opencl,params,perf,pipe,print,pwstorage,
                signal,sql,tiling,undo,verbose}]
