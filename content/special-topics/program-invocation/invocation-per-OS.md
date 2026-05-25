@@ -12,7 +12,9 @@ Linux
      + To run e.g. `darktable-cltest`: `flatpak run --command=darktable-cli org.darktable.Darktable --arguments-go-here`
 * AppImage: Navigate to containing folder, then `./darktable.Appimage` (or however you named the file). 
      + To run e.g. `darktable-cltest`: `./darktable.Appimage darktable-cltest`
-     + An additional option to run the various binaries included in darktable (e.g. `darktable-cltest` or `darktable-cli`) is through a symbolic link: Create a symbolic link to your AppImage and call it e.g. `darktable-cli`. Then, when calling the AppImage through the symbolic link with `./darktable-cli`, the code inside the package checks to see if there is a binary file inside the AppImage with a name that matches the symlink name, and if so, it will be run instead of the default one.
+     + An additional option to run the various binaries included in darktable (e.g. `darktable-cltest` or `darktable-cli`) is through a symbolic link: 
+          * Create a symbolic link to your AppImage and call it e.g. `darktable-cli`. 
+          * Then, when calling the AppImage through the symbolic link with `./darktable-cli`, the code inside the package checks to see if there is a binary file inside the AppImage with a name that matches the symlink name, and if so, it will be run instead of the default one.
      
 Windows
 * Navigate to darktable's program folder: `cd "\Program Files\darktable\bin"`
