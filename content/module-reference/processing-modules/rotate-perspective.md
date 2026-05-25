@@ -71,7 +71,7 @@ You may choose to automatically apply just the vertical corrections ![vertical-i
 
 ## rotate
 
-Once you are happy with the applied perspective corrections, you may wish to perform a final rotation correction either by adjusting the rotation parameter or by clicking the ![fix-horizon-icon](./rotate-perspective/icon-fix-horizon.png#icon) "fix horizon" button to enter horizon-fix mode, then left-click and drag on the image to draw a rotation line. Alternatively, right-click once to place the first point and right-click again to finalize the rotation.
+Once you are happy with the applied perspective corrections, you may wish to perform a final rotation correction either by adjusting the rotation parameter or by clicking the ![fix-horizon-icon](./rotate-perspective/icon-fix-horizon.png#icon) "fix horizon" button, then left-click and drag on the image to draw a rotation line. Alternatively, right-click once to place the first point and right-click again to finalize the rotation.
 
 # module controls
 
