@@ -25,8 +25,14 @@ jobs:
       - name: Generate translated files
         run: nix develop --command bash -c "cd tools && bash generate-translations.sh --no-update"
 
+      - name: Build epub
+        run: nix-shell --run './tools/build-epub.sh'
+
       - name: Clear
         run: nix develop --command bash -c "rm -rf public"
 
       - name: Build
         run: nix develop --command bash -c "hugo"
+
+      - name: Build PDF
+        run: nix-shell --run 'hugo server --disableFastRender -verbose --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/index.html ./public/darktable_user_manual.pdf && pkill hugo'
