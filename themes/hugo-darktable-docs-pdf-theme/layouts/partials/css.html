@@ -1,5 +1,5 @@
 <!-- Our custom CSS -->
 <!-- {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" true) }} -->
 {{ $options := (dict "targetPath" "style.css" "enableSourceMap" true) }}
-{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options | minify | fingerprint }}
+{{ $style := resources.Get "sass/main.scss" | css.Sass $options | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
