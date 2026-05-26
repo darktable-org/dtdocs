@@ -1,5 +1,5 @@
 ---
-title: image seqence
+title: image sequence
 id: sequence
 weight: 25
 ---
