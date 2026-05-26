@@ -9,7 +9,7 @@ Enabling GPU acceleration for darktable's AI features is a two-step process:
 1. **Install a GPU-capable ONNX Runtime** for your hardware (this page).
 2. **Point darktable at the new library** via [AI preferences](../../../preferences-settings/ai.md) – click **detect** to auto-scan standard install locations, or browse to the file by hand.
 
-The runtime bundled with darktable is CPU-only on Linux, DirectML-enabled on Windows, and CoreML-enabled on macOS, so step 1 only applies if you want NVIDIA, AMD, or Intel GPU acceleration on Linux or Windows. Step 1 has three paths, covered below.
+On Linux, the bundled runtime is CPU-only; on Windows, it uses DirectML; and on macOS, it uses CoreML. So, step 1 only applies if you want NVIDIA, AMD, or Intel GPU acceleration on Linux or Windows. Step 1 has three paths, covered below.
 
 # requirements
 

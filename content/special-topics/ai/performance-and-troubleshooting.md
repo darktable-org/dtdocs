@@ -21,6 +21,8 @@ Most AI problems fall into one of three buckets.
 
 Check that AI features are enabled in [AI preferences](../../../preferences-settings/ai.md) – the master toggle is off by default.
 
+If the AI tab itself is missing from preferences, darktable was built without AI support. The official darktable builds (Linux AppImage, Windows installer, macOS dmg) all include it, but third-party packagers may ship a build without it. Ask your distribution's package maintainer to enable AI support, or switch to an official build.
+
 If enabled and the feature is still missing, the required model may not be installed or active. Open AI preferences and confirm a model is ticked in the _enabled_ column for the relevant task. Only one model per task can be active at a time.
 
 ## inference fails or falls back to CPU unexpectedly
@@ -35,7 +37,7 @@ Run darktable from a terminal with `darktable -d ai` to see ONNX Runtime load me
 
 AI denoise and upscale are restoration tasks – the model is inferring plausible output from a training prior. Slight color or contrast shifts are possible, especially for images outside the training distribution (extreme ISO, synthetic captures, very wide-gamut scenes).
 
-If fidelity matters more than aggressive cleanup, stick with the classical [denoise (profiled)](../../../module-reference/processing-modules/denoise-profiled.md) module.
+If fidelity matters more than aggressive cleanup, in e.g. denoising an image, stick with the classical [denoise (profiled)](../../../module-reference/processing-modules/denoise-profiled.md) module.
 
 # further reading
 

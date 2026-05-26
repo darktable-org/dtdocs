@@ -6,7 +6,15 @@ weight: 135
 
 Control darktable's AI features: enable or disable them, choose a hardware accelerator for model inference, point darktable at an ONNX Runtime library, and manage the AI models available on disk.
 
-AI features are powered by [ONNX Runtime](https://onnxruntime.ai/). darktable ships with a CPU-only ONNX Runtime on Linux, a DirectML-enabled build on Windows, and a CoreML-enabled build on macOS. To enable NVIDIA, AMD or Intel GPU acceleration on Linux or Windows, install a GPU-enabled ONNX Runtime using the install scripts described below.
+AI features are powered by [ONNX Runtime](https://onnxruntime.ai/). What runs out of the box and what GPU acceleration can be added on each platform:
+
+| OS      | Bundled                                    | Optional GPU acceleration                  |
+|---------|--------------------------------------------|--------------------------------------------|
+| Linux   | CPU only                                   | NVIDIA CUDA, AMD ROCm/MIGraphX, Intel OpenVINO |
+| Windows | DirectML (any DirectX 12 GPU)              | NVIDIA CUDA, Intel OpenVINO                |
+| macOS   | CoreML (Apple Silicon, integrated GPU)     | –                                          |
+
+Install scripts for the GPU runtimes are described below; see [GPU acceleration](../special-topics/ai/gpu-acceleration.md) for the full instructions.
 
 For a deeper explanation of how AI features work – the inference runtime, execution providers, model layout, GPU acceleration, and troubleshooting – see the [AI features](../special-topics/ai/) special topic.
 
@@ -16,20 +24,20 @@ enable AI features
 : Master switch for all AI features. When disabled, no ONNX Runtime is loaded, no model directories are scanned, and AI-dependent modules hide themselves. Turn this off to eliminate AI-related memory and startup cost when you don't need it (default off).
 
 AI acceleration
-: The hardware accelerator used for model inference. The list is filtered to show only the providers the currently-loaded ONNX Runtime actually supports – installing a different ONNX Runtime updates the list.
+: The hardware accelerator used for model inference. The list only shows the currently available providers as supported by the loaded ONNX Runtime. Installing a different ONNX Runtime updates the list.
 
 : - _auto_ picks the best available provider for the loaded library, falling back to CPU if no accelerator initialises.
 : - _CPU_ runs inference on the processor. Always available.
-: - _NVIDIA CUDA_ uses NVIDIA GPUs via cuDNN (Linux, Windows; requires a CUDA-enabled ONNX Runtime).
-: - _AMD MIGraphX_ uses AMD GPUs via ROCm (Linux only; requires a MIGraphX-enabled ONNX Runtime).
-: - _Intel OpenVINO_ uses Intel GPUs and iGPUs via OpenVINO (Linux, Windows; requires an OpenVINO-enabled ONNX Runtime).
+: - _NVIDIA CUDA_ uses NVIDIA GPUs via cuDNN (Linux, Windows; requires installing a CUDA-enabled ONNX Runtime).
+: - _AMD MIGraphX_ uses AMD GPUs via ROCm (Linux only; requires installing a MIGraphX-enabled ONNX Runtime).
+: - _Intel OpenVINO_ uses Intel GPUs and iGPUs via OpenVINO (Linux, Windows; requires installing an OpenVINO-enabled ONNX Runtime).
 : - _Windows DirectML_ uses any DirectX 12 capable GPU (Windows; bundled by default).
 : - _Apple CoreML_ uses the Apple Neural Engine and integrated GPU (macOS; bundled by default).
 
 : Double-click the label to reset to the default. If the selected provider cannot be initialised with the currently-loaded ONNX Runtime (for example, if the library was built without that provider) a _not available, will fall back to CPU_ notice appears next to the combo box. After swapping the ONNX Runtime library, the notice becomes _restart to apply_ until darktable is restarted.
 
 ONNX Runtime library
-: Path to a shared library (`libonnxruntime.so*` on Linux, `onnxruntime.dll` on Windows) that darktable should load in place of the bundled one. Leave empty to use the bundled library (CPU-only on Linux, DirectML on Windows). Double-click the label to reset to empty. Changes take effect after restarting darktable. _Hidden on macOS_, where ONNX Runtime is statically linked with CoreML support.
+: Path to a shared library (`libonnxruntime.so*` on Linux, `onnxruntime.dll` on Windows) that darktable should load in place of the bundled one. Leave empty to use the bundled library (see the table above for what that is per OS). To use a GPU runtime, install one via the scripts described below and point this field at it. Double-click the label to reset to empty. Changes take effect after restarting darktable. _Hidden on macOS_, where ONNX Runtime is statically linked with CoreML support.
 
 : To the right of the path field are two buttons:
 
