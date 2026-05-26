@@ -12,7 +12,7 @@ The controls required to create and alter drawn masks may be enabled by selectin
 
 # creating shapes
 
-Choose a shape by clicking on the appropriate shape icon (from left to right: brush, circle, ellipse, path, gradient, and – when [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active – object).
+Choose a shape by clicking on the appropriate shape icon (from left to right: brush, circle, ellipse, path, gradient, and object (the latter if [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active).
 
 ![shape icons](./drawn/shape-icons.png)
 
