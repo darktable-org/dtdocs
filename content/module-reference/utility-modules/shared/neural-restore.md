@@ -7,6 +7,8 @@ Apply AI-powered restoration to selected images: raw denoise, RGB denoise, and 2
 
 The AI features this module drives are configured in [AI preferences](../../../preferences-settings/ai.md); see the [AI features overview](../../../special-topics/ai/overview.md) for what these tasks do and don't do.
 
+Neural restore can be significantly sped up with [GPU acceleration](../../../special-topics/ai/gpu-acceleration.md).
+
 # prerequisites
 
 Before you can use this module:
@@ -28,12 +30,12 @@ raw denoise
 
 : Either output can be re-imported into darktable as a regular raw – downstream darkroom processing is unchanged.
 
-: **Limitations.** Monochrome sensors are not currently supported – the available raw-denoise models are trained on colour-CFA data and have no monochrome equivalent yet. Use _denoise_ (RGB) on a monochrome image instead.
+: **Limitations.** Monochrome sensors are not currently supported – the available raw-denoise models are trained on colour-CFA data and have no monochrome equivalent yet. Use _denoise_ (RGB) in neural restore module on a monochrome image instead.
 
 : - _strength_ – linear blend between the source raw (0%) and the AI-denoised output (100%) at the raw sensor level. Lower values let some of the original noise back in, in direct proportion.
 
 denoise
-: RGB denoise as an alternative to the classical [denoise (profiled)](../../processing-modules/denoise-profiled.md) module. Operates on the already-demosaicked and mostly-edited image and writes a TIFF.
+: Machine-learning RGB denoise applied to the already-demosaicked and mostly-edited image; writes a TIFF.
 
 : - _strength_ – at 100% the output is the full AI model result. Lower values do not just blend back the source – the difference between source and denoised is decomposed into wavelet (DWT) detail bands and the higher-frequency texture is brought back selectively, so you recover grain and surface detail without re-introducing the colour noise the model removed.
 
@@ -44,7 +46,10 @@ upscale
 
 # where the tasks sit in your workflow
 
-The three tasks operate at very different stages of the darkroom pipeline. Picking the right one means matching the noise/resolution problem you have to the point in the workflow where it's best addressed.
+_raw denoise_ and _denoise_ both remove sensor noise – the difference is **when** you decide, and you normally use one _or_ the other, not both:
+
+- reach for **raw denoise** when you already know the shot is noisy (high ISO, deep push, low light) and haven't started editing. It removes noise at the source, on the raw data, which is where a model can remove it most cleanly – so it gives the strongest result on difficult captures. You commit to it up front and then edit the cleaned DNG.
+- reach for **denoise** when you have already developed an image and noise is bothering you in the _result_. It cleans the noise you can actually see in your finished edit, without making you redo that edit.
 
 raw denoise – _before_ darkroom editing
 : Operates on the source raw (Bayer CFA, or X-Trans / non-Bayer demosaicked to linear Rec.2020) and writes a DNG. The intended workflow is:
@@ -53,16 +58,16 @@ raw denoise – _before_ darkroom editing
 : 2. run _raw denoise_ – the output DNG is grouped with the source;
 : 3. open the new DNG and edit it normally.
 
-: Use this when you have a noisy capture (high ISO, deep push, low light) and want the noise gone before demosaic, tone mapping and colour work amplify it. The output replaces the source as the file you edit; the original raw stays untouched in case you want to come back to it.
+: A model removes noise most cleanly here, on the original sensor data, before demosaic spreads it across the colour channels. The trade-off: you commit before seeing your edit and develop the new DNG from scratch. The AI counterpart to running [denoise (profiled)](../../processing-modules/denoise-profiled.md) early in the pixelpipe; the original raw stays untouched.
 
-denoise – _late_ in the workflow, _after_ tone mapping
+denoise – _late_ in the workflow, _after_ the display transform
 : Exports your image through the full darkroom pipeline (every active module is applied) and then runs the AI denoiser on the result, writing a TIFF. The intended workflow is:
 
-: 1. develop the image up to and including tone mapping (_filmic_, _sigmoid_, _base curve_) and colour grading – the point where the noise visible to the viewer has emerged;
+: 1. develop the image up to and including the display transform ([_filmic rgb_](../../processing-modules/filmic-rgb.md), [_sigmoid_](../../processing-modules/sigmoid.md) or [_agx_](../../processing-modules/agx.md)) and any display-referred colour grading – the point where the noise visible to the viewer has emerged;
 : 2. run _denoise_ – the output is a TIFF with the edit so far baked in, plus noise cleaned up;
 : 3. continue editing the TIFF if you want to add sharpening, local adjustments, output sizing, etc., or deliver it directly.
 
-: Best placed late in the workflow because tone curves and saturation reveal noise that wasn't visible in linear data, and the AI denoiser is most effective when it sees noise the way the final viewer will. The TIFF output is a fully editable image – it doesn't have to be the last stop, just a clean midpoint to keep working from. Particularly useful when classical denoise leaves blotches in skin tones or shadows.
+: This cleans exactly the noise visible in your finished edit, without redoing any work – your edit is baked into the TIFF and you carry on from there. The trade-off: the noise is already shaped by the whole pipeline, so on a very noisy capture _raw denoise_ gives a cleaner result. The TIFF is fully editable – a clean midpoint, not necessarily the last stop.
 
 upscale – _last step before delivery_
 : Runs the full darkroom pipeline, then enlarges the result 2x or 4x and writes a TIFF. The intended workflow is:
@@ -77,7 +82,7 @@ upscale – _last step before delivery_
 
 Below the tab controls is a split before/after preview of a small patch of the currently-displayed image. Drag the divider to wipe between the original (left) and the AI-restored output (right). The preview is generated on demand by clicking the preview area; it uses the same model and settings the process button would use, so it's a faithful guide to what the final output will look like.
 
-To choose a different patch of the image, toggle the picker button (to the right of _process_) and click on the image (the thumbnail in lighttable, the main canvas in darkroom) – the preview re-generates centred on that point. Double-click the picker to reset to the centre of the frame.
+To choose a different patch of the image, click the picker button (to the right of _process_) and then click within the preview widget – the preview re-generates centred on the point you clicked.
 
 Hover over the preview to get a 2x magnified tooltip view, useful for evaluating per-pixel noise / detail behaviour.
 
@@ -91,17 +96,16 @@ If no model is active for the current task, the button refuses to run (the previ
 
 The collapsible _output parameters_ section controls how the result is written to disk. Settings apply to whichever task is currently active.
 
-bit depth
-: _denoise_ and _upscale_ write TIFF; this combo picks the bit depth (_8 bit_, _16 bit_, _32 bit (float)_). _raw denoise_ writes DNG regardless and ignores this setting.
-
-profile
-: Colour profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog.
+bit depth _(denoise and upscale only)_
+: Bit depth of the output TIFF (_8 bit_, _16 bit_, _32 bit (float)_). Raw denoise writes a DNG and is unaffected.
+profile _(denoise and upscale only)_
+: Colour profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog. Raw denoise writes a DNG and is unaffected.
 
 preserve wide-gamut colors _(denoise only)_
 : When on, pixels whose colour falls outside sRGB gamut pass through the model unchanged – wide-gamut colours are preserved exactly, but those specific pixels are not denoised. When off, every pixel is denoised but wide-gamut colours may be clipped to sRGB.
 
 add to the current collection
-: Import the output into darktable automatically when it's written. The new image is grouped with the source image so they live together in the lighttable.
+: Import the output into darktable automatically when it's written. The new image is grouped with the source image so they appear together in darktable.
 
 output folder
 : Where the output file is written. Supports darktable variables – `$(FILE_FOLDER)` (the default) writes next to the source image. Use the folder-icon button to pick a directory.
