@@ -1,5 +1,5 @@
 ---
-title: drawn masks
+title: drawn masks & AI masking
 id: drawn
 weight: 20
 ---
