@@ -36,12 +36,3 @@ jobs:
 
       - name: Build PDF
         run: nix develop --command bash -c "hugo server --disableFastRender --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/en/index.html ./public/darktable_user_manual.pdf && pkill hugo"
-
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: public-without-markdown
-          path: |
-            public
-            !public/**/*.md
-            !public/**/*.html
