@@ -60,10 +60,10 @@ raw denoise – _before_ darkroom editing
 
 : As it works with the original sensor data it removes noise most cleanly, before demosaic spreads it across the colour channels. It is the AI counterpart to the classical [raw denoise](../../processing-modules/raw-denoise.md) module – both operate on the raw CFA data before demosaic. The original raw file stays untouched.
 
-denoise – _late_ in the workflow, _after_ the display transform
+denoise – _late_ in the workflow, _after_ darkroom editing
 : Exports your image through the full darkroom pipeline (every active module is applied) and then runs the AI denoiser on the result, writing a TIFF. The intended workflow is:
 
-: 1. develop the image up to and including the display transform ([_filmic rgb_](../../processing-modules/filmic-rgb.md), [_sigmoid_](../../processing-modules/sigmoid.md) or [_agx_](../../processing-modules/agx.md)) and any display-referred colour grading – the point where the noise visible to the viewer has emerged;
+: 1. develop the image up to and including the step that switches the pipeline from _scene-referred_ to _display-referred_ space ([_filmic rgb_](../../processing-modules/filmic-rgb.md), [_sigmoid_](../../processing-modules/sigmoid.md) or [_AgX_](../../processing-modules/agx.md)) and any display-referred colour grading – the point where the noise visible to the viewer has emerged;
 : 2. run _denoise_ – the output is a TIFF with the edit so far baked in, plus noise cleaned up;
 : 3. continue editing the TIFF if you want to add sharpening, local adjustments, output sizing, etc., or deliver it directly.
 
