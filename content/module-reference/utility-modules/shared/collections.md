@@ -9,7 +9,7 @@ Importing images into darktable stores information about them (filename, path, E
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
 
-The sort order of the listed collections (ascending/descending) can be toggled by clicking ![collect-sort-order-icon](./collections/top-panel_sort-order.png#icon).
+The sort order of the listed collections (ascending/descending) can be toggled by clicking ![collect-sort-order-icon](./collections/collect-sort-order.png#icon).
 
 # filtering attributes
 
