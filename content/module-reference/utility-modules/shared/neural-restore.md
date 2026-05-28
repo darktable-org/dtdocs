@@ -30,7 +30,7 @@ raw denoise
 
 : Either output can be re-imported into darktable as a regular raw – downstream darkroom processing is unchanged.
 
-: **Limitations.** Monochrome sensors are not currently supported – the available raw-denoise models are trained on colour-CFA data and have no monochrome equivalent yet. Use _denoise_ (RGB) in neural restore module on a monochrome image instead.
+: **Limitations.** Monochrome sensors are not currently supported – the available raw-denoise models are trained on colour-CFA data and have no monochrome equivalent yet. Use _denoise_ in neural restore module on a monochrome image instead.
 
 : - _strength_ – linear blend between the source raw (0%) and the AI-denoised output (100%) at the raw sensor level. Lower values let some of the original noise back in, in direct proportion.
 
@@ -46,7 +46,7 @@ upscale
 
 # where the tasks sit in your workflow
 
-_raw denoise_ and _denoise_ both remove sensor noise – the difference is **when** you decide, and you normally use one _or_ the other, not both:
+_raw denoise_ and _denoise_ both remove sensor noise – the difference is **at which point in the workflow** you decide to apply them, and you normally use one _or_ the other, not both:
 
 - reach for **raw denoise** when you already know the shot is noisy (high ISO, deep push, low light) and haven't started editing. It removes noise at the source, on the raw data, which is where a model can remove it most cleanly – so it gives the strongest result on difficult captures. You commit to it up front and then edit the cleaned DNG.
 - reach for **denoise** when you have already developed an image and noise is bothering you in the _result_. It cleans the noise you can actually see in your finished edit, without making you redo that edit.
@@ -58,7 +58,7 @@ raw denoise – _before_ darkroom editing
 : 2. run _raw denoise_ – the output DNG is grouped with the source;
 : 3. open the new DNG and edit it normally.
 
-: A model removes noise most cleanly here, on the original sensor data, before demosaic spreads it across the colour channels. The trade-off: you commit before seeing your edit and develop the new DNG from scratch. The AI counterpart to running [denoise (profiled)](../../processing-modules/denoise-profiled.md) early in the pixelpipe; the original raw stays untouched.
+: As it works with the original sensor data it removes noise most cleanly, before demosaic spreads it across the colour channels. It is the AI counterpart to the classical [raw denoise](../../processing-modules/raw-denoise.md) module – both operate on the raw CFA data before demosaic. The original raw file stays untouched.
 
 denoise – _late_ in the workflow, _after_ the display transform
 : Exports your image through the full darkroom pipeline (every active module is applied) and then runs the AI denoiser on the result, writing a TIFF. The intended workflow is:
@@ -97,9 +97,9 @@ If no model is active for the current task, the button refuses to run (the previ
 The collapsible _output parameters_ section controls how the result is written to disk. Settings apply to whichever task is currently active.
 
 bit depth _(denoise and upscale only)_
-: Bit depth of the output TIFF (_8 bit_, _16 bit_, _32 bit (float)_). Raw denoise writes a DNG and is unaffected.
+: Bit depth of the output TIFF (_8 bit_, _16 bit_, _32 bit (float)_).
 profile _(denoise and upscale only)_
-: Colour profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog. Raw denoise writes a DNG and is unaffected.
+: Colour profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog.
 
 preserve wide-gamut colors _(denoise only)_
 : When on, pixels whose colour falls outside sRGB gamut pass through the model unchanged – wide-gamut colours are preserved exactly, but those specific pixels are not denoised. When off, every pixel is denoised but wide-gamut colours may be clipped to sRGB.
