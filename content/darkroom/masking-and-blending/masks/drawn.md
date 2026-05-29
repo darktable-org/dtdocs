@@ -12,7 +12,7 @@ The controls required to create and alter drawn masks may be enabled by selectin
 
 # creating shapes
 
-Choose a shape by clicking on the appropriate shape icon (from left to right: brush, circle, ellipse, path, gradient, and object (the latter if [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active).
+Choose a shape by clicking on the appropriate shape icon (from left to right: brush, circle, ellipse, path, gradient, and AI object – the latter if [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active).
 
 ![shape icons](./drawn/shape-icons.png)
 
@@ -105,7 +105,7 @@ gradient
 
 : Depending on the module and the underlying image, using a gradient shape might provoke banding artifacts. You should consider activating the [_dither or posterize_](../../../module-reference/processing-modules/dither-or-posterize.md) module to alleviate this.
 
-object _(requires AI features)_
+AI object _(requires AI features)_
 : An AI-generated mask: instead of drawing the outline by hand, click on the subject and a segmentation model produces the mask for you. Iterate by adding more clicks until the mask covers exactly what you want, then apply it. Requires AI features to be enabled and a model for the _mask_ task active in [AI preferences](../../../preferences-settings/ai.md) – see the [AI features overview](../../../special-topics/ai/overview.md) for what runs where.
 
 : - **click** on the subject to add a foreground (positive) prompt point – the model produces a mask around the clicked region.
