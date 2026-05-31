@@ -14,7 +14,7 @@ Linux
      + To run e.g. `darktable-cltest`: `./darktable.Appimage darktable-cltest`
      + An additional option to run the various binaries included in darktable (e.g. `darktable-cltest` or `darktable-cli`) is through a symbolic link: 
           * Create a symbolic link to your AppImage and call it e.g. `darktable-cli`.
-          * Then, when calling the AppImage through the symbolic link with `./darktable-cli`, the code inside the package checks if there is a binary file inside the AppImage with a name that matches the symlink name. If so, it will be run instead of the default one..
+          * Then, when calling the AppImage through the symbolic link with `./darktable-cli`, the code inside the package checks if there is a binary file inside the AppImage with a name that matches the symlink name. If so, it will be run instead of the default one.
      
 Windows
 * Navigate to darktable's program folder: `cd "\Program Files\darktable\bin"` then execute `.\darktable.exe`. 
