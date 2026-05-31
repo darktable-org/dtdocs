@@ -24,7 +24,7 @@ We are generally **not** interested in:
 We **are** interested in
 1. Spelling and grammar corrections
 1. Clarification of text
-1. [Documentation for new features](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3Adocumentation-pending+)
+1. [Documentation for new features](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3A%22documentation:%20pending%22)
 
 We are always extremely interested in hearing about which sections of the manual did not make sense to you and *why*, so that we can improve the documentation.
 
