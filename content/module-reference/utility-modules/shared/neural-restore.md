@@ -42,7 +42,9 @@ denoise
 upscale
 : Super-resolution to 2x or 4x the input pixel dimensions. Writes a TIFF at the upscaled size. 4x on a high-resolution image is memory-hungry; tile processing is enabled automatically to keep peak memory bounded, at the cost of some extra processing time.
 
-: - _scale_ – output magnification factor (_2x_ or _4x_). Larger factors are slower and need more GPU memory.
+: - _scale_ – output magnification factor applied to each side of the image (_2x_ or _4x_). _2x_ doubles the width and height, producing four times as many pixels overall; _4x_ quadruples each side, producing sixteen times as many. Larger factors are slower and need more GPU memory.
+
+: **Note:** 4x upscaling is significantly more demanding on the model than 2x, since it must invent 16x as many pixels of new detail as the original. Fine textures and high-frequency content may be less convincing than at 2x – use 2x when it meets your resolution requirements.
 
 # where the tasks sit in your workflow
 
