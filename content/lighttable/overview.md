@@ -39,3 +39,10 @@ The following keyboard shortcuts are enabled by default in the lighttable view:
 # drag-and-drop
 
 You may change the sequence of images displayed, processed, or exported when _sort by_ is set to [custom sort](../module-reference/utility-modules/shared/collection-filters.md#custom-sort) by dragging and dropping their thumbnails.
+
+# touchpad
+
+In lighttable culling layouts, touchpad zooming and panning gestures can be used:
+
+* pinch with two fingers to zoom
+* scroll with two fingers to pan
