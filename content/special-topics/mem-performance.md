@@ -23,7 +23,7 @@ For most systems, tiling will probably only be used for full-sized image exports
 
 # performance tuning
 
-There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory) and others need to be modified directly in darktable's configuration file (found in `$HOME/.config/darktable/darktablerc`).
+There are a number of configuration parameters that can help you to fine-tune your system's performance. Some of these parameters are available in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory) and others need to be modified directly in darktable's configuration file (`darktablerc` in the darktable [configuration directory](../preferences-settings/config-folder.md)).
 
 This section provides some guidance on how to adjust these settings.
 
@@ -49,7 +49,7 @@ On the other hand darktable's performance during file exports is more or less on
 
 ## darktable resources
 
-The "darktable resources" preference (in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory)) allows you to choose between four different approaches to allocating your system's resources to darktable. Each of these options controls multiple individual parameters, which are defined independently in `$HOME/.config/darktable/darktablerc`. You can amend any of these directly within your darktablerc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
+The "darktable resources" preference (in [preferences > processing > CPU / memory](../preferences-settings/processing.md#cpu--memory)) allows you to choose between four different approaches to allocating your system's resources to darktable. Each of these options controls multiple individual parameters, which are defined independently in `darktablerc` in the darktable [configuration directory](../preferences-settings/config-folder.md). You can amend any of these directly within your darktablerc file to tweak values for your selected resource level, though you cannot add your own custom resource level to the preferences drop-down.
 
 Each of the four "darktable resources" options are defined as follows:
 

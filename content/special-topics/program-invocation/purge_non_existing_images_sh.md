@@ -19,7 +19,7 @@ Run the script with no options to perform a "dry run", which generates a report 
 The available options are:
 
 `-c|--configdir <path>`
-: Specify the path to the darktable configuration directory to be used by the script. If this option is not provided, the default config directory location will be used.
+: Specify the path to the darktable configuration directory to be used by the script. If this option is not provided, the default [configuration directory](../../preferences-settings/config-folder.md) location will be used.
 
 `-l|--library <path>`
 : Specify the path to the library.db database file to be analysed by the script. If this option is not specified, the default library.db file location will be used.
