@@ -4,7 +4,7 @@ id: basic-principles
 weight: 20
 ---
 
-At startup, darktable will automatically run the Lua scripts `$DARKTABLE/share/darktable/luarc` (where `$DARKTABLE` represents the darktable installation directory) and `luarc` in the darktable [configuration directory](../preferences-settings/config-folder.md).
+At startup, darktable will automatically run the Lua scripts `$DARKTABLE/share/darktable/luarc` (where `$DARKTABLE` represents the darktable installation directory) and `luarc` in the darktable [configuration directory](../preferences-settings/config-directory.md).
 
 This is the only time darktable will run Lua scripts by itself and can be used to load other scripts (like the script manager). These scripts can register callbacks to perform actions on various darktable events. This callback mechanism is the primary method of triggering lua actions. 
 

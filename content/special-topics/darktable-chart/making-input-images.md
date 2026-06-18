@@ -12,7 +12,7 @@ There is a special situation if your camera automatically applies some lens corr
 
 To output your image go to the [export](../../module-reference/utility-modules/shared/export.md) module in the lighttable.
 
-You will need to select “Lab” as the output color profile. This color space is not visible in the combobox by default. You first need to enable it by setting `allow_lab_output` to `TRUE` in darktable's configuration file `darktablerc` in the [configuration directory](../../preferences-settings/config-folder.md). Alternatively, you can start darktable with:
+You will need to select “Lab” as the output color profile. This color space is not visible in the combobox by default. You first need to enable it by setting `allow_lab_output` to `TRUE` in darktable's configuration file `darktablerc` in the [configuration directory](../../preferences-settings/config-directory.md). Alternatively, you can start darktable with:
 
 ```
 darktable --conf allow_lab_output=true

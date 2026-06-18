@@ -4,7 +4,7 @@ id: a-simple-lua-example
 weight: 30
 ---
 
-Let's start with a simple example that will print some code on the console. Create a file called `luarc` in darktable's [configuration directory](../preferences-settings/config-folder.md) and add the following line to it:
+Let's start with a simple example that will print some code on the console. Create a file called `luarc` in darktable's [configuration directory](../preferences-settings/config-directory.md) and add the following line to it:
 
 ```
 print("Hello World !")

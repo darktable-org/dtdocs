@@ -56,10 +56,10 @@ All parameters are optional. In most cases darktable should be started without a
 : Prevent darktable from initializing the OpenCL subsystem. Use this option if darktable crashes at startup due to a defective OpenCL implementation.
 
 `--configdir <config directory>`
-: Define the directory where darktable stores user-specific configuration. The default paths are listed in: [configuration directory](../../preferences-settings/config-folder.md)
+: Define the directory where darktable stores user-specific configuration. The default paths are listed on the [configuration directory](../../preferences-settings/config-directory.md) page.
 
 `--library <library file>`
-: darktable keeps image information in an sqlite database for fast access. The default location of that database file is file name `library.db` in the directory specified by `--configdir` or the default [configuration directory](../../preferences-settings/config-folder.md). Use this option to provide an alternative location (e.g. if you want to do some experiments without compromising your original `library.db`). If the database file does not exist, darktable creates it for you. You may also provide `:memory:` as the library file, in which case the database is kept in system memory -- all changes are discarded when darktable terminates.
+: darktable keeps image information in an sqlite database for fast access. The default location of that database file is file name `library.db` in the directory specified by `--configdir` or the default [configuration directory](../../preferences-settings/config-directory.md). Use this option to provide an alternative location (e.g. if you want to do some experiments without compromising your original `library.db`). If the database file does not exist, darktable creates it for you. You may also provide `:memory:` as the library file, in which case the database is kept in system memory -- all changes are discarded when darktable terminates.
 
 : Whenever darktable starts, it will lock the library to the current user. It does this by writing the current process identifier (PID) into a lock file `<library file>.lock` next to the library specified. If darktable finds an existing lock file for the library, it will terminate immediately.
 
@@ -86,7 +86,7 @@ All parameters are optional. In most cases darktable should be started without a
 : Provide a json file that contains camera-specific noise profiles. The default location depends on your installation. Typical locations are `/opt/darktable/share/darktable/noiseprofile.json` and `/usr/share/darktable/noiseprofile.json`.
 
 `--conf <key>=<value>`
-: darktable supports a rich set of configuration parameters defined by the user in file `darktablerc`, located in the directory specified by `--configdir` or the default [configuration directory](../../preferences-settings/config-folder.md). You may temporarily overwrite individual settings on the command line with this option -- these settings will not be stored in `darktablerc` on exit.
+: darktable supports a rich set of configuration parameters defined by the user in file `darktablerc`, located in the directory specified by `--configdir` or the default [configuration directory](../../preferences-settings/config-directory.md). You may temporarily overwrite individual settings on the command line with this option -- these settings will not be stored in `darktablerc` on exit.
 
 `-t <num openmp threads>`
 : limit number of openmp threads to use in openmp parallel sections.
