@@ -15,8 +15,7 @@ AUTHOR
 Jérémy Rosen (jeremy.rosen@enst-bretagne.fr)
 
 INSTALLATION
-* copy this file in $CONFIGDIR/lua/ where CONFIGDIR
-is your darktable configuration directory
+* copy this file in $CONFIGDIR/lua/
 * add the following line in the file $CONFIGDIR/luarc
   require "scp-storage"
 
@@ -61,6 +60,8 @@ darktable.register_storage("scp_export","Export via scp",
 ```
 
 darktable will look for scripts (following the normal lua rules) in the standard directories plus `$CONFIGDIR/lua/*.lua`. So our script can be called by simply adding `require "scp-storage"` in the _luarc_ file. A couple of extra notes...
+
+- `$CONFIGDIR` represents the darktable [configuration directory](../preferences-settings/config-directory.md).
 
 - The function `dtutils.check_min_api_version` will check compatibility for you. `"7.0.0"` is the API version you have tested your script with and the "`...`" will turn into your script's name.
 

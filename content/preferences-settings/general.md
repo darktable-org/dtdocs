@@ -31,14 +31,14 @@ In addition to selecting a pre-built theme you can also apply additional CSS cus
 Two different methods are provided for this:
 
 create a custom theme
-: If you wish to make a large number of changes to darktable's UI you may wish to create your own theme (in a `.css` file) and place it in `$HOME/.config/darktable/themes` (or `C:\%LOCALAPPDATA%\darktable\themes` on Windows). Your new theme will automatically appear in the _theme_ selection list the next time you restart darktable.
+: If you wish to make a large number of changes to darktable's UI you may wish to create your own theme (in a `.css` file) and place it in the `themes` folder in the darktable [configuration directory](../preferences-settings/config-directory.md). Your new theme will automatically appear in the _theme_ selection list the next time you restart darktable.
 
 : Please note that the structure of darktable's internal CSS changes frequently and you may need to make significant changes to your own themes when new versions of darktable are released. For this reason (among others) we do not recommend creating complex custom themes unless you are willing to devote a lot of time to ongoing maintenance. If your theme loads any of darktable's pre-built themes using the `@import url` directive, note that your CSS theme file may not be portable between installations (`@import url` uses relative paths and the location of the pre-built themes is system-dependent).
 
 create theme tweaks
 : A text box is provided at the bottom of the general tab within which you can enter your own CSS tweaks. When using this option, darktable will first load your selected theme (the "base" theme, chosen in the _theme_ drop-down) and then apply your custom CSS on top. This means that you can easily make minor alterations to the look-and-feel, while still keeping mostly up-to-date with core theme changes when a new version of darktable is released. It also means that you can usually change your base theme without affecting your custom CSS tweaks.
 
-: When you have finished entering your CSS, click the "save CSS and apply" button. This will save your CSS to `$HOME/.config/darktable/user.css` (or `C:\%LOCALAPPDATA%\darktable\user.css` on Windows) and immediately apply it to the current darktable session.
+: When you have finished entering your CSS, click the "save CSS and apply" button. This will save your CSS to `user.css` in the darktable [configuration directory](../preferences-settings/config-directory.md). and immediately apply it to the current darktable session.
 
 : If you notice any issues after applying your CSS, you can uncheck the "modify selected theme with CSS tweaks below" box to revert. This will immediately restore the base theme but will leave your tweaks in the editor so that you can re-edit them and try again. Simply press "save CSS and apply" again when you are ready to retry. This will automatically re-check the "modify selected theme with CSS tweaks below" checkbox and apply the new CSS.
 

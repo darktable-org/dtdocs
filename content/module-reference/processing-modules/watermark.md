@@ -10,7 +10,7 @@ You can also use bitmap (PNG) images.
 
 The SVG processor in darktable can also substitute strings within an SVG document, allowing image-dependent information to be included in the watermark.
 
-User-designed watermarks should be placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
+User-designed watermarks should be placed into the `watermarks` folder in the darktable [configuration directory](../../preferences-settings/config-directory.md). Once in place, use the reload button update the list of available watermarks.
 
 The following is a list of variable strings that are supported for substitution within an SVG document.
 
