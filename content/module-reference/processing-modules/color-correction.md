@@ -4,6 +4,23 @@ id: color-correction
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: correct white balance selectively for blacks and whites.
+
+purpose
+: corrective or creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Modify the global image saturation to give the image a tint or as an alternative method to split-tone the image.
 
 ---

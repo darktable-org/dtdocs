@@ -4,6 +4,23 @@ id: liquify
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: distort parts of the image.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.
 
 As you might want to use source data from any part of the image you will be shown the uncropped image (possibly with the cropping rectangle overlaid as a guide) while the module is active.

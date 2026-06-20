@@ -4,6 +4,23 @@ id: blurs
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: simulate physically-accurate lens and motion blurs.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Simulate physically-accurate blurs in scene-referred RGB space.
 
 # blur types

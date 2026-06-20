@@ -4,6 +4,23 @@ id: colorize
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: overlay a solid color on the image.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Add a solid layer of color to the image.
 
 # module controls

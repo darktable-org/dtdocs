@@ -4,6 +4,23 @@ id: monochrome
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: quickly convert an image to black & white using a variable color filter.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Quickly convert an image to black & white using a variable color filter.
 
 To use this module, first reduce the filter size (to concentrate its effect) and move it across the hue palette to find the best filter value for your desired image rendition. Then gradually expand the filter to include more hues and achieve more natural tonality.

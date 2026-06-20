@@ -4,6 +4,23 @@ id: haze-removal
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: remove fog and atmospheric hazing from images.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: frequential, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Automatically reduce the effect of dust and haze in the atmosphere. This module may also be employed more generally to give images a color boost specifically in low-contrast regions of the image.
 
 Haze absorbs light from objects in the scene but it is also a source of diffuse background light. The haze removal module first estimates, for each image region, the amount of haze in the scene. It then removes the diffuse background light according to its local strength and recovers the original object light.

@@ -4,6 +4,23 @@ id: lens-correction
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: correct lenses optical flaws.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric and reconstruction, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Automatically correct for (or simulate) lens distortion, transverse chromatic aberrations (TCA) and vignetting.
 
 You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [Lensfun library](https://lensfun.github.io/).

@@ -4,6 +4,23 @@ id: output-color-profile
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: convert pipeline reference RGB to any display RGB using color profiles to remap RGB values.
+
+purpose
+: mandatory.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: defined by profile.
+
+output
+: non-linear, RGB or Lab, display-referred
+{{< /details >}}
+
 Manage the output profile for export and the rendering intent to be used when mapping between color spaces.
 
 darktable comes with pre-defined profiles _sRGB_, _Adobe RGB_, _XYZ_ and _linear RGB_. You can provide additional profiles by placing them in `$DARKTABLE/share/darktable/color/out` and `$HOME/.config/darktable/color/out` (where `$DARKTABLE` is the darktable installation directory and `$HOME` is your home directory). Note that these `color/out` directories are not created by the darktable install; if you need to use one, you must create it yourself.

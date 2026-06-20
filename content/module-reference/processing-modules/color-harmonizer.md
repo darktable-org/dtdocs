@@ -4,6 +4,23 @@ id: color-harmonizer
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: harmonize colors toward a selected palette in perceptual space.
+
+purpose
+: creative color grading.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: darktable UCS / JCH (perceptual).
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 The color harmonizer reduces chromatic dissonance by pushing hues toward a selected color palette.
 This palette is defined by a set of hue angles called harmony nodes.
 Colors that are "off-palette" are gently pulled toward the nearest node; colors already on a node are left unchanged.

@@ -4,6 +4,23 @@ id: split-toning
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: use two specific colors for shadows and highlights and create a linear toning effect between them up to a pivot.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Create a two color linear toning effect where the shadows and highlights are represented by two different colors.
 
 The split-toning module does not convert images to black and white and has limited benefits on color images. In order to perform traditional split-toning, the input to this module should therefore be monochrome.

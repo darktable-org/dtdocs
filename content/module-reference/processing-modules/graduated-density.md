@@ -4,6 +4,23 @@ id: graduated-density
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: simulate an optical graduated neutral density filter.
+
+purpose
+: corrective and creative.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred
+{{< /details >}}
+
 Simulate a graduated density filter in order to correct exposure and color in a progressive manner.
 
 A line is shown on screen allowing the position and rotation of the gradient to be modified with the mouse.

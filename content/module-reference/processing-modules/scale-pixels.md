@@ -4,6 +4,23 @@ id: scale-pixels
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: module for setting pixel aspect ratio  useful for certain sensor types and anamorphic desqueeze.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Some cameras (such as the Nikon D1X) have rectangular instead of the usual square sensor cells. Without correction this would lead to distorted images. This module applies the required scaling.
 
 darktable detects images that need correction using their Exif data and automatically activates this module where required.

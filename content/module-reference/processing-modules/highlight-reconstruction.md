@@ -4,6 +4,23 @@ id: highlight-reconstruction
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: avoid magenta highlights and try to recover highlights colors.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: reconstruction, raw.
+
+output
+: linear, raw, scene-referred
+{{< /details >}}
+
 Attempt to reconstruct color information for pixels that are clipped in one or more RGB channel.
 
 # clipping

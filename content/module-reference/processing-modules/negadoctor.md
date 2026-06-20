@@ -4,6 +4,23 @@ id: negadoctor
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: invert film negative scans and simulate printing on paper.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred
+{{< /details >}}
+
 Process scanned film negatives. 
 
 You can obtain an image of a negative using a film scanner, or by photographing it against a white light (e.g. a light table or computer monitor) or off-camera flash.

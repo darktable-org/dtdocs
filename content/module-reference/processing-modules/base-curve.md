@@ -4,6 +4,23 @@ id: base-curve
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: apply a view transform based on personal or camera maker look, for corrective purposes, to prepare images for display.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred
+{{< /details >}}
+
 Simulate the in-camera JPEG by applying a characteristic base curve to the image.
 
 darktable comes with a number of base curve presets that attempt to mimic the curves of various camera manufacturers. These presets are automatically applied according to the "maker ID" found in the image's Exif data. Camera-specific base curve presets are also available for some camera models. 

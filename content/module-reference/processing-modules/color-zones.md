@@ -4,6 +4,23 @@ id: color-zones
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: selectively shift hues, chroma and lightness of pixels.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Selectively adjust the lightness, chroma and hue of pixels based on their current lightness, chroma and hue.
 
 This module works in CIE LCh color space, which separates pixels into _lightness_, chroma and _hue_ components. It allows you to manipulate the lightness, chroma and hue of targeted groups of pixels through the use of [curves](../../darkroom/processing-modules/curves.md).

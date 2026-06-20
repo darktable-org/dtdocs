@@ -4,6 +4,23 @@ id: external-raster
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: read PFM/PNG files recorded for use as raster masks.
+
+purpose
+: corrective or creative.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred
+{{< /details >}}
+
 Generate a raster mask from a `.pfm` to be used by subsequent processing modules.
 
 ---

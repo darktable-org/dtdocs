@@ -6,6 +6,23 @@ weight: 20
 
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: invert film negatives.
+
+purpose
+: corrective.
+
+input
+: linear, raw, display-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, display-referred
+{{< /details >}}
+
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.4 and should no longer be used for new edits. Please use the [_negadoctor_](./negadoctor.md) module instead.**
 
 ---

@@ -4,6 +4,23 @@ id: tone-curve
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: alter an image’s tones using curves.
+
+purpose
+: corrective and creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 A classic digital photography tool to alter the tones of an image's using curves.
 
 This module is very similar to the [_rgb curve_](./rgb-curve.md) module but works in Lab color space.

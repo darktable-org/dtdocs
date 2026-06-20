@@ -6,6 +6,23 @@ weight: 20
 
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: apply usual image adjustments.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, scene-referred
+{{< /details >}}
+
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the [quick access panel](../../darkroom/organization/quick-access-panel.md) instead.**
 
 ---

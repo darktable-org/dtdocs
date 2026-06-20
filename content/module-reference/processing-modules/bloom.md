@@ -4,6 +4,23 @@ id: bloom
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: apply Orton effect for a dreamy ethereal look.
+
+purpose
+: creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Create a soft bloom effect. 
 
 This module works by blurring the highlights and then blending the result with the original image.

@@ -4,6 +4,23 @@ id: surface-blur
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: apply edge-aware surface blur to denoise or smoothen textures.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Smooth image surfaces while preserving sharp edges using a bilateral filter. 
 
 This module _can_ be used to denoise images, however you should be aware that bilateral filters are susceptible to overshoots and darktable offers much better alternatives. For example, the [_astrophoto denoise_](./astrophoto-denoise.md) module uses a non-local means denoising algorithm, and the [_denoise (profiled)_](./denoise-profiled.md) module provides a choice between non-local means and wavelet denoising algorithms. 

@@ -4,6 +4,23 @@ id: exposure
 weight: 10
 ---
 
+{{< details summary="Synopsis" class="synopsis" >}}
+description
+: redo the exposure of the shot as if you were still in-camera using a color-safe brightening similar to increasing ISO setting.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Increase or decrease the overall brightness of an image.
 
 This module has two modes of operation:
