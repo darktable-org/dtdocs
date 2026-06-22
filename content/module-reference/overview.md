@@ -9,7 +9,7 @@ The modules in this reference section are broken down into two distinct types:
 [processing modules](./processing-modules/_index.md)
 : Processing modules are used exclusively in the darkroom view. Each module performs a processing operation on the image before passing its output to the next module for further processing. Together this sequence of processing steps forms the [pixelpipe](../darkroom/pixelpipe/the-pixelpipe-and-module-order.md).
 
-  Processing modules have a _Synopsis_ section which gives:
+  Processing modules have a _Synopsis_ section which gives a brief summary of the module (the information can also be seen as a tooltip when hovering over the module name). The following information is shown:
     * a brief outline of the purpose of the module
     * an indication of the purpose (e.g. corrective or creative)
     * the processing color space (e.g. non-linear, Lab)
