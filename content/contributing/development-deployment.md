@@ -12,4 +12,7 @@ For development purposes, the docs are deployed to GitHub Pages on every push: A
  
 ## Official deployment to darktable.org
  
-The official home of the docs is the pixls.us server infrastructure at https://docs.darktable.org/usermanual/development/en/. There, the repository is pulled regularly and the documentation is built with Hugo, including translations as well as EPUB and PDF outputs.
+The official home of the docs is the pixls.us server infrastructure at https://docs.darktable.org/usermanual/development/. There, the repository is pulled regularly and the documentation is built with Hugo, including translations as well as EPUB and PDF outputs.
+
+## Versioning of the docs 
+Up to 4.6 versioned copies of the docs were maintained (e.g. [../usermanual/4.6/](https://docs.darktable.org/usermanual/4.6/)). From there on only one version documenting the current development version is maintained ([../usermanual/development/](https://docs.darktable.org/usermanual/development/)). Links to the released versions following 4.6 are linked to the development version (e.g. [../usermanual/5.4/](https://docs.darktable.org/usermanual/5.4/) links to [../usermanual/development/](https://docs.darktable.org/usermanual/development/)).  
