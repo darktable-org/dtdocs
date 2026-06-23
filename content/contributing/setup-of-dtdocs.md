@@ -1,9 +1,15 @@
 ---
-title: setup of the docs
-id: setup-of-dtdocs
+title: development and deployment
+id: development-and-deployment
 weight: 2
 ---
 
-darktable's docs are maintained through their [GitHub repository](https://github.com/darktable-org/dtdocs). A GitHub action is set up to run `tools/build-all.sh` which will generate html, epub and pdf outputs using Hugo. Those are saved to the repository's branch [gh-pages](https://github.com/darktable-org/dtdocs/tree/gh-pages) and deployed through GitHub pages to https://darktable-org.github.io/dtdocs/.
-
-On the pixls infrastructure, the repository is pulled regularly, and the documentation is deployed using Hugo to https://docs.darktable.org/usermanual/development/en/.
+darktable's documentation is maintained in the [dtdocs repository](https://github.com/darktable-org/dtdocs). Changes are introduced through pull requests (see [workflow](workflow.md)). Translations are maintained through weblate; see [translations](translating.md). 
+ 
+## GitHub Pages deployment (for development)
+ 
+For development purposes, the docs are deployed to GitHub Pages on every push: A GitHub Action runs `tools/build-all.sh`, which generates HTML, EPUB and PDF outputs using Hugo. These are committed to the repository's [gh-pages](https://github.com/darktable-org/dtdocs/tree/gh-pages) branch and served via GitHub Pages at https://darktable-org.github.io/dtdocs/. Generation of translated pages is disabled in this setup.
+ 
+## Official deployment to darktable.org
+ 
+The official home of the docs is the pixls.us server infrastructure at https://docs.darktable.org/usermanual/development/en/. There, the repository is pulled regularly and the documentation is built with Hugo, including translations as well as EPUB and PDF outputs.
