@@ -77,3 +77,17 @@ The following assumes that you're git working directory is clean, that you have 
 11. Commit the `POT` and`PO` files: `git commit -m "Updated POT and PO files."`
 12. Create a Pull Request in Github.
 13. After the Pull Request is accepted, reset the Weblate repo to match the `dtdocs` repo: `wlc reset darktable/dtdocs`
+
+Claude hat geantwortet: Das Skript ist ein Wrapper um po4a für die Übersetzungsverwaltung eines Hugo-Projekts (vermutlich dtdocs).Das Skript ist ein Wrapper um po4a für die Übersetzungsverwaltung eines Hugo-Projekts (vermutlich dtdocs). Es akzeptiert genau einen von drei Flags:
+
+--no-update
+
+Generiert die übersetzten Markdown-Dateien aus den vorhandenen PO-Dateien, ohne die POT/PO-Dateien zu aktualisieren. Das heißt: Die Quelldateien (content/*.md) werden nicht neu eingelesen, bestehende Übersetzungen werden direkt in lokalisierte .{lang}.md-Dateien gerendert. Sinnvoll, wenn die PO-Dateien bereits aktuell sind und man nur die fertigen Sprachdateien erzeugen will.
+
+--no-translations
+
+Aktualisiert ausschließlich die POT-Datei (po/content.pot) und die PO-Dateien (po/content.{lang}.po), erzeugt aber keine übersetzten Ausgabedateien. Das heißt: Neue oder geänderte Strings aus den Quelldateien werden in die POT/PO-Dateien übernommen (neue msgid-Einträge, Fuzzy-Markierungen für geänderte Strings), aber es entstehen keine *.{lang}.md-Dateien. Typischer Schritt nach Änderungen an den englischen Quelldateien, um die PO-Dateien für Übersetzer (z.B. Weblate) vorzubereiten.
+
+--rm-translations
+
+Entfernt die generierten übersetzten Dateien. po4a löscht dabei die lokalisierten *.{lang}.md-Ausgabedateien, die zuvor mit --no-update erzeugt wurden. Die PO/POT-Dateien bleiben unangetastet. Nützlich zum Aufräumen oder vor einem sauberen Rebuild.
