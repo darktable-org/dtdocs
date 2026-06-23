@@ -4,19 +4,28 @@ id: translating
 weight: 100
 ---
 
-Translation of the darktable documentation is done via our [Weblate instance](https://weblate.pixls.us/projects/darktable/).
+Translation of the darktable documentation is done via [Weblate](https://hosted.weblate.org/projects/darktable-documentation/).
 
-You can either use Weblate's web UI to translate the documentation or download the translation from Weblate to your computer, edit it, and then upload the changes.
+You can either use Weblate's web UI to translate the documentation or download the translation from Weblate to your computer, edit it, and then upload the changes. 
 
 Please do all translation work through Weblate. We will not accept pull requests directly on github to update PO files.
 
+# Workflow using hosted Weblate
 
-# Making a new branch in git
+1. Source files (`content/*.md`) are updated through pull pequests (see [workflow](workflow.md))
+2. PO and POT Files are generated with `generate-translations.sh --no-translations` (more on `generate-translations.sh` below)
+3. Those POT and PO files are ingested into weblate
+4. Tanslations happen on weblate, this internally generates PO files for each language
+5. The new PO files are commited from weblate to dtdocs repository (through pull request)
+6. Translated .md Files are generated from those PO Files upon deployment at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/)).
+
+# Local workflow through `wlc` 
+## Make a new branch in git
 1. Make a new branch to work on it in git.
    For example:
    `git checkout -b fr-translation-init`
 
-# Adding a new language to Hugo
+## Adding a new language to Hugo
 
 1. In the files `config.yaml` and `config-pdf.yaml`, locate the `languages:` line.
 2. Add the language you wish to translate. For example, the English looks like this:
@@ -28,7 +37,7 @@ Please do all translation work through Weblate. We will not accept pull requests
 
 3. Save the files.
 
-# Generating a PO file
+## Generating a PO file
 
 Do the following steps if you want to update the POT and PO files from the markdown source.
 
@@ -38,7 +47,7 @@ Do the following steps if you want to update the POT and PO files from the markd
 2. Run the script to populate the PO file:
    `cd tools/ && ./generate-translations.sh --no-translations`
 
-# Generating translated files
+## Generating translated files
 
 Do the following steps to generate the website files from a translation.
 
@@ -50,7 +59,7 @@ Do the following steps to generate the website files from a translation.
 4. Remove the translated files, as we never check them into git:
    `cd tools/ && ./generate-translations.sh --rm-translations`.
 
-# Translating website, epub, and PDF strings
+## Translating website, epub, and PDF strings
 
 There are two themes for the darktable documentation: one for the HTML website and one for the PDF. You'll need to translate the strings for both.
 
@@ -60,7 +69,7 @@ There are two themes for the darktable documentation: one for the HTML website a
 4. Check the translated PO file into git, push it to github, and open a pull request to have your changes accepted.
 5. Repeat the last four steps for the other themes, `themes/hugo-darktable-docs-epub-theme` and `themes/hugo-darktable-docs-pdf-theme`.
 
-# Integrating new translations from Weblate
+## Integrating new translations from Weblate
 
 The following assumes that you're git working directory is clean, that you have API access to the Weblate instance, that you've configured the Weblate git repo as a remote in your local `dtdocs` git repo, and that `wlc`, the Weblate command line client, is configured.
 
@@ -78,16 +87,17 @@ The following assumes that you're git working directory is clean, that you have 
 12. Create a Pull Request in Github.
 13. After the Pull Request is accepted, reset the Weblate repo to match the `dtdocs` repo: `wlc reset darktable/dtdocs`
 
-Claude hat geantwortet: Das Skript ist ein Wrapper um po4a für die Übersetzungsverwaltung eines Hugo-Projekts (vermutlich dtdocs).Das Skript ist ein Wrapper um po4a für die Übersetzungsverwaltung eines Hugo-Projekts (vermutlich dtdocs). Es akzeptiert genau einen von drei Flags:
 
---no-update
+# generate-translations.sh
 
-Generiert die übersetzten Markdown-Dateien aus den vorhandenen PO-Dateien, ohne die POT/PO-Dateien zu aktualisieren. Das heißt: Die Quelldateien (content/*.md) werden nicht neu eingelesen, bestehende Übersetzungen werden direkt in lokalisierte .{lang}.md-Dateien gerendert. Sinnvoll, wenn die PO-Dateien bereits aktuell sind und man nur die fertigen Sprachdateien erzeugen will.
+The script is a wrapper around `po4a` to orchestrate the interplay between the original .md files and the translations. The script reads `disable-languages`, filters out disabled languages, builds a temporary `po4a` config file containing all `content/**/*.md` files, and then calls `po4a $1 --verbose $po4a_conf` — the flag is passed through directly to `po4a`.
+It requires one of the three arguments.
 
---no-translations
+`--no-translations`
+: Generates POT and POT Files (`po/content.pot` and `po/content.{lang}.po`) from the source .md Files (`content/*.md`). Does *not* produce any translated output files. New or changed strings from the source files are pulled into the POT/PO files, but no `*.{lang}.md` files are created. This used after updates to the English source files  to prepare the POT and PO files for weblate.
 
-Aktualisiert ausschließlich die POT-Datei (po/content.pot) und die PO-Dateien (po/content.{lang}.po), erzeugt aber keine übersetzten Ausgabedateien. Das heißt: Neue oder geänderte Strings aus den Quelldateien werden in die POT/PO-Dateien übernommen (neue msgid-Einträge, Fuzzy-Markierungen für geänderte Strings), aber es entstehen keine *.{lang}.md-Dateien. Typischer Schritt nach Änderungen an den englischen Quelldateien, um die PO-Dateien für Übersetzer (z.B. Weblate) vorzubereiten.
+`--no-update`
+: Generates the translated Markdown files from the existing PO files, without updating the POT/PO files. This means the source files (`content/*.md`) are not re-read; existing translations are rendered directly into localized `.{lang}.md` files. 
 
---rm-translations
-
-Entfernt die generierten übersetzten Dateien. po4a löscht dabei die lokalisierten *.{lang}.md-Ausgabedateien, die zuvor mit --no-update erzeugt wurden. Die PO/POT-Dateien bleiben unangetastet. Nützlich zum Aufräumen oder vor einem sauberen Rebuild.
+`--rm-translations`
+: Removes the generated translated files. `po4a` deletes the localized `*.{lang}.md` output files previously created by `--no-update`. The PO/POT files are left untouched. 
