@@ -12,12 +12,12 @@ Please do all translation work through Weblate. We will not accept pull requests
 
 # Workflow using hosted Weblate
 
-1. Source files (`content/*.md`) are updated through pull pequests (see [workflow](workflow.md))
-2. PO and POT Files are generated with `generate-translations.sh --no-translations` (more on `generate-translations.sh` below)
+1. Source files (`content/*.md`) are updated through pull requests (see [workflow](workflow.md))
+2. PO and POT files are generated with `generate-translations.sh --no-translations` (more on `generate-translations.sh` below)
 3. Those POT and PO files are ingested into weblate
-4. Tanslations happen on weblate, this internally generates PO files for each language
+4. Translations happen on weblate, this internally generates PO files for each language
 5. The new PO files are commited from weblate to dtdocs repository (through pull request)
-6. Translated .md Files are generated from those PO Files upon deployment at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/)).
+6. Translated .md files are generated from those PO files upon deployment at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/).
 
 # Local workflow through `wlc` 
 ## Make a new branch in git
@@ -94,7 +94,7 @@ The script is a wrapper around `po4a` to orchestrate the interplay between the o
 It requires one of the three arguments.
 
 `--no-translations`
-: Generates POT and POT Files (`po/content.pot` and `po/content.{lang}.po`) from the source .md Files (`content/*.md`). Does *not* produce any translated output files. New or changed strings from the source files are pulled into the POT/PO files, but no `*.{lang}.md` files are created. This used after updates to the English source files  to prepare the POT and PO files for weblate.
+: Generates POT and POT files (`po/content.pot` and `po/content.{lang}.po`) from the source .md files (`content/*.md`). Does *not* produce any translated output files. New or changed strings from the source files are pulled into the POT/PO files, but no `*.{lang}.md` files are created. This is used after updates to the English source files to prepare the POT and PO files for weblate.
 
 `--no-update`
 : Generates the translated Markdown files from the existing PO files, without updating the POT/PO files. This means the source files (`content/*.md`) are not re-read; existing translations are rendered directly into localized `.{lang}.md` files. 
