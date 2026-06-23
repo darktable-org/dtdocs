@@ -6,7 +6,7 @@ weight: 100
 
 Translation of the darktable documentation is done via [Weblate](https://hosted.weblate.org/projects/darktable-documentation/).
 
-You can either use Weblate's web UI to translate the documentation or download the translation from Weblate to your computer, edit it, and then upload the changes. 
+You can either use Weblate's web UI to translate the documentation or download the translation from Weblate to your computer, edit them, and then upload the changes. 
 
 Please do all translation work through Weblate. We will not accept pull requests directly on github to update PO files.
 
@@ -16,7 +16,7 @@ Please do all translation work through Weblate. We will not accept pull requests
 2. PO and POT files are generated with `generate-translations.sh --no-translations` (more on `generate-translations.sh` below)
 3. Those POT and PO files are ingested into weblate
 4. Translations happen on weblate, this internally generates PO files for each language
-5. The new PO files are commited from weblate to dtdocs repository (through pull request)
+5. The new PO files are committed from weblate to dtdocs repository (through pull request)
 6. Translated .md files are generated from those PO files upon deployment at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/).
 
 # Local workflow through `wlc` 
@@ -71,7 +71,7 @@ There are two themes for the darktable documentation: one for the HTML website a
 
 ## Integrating new translations from Weblate
 
-The following assumes that you're git working directory is clean, that you have API access to the Weblate instance, that you've configured the Weblate git repo as a remote in your local `dtdocs` git repo, and that `wlc`, the Weblate command line client, is configured.
+The following assumes that your git working directory is clean, that you have API access to the Weblate instance, that you've configured the Weblate git repo as a remote in your local `dtdocs` git repo, and that `wlc`, the Weblate command line client, is configured.
 
 1. Commit any changes in Weblate: `wlc commit darktable/dtdocs`
 2. Lock the Weblate project to prevent further changes: `wlc lock darktable/dtdocs`
@@ -83,7 +83,7 @@ The following assumes that you're git working directory is clean, that you have 
 8. Commit the `PO` files: `git commit -m "Updated with the PO files from weblate."`
 9. Update the `POT` and `PO` files: `cd tools/ && ./generate-translations.sh --no-translations && cd ..`
 10. Stage the `POT` and `PO` files: `git add -A`
-11. Commit the `POT` and`PO` files: `git commit -m "Updated POT and PO files."`
+11. Commit the `POT` and `PO` files: `git commit -m "Updated POT and PO files."`
 12. Create a Pull Request in Github.
 13. After the Pull Request is accepted, reset the Weblate repo to match the `dtdocs` repo: `wlc reset darktable/dtdocs`
 
