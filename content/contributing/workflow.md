@@ -69,6 +69,9 @@ Alternatively you can sync your fork and local copy via terminal:
 10. If you need to make further corrections using the current branch, simply repeat 3-8. For the command in step 3 you can omit `-b` and in step 8 you can just do `git push`.
 11. After you are done and your pull request is merged or you are finished with your work for this specific pull request, execute `git checkout master` to return to the master branch. I recommend working on only one branch/pr at a time if you don't know how git works.
 
+## running `hugo` locally to see changes
+[hugo](https://github.com/gohugoio/hugo) can also be executed locally to create a local live deployment of the docs. Execute `hugo server  -D --disableFastRender` from the base directory of your local repository. Hugo will monitor the directory for changes and redeploy upon changing files automatically. 
+
 ## Pull request
 
 1. Go to https://github.com/darktable-org/dtdocs/compare
