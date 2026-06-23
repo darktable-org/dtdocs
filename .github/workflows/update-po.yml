@@ -1,0 +1,44 @@
+name: update po files
+
+on:
+  schedule:
+    # Note: GitHub cron runs in UTC. 00:00 UTC = 01:00 CET / 02:00 CEST.
+    - cron: '0 0 * * *' 
+  workflow_dispatch:  # allows manual triggering from the Actions UI
+
+# Grant the GITHUB_TOKEN write access so the job can push back
+permissions:
+  contents: write
+
+# Prevent overlapping runs (e.g. manual + scheduled at the same time)
+concurrency:
+  group: update-po
+  cancel-in-progress: false
+
+jobs:
+  generate-po:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive   # fetch the Hugo theme submodule
+          fetch-depth: 0          # full history (.GitInfo/.Lastmod)
+
+      - uses: cachix/install-nix-action@v25
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate POT and PO files
+        run: nix develop --command bash -c "./tools/generate-translations.sh --no-translations"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add po/
+          if git diff --cached --quiet; then
+            echo "No changes to the po files - nothing to commit."
+          else
+            git commit -m "chore(i18n): update POT/PO files [skip ci]"
+            git push
+          fi
