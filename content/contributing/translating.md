@@ -13,7 +13,7 @@ Please do all translation work through Weblate. We will not accept pull requests
 # Workflow using hosted Weblate
 
 1. Source files (`content/*.md`) are updated through pull requests (see [workflow](workflow.md))
-2. PO and POT files are generated with `generate-translations.sh --no-translations` (more on `generate-translations.sh` below)
+2. PO and POT files are generated with `generate-translations.sh --no-translations` (more on this script below)
 3. Those POT and PO files are ingested into weblate
 4. Translations happen on weblate, this internally generates PO files for each language
 5. The new PO files are committed from weblate to dtdocs repository (through pull request)
