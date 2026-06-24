@@ -12,11 +12,11 @@ Please do all translation work through Weblate. We will not accept pull requests
 
 # Workflow using hosted Weblate
 
-1. Source files (`content/*.md`) are updated through pull requests (see [workflow](workflow.md))
+1. The original english files (`content/*.md`) are maintained through pull requests (see [workflow](workflow.md))
 2. PO and POT files are generated with `generate-translations.sh --no-translations` (more on this script below)
-3. Those POT and PO files are ingested into weblate
-4. Translations happen on weblate, this internally generates PO files for each language
-5. The new PO files are committed from weblate to dtdocs repository (through pull request)
+3. The POT file is automatically pulled into weblate (triggered by the weblate GitHub app)
+4. Translations happen on weblate, this internally generates updates PO files for each language
+5. The new PO files are committed from weblate to dtdocs repository via pull request
 6. Translated .md files are generated from those PO files upon deployment at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/).
 
 # Local workflow through `wlc` 
