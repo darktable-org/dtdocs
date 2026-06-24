@@ -4,7 +4,7 @@ id: white-balance
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : scale raw RGB channels to balance white and help demosaicing.
 

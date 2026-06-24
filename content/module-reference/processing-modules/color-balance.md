@@ -4,7 +4,7 @@ id: color-balance
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : shift colors selectively by luminance range.
 

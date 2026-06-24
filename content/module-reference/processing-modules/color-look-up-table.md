@@ -4,7 +4,7 @@ id: color-look-up-table
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : perform color space corrections and apply looks.
 

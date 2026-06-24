@@ -4,7 +4,7 @@ id: velvia
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : resaturate giving more weight to blacks, whites and low-saturation pixels.
 

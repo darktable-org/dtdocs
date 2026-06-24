@@ -4,7 +4,7 @@ id: sharpen
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : sharpen the details in the image using a standard UnSharp Mask (USM).
 

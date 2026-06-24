@@ -4,7 +4,7 @@ id: color-correction
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : correct white balance selectively for blacks and whites.
 

@@ -4,7 +4,7 @@ id: enlarge-canvas
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : add empty space to the left, top, right or bottom.
 

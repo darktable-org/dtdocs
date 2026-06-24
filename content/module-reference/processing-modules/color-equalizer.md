@@ -4,7 +4,7 @@ id: color-equalizer
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : change saturation, hue and brightness depending on local hue.
 

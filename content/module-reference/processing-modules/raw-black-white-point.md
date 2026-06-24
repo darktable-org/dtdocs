@@ -4,7 +4,7 @@ id: raw-black-white-point
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : sets technical specificities of the raw sensor  touch with great care!.
 

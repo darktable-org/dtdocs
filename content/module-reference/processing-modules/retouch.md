@@ -4,7 +4,7 @@ id: retouch
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : remove and clone spots, perform split-frequency skin editing.
 

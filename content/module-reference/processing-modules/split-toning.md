@@ -4,7 +4,7 @@ id: split-toning
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : use two specific colors for shadows and highlights and create a linear toning effect between them up to a pivot.
 

@@ -4,7 +4,7 @@ id: haze-removal
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : remove fog and atmospheric hazing from images.
 

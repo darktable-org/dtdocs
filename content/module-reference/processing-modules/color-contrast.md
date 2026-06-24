@@ -4,7 +4,7 @@ id: color-contrast
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : increase saturation and separation between opposite colors.
 

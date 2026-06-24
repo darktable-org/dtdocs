@@ -4,7 +4,7 @@ id: soften
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : create a softened image using the Orton effect.
 

@@ -4,7 +4,7 @@ id: raw-chromatic-aberrations
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : correct chromatic aberrations for Bayer sensors.
 

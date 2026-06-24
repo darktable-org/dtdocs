@@ -4,7 +4,7 @@ id: rotate-perspective
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : rotate or distort perspective.
 

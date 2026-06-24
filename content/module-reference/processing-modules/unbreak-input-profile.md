@@ -4,7 +4,7 @@ id: unbreak-input-profile
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : correct input color profiles meant to be applied on non-linear RGB.
 

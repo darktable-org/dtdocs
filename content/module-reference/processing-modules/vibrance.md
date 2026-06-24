@@ -6,7 +6,7 @@ weight: 20
 
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : saturate and reduce the lightness of the most saturated pixels to make the colors more vivid.
 

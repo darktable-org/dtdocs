@@ -4,7 +4,7 @@ id: output-color-profile
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : convert pipeline reference RGB to any display RGB using color profiles to remap RGB values.
 

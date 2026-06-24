@@ -4,7 +4,7 @@ id: external-raster
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : read PFM/PNG files recorded for use as raster masks.
 

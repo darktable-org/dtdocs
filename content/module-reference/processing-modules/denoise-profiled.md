@@ -4,7 +4,7 @@ id: denoise-profiled
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : denoise using noise statistics profiled on sensors.
 

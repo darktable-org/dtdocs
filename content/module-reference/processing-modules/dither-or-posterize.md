@@ -4,7 +4,7 @@ id: dither-or-posterize
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : reduce banding and posterization effects in output JPEGs by adding random noise, or reduce bit depth.
 

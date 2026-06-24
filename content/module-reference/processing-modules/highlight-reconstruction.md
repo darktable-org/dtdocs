@@ -4,7 +4,7 @@ id: highlight-reconstruction
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : avoid magenta highlights and try to recover highlights colors.
 

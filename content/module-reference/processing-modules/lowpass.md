@@ -4,7 +4,7 @@ id: lowpass
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : isolate low frequencies in the image.
 

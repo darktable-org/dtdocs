@@ -4,7 +4,7 @@ id: raw-denoise
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : denoise the raw image early in the pipeline.
 

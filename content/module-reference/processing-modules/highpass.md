@@ -4,7 +4,7 @@ id: highpass
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : isolate high frequencies in the image.
 

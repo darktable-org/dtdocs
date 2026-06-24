@@ -4,7 +4,7 @@ id: astrophoto-denoise
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : apply a poisson noise removal best suited for astrophotography.
 

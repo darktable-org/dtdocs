@@ -6,7 +6,7 @@ weight: 20
 
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : change the framing and correct the perspective.
 

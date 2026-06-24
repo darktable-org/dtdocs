@@ -4,7 +4,7 @@ id: color-harmonizer
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : harmonize colors toward a selected palette in perceptual space.
 

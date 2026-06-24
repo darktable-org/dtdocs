@@ -4,7 +4,7 @@ id: base-curve
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : apply a view transform based on personal or camera maker look, for corrective purposes, to prepare images for display.
 

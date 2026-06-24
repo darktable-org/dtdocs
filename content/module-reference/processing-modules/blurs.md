@@ -4,7 +4,7 @@ id: blurs
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : simulate physically-accurate lens and motion blurs.
 

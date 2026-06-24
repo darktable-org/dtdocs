@@ -4,7 +4,7 @@ id: watermark
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : overlay an SVG watermark like a signature on the image.
 

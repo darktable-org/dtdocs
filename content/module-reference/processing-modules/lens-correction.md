@@ -4,7 +4,7 @@ id: lens-correction
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : correct lenses optical flaws.
 

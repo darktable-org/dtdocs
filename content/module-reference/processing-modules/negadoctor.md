@@ -4,7 +4,7 @@ id: negadoctor
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : invert film negative scans and simulate printing on paper.
 

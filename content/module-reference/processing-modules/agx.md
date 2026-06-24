@@ -4,7 +4,7 @@ id: agx
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : applies a tone mapping curve. inspired by Blender's AgX tone mapper.
 

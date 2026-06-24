@@ -4,7 +4,7 @@ id: exposure
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : redo the exposure of the shot as if you were still in-camera using a color-safe brightening similar to increasing ISO setting.
 

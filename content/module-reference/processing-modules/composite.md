@@ -4,7 +4,7 @@ id: composite
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : combine the image with elements from another processed image (move this module to after output color profile if you see banding).
 

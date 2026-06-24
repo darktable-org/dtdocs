@@ -4,7 +4,7 @@ id: surface-blur
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : apply edge-aware surface blur to denoise or smoothen textures.
 

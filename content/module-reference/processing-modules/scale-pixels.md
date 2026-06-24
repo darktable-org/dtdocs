@@ -4,7 +4,7 @@ id: scale-pixels
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : module for setting pixel aspect ratio  useful for certain sensor types and anamorphic desqueeze.
 

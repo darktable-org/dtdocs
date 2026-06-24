@@ -4,7 +4,7 @@ id: monochrome
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : quickly convert an image to black & white using a variable color filter.
 

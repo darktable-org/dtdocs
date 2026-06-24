@@ -5,7 +5,7 @@ weight: 10
 include_toc: true
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : perform color space corrections such as white balance, channels mixing and conversions to monochrome emulating film.
 

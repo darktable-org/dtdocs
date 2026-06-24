@@ -4,7 +4,7 @@ id: tone-equalizer
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : relight the scene as if the lighting was done directly on the scene.
 

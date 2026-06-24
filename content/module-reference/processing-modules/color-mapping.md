@@ -4,7 +4,7 @@ id: color-mapping
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : transfer a color palette and tonal repartition from one image to another.
 

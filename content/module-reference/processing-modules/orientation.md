@@ -4,7 +4,7 @@ id: orientation
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : flip or rotate image by step of 90 degrees.
 

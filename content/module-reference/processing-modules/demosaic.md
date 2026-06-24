@@ -4,7 +4,7 @@ id: demosaic
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : reconstruct full RGB pixels from a sensor color filter array reading.
 

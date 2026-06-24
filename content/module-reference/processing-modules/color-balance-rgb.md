@@ -4,7 +4,7 @@ id: color-balance
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : color grading tools using alpha masks to separate shadows, mid-tones and highlights.
 

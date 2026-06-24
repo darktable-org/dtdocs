@@ -4,7 +4,7 @@ id: local-contrast
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : manipulate local and global contrast separately.
 

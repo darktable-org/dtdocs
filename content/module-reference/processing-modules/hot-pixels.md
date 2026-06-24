@@ -4,7 +4,7 @@ id: hot-pixels
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : remove abnormally bright pixels by dampening them with neighbors.
 

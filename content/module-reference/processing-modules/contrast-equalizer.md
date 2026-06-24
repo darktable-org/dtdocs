@@ -4,7 +4,7 @@ id: contrast-equalizer
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : add or remove local contrast, sharpness, acutance.
 

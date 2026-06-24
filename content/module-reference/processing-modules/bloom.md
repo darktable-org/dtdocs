@@ -4,7 +4,7 @@ id: bloom
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : apply Orton effect for a dreamy ethereal look.
 

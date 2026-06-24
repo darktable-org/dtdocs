@@ -4,7 +4,7 @@ id: diffuse
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : simulate directional diffusion of light with heat transfer model to apply an iterative edge-oriented blur, inpaint damaged parts of the image, or to remove blur with blind deconvolution.
 

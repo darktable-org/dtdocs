@@ -4,7 +4,7 @@ id: rgb-primaries
 weight: 10
 ---
 
-{{< details summary="Synopsis" class="synopsis" >}}
+{{< details summary="Technical information" class="technical-info" >}}
 description
 : adjustment of the RGB color primaries for color grading.
 
