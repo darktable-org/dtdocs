@@ -4,6 +4,23 @@ id: color-mapping
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: transfer a color palette and tonal repartition from one image to another.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Transfer the look and feel of one image to another. 
 
 This module statistically analyses the color characteristics of a source and target image. The colors of the source image are then mapped to corresponding colors on the target image.

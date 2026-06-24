@@ -4,6 +4,23 @@ id: local-contrast
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: manipulate local and global contrast separately.
+
+purpose
+: creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 Enhance the image's local contrast.
 
 This is achieved using either a _local laplacian_ (default) or _unnormalized bilateral_ filter. Both modes work exclusively on the L channel from Lab. The _local laplacian_ filter has been designed to be robust against unwanted halo effects and gradient reversals along edges.

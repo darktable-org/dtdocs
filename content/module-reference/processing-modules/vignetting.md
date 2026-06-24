@@ -4,6 +4,23 @@ id: vignetting
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: simulate a lens fall-off close to edges.
+
+purpose
+: creative.
+
+input
+: non-linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred
+{{< /details >}}
+
 Apply a vignetting effect to the image. 
 
 Vignetting is a modification of the brightness and saturation at the borders of the image in a specified shape. Many of the parameters listed below can also be modified with a graphical control that overlays the image when the module has focus, showing the shape and extent of the effect.

@@ -4,6 +4,23 @@ id: denoise-profiled
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: denoise using noise statistics profiled on sensors.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 An easy to use and highly efficient denoise module, adapted to the individual noise profiles of a wide range of camera sensors.
 
 One issue with a lot of denoising algorithms is that they assume that the variance of the noise is independent of the luminosity of the signal. By profiling the noise characteristics of a camera's sensor at different ISO settings, the variance at different luminosities can be assessed, and the denoising algorithm can be adjusted to more evenly smooth out the noise.

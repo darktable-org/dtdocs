@@ -4,6 +4,23 @@ id: dither-or-posterize
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: reduce banding and posterization effects in output JPEGs by adding random noise, or reduce bit depth.
+
+purpose
+: corrective, artistic.
+
+input
+: non-linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred
+{{< /details >}}
+
 This module eliminates some of the banding artifacts that can result when darktable's internal 32-bit floating point data is transferred into discrete 8-bit or 16-bit integer output format for display or export. It can also be used for creative posterization effects.
 
 Although not an inherent problem in any of darktable's modules, some operations may provoke banding if they produce a lightness gradient in the image. To mitigate possible artifacts you should consider activating dithering when using the [_vignetting_](./vignetting.md) or [_graduated density_](./graduated-density.md) modules. This is especially relevant for images with extended homogeneous areas such as cloudless sky. Also watch out for banding artifacts when using a gradient [drawn mask](../../darkroom/masking-and-blending/masks/drawn).

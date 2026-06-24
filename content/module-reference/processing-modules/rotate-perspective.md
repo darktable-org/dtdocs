@@ -4,6 +4,23 @@ id: rotate-perspective
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: rotate or distort perspective.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Automatically correct for converging lines, a form of perspective distortion. The underlying mechanism is inspired by Markus Hebel's [_ShiftN_](http://www.shiftn.de/) program. This module also allows for the rotation of the image to be adjusted.
 
 Perspective distortions are a natural effect when projecting a three dimensional scene onto a two dimensional plane and cause objects close to the viewer to appear larger than objects further away. Converging lines are a special case of perspective distortions frequently seen in architectural photographs -- parallel lines, when photographed at an angle, are transformed into converging lines that meet at some vantage point within or outside of the image frame.

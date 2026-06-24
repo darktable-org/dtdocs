@@ -4,6 +4,23 @@ id: orientation
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: flip or rotate image by step of 90 degrees.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically.
 
 The module is enabled by default and the orientation (rotation) is automatically set based on the image's Exif data.

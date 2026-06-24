@@ -5,6 +5,23 @@ weight: 10
 include_toc: true
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: apply a view transform to prepare the scene-referred pipeline for display on SDR screens and paper prints while preventing clipping in non-destructive ways.
+
+purpose
+: corrective and creative.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred
+{{< /details >}}
+
 Remap the tonal range of an image by reproducing the tone and color response of classic film.
 
 This module can be used either to expand or to contract the dynamic range of the scene to fit the dynamic range of the display. It protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights and dark shadows. Highlights will need extra care when details need to be preserved (e.g. clouds).

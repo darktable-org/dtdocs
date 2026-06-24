@@ -4,6 +4,23 @@ id: white-balance
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: scale raw RGB channels to balance white and help demosaicing.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred
+{{< /details >}}
+
 Adjust the white balance of the image by altering the temperature and tint, defining a coefficient for each RGB channel, or choosing from list of predefined white balance settings.
 
 The default settings for this module are derived from the camera white balance stored in the image's Exif data.

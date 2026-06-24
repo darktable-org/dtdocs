@@ -4,6 +4,23 @@ id: crop
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: change the framing.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Crop an image using on-screen guides.
 
 This module appears later in the pipeline than the deprecated [_crop and rotate_](./crop-rotate.md) module, meaning that the full image can remain available for source spots in the [_retouch_](./retouch.md) module. For best results, you are advised to use the [_rotate and perspective_](./rotate-perspective.md) module to perform rotation and perspective correction (if required), and then perform final creative cropping with this module.

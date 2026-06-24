@@ -4,6 +4,23 @@ id: agx
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: applies a tone mapping curve. inspired by Blender's AgX tone mapper.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: linear, RGB, display-referred
+{{< /details >}}
+
 Transform the colors and tonal range of an image to fit a display.
 
 The primary innovation of the AgX module is an advanced color handling method that ensures a natural and film-like appearance, preventing the oversaturation artifacts common with simpler tone mapping techniques. It is derived from the display transform of the same name, used in the [Blender 3D modeler](https://www.blender.org/) by T. J. Sobotka, Eary_Chow, Sakari Kapanen and others.

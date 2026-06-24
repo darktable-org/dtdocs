@@ -5,6 +5,23 @@ weight: 10
 include_toc: true
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: perform color space corrections such as white balance, channels mixing and conversions to monochrome emulating film.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB or XYZ.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 A fully-featured color-space correction, white balance adjustment and channel mixer module.
 
 This simple yet powerful module can be used in the following ways:

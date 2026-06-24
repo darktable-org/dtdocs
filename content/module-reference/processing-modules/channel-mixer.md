@@ -6,6 +6,23 @@ weight: 20
 
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: perform color space corrections such as white balance, channels mixing and conversions to monochrome emulating film.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, display-referred
+{{< /details >}}
+
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.4 and should no longer be used for new edits. Please use the [_color calibration_](./color-calibration.md) module instead.**
 
 ---

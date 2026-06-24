@@ -6,6 +6,23 @@ weight: 20
 
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: adjust black, white and mid-gray points.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred
+{{< /details >}}
+
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 4.4 and should no longer be used for new edits. Please use the [_rgb levels_](./rgb-levels.md) module instead.**
 
 ---

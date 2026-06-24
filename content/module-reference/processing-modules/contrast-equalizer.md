@@ -4,6 +4,23 @@ id: contrast-equalizer
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: add or remove local contrast, sharpness, acutance.
+
+purpose
+: corrective and creative.
+
+input
+: linear, Lab, scene-referred.
+
+processing
+: frequential, RGB.
+
+output
+: linear, Lab, scene-referred
+{{< /details >}}
+
 Adjust luminance and chroma contrast in the wavelet domain.
 
 This versatile module can be used to achieve a variety of effects, including bloom, denoise, clarity, and local contrast enhancement. 

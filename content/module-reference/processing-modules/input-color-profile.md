@@ -4,6 +4,23 @@ id: input-color-profile
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: convert any RGB input to pipeline reference RGB using color profiles to remap RGB values.
+
+purpose
+: mandatory.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: defined by profile.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Define how darktable will interpret the colors of the image. 
 
 This module takes the color space used by the image source (e.g. camera, scanner) and converts the pixel encodings to a standardized working color space. This means that subsequent modules in the pipeline don't need to be concerned with the specifics of the input device, and can work with and convert to/from a common working color space.

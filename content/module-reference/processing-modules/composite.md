@@ -4,6 +4,23 @@ id: composite
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: combine the image with elements from another processed image (move this module to after output color profile if you see banding).
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred
+{{< /details >}}
+
 Create a composite image by overlaying an already-processed image on top of the current image.
 
 Drag and drop a processed image from the filmstrip onto the "drop image from filmstrip here" box to overlay the chosen image, and then alter the various placement and adjustment attributes of the image being overlaid.

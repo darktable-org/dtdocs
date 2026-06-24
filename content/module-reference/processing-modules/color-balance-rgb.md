@@ -4,6 +4,23 @@ id: color-balance
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: color grading tools using alpha masks to separate shadows, mid-tones and highlights.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, scene-referred
+{{< /details >}}
+
 An advanced module which brings color-grading tools from cinematography into the photographic scene-referred pipeline.
 
 This module is not suitable for beginners with no prior knowledge of color theory, who might want to stick to the _global chroma_ and _global vibrance_ settings until they have a good understanding of the [dimensions of color](../../special-topics/color-management/color-dimensions.md).

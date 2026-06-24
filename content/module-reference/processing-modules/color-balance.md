@@ -4,6 +4,23 @@ id: color-balance
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: shift colors selectively by luminance range.
+
+purpose
+: corrective or creative.
+
+input
+: linear, Lab, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, Lab, scene-referred
+{{< /details >}}
+
 A versatile tool for adjusting the image's color balance. 
 
 This module can be used to revert parasitic color casts or to enhance the visual atmosphere of an image using color grading, a popular technique in the cinema industry. For scene-referred workflow, you should consider using the improved [_color balance rgb_](./color-balance-rgb.md) module instead.

@@ -4,6 +4,23 @@ id: highpass
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+description
+: isolate high frequencies in the image.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, scene-referred.
+
+processing
+: frequential, Lab.
+
+output
+: special, Lab, scene-referred
+{{< /details >}}
+
 A high pass filter. 
 
 This module is primarily intended to be used in combination with a [_blend mode_](../../darkroom/masking-and-blending/blend-modes.md). For example, try using the module with a blend mode of "soft light" for high pass sharpening.
