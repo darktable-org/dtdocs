@@ -147,8 +147,61 @@ h3.translations_head
    padding-left: 1.5rem;
 }
 
+/* icon for opening table of contents */
+.toc {
+margin-bottom: 1em;
+}
+
+.toc-icon{
+list-style: none;
+    text-decoration: none;
+  &::before {
+    content: "+";
+    color: white;
+    background-color: black;
+    border-radius: 1em;
+    font-weight: bold;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding: 0 5px;
+    margin-inline-start: 5px;
+    border: none;
+  }
+}
+
+.toc-icon[aria-expanded="true"]{
+list-style: none;
+  &::before {
+    content: "−";
+  }
+}
+
 /* details shortcode styling: add box round contents when open */
 details.technical-info[open]::details-content {
   padding-left: 2em;
-  border: thin solid gray;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+details.technical-info summary {
+  list-style: none;
+  &::before {
+    content: "+";
+    color: white;
+    background-color: black;
+    border-radius: 1em;
+    font-weight: bold;
+    padding: 0 5px;
+    margin-inline-start: 5px;
+  }
+}
+
+details.technical-info[open] summary {
+  list-style: none;
+  &::before {
+    content: "−";
+  }
+}
+
+details.technical-info summary::-webkit-details-marker {
+  display: none;
 }
