@@ -56,15 +56,6 @@ This preset provides a minimal set of modules targeted as a starting point for b
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as retouch, sharpen, watermark, etc.
 
-# _previous config_
-
-These presets are automatically generated for users who have upgraded from a version of darktable prior to 3.4. Where you have previously set up favorites or altered the _hidden_ flag on modules, these presets contains those customizations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
-
-If favorites were created in prior versions these will remain available in an additional group:
-
-![module-group-favorites-icon](./manage-module-layouts/module-group-favorites-icon.png#icon) favorite modules
-: This group was previously used by users to make it easier to find frequently-used modules, and is available under the "previous config" presets. New users can, of course, still create their own custom group and name it "favorites" if they so desire.
-
 # _search only_
 
 This preset does not include any module groupings. Modules may only be accessed using the search facility.
