@@ -1,43 +1,34 @@
 ---
-title: translations Maintenance
+title: translations maintenance
 id: translations-maintenance
 weight: 100
 ---
 
-Translation of the darktable documentation is done via [Weblate](https://hosted.weblate.org/projects/darktable-documentation/).
+Translations of the darktable documentation are maintained via [Weblate](https://hosted.weblate.org/projects/darktable-documentation/). Please do all translation work through Weblate. We will not accept pull requests directly on github to update PO files.
 
-You can either use Weblate's web UI to translate the documentation or download the translation from Weblate to your computer, edit them, and then upload the changes. 
+# Overview of the translations workflow using weblate
 
-Please do all translation work through Weblate. We will not accept pull requests directly on github to update PO files.
+1. The original english files (`content/*.md`) are changed through pull requests (see [workflow](workflow.md)).
+2. The POT file housing all translatable strings is updated with `generate-translations.sh --no-translations` every night. 
+3. Weblate automatically pulls the POT file upon update (triggered by the weblate GitHub app).
+4. Weblate populates the PO file of each translated language with new/updated strings and commits the changes to GitHub by opening a pull request. 
+5. Translations happen on weblate, this internally generates updated PO files for each language.
+6. The new PO files are committed from weblate to dtdocs repository via pull request.
+7. Upon deployment translated .md-files are generated from those PO files at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/).
 
-# Workflow using hosted Weblate
 
-1. The original english files (`content/*.md`) are maintained through pull requests (see [workflow](workflow.md))
-2. PO and POT files are generated with `generate-translations.sh --no-translations` (more on this script below)
-3. The POT file is automatically pulled into weblate (triggered by the weblate GitHub app)
-4. Translations happen on weblate, this internally generates updates PO files for each language
-5. The new PO files are committed from weblate to dtdocs repository via pull request
-6. Translated .md files are generated from those PO files upon deployment at [docs.darktable.org](https://docs.darktable.org). This step is disabled for the auto-build [github-pages](https://darktable-org.github.io/dtdocs/).
+# Adding a new language
 
-# Local workflow through `wlc` 
-## Make a new branch in git
-1. Make a new branch to work on it in git.
-   For example:
-   `git checkout -b fr-translation-init`
-
-## Adding a new language to Hugo
-
-1. In the files `config.yaml` and `config-pdf.yaml`, locate the `languages:` line.
-2. Add the language you wish to translate. For example, the English looks like this:
+1. Add a new language to weblate by clicking the plus sign in the top left of the languages overview. Make sure it is committed to the dtdocs repository.
+2. In the files `config.yaml` and `config-pdf.yaml`, locate the `languages:` line.
+3. Add the language you wish to translate. For example, the English looks like this:
    ```
      en-us:
        title: darktable 3.4 user manual
        weight: 1
    ```
 
-3. Save the files.
-
-## Generating a PO file
+# Generating a PO file
 
 Do the following steps if you want to update the POT and PO files from the markdown source.
 
@@ -46,18 +37,6 @@ Do the following steps if you want to update the POT and PO files from the markd
    `touch po/content.fr-fr.po`
 2. Run the script to populate the PO file:
    `cd tools/ && ./generate-translations.sh --no-translations`
-
-## Generating translated files
-
-Do the following steps to generate the website files from a translation.
-
-1. Generate the translated files:
-   `cd tools/ && ./generate-translations.sh --no-update`.
-2. Check the translation by starting hugo's internal server:
-   `hugo server`
-3. Open a web browser and check the changes. The URL is in the output of the `hugo server` command.
-4. Remove the translated files, as we never check them into git:
-   `cd tools/ && ./generate-translations.sh --rm-translations`.
 
 ## Translating website, epub, and PDF strings
 
