@@ -68,7 +68,7 @@ weight
 ```
 
 include_toc
-: Optional; enables or disables the collapsible table of contents. 
+: Optional; enables or disables the collapsible table of contents. Should only be used on large, complex pages. 
 
 # content
 
@@ -90,7 +90,7 @@ include_toc
 For each of the processing modules there is a special (collapsible) block of technical information at the top:
 
 ```
-{{< details summary="Technical information" class="technical-info" >}}
+{{</* details summary="Technical information" class="technical-info" */>}}
 description
 : applies a tone mapping curve. inspired by Blender's AgX tone mapper.
 
@@ -105,10 +105,10 @@ processing
 
 output
 : linear, RGB, display-referred
-{{< /details >}}
+{{</* /details */>}}
 ```
 
-This should mirrror the information available as tooltip upon hovering the mouse over a processing module.  
+This should mirror the information available as tooltip upon hovering the mouse over a processing module.  
 
 ## keyboard and mouse shortcuts
 
