@@ -1,5 +1,5 @@
 ---
 title: Contributing to the Docs
-id: contributting-to-the-docs
+id: contributing-to-the-docs
 weight: 130
 ---
