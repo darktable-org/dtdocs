@@ -12,6 +12,10 @@ Please see https://darktable-org.github.io/dtdocs/en/contributing for informatio
 
 For a complete list of the outstanding work please see the [issues](https://github.com/darktable-org/dtdocs/issues) in this repository and a list of [undocumented pull requests](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3A%22documentation:%20pending%22) in the darktable repository.
 
+**Translations** are maintained through [weblate](https://hosted.weblate.org/projects/darktable-documentation/). 
+
+<a href="https://hosted.weblate.org/engage/darktable-documentation/"><img src="https://hosted.weblate.org/widget/darktable-documentation/svg-badge.svg" alt="Translation status"></a>
+
 ## Obtaining and Building
 
 ### Cloning
