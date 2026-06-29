@@ -2,6 +2,7 @@
 title: AgX
 id: agx
 weight: 10
+include_toc: true
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
