@@ -1,6 +1,6 @@
 ---
-title: translating dtdocs
-id: translating
+title: Translations Maintenance
+id: translations-maintenance
 weight: 100
 ---
 
