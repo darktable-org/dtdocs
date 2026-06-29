@@ -1,5 +1,5 @@
 ---
-title: development & deployment
+title: development and deployment
 id: development-and-deployment
 weight: 2
 ---
