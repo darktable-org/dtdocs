@@ -2,6 +2,7 @@
 title: styles & conventions
 id: styles-conventions
 weight: 10
+include_toc: true
 ---
 
 The following details the writing style and documentation conventions used in this manual.
