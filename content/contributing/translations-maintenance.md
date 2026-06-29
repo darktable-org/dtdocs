@@ -1,5 +1,5 @@
 ---
-title: Translations Maintenance
+title: translations Maintenance
 id: translations-maintenance
 weight: 100
 ---
