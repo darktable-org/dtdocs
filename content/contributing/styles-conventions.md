@@ -91,6 +91,7 @@ For each of the processing modules there is a special (collapsible) block of tec
 
 ```
 {{</* details summary="Technical information" class="technical-info" */>}}
+
 description
 : applies a tone mapping curve. inspired by Blender's AgX tone mapper.
 
@@ -105,6 +106,7 @@ processing
 
 output
 : linear, RGB, display-referred
+
 {{</* /details */>}}
 ```
 
