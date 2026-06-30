@@ -4,28 +4,28 @@ id: translations-setup
 weight: 100
 ---
 
-Translations of darktable's documentation are maintained via [weblate](https://hosted.weblate.org/projects/darktable-documentation/). 
+Translations of darktable's documentation are maintained via [Weblate](https://hosted.weblate.org/projects/darktable-documentation/). 
 
-# Overview of the setup and flow of information for translations using weblate
+# Overview of the setup and flow of information for translations using Weblate
 
 In short: 
 1. The docs are primarily maintained in English in the .md files present in `content/*.md`. 
 2. From there a POT file (`po/content.pot`) of all *translatable* strings is maintained. 
-3. weblate maintains each language's individual PO files (`po/content.{lang}.po`) which contain the *translated* strings. 
+3. Weblate maintains each language's individual PO files (`po/content.{lang}.po`) which contain the *translated* strings. 
 4. Upon deployment of the docs language-specific .md-files are generated using `generate-translations.sh` which hugo then renders to .html files and the epub and PDF variants. 
 
-## GitHub to weblate: source string synchronisation
+## GitHub to Weblate: source string synchronisation
 
 1. The original English files (`content/*.md`) are changed through a pull request on GitHub (see [workflow](workflow.md)).
-2. A nightly GitHub action updates the POT file (`po/content.pot`) housing all translatable strings with `generate-translations.sh --no-translations`. Note: The script updates POT and PO files but we don't commit the updated PO files to the repository as in our setup the PO files are entirely managed by weblate to avoid merge conflicts.
-3. weblate automatically pulls the updated POT file (triggered by the weblate GitHub app) and internally populates the PO file of each translated language with new/updated strings
-4. weblate commits the changes to GitHub by opening a pull request.
+2. A nightly GitHub action updates the POT file (`po/content.pot`) housing all translatable strings with `generate-translations.sh --no-translations`. Note: The script updates POT and PO files but we don't commit the updated PO files to the repository as in our setup the PO files are entirely managed by Weblate to avoid merge conflicts.
+3. Weblate automatically pulls the updated POT file (triggered by the Weblate GitHub app) and internally populates the PO file of each translated language with new/updated strings
+4. Weblate commits the changes to GitHub by opening a pull request.
 5. The pull request gets merged after review.
 
-## weblate to GitHub: translation synchronisation
+## Weblate to GitHub: translation synchronisation
 
-1. Translations happen on weblate. See [translators guide](translators-guide.md) for a guide on how to translate.
-2. weblate internally updates each language's PO file and commits them to GitHub via pull request. To keep the number of pull requests at bay this happens in batches.
+1. Translations happen on Weblate. See [translators guide](translators-guide.md) for a guide on how to translate.
+2. Weblate internally updates each language's PO file and commits them to GitHub via pull request. To keep the number of pull requests at bay this happens in batches.
 
 ## Deployment of translations
 
@@ -33,7 +33,7 @@ Upon deployment at [docs.darktable.org](https://docs.darktable.org) translated .
 
 # Adding a new language
 
-1. Add a new language to weblate. See [weblate's documentation](https://docs.weblate.org/en/latest/devel/translations.html#adding-new-translations) for how to do this. Make sure the newly created PO file is committed to the dtdocs repository.
+1. Add a new language to Weblate. See [Weblate's documentation](https://docs.weblate.org/en/latest/devel/translations.html#adding-new-translations) for how to do this. Make sure the newly created PO file is committed to the dtdocs repository.
 2. In the files `config.yaml` and `config-pdf.yaml`, locate the `languages:` line.
 3. Add the language you wish to translate. For example, the English entry looks like this:
    ```
@@ -57,7 +57,7 @@ To disable a language, it should be listed in `disable-languages`. The `config.y
 
 # Translating theme strings for website, epub, and PDF
 
-There are three themes for the darktable documentation: one for the HTML website, one for epub, and one for the PDF. Each has a small set of UI strings (e.g. "Table of Contents", "Copyright", "Search") that must be translated manually — these strings are **not** managed by weblate.
+There are three themes for the darktable documentation: one for the HTML website, one for epub, and one for the PDF. Each has a small set of UI strings (e.g. "Table of Contents", "Copyright", "Search") that must be translated manually — these strings are **not** managed by Weblate.
 
 1. Go to `themes/hugo-darktable-docs-theme/i18n`.
 2. Copy the file `en-us.yaml` and name the new file after your language using a locale code with a dash (e.g. `de-de.yaml`, `fr-fr.yaml`).
@@ -74,7 +74,7 @@ The script is a wrapper around `po4a` to orchestrate the interplay between the o
 It requires one of the three arguments.
 
 `--no-translations`
-: Generates POT and PO files (`po/content.pot` and `po/content.{lang}.po`) from the source .md files (`content/*.md`). Does *not* produce any translated output files. New or changed strings from the source files are pulled into the POT/PO files, but no `*.{lang}.md` files are created. This is used after updates to the English source files to prepare the POT and PO files for weblate.
+: Generates POT and PO files (`po/content.pot` and `po/content.{lang}.po`) from the source .md files (`content/*.md`). Does *not* produce any translated output files. New or changed strings from the source files are pulled into the POT/PO files, but no `*.{lang}.md` files are created. This is used after updates to the English source files to prepare the POT and PO files for Weblate.
 
 `--no-update`
 : Generates the translated Markdown files from the existing PO files, without updating the POT/PO files. This means the source files (`content/*.md`) are not re-read; existing translations are rendered directly into localized `.{lang}.md` files.
