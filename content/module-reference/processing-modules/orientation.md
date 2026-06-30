@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : flip or rotate image by step of 90 degrees.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically.

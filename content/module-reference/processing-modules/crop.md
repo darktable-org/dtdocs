@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : change the framing.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Crop an image using on-screen guides.

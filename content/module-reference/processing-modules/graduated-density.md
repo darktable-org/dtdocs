@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : simulate an optical graduated neutral density filter.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Simulate a graduated density filter in order to correct exposure and color in a progressive manner.

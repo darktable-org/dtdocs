@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : module for setting pixel aspect ratio  useful for certain sensor types and anamorphic desqueeze.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Some cameras (such as the Nikon D1X) have rectangular instead of the usual square sensor cells. Without correction this would lead to distorted images. This module applies the required scaling.

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : perform color space corrections and apply looks.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear or non-linear, Lab, display-referred
+
 {{< /details >}}
 
 A generic color look up table implemented in Lab space. 

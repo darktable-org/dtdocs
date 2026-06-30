@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : change saturation, hue and brightness depending on local hue.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : quasi-linear, RGB, scene-referred
+
 {{< /details >}}
 
 Selectively adjust the hue, saturation, and/or brightness of pixels based on their current hue.

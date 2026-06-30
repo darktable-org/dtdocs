@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : distort parts of the image.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.

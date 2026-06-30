@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : apply Orton effect for a dreamy ethereal look.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 Create a soft bloom effect. 

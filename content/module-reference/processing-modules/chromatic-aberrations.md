@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : correct chromatic aberrations.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Correct chromatic aberrations.

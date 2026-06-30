@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : correct lenses optical flaws.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Automatically correct for (or simulate) lens distortion, transverse chromatic aberrations (TCA) and vignetting.

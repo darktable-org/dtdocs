@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : remove abnormally bright pixels by dampening them with neighbors.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, raw, scene-referred
+
 {{< /details >}}
 
 Automatically detect and eliminate hot pixels. 

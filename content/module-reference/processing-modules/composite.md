@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : combine the image with elements from another processed image (move this module to after output color profile if you see banding).
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Create a composite image by overlaying an already-processed image on top of the current image.

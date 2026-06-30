@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : sharpen the details in the image using a standard UnSharp Mask (USM).
 
@@ -19,6 +20,7 @@ processing
 
 output
 : quasi-linear, Lab, display or scene-referred
+
 {{< /details >}}
 
 Sharpen the details in the image using a standard UnSharp Mask (USM). 

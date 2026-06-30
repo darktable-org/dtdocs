@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : correct chromatic aberrations for Bayer sensors.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, raw, scene-referred
+
 {{< /details >}}
 
 Correct chromatic aberrations of raw images.

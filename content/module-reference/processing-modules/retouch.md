@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : remove and clone spots, perform split-frequency skin editing.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Remove unwanted elements from your image by cloning, healing, blurring and filling using drawn shapes.

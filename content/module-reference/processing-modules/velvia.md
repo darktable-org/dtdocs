@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : resaturate giving more weight to blacks, whites and low-saturation pixels.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Resaturate pixels in a weighted manner that gives more weight to blacks, whites and less saturated pixels. 

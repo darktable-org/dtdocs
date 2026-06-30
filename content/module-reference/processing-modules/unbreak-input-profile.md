@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : correct input color profiles meant to be applied on non-linear RGB.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Add a correction curve to image data. This is required if you have selected certain input profiles in the [_input color profile_](./input-color-profile.md) module.

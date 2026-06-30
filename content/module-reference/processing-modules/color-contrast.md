@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : increase saturation and separation between opposite colors.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 A simplified control for changing the contrast or separation of colors between the green/magenta and blue/yellow axes in Lab color space. Higher values increase color contrast, lower values decrease it.

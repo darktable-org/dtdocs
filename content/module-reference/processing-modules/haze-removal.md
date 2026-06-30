@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : remove fog and atmospheric hazing from images.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Automatically reduce the effect of dust and haze in the atmosphere. This module may also be employed more generally to give images a color boost specifically in low-contrast regions of the image.

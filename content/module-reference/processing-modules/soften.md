@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : create a softened image using the Orton effect.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, display-referred
+
 {{< /details >}}
 
 Create a softened image using the [Orton effect](https://en.wikipedia.org/wiki/Orton_(photography)).

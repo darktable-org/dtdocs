@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : use two specific colors for shadows and highlights and create a linear toning effect between them up to a pivot.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Create a two color linear toning effect where the shadows and highlights are represented by two different colors.

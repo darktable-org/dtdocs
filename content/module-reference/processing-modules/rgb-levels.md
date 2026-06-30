@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : adjust black, white and mid-gray points in RGB color space.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Adjust black, white and mid-gray points in RGB color space. This module is similar to the [_levels_](./levels.md) module, which works in Lab color space.

@@ -7,6 +7,7 @@ weight: 20
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : change the framing and correct the perspective.
 
@@ -21,6 +22,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.8 and should no longer be used for new edits. Please use the [_crop_](./crop.md) module to crop the image, the [_rotate and perspective_](./rotate-perspective.md) module to perform rotation and keystone correction, and the [_orientation_](./orientation.md) module to flip the image on the horizontal/vertical axes.**

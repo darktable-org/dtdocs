@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : redo the exposure of the shot as if you were still in-camera using a color-safe brightening similar to increasing ISO setting.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 Increase or decrease the overall brightness of an image.

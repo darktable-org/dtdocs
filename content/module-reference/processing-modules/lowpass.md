@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : isolate low frequencies in the image.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : special, Lab, scene-referred
+
 {{< /details >}}
 
 Apply a low pass filter (for example, a Gaussian blur) to the image, while controlling the output contrast and saturation. 
