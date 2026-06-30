@@ -1,7 +1,8 @@
 ---
-title: styles and conventions
-id: styles-and-conventions
+title: styles & conventions
+id: styles-conventions
 weight: 10
+include_toc: true
 ---
 
 The following details the writing style and documentation conventions used in this manual.
@@ -43,6 +44,7 @@ Metadata for the markdown files is presented at the head of the page using yaml.
 title: Sub Section 1 Title
 id: subsection1
 weight: 10
+include_toc: true
 ---
 ```
 
@@ -65,6 +67,9 @@ weight
       section3.md                # weight: 10 (place section3 at the start of example-chapter)
 ```
 
+include_toc
+: Optional; enables or disables the collapsible table of contents. Should only be used on large, complex pages. 
+
 # content
 
 ## general style guidance
@@ -79,6 +84,33 @@ weight
 - Use image callouts if you need to annotate an image (i.e. mark parts of the image with a letter or number and then explain the meaning in some text following the image). Do not place words directly into the image for annotations, as this makes localization difficult. See [this page](../darkroom/pixelpipe/the-anatomy-of-a-module.md) for an example.
 - Changes to the content should be proposed via pull request or a similar mechanism
 - Your submissions will be copy-edited -- don't take it personally
+
+## technical information for processing modules
+
+For each of the processing modules there is a special (collapsible) block of technical information at the top:
+
+```
+{{</* details summary="Technical information" class="technical-info" */>}}
+
+description
+: applies a tone mapping curve. inspired by Blender's AgX tone mapper.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: linear, RGB, display-referred
+
+{{</* /details */>}}
+```
+
+This should mirror the information available as tooltip upon hovering the mouse over a processing module.  
 
 ## keyboard and mouse shortcuts
 
