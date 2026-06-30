@@ -12,7 +12,7 @@ In short:
 1. The docs are primarily maintained in English in the .md files present in `content/*.md`. 
 2. From there a POT file (`po/content.pot`) of all *translatable* strings is maintained. 
 3. Weblate maintains each language's individual PO files (`po/content.{lang}.po`) which contain the *translated* strings. 
-4. Upon deployment of the docs language-specific .md-files are generated using `generate-translations.sh` which hugo then renders to .html files and the epub and PDF variants. 
+4. Upon deployment of the docs, language-specific .md-files are generated using `generate-translations.sh` which hugo then renders to .html files and the EPUB and PDF variants. 
 
 ## GitHub to Weblate: source string synchronisation
 
@@ -34,7 +34,7 @@ Upon deployment at [docs.darktable.org](https://docs.darktable.org) translated .
 # Adding a new language
 
 1. Add a new language to Weblate. See [Weblate's documentation](https://docs.weblate.org/en/latest/devel/translations.html#adding-new-translations) for how to do this. Make sure the newly created PO file is committed to the dtdocs repository.
-2. In the files `config.yaml` and `config-pdf.yaml`, locate the `languages:` line.
+2. In the files `config.yaml`, `config-pdf.yaml` and `config-epub.yaml`, locate the `languages:` line.
 3. Add the language you wish to translate. For example, the English entry looks like this:
    ```
      en-us:
@@ -51,13 +51,13 @@ Languages are controlled by two independent systems that must be manually kept i
 
 The language switcher in the theme only lists a language when translated `.{lang}.md` files exist for the current page — it uses Hugo's `.IsTranslated` and `.Translations` variables, which reflect actual files on disk, not `config.yaml` entries. A language present in `config.yaml` but listed in `disable-languages` will therefore not appear in the switcher, as no translated files are generated for it. Its `config.yaml` entry is dormant until it is removed from `disable-languages`.
 
-To enable a language, it should be present in `config.yaml` and `config-pdf.yaml` and absent from `disable-languages`.
+To enable a language, it should be present in `config.yaml`, `config-pdf.yaml` and `config-epub.yaml` and absent from `disable-languages`.
 
-To disable a language, it should be listed in `disable-languages`. The `config.yaml` and `config-pdf.yaml` entries can remain in place for when the language is re-enabled.
+To disable a language, it should be listed in `disable-languages`. The `config.yaml`, `config-pdf.yaml` and `config-epub.yaml` entries can remain in place for when the language is re-enabled.
 
-# Translating theme strings for website, epub, and PDF
+# Translating theme strings for website, EPUB, and PDF
 
-There are three themes for the darktable documentation: one for the HTML website, one for epub, and one for the PDF. Each has a small set of UI strings (e.g. "Table of Contents", "Copyright", "Search") that must be translated manually — these strings are **not** managed by Weblate.
+There are three themes for the darktable documentation: one for the HTML website, one for EPUB, and one for the PDF. Each has a small set of UI strings (e.g. "Table of Contents", "Copyright", "Search") that must be translated manually — these strings are **not** managed by Weblate.
 
 1. Go to `themes/hugo-darktable-docs-theme/i18n`.
 2. Copy the file `en-us.yaml` and name the new file after your language using a locale code with a dash (e.g. `de-de.yaml`, `fr-fr.yaml`).
