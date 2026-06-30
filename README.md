@@ -4,7 +4,7 @@ This repository maintains the user documentation for [darktable](https://darktab
 
 The docs currently only track the development version. Versioned docs were last maintained for version 5.2.
 
-The official release documentation is hosted at [docs.darktable.org](https://docs.darktable.org/usermanual/development/en/). The auto-built development preview is at https://darktable-org.github.io/dtdocs/.
+The official release documentation is hosted at [docs.darktable.org](https://docs.darktable.org/usermanual/development/en/). The auto-built development preview is at [darktable-org.github.io/dtdocs](https://darktable-org.github.io/dtdocs/).
 
 ## Contributing
 
@@ -22,11 +22,14 @@ Translations are maintained through [Weblate](https://hosted.weblate.org/project
 
 From a terminal:
 
-    git clone https://github.com/darktable-org/dtdocs.git
+```
+git clone https://github.com/darktable-org/dtdocs.git
+```
 
 #### Generating stylesheets
 
 If cloning the repo fresh, remember to build the bootstrap assets locally:
+
 
 ```
 cd ./themes/hugo-darktable-docs-theme/assets/
@@ -35,11 +38,12 @@ cd ../../hugo-darktable-docs-pdf-theme/assets/
 yarn install
 ```
 
-Instead of yarn install you can use `npm install`.
+Instead of `yarn install` you can use `npm install`.
 
 ### Updating
 
 From the project root:
+
 ```
 git pull
 ```
@@ -62,6 +66,8 @@ hugo server -D --disableFastRender
 
 This builds the pages locally to the `public` directory and makes the site available at http://localhost:1313/usermanual/development/ (you can see the URL in the output of the `hugo server` command).
 
+Note that unless international .md files have been generated with `generate-translations.sh --no-update` only the english sites will be available. 
+
 ### Production Website
 
 Run `hugo` to generate the HTML output files.
@@ -74,21 +80,13 @@ The static files are now available to deploy to a webhost in the `public` direct
 
 ### PDF
 
-Ensure you have the [`weasyprint`](https://weasyprint.org) application installed; this will transform the generated HTML to PDF.
-
-To render just one language while editing (English shown here):
+PDFs can be built with:
 
 ```
-mkdir -p public
-hugo server --disableFastRender --config config-pdf.yaml
-```
-Since `hugo server` runs in the foreground open another shell session and execute:
-
-```
-weasyprint http://localhost:1313/dtdocs/en/index.html public/darktable_user_manual.pdf
+./tools/build-pdf.sh
 ```
 
-The PDF is written to the `public` directory. Stop hugo with `pkill hugo` when `weasyprint` is done. 
+The script generates PDFs by deploying the .html files with `hugo server` using the `config-pdf.yaml` and then rendered to PDF with `weasyprint`. They are written to the `public` directory. International PDFs will only properly be built if internationalized .md files have been generated with  `generate-translations.sh --no-update` beforehand.
 
 ### EPUB
 
@@ -99,8 +97,7 @@ The EPUB can be built with:
 ```
 
 This builds an EPUB for every enabled language and writes them to
-`public/<lang>/darktable_user_manual.epub`. As with the PDF, a language is only built if its translated content has been generated first (which
-`tools/build-all.sh` does for you).
+`public/<lang>/darktable_user_manual.epub`. As with the PDF, a language is only built if its translated content has been generated first.
 
 ## Deployment
 
