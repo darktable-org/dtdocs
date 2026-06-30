@@ -4,11 +4,22 @@ id: development-and-deployment
 weight: 2
 ---
 
-darktable's documentation is maintained in the [dtdocs repository](https://github.com/darktable-org/dtdocs). Changes are introduced through pull requests (see [workflow](workflow.md)). Translations are maintained through weblate; see [translations](translating.md). 
+darktable's documentation is maintained in the [dtdocs repository](https://github.com/darktable-org/dtdocs). Changes are introduced through pull requests (see [workflow](workflow.md)). Translations are maintained through weblate; see [translations](translations-setup.md). 
+
+## Building
+
+The full set of outputs (HTML site, ePubs, and per-language PDFs) is built by `./tools/build-all.sh <base_url>`
+
+This generates the translated content from the PO files, then builds the
+HTML site, the ePubs, and one PDF per enabled language. Outputs are written
+under `public/`, with PDFs at `public/<lang>/darktable_user_manual.pdf`.
+
+Requirements: Hugo (extended), `weasyprint`, and `po4a` for the
+translation step. 
  
 ## GitHub Pages deployment (for development)
  
-For development purposes, the docs are deployed to GitHub Pages on every push: A GitHub Action runs `tools/build-all.sh`, which generates HTML, EPUB and PDF outputs using Hugo. These are committed to the repository's [gh-pages](https://github.com/darktable-org/dtdocs/tree/gh-pages) branch and served via GitHub Pages at https://darktable-org.github.io/dtdocs/. Generation of translated pages is disabled in this setup.
+For development purposes, the docs are deployed to GitHub Pages on every push: A GitHub Action runs `tools/build-all.sh`, which generates HTML, EPUB and PDF outputs. These are committed to the repository's [gh-pages](https://github.com/darktable-org/dtdocs/tree/gh-pages) branch and served via GitHub Pages at https://darktable-org.github.io/dtdocs/. Generation of translated pages is disabled in the GitHub pages deployment.
  
 ## Official deployment to darktable.org
  
