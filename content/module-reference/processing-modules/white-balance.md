@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : scale raw RGB channels to balance white and help demosaicing.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, raw, scene-referred
+
 {{< /details >}}
 
 Adjust the white balance of the image by altering the temperature and tint, defining a coefficient for each RGB channel, or choosing from list of predefined white balance settings.

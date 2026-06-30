@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : censorize license plates and body parts for privacy.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : special, RGB, scene-referred
+
 {{< /details >}}
 
 Degrade parts of the image in an aesthetically pleasing way, in order to anonymize people/objects or hide body parts.

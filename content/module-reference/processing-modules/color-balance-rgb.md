@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : color grading tools using alpha masks to separate shadows, mid-tones and highlights.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB, scene-referred
+
 {{< /details >}}
 
 An advanced module which brings color-grading tools from cinematography into the photographic scene-referred pipeline.

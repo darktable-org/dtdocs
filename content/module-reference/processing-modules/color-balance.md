@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : shift colors selectively by luminance range.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, scene-referred
+
 {{< /details >}}
 
 A versatile tool for adjusting the image's color balance. 

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : quickly convert an image to black & white using a variable color filter.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 Quickly convert an image to black & white using a variable color filter.

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : alter an image’s tones using curves.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 A classic digital photography tool to alter the tones of an image's using curves.

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : sets technical specificities of the raw sensor  touch with great care!.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, raw, scene-referred
+
 {{< /details >}}
 
 Define camera-specific black and white points. 

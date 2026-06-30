@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : convert pipeline reference RGB to any display RGB using color profiles to remap RGB values.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB or Lab, display-referred
+
 {{< /details >}}
 
 Manage the output profile for export and the rendering intent to be used when mapping between color spaces.

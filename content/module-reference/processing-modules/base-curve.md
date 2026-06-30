@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : apply a view transform based on personal or camera maker look, for corrective purposes, to prepare images for display.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Simulate the in-camera JPEG by applying a characteristic base curve to the image.

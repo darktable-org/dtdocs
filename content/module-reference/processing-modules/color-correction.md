@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : correct white balance selectively for blacks and whites.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 Modify the global image saturation to give the image a tint or as an alternative method to split-tone the image.

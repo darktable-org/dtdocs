@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : invert film negative scans and simulate printing on paper.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Process scanned film negatives. 

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : denoise using noise statistics profiled on sensors.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 An easy to use and highly efficient denoise module, adapted to the individual noise profiles of a wide range of camera sensors.

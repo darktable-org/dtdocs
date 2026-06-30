@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : isolate high frequencies in the image.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : special, Lab, scene-referred
+
 {{< /details >}}
 
 A high pass filter. 

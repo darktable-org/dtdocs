@@ -6,6 +6,7 @@ include_toc: true
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : perform color space corrections such as white balance, channels mixing and conversions to monochrome emulating film.
 
@@ -20,6 +21,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 A fully-featured color-space correction, white balance adjustment and channel mixer module.

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : alter an image’s tones using curves in RGB color space.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, display-referred
+
 {{< /details >}}
 
 A classic digital photography tool to alter an image's tones using curves.

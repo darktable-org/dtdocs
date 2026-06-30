@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : read PFM/PNG files recorded for use as raster masks.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, raw, scene-referred
+
 {{< /details >}}
 
 Generate a raster mask from a `.pfm` to be used by subsequent processing modules.

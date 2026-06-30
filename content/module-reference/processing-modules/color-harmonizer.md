@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : harmonize colors toward a selected palette in perceptual space.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 The color harmonizer reduces chromatic dissonance by pushing hues toward a selected color palette.

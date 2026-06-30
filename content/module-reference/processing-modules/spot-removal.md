@@ -7,6 +7,7 @@ weight: 20
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : remove sensor dust spots.
 
@@ -21,6 +22,7 @@ processing
 
 output
 : linear, RGB, scene-referred
+
 {{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the "cloning" tool in the [_retouch_](./retouch.md) module instead.**

@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : add or remove local contrast, sharpness, acutance.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear, Lab, scene-referred
+
 {{< /details >}}
 
 Adjust luminance and chroma contrast in the wavelet domain.

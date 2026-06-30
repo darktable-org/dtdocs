@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : modify the tonal range of the shadows and highlights of an image by enhancing local contrast.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 Modify the tonal range of the shadows and highlights of an image by enhancing local contrast.

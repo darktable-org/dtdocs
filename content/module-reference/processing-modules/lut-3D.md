@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : perform color space corrections and apply look.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear or non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Transform RGB values with a 3D LUT file.

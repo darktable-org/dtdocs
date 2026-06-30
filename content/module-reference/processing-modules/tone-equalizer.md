@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : relight the scene as if the lighting was done directly on the scene.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : quasi-linear, RGB, scene-referred
+
 {{< /details >}}
 
 Dodge and burn while preserving local contrast.

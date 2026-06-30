@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : add solid borders or margins around the image.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : linear or non-linear, RGB, display-referred
+
 {{< /details >}}
 
 Generate a frame around the image. 

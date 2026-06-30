@@ -7,6 +7,7 @@ weight: 20
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : adjust the look of the image.
 
@@ -21,6 +22,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 4.4 and should no longer be used for new edits. Please use the [_color balance rgb_](./color-balance-rgb.md) module instead.**

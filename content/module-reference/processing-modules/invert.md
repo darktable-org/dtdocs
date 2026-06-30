@@ -7,6 +7,7 @@ weight: 20
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : invert film negatives.
 
@@ -21,6 +22,7 @@ processing
 
 output
 : linear, raw, display-referred
+
 {{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.4 and should no longer be used for new edits. Please use the [_negadoctor_](./negadoctor.md) module instead.**

@@ -7,6 +7,7 @@ weight: 20
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : attenuate chromatic aberration by desaturating edges.
 
@@ -21,6 +22,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the [_chromatic aberrations_](./chromatic-aberrations.md) module instead.**

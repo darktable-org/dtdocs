@@ -5,6 +5,7 @@ weight: 10
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : selectively shift hues, chroma and lightness of pixels.
 
@@ -19,6 +20,7 @@ processing
 
 output
 : non-linear, Lab, display-referred
+
 {{< /details >}}
 
 Selectively adjust the lightness, chroma and hue of pixels based on their current lightness, chroma and hue.
