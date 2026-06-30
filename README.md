@@ -48,8 +48,6 @@ And finally make sure the stylesheets are up to date by rebuilding them (see [Ge
 
 ## Building
 
-You can build the HTML website locally, the production site to deploy to hosting, or the PDF.
-
 This site is built with the static site generator [Hugo](https://github.com/gohugoio/hugo) (*extended*).
 
 You can use a prebuilt binary of the latest *extended* version for your system. A detailed guide for installation of the prebuilt binaries is given in the [Hugo installation documentation](https://gohugo.io/installation/).
