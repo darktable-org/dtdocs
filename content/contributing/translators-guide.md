@@ -22,7 +22,11 @@ When translating, always preserve the original Markdown formatting — bold, ita
 
 # translating a specific section of the docs
 
-If you want to translate a specific page, you need to use weblate's search function as there is no direct way of selecting e.g. "translate filmic.md". But if you either enter "all strings" or "untranslated strings" and use the filter at the top to filter for the first sentence, which is usually unique for each page, you can find the proper starting point to go through the page from top to bottom. For [AgX](../module-reference/processing-modules/agx.md) you could e.g. search for "Transform the colors and tonal range of an image to fit a display.". By clicking on "Save and continue" you can then go through the translatable strings.
+If you want to translate a specific page, you need to use weblate's search function as there is no direct way of selecting e.g. "translate filmic.md". But if you either enter "all strings" or "untranslated strings" and use the filter at the top to filter for the first sentence, which is usually unique for each page, you can find the proper starting point to go through the page from top to bottom. For [AgX](../module-reference/processing-modules/agx.md) you could e.g. search for "Transform the colors and tonal range of an image to fit a display" (note that the apostrophes need to be included in the filter-search-field). 
+
+After translating a string you can click "Save and continue" to go through the translatable strings in order.
+
+It is helpful to open the page you are currently working on in a second window (e.g. using split view) to better see the context of the translatable strings. 
 
 # technical information sections
 
