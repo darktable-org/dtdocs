@@ -8,10 +8,10 @@ darktable's documentation is maintained in the [dtdocs repository](https://githu
 
 ## Building
 
-The full set of outputs (HTML site, ePubs, and per-language PDFs) is built by `./tools/build-all.sh <base_url>`
+The full set of outputs (HTML site, EPUB, and per-language PDFs) is built by `./tools/build-all.sh <base_url>`
 
 This generates the translated content from the PO files, then builds the
-HTML site, the ePubs, and one PDF per enabled language. Outputs are written
+HTML site, the EPUB, and one PDF per enabled language. Outputs are written
 under `public/`, with PDFs at `public/<lang>/darktable_user_manual.pdf`.
 
 Requirements: Hugo (extended), `weasyprint`, and `po4a` for the
