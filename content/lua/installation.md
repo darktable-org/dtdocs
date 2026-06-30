@@ -1,14 +1,20 @@
 ---
-title: installing pre-existing scripts
+title: pre-existing scripts
 id: installation
 weight: 15
 ---
 
 ## Download and Install
 
-A collection of scripts is available in the [lua-scripts repository](https://github.com/darktable-org/lua-scripts). This also includes the script manager, which makes it easier to enable or disable individual scripts from the GUI. To use these existing scripts, they must be installed in darktable. This can in most cases be done within darktable's GUI, but depends on your OS and chosen method of installation. 
+A collection of scripts is available in the [lua-scripts repository](https://github.com/darktable-org/lua-scripts). This also includes the script manager, which makes it easier to enable or disable individual scripts from the GUI. Documentation for these lua scripts is included in the [lua docs](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).
+
+Starting with darktable 5.6, the lua-scripts are included with the release, so they no longer have to installed separately. If the lua-scripts are already installed, the installed version will be used instead of the bundled version.
+
+To use these existing scripts in versions before 5.6, they must be installed in darktable. This can in most cases be done within darktable's GUI, but depends on your OS and chosen method of installation. 
 
 In any case, darktable should be started at least once to set up its directories. The config directories for most installation types are listed on the [configuration directory](../preferences-settings/config-directory.md) page.
+
+If you don’t want any lua scripts running they can be disabled in Preferences->Lua options.
 
 ### Linux Package, AppImage and Flatpak
 
