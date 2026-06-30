@@ -6,6 +6,7 @@ include_toc: true
 ---
 
 {{< details summary="Technical information" class="technical-info" >}}
+
 description
 : applies a tone mapping curve. inspired by Blender's AgX tone mapper.
 
@@ -20,6 +21,7 @@ processing
 
 output
 : linear, RGB, display-referred
+
 {{< /details >}}
 
 Transform the colors and tonal range of an image to fit a display.
