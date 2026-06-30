@@ -115,9 +115,9 @@ This should mirror the information available as tooltip upon hovering the mouse 
 ## keyboard and mouse shortcuts
 
 - Reference named keyboard keys using CamelCase (Ctrl, Shift, Alt, Esc, AltGr, CapsLock, PageUp, PageDown)
-- Reference single letter keys in lower case (this avoids confusion between for example, Ctrl+H and Ctrl+Shift+h). Quotation marks might help with clarification (press "h" to see a list of active shortcuts)
+- Reference single letter keys in upper case. Quotation marks might help with clarification (press "H" to see a list of active shortcuts)
 - Reference mouse actions using lower case, with multiple words joined by a hyphen (scroll, click, single-click, double-click, right-click)
-- Connect combinations of keys/actions with a plus sign (Ctrl+Shift+h, Shift+double-click)
+- Connect combinations of keys/actions with a plus sign (Ctrl+Shift+H, Shift+double-click)
 
 ## definition lists
 
