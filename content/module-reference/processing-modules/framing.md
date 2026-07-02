@@ -19,7 +19,7 @@ processing
 : geometric, RGB.
 
 output
-: linear or non-linear, RGB, display-referred
+: linear or non-linear, RGB, display-referred.
 
 {{< /details >}}
 

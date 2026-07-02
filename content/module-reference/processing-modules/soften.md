@@ -19,7 +19,7 @@ processing
 : linear, RGB.
 
 output
-: linear, RGB, display-referred
+: linear, RGB, display-referred.
 
 {{< /details >}}
 

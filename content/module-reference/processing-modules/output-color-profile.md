@@ -19,7 +19,7 @@ processing
 : defined by profile.
 
 output
-: non-linear, RGB or Lab, display-referred
+: non-linear, RGB or Lab, display-referred.
 
 {{< /details >}}
 

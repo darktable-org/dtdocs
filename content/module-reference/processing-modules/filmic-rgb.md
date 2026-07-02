@@ -20,7 +20,7 @@ processing
 : non-linear, RGB.
 
 output
-: non-linear, RGB, display-referred
+: non-linear, RGB, display-referred.
 
 {{< /details >}}
 

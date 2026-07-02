@@ -19,7 +19,7 @@ processing
 : non-linear, RGB.
 
 output
-: non-linear, Lab, scene-referred
+: non-linear, Lab, scene-referred.
 
 {{< /details >}}
 

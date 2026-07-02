@@ -21,7 +21,7 @@ processing
 : linear, raw.
 
 output
-: linear, raw, display-referred
+: linear, raw, display-referred.
 
 {{< /details >}}
 

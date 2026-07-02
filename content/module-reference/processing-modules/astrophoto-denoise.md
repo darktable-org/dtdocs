@@ -19,7 +19,7 @@ processing
 : non-linear, Lab.
 
 output
-: non-linear, Lab, display-referred
+: non-linear, Lab, display-referred.
 
 {{< /details >}}
 
