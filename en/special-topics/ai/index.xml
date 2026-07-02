@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI features on darktable user manual</title>
+    <link>https://darktable-org.github.io/dtdocs/en/special-topics/ai/</link>
+    <description>Recent content in AI features on darktable user manual</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://darktable-org.github.io/dtdocs/en/special-topics/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>overview</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/ai/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/ai/overview/</guid>
+      <description>&lt;p&gt;darktable uses machine learning models for a handful of image-processing tasks: interactive object masking, denoising, upscaling, etc. This section explains how those features work end-to-end – what runs where, which models exist, how inference is accelerated, and what the user&amp;rsquo;s choices in the &lt;a href=&#34;https://darktable-org.github.io/dtdocs/en/preferences-settings/ai/&#34;&gt;AI preferences&lt;/a&gt; actually control.&lt;/p&gt;&#xA;&lt;p&gt;AI features are opt-in. They are off by default in a fresh install and can be toggled with a single preference at any time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>how AI features work</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/ai/how-ai-works/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/ai/how-ai-works/</guid>
+      <description>&lt;p&gt;This page covers what goes on under the hood: the inference library darktable loads, the execution providers available to it, and how models are stored and activated.&lt;/p&gt;&#xA;&lt;h1 id=&#34;the-inference-runtime&#34;&gt;&lt;a href=&#34;#the-inference-runtime&#34;&gt;🔗&lt;/a&gt;the inference runtime&lt;/h1&gt;&#xA;&lt;p&gt;darktable loads models through &lt;a href=&#34;https://onnxruntime.ai/&#34; target=&#34;_blank&#34;&gt;ONNX Runtime&lt;/a&gt; – a production-grade inference library originally developed at Microsoft and now governed by the &lt;a href=&#34;https://www.linuxfoundation.org/&#34; target=&#34;_blank&#34;&gt;Linux Foundation&lt;/a&gt; – that accepts models in the &lt;a href=&#34;https://onnx.ai/&#34; target=&#34;_blank&#34;&gt;ONNX&lt;/a&gt; open format. ONNX is the de-facto standard for interchanging machine-learning models across frameworks (PyTorch, TensorFlow, etc.) so we can take a model trained in any of them, export it to ONNX, and run it from darktable without carrying its training framework along.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GPU acceleration</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/ai/gpu-acceleration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/ai/gpu-acceleration/</guid>
+      <description>&lt;p&gt;Enabling GPU acceleration for darktable&amp;rsquo;s AI features is a two-step process:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Install a GPU-capable ONNX Runtime&lt;/strong&gt; for your hardware (this page).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Point darktable at the new library&lt;/strong&gt; via &lt;a href=&#34;https://darktable-org.github.io/dtdocs/en/preferences-settings/ai/&#34;&gt;AI preferences&lt;/a&gt; – click &lt;strong&gt;detect&lt;/strong&gt; to auto-scan standard install locations, or browse to the file by hand.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;On Linux, the bundled runtime is CPU-only; on Windows, it uses DirectML; and on macOS, it uses CoreML. So, step 1 only applies if you want NVIDIA, AMD, or Intel GPU acceleration on Linux or Windows. Step 1 has three paths, covered below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>performance &amp; troubleshooting</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/ai/performance-and-troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/ai/performance-and-troubleshooting/</guid>
+      <description>&lt;h1 id=&#34;performance-notes&#34;&gt;&lt;a href=&#34;#performance-notes&#34;&gt;🔗&lt;/a&gt;performance notes&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;CPU inference is acceptable for object masks (small one-shot evaluations) but much slower for denoise and upscale. A CUDA / MIGraphX / OpenVINO / DirectML / CoreML runtime is strongly recommended if you use those regularly.&lt;/li&gt;&#xA;&lt;li&gt;Upscale at 4x on a large image is memory-hungry regardless of provider. Tiling is enabled automatically to keep memory in check, at a cost of some extra processing time.&lt;/li&gt;&#xA;&lt;li&gt;Loading ONNX Runtime lazily on first use means the very first AI operation after startup takes an extra moment. This is normal.&lt;/li&gt;&#xA;&lt;li&gt;When switching between execution providers (e.g. auto → CUDA), the new provider&amp;rsquo;s first inference incurs a graph-compilation delay. After that, runtime is steady for the rest of the session.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AMD (MIGraphX) has a multi-minute first-run cost per model.&lt;/strong&gt; ROCm/MIGraphX compiles the model graph for your specific GPU the first time it sees it, which can take 1–3 minutes for large models (denoise, upscale); mask models are smaller and compile faster. The compiled graph is cached on disk under &lt;code&gt;~/.cache/darktable/ai_v*_migraphx_*&lt;/code&gt; and reused across darktable restarts, so subsequent runs of the same model are fast.&lt;/li&gt;&#xA;&lt;li&gt;Model discovery is cached at startup. If you drop a new &lt;code&gt;.dtmodel&lt;/code&gt; file into the models directory manually while darktable is running, open AI preferences and toggle any control to force a rescan.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;troubleshooting&#34;&gt;&lt;a href=&#34;#troubleshooting&#34;&gt;🔗&lt;/a&gt;troubleshooting&lt;/h1&gt;&#xA;&lt;p&gt;Most AI problems fall into one of three buckets.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

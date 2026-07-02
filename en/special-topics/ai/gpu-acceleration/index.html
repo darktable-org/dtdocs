@@ -1,0 +1,3357 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - GPU acceleration</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/en\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/en/special-topics/ai/gpu-acceleration/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="GPU acceleration">
+<meta property="og:description" content="Enabling GPU acceleration for darktable’s AI features is a two-step process:
+Install a GPU-capable ONNX Runtime for your hardware (this page). Point darktable at the new library via AI preferences – click detect to auto-scan standard install locations, or browse to the file by hand. On Linux, the bundled runtime is CPU-only; on Windows, it uses DirectML; and on macOS, it uses CoreML. So, step 1 only applies if you want NVIDIA, AMD, or Intel GPU acceleration on Linux or Windows. Step 1 has three paths, covered below.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="special-topics">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+   <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+	darktable user manual
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+	    
+	</ul>
+        <ul>
+           <form class="form-inline my-2 my-lg-0">
+                <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" autocomplete="off" aria-label="Search">
+           </form>
+        </ul>
+
+
+    </div>
+</header>
+
+<div id="search-results" class="search-results">
+</div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/en/'>darktable</a> / <a href='/dtdocs/en/special-topics/'>Special Topics</a> / <a href='/dtdocs/en/special-topics/ai/'>AI features</a> / GPU acceleration
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/en/special-topics/ai/how-ai-works/" class="next">&lt; how AI features work</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/en/special-topics/ai/performance-and-troubleshooting/" class="prev">performance &amp; troubleshooting &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        GPU acceleration
+    </h1>
+
+    
+
+    <p>Enabling GPU acceleration for darktable&rsquo;s AI features is a two-step process:</p>
+<ol>
+<li><strong>Install a GPU-capable ONNX Runtime</strong> for your hardware (this page).</li>
+<li><strong>Point darktable at the new library</strong> via <a href="/dtdocs/en/preferences-settings/ai/">AI preferences</a> – click <strong>detect</strong> to auto-scan standard install locations, or browse to the file by hand.</li>
+</ol>
+<p>On Linux, the bundled runtime is CPU-only; on Windows, it uses DirectML; and on macOS, it uses CoreML. So, step 1 only applies if you want NVIDIA, AMD, or Intel GPU acceleration on Linux or Windows. Step 1 has three paths, covered below.</p>
+<h1 id="requirements"><a href="#requirements">🔗</a>requirements</h1>
+<p>The bundled providers on Windows (DirectML, any DirectX 12 GPU) and macOS (CoreML, Apple Silicon or recent Intel Mac) have no extra requirements. The Linux/Windows GPU providers below need supported hardware and a few system libraries already in place.</p>
+<dl>
+<dt><strong>NVIDIA (CUDA)</strong></dt>
+<dd>Pascal-or-newer GPU (compute capability 6.0+). <a href="https://www.nvidia.com/Download/index.aspx" target="_blank">NVIDIA driver</a> 525 or later. Plus <strong>one of</strong> <a href="https://developer.nvidia.com/cuda-12-9-0-download-archive" target="_blank">CUDA Toolkit 12.x</a> or <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">CUDA Toolkit 13.x</a> and <a href="https://developer.nvidia.com/cudnn-downloads" target="_blank">cuDNN</a> 9.x installed on the system. The two CUDA branches have separate ONNX Runtime builds and you need the one that matches the toolkit version installed on your machine.</dd>
+<dd>
+<p>To check what CUDA toolkit you have:</p>
+</dd>
+<dd>
+<ul>
+<li>run <code>nvcc --version</code> in a terminal – the <code>release</code> line tells you the installed toolkit (e.g. <code>release 12.6</code> means CUDA 12 is installed).</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>nvidia-smi</code> reports a <code>CUDA Version:</code> field at the top, but that is the <strong>maximum</strong> version the driver is capable of running, not what&rsquo;s installed. A machine with driver 580+ might show <code>CUDA Version: 13.2</code> while actually having only CUDA 12 installed via <code>nvcc</code>.</li>
+</ul>
+</dd>
+<dd>
+<p>If you have CUDA 12 installed and want to switch to 13, install the CUDA 13 toolkit (in parallel with 12 is fine) and then re-run the ONNX Runtime install script – it picks the build matching the toolkit it finds.</p>
+</dd>
+<dt><strong>AMD (MIGraphX)</strong> <em>(Linux only)</em></dt>
+<dd>ROCm-supported GPU (Radeon RX 7700-series or newer, Instinct MI100 or newer). <a href="https://rocm.docs.amd.com/projects/install-on-linux/en/latest/" target="_blank">ROCm</a> 6.x or newer with MIGraphX installed on the system.</dd>
+<dd>
+<p>Note: the first inference of each model on MIGraphX takes minutes because the model graph is compiled for your specific GPU and then cached on disk – see the <a href="../performance-and-troubleshooting/#performance-notes">performance notes</a> for details. Once cached, subsequent runs are fast and survive across darktable restarts.</p>
+</dd>
+<dt><strong>Intel (OpenVINO)</strong></dt>
+<dd>Intel iGPU (HD / UHD / Iris Xe) or Arc discrete GPU. <a href="https://www.intel.com/content/www/us/en/download-center/home.html" target="_blank">Intel GPU driver</a> with <a href="https://github.com/intel/compute-runtime" target="_blank">OpenCL</a> (<code>intel-opencl-icd</code>) and/or <a href="https://github.com/oneapi-src/level-zero" target="_blank">Level Zero</a>. OpenVINO itself ships in the install package – nothing extra to install.</dd>
+</dl>
+<p>If a required system library is missing, the install script will tell you which one and point you at the vendor&rsquo;s install docs. The package still installs; acceleration only kicks in once the missing library is in place.</p>
+<h1 id="use-the-install-scripts-recommended"><a href="#use-the-install-scripts-recommended">🔗</a>use the install scripts (recommended)</h1>
+<p>The simplest path: paste one line into a terminal. The script figures out which GPU you have, downloads the matching ONNX Runtime build, verifies it, and installs it under your user account. No root, no source checkout.</p>
+<p>Linux:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://raw.githubusercontent.com/darktable-org/darktable/HEAD/tools/ai/install-ort-gpu.sh | bash
+</span></span></code></pre></div><p>Windows (PowerShell):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">irm </span>https<span style="">:</span>//raw.githubusercontent.com/<span style="font-weight:bold;font-style:italic">darktable-org</span>/darktable/HEAD/tools/ai/<span style="font-weight:bold;font-style:italic">install-ort</span>-gpu.ps1 | <span style="font-weight:bold;font-style:italic">iex
+</span></span></span></code></pre></div><p>The Linux script needs <code>bash</code>, <code>curl</code>, <code>jq</code>, <code>tar</code>, and <code>unzip</code> available on <code>PATH</code> – if any are missing it tells you which ones up front so the install doesn&rsquo;t fail halfway through. The Windows script needs PowerShell 5.1 or newer (preinstalled on Windows 10+).</p>
+<p>If you have more than one GPU, the script asks which one to target. If your GPU needs system libraries that aren&rsquo;t installed (cuDNN on NVIDIA, MIGraphX on AMD), the script tells you what&rsquo;s missing and where to get it – the install still completes, but acceleration only kicks in once those system libraries are in place.</p>
+<p>To force a specific execution provider instead of letting the script auto-detect, pass <code>--ep</code> (bash) or <code>-Ep</code> (PowerShell). Values: <code>cuda12</code>, <code>cuda13</code>, <code>rocm</code>, <code>migraphx</code>, <code>openvino</code>. Useful when both NVIDIA and Intel GPUs are present and you want a specific one, or when <code>nvcc</code> is not installed and the script can&rsquo;t tell whether you have CUDA 12 or CUDA 13 on the system.</p>
+<p>When the script finishes, restart darktable, open <a href="/dtdocs/en/preferences-settings/ai/">AI preferences</a>, and click <strong>detect</strong> so darktable picks up the newly-installed runtime. Then choose your provider (CUDA, MIGraphX, OpenVINO) under <em>AI acceleration</em>.</p>
+<h1 id="detect-a-system-installed-onnx-runtime"><a href="#detect-a-system-installed-onnx-runtime">🔗</a>detect a system-installed ONNX Runtime</h1>
+<p>If your distribution already ships a GPU-capable ONNX Runtime (common on Arch, occasionally on Ubuntu/Debian via third-party repos), just click <strong>detect</strong> in the AI preferences tab – darktable looks in standard system locations and configures itself.</p>
+<h1 id="install-manually"><a href="#install-manually">🔗</a>install manually</h1>
+<p>When the automatic options don&rsquo;t fit (locked-down environment, custom audit, GitHub API rate-limited – see below) you can fetch and place the files yourself. The goal is a <code>libonnxruntime.so.*</code> / <code>onnxruntime.dll</code> on disk that darktable can be pointed at via the <em>ONNX Runtime library</em> field in AI preferences.</p>
+<h2 id="where-to-download"><a href="#where-to-download">🔗</a>where to download</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Vendor</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>NVIDIA CUDA 12</td>
+          <td><a href="https://github.com/microsoft/onnxruntime/releases/latest" target="_blank">GitHub Releases</a> – <code>onnxruntime-{linux|win}-x64-gpu-X.Y.Z.{tgz|zip}</code></td>
+      </tr>
+      <tr>
+          <td>NVIDIA CUDA 13</td>
+          <td><a href="https://github.com/microsoft/onnxruntime/releases/latest" target="_blank">GitHub Releases</a> – <code>onnxruntime-{linux|win}-x64-gpu_cuda13-X.Y.Z.{tgz|zip}</code></td>
+      </tr>
+      <tr>
+          <td>AMD ROCm 6.x</td>
+          <td><a href="https://pypi.org/project/onnxruntime-rocm/#files" target="_blank">PyPI <code>onnxruntime-rocm</code></a> – <code>cp312</code> <code>manylinux</code> wheel</td>
+      </tr>
+      <tr>
+          <td>AMD ROCm 7.x</td>
+          <td><a href="https://pypi.org/project/onnxruntime-migraphx/#files" target="_blank">PyPI <code>onnxruntime-migraphx</code></a> – <code>cp312</code> <code>manylinux</code> wheel</td>
+      </tr>
+      <tr>
+          <td>Intel OpenVINO (Linux)</td>
+          <td><a href="https://pypi.org/project/onnxruntime-openvino/#files" target="_blank">PyPI <code>onnxruntime-openvino</code></a> – <code>cp312</code> <code>manylinux_2_28_x86_64</code> wheel</td>
+      </tr>
+      <tr>
+          <td>Intel OpenVINO (Windows)</td>
+          <td><a href="https://pypi.org/project/onnxruntime-openvino/#files" target="_blank">PyPI <code>onnxruntime-openvino</code></a> + <a href="https://pypi.org/project/openvino/#files" target="_blank">PyPI <code>openvino</code></a> – both <code>cp312</code> <code>win_amd64</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>NVIDIA tarballs/zips are simplest to extract: the library sits under <code>lib/</code>. PyPI wheels (<code>.whl</code> files are renamed zips) carry the library under <code>&lt;package&gt;/capi/</code> along with the <code>LICENSE</code> and <code>ThirdPartyNotices.txt</code> you should keep next to it. AMD wheels may additionally ship a sibling <code>&lt;package&gt;.libs/</code> directory of auditwheel-bundled ROCm libs – when present, that directory must stay alongside <code>libonnxruntime.so.*</code> after copying, because the providers&rsquo; RPATH resolves through a relative <code>$ORIGIN</code> reference. Intel on Windows needs DLLs from a second wheel (<code>openvino</code>) copied next to <code>onnxruntime.dll</code>.</p>
+<p>By convention, place the extracted files under <code>~/.local/lib/onnxruntime-&lt;ep&gt;/</code> on Linux or <code>%LOCALAPPDATA%\onnxruntime-&lt;ep&gt;\</code> on Windows (<code>&lt;ep&gt;</code> = <code>cuda</code>, <code>rocm</code>, <code>migraphx</code>, or <code>openvino</code>). The <strong>detect</strong> button in AI preferences scans for any <code>onnxruntime-*</code> directory under those roots.</p>
+<h2 id="amd-alternative-source-when-pypis-gpu-coverage-isnt-enough"><a href="#amd-alternative-source-when-pypis-gpu-coverage-isnt-enough">🔗</a>AMD: alternative source when PyPI&rsquo;s GPU coverage isn&rsquo;t enough</h2>
+<p>PyPI&rsquo;s <code>onnxruntime-rocm</code> / <code>onnxruntime-migraphx</code> wheels ship HIP kernel binaries for a fixed set of GPU architectures. If your card&rsquo;s <code>gfx*</code> ID isn&rsquo;t covered, ONNX Runtime loads but model compilation fails at runtime:</p>
+<pre tabindex="0"><code>migraphx_program_compile: Error: ... no kernel image is available
+for execution on the device
+</code></pre><p>This commonly hits some RDNA 3 iGPUs (e.g. Radeon 780M / gfx1103). Two cheaper workarounds before reinstalling:</p>
+<ul>
+<li><strong>hide the unsupported GPU</strong> from MIGraphX so it binds to a supported card (find indices with <code>rocminfo | grep -E &quot;Marketing Name|gfx&quot;</code>):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#666;font-weight:bold;font-style:italic">HIP_VISIBLE_DEVICES</span>=0 darktable
+</span></span></code></pre></div></li>
+<li><strong>override the gfx version</strong> – RDNA 3 is mostly binary-compatible with gfx1100, so the bundled kernels often work:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#666;font-weight:bold;font-style:italic">HSA_OVERRIDE_GFX_VERSION</span>=11.0.0 darktable
+</span></span></code></pre></div></li>
+</ul>
+<p>If neither helps, AMD&rsquo;s own ROCm repository ships builds with broader per-architecture coverage. Browse <a href="https://repo.radeon.com/rocm/manylinux/" target="_blank">https://repo.radeon.com/rocm/manylinux/</a>, find the <code>rocm-rel-X.Y.Z/</code> directory matching your installed ROCm version, download the <code>cp312</code> <code>onnxruntime_rocm-*.whl</code>, and extract it the same way as the PyPI wheel.</p>
+<h2 id="building-amd-from-source"><a href="#building-amd-from-source">🔗</a>building AMD from source</h2>
+<p>When even the AMD repository binaries don&rsquo;t match your system (custom-built ROCm, an unusual distro), build ONNX Runtime against your installed ROCm. From a darktable source checkout:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./tools/ai/install-ort-amd-build.sh
+</span></span></code></pre></div><p>Needs <code>cmake</code> 3.26+, a C++ compiler, <code>python3</code>, and <code>git</code>. Takes 10–20 minutes.</p>
+<h2 id="github-api-rate-limit"><a href="#github-api-rate-limit">🔗</a>GitHub API rate limit</h2>
+<p>For CUDA 13, the install script asks <code>api.github.com</code> which release is latest. GitHub limits unauthenticated callers to <strong>60 requests per hour per source IP</strong>. On shared NAT (corporate networks, VPNs, cloud VMs) that limit gets exhausted quickly by other users on the same IP, and the script fails with a clear message pointing here.</p>
+<p>Two ways out:</p>
+<ul>
+<li><strong>set <code>GITHUB_TOKEN</code></strong> to any personal access token (no scopes required for public repos) before re-running – raises the limit to 5000 requests/hour authenticated.</li>
+<li><strong>install manually</strong> – for the CUDA 13 tarball this is <code>tar xzf</code> plus a copy. The install script prints the same instructions on failure.</li>
+</ul>
+<p>PyPI sources (AMD, Intel, NVIDIA CUDA 12) have no published rate limit and are unaffected.</p>
+<h1 id="after-installing-a-new-onnx-runtime"><a href="#after-installing-a-new-onnx-runtime">🔗</a>after installing a new ONNX Runtime</h1>
+<p>When darktable starts up with a new ONNX Runtime library, the <em>AI acceleration</em> dropdown in AI preferences re-populates with only the providers that library actually advertises. Older selections that are no longer supported are switched to another available GPU provider automatically, or to <em>auto</em> if no GPU is left.</p>
+<p>Between the install and the restart, the dropdown shows a <em>restart to apply</em> hint next to the provider name – a reminder that the currently-loaded runtime is stale.</p>
+
+
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/en/special-topics/ai/how-ai-works/" class="next">&lt; how AI features work</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/en/special-topics/ai/performance-and-troubleshooting/" class="prev">performance &amp; troubleshooting &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/" class="">
+          Overview
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/" class="">
+          user interface
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/views/" class="">
+          views
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/screen-layout/" class="">
+          screen layout
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/filmstrip/" class="">
+          filmstrip
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/top-panel/" class="">
+          top panel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/bottom-panel/" class="">
+          bottom panel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/keyboard-shortcuts/" class="">
+          keyboard shortcuts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/supported-file-formats/" class="">
+          supported file formats
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/" class="">
+          sidecar files &amp; non-destructive editing
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/sidecar/" class="">
+          sidecar files
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/sidecar-import/" class="">
+          importing sidecar files generated by other applications
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/local-copies/" class="">
+          local copies
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/workflow/" class="">
+          an introduction to darktable&#39;s workflow
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/workflow/introduction/" class="">
+          introduction
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/workflow/import-review/" class="">
+          import &amp; review
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/workflow/process/" class="">
+          process
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/overview/workflow/export/" class="">
+          export
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/" class="">
+          Lighttable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-view-layout/" class="">
+          lighttable view layout
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/undo-redo/" class="">
+          undo/redo
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/" class="">
+          lighttable modes
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/filemanager/" class="">
+          filemanager
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/zoomable-lighttable/" class="">
+          zoomable lighttable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/culling/" class="">
+          culling
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/full-preview/" class="">
+          full preview
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/" class="">
+          digital asset management
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/collections/" class="">
+          collections &amp; film rolls
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/sequence/" class="">
+          image sequence
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/thumbnails/" class="">
+          thumbnails
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/star-color/" class="">
+          star ratings &amp; color labels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/grouping/" class="">
+          image grouping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadata and tagging
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/" class="">
+          Darkroom
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/darkroom-view-layout/" class="">
+          darkroom view layout
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/" class="">
+          the pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          the anatomy of a processing module
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/the-pixelpipe-and-module-order/" class="">
+          the pixelpipe &amp; module order
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/history-stack/" class="">
+          the history stack
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/undo-redo/" class="">
+          undo and redo
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/" class="">
+          processing modules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/module-header/" class="">
+          module header
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/multiple-instances/" class="">
+          multiple instances
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/presets/" class="">
+          presets
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/module-controls/" class="">
+          module controls
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/curves/" class="">
+          curves
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/wavelets/" class="">
+          wavelets
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/deprecated/" class="">
+          deprecated modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/" class="">
+          masking &amp; blending
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/blend-modes/" class="">
+          blend modes
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/" class="">
+          masks
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/drawn/" class="">
+          drawn masks
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/" class="">
+          parametric masks
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combining drawn &amp; parametric masks
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/refinement-controls/" class="">
+          mask refinement &amp; additional controls
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/ai-masking/" class="">
+          AI masking
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/raster/" class="">
+          raster masks
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/" class="">
+          organization
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/module-groups/" class="">
+          module groups
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/quick-access-panel/" class="">
+          quick access panel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/manage-module-layouts/" class="">
+          manage module layouts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/tethering/" class="">
+          Tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/tethering/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/tethering/tethering-view-layout/" class="">
+          tethering view layout
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/tethering/examples/" class="">
+          examples
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/tethering/troubleshooting/" class="">
+          troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/map/" class="">
+          Map
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/map/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/map/map-view-layout/" class="">
+          map view layout
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/slideshow/" class="">
+          Slideshow
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/slideshow/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/slideshow/usage/" class="">
+          usage
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/print/" class="">
+          Print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/print/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/print/print-view-layout/" class="">
+          print view layout
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/" class="">
+          Module Reference
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/" class="">
+          processing modules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/agx/" class="">
+          AgX
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/astrophoto-denoise/" class="">
+          astrophoto denoise
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/base-curve/" class="">
+          base curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/bloom/" class="">
+          bloom
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/blurs/" class="">
+          blurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/censorize/" class="">
+          censorize
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/chromatic-aberrations/" class="">
+          chromatic aberrations
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-balance/" class="">
+          color balance
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-balance-rgb/" class="">
+          color balance rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-calibration/" class="">
+          color calibration
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-contrast/" class="">
+          color contrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-correction/" class="">
+          color correction
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-equalizer/" class="">
+          color equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-harmonizer/" class="">
+          color harmonizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-look-up-table/" class="">
+          color look up table
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-mapping/" class="">
+          color mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-reconstruction/" class="">
+          color reconstruction
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-zones/" class="">
+          color zones
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/colorize/" class="">
+          colorize
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/composite/" class="">
+          composite
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-equalizer/" class="">
+          contrast equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/crop/" class="">
+          crop
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/demosaic/" class="">
+          demosaic
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/" class="">
+          denoise (profiled)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/diffuse/" class="">
+          diffuse or sharpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/dither-or-posterize/" class="">
+          dither or posterize
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/enlarge-canvas/" class="">
+          enlarge canvas
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/exposure/" class="">
+          exposure
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/external-raster/" class="">
+          external raster mask
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/filmic-rgb/" class="">
+          filmic rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/framing/" class="">
+          framing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/graduated-density/" class="">
+          graduated density
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/grain/" class="">
+          grain
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/haze-removal/" class="">
+          haze removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/highlight-reconstruction/" class="">
+          highlight reconstruction
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/highpass/" class="">
+          highpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/hot-pixels/" class="">
+          hot pixels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/input-color-profile/" class="">
+          input color profile
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lens-correction/" class="">
+          lens correction
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/liquify/" class="">
+          liquify
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/local-contrast/" class="">
+          local contrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lowlight-vision/" class="">
+          lowlight vision
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lowpass/" class="">
+          lowpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lut-3d/" class="">
+          LUT 3D
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/monochrome/" class="">
+          monochrome
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/negadoctor/" class="">
+          negadoctor
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/orientation/" class="">
+          orientation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/output-color-profile/" class="">
+          output color profile
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-black-white-point/" class="">
+          raw black/white point
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          raw chromatic aberrations
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-denoise/" class="">
+          raw denoise
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/retouch/" class="">
+          retouch
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-curve/" class="">
+          rgb curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-levels/" class="">
+          rgb levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-primaries/" class="">
+          rgb primaries
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/" class="">
+          rotate and perspective
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rotate-pixels/" class="">
+          rotate pixels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/scale-pixels/" class="">
+          scale pixels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/shadows-and-highlights/" class="">
+          shadows and highlights
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/sharpen/" class="">
+          sharpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/sigmoid/" class="">
+          sigmoid
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/soften/" class="">
+          soften
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/split-toning/" class="">
+          split-toning
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/surface-blur/" class="">
+          surface blur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-curve/" class="">
+          tone curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-equalizer/" class="">
+          tone equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/unbreak-input-profile/" class="">
+          unbreak input profile
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/velvia/" class="">
+          velvia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/vignetting/" class="">
+          vignetting
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/watermark/" class="">
+          watermark
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/white-balance/" class="">
+          white balance
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/basic-adjustments/" class="">
+          (deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/channel-mixer/" class="">
+          (deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/crop-rotate/" class="">
+          (deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/defringe/" class="">
+          (deprecated) defringe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/fill-light/" class="">
+          (deprecated) fill light
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/global-tonemap/" class="">
+          (deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/invert/" class="">
+          (deprecated) invert
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/levels/" class="">
+          (deprecated) levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/spot-removal/" class="">
+          (deprecated) spot removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-mapping/" class="">
+          (deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/vibrance/" class="">
+          (deprecated) vibrance
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/zone-system/" class="">
+          (deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/" class="">
+          utility modules
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/" class="">
+          darkroom
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/clipping/" class="">
+          clipping warning
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/color-assessment/" class="">
+          color assessment
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/duplicate-manager/" class="">
+          duplicate manager
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/gamut/" class="">
+          gamut check
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/global-color-picker/" class="">
+          global color picker
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          guides &amp; overlays
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/high-quality-processing/" class="">
+          high quality processing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/history-stack/" class="">
+          history stack
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          image information line
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          mask manager
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/module-order/" class="">
+          module order
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/navigation/" class="">
+          navigation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          raw overexposed warning
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/snapshots/" class="">
+          snapshots
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/" class="">
+          lighttable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/selected-image/" class="">
+          actions on selection
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/history-stack/" class="">
+          history stack
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/import/" class="">
+          import
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/lua-scripts-installer/" class="">
+          lua scripts installer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/select/" class="">
+          selection
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/styles/" class="">
+          styles
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/timeline/" class="">
+          timeline
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/" class="">
+          map
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/find-location/" class="">
+          find location
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/locations/" class="">
+          locations
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/map-settings/" class="">
+          map settings
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/print/" class="">
+          print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/print/print-settings/" class="">
+          print settings
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/" class="">
+          shared
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/collection-filters/" class="">
+          collection filters
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/collections/" class="">
+          collections
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/export/" class="">
+          export
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/filmstrip/" class="">
+          filmstrip
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/focus-peaking/" class="">
+          focus peaking
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/geotagging/" class="">
+          geotagging
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/image-information/" class="">
+          image information
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/metadata-editor/" class="">
+          metadata editor
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/neural-restore/" class="">
+          neural restore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/recent-collections/" class="">
+          recently used collections
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/scopes/" class="">
+          scopes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/" class="">
+          tagging
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/" class="">
+          tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/camera-settings/" class="">
+          camera settings
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/live-view/" class="">
+          live view
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/session/" class="">
+          session
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/" class="">
+          Preferences &amp; Settings
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/backups/" class="">
+          backup settings &amp; edits
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/general/" class="">
+          general
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/import/" class="">
+          import
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/lighttable/" class="">
+          lighttable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/darkroom/" class="">
+          darkroom
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/processing/" class="">
+          processing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/security/" class="">
+          security
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/storage/" class="">
+          storage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/miscellaneous/" class="">
+          miscellaneous
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/shortcuts/" class="">
+          shortcuts
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/presets/" class="">
+          presets
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/ai/" class="">
+          AI
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/lua-options/" class="">
+          lua options
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/preferences-settings/config-directory/" class="">
+          configuration directory
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/" class="">
+          Scripting with Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/installation/" class="">
+          installing pre-existing scripts
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/basic-principles/" class="">
+          basic principles: luarc files
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/a-simple-example/" class="">
+          a simple lua example
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/printing-labeled-images/" class="">
+          printing labeled images
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/simple-shortcut/" class="">
+          adding a simple shortcut
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/exporting-images/" class="">
+          exporting images with lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/building-ui-elements/" class="">
+          building user interface elements
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/sharing-scripts/" class="">
+          sharing scripts
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/calling-from-dbus/" class="">
+          calling lua from dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/darktable-from-lua/" class="">
+          using darktable from a lua script
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/lua/api/" class="">
+          lua API
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/" class="">
+          Guides &amp; Tutorials
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/monochrome/" class="">
+          developing monochrome images
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/batch-editing/" class="">
+          batch-editing images
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/other-resources/" class="">
+          other resources
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/" class="">
+          Special Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/" class="">
+          color management
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/display-profile/" class="">
+          display profile
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/rendering-method/" class="">
+          rendering method
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/rendering-intent/" class="">
+          rendering intent
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/color-spaces/" class="">
+          darktable&#39;s color spaces
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/unbounded-colors/" class="">
+          unbounded colors
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/color-artifacts/" class="">
+          possible color artifacts
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/color-dimensions/" class="">
+          darktable&#39;s color dimensions
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/background/" class="">
+          the background
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/how-opencl-works/" class="">
+          how OpenCL works
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/activate-opencl/" class="">
+          activating OpenCL in darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/setting-up/" class="">
+          setting up OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/problems-solutions/" class="">
+          possible problems &amp; solutions
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/scheduling-profile/" class="">
+          scheduling profile
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/multiple-devices/" class="">
+          multiple devices
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/" class="">
+          AI features
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/how-ai-works/" class="">
+          how AI features work
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/gpu-acceleration/" class=" active">
+          GPU acceleration
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/performance-and-troubleshooting/" class="">
+          performance &amp; troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/mem-performance/" class="">
+          memory &amp; performance tuning
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/" class="">
+          using darktable-chart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/usage/" class="">
+          usage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/source-image/" class="">
+          source image
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/reference-values/" class="">
+          reference values
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/process/" class="">
+          process
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/making-input-images/" class="">
+          making input images for darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/" class="">
+          program invocation
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/invocation-per-os/" class="">
+          invocation per OS
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable/" class="">
+          darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/gimp-integration/" class="">
+          gimp integration
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/variables/" class="">
+          variables
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/" class="">
+          darktable&#39;s color pipeline
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/special-topics/midi-device-support/" class="">
+          midi device support
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/" class="">
+          Contributing to the Docs
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/overview/" class="">
+          overview
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/development-deployment/" class="">
+          development &amp; deployment
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/workflow/" class="">
+          workflow
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/styles-conventions/" class="">
+          styles &amp; conventions
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/translations-setup/" class="">
+          translations setup
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/en/contributing/translators-guide/" class="">
+          translators guide
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+
