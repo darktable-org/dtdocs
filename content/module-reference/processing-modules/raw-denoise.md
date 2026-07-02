@@ -19,7 +19,7 @@ processing
 : linear, raw.
 
 output
-: linear, raw, scene-referred
+: linear, raw, scene-referred.
 
 {{< /details >}}
 

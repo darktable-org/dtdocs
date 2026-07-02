@@ -19,7 +19,7 @@ processing
 : defined by profile.
 
 output
-: linear, RGB, scene-referred
+: linear, RGB, scene-referred.
 
 {{< /details >}}
 

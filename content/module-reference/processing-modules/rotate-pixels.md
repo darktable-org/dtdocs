@@ -7,19 +7,19 @@ weight: 10
 {{< details summary="Technical information" class="technical-info" >}}
 
 description
-: null
+: null.
 
 purpose
-: null
+: null.
 
 input
-: null
+: null.
 
 processing
-: null
+: null.
 
 output
-: null
+: null.
 
 {{< /details >}}
 

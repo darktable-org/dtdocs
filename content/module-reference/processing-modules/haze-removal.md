@@ -19,7 +19,7 @@ processing
 : frequential, RGB.
 
 output
-: linear, RGB, scene-referred
+: linear, RGB, scene-referred.
 
 {{< /details >}}
 

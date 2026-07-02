@@ -19,7 +19,7 @@ processing
 : frequential, Lab.
 
 output
-: special, Lab, scene-referred
+: special, Lab, scene-referred.
 
 {{< /details >}}
 

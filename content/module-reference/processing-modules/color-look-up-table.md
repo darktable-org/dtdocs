@@ -19,7 +19,7 @@ processing
 : defined by profile, Lab.
 
 output
-: linear or non-linear, Lab, display-referred
+: linear or non-linear, Lab, display-referred.
 
 {{< /details >}}
 

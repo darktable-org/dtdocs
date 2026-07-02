@@ -19,7 +19,7 @@ processing
 : quasi-linear, RGB.
 
 output
-: quasi-linear, RGB, scene-referred
+: quasi-linear, RGB, scene-referred.
 
 {{< /details >}}
 

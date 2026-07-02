@@ -21,7 +21,7 @@ processing
 : non-linear, RGB.
 
 output
-: non-linear, RGB, scene-referred
+: non-linear, RGB, scene-referred.
 
 {{< /details >}}
 

@@ -19,7 +19,7 @@ processing
 : frequential, Lab.
 
 output
-: quasi-linear, Lab, display or scene-referred
+: quasi-linear, Lab, display or scene-referred.
 
 {{< /details >}}
 
