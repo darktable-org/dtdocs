@@ -30,4 +30,4 @@ It is helpful to open the page you are currently working on in a second window (
 
 # technical information sections
 
-At the top of each processing module's page there is a collapsible "Technical information" section that needs special formatting and is supposed to exactly mirror the descriptions available as tooltips in darktable. Automated translation of these sections is under construction. You can either carefully manually translate these strings or choose to skip and ignore them for now.
+At the top of each processing module's page there is a collapsible "Technical information" section that needs special formatting and is supposed to exactly mirror the descriptions available as tooltips in darktable. All languages were seeded with the exact translations from darktables program code/translations with "needs edit" to ensure human oversight.
