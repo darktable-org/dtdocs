@@ -90,12 +90,12 @@ You may choose to automatically apply just the vertical corrections ![vertical-i
 
 ## rotate
 
-Once you are happy with the applied perspective corrections, you may wish to perform a final rotation correction either by adjusting the rotation parameter or right-clicking and dragging the image to define a horizontal/vertical line.
+Once you are happy with the applied perspective corrections, you may wish to perform a final rotation correction either by adjusting the rotation parameter or by clicking the ![fix-horizon-icon](./rotate-perspective/icon-fix-horizon.png#icon) "fix horizon" button, then left-click and drag on the image to draw a rotation line. Alternatively, right-click once to place the first point and right-click again to finalize the rotation.
 
 # module controls
 
 rotation
-: Control the rotation of the image around its center to correct for a skewed horizon. To rotate by more than the default soft limit of ten degrees, right click and enter the desired value up to 180 degrees (see [module controls](../../darkroom/processing-modules/module-controls.md)).
+: Control the rotation of the image around its center to correct for a skewed horizon. To rotate by more than the default soft limit of ten degrees, right click and enter the desired value up to 180 degrees (see [module controls](../../darkroom/processing-modules/module-controls.md)). The ![fix-horizon-icon](./rotate-perspective/icon-fix-horizon.png#icon) button on the right of the slider toggles horizon-fix mode (see [rotate](#rotate) above).
 
 automatic cropping
 : When activated, this feature crops the image to remove any black areas at the edges caused by the distortion correction. You can either crop to the "largest area", or to the largest rectangle that maintains the original aspect ratio ("original format"). In the latter case you can manually adjust the automatic cropping result by clicking in the clip region and moving it around. The size of the region is modified automatically to exclude any black areas.
