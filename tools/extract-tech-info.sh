@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 #
-# Extract dt_iop_set_description technical info from a source file,
-# and format it for a dtdocs md file.
+# Extract the dt_iop_set_description technical info from a darktable processing
+# module source file, and format it for a dtdocs md file.
+#
+# Uasge:
+#
+# extract-tech-info.sh -h | --help | <file name>
+#
+# where:
+#
+#   <file name> - a darktable source file with a call to dt_iop_set_description 
+#
+# Example:
+#   extract-tech-info.sh src/iop/agx.c
+#
+# The results are output to stdout and can be copied and pasted to
+# the dtdocs md file for the corresponding processing module.
 #
 # ##################
 
