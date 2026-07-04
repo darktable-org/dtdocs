@@ -3,7 +3,7 @@
 # Extract the dt_iop_set_description technical info from a darktable processing
 # module source file, and format it for a dtdocs md file.
 #
-# Uasge:
+# Usage:
 #
 # extract-tech-info.sh -h | --help | <file name>
 #
