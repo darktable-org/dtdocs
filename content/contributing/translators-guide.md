@@ -22,7 +22,7 @@ When translating, always preserve the original Markdown formatting — bold, ita
 
 # translating a specific section of the docs
 
-If you want to translate a specific page, you need to use Weblate's search function as there is no direct way of selecting e.g. "translate filmic.md". But if you either open "all strings" or "untranslated strings" and use the filter-search box at the top to look for the first sentence, which is usually unique for each page, you can find the proper starting point to go through the page from top to bottom. For [AgX](../module-reference/processing-modules/agx.md) you could e.g. search for "Transform the colors and tonal range of an image to fit a display" (note that the quotation marks need to be included in the filter-search-field). 
+If you want to translate a specific page, you need to use Weblate's search function as there is no direct way of selecting e.g. "translate filmic.md". But if you either open "all strings" or "untranslated strings" and use the filter-search box at the top to look for the strings *location*: E.g. by entering `location:"filmic" or `location:translators-guide`. Here you can also search for specific strings like `"You are welcome to help translate darktable's docs"`. Note: If the searched string contains spaces use quotation marks. If the searched string contains markdown-formatting this needs to be included in the searched string exactly as well. 
 
 After translating a string you can click "Save and continue" to go through the translatable strings in order.
 
