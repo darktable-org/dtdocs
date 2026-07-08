@@ -2,8 +2,6 @@
 title: process
 id: process
 weight: 50
-draft: false
-author: "people"
 ---
 
 If all of the required settings in the "source image" and "reference values" tabs are ready you can move on to the “process” tab.

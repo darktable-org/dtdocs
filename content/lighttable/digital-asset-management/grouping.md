@@ -1,9 +1,7 @@
 ---
 title: image grouping
 id: grouping
-draft: false
 weight: 50
-author: "people"
 ---
 
 Grouping images helps to improve the structure and clarity of your image collection when displayed in the lighttable view.

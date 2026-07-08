@@ -1,9 +1,6 @@
 ---
 title: duplicate manager
 id: duplicate-manager
-applicable-version: 3.6
-tags: 
-view: darkroom
 ---
 
 View and create multiple versions of the current image. Each version can be edited independently without affecting other versions -- all versions use the same underlying image file, but the editing history of each version is stored in its own independent XMP sidecar file. 

@@ -2,12 +2,26 @@
 title: raw chromatic aberrations
 id: raw-chromatic-aberrations
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: Not Applicable (RAW)
-view: darkroom
-masking: false
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct chromatic aberrations for Bayer sensors.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
 
 Correct chromatic aberrations of raw images.
 

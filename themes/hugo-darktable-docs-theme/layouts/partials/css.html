@@ -1,0 +1,13 @@
+<!-- Our custom CSS -->
+{{ with resources.Get "sass/main.scss" }}
+    {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" "enableSourceMap" (not hugo.IsProduction) "enableSourceMap" true "includePaths" (slice "themes/hugo-darktable-docs-theme/assets/node_modules/bootstrap/scss" "themes/hugo-darktable-docs-theme/assets/node_modules/fork-awesome/scss") }}
+    {{ with . | css.Sass $opts }}
+	{{ if hugo.IsDevelopment }}
+	    <link rel="stylesheet" href="{{ .RelPermalink }}">
+	{{ else }}
+	    {{ with . | minify | fingerprint }}
+		<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+	    {{ end }}
+	{{ end }}
+    {{ end }}
+{{ end }}

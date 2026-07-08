@@ -2,12 +2,26 @@
 title: sigmoid
 id: sigmoid
 weight: 10
-applicable-version: 4.6
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: apply a view transform to make an image displayable on a screen or print using a robust and smooth tone curve with optional color preservation methods.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: linear, RGB, display-referred.
+
+{{< /details >}}
 
 Remap the tonal range of an image using a modified generalized log-logistic curve.
 
@@ -19,12 +33,14 @@ This module can be used to expand or contract the dynamic range of the scene to 
 
 ---
 
+You automatically enable this module in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (sigmoid)' (this is the default setting for new installations).
+
 # usage
 
 Please take note of the following guidelines while using this module within your workflow:
 
 only use one display transform
-: Never use sigmoid together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md) or [_base curve_](./base-curve.md)).
+: Never use _sigmoid_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)).
 
 adjust for the mid-tones first
 : The sigmoid curve pivots around middle gray. Before using sigmoid, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
@@ -81,6 +97,6 @@ red/green/blue rotation
 : Rotate the primaries where the per-channel curves are applied. This affects the hue paths when approaching white in the high end. These controls should not normally need large adjustments from the starting values given in the "smooth" preset.
 
 recover purity
-: Recover some of the original purity. A value of 100 causes all of the attenuations to be restored after the per-channel process is done. This lands the middle range values near their original purities. A value of 0 doesn’t restore the purity at all, so the more you apply attenuation, the less purity there is in the final picture. The rotations are always restored regardless of the value of this slider. When this slider is at 0, the output of the module is guaranteed to remain within the gamut footprint of the chosen base primaries.
+: Recover some of the original purity. A value of 100 causes all of the attenuations to be restored after the per-channel process is done. This lands the middle range values near their original purities. A value of 0 doesn’t restore the purity at all, so the more you apply attenuation, the less purity there is in the final image. The rotations are always restored regardless of the value of this slider. When this slider is at 0, the output of the module is guaranteed to remain within the gamut footprint of the chosen base primaries.
 
 Bear in mind that unlike the [_rgb primaries_](./rgb-primaries.md) module, this is not a tool for creative color grading but rather a set of controls to provide a reasonable starting point for further edits. The effect of these adjustments is not the same as the rgb primaries module even though the interface looks similar.

@@ -2,12 +2,26 @@
 title: blurs
 id: blurs
 weight: 10
-applicable-version: 3.8
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: simulate physically-accurate lens and motion blurs.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Simulate physically-accurate blurs in scene-referred RGB space.
 

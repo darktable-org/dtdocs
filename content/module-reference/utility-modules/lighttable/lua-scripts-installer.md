@@ -1,9 +1,6 @@
 ---
 title: lua scripts installer
 id: lua-scripts-installer
-applicable-version: 3.2.1
-tags: 
-view: lighttable
 ---
 
 As described in [lua scripts](../../../lua/_index.md), darktable provides powerful scripting capabilities to extend its functionality and integrate with other software. Many such scripts are already available. The Lua script installer module helps to install them without the need for manual configuration. The first time it is run, instructions are displayed in the module.

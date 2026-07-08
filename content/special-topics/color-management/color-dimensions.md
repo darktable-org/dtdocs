@@ -2,8 +2,6 @@
 title: darktable's color dimensions
 id: color-dimensions
 weight: 80
-draft: false
-author: "people"
 ---
 
 This section defines the perceptual properties of color, both conceptually and quantitatively, in order to characterize and quantify the creative and corrective adjustments made to color in darktable.

@@ -2,8 +2,6 @@
 title: usage
 id: usage
 weight: 20
-draft: false
-author: "people"
 ---
 
 The slideshow view is still in an early stage of development with only a basic set of features.

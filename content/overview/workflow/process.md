@@ -1,9 +1,7 @@
 ---
 title: process
 id: process
-draft: false
 weight: 30
-author: "people"
 ---
 
 This section is intended to get you comfortable processing images in the darkroom view using a _scene-referred_ workflow. You are advised to follow the guidelines provided below, up to the end of the [_image processing in 3 modules_](#image-processing-in-3-modules) section and then choose other areas to learn as-and-when you need to use those techniques in your images. 
@@ -100,11 +98,11 @@ As you will be adjusting the tones and colors of the image, start by enabling [c
 
    ---
 
-2. **Set white and black points**: The next two steps use the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module to define how the tones in your image will be mapped to the dynamic range of your display. Start by setting the _white_ and _black_ relative exposure sliders in the [_scene tab_](../../module-reference/processing-modules/filmic-rgb.md#scene). These are purely technical settings, defining white and black relative to the mid-gray point you set in the previous step. If your image contains tones you want to treat as pure white or pure black you can use the color pickers beside the sliders to set these values (using the maximum and minimum brightness of the image). Otherwise set the values manually using the color assessment frames as a reference.
+2. **Set white and black points**: The next two steps use the [_filmic rgb_](../../module-reference/processing-modules/filmic-rgb.md) module to define how the tones in your image will be mapped to the dynamic range of your display. Start by setting the _white_ and _black_ relative exposure sliders in the [_scene tab_](../../module-reference/processing-modules/filmic-rgb.md#scene). These are purely technical settings, defining white and black relative to the mid-gray point you set in the previous step. If your image contains tones you want to treat as pure white or pure black you can use the [pickers](../../darkroom/processing-modules/module-controls.md#pickers) beside the sliders to set these values (using the maximum and minimum brightness of the image). Otherwise set the values manually using the color assessment frames as a reference.
 
 3. **Adjust the contrast**: Now move to the [_look tab_](../../module-reference/processing-modules/filmic-rgb.md#look) in _filmic rgb_ (for now we will skip the [_reconstruct tab_](../../module-reference/processing-modules/filmic-rgb#reconstruct)). Enable the [_look only_ view](../../module-reference/processing-modules/filmic-rgb.md#graphic-display) at the top of the module to see a representation of the filmic tone curve, which consists of a straight section in the middle (used to set the contrast of the mid-tones) and curved sections at the top and bottom (where the shadows and highlights are compressed to fit the dynamic range of the display). 
 
-   The _contrast_ slider changes the slope of the straight section (the mid-tone image contrast), the _latitude_ slider changes its length and the _shadows/highlights balance_ slider changes its position. There is a lot of give-and-take involved here -- if you want to increase the contrast of the mid-tones, you must sacrifice contrast in the shadows/highlights and vice versa. The default settings of this module are tuned to work for the majority of images but you should experiment with these sliders to understand how they affect the image.
+   The _contrast_ slider changes the slope of the straight section (the mid-tone image contrast), the _linear region_ slider changes its length and the _shadows/highlights balance_ slider changes its position. There is a lot of give-and-take involved here -- if you want to increase the contrast of the mid-tones, you must sacrifice contrast in the shadows/highlights and vice versa. The default settings of this module are tuned to work for the majority of images but you should experiment with these sliders to understand how they affect the image.
    
    ---
 
@@ -112,7 +110,7 @@ As you will be adjusting the tones and colors of the image, start by enabling [c
 
    ---
 
-4. **Color preservation**: The tone mapping in the filmic rgb module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you are encouraged to experiment by changing the _preserve chrominance_ setting in the [_options tab_](../../module-reference/processing-modules/filmic-rgb.md#options) if you do not like how the colors appear. 
+4. **Color preservation**: The tone mapping in the filmic rgb module attempts to redistribute the tones in your image without affecting color reproduction. While the default color preservation algorithm works for most images, you can experiment with the _highlights saturation mix_ setting in the [_look tab_](../../module-reference/processing-modules/filmic-rgb.md#look) if you do not like how the colors appear. 
 
 5. **Saturation**: Your image will probably not look very colorful at this point. You can adjust the global saturation of the image using the [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) module. The "basic colorfulness" [preset](../../darkroom/processing-modules/presets.md) should provide you with generally-reasonable defaults, but you are encouraged to experiment further with these settings as required. 
 
@@ -169,7 +167,7 @@ While a well-exposed image will make post-processing much easier, darktable does
 
 The [_highlight reconstruction_](../../module-reference/processing-modules/highlight-reconstruction.md) module attempts to reconstruct blown highlights (colors and structure) using adjacent pixels. A number of different approaches are provided, some of which may be better on certain images, however, the default algorithm produces good results in most cases.
 
-Even well-reconstructed highlights can show color and edge artefacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
+Even well-reconstructed highlights can show color and edge artifacts, some of which may be exacerbated by subsequent modules in the pipe. In this case the [_reconstruct tab on the filmic rgb module_](../../module-reference/processing-modules/filmic-rgb.md#reconstruct) provides additional methods to further smooth/correct highlights at the end of the processing pipeline.
 
 ### adjust angle and perspective
 

@@ -2,8 +2,6 @@
 title: midi device support
 id: midi-device-support
 weight: 85
-draft: false
-author: "people"
 ---
 
 # introduction
@@ -54,7 +52,7 @@ Two issues can arise:
 - a device you don't want to use might be opened anyway (and potentially cause inappropriate behavior, like starting a fireworks show prematurely -- see [this document](http://webcache.googleusercontent.com/search?q=cache:6EcEOjfjiAkJ:gmbh.pyropak.com/docs/downloads/surefire-prologic-digital-controller_rev2010.pdf+&cd=1&hl=en&ct=clnk&gl=us)); or
 - devices might appear in a different order at the next startup (for example because they are plugged into a different usb port). Since configurations are stored with the device number only, reordering would cause an incorrect layout to be picked up.
 
-You can fix which devices to load in a specific location and which ones to skip using the configuration parameter [preferences > miscellaneous > interface > order or exclude midi devices](../preferences-settings/miscellaneous.md#interface). To skip loading the BCR2000 in the above example and to fix the other two devices into the number 0 and 2 slots, you could set this config parameter to "`BeatStep;dontuse;X-TOUCH;-BCR2000`". This would leave the BeatStep as device midi0, always leave midi1 unused and would not load the BCR2000 at all, but if any other devices are connected, they would appear as midi3, midi4 and so on. Adding "`;-`" at the end would prevent any further devices loading.
+You can fix which devices to load in a specific location and which ones to skip using the configuration parameter [preferences > miscellaneous > interface > order or exclude midi devices](../preferences-settings/miscellaneous.md#interface). To skip loading the BCR2000 in the above example and to fix the other two devices into the number 0 and 2 slots, you could set this config parameter to "`BeatStep,dontuse,X-TOUCH,-BCR2000`". This would leave the BeatStep as device midi0, always leave midi1 unused and would not load the BCR2000 at all, but if any other devices are connected, they would appear as midi3, midi4 and so on. Adding "`,-`" at the end would prevent any further devices loading.
 
 If you just specify the configuration parameter as a single minus sign "`-`", no devices will be loaded at all.
 
@@ -62,7 +60,7 @@ For devices that use relative encoding as mentioned above, you’d have to perfo
 
 Some MIDI controllers have keys with a light beneath them. These can be used to toggle settings and show the current position by having the light on or off. For this to work, darktable checks periodically (a few times a second) whether, say, the position of an on-screen toggle button has been changed, and sends messages to any linked MIDI device buttons to switch their light on or off. But if an unknown device has unintentionally been connected, this could be undesirable. So by default darktable waits until a "note" message is received _from_ a MIDI button before sending any "note" light on/off messages _back_ for that (and any lower numbered) button. That way no more buttons are addressed than exist on the device. If you immediately want all button lights to be used (rather than having to press the highest note once for each session) you can specify the number of buttons in the "order or exclude MIDI devices" preference, for example, "`BeatStep:63:16`".
 
-# supported devices
+# devices reported to be working
 
 The shortcut mapping system has been most extensively tested with the Behringer devices and contains custom code to deal with their specific features. All other devices are treated as "generic midi" and may or may not work (well). If you succeed in getting a MIDI device up and running that hasn't been mentioned below, it would be greatly appreciated if you would provide feedback in order to assist others, if any special steps are required. You could do this either by submitting a documentation [pull request](https://github.com/darktable-org/dtdocs/pulls) to amend this page or by [filing an issue](https://github.com/darktable-org/dtdocs/issues) containing the necessary information.
 

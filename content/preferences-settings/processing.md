@@ -2,7 +2,6 @@
 title: processing
 id: processing
 weight: 70
-draft: false
 ---
 
 Control how images are processed.
@@ -22,25 +21,30 @@ pixel interpolator (warp)
 pixel interpolator (scaling)
 : The pixel interpolator used for scaling. The same options are provided as for the warp modules, but with the addition of lanczos3.
 
-: lanczos3 can cause pixel overshoots leading to artefacts but sometimes gives a more crisp visual appearance. This option is therefore only provided for transforming (scaling) algorithms and is the default value.
+: lanczos3 can cause pixel overshoots leading to artifacts but sometimes gives a more crisp visual appearance. This option is therefore only provided for transforming (scaling) algorithms and is the default value.
 
 LUT 3D root folder
-: Define the root folder (and sub-folders) containing LUT files used by the [_LUT 3D_](../module-reference/processing-modules/lut-3D.md) module
+: Define the root folder (and sub-folders) containing LUT files used by the [_LUT 3D_](../module-reference/processing-modules/lut-3D.md) module.
+
+Raster mask files root folder
+: Define the root folder (and sub-folders) containing raster mask files used by the [external-raster-mask](../module-reference/processing-modules/external-raster.md) module.
 
 auto-apply pixel workflow defaults
 : Choose which modules and module order are applied to new RAW image edits by default:
 
-- _scene-referred (filmic)_ (default) assumes that most processing will be performed in a linear RGB color space. Selecting this option automatically enables the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md), [_exposure_](../module-reference/processing-modules/exposure.md) and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules for new edits and sets the module order to _v3.0 RAW_.
+-   _scene-referred (filmic)_ assumes that most processing will be performed in a linear RGB color space. Selecting this option automatically enables the [_filmic rgb_](../module-reference/processing-modules/filmic-rgb.md), [_exposure_](../module-reference/processing-modules/exposure.md) and [_color calibration_](../module-reference/processing-modules/color-calibration.md) modules for new edits and sets the module order to _v3.0 RAW_.
 
-  The _exposure_ module includes an automatic exposure adjustment of +0.7 EV (to provide a midtone brightening comparable to the +0.5 to +1.2 EV typically added by in-camera tone curves), and automatically enables the "compensate camera exposure" option for the filmic workflow. Both of these settings are intended to provide a reasonable starting-point for RAWs produced by a broad range of SLR and mirrorless cameras, but they can be overridden with an automatically-applied preset if the defaults produce consistently dark images for your camera.
+    The _exposure_ module includes an automatic exposure adjustment of +0.7 EV (to provide a midtone brightening comparable to the +0.5 to +1.2 EV typically added by in-camera tone curves), and automatically enables the "compensate camera exposure" option for the filmic workflow. Both of these settings are intended to provide a reasonable starting-point for RAWs produced by a broad range of SLR and mirrorless cameras, but they can be overridden with an automatically-applied preset if the defaults produce consistently dark images for your camera.
 
-  In the scene-referred workflows, the [_color calibration_](../module-reference/processing-modules/color-calibration.md) module acts in conjunction with the [_white balance_](../module-reference/processing-modules/white-balance.md) module as the modern way to handle white balance and chromatic adaptation with improved color science. Note that when using the color calibration module, the white balance module needs to be active and set to "Camera Reference" mode (this will be done automatically and warnings will appear if the two modules have inconsistent settings). When using both modules as prescribed, it is still possible to auto-detect white-balance from a specific area of the image by selecting the CCT picker tool in the CAT tab of color calibration.
+    In the scene-referred workflows, the [_color calibration_](../module-reference/processing-modules/color-calibration.md) module acts in conjunction with the [_white balance_](../module-reference/processing-modules/white-balance.md) module as the modern way to handle white balance and chromatic adaptation with improved color science. Note that when using the color calibration module, the white balance module needs to be active and set to "Camera Reference" mode (this will be done automatically and warnings will appear if the two modules have inconsistent settings). When using both modules as prescribed, it is still possible to auto-detect white-balance from a specific area of the image by selecting the CCT picker tool in the CAT tab of color calibration.
 
-- _scene-referred (sigmoid)_ follows the same assumptions and overall flow as _scene-referred (filmic)_, with the exception that it auto-enables the [_sigmoid_](../module-reference/processing-modules/sigmoid.md) module for tone mapping in place of _filmic rgb_.
+-   _scene-referred (AgX)_ follows the same assumptions and overall flow as _scene-referred (filmic)_, with the exception that it auto-enables the [_AgX_](../module-reference/processing-modules/agx.md) module for tone mapping in place of _filmic rgb_.
 
-- _display-referred (legacy)_ is the legacy mode (used by default in darktable 2.6 and earlier) and assumes that most processing will be performed in the Lab color space. Selecting this option automatically enables the [_base curve_](../module-reference/processing-modules/base-curve.md) module for tone mapping and sets the module order to _legacy_. This workflow uses only the _white balance_ module for chromatic adaptation.
+-   _scene-referred (sigmoid)_ (default) also follows the same assumptions and overall flow as _scene-referred (filmic)_, with the exception that it auto-enables the [_sigmoid_](../module-reference/processing-modules/sigmoid.md) module for tone mapping in place of _filmic rgb_.
 
-- _none_ sets the module order to _v3.0 RAW_ and uses the _white balance_ module for chromatic adaptation. No other exposure or tone mapping modules are enabled by default.
+-   _display-referred (legacy)_ is the legacy mode (used by default in darktable 2.6 and earlier) and assumes that most processing will be performed in the Lab color space. Selecting this option automatically enables the [_base curve_](../module-reference/processing-modules/base-curve.md) module for tone mapping and sets the module order to _legacy_. This workflow uses only the _white balance_ module for chromatic adaptation.
+
+-   _none_ sets the module order to _v3.0 RAW_ and uses the _white balance_ module for chromatic adaptation. No other exposure or tone mapping modules are enabled by default.
 
 auto-apply per camera basecurve presets
 : Use a per-camera base curve by default (if available) instead of the generic manufacturer one. This should only be used in conjunction with the _display-referred_ workflow defined above (default off).
@@ -62,17 +66,15 @@ darktable resources
 
 : - _large_ takes roughly 75% of your system memory and 90% of your GPU memory. This is the best option if you are only using darktable on your system and/or are exporting a lot of images.
 
-: - _unrestricted_ is not generally recommended. In this mode darktable may attempt to use more memory than your system has available. This might be _possible_ if your system uses swapping when all of its system memory is taken, but it could lead to system instability. Use this mode with care, only when exporting very large images that darktable cannot otherwise handle.
-
 : See the [memory & performance tuning](../special-topics/mem-performance.md#darktable-resources) section for more information.
-
-prefer performance over quality
-: Enable this option to render thumbnails and previews at a lower quality. This increases the rendering speed by a factor of 4, and is useful when working on slower computers (default off). This also improves the performance of slideshow image rendering.
 
 # OpenCL
 
 activate [OpenCL](../special-topics/opencl/_index.md) support
 : Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found this option is grayed out. OpenCL support can be switched on and off at any time and takes immediate effect (default on).
+
+OpenCL fast mode
+: If set, the OpenCL compiler uses aggressive optimizing for better performance with reduced precision while having some very subtle quality loss.
 
 OpenCL scheduling profile
 : Defines how preview and full pixelpipe tasks are scheduled on OpenCL enabled systems:
@@ -80,8 +82,8 @@ OpenCL scheduling profile
 : - _very fast GPU_: both pixelpipes are processed sequentially on the GPU.
 : - _multiple GPUs_: both pixelpipes are processed in parallel on different GPUs -- see the [multiple devices](../special-topics/opencl/multiple-devices.md) section for more information.
 
-use all device memory
-: Enable this option to allow darktable to use all OpenCL memory on all devices except for a safety margin (headroom). The default headroom is 600MB and can also be specified on a per-device basis.
+tuned GPU memory
+: If enabled on a system with multiple OpenCL devices you may specify a safety margin per device (headroom, default is 600MB).
 
 OpenCL drivers
 : In most cases darktable is able to find the correct OpenCL driver but this depends on how your operating system handles installation. Generally speaking, darktable must:

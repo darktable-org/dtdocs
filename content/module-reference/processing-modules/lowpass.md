@@ -2,12 +2,26 @@
 title: lowpass
 id: lowpass
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: isolate low frequencies in the image.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, scene-referred.
+
+processing
+: frequential, Lab.
+
+output
+: special, Lab, scene-referred.
+
+{{< /details >}}
 
 Apply a low pass filter (for example, a Gaussian blur) to the image, while controlling the output contrast and saturation. 
 

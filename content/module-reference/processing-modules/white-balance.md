@@ -1,13 +1,27 @@
 ---
 title: white balance
-id: white-blaance
+id: white-balance
 weight: 10
-applicable-version: 3.4
-tags: 
-working-color-space: not-applicable (RAW) 
-view: darkroom
-masking: false
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: scale raw RGB channels to balance white and help demosaicing.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
 
 Adjust the white balance of the image by altering the temperature and tint, defining a coefficient for each RGB channel, or choosing from list of predefined white balance settings.
 
@@ -25,7 +39,7 @@ White balance is not intended as a "creative" module -- its primary goal is to t
 
 ## scene illuminant temp
 
-This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balace of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders. 
+This section provides scene-illuminant _temperature_ and _tint_ controls to adjust the white balance of the image. Click on the 'scene illuminant temp' section label to cycle between 3 different [color modes](#colored-sliders) for the temperature/tint sliders.
 
 temperature
 : Set the color temperature in kelvin.
@@ -38,15 +52,17 @@ tint
 setting
 : Choose from a predetermined list of white balances. The available settings are derived from the presets available in the camera used to take the photograph. The following options are provided in addition to any camera-defined white balance presets.
 
-: - _as shot_ (default): The white balance as reported by the camera
+: - _as shot_: The white balance as reported by the camera
 
 : - _from image area_: Draw a rectangle over a neutral color in the image to calculate white balance from that area.
 
 : - _user modified_: The most recently modified setting. Manual adjustment of temperature, tint or r/g/b channel coefficients will automatically select this option. Choose this setting after selecting any other preset to return parameters to the most recent user-modified state
 
-: - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value). 
+: - _camera reference_: Set the temperature to the camera reference white point, which is assumed to be D65 (or ~6502K). The white balance channel multipliers are calculated such that pure white in the camera colorspace is converted into pure white in sRGB D65 (where pure white means that each color channel has an equal value).
 
-For convenience the final four modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
+: - _as shot to reference_ (default): The white balance as reported by the camera is used in processing modules before [_input color profile_](./input-color-profile.md) for slightly better results in [_highlights reconstruction_](./highlight-reconstruction.md), [_raw chromatic aberrations_](./raw-chromatic-aberrations.md), [_demosaic_](./demosaic.md) or [_denoise (profiled)_](./denoise-profiled.md). This is corrected later in the pipe in _input color profile_ to the camera reference white point as in _camera reference_. Please note that, in a few cases, the coefficients reported by the camera for 'as shot' are bad so you might prefer _camera reference_ for those cameras.
+
+: For convenience these modes can also be set by clicking on one of the buttons in the [button bar](#button-bar) above the _setting_ drop-down.
 
 finetune
 : Finetune a camera-specific white balance preset. This is only shown if it is available for the camera in question. The direction of adjustment is dependent on the provided presets. If your camera doesn't have white balance presets available, check [this guide](https://github.com/darktable-org/darktable/wiki/White-balance-presets) to see how you can submit your own.

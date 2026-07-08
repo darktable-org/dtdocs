@@ -2,7 +2,6 @@
 title: presets
 id: presets
 weight: 130
-draft: false
 ---
 
 This menu provides an overview of the [presets](../darkroom/processing-modules/presets.md) that are defined for darktable's modules, and allows you to modify some of their properties.

@@ -1,9 +1,6 @@
 ---
 title: geotagging
 id: geotagging
-applicable-version: 4.0
-tags:
-view: lighttable
 ---
 
 Import and apply GPX track data to a selection of images.
@@ -15,8 +12,9 @@ This module is common to the [lighttable](../../../lighttable/_index.md) and [ma
 A GPS receiver calculates its current position based on information it receives from satellites, and records it in a GPX file together with the current date and time. The Exif data of the images also contains a time stamp defined by the camera settings. The _geotagging_ module takes the time stamp of the image, looks up the position in the GPX file at that time, and stores the appropriate coordinates (latitude/longitude/elevation) in its database and the image's XMP sidecar file.
 
 Two problems may occur during this process:
-- In contrast to GPS devices, most cameras don't record the time accurately.
-- The time stored in the Exif data does not include the time zone. Most people set their camera to local time, whereas GPS devices store the time in the UTC (Universal Time, Coordinated, i.e. Greenwich (London)) time zone. If the time zones of the camera and GPX file differ, than the related location will be wrong.
+
+-   In contrast to GPS devices, most cameras don't record the time accurately.
+-   The time stored in the Exif data does not include the time zone. Most people set their camera to local time, whereas GPS devices store the time in the UTC (Universal Time, Coordinated, i.e. Greenwich (London)) time zone. If the time zones of the camera and GPX file differ, than the related location will be wrong.
 
 If your image already shows the correct date/time and carries the UTC time stamp, you can directly apply the GPX track file without further adjustments.
 
@@ -41,7 +39,7 @@ original date/time
 : The original date/time of the image is shown here for reference.
 
 date/time offset
-: The calculated difference between the original date/time and that keyed in the _date/time_ field. If the calculated difference is greater than 99 days 23 hours 59 minutes and 59 seconds, the offset is invalidated.
+: The calculated difference between the original date/time and that keyed in the _date/time_ field. If the calculated difference is greater than 9999 days 23 hours 59 minutes and 59 seconds, the offset is invalidated.
 
 lock button
 : If the lock button is activated, the offset value is frozen. If you subsequently change the selected image(s), the new image date/time is updated using the locked offset. This allows you to apply the same offset to multiple groups of images.
@@ -64,7 +62,7 @@ GPX file
 : The path of the GPX file selected.
 
 track list
-: This table shows the start date/time of each track, along with the number of track points and the number of matching images. When a check button is activated, the related track is displayed on the map. A check button in the table header allows you to select or de-select all of the tracks at once. Hover over a row with your mouse to display the start and end times both in local time (LT) and UTC.
+: This table shows the start date/time of each track, along with the number of track points and the number of matching images. When a check button is activated, the related track is displayed on the map. A check button in the table header allows you to select or de-select all of the tracks at once. Hover over a row with your mouse to display the start and end times both in local time (LT) and UTC. To reset the map zoom and show the complete set of tracks, double-click on a track in the list, or single-click on the track list header. You can also assign a keyboard shortcut ([preferences > shortcuts > utility modules > geotagging > view entire track](../../../preferences-settings/shortcuts.md)).
 
 preview images
 : If checked, the matching images are displayed on the map along the visible tracks.

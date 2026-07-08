@@ -2,7 +2,6 @@
 title: the pixelpipe & module order
 id: the-pixelpipe-and-module-order
 weight: 20
-draft: false
 ---
 
 The ordered sequence of [processing modules](../../module-reference/processing-modules/_index.md) operating on an input file to generate an output image is known as the "pixelpipe". 
@@ -14,6 +13,16 @@ The order of the pixelpipe is represented graphically by the order in which modu
 **Note:** The order in which processing modules are executed exactly matches the order in which the modules appear in darktable's user interface. **Changing the order of the modules in the user interface changes how your image is processed.**
 
 ---
+
+# types of pixelpipe
+
+Processing images can be very resource-intensive. For this reason, darktable includes various types of pixelpipe, optimised for different parts of the system. For example:
+
+- The export pixelpipe processes the full-sized image at full quality. This is the slowest type of pixelpipe, but provides the maximum available image quality.
+- The thumbnail pixelpipe is optimised for speed, since it needs to process multiple small images at the same time without impacting lighttable or filmstrip performance. These optimisations impact image quality, but this is not usually a problem for the small images used in thumbnail generation.
+- The standard darkroom pixelpipe attempts to produce as accurate an image as possible, while also maintaining responsiveness when modifying module parameters. It does this by only processing the pixels that are visible on-screen -- known as the "region of interest" (ROI). However, this can mean that the image doesn't accurately reflect the exported file, especially when using modules that rely on the properties of neighboring pixels. This is particularly noticeable in modules that impact local contrast (e.g. _diffuse or sharpen_, _denoise (profiled)_ and _local contrast_) and can mean that the darkroom view appears over-sharpened compared to a full-sized export.
+- A cut-down darkroom pixelpipe is used while interacting with some darkroom modules that display the full image with overlays (like _retouch_, _crop_ and _liquify_). This pixelpipe excludes some long-running modules (like _diffuse or sharpen_) in order to improve responsiveness, but can temporarily make the image look under-processed (blurred). This limitation is removed as soon as you move focus to a different module.
+- In order to overcome the above limitations within the standard darkroom pixelpipe, you can enable [high quality processing mode](../../module-reference/utility-modules/darkroom/high-quality-processing.md) in the darkroom view. This mode processes the entire image using the export pixelpipe and only downscales for display at the end of the pipe. This means that the darkroom image will very closely match the exported image, but will significantly degrade responsiveness when interacting with processing modules. You are advised to only use this mode after you have already done most of your processing. Its performance will be significantly improved by using an OpenCL-capable GPU.
 
 # module order and workflows
 
@@ -45,7 +54,7 @@ Pixel data within the _display-referred_ space is non-linear and is not a physic
 
 _Scene-referred_ workflow (auto-apply pixel workflow defaults = "scene-referred") was introduced as part of darktable 3.0. The module order was entirely rearranged to place the [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) and [_base curve_](../../../module-reference/processing-modules/base-curve.md) tone mapping modules much later in the pixelpipe. This means that most modules now operate in _linear rgb_ space with only a few modules remaining within the non-linear _display-referred_ space. Within this workflow it is now recommended that the majority of image processing takes place using the modules up to and including [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md). Operations in this section of the pixelpipe, being truly linear, are much more physically realistic and produce fewer artifacts.
 
-Selecting the scene-referred workflow enables the _v3.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
+Selecting the scene-referred workflow enables the _v5.0_ module order and automatically enables the [_exposure_](../../../module-reference/processing-modules/exposure.md) and [_filmic rgb_](../../../module-reference/processing-modules/filmic-rgb.md) modules with some presets designed to act as a reasonable starting point for scene-referred editing.
 
 # changing module order
 
@@ -57,4 +66,4 @@ It remains highly recommended that users not change the order within the pixelpi
 
 Despite the general recommendation to leave the pixelpipe order alone, it is possible to move modules within the pixelpipe by holding Ctrl+Shift and dragging and dropping the desired module to a new location. This should only be done by experienced users who understand the impact this will have on the image.
 
-The module order can be manually changed back to either the _v3.0_ or _legacy_ versions using the [module order](../../../module-reference/utility-modules/darkroom/module-order.md) module, which can also be used to define your own custom module order presets.
+The module order can be manually changed back to either the _v5.0_, _v3.0_ or _legacy_ versions using the [module order](../../../module-reference/utility-modules/darkroom/module-order.md) module, which can also be used to define your own custom module order presets.

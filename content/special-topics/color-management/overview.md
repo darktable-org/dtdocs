@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 
  darktable employs a fully color managed workflow:

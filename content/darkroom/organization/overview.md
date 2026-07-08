@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 
 Processing modules are organized and accessed via the right-hand panel in the darkroom:

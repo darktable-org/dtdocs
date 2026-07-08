@@ -2,12 +2,26 @@
 title: liquify
 id: liquify
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking:
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: distort parts of the image.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Move pixels around by applying freestyle distortions to parts of the image using points, lines and curves.
 

@@ -1,9 +1,6 @@
 ---
 title: session
 id: session
-applicable-version: 3.2.1
-tags: 
-view: tethering
 ---
 
 Set a session jobcode to allow the creation of a new film roll.

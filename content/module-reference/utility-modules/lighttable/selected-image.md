@@ -1,9 +1,6 @@
 ---
 title: actions on selection
 id: selected-image 
-applicable-version: 3.6
-tags: 
-view: lighttable
 ---
 
 Perform actions on images that have been selected in the lighttable view.
@@ -21,10 +18,12 @@ delete / delete (trash)
 : Remove the selected images from the darktable library and remove any associated XMP sidecar files from the filesystem. If no duplicates of a removed image remain in the darktable library, the image file itself is also deleted. You can control whether this action irrevocably deletes the files or attempts to put them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
 
 move
-: Physically move selected images (the image files plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder the source image will not be moved.
+: Physically move selected images (the image files plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder the source image will not be moved. After the move the target folder becomes the selected collection if the source folder is empty. If a collection is manually selected during a move, then darktable will not change the selection.
 
 copy
-: Physically copy selected images (the image file plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder it will not be overwritten – instead a new duplicate will be generated with the same history stack as the source image.
+: Physically copy selected images (the image file plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder it will not be overwritten – instead a new duplicate will be generated with the same history stack as the source image. After the copy the target folder becomes the selected collection. If a collection is manually selected during a copy, then darktable will not change the selection.
+
+
 
 create hdr
 : Create a high dynamic range image from the selected images, and add the result to the library as a new image in DNG format. Images need to be properly aligned, which implies that they have been taken on a sturdy tripod. You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable can only create HDR images from raw files.

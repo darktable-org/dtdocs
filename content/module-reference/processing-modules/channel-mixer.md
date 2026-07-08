@@ -2,14 +2,28 @@
 title: (deprecated) channel mixer
 id: channel-mixer
 weight: 20
-applicable-version: 3.4
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: perform color space corrections such as white balance, channels mixing and conversions to monochrome emulating film.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, display-referred.
+
+{{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.4 and should no longer be used for new edits. Please use the [_color calibration_](./color-calibration.md) module instead.**
 
@@ -51,7 +65,7 @@ As an example use case, the following matrix is useful for taming ugly out-of-ga
 └  0.05  -0.05  1.00 ┘ 
 ```
 
-In this case it is useful to use a [parameteric mask](../../darkroom/masking-and-blending/masks/parametric.md) to limit the effect of the _channel mixer_ to just the problematic colors.
+In this case it is useful to use a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md) to limit the effect of the _channel mixer_ to just the problematic colors.
 
 A more intuitive take for what the _channel mixer_ sliders do:
 
@@ -76,7 +90,7 @@ Different types of traditional black and white film have differing sensitivities
 # module controls
 
 destination
-: Select the destination channel that will be affected by the slider settings immediately below. The red, green and blue destination channels are used for color mixing as described in the _matrix multiplication_ section above. The gray channel is used for making grayscale images as described in the _monochome_ section above. It is also possible to define the R, G & B input channels to produce HSL (hue, saturation and lightness) values on the output, although this is a very specialised application.
+: Select the destination channel that will be affected by the slider settings immediately below. The red, green and blue destination channels are used for color mixing as described in the _matrix multiplication_ section above. The gray channel is used for making grayscale images as described in the _monochrome_ section above. It is also possible to define the R, G & B input channels to produce HSL (hue, saturation and lightness) values on the output, although this is a very specialised application.
 
 red
 : Defines how much the red input channel should contribute to the selected destination channel.
@@ -86,4 +100,3 @@ green
 
 blue
 : Defines how much the blue input channel should contribute to the selected destination channel.
-

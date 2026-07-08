@@ -2,12 +2,26 @@
 title: unbreak input profile
 id: unbreak-input-profile
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct input color profiles meant to be applied on non-linear RGB.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
 
 Add a correction curve to image data. This is required if you have selected certain input profiles in the [_input color profile_](./input-color-profile.md) module.
 

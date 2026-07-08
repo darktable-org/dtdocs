@@ -2,12 +2,26 @@
 title: diffuse or sharpen
 id: diffuse
 weight: 10
-applicable-version: 4.2
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: simulate directional diffusion of light with heat transfer model to apply an iterative edge-oriented blur, inpaint damaged parts of the image, or to remove blur with blind deconvolution.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Diffusion is a family of physical processes by which particles move and spread gradually with time, from a source that generates them. In image processing, diffusion mostly occurs in two places:
 
@@ -142,7 +156,7 @@ luminance masking threshold
 
 # workflow
 
-The main difficulty with this module is that while its output can vary dramatically depending on its input paramaters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
+The main difficulty with this module is that while its output can vary dramatically depending on its input parameters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.
 
 ## general advice
 
@@ -192,7 +206,7 @@ Conversely, the following optical issues may benefit from reconstruction by **un
 3. haze/fog,
 4. light diffusion (using a diffuser that is too large), leading to even lighting and lack of local contrast on the subject.
 
-While more than one of these issues can affect the same picture at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following [pipe order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md):
+While more than one of these issues can affect the same image at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following [pipe order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md):
 
 1. denoise,
 2. local contrast enhancement,

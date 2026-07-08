@@ -2,12 +2,26 @@
 title: rotate and perspective
 id: rotate-perspective
 weight: 10
-applicable-version: 4.6
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: rotate or distort perspective.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Automatically correct for converging lines, a form of perspective distortion. The underlying mechanism is inspired by Markus Hebel's [_ShiftN_](http://www.shiftn.de/) program. This module also allows for the rotation of the image to be adjusted.
 
@@ -120,11 +134,11 @@ show guides
 
 Here is an image with a skewed horizon and converging lines caused by directing the camera upwards:
 
-![prespective-correction-example-before](./rotate-perspective/perspective-correction-example-before.png#w66)
+![perspective-correction-example-before](./rotate-perspective/perspective-correction-example-before.png#w66)
 
 Here is the image after having corrected for vertical and horizontal perspective distortions using automatic structure detection. Note the framing adjustment made by the automatic cropping feature and the still-visible overlay of structural lines:
 
-![prespective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
+![perspective-correction-example-after](./rotate-perspective/perspective-correction-example-after.png#w66)
 
 
 

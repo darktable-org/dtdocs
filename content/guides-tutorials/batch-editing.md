@@ -1,9 +1,7 @@
 ---
 title: batch-editing images
 id: batch-editing
-draft: false
 weight: 110
-author: "people"
 ---
 
 Batch-editing is the process of developing images in a semantically-related series that are expected to have a consistent final look, often with the intent of publishing the images in catalogues, magazines or books. It can be a tedious, frustrating and unexciting task, so darktable includes functionality to help make it faster and more reliable.
@@ -69,7 +67,7 @@ If there was some variability in your lighting conditions, each image will need 
 
 First, homogenize the exposure using your control sample and the [_area exposure mapping_](../module-reference/processing-modules/exposure.md#area-exposure-mapping) tool.
 
-Then, adjust the _filmic rgb_ white relative exposure if needed, preferably using the color picker. The contrast should not require any adjustment since it does not depend on the dynamic-range of the image.
+Then, adjust the _filmic rgb_ white relative exposure if needed, preferably using the [picker](../darkroom/processing-modules/module-controls.md#pickers). The contrast should not require any adjustment since it does not depend on the dynamic-range of the image.
 
 Finally, homogenize the chromatic adaptation, using your control sample and the [_color calibration area mapping_](../module-reference/processing-modules/color-calibration.md#area-color-mapping) tool.
 

@@ -2,12 +2,26 @@
 title: framing
 id: framing
 weight: 10
-applicable-version: 4.4
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: add solid borders or margins around the image.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, RGB, display-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear or non-linear, RGB, display-referred.
+
+{{< /details >}}
 
 Generate a frame around the image. 
 
@@ -34,8 +48,7 @@ frame line offset
 : The position of the frame line, relative to the underlying image. Choose 0% for a frame line that touches the image. Choose 100% for a frame line that touches the outer border.
 
 border color / frame line color
-: A pair of color selectors which allow the border and frame line colors to be defined. Clicking on the colored field will open a color selector dialog which offers a choice of commonly-used colors, or allows you to define a color in RGB color space. You can also activate a color picker to take a color probe from the image.
+: A pair of color selectors which allow the border and frame line colors to be defined. Clicking on the colored field will open a color selector dialog which offers a choice of commonly-used colors, or allows you to define a color in RGB color space. You can also activate a [picker](../../darkroom/processing-modules/module-controls.md#pickers) to take a color probe from the image.
 
 show guides
 : Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
-

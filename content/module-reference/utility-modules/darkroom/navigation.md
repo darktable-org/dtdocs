@@ -1,9 +1,6 @@
 ---
 title: navigation
 id: navigation
-applicable-version: 4.4
-tags: 
-view: darkroom
 ---
 
 Zoom and pan the current image.

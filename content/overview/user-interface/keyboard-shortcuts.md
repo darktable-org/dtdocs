@@ -1,9 +1,7 @@
 ---
 title: keyboard shortcuts
 id: keyboard-shortcuts
-draft: false
-weight: 50
-author: "people"
+weight: 60
 ---
 
 Much of the functionality in darktable can be controlled via keyboard shortcuts, which can be customised in [preferences > shortcuts](../../preferences-settings/shortcuts.md).

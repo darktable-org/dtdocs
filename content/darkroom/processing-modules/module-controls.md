@@ -2,7 +2,6 @@
 title: module controls
 id: module-controls
 weight: 40
-draft: false
 ---
 
 This section describes how to interact with processing module controls.
@@ -49,9 +48,19 @@ Click on a combobox to show a list of available options which you can click to s
 
 As with sliders, you can double-click the combobox or its label to reset back to the default value, or Ctrl+double-click to reset back to any auto-applied preset.
 
-# color pickers
+# pickers
 
-A number of modules allow parameters to be set using color pickers (identified by the ![color-picker-icon](./module-controls/color-picker.png#icon) icon). These use a standard interface and most can operate in either point or area mode. Point mode can be activated by clicking on the color picker icon. Area mode is activated with Ctrl+click or right-click.
+Many modules allow parameters to be set using pickers (identified by the ![picker-icon](./module-controls/color-picker.png#icon) icon). Pickers allow you to select sample areas of the image from which to calculate values for module parameters. You can usually choose to select either a "point" (a single pixel) or an "area" (a rectangular selection of pixels) from the image, although some modules only allow one mode to be used.
+
+Selecting pixel(s) will cause the appropriate module value(s) to be updated, and may also cause additional visual feedback (for example, overlaying the range of selected pixels on a tone curve).
+
+Activate point mode by left-clicking the picker icon and then left-click anywhere on the image to select the pixel from which to calculate values. The selected point will be shown on-screen (with a cross icon) which you can adjust by left-clicking another pixel. Deactivate the picker by left-clicking the picker icon again.
+
+Activate area mode by either right-clicking or Ctrl+clicking the picker icon and then left-click and drag to select a rectangular area of the image from which to calculate values. The selected area will be shown on-screen as an overlaid rectangle which can be moved by either drawing another rectangle elsewhere or by left-clicking and dragging the corners of the drawn rectangle. Reset the rectangle (to select the whole image) by right-clicking anywhere on the image. Deactivate the picker by right-clicking (or Ctrl+clicking) the picker icon again.
+
+In modules where only one mode is available, left-clicking the icon will usually toggle that mode on and off.
+
+In modules where both modes are available, Ctrl+clicking anywhere on the image will switch modes.
 
 # keyboard shortcuts
 

@@ -2,12 +2,26 @@
 title: highlight reconstruction
 id: highlight-reconstruction
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: not-applicable (RAW)
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: avoid magenta highlights and try to recover highlights colors.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: reconstruction, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
 
 Attempt to reconstruct color information for pixels that are clipped in one or more RGB channel.
 
@@ -21,7 +35,7 @@ When a camera captures light (using a normal Bayer sensor) each pixel represents
 
 If these pixels are left partially clipped it can result in unrealistic colors appearing in the image. These incorrect colors can then be further skewed by the white balance module, which adjusts the ratios of the R, G, and B channels to account for the overall color of the scene. For example, where only the G channel is clipped (and R and B are close to clipping) the white balance module can cause the R and B channels to be adjusted above the clipping point of the G channel leading to pink highlights that would otherwise have been white.
 
-The crude method to resolve this is to clip the R and B channels to the clipping point of the G channel (the "clip highlights" reconstruction method), but this can result in the loss of valid pixel data that may be useful in highlight reconstruction, and may also cause other artefacts and hue shifts.
+The crude method to resolve this is to clip the R and B channels to the clipping point of the G channel (the "clip highlights" reconstruction method), but this can result in the loss of valid pixel data that may be useful in highlight reconstruction, and may also cause other artifacts and hue shifts.
 
 # highlight reconstruction methods
 
@@ -31,7 +45,7 @@ inpaint opposed (default)
 : Restore clipped pixels by using an average of adjacent unclipped pixels to estimate the correct color. This works well for the majority of images but may fail where the clipped areas are adjacent to areas of a different color.
 
 segmentation based
-: A more sophisticated algorithm that uses adjacent unclipped pixels to estimate the correct color, by treating each clipped area separately (as an individual segment). The color of each clipped segment is estimated by analysing the color ratios of the adjacent pixels. Pixels that are too dark or appear to be an edge are rejected by the algorithm. If all surrounding pixels are rejected, that segment is reconstructed using the "inpaint opposed" method (above). Segments that are close together are often parts of the same object and so can be treated as if they were a single segment. 
+: A more sophisticated algorithm that uses adjacent unclipped pixels to estimate the correct color, by treating each clipped area separately (as an individual segment). The color of each clipped segment is estimated by analysing the color ratios of the adjacent pixels. Pixels that are too dark or appear to be an edge are rejected by the algorithm. If all surrounding pixels are rejected, that segment is reconstructed using the "inpaint opposed" method (above). Segments that are close together are often parts of the same object and so can be treated as if they were a single segment.
 
 : Segmentation based reconstruction is able to rebuild large areas where all channels are clipped by examining the surrounding gradients. However, you should think of this method more as a way to "disguise" clipped areas with something plausible, rather than a way to "magically" repair them.
 
@@ -43,9 +57,6 @@ clip highlights
 
 reconstruct in LCh
 : Analyse each pixel with at least one clipped channel and attempt to correct the clipped pixel (in LCh color space) using the values of the other (3 for Bayer or 8 for X-Trans) pixels in the affected sensor block. The reconstructed highlights will still be monochrome, but brighter and with more detail than with “clip highlights”. This method works fairly well with a high-contrast base curve, which renders highlights desaturated. As with _clip highlights_ this method is a good option for naturally desaturated objects.
-
-reconstruct color
-: Use an algorithm that transfers color information from unclipped surroundings into the clipped highlights. This method works very well on areas with homogeneous colors and is especially useful on skin tones with smoothly fading highlights. Please note that this method can produce maze-like artifacts on highlights behind high-contrast edges, for example well-exposed fine structures in front of an overexposed background.
 
 ---
 
@@ -63,7 +74,14 @@ method
 clipping threshold
 : Pixels above this value are considered to be clipped.
 
+clipping mask
 : Click the icon beside the slider to visualise what areas of the image are considered to be clipped (the clipping mask). If the clipping mask does not match the [RAW overexposed warning](../utility-modules/darkroom/raw-overexposed.md), you may need to correct this value.
+
+---
+
+**Note**: The clipping mask is also available as a [raster mask](../../../darkroom/masking-and-blending/masks/raster.md) for use in subsequent modules. This can be used, for example, to manage any color cast that remains after highlight reconstruction.
+
+---
 
 ## "guided laplacians" mode
 
@@ -82,7 +100,7 @@ diameter of the reconstruction
 ## "segmentation based" mode
 
 clipping threshold
-: Since this controls the number of pixels that are considered to be clipped, it also changes the size of the resulting segments and the location of the adjacent pixels used for the reconstruction. For accurate adjustment, you can use the exposure module to ensure that no highlights are clipped in the histogram (or the image you see on screen). Then raise the clipping threshold until the highlights are no longer white and slowly lower it again until they look acceptable.
+: Since this controls the locations of pixels that are considered to be clipped, it also changes the size of the resulting segments and the location of the adjacent pixels used for the reconstruction. For accurate adjustment, you can use the exposure module to ensure that no highlights are clipped in the histogram (or the image you see on screen). Then raise the clipping threshold until the highlights are no longer white and slowly lower it again until they look acceptable.
 
 combine
 : The radius at which close segments are combined and considered to be part of the same segment. Increase (to combine more segments) when different parts of the same object have been incorrectly reconstructed to different colors. Decrease (to separate segments) when different objects have been incorrectly reconstructed to the same color. Click on the button beside the slider to see the outlines of the resulting segments.

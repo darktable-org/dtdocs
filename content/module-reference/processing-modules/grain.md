@@ -2,12 +2,26 @@
 title: grain
 id: grain
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: simulate silver grains from film.
+
+purpose
+: creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Simulate the grain of analog film. The grain is processed on the L channel of Lab color space.
 
@@ -18,3 +32,6 @@ coarseness
 
 strength
 : The strength of the effect.
+
+mid-tone bias
+: The bias toward the mid-tones. As the bias increases, the grain becomes less visible in the shadows and highlights.

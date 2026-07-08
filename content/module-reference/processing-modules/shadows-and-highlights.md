@@ -2,12 +2,26 @@
 title: shadows and highlights
 id: shadows-and-highlights
 weight: 10
-applicable-version: 4.0.0
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: modify the tonal range of the shadows and highlights of an image by enhancing local contrast.
+
+purpose
+: corrective and creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Modify the tonal range of the shadows and highlights of an image by enhancing local contrast.
 

@@ -2,12 +2,26 @@
 title: sharpen
 id: sharpen
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: sharpen the details in the image using a standard UnSharp Mask (USM).
+
+purpose
+: corrective.
+
+input
+: linear or non-linear, Lab, display or scene-referred.
+
+processing
+: frequential, Lab.
+
+output
+: quasi-linear, Lab, display or scene-referred.
+
+{{< /details >}}
 
 Sharpen the details in the image using a standard UnSharp Mask (USM). 
 

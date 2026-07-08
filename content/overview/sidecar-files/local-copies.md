@@ -2,8 +2,6 @@
 title: local copies
 id: local-copies
 weight: 30
-draft: false
-author: "people"
 ---
 
 Many users have huge image collections stored on extra hard drives in their desktop computer, or on an external storage medium (RAID NAS, external hard drives etc.).

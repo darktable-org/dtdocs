@@ -2,12 +2,14 @@
 title: storage
 id: storage
 weight: 100
-draft: false
 ---
 
 The following options are related to darktable's library database and [XMP sidecar files](../overview/sidecar-files/_index.md).
 
 # database
+
+allow for multiple workspaces
+: Allows for multiple workspaces that can be selected via a popup window at startup. In the popup, it is possible to create a new workspace, delete workspaces, set a workspace as the default (used on startup until changed again), or to work from memory (no database). If **remember selection and don't ask again** is checked when confirming a workspace, that selection is kept for the next launch without showing the popup, and **allow for multiple workspaces** is turned off so the popup stays hidden until you enable **allow for multiple workspaces** again here. A workspace is a combination of a library database and a `darktablerc` configuration file using the same shared configuration folder settings (data database and shortcuts). New workspaces can optionally be created by copying an existing workspace as a template; workspace-specific configuration is duplicated while paths, labels, collection history and similar keys are cleared so the new workspace keeps its own library database. See [darktable invocation](../special-topics/program-invocation/darktable.md) for more details around `library.db`, `data.db` and `darktablerc`. (default off)
 
 create database snapshot
 : Specifies how often darktable should create database snapshots. Options are "never", "once a month", "once a week", "once a day" and "on close" (default "once a week")
@@ -33,4 +35,4 @@ auto-save interval
 : This preference sets the interval (in seconds) after which the processing history for an image will be automatically saved (while in the darkroom view). Set to zero to disable auto-saving. Note that this option might be ignored for slow drives (default 10s).
 
 look for updated XMP files on startup
-: Scan all XMP files on startup and check if any have been updated in the meantime by some other software. If updated XMP files are found, a menu is opened for the user to choose which of the XMP files to reload (replacing darktable's database entries by the XMP file contents) and which of the XMP to overwrite from darktable's database. Activating this option also causes darktable to check for text sidecar files that have been added after import time (default off). 
+: Scan all XMP files on startup and check if any have been updated in the meantime by some other software. If updated XMP files are found, a menu is opened for the user to choose which of the XMP files to reload (replacing darktable's database entries by the XMP file contents) and which of the XMP to overwrite from darktable's database. Activating this option also causes darktable to check for text sidecar files that have been added after import time (default off).

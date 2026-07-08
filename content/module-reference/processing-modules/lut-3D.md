@@ -2,12 +2,26 @@
 title: LUT 3D
 id: lut-3d
 weight: 10
-applicable-version: 4.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: perform color space corrections and apply look.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: defined by profile, RGB.
+
+output
+: linear or non-linear, RGB, display-referred.
+
+{{< /details >}}
 
 Transform RGB values with a 3D LUT file.
 

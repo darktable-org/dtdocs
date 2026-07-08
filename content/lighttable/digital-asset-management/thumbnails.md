@@ -1,9 +1,7 @@
 ---
 title: thumbnails
 id: thumbnails
-draft: false
 weight: 30
-author: "people"
 ---
 
 Each image in the current collection is represented by a thumbnail in the lighttable view and filmstrip module. A cache of the most recently used thumbnails is stored in a file on disk and loaded into memory at startup.
@@ -26,14 +24,22 @@ If you choose not to activate the disk backend and select too small a cache size
 
 All thumbnails are fully color managed. Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
 
-# skulls
+# skulls, question marks, and warning triangles
 
-If for some reason darktable is unable to generate a thumbnail, it displays an image of a skull ![skull icon](./thumbnails/skull.png#icon) instead. Don't panic!
-	
+If for some reason darktable is unable to generate a thumbnail, it displays one of three placeholder images to indicate the type of error preventing it from doing so.
+
 There are three main reasons this could happen:
 
-- _Missing image file_: darktable remembers all images it has ever imported, as long as they have not been removed from your database. If darktable wants to create a thumbnail but is not able to open the input file, a skull is displayed instead. Users are advised to remove images from the database using the [actions on selection](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the script [`purge_non_existing_images.sh`](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) from darktable's toolset to clean-up your database.
+- _Missing image file_: If the file could not be found at the location recorded in the database, a skull ![skull icon](./thumbnails/skull.png#icon) will be displayed in place of the image. You are advised to remove images from the database using the [actions on selection](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the [purge](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) script from darktable's toolset to clean-up your database.
 
-- _Invalid image format_: While the extension of an image may seem to be supported by darktable, its contents could be either an unsupported image format or a corrupt file. 
+- _Invalid image format_: While darktable will attempt to import all supported file extensions, the extension is not a guarantee that darktable will be able to interpret the file's contents. If the file format (or an option within that format, such as compressed mode) is unsupported, darktable will display a question mark ![unsupported](./thumbnails/unsupported.png#icon) in place of the image. If the file appears to be corrupted, darktable will display a warning triangle ![error warning](./thumbnails/corrupt.png#icon) in place of the image.
 
-- _Low memory_: If darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
+- _Low memory_: In the rare event that darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
+
+# thumbnail icons
+
+The following icons may be displayed over the top of thumbnails to provide additional information:
+
+- Images that are members of a group are denoted by a light ![light group icon](./thumbnails/Group-icon-light.png#icon) or dark ![dark group icon](./thumbnails/Group-icon-black.png#icon) group icon, where the darker icon identifies the lead image in that group.  See [image grouping](./grouping.md) for details
+- A ![tags](./thumbnails/Tag-icon.png#icon) icon identifies that tags have been added to the image. Hover over the icon to see a list of the applied tags.
+- A ![history](./thumbnails/History-icon.png#icon) icon identifies that the image has been processed. Hover over the icon to see a list of the processing modules that have been applied.

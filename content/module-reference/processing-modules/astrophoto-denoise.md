@@ -2,12 +2,26 @@
 title: astrophoto denoise
 id: astrophoto-denoise
 weight: 10
-applicable-version: 3.4
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: apply a poisson noise removal best suited for astrophotography.
+
+purpose
+: corrective.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Remove image noise while preserving structure. 
 

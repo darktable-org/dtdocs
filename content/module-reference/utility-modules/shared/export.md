@@ -1,9 +1,6 @@
 ---
 title: export
 id: export-selected
-applicable-version: 4.6
-tags: 
-view: lighttable
 ---
 
 Export selected images.
@@ -20,7 +17,7 @@ target storage
 : The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
 
 filename template
-: Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. See the [variables](../../../special-topics/variables.md) section for details.
+: Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, `$(SEQUENCE)` in a template records sequence number of the image exported to the target. See the [variables](../../../special-topics/variables.md) section for details.
 
 output directory selector
 : The button beside the filename template entry opens a dialog to select the parent directory for export.
@@ -96,8 +93,11 @@ style
 mode
 : When applying a style during export this option defines whether the history stack items of that style replace the original history stack of the image or are appended to it. Technically speaking, in append mode history stack items of the style will constitute separate instances of the respective modules on top of any existing ones (see also [multiple instances](../../../darkroom/processing-modules/multiple-instances.md)). As a consequence the original history stack will remain in effect with the new items being applied in addition. This way you can apply an overall adjustment (e.g. exposure) to a number of exported images while respecting the settings of each individual image.
 
-export
+start export
 : Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the "x" icon located close to the progress bar. 
+
+multi-preset export
+: Expanding this section allows you to easily export each of the selected images with several different presets in a single export run. For example, you may wish to export each image in multiple sizes at the same time for use in a website. Simply create a preset for each type of export you wish to make, ensuring that the file path settings for each preset is unique (so that the exported images don't overwrite one another). Select the desired presets and press the "start export" button as normal.
 
 ---
 

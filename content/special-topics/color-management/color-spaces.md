@@ -2,8 +2,6 @@
 title: darktable's color spaces
 id: color-spaces
 weight: 50
-draft: false
-author: "people"
 ---
 
 Input images are either RGB files (like JPEGs or TIFFs) or camera RAWs. Both store visual information as a combination of primary colors (e.g. red, green and blue) which together describe a light emission to be recreated by a display.

@@ -1,9 +1,7 @@
 ---
 title: import & review
 id: import-review
-draft: false
 weight: 20
-author: "people"
 ---
 
 Before you can do anything in darktable you must first add some images files to the library using the [import](../../module-reference/utility-modules/lighttable/import.md) module in the [lighttable view](../../lighttable/_index.md). This will create entries for your images in darktable's library database so that it can keep track of the changes you make. There are three ways to import images, each accessible through buttons in the import module:

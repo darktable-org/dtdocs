@@ -2,14 +2,28 @@
 title: (deprecated) levels
 id: levels
 weight: 20
-applicable-version: 4.4
-tags: 
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: adjust black, white and mid-gray points.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 4.4 and should no longer be used for new edits. Please use the [_rgb levels_](./rgb-levels.md) module instead.**
 
@@ -26,7 +40,7 @@ manual
 
 : Moving the middle bar will modify the mid-tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
-: Three color pickers are available for sampling the black, white and gray points from the image. The "auto" button auto-adjusts the black and white point and puts the gray point exactly in the mean between them.
+: Three [pickers](../../darkroom/processing-modules/module-controls.md#pickers) are available for sampling the black, white and gray points from the image. The "auto" button auto-adjusts the black and white point and puts the gray point exactly in the mean between them.
 
 automatic
 : The module automatically analyses the histogram of the image, detects the left and right histogram borders, and lets you define the black point, the gray point and the white point in terms of [percentiles](http://en.wikipedia.org/wiki/Percentile) relative to these borders.

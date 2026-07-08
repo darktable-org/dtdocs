@@ -2,8 +2,6 @@
 title: building user interface elements
 id: building-ui-elements
 weight: 70
-draft: false
-author: "people"
 ---
 
 Our previous example was a bit limited. In particular the use of a preference for the export path wasn't very nice. We can do better than that by adding elements to the user interface in the export dialog.

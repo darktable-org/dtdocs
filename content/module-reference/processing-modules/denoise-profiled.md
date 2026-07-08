@@ -2,12 +2,26 @@
 title: denoise (profiled)
 id: denoise-profiled
 weight: 10
-applicable-version: 3.8
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: denoise using noise statistics profiled on sensors.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 An easy to use and highly efficient denoise module, adapted to the individual noise profiles of a wide range of camera sensors.
 

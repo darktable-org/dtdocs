@@ -2,12 +2,26 @@
 title: color reconstruction
 id: color-reconstruction
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: recover clipped highlights by propagating surrounding colors.
+
+purpose
+: corrective.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Recover color information in blown-out highlights.
 

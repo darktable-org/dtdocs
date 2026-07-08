@@ -2,8 +2,6 @@
 title: printing labeled images
 id: printing-labeled-images
 weight: 40
-draft: false
-author: "people"
 ---
 
 The first example showed us the very basics of lua and allowed us to check that everything was working properly. Now let's do something a little bit more complex. Let's try to print a list of images that have a "red" label attached to them. But first of all, what is an image?

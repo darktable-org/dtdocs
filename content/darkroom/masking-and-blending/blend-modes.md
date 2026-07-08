@@ -2,7 +2,6 @@
 title: blend modes
 id: blend-modes
 weight: 20
-draft: false
 ---
 
 Blend modes define how the input and output of a module are combined (blended) together before the module's final output is passed to the next module in the pixelpipe. 

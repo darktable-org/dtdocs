@@ -1,9 +1,6 @@
 ---
 title: timeline
 id: timeline
-applicable-version: 3.2.1
-tags: 
-view: lighttable
 ---
 
 View your images by the date/time they were taken.

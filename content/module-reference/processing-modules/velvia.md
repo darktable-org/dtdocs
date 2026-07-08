@@ -2,12 +2,26 @@
 title: velvia
 id: velvia
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: resaturate giving more weight to blacks, whites and low-saturation pixels.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Resaturate pixels in a weighted manner that gives more weight to blacks, whites and less saturated pixels. 
 

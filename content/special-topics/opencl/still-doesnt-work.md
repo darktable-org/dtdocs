@@ -2,8 +2,6 @@
 title: OpenCL still does not run for me
 id: still-doesnt-work
 weight: 100
-draft: false
-author: "people"
 ---
 
 As has been mentioned, OpenCL systems come with a huge variety of setups: different GPU manufacturers and models, varying amounts of GPU memory, different drivers, different distributions etc.. 

@@ -1,106 +1,104 @@
 # darktable Documentation
 
-This is the user documentation for [darktable](https://darktable.org). The content is authored in markdown and rendered to HTML using [Hugo](https://gohugo.io) as well as to PDF and ePub.
+This repository maintains the user documentation for [darktable](https://darktable.org). The content is authored in Markdown and rendered to HTML using [Hugo](https://gohugo.io) as well as to PDF and EPUB.
 
-This repository tracks the current darktable development version. The auto-built website for the development user manual can be found at https://darktable-org.github.io/dtdocs/.
+The docs currently only track the development version. Versioned docs were last maintained for version 5.2.
 
-The user manual for the current stable release of darktable can be found at [darktable.org](https://docs.darktable.org/usermanual/stable/en/).
+The official release documentation is hosted at [docs.darktable.org](https://docs.darktable.org/usermanual/development/en/). The auto-built development preview is at [darktable-org.github.io/dtdocs](https://darktable-org.github.io/dtdocs/).
 
 ## Contributing
 
-Please see https://darktable-org.github.io/dtdocs/en/special-topics/contributing/ for information about contributing content
+Please see https://darktable-org.github.io/dtdocs/en/contributing for information about contributing content and how dtdocs are maintained. 
 
-For a complete list of the outstanding work please see the [issues](https://github.com/darktable-org/dtdocs/issues) in this repository and a list of [undocumented pull requests](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+label%3Adocumentation-pending+is%3Aclosed) in the darktable repository.
+For a list of outstanding work please see the [issues](https://github.com/darktable-org/dtdocs/issues) in this repository and a list of [undocumented pull requests](https://github.com/darktable-org/darktable/pulls?q=is%3Apr+is%3Aclosed+label%3A%22documentation:%20pending%22) in the darktable repository.
+
+Translations are maintained through [Weblate](https://hosted.weblate.org/projects/darktable-documentation/). 
+
+<a href="https://hosted.weblate.org/engage/darktable-documentation/"><img src="https://hosted.weblate.org/widget/darktable-documentation/svg-badge.svg" alt="Translation status"></a>
 
 ## Obtaining and Building
 
 ### Cloning
 
-The themes for the site and PDF use [hugo-darktable-docs-theme](https://github.com/pixlsus/hugo-darktable-docs-theme.git) and [hugo-darktable-docs-pdf-theme](https://github.com/pixlsus/hugo-darktable-docs-pdf-theme.git) as git submodules.
-In order to clone these submodules along with the site you just need to add the flag `--recurse-submodules` to the clone command:
+From a terminal:
 
-    git clone --recurse-submodules https://github.com/darktable-org/dtdocs.git
-
-If you already have the site cloned, but haven't included the submodules before:
-
-    git submodule update --init --recursive
-
-
-### Hugo
-
-This site is built with the static site generator Hugo (*extended*).
-Currently v0.75.1 extended:
 ```
-$ ./hugo version
-Hugo Static Site Generator v0.73.0/extended windows/amd64 BuildDate: unknown
+git clone https://github.com/darktable-org/dtdocs.git
 ```
 
-#### SASS
+#### Generating stylesheets
 
 If cloning the repo fresh, remember to build the bootstrap assets locally:
 
+
 ```
-$ cd ./themes/hugo-darktable-docs-theme/assets/
-$ yarn install (or alternatively `npm install`)
-$ cd ../../hugo-darktable-docs-pdf-theme/assets/
-$ yarn install
+cd ./themes/hugo-darktable-docs-theme/assets/
+yarn install
+cd ../../hugo-darktable-docs-pdf-theme/assets/
+yarn install
 ```
+
+Instead of `yarn install` you can use `npm install`.
 
 ### Updating
 
-If you have the repo cloned but need to update things, it helps to make sure everything is up to date (since we are also using a submodule for the base theme).
+From the project root:
 
-As normal, from the project root directory, update things like normal:
 ```
 git pull
 ```
 
-Double check that the submodule is being updated as well:
-```
-git submodule update --init --recursive
-```
+And finally make sure the stylesheets are up to date by rebuilding them (see [Generating stylesheets](#generating-stylesheets)).
 
-And finally make sure the assets are built:
-```
-cd themes/hugo-darktable-docs-theme/assets/
-yarn install (or alternatively `npm install`).
-```
-This should get things up and running.
+## Building
 
+This site is built with the static site generator [Hugo](https://github.com/gohugoio/hugo) (*extended*).
 
-### Building
+You can use a prebuilt binary of the latest *extended* version for your system. A detailed guide for installation of the prebuilt binaries is given in the [Hugo installation documentation](https://gohugo.io/installation/).
 
-You can build the HTML website locally, the production site to deploy to hosting, or the PDF.
-
-## Local Website
+### Local Website for development
 
 Building the site to test locally can be done from the root of the repo.
 
 ```
-$ hugo server -D --disableFastRender
+hugo server -D --disableFastRender
 ```
 
-The site should then be available at http://localhost:1313/usermanual/development/ (you can see the URL in the output of the `hugo server` command).
+This builds the pages locally to the `public` directory and makes the site available at http://localhost:1313/usermanual/development/ (you can see the URL in the output of the `hugo server` command).
 
-## Production Website
+Note that unless international .md files have been generated with `generate-translations.sh --no-update` only the english sites will be available. 
 
-Run the `hugo` command:
+### Production Website
+
+Run `hugo` to generate the HTML output files.
 
 ```
 hugo
 ```
 
-The static files are now available to deploy to a webhost in the `public` directory. This is currently performed automatically when new changes are pushed to the master branch, via github Actions.
+The static files are now available to deploy to a webhost in the `public` directory. For docs.darktable.org this is automated, see *Deployment* below.
 
-## PDF
+### PDF
 
-Ensure you have the [`weasyprint`](https://weasyprint.org) application installed; this will transform the generated HTML to PDF.
+PDFs can be built with:
 
 ```
-mkdir -p public
-hugo server --disableFastRender --config config-pdf.yaml
-weasyprint http://localhost:1313/dtdocs/index.html public/darktable_user_manual.pdf
-pkill hugo
+./tools/build-pdf.sh
 ```
 
-The PDF is available in the `public` directory.
+The script generates PDFs by deploying the .html files with `hugo server` using the `config-pdf.yaml` and then rendered to PDF with `weasyprint`. They are written to the `public` directory. International PDFs will only properly be built if internationalized .md files have been generated with  `generate-translations.sh --no-update` beforehand.
+
+### EPUB
+
+The EPUB can be built with: 
+
+```
+./tools/build-epub.sh
+```
+
+This builds an EPUB for every enabled language and writes them to
+`public/<lang>/darktable_user_manual.epub`. As with the PDF, a language is only built if its translated content has been generated first.
+
+## Deployment
+
+See [development & deployment](https://docs.darktable.org/usermanual/development/en/contributing/development-deployment/) within the docs for more detailed information on how dtdocs is deployed.

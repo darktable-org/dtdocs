@@ -1,9 +1,7 @@
 ---
 title: metadata and tagging
 id: metadata-and-tagging
-draft: false
 weight: 60
-author: "people"
 ---
 
 darktable allows you to store additional information about your images to allow them to be more easily searched and grouped. This information is stored in darktable's database and XMP sidecar files and can also be included within exported images.
@@ -14,4 +12,4 @@ Metadata (e.g. title, description) is free-format text that usually differs for 
 
 # tagging
 
-Tags are usually shared between multiple images and are used to categorise and group them. You can add tags to images in the [tagging](../../module-reference/utility-modules/shared/tagging.md) module.
+Tags are usually shared between multiple images and are used to categorise, group, and/or [sequence](../../lighttable/digital-asset-management/sequence.md) them. You can add tags to images in the [tagging](../../module-reference/utility-modules/shared/tagging.md) module.

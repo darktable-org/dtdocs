@@ -2,12 +2,26 @@
 title: chromatic aberrations
 id: chromatic-aberrations
 weight: 10
-applicable-version: 3.6
-tags: 
-working-color-space: 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct chromatic aberrations.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Correct chromatic aberrations.
 

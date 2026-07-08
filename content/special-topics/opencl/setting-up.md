@@ -2,8 +2,6 @@
 title: setting up OpenCL
 id: setting-up
 weight: 40
-draft: false
-author: "people"
 ---
 
 The huge diversity of systems and the marked differences between OpenCL vendors and driver versions makes it impossible to give an comprehensive overview of how to setup OpenCL. We only can give you an example, in this case for NVIDIA driver version 542.29.06 on Fedora 39. We hope that this will serve as a basic introduction and will help you to solve any problems specific to your setup.

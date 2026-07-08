@@ -2,12 +2,26 @@
 title: colorize
 id: colorize
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: overlay a solid color on the image.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Add a solid layer of color to the image.
 

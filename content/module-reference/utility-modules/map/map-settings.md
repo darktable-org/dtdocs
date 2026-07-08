@@ -1,9 +1,6 @@
 ---
 title: map settings
 id: map-settings
-applicable-version: 3.6
-tags:
-view: map
 ---
 
 Select preferred map data from various providers. Some will provide additional layers (satellite view etc.) which you can toggle.

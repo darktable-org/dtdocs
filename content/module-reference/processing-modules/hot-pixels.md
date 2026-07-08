@@ -2,12 +2,26 @@
 title: hot pixels
 id: hot-pixels
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Not Applicable (RAW) 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: remove abnormally bright pixels by dampening them with neighbors.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: reconstruction, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
 
 Automatically detect and eliminate hot pixels. 
 
@@ -16,10 +30,10 @@ Hot pixels are pixels which have failed to record a light level correctly. Detec
 # module controls
 
 threshold
-: How strong a pixel's value needs to deviate from that of its neighbors to be regarded as a hot pixel.
+: The minimum brightness for a pixel to be considered a hot pixel candidate.
 
 strength
-: The blending strength of the hot pixels with their surrounding.
+: The sensitivity of detection; higher values will fix more pixels by requiring less deviation from their neighbors.
 
 detect by 3 neighbours
 : Extend the detection of hot pixels -- regard a pixel as hot if a minimum of only three (instead of four) neighbor pixels deviate by more than the threshold level.

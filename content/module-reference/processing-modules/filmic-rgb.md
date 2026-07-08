@@ -2,20 +2,35 @@
 title: filmic rgb
 id: filmic-rgb
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 include_toc: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: apply a view transform to prepare the scene-referred pipeline for display on SDR screens and paper prints while preventing clipping in non-destructive ways.
+
+purpose
+: corrective and creative.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
+
 Remap the tonal range of an image by reproducing the tone and color response of classic film.
 
 This module can be used either to expand or to contract the dynamic range of the scene to fit the dynamic range of the display. It protects colors and contrast in the mid-tones, recovers the shadows, and compresses bright highlights and dark shadows. Highlights will need extra care when details need to be preserved (e.g. clouds).
 
-The module is derived from another module of the same name in [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module. The following video (by the developer of this module) provides a useful introduction: [filmic rgb: remap any dynamic range in darktable 3](https://www.youtube.com/watch?v=zbPj_TqTF880).
+The module is derived from another module of the same name in [Blender 3D modeller](https://www.blender.org/) by T. J. Sobotka. While it is primarily intended to recover high-dynamic-range images from raw sensor data it can be used with any image in place of the [_base curve_](./base-curve.md) module.
 
-_filmic rgb_ is the successor to the _filmic_ module from darktable 2.6. While the underlying principles have not changed much, the default settings and their assumptions have, so users of the previous version should not expect a 1:1 translation of their workflow to the new version.
+You can automatically enable this module in new images by setting the value of [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md#image-processing) to 'scene-referred (filmic)'.
 
 ---
 
@@ -49,15 +64,15 @@ The _filmic rgb_ module is designed to map the dynamic range of the photographed
 
 This mapping is defined in three steps, each handled in a separate tab in the interface:
 
- - The [_scene_](#scene) tab contains the “input” settings of the scene, defining what constitutes white and black in the photographed scene.
+-   The [_scene_](#scene) tab contains the “input” settings of the scene, defining what constitutes white and black in the photographed scene.
 
- - The [_reconstruct_](#reconstruct) tab offers tools to handle blown highlights.
+-   The [_reconstruct_](#reconstruct) tab offers tools to handle blown highlights.
 
- - The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do. As a general guideline, you should aim to increase the latitude as much as possible without clipping the extremes of the curve.
+-   The [_look_](#look) tab contains the artistic intent of the mapping that is applied to the input parameters (as defined in the scene tab). This part of the module applies an S-shaped parametric curve to enhance the contrast of the mid-tones and remap the gray value to the middle-gray of the display. This is similar to what the [_base curve_](./base-curve.md) and [_tone curve_](./tone-curve.md) modules do.
 
- - The [_display_](#display) tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab rarely require adjustment.
+-   The [_display_](#display) tab defines the output settings required to map the transformed image to the display. In typical use cases, the parameters in this tab rarely require adjustment.
 
- - The [_options_](#options) tab includes some optional advanced settings and parameters.
+-   The [_options_](#options) tab includes some optional advanced settings and parameters.
 
 _filmic rgb_ tends to compress local contrast, so after you have finished adjusting settings here, you may wish to compensate for this using the [_local contrast_](local-contrast.md) module. You may also want to increase the saturation in the [_color balance rgb_](color-balance-rgb.md) module, and perhaps to further adjust the tones using the [_tone equalizer_](tone-equalizer.md).
 
@@ -67,8 +82,8 @@ The ranges of _filmic rgb_'s sliders are limited to typical and safe values, but
 
 **Note**: _filmic rgb_ cannot be set with entirely neutral parameters (resulting in a "no-operation") -- as soon as the module is enabled, the image is always at least slightly affected. You can, however, come close to neutral with the following settings:
 
-- in the [_look_](#look) tab, set contrast to 1.0, latitude to 99 % and mid-tones saturation to 0 %,
-- in the [_options_](#options) tab, set contrast in shadows and in highlights to _soft_.
+-   in the [_look_](#look) tab, set contrast to 1.0, linear region to 99 % and mid-tones saturation to 0 %,
+-   in the [_options_](#options) tab, set contrast in shadows and in highlights to _soft_.
 
 In this configuration, filmic will only perform a logarithmic tone mapping between the bounds set in the [_scene_](#scene) tab.
 
@@ -81,7 +96,7 @@ The graphic display at the top of the _filmic rgb_ module offers multiple views 
 The following views are available:
 
 look only
-: This is the default view. The main bright curve shows how the dynamic range of the scene (in EV) is compressed into the display-referred output range. The orange dot shows the middle-gray point, the white dots either side mark out the latitude range, and the orange part of the curve at the bottom and top indicates an overshoot problem with the spline (the [_look_](#look) tab has some controls to deal with this).
+: This is the default view. The main bright curve shows how the dynamic range of the scene (in EV) is compressed into the display-referred output range. The orange dot shows the middle-gray point, the white dots either side mark out the linear region, and the orange part of the curve at the bottom and top indicates an overshoot problem with the spline (the [_look_](#look) tab has some controls to deal with this).
 
 : ![filmic-rgb-look-only](./filmic-rgb/filmic-look-only.png#w50)
 
@@ -96,7 +111,7 @@ look + mapping (log)
 : ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-look-mapping-log.png#w50)
 
 dynamic range mapping
-: This view is inspired by the Ansel Adams Zone System, showing how the zones in the input scene (EV) are mapped to the output. Middle gray from the scene is always mapped to 18% in the output (linear) space, and the view shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones. The latitude range is represented by the darker gray portion in the middle.
+: This view is inspired by the Ansel Adams Zone System, showing how the zones in the input scene (EV) are mapped to the output. Middle gray from the scene is always mapped to 18% in the output (linear) space, and the view shows how the tonal ranges towards the extremes of the scene exposure range are compressed into a smaller number of zones in the display space, leaving more room for the mid-tones to be spread out over the remaining zones. The linear region is represented by the darker gray portion in the middle.
 
 : ![filmic-rgb-look-mapping-lin](./filmic-rgb/filmic-dynamic-range-map.png#w50)
 
@@ -104,8 +119,8 @@ dynamic range mapping
 
 **Note:** When some parameters are too extreme, resulting in an unfeasible curve, _filmic rgb_ will sanitize them internally. Sanitizing is illustrated in two ways on the look views:
 
-- A dot becoming red indicates that the linear part of the curve is pushed too far towards the top or the bottom. In the [_look_](#look) tab, reduce the _latitude_ or recenter the linear part using the _shadows ↔ highlights balance_ parameter.
-- A dot becoming a half circle indicates that contrast is too low given the dynamic range of the image. Increase _contrast_ in the [_look_](#look) tab, or the _dynamic range_ in the [_scene_](#scene) tab.
+-   A dot becoming red indicates that the linear part of the curve is pushed too far towards the top or the bottom. In the [_look_](#look) tab, reduce the _linear region_ or recenter the linear part using the _shadows ↔ highlights balance_ parameter.
+-   A dot becoming a half circle indicates that contrast is too low given the dynamic range of the image. Increase _contrast_ in the [_look_](#look) tab, or the _dynamic range_ in the [_scene_](#scene) tab.
 
 ---
 
@@ -116,30 +131,30 @@ dynamic range mapping
 The controls in the _scene_ tab are similar in principle to those of the [_levels_](./levels.md) module (black, gray, white). The difference is that _levels_ assumes display-referred pixels values (between 0 and 100%), whereas _filmic_ allows you to work on scene-referred pixels (between --infinity EV and +infinity EV), which forces the use of a different interface.
 
 middle-gray luminance (hidden by default)
-: This setting allows you to decide what luminance in the scene should be considered the reference middle-gray (which will be remapped to 18% in display). Use the color picker tool to read the average luminance over the drawn area. If you have a photograph of a gray card or a color chart (IT8 chart or colorchecker) shot in the scene lighting conditions, then the gray color picker tool can be used to quickly sample the luminance of the gray patch on that image. In other situations, the color picker can be used to sample the average luminance of the subject.
+: This setting allows you to decide what luminance in the scene should be considered the reference middle-gray (which will be remapped to 18% in display). Use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool to read the average luminance over the drawn area. If you have a photograph of a gray card or a color chart (IT8 chart or colorchecker) shot in the scene lighting conditions, then the gray picker tool can be used to quickly sample the luminance of the gray patch on that image. In other situations, the picker can be used to sample the average luminance of the subject.
 
-: This has an effect on the picture that is analogous to a brightness correction. Values close to 100% do not compress the highlights but fail to recover shadows. Values close to 0% greatly recover the shadows but compress the highlights more harshly and result in local-contrast losses.
+: This has an effect on the image that is analogous to a brightness correction. Values close to 100% do not compress the highlights but fail to recover shadows. Values close to 0% greatly recover the shadows but compress the highlights more harshly and result in local-contrast losses.
 
 : When modifying the middle-gray luminance, the white and black exposures are automatically adjusted accordingly, to prevent the dynamic range from clipping and to help you set the right parameter faster. If you are not happy with the auto adjustment performed by the gray slider, you can correct the white and black exposure parameters afterwards.
 
 ---
 
-**Note:** You are not advised to use this control to set middle-gray, hence it is now hidden by default. You should instead use the _exposure_ module to set the middle-gray level (see [_usage_](#usage), above). However, if you wish to make this slider visible, you can enable it with the _use custom mid-gray values_ checkbox in the [_options_](#options) tab.
+**Note:** You are not advised to use this control to set middle-gray, hence it is now hidden by default. You should instead use the _exposure_ module to set the middle-gray level (see [_usage_](#usage), above). However, if you wish to make this slider visible, you can enable it with the _use custom middle-gray values_ checkbox in the [_options_](#options) tab.
 
 ---
 
 white relative exposure
-: The number of stops (EV) between the scene middle-gray luminance and the scene luminance to be remapped to display white (peak-white). This is the right bound of the scene dynamic range that will be represented on the display -- everything brighter than this value on the scene will be clipped (pure white) on the display. The color picker tool reads the maximum luminance in RGB space over the drawn area, assumes it is pure white, and sets the white exposure parameter to remap the maximum to 100% luminance.
+: The number of stops (EV) between the scene middle-gray luminance and the scene luminance to be remapped to display white (peak-white). This is the right bound of the scene dynamic range that will be represented on the display -- everything brighter than this value on the scene will be clipped (pure white) on the display. The [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool reads the maximum luminance in RGB space over the drawn area, assumes it is pure white, and sets the white exposure parameter to remap the maximum to 100% luminance.
 
 black relative exposure
-: The number of stops (EV) between the scene middle-gray luminance and the scene luminance to be remapped to display black (maximum density). This is the left bound of the scene dynamic range that will be represented on the display -- everything darker than this value on the scene will be clipped (pure black) on the display. The color picker tool reads the minimum luminance in RGB space over the drawn area, assumes it is pure black, and sets the black exposure parameter to remap the minimum to 0% luminance. The black color picker measurement is very sensitive to noise, and cannot identify whether the minimum luminance is pure black (actual data) or just noise. It works better on low ISO pictures and with high quality demosaicing. When the color picker puts the black exposure at --16 EV, this is a sign that the measurement has failed and you will need to adjust it manually.
+: The number of stops (EV) between the scene middle-gray luminance and the scene luminance to be remapped to display black (maximum density). This is the left bound of the scene dynamic range that will be represented on the display -- everything darker than this value on the scene will be clipped (pure black) on the display. The [picker](../../darkroom/processing-modules/module-controls.md#pickers) tool reads the minimum luminance in RGB space over the drawn area, assumes it is pure black, and sets the black exposure parameter to remap the minimum to 0% luminance. The black picker measurement is very sensitive to noise, and cannot identify whether the minimum luminance is pure black (actual data) or just noise. It works better on low ISO images and with high quality demosaicing. When the picker puts the black exposure at --16 EV, this is a sign that the measurement has failed and you will need to adjust it manually.
 
 : The black relative exposure allows you to choose how far you want to recover lowlights.
 
 dynamic range scaling and auto-tune
-: The auto-tune color picker combines the above color pickers, and allows you to set the white and black exposures at the same time, using the maximum of the drawn region as the white and the minimum as the black. This gives good results in landscape photography but usually fails for portraits and indoor scenes.
+: The auto-tune [picker](../../darkroom/processing-modules/module-controls.md#pickers) combines the above pickers, and allows you to set the white and black exposures at the same time, using the maximum of the drawn region as the white and the minimum as the black. This gives good results in landscape photography but usually fails for portraits and indoor scenes.
 
-: When no true white and black are available on the scene, the maximum and minimum RGB values read on the image are not valid assumptions any more. Dynamic range scaling symmetrically shrinks or enlarges the detected dynamic range and the current parameters. This works with both color pickers, and adjusts the current values of white and black relative exposures.
+: When no true white and black are available on the scene, the maximum and minimum RGB values read on the image are not valid assumptions any more. Dynamic range scaling symmetrically shrinks or enlarges the detected dynamic range and the current parameters. This works with both pickers, and adjusts the current values of white and black relative exposures.
 
 ---
 
@@ -161,8 +176,11 @@ Firstly, a mask needs to be set up to identify the parts of the image that will 
 
 These controls allow you to choose which areas of the image are impacted by the highlight reconstruction algorithms.
 
+enable highlight reconstruction
+: Highlight reconstruction is disabled by default (for performance reasons -- it should only be enabled when required). Use this option to enable it. Highlight reconstruction is also automatically enabled if the threshold or transition sliders are adjusted.
+
 threshold
-: Any pixels brighter than this threshold will be affected by the reconstruction algorithm. The units are in EV, relative to the white point set in the _scene_ tab. By default, this control is set to +3 EV, meaning that pixels need to be at least +3 EV brighter than the white point set in the [_scene tab_](#scene) in order for the highlight reconstruction to have any effect. In practise, this means that highlight reconstruction is effectively disabled by default (for performance reasons -- it should only be enabled when required). Therefore, to use the _highlights reconstruction_ feature, first click the _display highlight reconstruction mask_ icon to show the mask, and lower this threshold until the highlight areas you want to reconstruct are selected in white by the mask. It may be useful to first review the image using the [raw overexposed warning](../utility-modules/darkroom/raw-overexposed.md) to show you which pixels in the raw file have been clipped, and whether those pixels are clipped on just one RGB channel or all of them.
+: Any pixels brighter than this threshold will be affected by the reconstruction algorithm. The units are in EV, relative to the white point set in the _scene_ tab. To use the _highlights reconstruction_ feature, click the _display highlight reconstruction mask_ icon to show the mask, and alter this threshold until the highlight areas you want to reconstruct are selected in white by the mask. It may be useful to first review the image using the [raw overexposed warning](../utility-modules/darkroom/raw-overexposed.md) to show you which pixels in the raw file have been clipped, and whether those pixels are clipped on just one RGB channel or all of them.
 
 transition
 : Use this control to soften the transition between clipped and valid pixels. Moving this control to the right will increase the amount of blur in the mask, so that the transition between clipped and non-clipped areas is softer. This allows for a smoother blending between the clipped and non-clipped regions. Moving this control to the left will reduce the blur in the mask, making the transition in the mask much sharper and therefore reducing the amount of feathering between clipped and non-clipped areas.
@@ -189,13 +207,13 @@ When working on the _look_ tab, it is recommended that you monitor the S-curve s
 
 If you see the orange warning indicator at either end of the S-curve, corrective actions should be performed to bring the S-curve back to a smooth monotonically increasing curve. This may involve:
 
-- reducing the latitude and/or contrast,
+-   reducing the linear region and/or contrast,
 
-- adjusting the shadows/highlights slider to shift the latitude and allow more room for the spline,
+-   adjusting the shadows/highlights slider to shift the linear region and allow more room for the spline,
 
-- ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
+-   ensuring that the scene-referred black and white relative exposure sliders on the _scene_ tab have been properly set for the characteristics of the scene,
 
-- setting one or both of the contrast settings on the [_options_](#options) tab to _safe_ or _hard_.
+-   setting one or both of the contrast settings on the [_options_](#options) tab to _safe_ or _hard_.
 
 If the _target black luminance_ setting on the [_display_](#display) tab is non-zero, this can also make it difficult for _filmic rgb_ to find a smooth monotonic spline, and reducing this can also help to relax the constraints. See the [_display_](#display) section to understand the implications of this.
 
@@ -211,20 +229,24 @@ hardness (previously _target power factor function_)
 
 : This parameter is the power function applied to the output transfer function, and it is often improperly called the _gamma_ (which can mean too many things in imaging applications, so we should stop using that term). It is used to raise or compress the mid-tones to account for display non-linearities or to avoid quantization artifacts when encoding in 8 bit file formats. This is a common operation when applying ICC color profiles (except for linear RGB spaces, like Rec. 709 or Rec. 2020, which have a linear “gamma” of 1.0). However, at the output of _filmic rgb_, the signal is logarithmically encoded, which is not something ICC color profiles know to handle. As a consequence, if we let them apply a gamma of 1/2.2 on top, it will result in a double-up, which would cause the middle-gray to be remapped to 76% instead of 45% as it should in display-referred space.
 
-latitude
-: The latitude is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the [_scene_](#scene) tab (white relative exposure minus black relative exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. It is usually advisable to keep the latitude as large as possible, while avoiding clipping. If clipping is observed, you can compensate by either decreasing the latitude, shifting the latitude interval with the _shadow ↔ highlights balance_ parameter, or decreasing the contrast.
+linear region
+: The linear region is the range between the two nodes enclosing the central linear portion of the curve, expressed as a percentage of the dynamic range defined in the [_scene_](#scene) tab (white relative exposure minus black relative exposure). It is the luminance range that is remapped in priority, and it is remapped to the luminance interval defined by the contrast parameter. If clipping is observed when increasing the linear region, you can compensate by either decreasing the linear region, shifting the linear region interval with the _shadow ↔ highlights balance_ parameter, or decreasing the contrast.
+Note: This setting was formerly named "latitude". 
 
-: The latitude also defines the range of luminances that are not desaturated at the extremities of the luminance range (See _mid-tones saturation_).
+: The linear region also defines the range of luminances that are not desaturated at the extremities of the luminance range (See _mid-tones saturation_).
 
 shadows ↔ highlights balance
-: By default, the latitude is centered in the middle of the dynamic range. If this produces clipping at one end of the curve, the balance parameter allows you to slide the latitude along the slope, towards the shadows or towards the highlights. This allows more room to be given to one extremity of the dynamic range than to the other, if the properties of the image demand it.
+: By default, the linear region is centered in the middle of the dynamic range. If this produces clipping at one end of the curve, the balance parameter allows you to slide the linear region along the slope, towards the shadows or towards the highlights. This allows more room to be given to one extremity of the dynamic range than to the other, if the properties of the image demand it.
 
-mid-tones saturation / extreme luminance saturation / highlights saturation mix
-: At extreme luminances, the pixels will tend towards either white or black. Because neither white nor black have color associated with them, the saturation of these pixels must be 0%. In order to gracefully transition towards this 0% saturation point, pixels outside the mid-tone latitude range are progressively desaturated as they approach the extremes. The darker curve in the _filmic rgb_ graph indicates the amount of desaturation that is applied to pixels outside the latitude range. Moving the slider to the right pushes the point where desaturation will start to be applied towards the extremes, resulting in a steeper desaturation curve. If pushed too far, this can result in fringing around the highlights. Moving the slider to the left brings the point at which color desaturation will start to be applied closer to the center, resulting in a gentler desaturation curve. If you would like to see more color saturation in the highlights, and you have checked that the white relative exposure in the [_scene_](#scene) tab is not yet clipping those highlights, move the mid-tones saturation slider to the right to increase the saturation.
+highlights saturation mix
+: At extreme luminances, pixels will tend towards either white or black. Because neither white nor black have color associated with them, the saturation of these pixels must be 0%. In order to gracefully transition towards this 0% saturation point, pixels outside the mid-tone linear region range are progressively desaturated as they approach the extremes. This setting controls how that is achieved. Positive values ensure that saturation is kept unchanged over the entire tonal range. Negative values bleach highlights at constant hue and luminance. Zero is an equal mix of both strategies.
+: This control is set to 0 by default and should normally be left unchanged as you are now advised to handle saturation earlier in the pipeline -- a preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
 
-: Please note that this desaturation strategy has changed compared to previous versions of _filmic rgb_ (which provided a different slider control labelled _extreme luminance saturation_). You can revert to the previous desaturation behaviour by selecting "v3 (2019)" in the _color science_ setting on the [_options_](#options) tab. Since _filmic_ _v6_ and _v7_ use accurate gamut mapping to the output color space, the desaturation curve is removed and the extreme luminance desaturation becomes a method to control the bleaching of highlights.
+---
 
-: This control is set to 0 by default and it is now recommended that saturation is handled earlier in the pipeline. A preset "add basic colorfulness" has been added to the [_color balance rgb_](./color-balance-rgb.md) module for this purpose.
+**Note:** The _highlights saturation mix_ control has changed a number of times as the developer refined its functionality. The above description documents the current version (v7), which is the default and recommended version to use. In earlier versions, this control had different names ("extreme luminance saturation" in v3 and v6, "mid-tones saturation" in versions 4-5), and filmic's graph also included a darker "desaturation curve" indicating the amount of desaturation applied to pixels outside the linear region. You can still access older versions by changing the "color science" setting in the [options](#options) tab. For more information on the operation of this control in older versions please see the tooltips that are displayed when you hover over the slider within darktable.
+
+---
 
 ## display
 
@@ -235,8 +257,8 @@ target black luminance
 
 : The target black luminance parameter sets the ground-level black of the target medium. By default it is set to the minimum non-zero value that can be encoded by the available number of bits in the output color space. Reducing it to zero means that some non-zero luminances will be mapped to 0 in the output, potentially losing some detail in the very darkest parts of the shadows. Increasing this slider will produce raised, faded blacks that can provide something of a "retro" look.
 
-target middle-gray
-: This is the middle-gray of the output medium that is used as a target for the S-curve's central node. On gamma-corrected media, the actual gray is computed with the gamma correction (middle-gray^(1/gamma)), so a middle-gray parameter of 18% with a gamma of 2.2 gives an actual middle-gray target of 45.87%.
+target middle-gray (hidden by default)
+: This is the middle-gray of the output medium that is used as a target for the S-curve's central node. On gamma-corrected media, the actual gray is computed with the gamma correction (middle-gray^(1/gamma)), so a middle-gray parameter of 18% with a gamma of 2.2 gives an actual middle-gray target of 45.87%. This control is hidden by default as it is essentially a duplication of the _exposure_ control within the [_exposure_](./exposure.md) module. You should use this module to set an appropriate mid-gray value before tone mapping with _filmic rgb_.
 
 target white luminance
 : This parameter allows you to set the ceiling level white of the target medium. Set it lower than 100% if you want dampened, muted whites to achieve a retro look.
@@ -249,7 +271,7 @@ color science
 : This setting defaults to _v7 (2023)_ for new images, and defines the algorithms used by the _filmic rgb_ module (e.g. the extreme luminance desaturation strategy). To revert to the behavior of previous versions of _filmic rgb_, set this parameter to _v3 (2019)_, _v4 (2020)_ or _v5 (2021)_. The difference between these methods lies in the way in which they handle desaturation close to pure black and pure white (see the [background](#background) section for details). If you have previously edited an image using older versions of _filmic rgb_, the color science setting will be kept at the earlier version number in order to provide backward compatibility for those edits. _v7 (2023)_ removes the _preserve chrominance_ option (see [background](#background)).
 
 preserve chrominance (not available with color science _v7_)
-: Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the three provided norms.
+: Define how the chrominance should be handled by _filmic rgb_ -- either not at all, or using one of the four provided norms.
 
 : When applying the S-curve transformation independently on each color, the proportions of the colors are modified, which modifies the properties of the underlying spectrum, and ultimately the chrominance of the image. This is what happens if you choose "no" in the preserve chrominance parameter. This value may yield seemingly “better” results than the other values, but it may negatively impact later parts of the pipeline, for example, when it comes to global saturation.
 
@@ -270,10 +292,10 @@ preserve chrominance (not available with color science _v7_)
 : There is no "right" choice for the norm, and the appropriate choice depends strongly on the image to which it is applied. You are advised to experiment and decide for yourself which setting gives the most pleasing result with the fewest artifacts.
 
 contrast in highlights
-: This control selects the desired curvature at the highlights end of the _filmic rgb_ spline curve. The default setting (_safe_) is guaranteed not to over- or under-shoot but has quite muted contrast near white. Selecting _hard_ places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the highlights. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the highlights.
+: This control selects the desired curvature at the highlights end of the _filmic rgb_ spline curve. Selecting _safe_ is guaranteed not to over- or under-shoot but has quite muted contrast near white. The default setting (_hard_) places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the highlights. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the highlights.
 
 contrast in shadows
-: This control selects the desired curvature at the shadows end of the _filmic rgb_ spline curve. The default setting (_safe_) is guaranteed not to over- or under-shoot but has quite muted contrast near black. Selecting _hard_ places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the shadows. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the shadows.
+: This control selects the desired curvature at the shadows end of the _filmic rgb_ spline curve. Selecting _safe_ is guaranteed not to over- or under-shoot but has quite muted contrast near black. The default setting (_hard_) places a tighter constraint on the slope of the spline, which makes the curve sharper and hence introduces more tonal compression in the shadows. Selecting _soft_ loosens this constraint, resulting in a gentler curve with less tonal compression in the shadows.
 
 use custom middle-gray values
 : Enabling this setting makes the _middle-gray luminance_ slider visible on the [_scene_](#scene) tab. With the current version of _filmic rgb_, you are advised to use the _exposure_ module to set the middle-gray level, so this setting is disabled by default (and the _middle-gray luminance slider_ is hidden).
@@ -284,10 +306,10 @@ auto-adjust hardness
 iterations of high-quality reconstruction
 : Use this setting to increase the number of passes of the highlight reconstruction algorithm. More iterations means more color propagation into clipped areas from pixels in the surrounding neighbourhood. This can produce more neutral highlights, but it also costs more in terms of processing power. It can be useful in difficult cases where there are magenta highlights due to channel clipping.
 
-: The default reconstruction works on separate RGB channels and has only one iteration applied, whereas the _high quality_ reconstruction uses a different algorithm that works on RGB ratios (which is a way of breaking down chromaticity from luminance) and can use several iterations to graduately propagate colors from neighbouring pixels into clipped areas. However, if too many iterations are used, the reconstruction can denegenerate, which will result in far colors being improperly inpainted into clipped objects (color bleeding) -- for example white clouds being inpainted with blue sky, or the sun disc shot through trees being inpainted with leaf-green.
+: The default reconstruction works on separate RGB channels and has only one iteration applied, whereas the _high quality_ reconstruction uses a different algorithm that works on RGB ratios (which is a way of breaking down chromaticity from luminance) and can use several iterations to gradually propagate colors from neighbouring pixels into clipped areas. However, if too many iterations are used, the reconstruction can degenerate, which will result in far colors being improperly inpainted into clipped objects (color bleeding) -- for example white clouds being inpainted with blue sky, or the sun disc shot through trees being inpainted with leaf-green.
 
 add noise in highlights
-: This artificially introduces noise into the reconstructed  highlights to prevent them from looking too smooth compared to surrounding areas that may already contain noise. This can help to blend the reconstructed areas more naturally with the surrounding non-clipped areas.
+: This artificially introduces noise into the reconstructed highlights to prevent them from looking too smooth compared to surrounding areas that may already contain noise. This can help to blend the reconstructed areas more naturally with the surrounding non-clipped areas.
 
 type of noise
 : This specifies the statistical distribution of the added noise. It can be helpful to match the look of the artificially generated noise with the naturally occurring noise in the surrounding areas from the camera's sensor. The _poissonian_ noise is the closest to natural sensor noise but is less visually pleasing than _gaussian_, which is probably closer to film grain. Also note that most denoising modules will turn the sensor noise from poissonian to slightly gaussian, so you should pick the variant that blends better into the actual noise in your image.
@@ -314,11 +336,11 @@ _v7 (2023)_ improves over _v6 (2022)_ by replacing the chroma preservation metho
 
 The approach in _v7_ is to offer a mix between the _max RGB_ norm and the no-preservation option (where the output hue and saturation are still forced to their input values). The proportions of the mix are driven by the _highlights saturation mix_ setting as follows:
 
-- -50% is strictly equivalent to the _v6_ no-preservation option,
-- +50% is strictly equivalent to the _v6_ _max RGB_ option,
-- 0% is an average of no-preservation and _max RGB_,
-- intermediate values are weighted averages between no-preservation and _max RGB_,
-- values beyond ±50% (up to ±200%) are linear extrapolations.
+-   -50% is strictly equivalent to the _v6_ no-preservation option,
+-   +50% is strictly equivalent to the _v6_ _max RGB_ option,
+-   0% is an average of no-preservation and _max RGB_,
+-   intermediate values are weighted averages between no-preservation and _max RGB_,
+-   values beyond ±50% (up to ±200%) are linear extrapolations.
 
 Positive values favor saturated highlights and are generally suitable for skies, but need to be handled with care for portraits (producing accurate skin tones), whereas negative values favor bleaching of highlights.
 
@@ -328,7 +350,7 @@ The _highlights saturation mix_ slider provides fine control over the amount of 
 
 ### color artifacts
 
-As filmic versions 6 and 7 are so far the best approach for retaining saturated colors at constant hue, they are also much less forgiving to __invalid__ colors like chromatic aberrations and clipped magenta highlights, which are much better hidden (albeit __not solved__) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
+As filmic versions 6 and 7 are so far the best approach for retaining saturated colors at constant hue, they are also much less forgiving to **invalid** colors like chromatic aberrations and clipped magenta highlights, which are much better hidden (albeit **not solved**) by simple curves applied on individual channels (no chrominance preservation) with no care given to their ratios.
 
 It is not the purpose of a tone mapping and gamut mapping operators to reconstruct damaged signals, and these flaws need to be corrected earlier in the pipeline with the specialized modules provided. However, there is a mechanism in filmic v6 that ensures that any color brighter than the _white relative exposure_ degrades to pure white, so a quick workaround is to simply set the _white relative exposure_ to a value slightly lower than the exposure of the clipped parts. In other words: if it is clipped at the input, let it be clipped at the output. Chrominance preservation options that work the best for this purpose are the _luminance_ and _euclidean_ norms, or simply _none_.
 

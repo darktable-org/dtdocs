@@ -2,18 +2,34 @@
 title: orientation
 id: orientation
 weight: 10
-applicable-version: 3.8
-tags: rotate orientation basic-module-group
-working-color-space: not-applicable (RAW)
-view: darkroom
-masking: false
 ---
 
-Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically. 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: flip or rotate image by step of 90 degrees.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
+
+Rotate the image 90 degrees at a time or flip the image horizontally and/or vertically.
 
 The module is enabled by default and the orientation (rotation) is automatically set based on the image's Exif data.
 
 The orientation can also be set using the [actions on selection](../utility-modules/lighttable/selected-image.md) module in the [lighttable](../../lighttable/_index.md) view.
+
+**Note:** The [_crop_](./crop.md) area is retained when the orientation is changed.
 
 # module controls
 
@@ -34,4 +50,3 @@ transform
 
 show guides
 : Tick the box to show guide overlays whenever the module is activated. Click the icon on the right to control the properties of the guides. See [guides & overlays](../utility-modules/darkroom/guides-overlays.md) for details.
-

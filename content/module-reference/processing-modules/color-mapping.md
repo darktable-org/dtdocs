@@ -2,12 +2,26 @@
 title: color mapping
 id: color-mapping
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: transfer a color palette and tonal repartition from one image to another.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Transfer the look and feel of one image to another. 
 

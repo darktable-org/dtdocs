@@ -2,12 +2,26 @@
 title: lens correction
 id: lens-correction
 weight: 10
-applicable-version: 4.6
-tags: 
-working-color-space: RGB
-view: darkroom
-masking: false
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct lenses optical flaws.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric and reconstruction, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Automatically correct for (or simulate) lens distortion, transverse chromatic aberrations (TCA) and vignetting.
 
@@ -69,7 +83,7 @@ scale
 mode
 : The default behavior of this module is to _correct_ lens flaws. Switch this combobox to "distort" in order to instead _simulate_ the flaws/distortions of a specific lens (inverted effect).
 
-TCA overwrite
+TCA override
 : Check this box to override the automatic correction parameters for TCA. This will expose the TCA red and TCA blue parameters below. Un-check the box to revert back to automatic corrections.
 
 TCA red; TCA blue

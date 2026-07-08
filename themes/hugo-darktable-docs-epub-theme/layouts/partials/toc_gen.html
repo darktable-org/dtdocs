@@ -1,0 +1,17 @@
+<ul>
+    {{ with .Site.GetPage "/" }}
+        {{ range .Sections.ByWeight }}
+            {{/* We don't want a menu item for specific pages listed here */}}
+            {{ if (and (ne .Title "Posts") (ne .Title "Test Page")) }}
+                <li>
+                    <a href="#{{ with .Page.File}}{{ .UniqueID }}{{ end }}">
+			{{ .Title }}
+		    </a>
+                    <!-- Using partialCached here offers significant build time speedup, as this recursive menu would otherwise be rebuilt for
+                    every page! -->
+                    {{ partial "toc_recursive.html" . }}
+                </li>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</ul>

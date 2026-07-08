@@ -2,12 +2,26 @@
 title: split-toning
 id: split-toning
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: use two specific colors for shadows and highlights and create a linear toning effect between them up to a pivot.
+
+purpose
+: creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Create a two color linear toning effect where the shadows and highlights are represented by two different colors.
 

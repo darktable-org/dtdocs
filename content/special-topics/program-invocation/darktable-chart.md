@@ -2,8 +2,6 @@
 title: darktable-chart
 id: darktable-chart
 weight: 40
-draft: false
-author: "people"
 ---
 
 The `darktable-chart` binary is a dedicated utility to create styles out of pairs of images such as RAW+JPEG with in-camera processing. Details about its usage can be found in the [using darktable-chart](../darktable-chart/_index.md) section.

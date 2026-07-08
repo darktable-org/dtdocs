@@ -2,20 +2,34 @@
 title: rgb curve
 id: rgb-curve
 weight: 10
-applicable-version: 3.8
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: alter an image’s tones using curves in RGB color space.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: linear, RGB, display-referred.
+
+{{< /details >}}
 
 A classic digital photography tool to alter an image's tones using curves.
 
 This module is very similar to the [_tone curve_](./tone-curve.md) module but works in RGB color space.
 
-Activate the color picker on the left to show the picked values in the graph (Ctrl+click or right-click to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the widget.
+Activate the [picker](../../darkroom/processing-modules/module-controls.md#pickers) on the left to show the picked values in the graph (Ctrl+click or right-click to use the picker in area mode). Numerical (Lab) values of the input and output (see below) at the selected spot or area are shown at the top left of the widget.
 
-A second color picker to the right can be used to automtaically create new nodes based on the sampled area. Ctrl+click+drag to alter the created nodes to have a positive curve for the selected area; Shift+click+drag to create a negative curve.
+A second [picker](../../darkroom/processing-modules/module-controls.md#pickers) to the right can be used to automatically create new nodes based on the sampled area. Ctrl+click+drag to alter the created nodes to have a positive curve for the selected area; Shift+click+drag to create a negative curve.
 
 # module controls
 

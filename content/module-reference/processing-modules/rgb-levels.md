@@ -2,14 +2,28 @@
 title: rgb levels
 id: rgb-levels
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
 
-Adjust black, white and mid-gray points in RGB color space. This module is silmilar to the [_levels_](./levels.md) module, which works in Lab color space.
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: adjust black, white and mid-gray points in RGB color space.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
+
+Adjust black, white and mid-gray points in RGB color space. This module is similar to the [_levels_](./levels.md) module, which works in Lab color space.
 
 The rgb levels tool shows a histogram of the image, and displays three bars with handles. Drag the handles to modify the black, middle-gray and white points in lightness (in "RGB, linked channels" mode) or independently for each of the R, G and B channels (in "RGB, independent channels" mode).
 
@@ -17,7 +31,7 @@ Moving the black and white bars to match the left and right borders of the histo
 
 Moving the middle bar will modify the mid-tones. Move it to the left to make the image look brighter and move it to the right to make it darker. This is often referred to as changing the image's gamma.
 
-Three color pickers are available for sampling the black, white and gray points from the image. 
+Three [pickers](../../darkroom/processing-modules/module-controls.md#pickers) are available for sampling the black, white and gray points from the image. 
 
 ---
 
@@ -31,7 +45,7 @@ mode
 : The mode of operation. "RGB, linked channels" (default) provides a single levels tool which updates all channels, taking into account the selected color preservation method (see "preserve colors" below). "RGB, independent channels" provides separate levels controls for each of the R, G and B channels.
 
 auto
-: Auto-adjust the black and white point and put the gray point exactly in the mean between them. Use the color picker to auto-adjust based on a selected region of the image.
+: Auto-adjust the black and white point and put the gray point exactly in the mean between them. Use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) to auto-adjust based on a selected region of the image.
 
 preserve colors
 : Choose a color preservation method when using "RGB, linked channels" mode (default "luminance").

@@ -2,14 +2,28 @@
 title: (deprecated) crop and rotate
 id: crop-rotate
 weight: 20
-applicable-version: 3.8
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: change the framing and correct the perspective.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.8 and should no longer be used for new edits. Please use the [_crop_](./crop.md) module to crop the image, the [_rotate and perspective_](./rotate-perspective.md) module to perform rotation and keystone correction, and the [_orientation_](./orientation.md) module to flip the image on the horizontal/vertical axes.**
 
@@ -69,7 +83,7 @@ aspect
 
 : You can also enter any other ratio after opening the combobox by typing it in the form of “x:y” or as a decimal (e.g. "0.5" to apply a ratio of 2:1). 
 
-: If you want to add an aspect ratio to the pre-defined drop-down list you can do this by including a line of the form "`plugins/darkroom/clipping/extra_aspect_ratios/foo=x:y`" in darktable's configuration file `$HOME/.config/darktable/darktablerc`. Here “`foo`” defines the name of the new aspect ratio and “`x`” and “`y`” the corresponding numerical values (`x` and `y` must be integers). Note that you can only add new entries for ratios not already present in the drop-down list.
+: If you want to add an aspect ratio to the pre-defined drop-down list you can do this by including a line of the form "`plugins/darkroom/clipping/extra_aspect_ratios/foo=x:y`" in darktable's configuration file `darktablerc` in the [configuration directory](../../preferences-settings/config-directory.md). Here “`foo`” defines the name of the new aspect ratio and “`x`” and “`y`” the corresponding numerical values (`x` and `y` must be integers). Note that you can only add new entries for ratios not already present in the drop-down list.
 
 : Finally, the button beside the aspect combobox allows you to switch between portrait and landscape orientation if you have selected a rectangular aspect ratio.
 

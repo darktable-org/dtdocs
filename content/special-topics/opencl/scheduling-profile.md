@@ -2,8 +2,6 @@
 title: scheduling profile
 id: scheduling-profile
 weight: 80
-draft: false
-author: "people"
 ---
 
 darktable can use the CPU and one or several OpenCL capable GPUs. Depending on the relative performance of these devices, users can choose among certain scheduling profiles to optimize performance. This is achieved by setting the configuration parameter [preferences > processing > OpenCL > OpenCL scheduling profile](../../preferences-settings/processing/#opencl), which offers the following choices:

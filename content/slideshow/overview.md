@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 The slideshow view allows you to watch a slideshow of your current collection with the associated filtering rules and sort order applied. 
 

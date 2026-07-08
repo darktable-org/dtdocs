@@ -2,14 +2,28 @@
 title: (deprecated) defringe
 id: defringe
 weight: 20
-applicable-version: 3.6
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: attenuate chromatic aberration by desaturating edges.
+
+purpose
+: corrective.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the [_chromatic aberrations_](./chromatic-aberrations.md) module instead.**
 

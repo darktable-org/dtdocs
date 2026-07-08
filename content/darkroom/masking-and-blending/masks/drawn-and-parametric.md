@@ -2,7 +2,6 @@
 title: combining drawn & parametric masks
 id: drawn-and-parametric
 weight: 40
-draft: false
 ---
 
 Drawn and parametric masks can be used in combination to form a single mask that can be applied to a module.

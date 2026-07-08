@@ -17,10 +17,10 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install assets
-        run: nix develop --command bash -c "cd themes/hugo-darktable-docs-theme/assets/ && yarn install"
+        run: nix develop --command bash -c "cd themes/hugo-darktable-docs-theme/assets/ && pnpm install"
 
       - name: Check for broken links
-        run: nix develop --command bash -c "hugo server --disableFastRender -verbose --config config.yaml -b http://localhost:1313/dtdocs/ & sleep 30 && lychee --exclude \.*pdf$ --exclude \.*epub$ --exclude \.*#$ --no-progress http://localhost:1313/dtdocs/index.html && pkill hugo"
+        run: nix develop --command bash -c "hugo server --disableFastRender --logLevel debug --config config.yaml -b http://localhost:1313/dtdocs/ & sleep 30 && lychee --exclude \.*pdf$ --exclude \.*epub$ --exclude \.*#$ --no-progress http://localhost:1313/dtdocs/index.html && pkill hugo"
 
       - name: Generate translated files
         run: nix develop --command bash -c "cd tools && bash generate-translations.sh --no-update"
@@ -30,3 +30,9 @@ jobs:
 
       - name: Build
         run: nix develop --command bash -c "hugo"
+
+      - name: Build epub
+        run: nix develop --command bash -c "cd tools && bash build-epub.sh"
+
+      - name: Build PDF
+        run: nix develop --command bash -c "hugo server --disableFastRender --config config-pdf.yaml & sleep 30 && weasyprint -v http://localhost:1313/dtdocs/en/index.html ./public/darktable_user_manual.pdf && pkill hugo"

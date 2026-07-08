@@ -1,9 +1,6 @@
 ---
 title: camera settings
 id: camera-settings
-applicable-version: 3.2.1
-tags: 
-view: tethering
 ---
 
 Set up an image capture job. 

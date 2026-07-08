@@ -2,12 +2,26 @@
 title: watermark
 id: watermark
 weight: 10
-applicable-version: 4.4
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: overlay an SVG watermark like a signature on the image.
+
+purpose
+: creative.
+
+input
+: non-linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
 
 Render a vector-based overlay onto your image. Watermarks are standard SVG documents and can be designed using [Inkscape](http://www.inkscape.org/).
 
@@ -15,14 +29,14 @@ You can also use bitmap (PNG) images.
 
 The SVG processor in darktable can also substitute strings within an SVG document, allowing image-dependent information to be included in the watermark.
 
-User-designed watermarks should be placed into the directory `$HOME/.config/darktable/watermarks`. Once in place, use the reload button update the list of available watermarks.
+User-designed watermarks should be placed into the `watermarks` folder in the darktable [configuration directory](../../preferences-settings/config-directory.md). Once in place, use the reload button update the list of available watermarks.
 
 The following is a list of variable strings that are supported for substitution within an SVG document.
 
 In addition to this list you can also use the variable strings defined in the [variables](../../special-topics/variables.md) section.
 
 ```
-$(WATERMARK_TEXT)             A short free text (max. 63 characters)
+$(WATERMARK_TEXT)             A short free text (max. 511 characters)
 $(WATERMARK_COLOR)            The color to use for $WATERMARK_TEXT
 $(WATERMARK_FONT_FAMILY)      The font family to use for $WATERMARK_TEXT
 $(WATERMARK_FONT_STYLE)       The font style (normal, oblique, italic)
@@ -35,7 +49,7 @@ marker
 : Choose the watermark to apply. Use the reload button to update the list to include any newly-added watermarks. The extension of the file (png/svg) is shown in brackets.
 
 text
-: A free text field in which you can enter up to 63 characters to be printed where referenced by the corresponding watermark. An example is supplied as `simple-text.svg`.
+: A free text field in which you can enter up to 511 characters to be printed where referenced by the corresponding watermark. Any [variables](../../special-topics/variables.md) contained in the string will be replaced by their current values before the watermark is applied. An example watermark using the text from this field is supplied as `simple-text.svg`.
 
 font
 : The font to use (default "DejaVu Sans Book"). Click on the field to open a dialog box showing the fonts available on your system. Fonts can be searched by name and a preview is shown next to the font name. You may specify your own sample text.
@@ -74,3 +88,9 @@ x offset
 
 y offset
 : Pixel-independent offset relative to the choice of alignment on the y-axis.
+
+---
+
+**Note**: When using the watermark in combination with the framing module, the added frame affects the watermark’s position. For example, if you align the watermark to an edge, it may appear within the frame instead of on the actual image. To ensure the watermark is positioned relative to the image itself, you can manually [adjust the module order](../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md#changing-module-order) so that the framing module comes after the watermark module in the pixelpipe.
+
+---

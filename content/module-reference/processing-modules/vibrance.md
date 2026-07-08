@@ -2,14 +2,28 @@
 title: (deprecated) vibrance
 id: vibrance
 weight: 20
-applicable-version: 3.6
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: saturate and reduce the lightness of the most saturated pixels to make the colors more vivid.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the vibrance control in the [_color balance rgb_](./color-balance-rgb.md) module instead.**
 

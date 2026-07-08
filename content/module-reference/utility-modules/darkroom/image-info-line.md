@@ -1,9 +1,6 @@
 ---
 title: image information line
 id: image-info-line
-applicable-version: 3.4
-tags: 
-view: darkroom
 ---
 
 Display information about the current image in a darkroom panel. 

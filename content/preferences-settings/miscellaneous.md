@@ -2,10 +2,15 @@
 title: miscellaneous
 id: miscellaneous
 weight: 110
-draft: false
 ---
 
 # interface
+
+show splash screen at startup
+: When activated, darktable will display a splash screen indicating progress loading and initializing its code and data and scanning for updated sidecars until it is ready to display its main window. When disabled, darktable displays nothing until loading is complete and it can display the lighttable -- or darkrooom, if invoked with a single filename on the command line (default on).
+
+show welcome screen on next run
+: When activated, the _Welcome_ setup pages will be shown the next time darktable is started (default on, but is set to off after the welcome pages are shown).
 
 load default shortcuts at startup
 : When launching the application, darktable loads default shortcuts first, and then loads user-defined shortcuts on top. This allows default shortcuts to be overridden with a new action but prevents them from being deleted (since the deleted shortcut will be automatically reloaded on the next restart). Deactivate this preference to stop loading default shortcuts on startup -- only load the user-defined ones (including any defaults that you have not subsequently deleted or overridden). This makes deletion easier but also means that you will not benefit from new shortcuts added in future versions without first re-enabling this preference (default on).
@@ -18,6 +23,12 @@ sort built-in presets first
 
 mouse wheel scrolls modules side panel by default
 : When enabled, the mouse wheel scrolls side panels by default and Ctrl+Alt+wheel scrolls data entry fields. When disabled, this behavior is reversed (default off). 
+
+enable touchpad gestures in darkroom
+: When enabled, use two-finger touchpad gestures in darkroom for panning (two-finger touchpad scrolling) and pinch-to-zoom. When disabled, touchpad gestures are ignored and darkroom uses only the mouse scrolling behavior for zooming in and out (default on).
+
+constrain darkroom zoom between screen fit and 100%
+: When enabled, limits scroll-wheel and pinch-to-zoom in the darkroom to the range between screen fit (zoom out) and 100% (zoom in). Hold _Ctrl_ while zooming to temporarily lift the limit and zoom beyond 100%. When disabled, zoom is never constrained and the additional _Ctrl_ key press is not needed to zoom beyond 100% (default on).
 
 always show panels' scrollbars
 : Defines whether the panel scrollbars should be always visible or activated only depending on the panel content (default on). (needs a restart) 
@@ -67,5 +78,5 @@ pretty print the image location
 
 # slideshow view
 
-waiting time before each picture in slideshow
+waiting time before each image in slideshow
 : The number of seconds before displaying the next image (default 5) in the [slideshow view](../slideshow/_index.md).

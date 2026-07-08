@@ -2,12 +2,26 @@
 title: soften
 id: soften
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: create a softened image using the Orton effect.
+
+purpose
+: creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, display-referred.
+
+{{< /details >}}
 
 Create a softened image using the [Orton effect](https://en.wikipedia.org/wiki/Orton_(photography)).
 

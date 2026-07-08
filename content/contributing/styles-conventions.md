@@ -1,36 +1,11 @@
 ---
-title: contributing to dtdocs
-id: contributing
-weight: 90
-draft: false
-author: "people"
+title: styles & conventions
+id: styles-conventions
+weight: 10
+include_toc: true
 ---
 
-This page defines the style guide for dtdocs and information about how to contribute to the project.
-
-It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://raw.githubusercontent.com/darktable-org/dtdocs/master/content/special-topics/contributing.md) to see the source for this page.
-
-The manual structure and content have been carefully considered based on the following criteria:
-1. The manual should be comprehensive -- it should describe all of the functionality available in darktable
-1. It should have a consistent and logical structure and every piece of functionality should have its own logical place within that structure
-1. It should be as long as necessary but as short as possible -- brevity is a must
-1. It should be objective
-1. Functionality should be explained once and only once (with the exception of the basic workflow guidelines in the overview section)
-1. Images should be included only where necessary to improve understanding of key principles and should not contain text unless it is unavoidable
-
-We are generally **not** interested in:
-1. Restructuring the manual 
-1. Switching markup languages
-1. Detailed workflow tutorials (though we are interested in publishing those on the blogs of either darktable.org or pixls.us)
-
-We **are** interested in 
-1. Spelling and grammar corrections 
-1. Clarification of text 
-1. Documentation for new features
-
-We are always extremely interested in hearing about which sections of the manual did not make sense to you and *why*, so that we can improve the documentation.
-
-In general, if you wish to make a major change, please open an issue and discuss it with the maintainers first. This is to avoid doing work that wouldn't be accepted.
+The following details the writing style and documentation conventions used in this manual.
 
 # format
 
@@ -55,7 +30,7 @@ example-chapter/
    section3.md
 ```
 
-A couple of notes on the above structure: 
+A couple of notes on the above structure:
 
 - `_index.md` files do not contain any content (they contain metadata only) and are used to render section headers and ToC entries. In the above example `example-chapter/_index.md` defines the title of the example chapter and the order in which it appears in the main table of contents. Similarly `example-chapter/section1-with-subsections/_index.md` defines metadata for the first section of the chapter.
 - Media files should be contained in a directory with the same name as the page to which they relate. In this example, `example-chapter/section1-with-subsections/subsection1` contains media related to the `subsection1.md` page.
@@ -69,6 +44,7 @@ Metadata for the markdown files is presented at the head of the page using yaml.
 title: Sub Section 1 Title
 id: subsection1
 weight: 10
+include_toc: true
 ---
 ```
 
@@ -91,6 +67,9 @@ weight
       section3.md                # weight: 10 (place section3 at the start of example-chapter)
 ```
 
+include_toc
+: Optional; enables or disables the collapsible table of contents. Should only be used on large, complex pages. 
+
 # content
 
 ## general style guidance
@@ -106,16 +85,43 @@ weight
 - Changes to the content should be proposed via pull request or a similar mechanism
 - Your submissions will be copy-edited -- don't take it personally
 
+## technical information for processing modules
+
+For each of the processing modules there is a special (collapsible) block of technical information at the top:
+
+```
+{{</* details summary="Technical information" class="technical-info" */>}}
+
+description
+: applies a tone mapping curve. inspired by Blender's AgX tone mapper.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: linear, RGB, display-referred
+
+{{</* /details */>}}
+```
+
+This should mirror the information available as tooltip upon hovering the mouse over a processing module.  
+
 ## keyboard and mouse shortcuts
 
 - Reference named keyboard keys using CamelCase (Ctrl, Shift, Alt, Esc, AltGr, CapsLock, PageUp, PageDown)
-- Reference single letter keys in lower case (this avoids confusion between for example, Ctrl+H and Ctrl+Shift+h). Quotation marks might help with clarification (press "h" to see a list of active shortcuts)
+- Reference single letter keys in upper case. Quotation marks might help with clarification (press "H" to see a list of active shortcuts)
 - Reference mouse actions using lower case, with multiple words joined by a hyphen (scroll, click, single-click, double-click, right-click)
-- Connect combinations of keys/actions with a plus sign (Ctrl+Shift+h, Shift+double-click)
+- Connect combinations of keys/actions with a plus sign (Ctrl+Shift+H, Shift+double-click)
 
 ## definition lists
 
-The standard method of presenting information about darktable module controls is with the use of definition lists. 
+The standard method of presenting information about darktable module controls is with the use of definition lists.
 
 gui control name
 : A declaration of what the control does. For example "Set the exposure in EV units".
@@ -175,9 +181,8 @@ image width
 
 inline
 : With the exception of icons, images are included as block elements by default. You can override this by including `#inline` after the image name. This can be combined with the width setting as follows.
-: `![squirrel](./contributing/squirrel.png#w25#inline)` outputs ![squirrel](./contributing/squirrel.png#w25#inline) 
+: `![squirrel](./contributing/squirrel.png#w25#inline)` outputs ![squirrel](./contributing/squirrel.png#w25#inline)
 
 default
 : By default images are presented as block elements with 100% width. So `![squirrel](./contributing/squirrel.png#w100)` and `![squirrel](./contributing/squirrel.png)` are equivalent and both output the following:
 : ![squirrel](./contributing/squirrel.png)
-

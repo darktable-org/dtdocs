@@ -2,8 +2,6 @@
 title: module groups
 id: module-groups
 weight: 20
-draft: false
-author: "people"
 ---
 
 A number of pre-defined module groups are shipped with darktable and are selectable as presets. These are summarized below.
@@ -58,15 +56,6 @@ This preset provides a minimal set of modules targeted as a starting point for b
 ![module-group-effects-icon](./manage-module-layouts/module-group-effects-icon.png#icon) (special) effects modules
 : "Special effect" modules such as retouch, sharpen, watermark, etc.
 
-# _previous config_
-
-These presets are automatically generated for users who have upgraded from a version of darktable prior to 3.4. Where you have previously set up favourites or altered the _hidden_ flag on modules, these presets contains those customizations, retaining the legacy module groups (_previous config_ preset) or new module groups (_previous config with new layout_ preset).
-
-If favourites were created in prior versions these will remain available in an additional group:
-
-![module-group-favourites-icon](./manage-module-layouts/module-group-favorites-icon.png#icon) favourite modules
-: This group was previously used by users to make it easier to find frequently-used modules, and is available under the "previous config" presets. New users can, of course, still create their own custom group and name it "favourites" if they so desire.
-
 # _search only_
 
 This preset does not include any module groupings. Modules may only be accessed using the search facility.
@@ -75,3 +64,8 @@ This preset does not include any module groupings. Modules may only be accessed 
 
 This preset contains a list of deprecated modules. This is the only way to access deprecated modules for new edits but be warned: these modules will be removed for new edits in the next release of darktable. This group cannot be duplicated and the modules within it cannot be added to user-created groups.
 
+---
+
+**Note:** Deprecated modules are assigned to this group only temporarily to support a smooth transition to their replacements. After the deprecation period (usually one year), these modules can no longer be used for new edits and are removed from this group. If the group then becomes empty, it will no longer be shown in the presets list.
+
+---

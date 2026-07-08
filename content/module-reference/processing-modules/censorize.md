@@ -2,12 +2,26 @@
 title: censorize
 id: censorize
 weight: 10
-applicable-version: 3.6
-tags:
-working-color-space: RGB
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: censorize license plates and body parts for privacy.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: frequential, RGB.
+
+output
+: special, RGB, scene-referred.
+
+{{< /details >}}
 
 Degrade parts of the image in an aesthetically pleasing way, in order to anonymize people/objects or hide body parts.
 
@@ -25,7 +39,7 @@ Aside from anonymization, this module can also be used for a wide range of creat
 
 If forensically safe anonymization is required, the only way to achieve this is to paint the surfaces with a solid color. 
 
-**The darktable team does not accept responsibility for poorly anonymized pictures leading to the identification of individuals or personal property.**
+**The darktable team does not accept responsibility for poorly anonymized images leading to the identification of individuals or personal property.**
 
 ---
 

@@ -2,12 +2,26 @@
 title: local contrast
 id: local-contrast
 weight: 10
-applicable-version: 3.2.1
-tags:
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: manipulate local and global contrast separately.
+
+purpose
+: creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Enhance the image's local contrast.
 

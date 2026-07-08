@@ -2,12 +2,26 @@
 title: bloom
 id: bloom
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: apply Orton effect for a dreamy ethereal look.
+
+purpose
+: creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 Create a soft bloom effect. 
 

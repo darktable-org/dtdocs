@@ -2,12 +2,26 @@
 title: color contrast
 id: color-contrast
 weight: 10
-applicable-version: 3.4
-tags: 
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: increase saturation and separation between opposite colors.
+
+purpose
+: creative.
+
+input
+: non-linear, Lab, display-referred.
+
+processing
+: non-linear, Lab.
+
+output
+: non-linear, Lab, display-referred.
+
+{{< /details >}}
 
 A simplified control for changing the contrast or separation of colors between the green/magenta and blue/yellow axes in Lab color space. Higher values increase color contrast, lower values decrease it.
 

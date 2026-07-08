@@ -2,8 +2,6 @@
 title: the background
 id: background
 weight: 10
-draft: false
-author: "people"
 ---
 
 Processing high resolution images is a demanding task requiring a modern computer. In terms of both memory and CPU power, getting the best out of a typical 15, 20 or 25 megapixel image can quickly take your computer to its limits.

@@ -2,8 +2,6 @@
 title: using darktable from a lua script
 id: using-darktable-from-a-lua-script
 weight: 100
-draft: false
-author: "people"
 ---
 
 _Warning: This feature is very experimental. It is known that several elements don't yet work in library mode. Careful testing is highly recommended._

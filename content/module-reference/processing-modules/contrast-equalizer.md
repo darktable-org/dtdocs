@@ -2,12 +2,26 @@
 title: contrast equalizer
 id: contrast-equalizer
 weight: 10
-applicable-version: 3.6
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: add or remove local contrast, sharpness, acutance.
+
+purpose
+: corrective and creative.
+
+input
+: linear, Lab, scene-referred.
+
+processing
+: frequential, RGB.
+
+output
+: linear, Lab, scene-referred.
+
+{{< /details >}}
 
 Adjust luminance and chroma contrast in the wavelet domain.
 

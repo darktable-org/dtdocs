@@ -1,16 +1,15 @@
 ---
 title: collections
 id: collections
-applicable-version: 4.6
-tags:
-view: lighttable, tethering, map
 ---
 
 Filter the images shown in the lighttable view and filmstrip panel using image attributes. This set of filtered images is known as a _collection_.
 
-Importing images into darktable stores information about them (filename, path, Exif data, data from XMP sidecar files etc.) in darktable's library database. A collection may be  defined by applying filtering rules to these attributes, thus creating a subset of images to display in the lighttable view and the filmstrip module.
+Importing images into darktable stores information about them (filename, path, Exif data, data from XMP sidecar files etc.) in darktable's library database. A collection may be defined by applying filtering rules to these attributes, thus creating a subset of images to display in the lighttable view and the filmstrip module.
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
+
+The sort order of the listed collections (ascending/descending) can be toggled by clicking ![collect-sort-order-icon](./collections/collect-sort-order.png#icon).
 
 # filtering attributes
 
@@ -77,7 +76,7 @@ modification time
 : The date/time the file was last changed, in the format `YYYY:MM:DD hh:mm:ss`.
 
 export time
-: The date/time the file was last expoted, in the format `YYYY:MM:DD hh:mm:ss`.
+: The date/time the file was last exported, in the format `YYYY:MM:DD hh:mm:ss`.
 
 print time
 : The date/time the file was last printed, in the format `YYYY:MM:DD hh:mm:ss`.
@@ -96,6 +95,9 @@ aperture
 exposure
 : The shutter speed, as derived from Exif data.
 
+exposure bias
+: The exposure bias, as derived from Exif data.
+
 focal length
 : The focal length, as derived from Exif data.
 
@@ -105,10 +107,22 @@ ISO
 aspect ratio
 : The aspect ratio of the image, including any cropping within darktable.
 
+white balance
+: The white balance, as derived from Exif data.
+
+flash
+: Whether flash was used or not, as derived from the Exif data.
+
+exposure program
+: The exposure program, as derived from Exif data.
+
+metering mode
+: The metering mode, as derived from Exif data.
+
 ## darktable
 
-grouping
-: Choose between "group followers" and "group leaders".
+group
+: Choose specific group(s) of imagee
 
 local copy
 : Show files that are, or are not copied locally.
@@ -120,7 +134,7 @@ module
 : Filter based on the processing modules that have been applied to the image.
 
 module order
-: Choose images with "v3.0", "legacy" or "custom" module orders.
+: Choose images with "v5.0", "v3.0", "legacy" or "custom" module orders.
 
 # module controls
 
@@ -169,7 +183,7 @@ While it is best to not touch imported files behind darktable's back, this modul
 
 1. Set the _image attribute_ combobox to "folder" or "film roll".
 1. The original film roll or folder name will be displayed with ~~strikethrough~~ formatting to emphasize that it can not be located.
-1. Right-click on the folder or film roll name, select “search filmroll...”, and then select the new location of the folder.
+1. Right-click on the folder or film roll name, select "update path to files...", and then select the new location of the folder.
 
 ## returning to a previous collection
 
@@ -188,14 +202,12 @@ tag case sensitivity
 number of collections to be stored
 : Set the number of recent collections to show in the history popup (if present).
 
-hide the history button and show a specific module instead
-: Choose how to view your collections history -- you can either use the history button in this module or use the [recently used collections](./recent-collections.md) module.
-
 number of folder levels to show in lists
 : The number of folder levels to show in film roll names, starting from the right (default 1).
 
 sort film rolls by
-: Sort film rolls by either the "folder name" (path) or the "import time" (the date the film rolls were first imported) (default "import time").
+: Sort film rolls by one of the following options:
 
-sort collections descending
-: Sort the following collections in descending order: "film roll" (when sorted by folder), "folder", date/time (e.g. date/time taken) (default on)
+-   "folder name" (path)
+-   "display name" (the roll label shown in the list)
+-   "import time" (the date the film rolls were first imported, default)

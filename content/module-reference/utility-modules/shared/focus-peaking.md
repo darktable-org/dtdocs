@@ -1,9 +1,6 @@
 ---
 title: focus peaking
 id: focus-peaking
-applicable-version: 3.2.1
-tags: 
-view: lighttable, darkroom, tethering, map
 ---
 
 Identify which parts of the image contain high contrast details such as edges and textures, which are usually a useful guide to sharpness and therefore focus.

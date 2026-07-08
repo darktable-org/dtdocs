@@ -1,9 +1,7 @@
 ---
 title: lighttable view layout
 id: lighttable-view-layout
-draft: false
 weight: 20
-author: "people"
 ---
 
 # left panel
@@ -63,13 +61,13 @@ From left to right:
 : Apply star ratings to images.
 
 [color labels](./digital-asset-management/star-color.md)
-: Apply color labels to images.
+: Apply color labels to images. Right-click to assign a descriptive name to any color label. The description is displayed only in the tooltip that appears when hovering over the color label (and not in collection filters or any other UI element).
 
 [mode selector](./lighttable-modes/_index.md)
 : Choose a lighttable mode.
 
 [zoom](./lighttable-modes/filemanager.md)
-: Adjust the size of thumbnails.
+: Adjust the number of thumbnails displayed in each row of the file manager view.
 
 ![focus icon](./lighttable-view-layout/lighttable-bottom-panel_focus.png#icon) enable [focus-peaking](../module-reference/utility-modules/shared/focus-peaking.md) mode
 : Highlight the parts of the image that are in focus.

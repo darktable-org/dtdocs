@@ -2,7 +2,6 @@
 title: the anatomy of a processing module
 id: the-anatomy-of-a-module
 weight: 10
-draft: false
 ---
 
 The basic element of image processing in darktable is the [processing module](../../module-reference/processing-modules/). In order to process a raw image a number of such modules act on the input image in sequence, each performing a different _operation_ on the image data. For those familiar with Adobe Photoshop, the concept of a _processing module_ in darktable is analogous to that of an _adjustment layer_ in that both make an incremental adjustment to the image, building on top of the adjustments that came before.

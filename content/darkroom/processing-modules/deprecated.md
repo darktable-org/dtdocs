@@ -2,7 +2,6 @@
 title: deprecated modules
 id: deprecated
 weight: 57
-draft: false
 ---
 
 The darktable team regularly reviews old modules and updates their implementation where issues are found or updated science means that they can be improved. Most of the time we try to update existing modules with new functionality but occasionally that becomes problematic, often due to the overhead of having to maintain multiple versions of the module. In such circumstances a new replacement module is created and the old module becomes _deprecated_.

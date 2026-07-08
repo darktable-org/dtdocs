@@ -2,12 +2,26 @@
 title: highpass
 id: highpass
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: Lab
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: isolate high frequencies in the image.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, Lab, scene-referred.
+
+processing
+: frequential, Lab.
+
+output
+: special, Lab, scene-referred.
+
+{{< /details >}}
 
 A high pass filter. 
 

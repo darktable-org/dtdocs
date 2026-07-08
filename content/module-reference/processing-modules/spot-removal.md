@@ -2,14 +2,28 @@
 title: (deprecated) spot removal
 id: spot-removal
 weight: 20
-applicable-version: 3.6
-tags: 
-working-color-space:  
-view: darkroom
-masking: 
 ---
 
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: remove sensor dust spots.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: geometric, raw.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 **Please note that this module is [deprecated](../../darkroom/processing-modules/deprecated.md) from darktable 3.6 and should no longer be used for new edits. Please use the "cloning" tool in the [_retouch_](./retouch.md) module instead.**
 

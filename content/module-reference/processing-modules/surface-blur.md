@@ -2,11 +2,26 @@
 title: surface blur
 id: surface-blur
 weight: 10
-applicable-version: 3.4
-tags: 
-working-color-space: RGB 
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: apply edge-aware surface blur to denoise or smoothen textures.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
 
 Smooth image surfaces while preserving sharp edges using a bilateral filter. 
 

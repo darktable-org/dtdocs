@@ -1,9 +1,6 @@
 ---
 title: styles
 id: styles
-applicable-version: 4.6
-tags: 
-view: lighttable
 ---
 
 Create named styles from selected images' [history stacks](../../../darkroom/pixelpipe/history-stack.md) and apply styles to selected images. 
@@ -20,7 +17,12 @@ Remove all styles by clicking on the module's reset button.
 
 Please note that styles also include the active state of each module. You can use this to create your own default settings, which you can then activate on-demand. Simply set your desired defaults for each module, disable the module, and save the style.
 
+A large selection of "camera" styles is provided with darktable. These styles are designed to approximate the out-of-camera JPEG look for supported camera models and can be found within this module under the "darktable camera styles" style group. You can automatically apply these styles on import using the companion Lua script [official/camera style](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/official/apply_camera_style/).
+
 # module controls
+
+hide preview
+: Use this checkbox to hide the preview on the tooltip entirely. This can be useful on slower computers, where rendering the preview may take additional time.
 
 create duplicate
 : When applying a style to images, tick this box to create a duplicate of each image before applying the chosen style to that duplicate. Disable this option to apply the chosen style directly to the selected images. Beware that in this case any existing history stack is overwritten (depending on the mode -- see below) and cannot be recovered.
@@ -35,6 +37,8 @@ create
 
 : The panel supports a hierarchical view, meaning that you can create categories using the pipe symbol “|” as a separator. For example “print|tone curve +0.5 EV” will create a "print" category with a style of "tone curve +0.5 EV" below it.
 
+: You can cancel the creation process by pressing the Cancel button or pressing the Esc key on your keyboard.
+
 edit
 : Select "edit" to bring up a dialog which allows you to include or exclude specific items from the stack of an existing style. Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
 
@@ -46,3 +50,9 @@ import
 
 export
 : Save the selected style to disk as a `.dtstyle` file. This allows styles to be published and shared with other users.
+
+# preferences
+The "preferences..." option in the presets menu allows you to adjust the following settings:
+
+preview size
+: Set the size of the preview on the tooltip. The available options are: default and large.

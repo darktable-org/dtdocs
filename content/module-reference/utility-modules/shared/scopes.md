@@ -1,16 +1,13 @@
 ---
 title: scopes
 id: scopes
-applicable-version: 4.6
-tags: 
-view: lighttable, tethering
 ---
 
 This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions/#definitions).
 
 ![scopes module](./scopes/scopes.png#w50)
 
-Hover the mouse over the module to reveal buttons that can be used to adjust the display. The buttons on the left-hand-side are used to choose the display mode, from left-to-right: vectorscope, waveform, rgb parade and histogram. The buttons on the right-hand-side control how the plot for the current scope is drawn.
+Hover the mouse over the module to reveal buttons that can be used to adjust the display. The buttons on the left-hand-side are used to choose the display mode, from left-to-right: vectorscope, waveform, split (waveform/vectorscope), rgb parade and histogram. The buttons on the right-hand-side control how the plot for the current scope is drawn.
 
 The height of the scopes module can be changed by clicking-and-dragging on the bottom edge or by holding down Shift+Alt while scrolling the mouse. The visibility of the module can be toggled with a keyboard shortcut (default Ctrl+Shift+H).
 
@@ -74,17 +71,23 @@ The distance from the center of the graph represents chroma and the angle repres
 
 The graph includes a "hue ring" representing the maximum chroma of each hue (in bounded RGB) of the current histogram profile. The RGB primary/secondary colors are marked by circles around the edge of the hue ring.
 
+# split (waveform/vectorscope)
+
+![split](./scopes/split.png#w50)
+
+Shows a combined mode with the waveform on the left and the vectorscope on the right. The available controls are as described for the individual modes.
+
 ## color harmony and additional vectorscope controls
 
 The vectorscope provides some additional controls beyond those provided by the other modes, which deserve separate discussion. Hovering over the scopes module while in vectorscope mode shows the following additional buttons:
 
 ![vectorscope-options](./scopes/vectorscope-options.png#w50)
 
-Click the right-most button to toggle the chroma scale between linear and logarithmic mode.
+Click the second-to-right-most button to toggle the chroma scale between linear and logarithmic mode.
 
-Click the second-to-right-most button to toggle the color space of the vectorscope between [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) -- as previously mentioned, these color spaces exclude any luminosity component in this module. The CIELUV graph will be faster to calculate, and is a well-known standard, though JzAzBz may be more perceptually accurate.
+Click the right-most button to toggle the color space of the vectorscope between [CIELUV](https://en.wikipedia.org/wiki/CIELUV), [JzAzBz](https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-13-15131&id=368272) or [RYB](https://en.wikipedia.org/wiki/RYB_color_model) -- as previously mentioned, these color spaces exclude any luminosity component in this module. The CIELUV graph will be faster to calculate, and is a well-known standard, though JzAzBz may be more perceptually accurate.
 
-Finally, along the left-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic. For example, the following shows the "triad" color harmony:
+Finally, along the right-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic when in RYB color space. For example, the following shows the "triad" color harmony:
 
 ![vectorscope-ch-triad](./scopes/vectorscope-ch-triad.png#w50)
 
@@ -119,7 +122,13 @@ For horizontal waveform and RGB parade, drag the upper portion of the scope up/d
 
 For vertical waveform and RGB parade scopes, the corresponding regions are to the right (exposure) and left (black level).
 
-You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point. Double-click in the scope to reset the exposure module's parameters to their defaults.
+You can also scroll in the appropriate area -- rather than dragging -- to adjust exposure and black point.
+
+Finally, you can override the default adjustment behavior as follows:
+
+- hold Ctrl+Shift while adjusting to override the soft limits (e.g. to significantly overexpose the image)
+- hold Ctrl while adjusting to fine-tune the adjustment. Alternatively, right-click to enter a precise value for the adjustment
+- double-click on the desired area to reset to the original value
 
 # histogram profile
 

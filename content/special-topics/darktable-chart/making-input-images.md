@@ -2,8 +2,6 @@
 title: making input images for darktable-chart
 id: making-input-images
 weight: 60
-draft: false
-author: "people"
 ---
 
 To start with, you need a suitable photo of your color reference card in RAW+JPEG format. It goes beyond the scope of this manual to explain the details of how to take this photo, but in a nutshell you need to make the shot on a sunny day around midday with the light source (the sun) shining at an angle onto the card. You need to avoid any glare in the image. The neutral white color patch in the gray ramp (G00) should end up at the L value specified in the description of your card. Often this is L=92 and requires you to overexpose the shot by about 1/3 EV. Ideally you will make several shots with slightly different exposures and later select the right one in darktable. Make sure that the chart fills up most of the frame. Use a lens with a “normal” focal length (e.g. 50mm equivalent) and stop down a bit to avoid vignetting.
@@ -14,7 +12,7 @@ There is a special situation if your camera automatically applies some lens corr
 
 To output your image go to the [export](../../module-reference/utility-modules/shared/export.md) module in the lighttable.
 
-You will need to select “Lab” as the output color profile. This color space is not visible in the combobox by default. You first need to enable it by setting `allow_lab_output` to `TRUE` in `$HOME/.config/darktable/darktablerc`. Alternatively, you can start darktable with:
+You will need to select “Lab” as the output color profile. This color space is not visible in the combobox by default. You first need to enable it by setting `allow_lab_output` to `TRUE` in darktable's configuration file `darktablerc` in the [configuration directory](../../preferences-settings/config-directory.md). Alternatively, you can start darktable with:
 
 ```
 darktable --conf allow_lab_output=true

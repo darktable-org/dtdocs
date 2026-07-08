@@ -1,0 +1,57 @@
+name: update translation template (POT file)
+
+# Regenerates the gettext translation TEMPLATE (po/content.pot) from the
+# Markdown sources via po4a and commits it to master. The per-language .po
+# files are intentionally NOT committed here: they are owned by Weblate,
+# which runs msgmerge (POT -> PO) internally and sends every .po change back
+# as a reviewed pull request.
+
+on:
+  schedule:
+    # Note: GitHub cron runs in UTC. 00:00 UTC = 01:00 CET / 02:00 CEST.
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # allows manual triggering from the Actions UI
+#  push:
+#    branches:
+#      - master  # Set a branch to deploy
+
+# Grant the GITHUB_TOKEN write access so the job can push back
+permissions:
+  contents: write
+
+# Prevent overlapping runs (e.g. manual + scheduled at the same time)
+concurrency:
+  group: update-po
+  cancel-in-progress: false
+
+jobs:
+  generate-pot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive   # fetch the Hugo theme submodule
+          fetch-depth: 0          # full history (.GitInfo/.Lastmod)
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # po4a updates the POT and (as a side effect) the .po files. We keep
+      # only the POT below, so the .po rewrites are discarded with the runner.
+      - name: Regenerate translation template
+        run: nix develop --command bash -c "./tools/generate-translations.sh --no-translations"
+
+      - name: Commit and push the template only
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Stage ONLY the template. Anything else po4a touched stays unstaged
+          # and is thrown away when the ephemeral runner is destroyed.
+          git add po/content.pot
+          if git diff --cached --quiet; then
+            echo "Template unchanged - nothing to commit."
+          else
+            git commit -m "chore(i18n): update translation template [skip ci]"
+            git push
+          fi

@@ -2,8 +2,6 @@
 title: overview
 id: overview
 weight: 10
-draft: false
-author: "people"
 ---
 
 This view allows you to print your images. Because printing is not easy, there are many technical aspects to be taken into account.

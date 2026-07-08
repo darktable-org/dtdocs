@@ -44,7 +44,7 @@ rm -r "$HUGO_DIR"
 mkdir -p "$HUGO_DIR"
 
 #build epub hugo files
-env HUGO_DISABLELANGUAGES="$disabled_languages " hugo -v --config "${HUGO_CONFIG}" -d "${HUGO_DIR}"
+env HUGO_DISABLELANGUAGES="$disabled_languages " hugo --logLevel debug --config "${HUGO_CONFIG}" -d "${HUGO_DIR}"
 
 if [ ! -d "$HUGO_DIR/en" ]
 then
@@ -130,4 +130,3 @@ do
      echo "$language directory not found"
   fi
 done
-

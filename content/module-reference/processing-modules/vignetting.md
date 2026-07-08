@@ -2,12 +2,26 @@
 title: vignetting
 id: vignetting
 weight: 10
-applicable-version: 4.4
-tags: 
-working-color-space: RGB
-view: darkroom
-masking: false
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: simulate a lens fall-off close to edges.
+
+purpose
+: creative.
+
+input
+: non-linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
 
 Apply a vignetting effect to the image. 
 

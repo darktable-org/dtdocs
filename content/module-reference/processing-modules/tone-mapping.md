@@ -2,11 +2,6 @@
 title: (deprecated) tone mapping
 id: tone-mapping
 weight: 20
-applicable-version: 3.4
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
 
 ---

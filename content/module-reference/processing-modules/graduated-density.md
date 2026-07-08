@@ -2,12 +2,26 @@
 title: graduated density
 id: graduated-density
 weight: 10
-applicable-version: 3.2.1
-tags: 
-working-color-space: RGB 
-view: darkroom
-masking: true
 ---
+
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: simulate an optical graduated neutral density filter.
+
+purpose
+: corrective and creative.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
 
 Simulate a graduated density filter in order to correct exposure and color in a progressive manner.
 
