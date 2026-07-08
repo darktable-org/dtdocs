@@ -9,7 +9,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
 	    {{ if .IsTranslated }}
-	      <li class="nav-item dropdown" aria-describedby="language-picker-description">
+           <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                 <span>Version: Development</span>
+               </a>
+               <div class="dropdown-menu dropdonw-trans" role="listbox">
+                  {{ $cleanPath := replace .RelPermalink "/usermanual/development/" "/" }}
+                  
+                  <a class="dropdown-item" href="/usermanual/development{{ $cleanPath }}">Development (Master)</a>
+                  <a class="dropdown-item" href="/usermanual/4.8{{ $cleanPath }}">Version 4.8</a>
+                  <a class="dropdown-item" href="/usermanual/4.6{{ $cleanPath }}">Version 4.6</a>
+                  <a class="dropdown-item" href="/usermanual/4.4{{ $cleanPath }}">Version 4.4</a>
+               </div>
+            </li>
 		   <p class="sr-only" id="language-picker-description">{{ i18n "languages" | default "languages" }}</p>
 		   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
              <img src="{{ .Site.BaseURL }}/language-icons/icon20x24px-exported-transparent.png" alt="Language Icon" height="20" class="translation-icon"/>
