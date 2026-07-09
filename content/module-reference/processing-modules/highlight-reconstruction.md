@@ -49,6 +49,8 @@ segmentation based
 
 : Segmentation based reconstruction is able to rebuild large areas where all channels are clipped by examining the surrounding gradients. However, you should think of this method more as a way to "disguise" clipped areas with something plausible, rather than a way to "magically" repair them.
 
+: If you see irregular patterns or magenta casts you should reduce the threshold value. After selecting a proper threshold you might also need to modify the candidating value. There is no OpenCL code for the segmentation based mode, so there is a performance penalty when using it.
+
 guided laplacians
 : Use an algorithm (derived from the [_diffuse or sharpen_](./diffuse.md) module) to replicate details from valid channels into clipped channels and to propagate color gradients from valid surrounding regions into clipped regions. This is a computationally-intensive method designed for maximum smoothness and seamless blending of the reconstructed regions into their neighborhood, and is designed primarily to reconstruct spotlights and specular reflections. This mode is available for Bayer sensors only.
 
@@ -75,7 +77,7 @@ clipping threshold
 : Pixels above this value are considered to be clipped.
 
 clipping mask
-: Click the icon beside the slider to visualise what areas of the image are considered to be clipped (the clipping mask). If the clipping mask does not match the [RAW overexposed warning](../utility-modules/darkroom/raw-overexposed.md), you may need to correct this value.
+: Click the icon beside the slider to visualise what areas of the image are considered to be clipped (the clipping mask). If the clipping mask does not match the [RAW overexposed warning](../utility-modules/darkroom/raw-overexposed.md), you may need to correct the threshold value.
 
 ---
 
