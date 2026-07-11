@@ -25,21 +25,21 @@ output
 
 Automatically correct for (or simulate) lens distortion, transverse chromatic aberrations (TCA) and vignetting.
 
-You can choose to either use lens correction data embedded in your Raw file (where present/supported) or correction data provided by the external [Lensfun library](https://lensfun.github.io/).
+You can choose to either use lens correction data embedded in your RAW file (where present/supported) or correction data provided by the external [Lensfun library](https://lensfun.github.io/).
 
 Additional controls are also provided for manual vignetting correction, in case the profiles for your lens are insufficient or missing.
 
-Note that if TCA correction is enabled in this module, also using [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) may cause artifacts from over-correction. 
+Note that if TCA correction is enabled in this module, also using [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) may cause artifacts from over-correction.
 
 # Lensfun correction data
 
-If your system's Lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu. 
+If your system's Lensfun library has no correction profile for the automatically identified camera/lens combination, the controls for the three photometric parameters (below) are replaced with a warning message. You may try to find the right profile yourself by searching for it in the menu.
 
 If your lens is present in the list but has not been correctly identified, this may require some adjustment within the exiv2 program (see [this post](https://dev.exiv2.org/boards/3/topics/2854) for details). Note that you may need to re-import the images once such adjustments have been made as the lens name is retrieved as part of the import process.
 
-By default, only lenses that are directly compatible with your camera's mount are listed and automatically identified. If you are using lenses for a different mount with an adapter (for example a Four Thirds lens adapted to a Micro Four Thirds body), then you must run the [`lensfun-add-adapter`](https://lensfun.github.io/manual/v0.3.2/lensfun-add-adapter.html) tool to enable those lenses.
+By default, only lenses that are directly compatible with your camera's mount are listed and automatically identified. If you are using lenses for a different mount with an adapter (for example a Canon EF lens adapted to a Nikon Z body), then you must run the [`lensfun-add-adapter`](https://lensfun.github.io/manual/latest/lensfun-add-adapter.html) tool to enable those lenses.
 
-If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running the [`lensfun-update-data`](https://lensfun.github.io/manual/v0.3.2/lensfun-update-data.html) tool. If there is still no matching profile for your lens, a [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) is offered by Torsten Bronger, one of darktable's users. Alternatively you may visit the [Lensfun project](https://lensfun.github.io/lenslist/) to learn how to generate your own set of correction parameters. Don't forget to share your profile with the Lensfun team!
+If you can't find your lens, check if it is in the list of [currently supported lenses](https://lensfun.github.io/lenslist/), and try running the [`lensfun-update-data`](https://lensfun.github.io/manual/latest/lensfun-update-data.html) tool. If there is still no matching profile for your lens, a [lens calibration service](https://www.darktable.org/2013/07/have-your-lens-calibrated/) is offered by Torsten Bronger, one of darktable's users. Alternatively you may visit the [Lensfun project](https://lensfun.github.io/calibration/) to learn how to generate your own set of correction parameters. Don't forget to share your profile with the Lensfun team!
 
 # module controls
 
@@ -47,7 +47,7 @@ correction method
 : Choose which method to use to correct distortions. Additional controls will be provided depending on the option selected:
 
 : - "Lensfun database": Use corrections provided by the Lensfun project.
-: - "embedded metadata": Use corrections embedded in the metadata of the Raw file. This is only available if supported metadata is found.
+: - "embedded metadata": Use corrections embedded in the metadata of the RAW file. This is only available if supported metadata is found.
 : - "only manual vignette": Do not perform any automatic correction but provide manual vignette correction.
 
 corrections
@@ -67,7 +67,7 @@ camera
 : The camera make and model as determined by the image's Exif data. You can override this manually and select your camera from a hierarchical menu. Only lenses with correction profiles matching the selected camera will be shown.
 
 lens
-: The lens make and model as determined by the image's Exif data. You can override this manually and select your lens from a hierarchical menu. This is mainly required for pure mechanical lenses, but may also be needed for off-brand / third party lenses. 
+: The lens make and model as determined by the image's Exif data. You can override this manually and select your lens from a hierarchical menu. This is mainly required for pure mechanical lenses, but may also be needed for off-brand / third party lenses.
 
 photometric parameters (focal length, aperture, focal distance)
 : Lens corrections depend on certain photometric parameters that are read from the image's Exif data: focal length (for distortion, TCA, vignetting), aperture (for TCA, vignetting) and focal distance (for vignetting). Many cameras do not record focal distance in their Exif data, in which case you will need to set this manually.
@@ -134,4 +134,4 @@ radius
 steepness
 : the steepness of the correction effect outside of the radius.
 
-The effect of the correction can be visualised by clicking on the mask button beside the strength slider.
+The effect of the correction can be visualized by clicking on the mask button beside the strength slider.
