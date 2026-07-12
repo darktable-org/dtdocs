@@ -55,6 +55,6 @@ upper threshold
 
 ---
 
-**Note**: This clipping indication may not be optimal if you want to inspect _where_ data are clipped, in which case use the [highlight reconstruction clipping mask](../../processing-modules/highlight-reconstruction.md#common-controls).
+**Note**: This clipping indication may not be optimal if you want to inspect _where_ data is clipped, in which case use the [highlight reconstruction clipping mask](../../processing-modules/highlight-reconstruction.md#common-controls).
 
 ---
