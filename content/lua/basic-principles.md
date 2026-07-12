@@ -10,7 +10,7 @@ If the user installs the lua-scripts locally then those are executed instead of 
 
 This is the only time darktable will run Lua scripts by itself and can be used to load other scripts (like the script manager). These scripts can register callbacks to perform actions on various darktable events. This callback mechanism is the primary method of triggering lua actions. 
 
-The loading of lua scripts on startup can be disabled in [preferences/lua options](../preferenes-settings/lua-options.md).
+The loading of lua scripts on startup can be disabled in [preferences/lua options](../preferences-settings/lua-options.md).
 
 ### Keeping things tidy
 
