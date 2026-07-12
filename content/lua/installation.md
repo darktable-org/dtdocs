@@ -14,7 +14,7 @@ To use these existing scripts in versions before 5.6, they must be installed in 
 
 In any case, darktable should be started at least once to set up its directories. The config directories for most installation types are listed on the [configuration directory](../preferences-settings/config-directory.md) page.
 
-If you don’t want any lua scripts running they can be disabled in [preferences/lua options](../preferenes-settings/lua-options.md).
+If you don’t want any lua scripts running they can be disabled in [preferences/lua options](../preferences-settings/lua-options.md).
 
 ### Linux Package, AppImage and Flatpak
 
