@@ -52,3 +52,9 @@ lower threshold
 
 upper threshold
 : How close a pixel should be to the upper limit before being flagged by the clipping warning, expressed as a percentage (default 98%). In the case of gamut checks, this controls how close the saturation of the pixel is allowed to get to the limits of the color space's gamut before a clipping indication is flagged.
+
+---
+
+**Note**: This clipping indication may not be optimal if you want to inspect _where_ data is clipped, in which case use the [highlight reconstruction clipping mask](../../processing-modules/highlight-reconstruction.md#common-controls).
+
+---
