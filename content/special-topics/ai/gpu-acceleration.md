@@ -28,7 +28,7 @@ The bundled providers on Windows (DirectML, any DirectX 12 GPU) and macOS (CoreM
 **AMD (MIGraphX)** _(Linux only)_
 : ROCm-supported GPU (Radeon RX 7700-series or newer, Instinct MI100 or newer). [ROCm](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/) 6.x or newer with MIGraphX installed on the system.
 
-: Note: the first inference of each model on MIGraphX takes minutes because the model graph is compiled for your specific GPU and then cached on disk – see the [performance notes](../performance-and-troubleshooting/#performance-notes) for details. Once cached, subsequent runs are fast and survive across darktable restarts.
+: Note: the first inference of each model on MIGraphX takes minutes because the model graph is compiled for your specific GPU and then cached on disk – see the [performance notes](./performance-and-troubleshooting/#performance-notes) for details. Once cached, subsequent runs are fast and survive across darktable restarts.
 
 **Intel (OpenVINO)**
 : Intel iGPU (HD / UHD / Iris Xe) or Arc discrete GPU. [Intel GPU driver](https://www.intel.com/content/www/us/en/download-center/home.html) with [OpenCL](https://github.com/intel/compute-runtime) (`intel-opencl-icd`) and/or [Level Zero](https://github.com/oneapi-src/level-zero). OpenVINO itself ships in the install package – nothing extra to install.

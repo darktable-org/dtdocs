@@ -29,7 +29,7 @@ Haze absorbs light from objects in the scene but it is also a source of diffuse 
 
 Setting both of the module's controls to unity maximizes the amount of haze removal but is also likely to produce some artifacts. Removing the atmospheric light entirely may render the image flat and result in an unnatural looking style. Optimal values are typically below unity and are rather image dependent, but also a matter of personal aesthetic preferences.
 
-**Note**: While this module does increase contrast, is not intended for this purpose, and will fail on many images that do not contain actual haze. To increase contrast on non-hazy images, you can use [_local contrast_](../local-contrast.md), [_diffuse or sharpen_](./diffuse.md), or use the 4-ways tab in [_color balance rgb_](../color-balance-rgb.md) (reduce the shadows and lift luminance).
+**Note**: While this module does increase contrast, is not intended for this purpose, and will fail on many images that do not contain actual haze. To increase contrast on non-hazy images, you can use [_local contrast_](./local-contrast.md), [_diffuse or sharpen_](./diffuse.md), or use the 4-ways tab in [_color balance rgb_](./color-balance-rgb.md) (reduce the shadows and lift luminance).
 
 # module controls
 

@@ -15,7 +15,7 @@ Only one ONNX Runtime library is loaded per darktable process. It is picked in t
 1. If the _ONNX Runtime library_ field in [AI preferences](../../../preferences-settings/ai.md) points at a file (or the `DT_ORT_LIBRARY` environment variable does), that library is loaded instead.
 2. Otherwise, the bundled runtime that ships with darktable is loaded from the installation directory.
 
-The bundled runtime is CPU-only on Linux, DirectML-enabled on Windows, and CoreML-enabled on macOS. That makes every install functional out of the box. If you want NVIDIA, AMD or Intel GPU acceleration on Linux or Windows, you replace the library with a GPU-enabled build – see [GPU acceleration](../gpu-acceleration/).
+The bundled runtime is CPU-only on Linux, DirectML-enabled on Windows, and CoreML-enabled on macOS. That makes every install functional out of the box. If you want NVIDIA, AMD or Intel GPU acceleration on Linux or Windows, you replace the library with a GPU-enabled build – see [GPU acceleration](./gpu-acceleration/).
 
 # execution providers
 
@@ -33,7 +33,7 @@ The first time a GPU provider runs a given model, it compiles an optimised versi
 
 # models
 
-Each AI feature is backed by one or more models per [task](../overview/#tasks). A model is a directory containing an ONNX file and a small `config.json` with metadata (name, task, description, licensing information). Models live under:
+Each AI feature is backed by one or more models per [task](./overview/#tasks). A model is a directory containing an ONNX file and a small `config.json` with metadata (name, task, description, licensing information). Models live under:
 
 - Linux: `~/.local/share/darktable/models/`
 - macOS: `~/Library/Application Support/darktable/models/`
