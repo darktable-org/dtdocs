@@ -32,6 +32,9 @@ From top to bottom:
 [export](../module-reference/utility-modules/shared/export.md)
 : Export selected images to local files or external services.
 
+[neural restore](../module-reference/utility-modules/shared/neural-restore.md)
+: Apply AI-powered raw denoise, RGB denoise, or upscaling to selected images.
+
 # right panel
 
 From top to bottom:

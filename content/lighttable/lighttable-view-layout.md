@@ -51,6 +51,9 @@ From top to bottom:
 [export](../module-reference/utility-modules/shared/export.md)
 : Export selected images to local files or external services.
 
+[neural restore](../module-reference/utility-modules/shared/neural-restore.md)
+: Apply AI-powered raw denoise, RGB denoise, or upscaling to selected images.
+
 # bottom panel
 
 ![lighttable-bottom-panel](./lighttable-view-layout/lighttable-bottom-panel.png#w100)
