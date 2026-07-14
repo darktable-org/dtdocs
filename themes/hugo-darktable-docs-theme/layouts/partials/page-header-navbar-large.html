@@ -1,0 +1,38 @@
+<header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+   <a class="navbar-brand" href="{{ relURL .Site.BaseURL}}" rel="home" title="{{ .Site.Title }}">
+	{{ .Site.Title | safeHTML }}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+	    {{ if .IsTranslated }}
+	      <li class="nav-item dropdown" aria-describedby="language-picker-description">
+		   <p class="sr-only" id="language-picker-description">{{ i18n "languages" | default "languages" }}</p>
+		   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+             <img src="{{ .Site.BaseURL }}/language-icons/icon20x24px-exported-transparent.png" alt="Language Icon" height="20" class="translation-icon"/>
+		     <span>{{ i18n "translations" | default "translations" }}</span>
+		   </a>
+		   <div class="dropdown-menu dropdonw-trans" role="listbox">
+		      <a class="dropdown-item" aria-selected="true" hreflang="{{ .Site.Language.Lang }}" role="option" lang="{{ .Site.Language.Lang }}" href="{{ .Permalink }}">{{ .Site.Language.LanguageName }}</a>
+		        {{ range .Translations }}
+		      <a class="dropdown-item" hreflang="{{ .Language.Lang }}" role="option" lang="{{ .Language.Lang }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+		    {{ end }}
+		   </div>
+	       </li>
+	    {{ end }}
+	</ul>
+        <ul>
+           <form class="form-inline my-2 my-lg-0">
+                <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" autocomplete="off" aria-label="Search">
+           </form>
+        </ul>
+
+
+    </div>
+</header>
+
+<div id="search-results" class="search-results">
+</div>
