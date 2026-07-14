@@ -29,7 +29,7 @@ One issue with a lot of denoising algorithms is that they assume that the varian
 
 Currently, darktable has sensor noise profiles for over 300 popular camera models from all the major manufacturers. If you generate your own noise profile for a camera that is not yet supported by darktable, be sure to share it with the darktable development team so they can include it in the next release! Please see darktable's [camera support](https://github.com/darktable-org/darktable/wiki/Camera-support) page for more information.
 
-For an AI-based alternative applied later in the workflow, on the already-demosaicked and edited image, see [neural restore](../utility-modules/shared/neural-restore.md) and the [AI features overview](../../special-topics/ai/overview.md).
+For an AI-based alternative applied later in the workflow, on the already-demosaiced and edited image, see [neural restore](../utility-modules/shared/neural-restore.md) and the [AI features overview](../../special-topics/ai/overview.md).
 
 # modes
 
