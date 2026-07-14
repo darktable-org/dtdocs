@@ -1,0 +1,10 @@
+<!-- Our custom CSS -->
+{{- if .Site.IsServer -}}
+{{- $options := (dict "targetPath" "css/style.css" "outputStyle" "expanded" "enableSourceMap" true "includePaths" (slice "themes/hugo-darktable-docs-theme/assets/node_modules/bootstrap/scss" "themes/hugo-darktable-docs-theme/assets/node_modules/fork-awesome/scss")) -}}
+{{- $style := resources.Get "sass/main.scss" | resources.ToCSS $options | fingerprint -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{- else -}}
+{{- $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "themes/hugo-darktable-docs-theme/assets/node_modules/bootstrap/scss" "themes/hugo-darktable-docs-theme/assets/node_modules/fork-awesome/scss")) -}}
+{{- $style := resources.Get "sass/main.scss" | resources.ToCSS $options | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{- end -}}
