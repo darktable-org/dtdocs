@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+{{ partial "breadcrumbs.html" . }}
+    
+{{ partial "prev-next.html" . }}
+
+<section>
+
+    <h1 class="title">{{ .Title }}</h1>
+    <ul>
+        {{ range .Data.Pages -}}
+        <li>
+            <a href="{{ .RelPermalink }}">
+		<span>
+		    {{ .Title }}
+		</span>
+		{{ if not .Date.IsZero }}
+		<time>
+                    {{- .Date.Format (.Site.Params.dateform | default "Jan 02, 2006") -}}
+		</time>
+		{{end}}
+	    </a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+
+{{ partial "prev-next.html" . }}
+
+{{ end }}
