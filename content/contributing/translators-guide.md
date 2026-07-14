@@ -8,6 +8,8 @@ You are welcome to help translate darktable's docs. Please read through this gui
 
 Translations are maintained through [Weblate](https://hosted.weblate.org/projects/darktable-documentation/). Unregistered users can add suggestions for translations. To contribute to the translations you need to [register with Weblate](https://hosted.weblate.org/accounts/register/).
 
+We do __not__ accept automated AI translations without human review and quality control. 
+
 Recommended reading:
 
 * Guide for [styles and conventions](styles-conventions.md): Formalities and conventions on how dtdocs should be done
