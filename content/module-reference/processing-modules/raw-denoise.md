@@ -25,7 +25,7 @@ output
 
 Perform denoising on raw image data before it is [demosaiced](./demosaic.md). 
 
-This module has been ported from [dcraw](https://www.dechifro.org/dcraw/).
+This module has been ported from [dcraw](https://dechifro.org/dcraw/).
 
 # module controls
 

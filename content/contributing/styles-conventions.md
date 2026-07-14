@@ -128,7 +128,7 @@ gui control name
 
 : You can include as many paragraphs as you like, but try to limit to 2 or 3 where possible.
 
-![active-icon](./contributing/active-icon.png#icon) a control accessed through a button with an icon
+![active-icon](./styles-conventions/active-icon.png#icon) a control accessed through a button with an icon
 : When a control is activated using an icon, take a screenshot of the icon using the standard darktable theme (darktable-elegant-grey) and add it before the name of the control
 
 gui combobox name
@@ -136,7 +136,7 @@ gui combobox name
 : - _the first value_: What the first value means
 : - _the second value_: What the second value means
 
-Definition lists are also used throughout the document, wherever a named piece of functionality needs to be defined. See, for example, [darktable-cli](./program-invocation/darktable-cli.md).
+Definition lists are also used throughout the document, wherever a named piece of functionality needs to be defined. See, for example, [darktable-cli](../special-topics/program-invocation/darktable-cli.md).
 
 ## notes
 
@@ -161,7 +161,7 @@ Internal links must be relative to the current file and must point to a valid ma
 - Link to a top level section by referencing the `_index.md` file, e.g. [module reference](../module-reference/_index.md)
 - Link to a tab in the preferences dialog: [preferences > general](../preferences-settings/general.md)
 - Link to a specific preference setting: [preferences > general > interface language](../preferences-settings/general.md)
-- Each header within a page can be linked to directly with an anchor link: [contributing/notes](./contributing.md#notes)
+- Each header within a page can be linked to directly with an anchor link: [contributing/notes](#notes)
 
 ## images
 
@@ -170,19 +170,19 @@ When taking screenshots from the darktable application itself, use the default d
 Several filename suffixes can be used to control how an image is rendered.
 
 icon
-: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./contributing/contributing.png#icon)` outputs the following: ![squirrel icon](./contributing/squirrel.png#icon)
+: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./styles-conventions/contributing.png#icon)` outputs the following: ![squirrel icon](./styles-conventions/squirrel.png#icon)
 
 image width
 : You can set the image width to 25, 33, 50, 66, 75 or 100 per cent of the rendered page width by including `#wxx` after the image name in the link, where `xx` is the desired width. For example:
-: `![squirrel](./contributing/squirrel.png#w25)` outputs
-: ![squirrel](./contributing/squirrel.png#w25)
-: `![squirrel](./contributing/squirrel.png#w75)` outputs
-: ![squirrel](./contributing/squirrel.png#w75)
+: `![squirrel](./styles-conventions/squirrel.png#w25)` outputs
+: ![squirrel](./styles-conventions/squirrel.png#w25)
+: `![squirrel](./styles-conventions/squirrel.png#w75)` outputs
+: ![squirrel](./styles-conventions/squirrel.png#w75)
 
 inline
 : With the exception of icons, images are included as block elements by default. You can override this by including `#inline` after the image name. This can be combined with the width setting as follows.
-: `![squirrel](./contributing/squirrel.png#w25#inline)` outputs ![squirrel](./contributing/squirrel.png#w25#inline)
+: `![squirrel](./styles-conventions/squirrel.png#w25#inline)` outputs ![squirrel](./styles-conventions/squirrel.png#w25#inline)
 
 default
-: By default images are presented as block elements with 100% width. So `![squirrel](./contributing/squirrel.png#w100)` and `![squirrel](./contributing/squirrel.png)` are equivalent and both output the following:
-: ![squirrel](./contributing/squirrel.png)
+: By default images are presented as block elements with 100% width. So `![squirrel](./styles-conventions/squirrel.png#w100)` and `![squirrel](./styles-conventions/squirrel.png)` are equivalent and both output the following:
+: ![squirrel](./styles-conventions/squirrel.png)

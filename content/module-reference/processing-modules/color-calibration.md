@@ -330,7 +330,7 @@ Users are not currently permitted to use custom targets, but a limited number of
 
 Users are discouraged from obtaining cheap, off-brand, color targets as color constancy between batches cannot possibly be asserted at such prices. Inaccurate color checkers will only defeat the purpose of color calibration and possibly make things worse.
 
-IT7 and IT8 charts are not supported since they are hardly portable and not practical for use on-location for ad-hoc profiles. These charts are better suited for creating generic color profiles, undertaken using a standard illuminant, for example with [Argyll CMS](https://encrypted.pcode.nl/blog/index.html%3Fp=594.html).
+IT7 and IT8 charts are not supported since they are hardly portable and not practical for use on-location for ad-hoc profiles. These charts are better suited for creating generic color profiles, undertaken using a standard illuminant, for example with [Argyll CMS](https://github.com/beku/Argyll-Releases).
 
 ---
 

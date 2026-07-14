@@ -29,7 +29,7 @@ If enabled and the feature is still missing, the required model may not be insta
 
 Run darktable from a terminal with `darktable -d ai` to see ONNX Runtime load messages and provider probe results. Typical causes:
 
-- **`ort_library_path` points at a missing or corrupt file.** Reset the path in preferences (double-click the label) to fall back to the bundled runtime, or re-run _detect_ after re-installing via the [GPU install scripts](../gpu-acceleration/).
+- **`ort_library_path` points at a missing or corrupt file.** Reset the path in preferences (double-click the label) to fall back to the bundled runtime, or re-run _detect_ after re-installing via the [GPU install scripts](./gpu-acceleration/).
 - **The selected execution provider is missing a system dependency.** cuDNN for CUDA; MIGraphX and rocm-smi-lib for AMD; matching ROCm SONAMEs on Fedora-style distros that rebuild ROCm with their own sonames. The install scripts flag these before download; the `darktable -d ai` log will show the exact `dlopen` error at runtime.
 - **The provider was initialised but failed to compile the model graph.** This sometimes happens on first-generation GPUs with outdated drivers. Update your driver, or fall back to a different provider (e.g. DirectML instead of CUDA on Windows).
 
@@ -42,6 +42,6 @@ If fidelity matters more than aggressive cleanup, in e.g. denoising an image, st
 # further reading
 
 - [AI preferences](../../../preferences-settings/ai.md) – every control on the AI preferences tab.
-- [GPU acceleration](../gpu-acceleration/) – installing a GPU-capable ONNX Runtime (scripts, manual, per-vendor recipes).
+- [GPU acceleration](./gpu-acceleration/) – installing a GPU-capable ONNX Runtime (scripts, manual, per-vendor recipes).
 - [darktable-ai](https://github.com/darktable-org/darktable-ai) – the model repository, conversion scripts, and development notes.
 - [ONNX Runtime docs](https://onnxruntime.ai/docs/) – upstream reference for execution providers, troubleshooting, and performance tuning.
