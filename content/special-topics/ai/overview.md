@@ -21,16 +21,16 @@ This setup allows for flexibility so the model repository can publish alternativ
 darktable currently exposes four tasks:
 
 mask
-: Interactive object segmentation. Click on a subject in the darkroom and the model produces a mask around it. Used by the parametric mask machinery to select regions without drawing by hand. Powered by models such as SAM 2.1 and SegNext.
+: Interactive object segmentation. Click on a subject in the darkroom and the model produces a mask around it, vectorised into a group of path shapes that can be edited like any other drawn shape. Used by the [AI object](../../../darkroom/masking-and-blending/masks/ai-masking.md) drawn-mask shape to select regions without drawing by hand. Powered by models such as SAM 2.1 and SegNext.
 
 denoise
-: Machine-learning RGB denoise as an alternative to the classical denoise modules. Operates on already demosaiced RGB image data, trained on pairs of noisy and clean images. Removes sensor noise without the blocky or smoothed look that can come from traditional filters.
+: Machine-learning RGB denoise as an alternative to the classical denoise modules. Operates on already demosaiced RGB image data, trained on pairs of noisy and clean images. Removes sensor noise without the blocky or smoothed look that can come from traditional filters. Used by the [neural restore](../../../module-reference/utility-modules/shared/neural-restore.md) module's _denoise_ tab.
 
 rawdenoise
-: Machine-learning denoise applied directly to the raw CFA mosaic before demosaic, with denoise and demosaic combined into a single inference pass. Saved out as a LinearRaw DNG and re-imported, so downstream darkroom processing is unchanged. Useful when sensor noise needs to be addressed before the demosaic algorithm runs.
+: Machine-learning denoise applied directly to the raw CFA mosaic before demosaic, with denoise and demosaic combined into a single inference pass. Saved out as a LinearRaw DNG and re-imported, so downstream darkroom processing is unchanged. Useful when sensor noise needs to be addressed before the demosaic algorithm runs. Used by the [neural restore](../../../module-reference/utility-modules/shared/neural-restore.md) module's _raw denoise_ tab.
 
 upscale
-: 2x and 4x super-resolution, producing plausible detail from low-resolution inputs. Useful for small or cropped images where classical interpolation would blur.
+: 2x and 4x super-resolution, producing plausible detail from low-resolution inputs. Useful for small or cropped images where classical interpolation would blur. Used by the [neural restore](../../../module-reference/utility-modules/shared/neural-restore.md) module's _upscale_ tab.
 
 Tasks run only when a user triggers them – there is no continuous AI activity in the background, no telemetry, and no cloud component. Everything runs locally on your machine.
 

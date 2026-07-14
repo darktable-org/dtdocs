@@ -73,7 +73,7 @@ max size
 : Set the maximum width and height of the exported image(s) in pixels, cm or inches (depending on the selected unit) -- zero means that no constraint will be set on that dimension. Exported images will be constrained so as not to exceed either of these values, while retaining the correct aspect ratio. Set both to zero to export with the original dimensions (after cropping). If the entered values exceed the original dimensions darktable will either export with the original dimensions or upscale the image, depending on the "allow upscaling" parameter.
 
 allow upscaling
-: Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image's dimensions will not exceed the dimensions of the original image (after cropping).
+: Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image's dimensions will not exceed the dimensions of the original image (after cropping). This uses the [pixel interpolator](../../../preferences-settings/processing.md) set in preferences; for higher-quality super-resolution upscaling using an AI model, see the [neural restore](./neural-restore.md) module.
 
 high quality resampling
 : Set this to 'yes' to perform high quality resampling on the image. The image will be processed in full resolution and only downscaled at the very end. This can sometimes result in better quality, but will always be slower.

@@ -27,6 +27,8 @@ Perform denoising on raw image data before it is [demosaiced](./demosaic.md).
 
 This module has been ported from [dcraw](https://www.dechifro.org/dcraw/).
 
+For an AI-based alternative that denoises the raw data as part of a combined denoise/demosaic inference pass, see [neural restore](../utility-modules/shared/neural-restore.md) and the [AI features overview](../../special-topics/ai/overview.md).
+
 # module controls
 
 noise threshold

@@ -70,6 +70,8 @@ darktable resources
 
 # OpenCL
 
+This section configures GPU acceleration for darktable's regular image-processing pipeline. It is unrelated to the AI features' GPU acceleration, which is configured separately in [AI preferences](./ai.md) – see [AI GPU acceleration](../special-topics/ai/gpu-acceleration.md) for that setup.
+
 activate [OpenCL](../special-topics/opencl/_index.md) support
 : Your GPU can be used by darktable to significantly speed up processing. The OpenCL interface requires suitable hardware and matching OpenCL drivers on your system. If one of those is not found this option is grayed out. OpenCL support can be switched on and off at any time and takes immediate effect (default on).
 
