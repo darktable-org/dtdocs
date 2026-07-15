@@ -10,6 +10,8 @@ Most of the functionality described here applies to processing modules only. How
 
 Please note that, for processing modules, the saved preset also includes the active state of the module. You can use this to create your own default settings, which you can activate on-demand. Simply set your desired defaults, disable the module, and save the preset.
 
+In addition to the individual modules preset menu presets can be managed at [preferences > presets](../../preferences-settings/presets.md).
+
 # the presets menu
 
 The presets menu will contain one or more of the following entries depending on the presets that are defined or selected for the current module:
