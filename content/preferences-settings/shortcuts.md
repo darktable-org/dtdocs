@@ -38,7 +38,7 @@ Keep on reading to understand it better and learn how to make the most of it.
 
 There are two types of actions:
 
-_Discrete_ actions
+_Discrete actions_
 : E.g., executing a command, focusing a UI element or resetting a slider
 
 _Directional actions_
