@@ -20,7 +20,7 @@ lua scripts installer don't show again
 These settings control how lua scripts are handled. 
 
 check for updated lua scripts on start up
-: automatically update (bundled) scripts to current version
+: automatically update (bundled) scripts to current version.
 
 disable lua scripts
-: do not run lua scripts (both bundled and user defined)
+: do not run bundled lua scripts (this option is only available if no user defined lua scripts are detected in the [configuration directory](config-directory.md).
