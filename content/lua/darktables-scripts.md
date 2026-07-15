@@ -28,11 +28,11 @@ In any case, darktable should be started at least once to set up its directories
 
 Documentation for darktable's scripts is available in the [lua docs](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).
 
-#### Linux Package, AppImage and Flatpak
+__Linux Package, AppImage and Flatpak__
 
 The Lua scripts can be installed using darktable's GUI. Ensure git is installed on your system. If it isn't, use the package manager to install it. In the lighttable view, expand the lua scripts installer module in the lower-left corner. Ensure that select action: install scripts is selected, then click execute. Restart darktable once for the scripts module to appear in the lower-left corner. 
 
-#### Linux Snap Packages
+__Linux Snap Packages__
 
 Installation through darktable's GUI is currently [broken](https://github.com/darktable-org/darktable/issues/20074), so you will have to take the following approach:
 
@@ -44,7 +44,7 @@ Ensure git is installed on your system. If it isn't, use the package manager to 
 
 Restart darktable twice, and the scripts module should appear in the lower-left corner.
 
-#### macOS
+__macOS__
 
 The Lua scripts can be installed by using darktable's GUI. In lighttable view, expand the lua scripts installer module in the lower-left corner. Ensure that select action: install scripts is selected, then click execute. Restart darktable once for the scripts module to appear in the lower-left corner.
 
@@ -53,32 +53,32 @@ Alternatively you could use the console. Ensure git is installed on your system.
     cd ~/.config/darktable/
     git clone https://github.com/darktable-org/lua-scripts.git lua
 
-#### Windows
+__Windows__
 
 Ensure git is installed on your system. Git can be obtained from [git for windows](https://gitforwindows.org/), or using Windows package manager winget inside a command prompt with `winget install git.git`. If you use the gitforwindows.org distribution, install the Git Bash Shell also as it will aid in debugging the scripts if necessary. 
 
 The Lua scripts can now be installed by using darktable's GUI. In lighttable view, expand the lua scripts installer module in the lower-left corner. Ensure that select action: install scripts is selected, then click execute. Restart darktable once for the scripts module to appear in the lower-left corner.
 
-### Updating
+__Updating__
 
 To update the script repository, either use the scripts module GUI or open a terminal or command prompt and run the following commands: 
 
-#### Snap
+__Snap__
 
     cd ~/snap/darktable/current/lua
     git pull
 
-#### Flatpak
+__Flatpak__
 
     cd ~/.var/app/org.darktable.Darktable/config/darktable/lua
     git pull
 
-#### Linux and MacOS
+__Linux and MacOS__
 
     cd ~/.config/darktable/lua/
     git pull
 
-#### Windows
+__Windows__
 
     cd %LOCALAPPDATA%\darktable\lua
     git pull
