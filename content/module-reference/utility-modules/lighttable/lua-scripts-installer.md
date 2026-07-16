@@ -1,7 +1,13 @@
 ---
-title: lua scripts installer
+title: (deprecated) lua scripts installer
 id: lua-scripts-installer
 ---
+
+## after 5.6
+
+Lua scripts are bundled with darktable and do not need to be installed anymore.
+
+## before 5.6
 
 As described in [lua scripts](../../../lua/_index.md), darktable provides powerful scripting capabilities to extend its functionality and integrate with other software. Many such scripts are already available. The Lua script installer module helps to install them without the need for manual configuration. The first time it is run, instructions are displayed in the module.
 
