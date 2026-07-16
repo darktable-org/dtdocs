@@ -65,4 +65,4 @@ enable "disable scripts" button
 : A safety check that must be ticked before the _disable scripts_ button becomes active, to prevent it from being clicked by accident.
 
 disable scripts
-: Stop the Lua scripts from running the next time darktable is started. This has the same effect as the _disable Lua scripts_ option in [preferences > lua options](../../../preferences-settings/lua-options.md); to re-enable the scripts, untick that preference.
+: Renames the `luarc` file in your [configuration directory](../../../preferences-settings/config-directory.md) to `luarc.disabled`. Note that in the bundled installation (5.6 onwards) this does _not_ stop the bundled scripts from loading — they are loaded independently of your `luarc`. To actually prevent the Lua scripts from running, use the _disable Lua scripts_ option in [preferences > lua options](../../../preferences-settings/lua-options.md) instead. (To undo the rename, change `luarc.disabled` back to `luarc`.)
