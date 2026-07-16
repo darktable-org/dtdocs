@@ -1,5 +1,5 @@
 ---
-title: darktables scripts
+title: darktable's scripts
 id: darktables-scripts
 weight: 15
 ---
