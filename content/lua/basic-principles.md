@@ -4,21 +4,37 @@ id: basic-principles
 weight: 20
 ---
 
-The central orchestrator for lua scripts is the __script manager__, which spawns the utility module __scripts__ in the lighttable. 
-
-In previous versions of darktable this had to be installed manually (see [darktables scripts](darktables-scripts.md)). If darktable detects `lua/tools/script_manager.lua` (e.g. from a previous version) within darktable's [configuration directory](../preferences-settings/config-directory.md) it will run the script manager in the config-directory instead of the bundled one. 
-
 Scripts can register callbacks to perform actions on various darktable events. This callback mechanism is the primary method of triggering lua actions. 
 
-The loading of the bundled lua scripts on startup can be disabled in [preferences/lua options](../preferences-settings/lua-options.md).
+The central orchestrator for lua scripts is the _script manager_, which spawns the utility module __scripts__ in the lighttable and loads darktable's bundled scripts. 
 
-### Adding your own scripts
+Lua scripts can be disabled in [preferences/lua options](../preferences-settings/lua-options.md).
 
-The script manager will automatically check for Lua scripts present in `lua/` within the [configuration directory](../preferences-settings/config-directory.md). If e.g. a custom script is present as `lua/user/userscript.lua` the script manager will pick it up and it will be available through the scripts module in the lighttable. 
+### how darktable loads scripts (and the script manager)
 
-If you are using the script-manager (which you likely are) you will then have to activate added scripts in the scripts utility module by selecting the appropriate folder and clicking the on/off button next to the corresponding script. 
+darktable treats two kinds of location differently: Files that are _executed_ as Lua code, and directories that are _scanned_ for scripts:
 
-At startup, darktable will also automatically run the Lua scripts `$DARKTABLE/share/darktable/luarc` (where `$DARKTABLE` represents the darktable installation directory) and `luarc` in the darktable [configuration directory](../preferences-settings/config-directory.md). 
+* Executed at startup:
+    * `$DARKTABLE/share/darktable/luarc`: run by darktable itself. This is the entry point that launches the script manager. It serves internal purposes only and should not be edited. $DARKTABLE is the programms installation directory.
+    * `\[configuration-directory]/luarc`: run by the script manager, if present. This is one way of running your own scripts (see below).
+* Scanned for `.lua` scripts (which then appear in the scripts-module):
+    * `$DARKTABLE/share/darktable/lua-scripts/`: darktable's bundled scripts.
+    * `[configuration-directory]/lua/\[folder]/`: your own scripts (see below).
 
-If you want you could also write your scripts entirety into `luarc` (which is not very convenient). If you dont want to use or rely on the script manager you can also tell darktable to load a script by including it in one of the two `luarc` files (e.g. a script present in the config directory in `lua/user/user-script` could be loaded by adding `require "user/user-script"` to `luarc`. 
+The [configuration directory](../preferences-settings/config-directory.md) is specific to your OS. 
 
+Thus you can __add your own scripts__ as follows:
+* Have the scripts-module pick them up: (recommended)
+    * Place your script e.g. in `[configuration-directory]/lua/user/myscript.lua`
+    * Activate it in the scripts-module by selecting the appropriate folder (in this example "user") and clicking the on/off button next to the corresponding script. 
+    * Note: For the scripts-module to pick up scripts they will need to be in a _subfolder_ of `configuration-directory/lua`.
+* using `luarc` (runs at startup automatically)
+    * Either write the code directly into `\[configuration-directory]/luarc`. This works, but is not tidy for anything beyond a few lines. The code runs at startup.
+    * Or keep the code in its own file and `require` through `luarc`: E.g. a script present in `[configuration-directory]/lua/userscript.lua` could be loaded by adding `require "userscript"` (note that .lua is omitted here).
+
+
+### a note on lua-scripts installations from previous darktable versions
+
+In previous versions of darktable this had to be installed manually (see [darktable's scripts](darktables-scripts.md)). 
+
+To remain compatible with such an installation, `require` looks for a script manager in your configuration directory before loading the bundled one: if `[configuration-directory]/lua/tools/script_manager.lua` is present (for example from a manual pre-5.6 installation), _that_ script manager is run instead of the bundled one. In this case the luarc file in the configuration directory is not loaded. 
