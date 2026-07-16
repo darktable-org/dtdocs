@@ -1,5 +1,5 @@
 ---
-title: (deprecatd) lua scripts installer
+title: (deprecated) lua scripts installer
 id: lua-scripts-installer
 ---
 
