@@ -12,7 +12,7 @@ check for updated lua scripts on start up
 : automatically update (bundled) scripts to current version.
 
 disable lua scripts
-: do not run bundled lua scripts. 
+: do not run lua scripts (bundled and user defined). 
 
 Note: _disable lua scripts_ is not displayed if darktable detects `lua/tools/script_manager.lua` in the [configuration directory](config-directory.md) (e.g. when installed using a previous version of darktable).
 
