@@ -16,6 +16,9 @@ disable lua scripts
 
 Note: _disable lua scripts_ is not displayed if darktable detects `lua/tools/script_manager.lua` in the [configuration directory](config-directory.md) (e.g. when installed using a previous version of darktable).
 
+per-script configuration options (dropdown)
+: allows selecting lua scripts to adjust settings they might contain. The available settings will then appear below. The lua scripts have to be  _activated_ in the scripts-module to become available here.
+
 ### Pre 5.6 
 
 These set up the behavior of the [Lua scripts installer](../module-reference/utility-modules/lighttable/lua-scripts-installer.md).
