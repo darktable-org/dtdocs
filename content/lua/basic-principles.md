@@ -6,7 +6,7 @@ weight: 20
 
 The central orchestrator for lua scripts is the __script manager__, which spawns the utility module __scripts__ in the lighttable. 
 
-In previous versions of darktable this had to be installed manually (see [darktables scripts](darktables-scripts.md)). If darktable detects `lua/tools/script-manager.lua` (e.g. from a previous version) within darktable's [configuration directory](../preferences-settings/config-directory.md) it will run the script manager in the config-directory instead of the bundled one. 
+In previous versions of darktable this had to be installed manually (see [darktables scripts](darktables-scripts.md)). If darktable detects `lua/tools/script_manager.lua` (e.g. from a previous version) within darktable's [configuration directory](../preferences-settings/config-directory.md) it will run the script manager in the config-directory instead of the bundled one. 
 
 Scripts can register callbacks to perform actions on various darktable events. This callback mechanism is the primary method of triggering lua actions. 
 
