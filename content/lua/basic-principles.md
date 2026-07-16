@@ -29,12 +29,12 @@ Thus you can __add your own scripts__ as follows:
     * Activate it in the scripts-module by selecting the appropriate folder (in this example "user") and clicking the on/off button next to the corresponding script. 
     * Note: For the scripts-module to pick up scripts they will need to be in a _subfolder_ of `configuration-directory/lua`.
 * Use `luarc` (runs at startup automatically)
-    * Either write the code directly into `[configuration-directory]/luarc`. This works, but is not tidy for anything beyond a few lines. 
+    * Either write the code directly into `[configuration-directory]/luarc`. This works, but is not practical for anything beyond a few lines. 
     * Or keep the code in its own file and `require` through `luarc`: E.g. a script present in `[configuration-directory]/lua/userscript.lua` could be loaded by adding `require "userscript"` (note that .lua is omitted here).
 
 
 ### a note on lua-scripts installations from previous darktable versions
 
-In previous versions of darktable this had to be installed manually (see [darktable's scripts](darktables-scripts.md)). 
+Before version 5.6 darktable's scripts had to be installed manually (see [darktable's scripts](darktables-scripts.md)). 
 
 To remain compatible with such an installation, `require` looks for a script manager in your configuration directory before loading the bundled one: if `[configuration-directory]/lua/tools/script_manager.lua` is present (for example from a manual pre-5.6 installation), _that_ script manager is run instead of the bundled one. In this case the luarc file in the configuration directory is not loaded. 
