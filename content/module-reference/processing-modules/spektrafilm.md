@@ -8,7 +8,7 @@ include_toc: true
 {{< details summary="Technical information" class="technical-info" >}}
 
 description
-: simulates the physical process of developing and printing analog film, using spectral emulsion and paper data from the spektrafilm project.
+: simulates the physical process of developing and printing analog film, using spectral emulsion and paper data from the [spektrafilm](https://github.com/andreavolpato/spektrafilm) project.
 
 purpose
 : creative.
