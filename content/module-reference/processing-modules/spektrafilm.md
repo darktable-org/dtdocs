@@ -108,8 +108,8 @@ film format
 enable grain
 : Enable film grain simulation.
 
-grain
-: Grain strength. 1.0 is film-accurate for the selected stock. The hard range extends to 8 (drag up to 2, right-click to enter higher values) for pushing naturally fine-grained stocks further than their catalogue amount allows.
+grain strength
+: Strength of the simulated film grain. 1.0 is film-accurate for the selected stock. The hard range extends to 8 (drag up to 2, right-click to enter higher values) for pushing naturally fine-grained stocks further than their catalogue amount allows.
 
 grain size
 : Grain particle size. 1.0 is the film's own default; higher values are coarser.
@@ -120,13 +120,13 @@ enable halation
 : Enable in-emulsion light scatter and back-reflection halation simulation -- the softening and reddish glow around bright highlights caused by light scattering within the emulsion and, separately, reflecting off the film base back into it.
 
 scatter amount
-: Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation_ below: 1.0 is film-accurate; 0 disables it.
+: Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation strength_ below: 1.0 is film-accurate; 0 disables it.
 
 scatter size
 : Scatter radius. 1.0 is film-accurate.
 
-halation
-: Halation strength -- the reddish glow from light reflecting off the film base back into the emulsion. 1.0 is film-accurate for the selected film stock: stocks with a strong built-in antihalation layer (most modern colour negative film) show much less glow than one with a weak or absent antihalation layer (e.g. a redscale-style stock), so the same 1.0 setting looks different from stock to stock, matching how the actual film behaves. The hard range extends to 8 (drag up to 2, right-click to enter higher values).
+halation strength
+: Strength of the halation glow -- light reflecting off the film base back into the emulsion. 1.0 is film-accurate for the selected film stock: stocks with a strong built-in antihalation layer (most modern colour negative film) show much less glow than one with a weak or absent antihalation layer (e.g. a redscale-style stock), so the same 1.0 setting looks different from stock to stock, matching how the actual film behaves. The hard range extends to 8 (drag up to 2, right-click to enter higher values).
 
 halation size
 : Halation glow radius. 1.0 is film-accurate.
