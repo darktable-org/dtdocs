@@ -101,7 +101,7 @@ preflash M filter shift / preflash Y filter shift
 ### format
 
 film format
-: The physical film width being simulated, in mm. Sets the real-world scale that grain and halation are computed at, so a smaller format shows proportionally coarser grain and larger halation for the same print size.
+: The physical film width being simulated, in mm. Sets the real-world scale that grain, scatter, and halation are computed at, so a smaller format shows proportionally coarser grain and larger scatter/halation for the same print size.
 
 ## grain
 
@@ -117,16 +117,22 @@ grain size
 ## halation
 
 enable halation
-: Enable halation simulation -- the reddish glow around bright highlights caused by light reflecting off the film base back into the emulsion.
+: Enable in-emulsion light scatter and back-reflection halation simulation -- the softening and reddish glow around bright highlights caused by light scattering within the emulsion and, separately, reflecting off the film base back into it.
+
+scatter amount
+: Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation_ below: 1.0 is film-accurate; 0 disables it.
+
+scatter size
+: Scatter radius. 1.0 is film-accurate.
 
 halation
-: Halation strength. 1.0 is film-accurate. The hard range extends to 8 (drag up to 2, right-click to enter higher values).
+: Halation strength -- the reddish glow from light reflecting off the film base back into the emulsion. 1.0 is film-accurate for the selected film stock: stocks with a strong built-in antihalation layer (most modern colour negative film) show much less glow than one with a weak or absent antihalation layer (e.g. a redscale-style stock), so the same 1.0 setting looks different from stock to stock, matching how the actual film behaves. The hard range extends to 8 (drag up to 2, right-click to enter higher values).
 
 halation size
 : Halation glow radius. 1.0 is film-accurate.
 
 highlight boost
-: Reconstructs clipped highlights so they can bloom into halation and diffusion, in EV. 0 disables it.
+: Reconstructs clipped highlights so they can bloom into scatter, halation, and diffusion, in EV. 0 disables it.
 
 boost range
 : Range of the highlight boost curve.
