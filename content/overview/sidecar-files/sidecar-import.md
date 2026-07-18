@@ -19,7 +19,7 @@ This migration happens automatically when entering the darkroom view, provided t
 
 At present, darktable is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding darktable module in parentheses):
 
-- crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md))
+- crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) - deprecated module)
 - black level ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - exposure ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - vignette ([_vignetting_](../../module-reference/processing-modules/vignetting.md))
@@ -28,4 +28,11 @@ At present, darktable is able to handle the following development steps from Lig
 - HSL ([_color zones_](../../module-reference/processing-modules/color-zones.md))
 - split-toning ([_split-toning_](../../module-reference/processing-modules/split-toning.md))
 - grain ([_grain_](../../module-reference/processing-modules/grain.md))
-- spot removal ([_spot removal_](../../module-reference/processing-modules/spot-removal.md))
+- spot removal ([_spot removal_](../../module-reference/processing-modules/spot-removal.md) - deprecated module)
+
+---
+
+**Note**: Some of the modules used in the import of Lightroom-generated XMP files are deprecated. You will still be able to edit these files, but this feature should be used with caution.
+
+---
+
