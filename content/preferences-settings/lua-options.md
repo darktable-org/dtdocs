@@ -14,7 +14,8 @@ check for updated lua scripts on start up
 disable lua scripts
 : do not run lua scripts (bundled and user defined). 
 
-Note: _disable lua scripts_ is not displayed if darktable detects `lua/tools/script_manager.lua` in the [configuration directory](config-directory.md) (e.g. when installed using a previous version of darktable).
+Note: If you have a previous lua scripts installation (e.g. Lua API 9.6.0 from darktable 5.4) in your [configuration directory](config-directory.md) the option _disable scripts_ will not be displayed. After (automatically) updating the scripts through the script manager the option will appear. 
+
 
 per-script configuration options (dropdown)
 : allows selecting lua scripts to adjust settings they might contain. The available settings will then appear below. The lua scripts have to be  _activated_ in the scripts-module to become available here.
