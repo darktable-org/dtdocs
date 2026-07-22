@@ -44,7 +44,7 @@ private
 
 The display name of a metadata field can be changed by clicking on it. Drag-and-drop the rows to change the display order.
 
-To add new metadata fields to the module, press the "+" button at the bottom of the dialog. This will allow you to search for the tags you want to add in a new dialog. Tags can be added by either double-clicking on a tag name or pressing the "add" button. Press "done" to update the metadata editor with the new tags.
+To add new metadata fields to the module, press the "+" button at the bottom of the dialog. This will allow you to search for the tags you want to add in a new dialog. Tags can be added by either double-clicking on a tag name or pressing the "add" button. Press "done" to update the metadata editor with the new tags. Exif tags which are added in the editor are read from the image file on [import](../lighttable/import.md). For already imported images they can be read using [refresh exif](../lighttable/selected-image.md#metadata-tab) on selected images.
 
 All tags in this module are available for display in the [image information](./image-information.md) module, updating in the [import](../lighttable/import.md) module and filtering in the [collections](./collections.md) module.
 
