@@ -96,6 +96,8 @@ format
 
 Both user-defined and internal presets can be viewed and managed from within [preferences > presets](../../../preferences-settings/presets.md).
 
+If you get a preset file from an external source, such as downloaded from another user, use the Import button at the bottom right of the presets preferences screen.
+
 ---
 
 **Note:** If you create a user-defined preset with the same name as a built-in preset, your preset will override the built-in version, which will no longer be accessible.
