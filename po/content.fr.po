@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-21 02:02+0000\n"
-"PO-Revision-Date: 2026-07-22 15:01+0000\n"
+"PO-Revision-Date: 2026-07-24 09:01+0000\n"
 "Last-Translator: manu <weblate@lepassepartout.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/darktable-"
 "documentation/dtdocs-github/fr/>\n"
@@ -1614,54 +1614,88 @@ msgstr "Aucune option fournie.\n"
 #, no-wrap
 msgid "An _execution provider_ (EP) is an ONNX Runtime back-end for a specific hardware accelerator – darktable's _AI acceleration_ preference is this concept. A single ONNX Runtime library can ship with multiple providers; which ones actually work depends on which are compiled into the library and which are available on your system. The preference combo lists only those the currently-loaded library supports:\n"
 msgstr ""
+"Un _fournisseur d'exécution_ (EP) est un back-end ONNX Runtime pour un "
+"accélérateur matériel spécifique – la préférence _accélération IA_ de "
+"darktable en est le concept. Une seule bibliothèque ONNX Runtime peut être "
+"livrée avec plusieurs fournisseurs ; ceux qui fonctionnent réellement "
+"dépendent de ceux qui sont compilés dans la bibliothèque et de ceux qui sont "
+"disponibles sur votre système. La combinaison de préférences répertorie "
+"uniquement ceux pris en charge par la bibliothèque actuellement chargée :\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**auto** – let ONNX Runtime pick the best provider at inference time, with CPU as the ultimate fallback. Recommended unless you have a reason to override.\n"
 msgstr ""
+"**auto** – laissez ONNX Runtime choisir le meilleur fournisseur au moment de "
+"l'inférence, avec le processeur comme solution de secours ultime. Recommandé "
+"sauf si vous avez une raison de passer outre.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**CPU** – always available. Fine for object-mask and occasional denoise/upscale. Slow for interactive work and for upscale at 4x.\n"
 msgstr ""
+"**CPU** – toujours disponible. Convient parfaitement pour les masques "
+"d'objet et pour un débruitage/un agrandissement occasionnels. Lent pour le "
+"travail interactif et pour le haut de gamme à 4x.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**NVIDIA CUDA** – NVIDIA GPUs on Linux/Windows. Requires a CUDA-enabled ONNX Runtime and the matching CUDA toolkit + cuDNN 9.x on your system.\n"
 msgstr ""
+"**NVIDIA CUDA** – GPU NVIDIA sous Linux/Windows. Nécessite un environnement "
+"d'exécution ONNX compatible CUDA et la boîte à outils CUDA correspondante + "
+"cuDNN 9.x sur votre système.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**AMD MIGraphX** – AMD GPUs on Linux. Requires a MIGraphX-enabled ONNX Runtime and a ROCm 6.3+ install. Not supported on Windows.\n"
 msgstr ""
+"**AMD MIGraphX** – GPU AMD sous Linux. Nécessite un ONNX Runtime compatible "
+"MIGraphX et une installation ROCm 6.3+. Non pris en charge sous Windows.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**Intel OpenVINO** – Intel integrated and discrete GPUs on Linux/Windows. The OpenVINO runtime is bundled with the installed package – no separate install needed beyond an up-to-date Intel GPU driver.\n"
 msgstr ""
+"**Intel OpenVINO** – GPU Intel intégrés et discrets sur Linux/Windows. "
+"L'environnement d'exécution OpenVINO est fourni avec le package installé – "
+"aucune installation distincte n'est nécessaire au-delà d'un pilote GPU Intel "
+"à jour.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**Windows DirectML** – any DirectX-12-capable GPU on Windows. Good fallback when a vendor-specific provider is impractical. Bundled.\n"
 msgstr ""
+"**Windows DirectML** – tout GPU compatible DirectX-12 sous Windows. Bonne "
+"solution de secours lorsqu’un fournisseur spécifique à un fournisseur n’est "
+"pas pratique. Embarqué.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "**Apple CoreML** – Apple Silicon (Neural Engine and GPU) and recent Intel Macs. Bundled.\n"
 msgstr ""
+"**Apple CoreML** – Apple Silicon (moteur neuronal et GPU) et les récents Mac "
+"Intel. Embarqué.\n"
 
 #. type: Plain text
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "The first time a GPU provider runs a given model, it compiles an optimised version of the model graph for your specific hardware. How long this takes varies a lot by provider: CUDA and DirectML are typically a few seconds; AMD MIGraphX can take **5 to 30 minutes** on the first run of each model, depending on the GPU and the model size. Subsequent uses reuse the compiled graph and run at full speed.\n"
 msgstr ""
+"La première fois qu'un fournisseur GPU exécute un modèle donné, il compile "
+"une version optimisée du graphique du modèle pour votre matériel spécifique. "
+"Le temps que cela prend varie beaucoup selon le fournisseur : CUDA et "
+"DirectML durent généralement quelques secondes ; AMD MIGraphX peut prendre "
+"**5 à 30 minutes** lors de la première exécution de chaque modèle, en "
+"fonction du GPU et de la taille du modèle. Les utilisations ultérieures "
+"réutilisent le graphique compilé et s'exécutent rapidement.\n"
 
 #. type: Title #
 #: content/special-topics/ai/how-ai-works.md content/preferences-settings/ai.md
@@ -1675,42 +1709,64 @@ msgstr "Modes"
 #, no-wrap
 msgid "Each AI feature is backed by one or more models per [task](./overview/#tasks). A model is a directory containing an ONNX file and a small `config.json` with metadata (name, task, description, licensing information). Models live under:\n"
 msgstr ""
+"Chaque fonctionnalité d'IA est soutenue par un ou plusieurs modèles par "
+"[tâche](./overview/#tasks). Un modèle est un répertoire contenant un fichier "
+"ONNX et un petit fichier « config.json » avec des métadonnées (nom, tâche, "
+"description, informations de licence). Les modèles vivent sous :\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "Linux: `~/.local/share/darktable/models/`\n"
-msgstr ""
+msgstr "Linux : `~/.local/share/darktable/models/`\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "macOS: `~/Library/Application Support/darktable/models/`\n"
-msgstr ""
+msgstr "macOS : `~/Library/Application Support/darktable/models/`\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "Windows: `%APPDATA%\\darktable\\models\\`\n"
-msgstr ""
+msgstr "Windows : `%APPDATA%\\darktable\\models\\`\n"
 
 #. type: Plain text
 #: content/special-topics/ai/how-ai-works.md
 #, no-wrap
 msgid "darktable scans this directory at startup (and whenever you change models in preferences) to discover what is available. Multiple models can be installed for the same task – for denoise, for example, you might have both the NIND-trained and NAFNet-trained options on disk at once. Only one can be _active_ per task at any time; ticking the enabled checkbox on a second model of the same task automatically un-ticks the previously active one. Modules that consume that task load the model currently marked active.\n"
 msgstr ""
+"darktable analyse ce répertoire au démarrage (et chaque fois que vous "
+"modifiez les modèles dans les préférences) pour découvrir ce qui est "
+"disponible. Plusieurs modèles peuvent être installés pour la même tâche – "
+"pour Réduction de bruit, par exemple, vous pouvez avoir les options formées "
+"par NIND et NAFNet sur le disque à la fois. Un seul peut être _actif_ par "
+"tâche à tout moment ; cocher la case activée sur un deuxième modèle de la "
+"même tâche décoche automatiquement celle précédemment active. Les modules "
+"qui utilisent cette tâche chargent le modèle actuellement marqué comme "
+"actif.\n"
 
 #. type: Plain text
 #: content/special-topics/ai/how-ai-works.md
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "Models are not bundled with darktable. They are distributed as `.dtmodel` packages from the [darktable-ai](https://github.com/darktable-org/darktable-ai/releases) companion repository. The [AI preferences](../../../preferences-settings/ai.md) tab includes buttons to download the default set directly; for additional per-task models (alternative denoisers, segmentation backbones, etc.), download the `.dtmodel` from the repository's releases page and install it via the _install model_ button in the same tab.\n"
 msgstr ""
+"Les modèles ne sont pas fournis avec darktable. Ils sont distribués sous "
+"forme de packages `.dtmodel` à partir du référentiel compagnon [darktable-ia]"
+"(https://github.com/darktable-org/darktable-ai/releases). L'onglet des "
+"[préférences de l'IA](../../../preferences-settings/ai.md) comprend des "
+"boutons permettant de télécharger directement l'ensemble par défaut ; pour "
+"des modèles supplémentaires par tâche (débuiteurs alternatifs, squelettes de "
+"segmentation, etc.), téléchargez le `.dtmodel` depuis la page des versions "
+"du référentiel et installez-le via le bouton _installer modèle_ dans le même "
+"onglet.\n"
 
 #. type: Yaml Front Matter Hash Value: title
 #: content/special-topics/ai/_index.md
 #, no-wrap
 msgid "AI features"
-msgstr ""
+msgstr "Fonctionnalités IA"
 
 #. type: Yaml Front Matter Hash Value: title
 #: content/special-topics/ai/performance-and-troubleshooting.md
@@ -1731,30 +1787,53 @@ msgstr "Optimisation des performances"
 #, no-wrap
 msgid "CPU inference is acceptable for object masks (small one-shot evaluations) but much slower for denoise and upscale. A CUDA / MIGraphX / OpenVINO / DirectML / CoreML runtime is strongly recommended if you use those regularly.\n"
 msgstr ""
+"L'inférence CPU est acceptable pour les masques d'objets (petites "
+"évaluations en une seule fois) mais beaucoup plus lente pour la réduction de "
+"bruit et l'agrandissement. Un runtime CUDA / MIGraphX / OpenVINO / "
+"DirectML / CoreML est fortement recommandé si vous les utilisez "
+"régulièrement.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/performance-and-troubleshooting.md
 #, no-wrap
 msgid "Upscale at 4x on a large image is memory-hungry regardless of provider. Tiling is enabled automatically to keep memory in check, at a cost of some extra processing time.\n"
 msgstr ""
+"L'agrandissement 4x sur une grande image est gourmand en mémoire, quel que "
+"soit le fournisseur. Le pavage est activé automatiquement pour contrôler la "
+"mémoire, au prix d'un temps de traitement supplémentaire.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/performance-and-troubleshooting.md
 #, no-wrap
 msgid "Loading ONNX Runtime lazily on first use means the very first AI operation after startup takes an extra moment. This is normal.\n"
 msgstr ""
+"Le chargement lent d'ONNX Runtime lors de la première utilisation signifie "
+"que la toute première opération d'IA après le démarrage prend plus de temps. "
+"C'est normal.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/performance-and-troubleshooting.md
 #, no-wrap
 msgid "When switching between execution providers (e.g. auto → CUDA), the new provider's first inference incurs a graph-compilation delay. After that, runtime is steady for the rest of the session.\n"
 msgstr ""
+"Lors du passage d'un fournisseur d'exécution à un autre (par exemple auto → "
+"CUDA), la première inférence du nouveau fournisseur entraîne un délai de "
+"compilation du graphique. Après cela, le temps d’exécution est stable pour "
+"le reste de la session.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/performance-and-troubleshooting.md
 #, no-wrap
 msgid "**AMD (MIGraphX) has a multi-minute first-run cost per model.** ROCm/MIGraphX compiles the model graph for your specific GPU the first time it sees it, which can take 1–3 minutes for large models (denoise, upscale); mask models are smaller and compile faster. The compiled graph is cached on disk under `~/.cache/darktable/ai_v*_migraphx_*` and reused across darktable restarts, so subsequent runs of the same model are fast.\n"
 msgstr ""
+"**AMD (MIGraphX) a un coût de première exécution de plusieurs minutes par "
+"modèle.** ROCm/MIGraphX compile le graphique du modèle pour votre GPU "
+"spécifique la première fois qu'il le voit, ce qui peut prendre 1–3 minutes "
+"pour les grands modèles (débruitage, agrandissement) ; les modèles de masque "
+"sont plus petits et se compilent plus rapidement. Le graphique compilé est "
+"mis en cache sur le disque sous `~/.cache/darktable/ai_v*_migraphx_*` et "
+"réutilisé lors des redémarrages de darktable, de sorte que les exécutions "
+"ultérieures du même modèle soient rapides.\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/ai/performance-and-troubleshooting.md
