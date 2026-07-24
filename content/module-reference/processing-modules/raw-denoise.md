@@ -4,9 +4,30 @@ id: raw-denoise
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: denoise the raw image early in the pipeline.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
+
 Perform denoising on raw image data before it is [demosaiced](./demosaic.md). 
 
-This module has been ported from [dcraw](https://www.dechifro.org/dcraw/).
+This module has been ported from [dcraw](https://dechifro.org/dcraw/).
+
+For an AI-based alternative that denoises the raw data as part of a combined denoise/demosaic inference pass, see [neural restore](../utility-modules/shared/neural-restore.md) and the [AI features overview](../../special-topics/ai/overview.md).
 
 # module controls
 

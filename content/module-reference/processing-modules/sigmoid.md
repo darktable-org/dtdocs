@@ -4,6 +4,25 @@ id: sigmoid
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: apply a view transform to make an image displayable on a screen or print using a robust and smooth tone curve with optional color preservation methods.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: linear, RGB, display-referred.
+
+{{< /details >}}
+
 Remap the tonal range of an image using a modified generalized log-logistic curve.
 
 This module can be used to expand or contract the dynamic range of the scene to fit the dynamic range of the display.

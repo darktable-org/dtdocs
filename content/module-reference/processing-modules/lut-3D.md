@@ -4,6 +4,25 @@ id: lut-3d
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: perform color space corrections and apply look.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: defined by profile, RGB.
+
+output
+: linear or non-linear, RGB, display-referred.
+
+{{< /details >}}
+
 Transform RGB values with a 3D LUT file.
 
 A 3D LUT is a tridimensional table that is used to transform a given RGB value into another RGB value. It is normally used for film simulation and color grading.

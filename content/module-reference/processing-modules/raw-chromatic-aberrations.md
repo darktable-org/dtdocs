@@ -4,6 +4,25 @@ id: raw-chromatic-aberrations
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct chromatic aberrations for Bayer sensors.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
+
 Correct chromatic aberrations of raw images.
 
 This module currently only works for raw images recorded with a Bayer sensor (the sensor used in the majority of cameras) -- for other types of image, you should use the [_chromatic aberrations_](./chromatic-aberrations.md) module instead.

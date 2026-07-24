@@ -5,6 +5,25 @@ weight: 10
 include_toc: true
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: perform color space corrections such as white balance, channels mixing and conversions to monochrome emulating film.
+
+purpose
+: corrective or creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB or XYZ.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
+
 A fully-featured color-space correction, white balance adjustment and channel mixer module.
 
 This simple yet powerful module can be used in the following ways:
@@ -311,7 +330,7 @@ Users are not currently permitted to use custom targets, but a limited number of
 
 Users are discouraged from obtaining cheap, off-brand, color targets as color constancy between batches cannot possibly be asserted at such prices. Inaccurate color checkers will only defeat the purpose of color calibration and possibly make things worse.
 
-IT7 and IT8 charts are not supported since they are hardly portable and not practical for use on-location for ad-hoc profiles. These charts are better suited for creating generic color profiles, undertaken using a standard illuminant, for example with [Argyll CMS](https://encrypted.pcode.nl/blog/index.html%3Fp=594.html).
+IT7 and IT8 charts are not supported since they are hardly portable and not practical for use on-location for ad-hoc profiles. These charts are better suited for creating generic color profiles, undertaken using a standard illuminant, for example with [Argyll CMS](https://github.com/beku/Argyll-Releases).
 
 ---
 

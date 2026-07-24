@@ -4,6 +4,25 @@ id: tone-equalizer
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: relight the scene as if the lighting was done directly on the scene.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: quasi-linear, RGB.
+
+output
+: quasi-linear, RGB, scene-referred.
+
+{{< /details >}}
+
 Dodge and burn while preserving local contrast.
 
 The _tone equalizer_ module replaces the need for other tone-mapping modules such as the [_shadows and highlights_](./shadows-and-highlights.md), [_tone curve_](./tone-curve.md), [_zone system (deprecated)_](./zone-system.md), and similar modules. It works in linear RGB space and utilizes a user-defined mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.

@@ -4,6 +4,25 @@ id: demosaic
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: reconstruct full RGB pixels from a sensor color filter array reading.
+
+purpose
+: mandatory.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
+
 Control how raw files are demosaiced and optionally apply capture sharpening.
 
 # bayer filters

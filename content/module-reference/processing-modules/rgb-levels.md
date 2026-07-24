@@ -4,6 +4,25 @@ id: rgb-levels
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: adjust black, white and mid-gray points in RGB color space.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
+
 Adjust black, white and mid-gray points in RGB color space. This module is similar to the [_levels_](./levels.md) module, which works in Lab color space.
 
 The rgb levels tool shows a histogram of the image, and displays three bars with handles. Drag the handles to modify the black, middle-gray and white points in lightness (in "RGB, linked channels" mode) or independently for each of the R, G and B channels (in "RGB, independent channels" mode).

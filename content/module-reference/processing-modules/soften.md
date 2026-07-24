@@ -4,6 +4,25 @@ id: soften
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: create a softened image using the Orton effect.
+
+purpose
+: creative.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, display-referred.
+
+{{< /details >}}
+
 Create a softened image using the [Orton effect](https://en.wikipedia.org/wiki/Orton_(photography)).
 
 Michael Orton achieved his results on slide film by using two exposures of the same scene, one well exposed and one overexposed. He then used a darkroom technique to blend these two images into a final image where the overexposed image was blurred.

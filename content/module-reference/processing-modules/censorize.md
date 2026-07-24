@@ -4,6 +4,25 @@ id: censorize
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: censorize license plates and body parts for privacy.
+
+purpose
+: creative.
+
+input
+: linear or non-linear, RGB, scene-referred.
+
+processing
+: frequential, RGB.
+
+output
+: special, RGB, scene-referred.
+
+{{< /details >}}
+
 Degrade parts of the image in an aesthetically pleasing way, in order to anonymize people/objects or hide body parts.
 
 Censorize works in linear RGB color space to apply a physically-accurate gaussian blur and gaussian luminance noise.

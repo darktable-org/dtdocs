@@ -4,6 +4,25 @@ id: sharpen
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: sharpen the details in the image using a standard UnSharp Mask (USM).
+
+purpose
+: corrective.
+
+input
+: linear or non-linear, Lab, display or scene-referred.
+
+processing
+: frequential, Lab.
+
+output
+: quasi-linear, Lab, display or scene-referred.
+
+{{< /details >}}
+
 Sharpen the details in the image using a standard UnSharp Mask (USM). 
 
 This module works by increasing the contrast around edges and thereby enhancing the _impression_ of sharpness of an image. This module is applied to the L channel in Lab color space.

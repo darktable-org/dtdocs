@@ -4,6 +4,25 @@ id: enlarge-canvas
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: add empty space to the left, top, right or bottom.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
+
 Increase the size of the image canvas and fill the additional area with the selected color.
 
 # module controls

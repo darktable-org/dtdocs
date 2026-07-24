@@ -4,6 +4,25 @@ id: exposure
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: redo the exposure of the shot as if you were still in-camera using a color-safe brightening similar to increasing ISO setting.
+
+purpose
+: corrective and creative.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
+
 Increase or decrease the overall brightness of an image.
 
 This module has two modes of operation:
@@ -21,6 +40,9 @@ mode
 
 compensate camera exposure (manual mode)
 : Automatically remove the camera exposure bias (taken from the image's Exif data).
+
+highlight preservation mode (manual mode)
+: Some cameras underexpose the raw file in specific modes such as HDR, dynamic range expansion, HLG or AutoLightingOptimizer to protect the highlights. When enabled, it restores the withheld exposure (the amount, in EV, is shown on the button). This control appears only when such a mode is detected in the image's Exif data.
 
 exposure (manual mode)
 : Increase (move to the right) or decrease (move to the left) the exposure value (EV). To adjust by more than the default limits shown on the slider, right click and enter the desired value up to +/-18 EV (see [module controls](../../darkroom/processing-modules/module-controls.md)).

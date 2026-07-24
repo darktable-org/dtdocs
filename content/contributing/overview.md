@@ -6,7 +6,7 @@ weight: 1
 
 This page defines the style guide for dtdocs and information about how to contribute to the project.
 
-It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://raw.githubusercontent.com/darktable-org/dtdocs/master/content/special-topics/contributing.md) to see the source for this page.
+It is included in the user manual so that you can see how the page is rendered as well as how it is written. Please go to [GitHub](https://raw.githubusercontent.com/darktable-org/dtdocs/master/content/contributing/overview.md) to see the source for this page.
 
 The manual structure and content have been carefully considered based on the following criteria:
 1. The manual should be comprehensive -- it should describe all of the functionality available in darktable

@@ -4,6 +4,25 @@ id: hot-pixels
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: remove abnormally bright pixels by dampening them with neighbors.
+
+purpose
+: corrective.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: reconstruction, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
+
 Automatically detect and eliminate hot pixels. 
 
 Hot pixels are pixels which have failed to record a light level correctly. Detected hot pixels are replaced by an average of their neighbors.

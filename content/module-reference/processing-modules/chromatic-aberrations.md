@@ -4,6 +4,25 @@ id: chromatic-aberrations
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct chromatic aberrations.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, scene-referred.
+
+processing
+: linear, RGB.
+
+output
+: linear, RGB, scene-referred.
+
+{{< /details >}}
+
 Correct chromatic aberrations.
 
 In contrast to the [_raw chromatic aberrations_](./raw-chromatic-aberrations.md) module, this module does not require raw data as input.

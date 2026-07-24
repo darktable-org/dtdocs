@@ -4,6 +4,25 @@ id: raw-black-white-point
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: sets technical specificities of the raw sensor  touch with great care!.
+
+purpose
+: mandatory.
+
+input
+: linear, raw, scene-referred.
+
+processing
+: linear, raw.
+
+output
+: linear, raw, scene-referred.
+
+{{< /details >}}
+
 Define camera-specific black and white points. 
 
 This module is activated automatically for all raw images. Default settings are applied for all supported cameras. Changes to the defaults are not normally required.

@@ -4,6 +4,25 @@ id: unbreak-input-profile
 weight: 10
 ---
 
+{{< details summary="Technical information" class="technical-info" >}}
+
+description
+: correct input color profiles meant to be applied on non-linear RGB.
+
+purpose
+: corrective.
+
+input
+: linear, RGB, display-referred.
+
+processing
+: non-linear, RGB.
+
+output
+: non-linear, RGB, display-referred.
+
+{{< /details >}}
+
 Add a correction curve to image data. This is required if you have selected certain input profiles in the [_input color profile_](./input-color-profile.md) module.
 
 If you decide to use an ICC profile from the camera manufacturer in the [_input color profile_](./input-color-profile.md) module, a correction curve frequently needs to be pre-applied to image data to prevent the final output from looking too dark. This extra processing is not required if you use darktable's standard or enhanced color matrices. 

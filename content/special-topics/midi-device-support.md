@@ -66,7 +66,7 @@ The shortcut mapping system has been most extensively tested with the Behringer 
 
 ## Behringer X-touch Mini / Compact
 
-These devices should be in Standard Mode (not MC). Layers A & B are somewhat supported, however, since the device does not send a notification when switching between layers, and since lights (both under buttons and the pattern used around the rotors) are set based on which layer darktable believes is active, everything will only be updated completely after you press or turn something in the "new" layer. Default settings are assumed; if any have been changed they can be restored using this [X-Touch Editor](https://mediadl.musictribe.com/download/software/behringer/X-TOUCH/X-TOUCH-EDITORv1-21.zip)
+These devices should be in Standard Mode (not MC). Layers A & B are somewhat supported, however, since the device does not send a notification when switching between layers, and since lights (both under buttons and the pattern used around the rotors) are set based on which layer darktable believes is active, everything will only be updated completely after you press or turn something in the "new" layer. Default settings are assumed; if any have been changed they can be restored using the [X-Touch Editor](https://www.behringer.com/en/products/0808-AAF)
 
 ## Behringer BCR2000 / BCF2000
 
