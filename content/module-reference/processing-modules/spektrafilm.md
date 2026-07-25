@@ -42,7 +42,7 @@ only use one display transform
 : Never use _spektrafilm_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)) -- _spektrafilm_ performs the film's own tone mapping as part of simulating development and printing.
 
 start simple
-: Selecting a film stock and a print paper is enough to get a complete, physically-plausible result. The _advanced_ tab and per-effect controls (grain, halation, diffusion) are there for fine-tuning, not required for a first pass.
+: Selecting a film stock and a print paper is enough to get a complete, physically-plausible result. The per-effect controls (grain, halation, diffusion) and the film tab's _chemistry_ section are there for fine-tuning, not required for a first pass.
 
 positive film has no print stage
 : Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure, auto print exposure, print contrast, filtration, preflash, print diffusion) has no effect while it's active.
@@ -55,9 +55,9 @@ narrow-spectral-sensitivity papers may need manual print exposure
 
 # module controls
 
-The module is organized into tabs matching the stages of the physical process: _film and print_, _grain_, _halation_, _diffusion_, and _advanced_.
+Film stock, print paper, a format preset, and _pre-compression boost_ are always visible at the top of the module. Everything else is organized into tabs matching the stages of the physical process: _film_, _print_, _grain_, _halation_, and _diffusion_.
 
-## film and print
+## header
 
 film stock
 : The film emulsion to simulate, selected from the included spectral profile data.
@@ -65,7 +65,18 @@ film stock
 print paper
 : The print/paper stock to simulate. Defaults to the film stock's own target print paper; change the film and the paper follows automatically unless you've explicitly chosen a different one.
 
-### film
+pre-compression boost
+: Multiplies XYZ luminance before the output gamut compressor, pushing the histogram brighter while the compressor's own highlight rolloff is preserved. 1.0 is neutral/off. Use the picker to set it automatically from a chosen highlight area.
+
+format
+: A preset picker for common film/sensor gate sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom). Choosing a preset sets the _film format_ slider below to match.
+
+film format
+: The physical film width being simulated, in mm (long side). Sets the real-world scale that grain, scatter, and halation are computed at, so a smaller format shows proportionally coarser grain and larger scatter/halation for the same print size.
+
+## film
+
+### exposure
 
 film exposure
 : Exposure compensation applied at the film stage, in EV. With _auto print exposure_ enabled this has no net effect on the final brightness (see [usage](#usage) above) -- it still affects color rendering and grain the way a real exposure change would, since those depend on where on the film's characteristic curve the exposure lands.
@@ -73,7 +84,32 @@ film exposure
 scan the film (skip print)
 : View the developed film directly instead of printing it. Automatically enabled for positive/reversal film stocks, which have no print stage; automatically disabled when you switch to a negative stock. You can still toggle it manually afterwards.
 
-### print
+push/pull
+: Push (positive values) or pull (negative values) processing, in stops: shoot at an effective ISO different from box speed, then under- or over-develop to compensate. Combines an exposure shift with a derived contrast increase/decrease -- an approximation, since the exact relationship depends on the specific film/developer combination, which isn't modeled here. Stacks with the _chemistry_ controls below for further fine-tuning.
+
+### chemistry
+
+development gamma
+: Overall development contrast, applied by morphing the film's own density curves -- extended or reduced development time, as in push/pull processing. 1.0 is normal development.
+
+fast layer gamma
+: Contrast of the fastest (most light-sensitive) emulsion sub-layer only, independent of the slow layer -- push/pull processing doesn't always affect every sub-layer equally.
+
+slow layer gamma
+: Contrast of the mid and slow emulsion sub-layers.
+
+developer exhaustion
+: Local developer depletion in dense (highly-exposed) areas: blends the highlight shoulder toward a self-limiting rolloff without shifting mid-grey. 0 disables it.
+
+### couplers and quality
+
+DIR couplers
+: Strength of inter-layer development inhibition, which drives saturation and edge effects in the simulated film. 1.0 is film-accurate; 0 disables the effect.
+
+quality
+: Trade-off between spectral accuracy and processing speed. Higher settings use a finer-resolution lookup table, interpolated with PCHIP splines and validated against the reference implementation.
+
+## print
 
 print exposure
 : Manual print brightness (enlarger exposure time), in EV. Independent of, and additive with, _auto print exposure_ -- see [usage](#usage) above.
@@ -84,24 +120,18 @@ auto print exposure
 print contrast
 : Print contrast, applied by morphing the paper's own density curves rather than a simple RGB contrast operation.
 
+### filtration
+
 filtration M / filtration Y
 : Magenta and yellow enlarger filtration, in Kodak CC units from neutral.
 
-DIR couplers
-: Strength of inter-layer development inhibition, which drives saturation and edge effects in the simulated film. 1.0 is film-accurate; 0 disables the effect.
-
-#### preflash
+### preflash
 
 preflash exposure
 : A brief, uniform pre-exposure of the print through the film's base density, applied before the main print exposure. Lifts shadows and reduces contrast, a real darkroom technique for controlling contrast on high-contrast negatives. 0 disables it.
 
 preflash M filter shift / preflash Y filter shift
 : Magenta/yellow filtration for the preflash exposure only, in Kodak CC units from neutral -- independent of the main enlarger filtration above.
-
-### format
-
-film format
-: The physical film width being simulated, in mm. Sets the real-world scale that grain, scatter, and halation are computed at, so a smaller format shows proportionally coarser grain and larger scatter/halation for the same print size.
 
 ## grain
 
@@ -113,6 +143,14 @@ grain strength
 
 grain size
 : Grain particle size. 1.0 is the film's own default; higher values are coarser.
+
+### acutance recovery
+
+grain recovery sharpness
+: Radius of the acutance-recovery sharpening applied after grain's own softening blur. 0 disables it; higher values produce wider halos, lower values finer detail.
+
+grain recovery strength
+: Strength of the acutance-recovery sharpening. 0 disables it; restores the crispness that grain's clump blur softens. Overdoing it makes grain look crunchy rather than photographic.
 
 ## halation
 
@@ -130,6 +168,8 @@ halation strength
 
 halation size
 : Halation glow radius. 1.0 is film-accurate.
+
+### threshold
 
 highlight boost
 : Reconstructs clipped highlights so they can bloom into scatter, halation, and diffusion, in EV. 0 disables it.
@@ -164,11 +204,3 @@ diffusion halo warmth
 ### print diffusion
 
 A second, independent diffusion filter applied at the print stage rather than the film stage -- simulating a filter placed at the enlarger instead of the camera. Its controls are the same as [diffusion](#diffusion) above, applied independently: _enable print diffusion_, _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, _print diffusion halo warmth_.
-
-## advanced
-
-quality
-: Trade-off between spectral accuracy and processing speed. Higher settings use a finer-resolution lookup table, interpolated with PCHIP splines and validated against the reference implementation.
-
-pre-compression boost
-: Multiplies XYZ luminance before the output gamut compressor, pushing the histogram brighter while the compressor's own highlight rolloff is preserved. 1.0 is neutral/off.
