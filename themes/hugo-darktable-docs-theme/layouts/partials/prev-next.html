@@ -1,0 +1,42 @@
+{{- .Scratch.Set "pcurrpagefound" 0 -}}
+{{- with .Site.GetPage "/" -}}
+{{- template "pn-children" (dict "Section" . "CurrentPage" $) -}}
+{{- end -}}
+
+{{- define "pn-children" -}}{{- /* (dict "Section" .Section "CurrentPage" .CurrentPage) */ -}}
+   {{- range .Section.Pages -}}
+      {{- if .IsSection -}}
+         {{- template "pn-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
+         {{- template "pn-children" (dict "Section" . "CurrentPage" $.CurrentPage) -}}
+      {{- else if and .IsPage .Content -}}
+         {{- template "pn-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
+      {{- end -}}
+   {{- end -}}
+{{- end -}}
+
+{{- define "pn-link" -}}{{- /* (dict "Page" .Page "CurrentPage" .CurrentPage) */ -}}
+   {{- if (eq ( .CurrentPage.Scratch.Get "pcurrpagefound" ) 1) -}}
+      {{- .CurrentPage.Scratch.Set "pnextlink" .Page.RelPermalink -}}
+      {{- .CurrentPage.Scratch.Set "pnexttitle" .Page.Title -}}
+      {{- .CurrentPage.Scratch.Set "pcurrpagefound" 2 -}}
+   {{- else if eq .CurrentPage .Page -}}
+      {{- .CurrentPage.Scratch.Set "pcurrpagefound" 1 -}}
+   {{ else if (eq ( .CurrentPage.Scratch.Get "pcurrpagefound" ) 0) }}
+      {{- .CurrentPage.Scratch.Set "pprevlink" .Page.RelPermalink -}}
+      {{- .CurrentPage.Scratch.Set "pprevtitle" .Page.Title -}}
+   {{- end -}}
+{{- end -}}
+
+
+<div class="prev-next row">
+    <div class="col-6">
+    {{ if  .Scratch.Get "pprevlink" }}
+	<a href="{{ .Scratch.Get "pprevlink" }}" class="next">&lt; {{ .Scratch.Get "pprevtitle" }}</a>
+	{{ end }}
+    </div>
+    <div class="col-6">
+    {{ if .Scratch.Get "pnextlink" }}
+	<a href="{{ .Scratch.Get "pnextlink" }}" class="prev">{{ .Scratch.Get "pnexttitle" }} &gt;</a>
+	{{ end }}
+    </div>
+</div>

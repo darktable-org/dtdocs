@@ -1,0 +1,31 @@
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script> var indexURL="{{ "index.json" | absLangURL }}"</script>
+{{- /*<!-- NOTE: Vendor Scripts -->*/ -}}
+{{- $jquery := resources.Get "/node_modules/jquery/dist/jquery.min.js" -}}
+
+{{ $javascript := slice $jquery | resources.Concat "/js/jquery.js" }}
+<script src="{{ $javascript.RelPermalink }}"></script>
+
+{{- $popper := resources.Get "/node_modules/popper.js/dist/popper.js" -}}
+
+{{ $javascript := slice $popper | resources.Concat "/js/popper.js" }}
+<script src="{{ $javascript.RelPermalink }}" type="module"></script>
+
+{{- $bootstrap := resources.Get "/node_modules/bootstrap/dist/js/bootstrap.js" -}}
+
+{{ $javascript := slice $bootstrap | resources.Concat "/js/bootstrap.js" }}
+<script src="{{ $javascript.RelPermalink }}"></script>
+
+{{- $lunr := resources.Get "/node_modules/lunr/lunr.js" -}}
+
+{{ $javascript := slice $lunr | resources.Concat "/js/lunr.js" }}
+<script src="{{ $javascript.RelPermalink }}"></script>
+
+{{- /*<!-- NOTE: User Scripts -->*/ -}}
+{{- $app := resources.Get "/js/app.js" | resources.ExecuteAsTemplate "/js/app.js" . -}}
+
+{{ $javascript := slice $app | resources.Concat "/js/app.js" }}
+<script src="{{ $javascript.RelPermalink }}"></script>
+
