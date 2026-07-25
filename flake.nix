@@ -16,6 +16,7 @@
         in
         pkgs.mkShell {
           packages = with pkgs; [
+            gettext
             hugo
             pnpm
             rsync
