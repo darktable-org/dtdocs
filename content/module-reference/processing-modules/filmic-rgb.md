@@ -1,6 +1,3 @@
-
-
-Filmic rgb · MD
 ---
 title: filmic rgb
 id: filmic-rgb
