@@ -45,7 +45,7 @@ start simple
 : Selecting a film stock and a print paper is enough to get a complete, physically-plausible result. The per-effect controls (grain, halation, diffusion) and the film tab's _chemistry_ section are there for fine-tuning, not required for a first pass.
 
 positive film has no print stage
-: Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure, auto print exposure, print contrast, filtration, preflash, print diffusion) has no effect while it's active.
+: Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure, auto print exposure, print contrast, print development time, filtration, preflash, print diffusion) has no effect while it's active. The scanner tab's _viewing glare_ is also inactive, since a directly scanned film has no print surface.
 
 auto print exposure is a real-world default, not a fixed brightness
 : With _auto print exposure_ enabled, changing _film exposure_ does not change the final brightness -- print exposure automatically compensates, the same way a real printer exposes to a fixed target density regardless of how the negative was exposed. Disable it if you want film exposure to affect brightness directly, as it would with a fixed enlarger exposure time.
@@ -89,6 +89,9 @@ push/pull
 
 ### chemistry
 
+development time
+: The development time the film's characteristic curves were measured at, in minutes. Only black & white stocks are characterised at more than one development time (Kodak Double-X at 4/5/6.5/9/12 minutes, for example); the slider is greyed out for colour stocks and for stocks with a single characterisation. The value snaps to the nearest measured time, and 0 selects the stock's own standard development. Unlike _development gamma_ below, which morphs the curves mathematically, this selects a different set of actually-measured curves.
+
 development gamma
 : Overall development contrast, applied by morphing the film's own density curves -- extended or reduced development time, as in push/pull processing. 1.0 is normal development.
 
@@ -104,7 +107,7 @@ developer exhaustion
 ### couplers and quality
 
 DIR couplers
-: Strength of inter-layer development inhibition, which drives saturation and edge effects in the simulated film. 1.0 is film-accurate; 0 disables the effect.
+: Strength of inter-layer development inhibition (DIR couplers), which drives saturation and edge effects in the simulated film. 1.0 is film-accurate; 0 disables the effect. The slider stops at 1.0: the inhibition has to stay invertible for the film's "before couplers" curves to be recoverable, and beyond film-accurate strength that breaks down -- for some stocks well before 2.0. The module additionally reduces the effective amount if a particular stock's curves would become non-invertible sooner.
 
 quality
 : Trade-off between spectral accuracy and processing speed. Higher settings use a finer-resolution lookup table, interpolated with PCHIP splines and validated against the reference implementation.
@@ -119,6 +122,11 @@ auto print exposure
 
 print contrast
 : Print contrast, applied by morphing the paper's own density curves rather than a simple RGB contrast operation.
+
+### chemistry
+
+development time
+: The development time the print paper's characteristic curves were measured at, in minutes -- the print-stage counterpart of the film tab's _development time_, and independent of it. Only black & white print stocks carry more than one measured development (Kodak Print Film 2302 at 2/3.5/5/7/9 minutes); the slider is greyed out otherwise, and while _scan the film_ is enabled.
 
 ### filtration
 
@@ -158,7 +166,7 @@ enable halation
 : Enable in-emulsion light scatter and back-reflection halation simulation -- the softening and reddish glow around bright highlights caused by light scattering within the emulsion and, separately, reflecting off the film base back into it.
 
 scatter amount
-: Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation strength_ below: 1.0 is film-accurate; 0 disables it.
+: Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation strength_ below: 1.0 is film-accurate; 0 disables it. This is the fraction of light that scatters, so 1.0 (all of it) is the maximum -- unlike _halation strength_, it has no meaningful values above film-accurate.
 
 scatter size
 : Scatter radius. 1.0 is film-accurate.
@@ -172,7 +180,7 @@ halation size
 ### threshold
 
 highlight boost
-: Reconstructs clipped highlights so they can bloom into scatter, halation, and diffusion, in EV. 0 disables it.
+: Reconstructs clipped highlights so they can bloom into scatter, halation, and diffusion, in EV. 0 disables it. The boost is applied over a fixed 4 EV window above the _boost protect_ threshold, so the same setting produces the same result regardless of image size, zoom level, or whether the export is tiled.
 
 boost range
 : Range of the highlight boost curve.
@@ -204,3 +212,19 @@ diffusion halo warmth
 ### print diffusion
 
 A second, independent diffusion filter applied at the print stage rather than the film stage -- simulating a filter placed at the enlarger instead of the camera. Its controls are the same as [diffusion](#diffusion) above, applied independently: _enable print diffusion_, _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, _print diffusion halo warmth_.
+
+## scanner
+
+The scanner stage models how the developed film or finished print is digitised, and the conditions it is viewed under. These act on the final image, after everything else.
+
+scanner blur
+: Softening from the scanner's own optics, in pixels. 0 disables it.
+
+scanner sharpness
+: Radius of the scanner's sharpening pass, in pixels.
+
+scanner sharpen strength
+: Strength of the scanner's sharpening pass. 0 disables it. The reference implementation applies this by default; it is off here so that sharpening remains your choice, and can be left to darktable's own [_sharpen_](./sharpen.md) or [_diffuse or sharpen_](./diffuse.md) modules further down the pipeline if you prefer.
+
+viewing glare
+: A faint veil of the viewing light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print viewed in a real room never reaches true black. Has no effect while _scan the film_ is enabled, since a directly scanned film has no print surface to reflect off.
