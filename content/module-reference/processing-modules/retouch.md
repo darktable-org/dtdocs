@@ -63,6 +63,8 @@ It is recommended that you choose the position of the source shape first, follow
 
 Once you have placed your source and target shapes on the image, they can be adjusted manually with your mouse.
 
+Ctrl+click and drag within either the source or target shape to rotate only that specific shape. Ctrl+Shift+click and drag within either shape to rotate both the source and target shapes together.
+
 ---
 
 **Note:** For _circle_ and _ellipse_ shapes only, you can place both the source and target shapes with a single click-and-drag motion: Click on the desired target location and then drag, releasing your mouse button when you reach the desired source location. This operation does not affect the placement of subsequent shapes.
