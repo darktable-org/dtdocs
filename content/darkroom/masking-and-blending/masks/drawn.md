@@ -36,6 +36,8 @@ Click on the 'show and edit mask elements' icon ![show-and-edit-masks-icon](./dr
 
 Click and drag a shape to move it around the image canvas. Clicking on a shape will also select that shape in the mask manager.
 
+Ctrl+click and drag within the shape to rotate it.
+
 # removing shapes
 
 While in edit mode right-click on a shape to remove it.
@@ -67,7 +69,7 @@ In order to ensure a consistent co-ordinate system, when you place a shape on th
 
 : On lifting the tablet pen or releasing the left mouse button the brush stroke is converted into a number of connected nodes, which define the final shape. A configuration option ([preferences > darkroom > smoothing of brush strokes](../../../preferences-settings/darkroom.md)) controls how much smoothing is applied. A higher level of smoothing leads to fewer nodes being created – this eases subsequent editing at the expense of lower accuracy.
 
-: Nodes and segments of a brush stroke can be modified individually. See the documentation on path shapes (above) for more details. Change the size or hardness of a node by scrolling and Shift+scrolling over a node, respectively.
+: Nodes and segments of a brush stroke can be modified individually. See the documentation on path shapes (below) for more details. Change the size or hardness of a node by scrolling and Shift+scrolling over a node, respectively.
 
 ---
 
@@ -84,7 +86,7 @@ In order to ensure a consistent co-ordinate system, when you place a shape on th
 ![drawn-mask-path](./drawn/path.png#icon) path
 : Click on the image canvas to place three or more nodes and generate a free-format enclosed shape. Terminate the path by right-clicking after having set the last point. By default, nodes are connected with smooth lines. If you want a node to instead define a sharp corner, you can do so by creating it with Ctrl+click.
 
-: In edit mode Ctrl+click on an existing node to convert it from smooth to sharp corners and vice versa. Ctrl+click on one of the line segments to insert an additional node. Right-click on a node to delete it. Take care to ensure that the mouse pointer is over the desired node and the node is highlighted, to avoid accidentally removing the whole path.
+: In edit mode Ctrl+click on an existing node to convert it from smooth to sharp corners and vice versa. Shift+click on one of the line segments to insert an additional node. Right-click on a node to delete it. Take care to ensure that the mouse pointer is over the desired node and the node is highlighted, to avoid accidentally removing the whole path.
 
 : The size of the completed shape can be modified by scrolling. The same holds true for the width of the border (the area with a gradual opacity decay), which can also be changed with Shift+scroll (with the mouse wheel) from anywhere within the shape. Single nodes as well as path segments can be moved by dragging them with the mouse. If a node is selected by clicking on it, two Bézier handles appear which allow you to modify the curvature of the line (reset to the default curvature by right-clicking on either of the handles). In the image below, the selected node (2) has two handles (4 and 5). Altering the position or length of the handles alters the curvature between node 2 and the adjacent nodes (1 and 3).
 
