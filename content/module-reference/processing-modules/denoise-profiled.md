@@ -67,7 +67,7 @@ profile
 : darktable automatically determines the camera model and ISO based on the Exif data of your raw file, and searches for a corresponding profile in its database. If your image has an intermediate ISO value, settings will be interpolated between the two closest datasets in the database, and this interpolated setting will show up as the first line in the combo box. You can also manually override this selection if necessary. Re-selecting the top-most entry in the combo box will return you to the default profile.
 
 compensate highlight preservation
-: Some cameras underexpose the raw file in specific modes such as HDR, dynamic range expansion, HLG or AutoLightingOptimizer to protect the highlights. When enabled, reduces the ISO used for denoise by the factor of the camera's hidden exposure bias. This control appears only when such a mode is detected in the image's Exif data.
+: Some cameras underexpose the raw file in specific modes such as HDR, dynamic range expansion, highlight tone priority, HLG or AutoLightingOptimizer to protect the highlights. When enabled, reduces the ISO used for denoise by the factor of the camera's hidden exposure bias. This control appears only when such a mode is detected in the image's Exif data.
 
 whitebalance-adaptive transform
 : As the white balance amplifies each of the RGB channels differently, each channel exhibits different noise levels. This checkbox makes the selected algorithm adapt to the white balance adjustments. This option should be disabled on the second instance if you have applied a first instance with a color blend mode.
