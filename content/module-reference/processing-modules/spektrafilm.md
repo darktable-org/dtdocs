@@ -45,17 +45,17 @@ start simple
 : Selecting a film stock and a print paper is enough to get a complete, physically-plausible result. The per-effect controls (grain, halation, diffusion) and the film tab's _chemistry_ section are there for fine-tuning, not required for a first pass.
 
 positive film has no print stage
-: Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure, auto print exposure, print contrast, print development time, filtration, preflash, print diffusion) has no effect while it's active. The scanner tab's _viewing glare_ is also inactive, since a directly scanned film has no print surface.
+: Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure compensation, auto print exposure, print contrast, print development time, filtration, preflash, print diffusion) has no effect while it's active. The scanner tab's _viewing glare_ is also inactive, since a directly scanned film has no print surface.
 
 auto print exposure is a real-world default, not a fixed brightness
 : With _auto print exposure_ enabled, changing _film exposure_ does not change the final brightness -- print exposure automatically compensates, the same way a real printer exposes to a fixed target density regardless of how the negative was exposed. Disable it if you want film exposure to affect brightness directly, as it would with a fixed enlarger exposure time.
 
 narrow-spectral-sensitivity papers may need manual print exposure
-: A few print stocks (duplicating films in particular) have a very narrow spectral sensitivity. _auto print exposure_'s metering can under- or over-shoot for these -- if a print looks implausibly dark or bright with auto print exposure enabled, use _print exposure_ to correct it manually.
+: A few print stocks (duplicating films in particular) have a very narrow spectral sensitivity. _auto print exposure_'s metering can under- or over-shoot for these -- if a print looks implausibly dark or bright with auto print exposure enabled, use _print exposure compensation_ to correct it manually.
 
 # module controls
 
-Film stock, print paper, a format preset, and _pre-compression boost_ are always visible at the top of the module. Everything else is organized into tabs matching the stages of the physical process: _film_, _print_, _grain_, _halation_, and _diffusion_.
+Film stock, print paper, and the film format are always visible at the top of the module. Everything else is organized into tabs matching the stages of the physical process: _film_, _print_, _grain_, _halation_, _diffusion_, and _scanner_.
 
 ## header
 
@@ -65,14 +65,11 @@ film stock
 print paper
 : The print/paper stock to simulate. Defaults to the film stock's own target print paper; change the film and the paper follows automatically unless you've explicitly chosen a different one.
 
-pre-compression boost
-: Multiplies XYZ luminance before the output gamut compressor, pushing the histogram brighter while the compressor's own highlight rolloff is preserved. 1.0 is neutral/off. Use the picker to set it automatically from a chosen highlight area.
-
 format
-: A preset picker for common film/sensor gate sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom). Choosing a preset sets the _film format_ slider below to match.
+: A preset picker for common film/sensor gate sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom). Choosing a preset sets the _frame long edge_ slider below to match. Note that the preset names a film _gauge_ (35mm), while the slider is the frame's long edge (36mm) -- both describe the same format.
 
-film format
-: The physical film width being simulated, in mm (long side). Sets the real-world scale that grain, scatter, and halation are computed at, so a smaller format shows proportionally coarser grain and larger scatter/halation for the same print size.
+frame long edge
+: The physical size of the simulated frame's long edge, in mm. Sets the real-world scale that grain, scatter, and halation are computed at, so a smaller format shows proportionally coarser grain and larger scatter/halation for the same print size.
 
 ## film
 
@@ -114,8 +111,8 @@ quality
 
 ## print
 
-print exposure
-: Manual print brightness (enlarger exposure time), in EV. Independent of, and additive with, _auto print exposure_ -- see [usage](#usage) above.
+print exposure compensation
+: Manual print brightness (enlarger exposure time), in EV. This is an offset either way: with _auto print exposure_ enabled it shifts the automatic result rather than being ignored -- see [usage](#usage) above.
 
 auto print exposure
 : Automatically compensate print exposure for film exposure changes, the way a real printer would expose to a fixed density regardless of the negative's own exposure. Has no effect while _scan the film_ is enabled, since there's no print stage to compensate.
@@ -143,6 +140,8 @@ preflash M filter shift / preflash Y filter shift
 
 ## grain
 
+Grain is not drawn as a separate layer on top of a sharp image. The simulation produces a grained film density, softens it with a small clump blur -- image detail and grain together, as the emulsion itself does -- and then restores the lost edge definition with the _acutance recovery_ sharpening below. The blur and the recovery are a matched pair, tuned together, so a picture with grain enabled is very slightly softer than the same picture with grain off. That is the film's own behaviour, not an artifact; if you want it sharper, reduce _grain strength_ or turn grain off rather than raising _grain recovery strength_.
+
 enable grain
 : Enable film grain simulation.
 
@@ -155,10 +154,10 @@ grain size
 ### acutance recovery
 
 grain recovery sharpness
-: Radius of the acutance-recovery sharpening applied after grain's own softening blur. 0 disables it; higher values produce wider halos, lower values finer detail.
+: Radius of the acutance-recovery sharpening applied after grain's clump blur. 0 disables it; higher values produce wider halos, lower values finer detail.
 
 grain recovery strength
-: Strength of the acutance-recovery sharpening. 0 disables it; restores the crispness that grain's clump blur softens. Overdoing it makes grain look crunchy rather than photographic.
+: Strength of the acutance-recovery sharpening -- it restores the edge definition the clump blur takes away. 0 disables it, which leaves the softening in place with nothing recovering it. The defaults are the reference implementation's own tuned pair; raising the strength well above them sharpens beyond what the blur removed, which makes grain look crunchy rather than photographic.
 
 ## halation
 
@@ -169,7 +168,7 @@ scatter amount
 : Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation strength_ below: 1.0 is film-accurate; 0 disables it. This is the fraction of light that scatters, so 1.0 (all of it) is the maximum -- unlike _halation strength_, it has no meaningful values above film-accurate.
 
 scatter size
-: Scatter radius. 1.0 is film-accurate.
+: Scales the in-emulsion scatter radius. 1.0 is film-accurate, and is the value the reference implementation always uses -- it doesn't expose this control at all. Above 1.0 you are past what the film model claims, and because the radius scales directly with the value the whole frame softens quickly. Drag up to 1.5, right-click to enter higher values.
 
 halation strength
 : Strength of the halation glow -- light reflecting off the film base back into the emulsion. 1.0 is film-accurate for the selected film stock: stocks with a strong built-in antihalation layer (most modern colour negative film) show much less glow than one with a weak or absent antihalation layer (e.g. a redscale-style stock), so the same 1.0 setting looks different from stock to stock, matching how the actual film behaves. The hard range extends to 8 (drag up to 2, right-click to enter higher values).
@@ -217,6 +216,9 @@ A second, independent diffusion filter applied at the print stage rather than th
 
 The scanner stage models how the developed film or finished print is digitised, and the conditions it is viewed under. These act on the final image, after everything else.
 
+pre-compression boost
+: Multiplies XYZ luminance immediately before the OkLCh output gamut compressor, pushing the histogram to the right while the film's own shoulder rolloff is preserved. 1.0 is neutral/off. Because it acts at the very end of the module, the picker measures the processed image rather than the input: use it on an area of highlights to set the boost so the brightest tone lands just past the compressor's knee.
+
 scanner blur
 : Softening from the scanner's own optics, in pixels. 0 disables it.
 
@@ -224,7 +226,7 @@ scanner sharpness
 : Radius of the scanner's sharpening pass, in pixels.
 
 scanner sharpen strength
-: Strength of the scanner's sharpening pass. 0 disables it. The reference implementation applies this by default; it is off here so that sharpening remains your choice, and can be left to darktable's own [_sharpen_](./sharpen.md) or [_diffuse or sharpen_](./diffuse.md) modules further down the pipeline if you prefer.
+: Strength of the scanner's sharpening pass. 0 disables it. This defaults to the reference implementation's own value -- set it to 0 if you would rather sharpen further down the pipeline with darktable's [_sharpen_](./sharpen.md) or [_diffuse or sharpen_](./diffuse.md) modules.
 
 viewing glare
 : A faint veil of the viewing light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print viewed in a real room never reaches true black. Has no effect while _scan the film_ is enabled, since a directly scanned film has no print surface to reflect off.
