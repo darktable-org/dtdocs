@@ -24,7 +24,7 @@ output
 
 {{< /details >}}
 
-Recreate the look of a chosen film stock and paper combination from spectral measurement data, rather than a fitted curve or a LUT derived from scanned samples.
+Recreate the look of a chosen film stock and paper combination from spectral measurement data, rather than a fitted curve or a LUT derived from scanned samples. The emulsion and paper measurements come from the [spektrafilm](https://github.com/andreavolpato/spektrafilm) project by Andrea Volpato.
 
 This module simulates the actual physical chain a real photograph goes through on film: the film's own spectral sensitivity converts scene light into per-layer exposure, development (including inter-layer DIR coupler inhibition) turns exposure into dye density, and -- unless you choose to view the film directly -- an enlarger then prints that density through a paper's own spectral response to produce the final image. Grain, halation, and diffusion filtration are modeled as physical effects on top of this chain, not stylized overlays.
 
@@ -47,15 +47,15 @@ start simple
 positive film has no print stage
 : Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure compensation, auto print exposure, print contrast, print development time, filtration, preflash, print diffusion) has no effect while it's active. The scanner tab's _viewing glare_ is also inactive, since a directly scanned film has no print surface.
 
-auto print exposure is a real-world default, not a fixed brightness
-: With _auto print exposure_ enabled, changing _film exposure_ does not change the final brightness -- print exposure automatically compensates, the same way a real printer exposes to a fixed target density regardless of how the negative was exposed. Disable it if you want film exposure to affect brightness directly, as it would with a fixed enlarger exposure time.
+auto print exposure changes what film exposure does
+: Out of the box, _film exposure_ behaves like a fixed enlarger time: expose the film more and the print comes out brighter. Turn on _auto print exposure_ and it stops doing that -- print exposure compensates automatically, the way a real printer exposes to a fixed target density regardless of how the negative was exposed. Film exposure then only affects colour rendering and grain, by moving where the scene sits on the film's characteristic curve. It is off by default so that the control does the obvious thing until you ask for the darkroom behaviour.
 
 narrow-spectral-sensitivity papers may need manual print exposure
-: A few print stocks (duplicating films in particular) have a very narrow spectral sensitivity. _auto print exposure_'s metering can under- or over-shoot for these -- if a print looks implausibly dark or bright with auto print exposure enabled, use _print exposure compensation_ to correct it manually.
+: A few print stocks have a very narrow spectral sensitivity -- the duplicating and release print films (Kodak 2302, 2383, 2393) rather than the consumer papers. _auto print exposure_'s metering can under- or over-shoot for these, so if a print looks implausibly dark or bright with it enabled, use _print exposure compensation_ to correct it manually, or leave auto off for those stocks.
 
 # module controls
 
-Film stock, print paper, and the film format are always visible at the top of the module. Everything else is organized into tabs matching the stages of the physical process: _film_, _print_, _grain_, _halation_, _diffusion_, and _scanner_.
+Film stock, print paper, and the film format are always visible at the top of the module. Everything else is organized into tabs, one per aspect of the physical process: _film_, _print_, _grain_, _halation_, _diffusion_, and _scanner_.
 
 ## header
 
@@ -69,7 +69,7 @@ format
 : A preset picker for common film/sensor gate sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom). Choosing a preset sets the _frame long edge_ slider below to match. Note that the preset names a film _gauge_ (35mm), while the slider is the frame's long edge (36mm) -- both describe the same format.
 
 frame long edge
-: The physical size of the simulated frame's long edge, in mm. Sets the real-world scale that grain, scatter, and halation are computed at, so a smaller format shows proportionally coarser grain and larger scatter/halation for the same print size.
+: The physical size of the simulated frame's long edge, in mm. Sets the real-world scale that grain, scatter, halation _and diffusion_ are all computed at, so a smaller format shows every one of them proportionally larger for the same print size. Note that grain scales through particle density rather than through the clump blur, which is a fixed pixel radius -- so changing format alters how coarse the grain looks relative to the frame, not how soft it is.
 
 ## film
 
@@ -99,7 +99,7 @@ slow layer gamma
 : Contrast of the mid and slow emulsion sub-layers.
 
 developer exhaustion
-: Local developer depletion in dense (highly-exposed) areas: blends the highlight shoulder toward a self-limiting rolloff without shifting mid-grey. 0 disables it.
+: Simulates the developer being locally used up in the most heavily exposed parts of the frame, as it is in a real tank. Those areas stop gaining density as the scene gets brighter, so the highlights run into a ceiling rather than climbing indefinitely -- and because the curve steepens on the way up to that ceiling, highlight contrast tends to increase rather than soften. Mid-grey is held fixed, so only the top end of the range moves. 0 disables it.
 
 ### couplers and quality
 
@@ -123,7 +123,7 @@ print contrast
 ### chemistry
 
 development time
-: The development time the print paper's characteristic curves were measured at, in minutes -- the print-stage counterpart of the film tab's _development time_, and independent of it. Only black & white print stocks carry more than one measured development (Kodak Print Film 2302 at 2/3.5/5/7/9 minutes); the slider is greyed out otherwise, and while _scan the film_ is enabled.
+: The print-stage counterpart of the [film tab](#film)'s _development time_, working the same way and set independently of it. Only Kodak Print Film 2302 carries more than one measured development (2/3.5/5/7/9 minutes), so the slider is greyed out for every other paper -- and while _scan the film_ is enabled, since there is no print to develop.
 
 ### filtration
 
@@ -182,7 +182,7 @@ highlight boost
 : Reconstructs clipped highlights so they can bloom into scatter, halation, and diffusion, in EV. 0 disables it. The boost is applied over a fixed 4 EV window above the _boost protect_ threshold, so the same setting produces the same result regardless of image size, zoom level, or whether the export is tiled.
 
 boost range
-: Range of the highlight boost curve.
+: Widens or narrows the band of tones the highlight boost acts on. Lower confines it to the brightest clipped highlights; higher pulls more of the upper midtones into the bloom.
 
 boost protect
 : Protects tones below this many stops over mid-grey from the highlight boost, in EV.
@@ -200,10 +200,10 @@ diffusion filter type
 : - _cinebloom_: a frame-wide, slow-decaying veil.
 
 diffusion strength
-: Diffusion filter strength.
+: How much light is diverted into the diffusion halo. 0 disables it. The halo is added on top of the unfiltered image, so raising this lifts shadows and lowers contrast as well as glowing the highlights.
 
 diffusion size
-: Diffusion halo/bloom size.
+: Scales the radius of the diffusion halo -- the same amount of light spread further from each highlight, rather than more of it. Use _diffusion strength_ for the latter.
 
 diffusion halo warmth
 : Warmth of the diffusion halo -- positive values warm the outer halo, negative values cool it. Added on top of the selected filter type's own inherent warmth bias.
@@ -217,7 +217,7 @@ A second, independent diffusion filter applied at the print stage rather than th
 The scanner stage models how the developed film or finished print is digitised, and the conditions it is viewed under. These act on the final image, after everything else.
 
 pre-compression boost
-: Multiplies XYZ luminance immediately before the OkLCh output gamut compressor, pushing the histogram to the right while the film's own shoulder rolloff is preserved. 1.0 is neutral/off. Because it acts at the very end of the module, the picker measures the processed image rather than the input: use it on an area of highlights to set the boost so the brightest tone lands just past the compressor's knee.
+: Brightens the finished image without flattening its bright end -- the film's own highlight rolloff is applied after this, so the picture lifts rather than washing out. 1.0 leaves it alone. Because it acts at the very end of the module, the picker reads the finished image rather than the original: point it at an area of highlights and it sets the boost so the brightest tone lands just short of where the rolloff takes over.
 
 scanner blur
 : Softening from the scanner's own optics, in pixels. 0 disables it.
