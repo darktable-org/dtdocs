@@ -11,9 +11,9 @@
     {{ .Content }}
 
     {{ if .IsTranslated }}
-    <h4>{{ i18n "translations" }}</h4>
+    <h4>{{ i18n "translations" | default "translations" }}</h4>
     <ul>
-        {{ range .Translations }}
+        {{ range (sort .Translations ".Language.LanguageName")  }}
         <li><a href="{{ .Permalink }}">
             {{ .Lang }}: {{ .Title }}{{ if .IsPage }}{{ end }}
         </a></li>
