@@ -139,6 +139,8 @@ f. advantage hint
 1. Check the execution times of this module with OpenCL on and off (by running `darktable -d perf` to examine the performance).
 1. Set the "advantage hint option" to approximately (CPU execution time / GPU execution time).
 
+The advantage hint value is ignored from 5.8 onwards, and can be set to 0 to avoid confusion.
+
 g. shared memory fraction
 : Some OpenCL devices don't have dedicated memory but share it with the CPU -- Apple ARM silicon is one example but also onboard devices from Intel, AMD or ARM SOCs. As we want to keep system memory available for caching or CPU codepaths we restrict the amount of all memory used to the given fraction. So with the default of 0.5 and an Apple computer with 16GB of system RAM, OpenCL would be able to make use of 8GB.
 
@@ -147,6 +149,19 @@ g. shared memory fraction
 **Note**: if darktable detects a "buggy" device configuration key it will be rewritten back to default values.
 
 ---
+
+
+## device-specific OpenCL disabling
+
+From 5.8 onwards, it is possible to disable an OpenCL device for specific modules by adding a comma-separated list of modules to the _nocl_ option in the _darktablerc_ file, for example:
+
+`cldevice_v6_rusticlamdradeon8060sgraphics_nocl=colorbalancergb,denoiseprofile` 
+
+or, more generally
+
+`cldevice_version_canonicalname_nocl=comma,separated,list,of,modules`
+
+Any module in this list will be executed on the CPU instead of OpenCL.
 
 ## id-specific OpenCL configuration
 
