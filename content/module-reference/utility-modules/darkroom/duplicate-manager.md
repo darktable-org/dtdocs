@@ -13,7 +13,7 @@ Buttons to manage the duplicates are shown to the right of each preview thumbnai
 : Create a new duplicate with the same history stack (only shown if the selected duplicate has been edited).
 
 ![duplicate original](./duplicate-manager/copy-original.png#icon) duplicate original 
-: Create a new duplicate with no edit history.
+: Create a 'virgin' duplicate of this image without any development.
 
 ![delete](./duplicate-manager/delete.png#icon) delete 
 : Delete the duplicate.
