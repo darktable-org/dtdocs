@@ -128,7 +128,12 @@ Within the extension field, you can also use the keywords `RAW` (to select all h
 The camera and lens filters are presented text entry fields into which you can enter text to filter by. Alternatively, you can right-click on the text box to see a list of cameras or lenses to select from.
 
 ## duplicates
+
 This filter allows you to narrow down the collection to images that contain either at least one duplicate or exclusively duplicates. Filtering for only duplicates makes it easy to work with duplicates without touching the originals.
+
+## image dimensions
+
+The image dimension filter allows you to filter the collection down to images by their original dimensions. You can use exact dimension parameters (width x height) or partial dimensions, such as `6000x` (for images with a width of 6000 pixels) or `x4000` (for images with a height of 4000 pixels).
 
 ## text search
 
