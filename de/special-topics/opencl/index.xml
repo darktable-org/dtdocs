@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenCL on darktable user manual</title>
+    <link>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/</link>
+    <description>Recent content in OpenCL on darktable user manual</description>
+    <generator>Hugo</generator>
+    <language>de</language>
+    <atom:link href="https://darktable-org.github.io/dtdocs/de/special-topics/opencl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>activating OpenCL in darktable</title>
+      <link>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/activate-opencl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/activate-opencl/</guid>
+      <description>&lt;p&gt;Das Brauchen von OpenCL in darktable erfordert es, dass dein Computer mit einer geeigneten Grafikkarte mit den erforderlichen Libraries ausgerüstet ist. Die meisten modernen Grafikkarten von NIVIDIA, Intel und AMD kommen mit vollem Support für OpenCL. Der Compiler für OpenCL wird normalerweise als Teil des proprietären Grafik-Treibers und wird als dynamische Library mit Namen &lt;code&gt;libOpenCL.so&lt;/code&gt; gebraucht. Diese Library muss in einem Ordner sein, wo diese vom System-Linker deines Systems gefunden werden kann.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>setting up OpenCL</title>
+      <link>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/setting-up/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/setting-up/</guid>
+      <description>&lt;p&gt;Die riesige Vielfalt der Systeme und deutliche Unterschiede zwischen OpenCL-Anbietern und Treiberversionen macht es unmöglich, einen umfassenden Überblick darüber zu geben, wie man OpenCL konfiguriert. Wir können dir nur ein Beispiel geben, in diesem Fall für den NVIDIA-Treiber Version 542.29.06 für Fedora 39. Wir hoffen, dass dies als eine grundlegende Anleitung dienen kann und dir helfen wird, spezifische Probleme für dein Setup zu lösen.&lt;/p&gt;&#xA;&lt;p&gt;Der prinzipielle OpenCL-Funktionsablauf sieht so aus:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mögliche Probleme und Lösungen</title>
+      <link>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/problems-solutions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/problems-solutions/</guid>
+      <description>&lt;p&gt;darktable entdeckt OpenCL-Laufzeitfehler automatisch. Nach einem Fehler wird alles erneut über die CPU berechnet. Das verringert zwar die Verarbeitungsgeschwindigkeit, sollte aber nicht das Endergebnis ändern.&lt;/p&gt;&#xA;&lt;p&gt;Es gibt unterschiedliche Gründe, warum OpenCL während der Initialisierung fehlschlägt. OpenCL hängt von den Hardware-Anforderungen ab und von gewissen Treibern und Bibliotheken. Zusätzlich müssen alle diese hinsichtlich Hersteller, Modell und Revisionsnummer zusammenpassen. Falls etwas nicht stimmt (z.B. der Grafiktreiber, als Kernel Modul geladen, passt nicht zur Version der &lt;code&gt;libOpenCL.so&lt;/code&gt;), wird eine OpenCL-Unterstützung wohl nicht verfügbar sein.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mehrere Einheiten</title>
+      <link>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/multiple-devices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/multiple-devices/</guid>
+      <description>&lt;p&gt;Die Disposition von OpenCL-Einheiten kann auf den meisten Systemen mit den Einstellungen von &amp;ldquo;OpenCL scheduling profile&amp;rdquo; optimiert werden. Wenn aber dein System mit mehr als einer GPU ausgestattet ist, solltest du die entsprechenden Prioritäten der Einheiten manuell setzen. Um das zu tun, musst du das &amp;ldquo;Standard&amp;rdquo; Disposition-Profil setzen und die Einstellungen in den Konfigurations-Parametern der &amp;ldquo;opencl_device_priority&amp;rdquo; ändern.&lt;/p&gt;&#xA;&lt;p&gt;Es ist wichtig zu verstehen, wie darktable die OpenCL-Geräte nutzt. Jede Bearbeitungsfolge für ein Bild &amp;ndash; eine Eingabe zum schlussendlichen Ausgabe mit einem Verlaufsstapel &amp;ndash; wird in einer Pixelpipe durchgeführt. Es gibt fünf verschiedenen Arten von Pixelpipes in darktable. Ein Typ ist verantwortlich für die Erzeugung der zentralen Großansicht des Bildes, ein weiterer erzeugt das Vorschaubild (in der Navigation, auch Benötigt für Histogramme und zusätzliche interne Angelegenheiten für die korrekte Ausgabe). Eine andere Voransicht Pixelpipe Ewürde benötigt, um ein zweites Fenster in der Ansicht Dunkelkammer. Eine dieser drei Pixelpipes kann jederzeit laufen, und die Pixelpipes für die Großansicht und das Vorschaubild gleichzeitig. Zusätzlich können gleichzeitig mehrere Pixelpipes Dateiexporte oder Vorschaubilder erzeugen. Falls ein OpenCL-Gerät vorhanden ist, wird darktable dieses dynamisch einer spezifische Pixelpipe für eine Berechnung zuweisen und nachher wieder freigeben.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenCL still does not run for me</title>
+      <link>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/still-doesnt-work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/de/special-topics/opencl/still-doesnt-work/</guid>
+      <description>&lt;p&gt;Wie bereits erwähnt, existieren OpenCL-Systeme in einer riesigen Vielfalt von Konfigurationen: verschiedene GPU-Hersteller und -modelle, unterschiedliche GPU-Speichergrössen, unterschiedliche Treiber, unterschiedliche Distributionen, usw.&lt;/p&gt;&#xA;&lt;p&gt;Viele der möglichen Probleme treten nur bei bestimmten Kombinationen dieser Faktoren auf. Wir bitten um Verständnis, dass darktable-Entwickler nur ein kleiner Teil dieser Varianten zur Verfügung steht und daher möglicherweise ein spezifisches Problem nicht gelöst werden kann. Es ist uns nicht möglich ein Problem zu beheben, das wir nicht reproduzieren können.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
