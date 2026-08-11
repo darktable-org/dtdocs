@@ -23,13 +23,13 @@ output
 
 {{< /details >}}
 
-_contrast & texture_ is the scene-referred counterpart to the display-referred [_local contrast_](local-contrast.md) module. It can be used for both adding punch to e.g. clouds or foliage and for smoothing busy areas (e.g. softening skin or calming down a cluttered background).
+_contrast & texture_ is the scene-referred counterpart to the display-referred [_local contrast_](local-contrast.md) module. It can be used for both adding punch to for example clouds or foliage and for smoothing busy areas (like softening skin or calming down a cluttered background).
 
-The module uses the same _exposure-independent guided filter (eigf)_ used by the [_tone equalizer_](tone-equalizer.md#masking-tab) module for its guided mask. The scale of detail being affected can be tuned with the module's controls. Because the underlying filter is exposure-independent, the strength of the effect stays consistent across shadows and highlights alike. 
+The module uses the same _exposure-independent guided filter (eigf)_ used by the [_tone equalizer_](tone-equalizer.md#masking-tab) module for its guided mask. The scale of detail being affected can be tuned with the module's controls. The underlying filter is exposure-independent, so the strength of the effect stays consistent across shadows and highlights alike.
 
 A noise bias control lets you tame the amplification of shadow noise, which would otherwise be boosted along with genuine detail since both look like local contrast to the algorithm.
 
-Multiple instances of _contrast & texture_ can be used together, e.g. targeting a different detail scale (via the _detail level_ slider) and masked to different parts of the image, to build up a more elaborate effect than a single instance allows.
+To build up a more elaborate effect multiple instances of _contrast & texture_ can be used together, each targeting different detail scalees (via the _detail level_ slider) and possibly masked to different parts of the image.
 
 ----
 
@@ -40,7 +40,7 @@ Note: This module is a first step towards a more fully-featured scene-referred l
 # module controls
 
 local contrast
-: The strength of the modules effect. At 100% (the default) the effect is neutral. Values above 100% boost local contrast/texture; values below 100% reduce it. Click the mask icon to the right of the slider to visualize the details being adjusted: a mid-gray means no local detail was found at that point, while brighter or darker areas show where detail is being targeted.
+: The strength of the module's effect. At 0 % (the default) the effect is neutral. Positive values boost local contrast/texture; negative values reduce it. Click the mask icon to the right of the slider to visualize the details being adjusted: a mid-gray means no local detail was found at that point, while brighter or darker areas show where detail is being targeted.
 
 ## filter settings
 
