@@ -103,6 +103,9 @@ bit depth _(denoise and upscale only)_
 profile _(denoise and upscale only)_
 : Colour profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog.
 
+compression _(denoise and upscale only)_
+: TIFF-compression of the output-file. Offers _uncompressed_, _deflate_ and _deflate with predictor_ (default). The default reduces file size by about 50-60%. 
+
 preserve wide-gamut colors _(denoise only)_
 : When on, pixels whose colour falls outside sRGB gamut pass through the model unchanged – wide-gamut colours are preserved exactly, but those specific pixels are not denoised. When off, every pixel is denoised but wide-gamut colours may be clipped to sRGB.
 
