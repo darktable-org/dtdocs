@@ -40,7 +40,7 @@ Note: This module is a first step towards a more fully-featured scene-referred l
 # module controls
 
 local contrast
-: The strength of the module's effect. At 0 % (the default) the effect is neutral. Positive values boost local contrast/texture; negative values reduce it. Click the mask icon to the right of the slider to visualize the details being adjusted: a mid-gray means no local detail was found at that point, while brighter or darker areas show where detail is being targeted.
+: The strength of the module's effect. At 0% (the default) the effect is neutral. Positive values boost local contrast/texture; negative values reduce it. Click the mask icon to the right of the slider to visualize the details being adjusted: a mid-gray means no local detail was found at that point, while brighter or darker areas show where detail is being targeted.
 
 ## filter settings
 
