@@ -23,13 +23,13 @@ output
 
 {{< /details >}}
 
-_contrast & texture_ is the scene-referred counterpart to the display-referred [_local contrast_](local-contrast.md) module. It can be used for both adding punch to for example clouds or foliage and for smoothing busy areas (like softening skin or calming down a cluttered background).
+_contrast & texture_ is the scene-referred counterpart to the display-referred [_local contrast_](local-contrast.md) module. It can be used for both adding punch to, for example, clouds or foliage and for smoothing busy areas (like softening skin or calming down a cluttered background).
 
 The module uses the same _exposure-independent guided filter (eigf)_ used by the [_tone equalizer_](tone-equalizer.md#masking-tab) module for its guided mask. The scale of detail being affected can be tuned with the module's controls. The underlying filter is exposure-independent, so the strength of the effect stays consistent across shadows and highlights alike.
 
 A noise bias control lets you tame the amplification of shadow noise, which would otherwise be boosted along with genuine detail since both look like local contrast to the algorithm.
 
-To build up a more elaborate effect multiple instances of _contrast & texture_ can be used together, each targeting different detail scalees (via the _detail level_ slider) and possibly masked to different parts of the image.
+To build up a more elaborate effect, multiple instances of _contrast & texture_ can be used together, each targeting different detail scales (via the _detail level_ slider) and possibly masked to different parts of the image.
 
 ----
 
