@@ -4,7 +4,7 @@ id: test-environment
 weight: 100
 ---
 
-To run a second version of darktable on your computer, for example to try out a [nightly build](https://github.com/darktable-org/darktable/releases/nightly), you can set up a second configuration without affecting your main installation.
+To run a second version of darktable on your computer, for example to try out a [nightly build](https://github.com/darktable-org/darktable/releases/nightly), you can set up a second configuration without affecting your main installation. 
 
 Three steps are needed:
 
