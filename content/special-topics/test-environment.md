@@ -77,15 +77,35 @@ b) Turn off XMP creation in the other installation's preferences
 
 For an independent installation that should not write XMP sidecar files:
 
-```
-darktable --configdir /path-to-test-config-dir --conf write_sidecar_files=never
-```
+Linux/macOS
+: Options:
+
+  ```
+  --configdir /path-to-test-config-dir --conf write_sidecar_files=never
+  ```
+
+Windows
+: Options:
+
+  ```
+  --configdir "C:\path-to-test-config" --conf "write_sidecar_files=never"
+  ```
 
 To additionally keep all changes to its library database in memory only:
 
-```
-darktable --configdir /path-to-test-config-dir --conf write_sidecar_files=never --library :memory:
-```
+Linux/macOS
+: Options:
+
+  ```
+  --configdir /path-to-test-config-dir --conf write_sidecar_files=never --library :memory:
+  ```
+
+Windows
+: Options:
+
+  ```
+  --configdir "C:\path-to-test-config" --conf "write_sidecar_files=never" --library ":memory:"
+  ```
 
 For the safest setup, use copies of the RAW files rather than relying on XMP creation being disabled.
 
