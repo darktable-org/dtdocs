@@ -22,7 +22,7 @@ how many snapshots to keep
 create XMP files
 : XMP sidecar files provide a redundant method of saving the changes that you have made to an image, in addition to the changes saved to darktable's database. This option allows you to choose when files will _first be written_. Once written, they will subsequently be updated each time you edit or add a tag to the image. Choose from:
 
-: - _never_: Don't write sidecar files. This can be useful if you are running multiple version of darktable for development/testing purposes but is not normally recommended,
+: - _never_: Don't write sidecar files. This can be useful if you are running multiple version of darktable for [development/testing purposes](../special-topics/test-environment.md#3-protect-your-existing-edits) but is not normally recommended,
 : - _on import_: A sidecar file will be written as soon as you add an image to darktable's library,
 : - _after edit_: A sidecar will not be written until the first time you edit or add a tag to an image.
 
