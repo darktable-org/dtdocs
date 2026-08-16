@@ -109,4 +109,4 @@ Windows
 
 For the safest setup, use copies of the RAW files rather than relying on XMP creation being disabled.
 
-**Caution:** If you cloned an existing installation's configuration directory for another installation, disable XMP file creation as described above under b). Alternatively, remove (not delete) all photos from the library in the new installation. This removes them only from the library database; it does not delete the files from disk. Otherwise, you could interfere with edits made by the original installation.
+**Caution:** If you cloned an existing installation's configuration directory for another installation, disable XMP file creation as described above in Step 3b. Alternatively, remove (not delete) all photos from the library in the new installation. This removes them only from the library database; it does not delete the files from disk. Otherwise, you could interfere with edits made by the original installation.
