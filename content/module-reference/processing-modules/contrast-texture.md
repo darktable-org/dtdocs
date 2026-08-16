@@ -48,7 +48,7 @@ detail level
 : Controls the scale of local contrast being affected. Higher values target finer detail; lower values shift the effect towards coarser, larger-scale contrasts.
 
 adjust edge protection
-: Controls how strictly the underlying guided filter reacts to edges. Higher values increase edge preservation, keeping strong transitions crisp. Lower values allow smoother transitions between regions, at the risk of introducing halos around high-contrast edges.
+: Controls how sensitively the underlying filter reacts to high-contrast edges. Lower values make for stronger local contrast around high-contrast edges at the risk of developing halos. Higher values allow for smoother transitions. 
 
 filter iterations
 : The number of passes of the guided filter to run. Increasing this further diffuses the filter's edges, which can help avoid artifacts, at the cost of processing speed.
