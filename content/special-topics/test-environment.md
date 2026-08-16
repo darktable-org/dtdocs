@@ -29,7 +29,7 @@ darktable stores its settings, presets, styles, and library database in its [con
 
 To prevent an installation from writing to the same configuration directory as another installation, launch it with the option `--configdir`, followed by the path to a new folder. If the folder does not exist yet, darktable creates and populates it automatically.
 
-You can run an experiment without persistent library changes by additionally setting `--library :memory:`, which keeps the library database in RAM. All changes to the database are discarded on exit: `darktable --configdir /path/to/test-config --library :memory:`
+You can run an experiment without making persistent changes to the library by specifying `--library :memory:`, which keeps the library database in RAM. All changes to the database are discarded on exit: `darktable --configdir /path/to/test-config --library :memory:`
 
 **Tip:** You can also copy an existing configuration directory into the new folder instead of starting from scratch. This allows the other installation to inherit your presets, styles, and keyboard shortcuts as a starting point, while both installations still run fully independently from then on. If you do this, take special care in step 3 to avoid affecting your existing edits.
 
