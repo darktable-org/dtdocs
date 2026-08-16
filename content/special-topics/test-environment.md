@@ -73,6 +73,8 @@ a) Work with separate copies of your RAW files
 b) Turn off XMP creation in the other installation's preferences
 : Launch darktable with the additional `--conf write_sidecar_files=never` option. Alternatively, you can set _preferences / storage / create XMP files_ to "never" in the UI. This lets you open folders with existing edits without writing changes back to their XMP files. The setting only affects this installation because it has its own configuration.
 
+**Caution:** If you cloned an existing installation's configuration directory for another installation, disable XMP file creation as described above in Step 3b. Alternatively, remove (not delete) all photos from the library in the new installation. This removes them only from the library database; it does not delete the files from disk. Otherwise, you could interfere with edits made by the original installation.
+
 ## Summary
 
 For an independent installation that should not write XMP sidecar files:
@@ -91,8 +93,6 @@ Windows
   --configdir "C:\path-to-test-config" --conf "write_sidecar_files=never"
   ```
 
-To additionally keep all changes to its library database in memory only:
-
 Linux/macOS
 : Options:
 
@@ -108,5 +108,3 @@ Windows
   ```
 
 For the safest setup, use copies of the RAW files rather than relying on XMP creation being disabled.
-
-**Caution:** If you cloned an existing installation's configuration directory for another installation, disable XMP file creation as described above in Step 3b. Alternatively, remove (not delete) all photos from the library in the new installation. This removes them only from the library database; it does not delete the files from disk. Otherwise, you could interfere with edits made by the original installation.
