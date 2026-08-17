@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-08-15 00:52+0000\n"
+"POT-Creation-Date: 2026-08-17 00:53+0000\n"
 "PO-Revision-Date: 2026-08-12 15:23+0000\n"
 "Last-Translator: Yannic Meyer <anoderay@users.noreply.github.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/darktable-"
@@ -5078,7 +5078,7 @@ msgstr "Bearbeite in einem kontrollierten Umfeld"
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "To run a second version of darktable on your computer, for example to try out a [nightly build](https://github.com/darktable-org/darktable/releases/nightly), you can set up a second configuration without affecting your main installation. \n"
+msgid "To run multiple installations of darktable on your computer, for example to try out a [nightly build](https://github.com/darktable-org/darktable/releases/nightly), you can give each installation its own configuration without affecting the others.\n"
 msgstr ""
 
 #. type: Plain text
@@ -5091,7 +5091,7 @@ msgstr "Drei Typen an Weichzeichnung werden angeboten:\n"
 #. type: Bullet: '1. '
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "Install the second darktable version without overwriting the existing one.\n"
+msgid "Install the additional version of darktable without overwriting the existing installation.\n"
 msgstr ""
 
 #. type: Bullet: '2. '
@@ -5104,7 +5104,7 @@ msgstr "andere Konfigurationsschlüssel"
 #. type: Bullet: '3. '
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "Make sure it doesn't touch your existing edits.\n"
+msgid "Make sure it doesn't touch edits created by other installations.\n"
 msgstr ""
 
 #. type: Title ##
@@ -5118,7 +5118,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "Linux\n"
-": Easiest with an AppImage. Just download it and make it executable.\n"
+": If an [AppImage](./program-invocation/invocation-per-OS.md#linux) is available, this is the easiest option. Just download it and make it executable. Alternatively, you can build darktable from source and install it with a custom `--prefix` (e.g. `--prefix /opt/darktable-nightly`).\n"
 msgstr ""
 
 #. type: Plain text
@@ -5126,7 +5126,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "Windows\n"
-": Install it into its own separate directory. \n"
+": Install it into its own separate directory.\n"
 msgstr ""
 
 #. type: Plain text
@@ -5148,19 +5148,25 @@ msgstr "andere Konfigurationsschlüssel"
 #: content/special-topics/test-environment.md
 #, fuzzy, no-wrap
 #| msgid "darktable stores its settings, presets, styles, library database, etc. in a default directory. This directory's location depends on your operating system and installation method. It can be changed by using the `--config-dir` option (see [darktable invocation](../special-topics/program-invocation/darktable.md)).\n"
-msgid "darktable stores its settings, presets, styles, and database in its configuration directory. The default folder depends on your OS and chosen method of installation and is [documented here](../preferences-settings/config-directory.md).\n"
+msgid "darktable stores its settings, presets, styles, and library database in its [configuration directory](../preferences-settings/config-directory.md). The default location depends on your operating system and installation method.\n"
 msgstr "Darktable speichert seine Einstellungen, Voreinstellungen, Stile, Bibliotheks-Datenbank, etc. in deinem Standard-Verzeichnis. Der Speicherort dieses Verzeichnisses hängt von dem Betriebssystem und der Installationsmethode ab. Das Verzeichnis kann beim Start mit der --config-dir` Option geändert werden (siehe [Aufruf von darktable](../special-topics/program-invocation/­.md)).\n"
 
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "To stop the second installation from writing into that same directory, launch it with the option `--configdir`, followed by the path to a new folder. If it doesn't exist yet, darktable creates and populates it automatically.\n"
+msgid "To prevent an installation from writing to the same configuration directory as another installation, launch it with the option `--configdir`, followed by the path to a new folder. If the folder does not exist yet, darktable creates and populates it automatically.\n"
 msgstr ""
 
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "Tip: You can also copy your existing configuration directory into the new folder instead of starting from scratch. That way the test version inherits your presets, styles, and keyboard shortcuts as a starting point, while both installations still run fully independently from there on. This requires special care in step 3 to avoid affecting your existing edits.\n"
+msgid "You can run an experiment without making persistent changes to the library by specifying `--library :memory:`, which keeps the library database in RAM. All changes to the database are discarded on exit: `darktable --configdir /path/to/test-config --library :memory:`\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "**Tip:** You can also copy an existing configuration directory into the new folder instead of starting from scratch. This allows the other installation to inherit your presets, styles, and keyboard shortcuts as a starting point, while both installations still run fully independently from then on. If you do this, take special care in step 3 to avoid affecting your existing edits.\n"
 msgstr ""
 
 #. type: Plain text
@@ -5168,8 +5174,15 @@ msgstr ""
 #, no-wrap
 msgid ""
 "Linux\n"
-": Execute from a terminal: `/path-to-appimage/darktable.AppImage --configdir /path-to-test-config`\n"
-": For convenience, you can wrap this in a shell script or a `.desktop` file.\n"
+": Run the following commands in a terminal:\n"
+"    * AppImage: `/path-to-appimage/darktable.AppImage --configdir /path-to-test-config-dir`\n"
+"    * Built binary: `/prefix-path-to-binary/darktable --configdir /path-to-test-config-dir`\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid ": For convenience, you can put the whole command in a shell script or a [`.desktop` file](https://specifications.freedesktop.org/desktop-entry/latest/) (see [darktable's `.desktop` file](https://github.com/darktable-org/darktable/blob/master/data/org.darktable.darktable.desktop.in) for an example).\n"
 msgstr ""
 
 #. type: Plain text
@@ -5179,7 +5192,7 @@ msgid ""
 "Windows\n"
 ": Either create a new shortcut for `darktable.exe`:\n"
 "  1. Navigate to `C:\\path-to-your-install\\bin\\`, right-click `darktable.exe` and choose _Show more options_ and then _Create shortcut_.\n"
-"  2. Under \"Properties\", add to the \"Target\" field: `\"C:\\path-to-your-install\\bin\\darktable.exe\" --configdir \"C:\\path-to-test-config\"`\n"
+"  2. Under the shortcut's \"Properties\", append the `--configdir` option to the \"Target\" field: `\"C:\\path-to-your-install\\bin\\darktable.exe\" --configdir \"C:\\path-to-test-config\"`\n"
 "  3. Set \"Start in\" to the matching `bin` folder.\n"
 msgstr ""
 
@@ -5199,7 +5212,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "macOS\n"
-": An `.app` file can't be launched with extra parameters by double-clicking, so call the executable inside the app bundle directly from a terminal:\n"
+": An `.app` file can't be launched with extra parameters by double-clicking, so launch the executable inside the app bundle directly from a terminal:\n"
 msgstr ""
 
 #. type: Fenced code block
@@ -5223,7 +5236,13 @@ msgstr ""
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "Edits are stored in two places: in the database inside the configuration directory, and, if enabled, in [XMP sidecar files](../overview/sidecar-files/sidecar.md) next to your RAW files. The database is already protected by step 2. For the XMP files, you have three options:\n"
+msgid "Edits are stored in two places: in the library database inside the configuration directory, and, if enabled, in [XMP sidecar files](../overview/sidecar-files/sidecar.md) next to your RAW files. Step 2 gives the other installation its own library database, but XMP sidecar files are stored alongside the RAW files and are therefore shared between installations.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "To prevent the other installation from modifying existing XMP files, you have two options:\n"
 msgstr ""
 
 #. type: Plain text
@@ -5231,35 +5250,79 @@ msgstr ""
 #, no-wrap
 msgid ""
 "a) Work with separate copies of your RAW files\n"
-": Safest option. Use copies of your RAW files with the test version in a separate folder. Your originals and their XMP files stay untouched.\n"
+": Safest option. Use copies of your RAW files with the other version in a separate folder. Your original RAW files and their XMP sidecars remain untouched.\n"
 msgstr ""
 
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
 msgid ""
-"b) Turn off XMP creation in the test installation's preferences\n"
-": Set _preferences / storage / create XMP files_ to \"never\". This lets you open folders with existing edits without changing their XMP files. Only affects the test version, since it has its own configuration.\n"
+"b) Turn off XMP creation in the other installation's preferences\n"
+": Launch darktable with the additional `--conf write_sidecar_files=never` option. Alternatively, you can set _preferences / storage / create XMP files_ to \"never\" in the UI. This lets you open folders with existing edits without writing changes back to their XMP files. The setting only affects this installation because it has its own configuration.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "**Caution:** If you cloned an existing installation's configuration directory for another installation, disable XMP file creation as described above in Step 3b. Alternatively, remove (not delete) all photos from the library in the new installation. This removes them only from the library database; it does not delete the files from disk. Otherwise, you could interfere with edits made by the original installation.\n"
+msgstr ""
+
+#. type: Title ##
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "Summary"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "For an independent installation that should not write XMP sidecar files:\n"
 msgstr ""
 
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
 msgid ""
-"c) Pure in-memory mode\n"
-": Launching darktable with the option `--library :memory:` keeps the database in RAM only, and all changes are discarded on exit: `darktable --configdir /path/to/test-config --library :memory:`\n"
+"Linux/macOS\n"
+": Options:\n"
+msgstr ""
+
+#. type: Fenced code block
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "  --configdir /path-to-test-config-dir --conf write_sidecar_files=never\n"
 msgstr ""
 
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "For a lasting test setup, options a) or b) are practical. Option c) is handy for a quick, no-trace experiment.\n"
+msgid ""
+"Windows\n"
+": Options:\n"
+msgstr ""
+
+#. type: Fenced code block
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "  --configdir \"C:\\path-to-test-config\" --conf \"write_sidecar_files=never\"\n"
+msgstr ""
+
+#. type: Fenced code block
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "  --configdir /path-to-test-config-dir --conf write_sidecar_files=never --library :memory:\n"
+msgstr ""
+
+#. type: Fenced code block
+#: content/special-topics/test-environment.md
+#, no-wrap
+msgid "  --configdir \"C:\\path-to-test-config\" --conf \"write_sidecar_files=never\" --library \":memory:\"\n"
 msgstr ""
 
 #. type: Plain text
 #: content/special-topics/test-environment.md
 #, no-wrap
-msgid "**Caution:** If you cloned your main installation's configuration directory for the testing environment, make sure to either disable XMP creation as described above under b) or remove (not delete) all photos from the library in your testing environment. Otherwise you could interfere with your main installation's edits.\n"
+msgid "For the safest setup, use copies of the RAW files rather than relying on XMP creation being disabled.\n"
 msgstr ""
 
 #. type: Yaml Front Matter Hash Value: title
@@ -8413,37 +8476,94 @@ msgstr "Lokation finden"
 msgid "`darktable` and the other binaries (e.g. `darktable-cltest`) can be executed from the console as follows:\n"
 msgstr ""
 
-#. type: Plain text
+#. type: Title ##
 #: content/special-topics/program-invocation/invocation-per-OS.md
 #, no-wrap
-msgid ""
-"Linux\n"
-"* Installed as package or snap: `darktable`\n"
-"* Flatpak: `flatpak run org.darktable.Darktable`\n"
-"     + To run e.g. `darktable-cltest`: `flatpak run --command=darktable-cltest org.darktable.Darktable --arguments-go-here`.\n"
-"* AppImage: Navigate to containing folder, then `./darktable.Appimage` (or however you named the file)\n"
-"     + To run e.g. `darktable-cltest`: `./darktable.Appimage darktable-cltest`\n"
-"     + An additional option to run the various binaries included in darktable (e.g. `darktable-cltest` or `darktable-cli`) is through a symbolic link: \n"
-"          * Create a symbolic link to your AppImage and call it e.g. `darktable-cli`.\n"
-"          * Then, when calling the AppImage through the symbolic link with `./darktable-cli`, the code inside the package checks if there is a binary file inside the AppImage with a name that matches the symlink name. If so, it will be run instead of the default one.\n"
+msgid "Linux"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '* '
 #: content/special-topics/program-invocation/invocation-per-OS.md
 #, no-wrap
-msgid ""
-"Windows\n"
-"* Navigate to darktable's program folder: `cd \"\\Program Files\\darktable\\bin\"` then execute `.\\darktable.exe`. \n"
-"* The other binaries e.g. `darktable-cltest.exe` are also located in this folder and can be called accordingly.\n"
+msgid "Installed as package or snap: `darktable`\n"
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '* '
 #: content/special-topics/program-invocation/invocation-per-OS.md
 #, no-wrap
-msgid ""
-"macOS\n"
-"* Execute `/Applications/darktable.app/Contents/MacOS/darktable`.\n"
-"* The other binaries e.g. `darktable-cltest` are also located in this folder and can be called accordingly.\n"
+msgid "Flatpak: `flatpak run org.darktable.Darktable`\n"
+msgstr ""
+
+#. type: Bullet: '     + '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "To run e.g. `darktable-cltest`: `flatpak run --command=darktable-cltest org.darktable.Darktable --arguments-go-here`.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "AppImage: Navigate to containing folder, then `./darktable.Appimage` (or however you named the file)\n"
+msgstr ""
+
+#. type: Bullet: '     + '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "To run e.g. `darktable-cltest`: `./darktable.Appimage darktable-cltest`\n"
+msgstr ""
+
+#. type: Bullet: '     + '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "An additional option to run the various binaries included in darktable (e.g. `darktable-cltest` or `darktable-cli`) is through a symbolic link:\n"
+msgstr ""
+
+#. type: Bullet: '          * '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "Create a symbolic link to your AppImage and call it e.g. `darktable-cli`.\n"
+msgstr ""
+
+#. type: Bullet: '          * '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "Then, when calling the AppImage through the symbolic link with `./darktable-cli`, the code inside the package checks if there is a binary file inside the AppImage with a name that matches the symlink name. If so, it will be run instead of the default one.\n"
+msgstr ""
+
+#. type: Title ##
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, fuzzy, no-wrap
+msgid "Windows"
+msgstr "Windows"
+
+#. type: Bullet: '* '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "Navigate to darktable's program folder: `cd \"\\Program Files\\darktable\\bin\"` then execute `.\\darktable.exe`.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "The other binaries e.g. `darktable-cltest.exe` are also located in this folder and can be called accordingly.\n"
+msgstr ""
+
+#. type: Title ##
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, fuzzy, no-wrap
+msgid "macOS"
+msgstr "macOS"
+
+#. type: Bullet: '* '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "Execute `/Applications/darktable.app/Contents/MacOS/darktable`.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: content/special-topics/program-invocation/invocation-per-OS.md
+#, no-wrap
+msgid "The other binaries e.g. `darktable-cltest` are also located in this folder and can be called accordingly.\n"
 msgstr ""
 
 #. type: Plain text
@@ -17692,9 +17812,13 @@ msgstr ""
 
 #. type: Plain text
 #: content/preferences-settings/storage.md
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| ": - _never_: Don't write sidecar files. This can be useful if you are running multiple version of darktable for development/testing purposes but is not normally recommended,\n"
+#| ": - _on import_: A sidecar file will be written as soon as you add an image to darktable's library,\n"
+#| ": - _after edit_: A sidecar will not be written until the first time you edit or add a tag to an image.\n"
 msgid ""
-": - _never_: Don't write sidecar files. This can be useful if you are running multiple version of darktable for development/testing purposes but is not normally recommended,\n"
+": - _never_: Don't write sidecar files. This can be useful if you are running multiple version of darktable for [development/testing purposes](../special-topics/test-environment.md#3-protect-your-existing-edits) but is not normally recommended,\n"
 ": - _on import_: A sidecar file will be written as soon as you add an image to darktable's library,\n"
 ": - _after edit_: A sidecar will not be written until the first time you edit or add a tag to an image.\n"
 msgstr ""
@@ -33082,7 +33206,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "adjust edge protection\n"
-": Controls how strictly the underlying guided filter reacts to edges. Higher values increase edge preservation, keeping strong transitions crisp. Lower values allow smoother transitions between regions, at the risk of introducing halos around high-contrast edges.\n"
+": Controls how sensitively the underlying filter reacts to high-contrast edges. Lower values make for stronger local contrast around high-contrast edges at the risk of developing halos. Higher values allow for smoother transitions. \n"
 msgstr ""
 
 #. type: Plain text
