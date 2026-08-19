@@ -24,11 +24,20 @@ output
 
 {{< /details >}}
 
-Recreate the look of a chosen film stock and paper combination from spectral measurement data, rather than a fitted curve or a LUT derived from scanned samples. The emulsion and paper measurements come from the [spektrafilm](https://github.com/andreavolpato/spektrafilm) project by Andrea Volpato.
+Recreate the look of a film stock printed onto darkroom paper.
 
-This module simulates the actual physical chain a real photograph goes through on film: the film's own spectral sensitivity converts scene light into per-layer exposure, development (including inter-layer DIR coupler inhibition) turns exposure into dye density, and -- unless you choose to view the film directly -- an enlarger then prints that density through a paper's own spectral response to produce the final image. Grain, halation, and diffusion filtration are modeled as physical effects on top of this chain, not stylized overlays.
+Most film emulations are a colour recipe: someone photographed a scene on film, measured how the colours moved, and saved that as a curve or a LUT. This module works the other way round. It starts from laboratory measurements of what real film and real paper are made of -- how sensitive each colour layer is to each wavelength of light, and how much dye each one produces -- and simulates what physically happens to a photograph, step by step:
 
-Because the underlying data is spectral rather than a fixed RGB transform, the module reacts to your working color space and white balance the way a real film stock would react to different light: the same film and paper combination will render differently under different scene illuminants, just as it would in a darkroom.
+- light from the scene falls on the film and exposes its three colour layers,
+- development turns that exposure into dye, with the layers chemically interfering with one another as they do in a real tank,
+- an enlarger shines light through the developed negative onto a sheet of paper,
+- the paper develops in turn, and the finished print is scanned.
+
+Grain, halation and diffusion filters are simulated as things that physically happen along the way, rather than as effects painted on at the end.
+
+One consequence is worth knowing up front. Because the module works from what light actually is, rather than from a fixed colour recipe, the same film and paper render differently under different lighting -- exactly as real film does. Tungsten light and midday sun will not simply differ in white balance.
+
+The measurement data comes from the [spektrafilm](https://github.com/andreavolpato/spektrafilm) project by Andrea Volpato.
 
 ---
 
@@ -38,195 +47,247 @@ Because the underlying data is spectral rather than a fixed RGB transform, the m
 
 # usage
 
+install the data first
+: The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed, and are stored alongside your configuration, so they survive clearing the cache.
+
 only use one display transform
 : Never use _spektrafilm_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)) -- _spektrafilm_ performs the film's own tone mapping as part of simulating development and printing.
 
 start simple
-: Selecting a film stock and a print paper is enough to get a complete, physically-plausible result. The per-effect controls (grain, halation, diffusion) and the film tab's _chemistry_ section are there for fine-tuning, not required for a first pass.
+: Choosing a film stock is enough. Everything else already carries a sensible value taken from that film's own measurements, and the paper follows the film automatically. The tabs are for fine-tuning, not for getting a first result.
 
-positive film has no print stage
-: Slide and reversal film stocks are viewed directly rather than printed -- _scan the film_ is automatically enabled when you select one, and every print-stage control (print exposure compensation, auto print exposure, print contrast, print development time, filtration, preflash, print diffusion) has no effect while it's active. The scanner tab's _viewing glare_ is also inactive, since a directly scanned film has no print surface.
+everything resets
+: Double-click any slider to return it to its default. Each section heading has its own reset button for just that group of controls, and double-clicking a tab resets the whole tab -- useful for getting back to the film's own behaviour after experimenting, without starting over.
+
+slide film has no print stage
+: Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab -- there is no print surface for the light to reflect off.
 
 auto print exposure changes what film exposure does
-: Out of the box, _film exposure_ behaves like a fixed enlarger time: expose the film more and the print comes out brighter. Turn on _auto print exposure_ and it stops doing that -- print exposure compensates automatically, the way a real printer exposes to a fixed target density regardless of how the negative was exposed. Film exposure then only affects colour rendering and grain, by moving where the scene sits on the film's characteristic curve. It is off by default so that the control does the obvious thing until you ask for the darkroom behaviour.
+: Out of the box, _film exposure_ behaves like leaving the enlarger on for a fixed time: expose the film more and the print comes out brighter. Switch on _auto print exposure_ and it stops doing that, because print exposure now compensates automatically -- which is what a real printer does, aiming for consistent print density however the negative was exposed. _film exposure_ then changes only colour and grain, by moving the scene to a different part of the film's response. It is off by default so that the control does the obvious thing until you ask for the darkroom behaviour.
 
-narrow-spectral-sensitivity papers may need manual print exposure
-: A few print stocks have a very narrow spectral sensitivity -- the duplicating and release print films (Kodak 2302, 2383, 2393) rather than the consumer papers. _auto print exposure_'s metering can under- or over-shoot for these, so if a print looks implausibly dark or bright with it enabled, use _print exposure compensation_ to correct it manually, or leave auto off for those stocks.
+some print stocks need manual print exposure
+: A few print stocks respond only to a very narrow slice of the spectrum -- the duplicating and release print films (Kodak 2302, 2383, 2393) rather than the ordinary papers. _auto print exposure_ can misjudge these. If a print looks implausibly dark or bright with it on, correct it with _print exposure compensation_, or leave auto off for those stocks.
 
 # module controls
 
-Film stock, print paper, and the film format are always visible at the top of the module. Everything else is organized into tabs, one per aspect of the physical process: _film_, _print_, _grain_, _halation_, _diffusion_, and _scanner_.
+Film stock, print paper and film format are always visible at the top. Everything else is grouped into tabs, one per stage of the physical process: _film_, _print_, _grain_, _halation_, _diffusion_ and _scanner_.
 
 ## header
 
 film stock
-: The film emulsion to simulate, selected from the included spectral profile data.
+: The film to simulate.
 
 print paper
-: The print/paper stock to simulate. Defaults to the film stock's own target print paper; change the film and the paper follows automatically unless you've explicitly chosen a different one.
+: The paper to print onto. Left on _auto_ it follows the film stock's own intended paper, and names which one that currently is -- for example _auto (Kodak Portra Endura)_. Choose a paper explicitly and it stays put when you change film.
 
 format
-: A preset picker for common film/sensor gate sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom). Choosing a preset sets the _frame long edge_ slider below to match. Note that the preset names a film _gauge_ (35mm), while the slider is the frame's long edge (36mm) -- both describe the same format.
+: A preset picker for common frame sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom), which sets _frame long edge_ below. The preset names a film _gauge_ (35mm) while the slider gives the frame's long edge (36mm); both describe the same format.
 
 frame long edge
-: The physical size of the simulated frame's long edge, in mm. Sets the real-world scale that grain, scatter, halation _and diffusion_ are all computed at, so a smaller format shows every one of them proportionally larger for the same print size. Note that grain scales through particle density rather than through the clump blur, which is a fixed pixel radius -- so changing format alters how coarse the grain looks relative to the frame, not how soft it is.
+: The real-world width of the simulated frame, in mm. This is the physical scale everything else is measured against, so grain, scatter, halation and diffusion all come out proportionally larger on a smaller format at the same print size -- just as they do in reality. Grain becomes coarser relative to the frame rather than softer, since its clumping stays a fixed size on screen.
 
 ## film
 
 ### exposure
 
 film exposure
-: Exposure compensation applied at the film stage, in EV. With _auto print exposure_ enabled this has no net effect on the final brightness (see [usage](#usage) above) -- it still affects color rendering and grain the way a real exposure change would, since those depend on where on the film's characteristic curve the exposure lands.
+: Exposure adjustment at the film stage, in EV. With _auto print exposure_ on this no longer changes overall brightness (see [usage](#usage) above), but it still changes colour and grain, because it moves the scene to a different part of the film's response.
 
 scan the film (skip print)
-: View the developed film directly instead of printing it. Automatically enabled for positive/reversal film stocks, which have no print stage; automatically disabled when you switch to a negative stock. You can still toggle it manually afterwards.
+: Look at the developed negative or slide directly instead of printing it. Switches on by itself for slide and reversal stocks and off again for negative stocks; you can override it either way afterwards.
 
 push/pull
-: Push (positive values) or pull (negative values) processing, in stops: shoot at an effective ISO different from box speed, then under- or over-develop to compensate. Combines an exposure shift with a derived contrast increase/decrease -- an approximation, since the exact relationship depends on the specific film/developer combination, which isn't modeled here. Stacks with the _chemistry_ controls below for further fine-tuning.
+: Shooting the film at a speed other than the box says, then compensating in development, in stops. Positive values push (shoot darker, develop longer), negative values pull. An approximation, since the real result depends on the specific developer, which is not simulated. Stacks with the _chemistry_ controls below.
 
 ### chemistry
 
 development time
-: The development time the film's characteristic curves were measured at, in minutes. Only black & white stocks are characterised at more than one development time (Kodak Double-X at 4/5/6.5/9/12 minutes, for example); the slider is greyed out for colour stocks and for stocks with a single characterisation. The value snaps to the nearest measured time, and 0 selects the stock's own standard development. Unlike _development gamma_ below, which morphs the curves mathematically, this selects a different set of actually-measured curves.
+: How long the film is developed, in minutes. Only a few black & white stocks were measured at more than one time -- Kodak Double-X at 4, 5, 6.5, 9 and 12 minutes, for instance -- so the slider is greyed out for colour films and for anything measured only once. Values snap to the times actually measured, and 0 means the stock's standard development. Unlike _development gamma_ below, this switches between genuinely different measurements rather than calculating something in between.
 
 development gamma
-: Overall development contrast, applied by morphing the film's own density curves -- extended or reduced development time, as in push/pull processing. 1.0 is normal development.
+: Overall development contrast, as though you had developed for longer or shorter. 1.0 is normal.
 
 fast layer gamma
-: Contrast of the fastest (most light-sensitive) emulsion sub-layer only, independent of the slow layer -- push/pull processing doesn't always affect every sub-layer equally.
+: Contrast of the most light-sensitive layer alone. Real film has several layers of differing sensitivity, and a change in development does not affect them equally.
 
 slow layer gamma
-: Contrast of the mid and slow emulsion sub-layers.
+: Contrast of the less sensitive layers.
 
 developer exhaustion
-: Simulates the developer being locally used up in the most heavily exposed parts of the frame, as it is in a real tank. Those areas stop gaining density as the scene gets brighter, so the highlights run into a ceiling rather than climbing indefinitely -- and because the curve steepens on the way up to that ceiling, highlight contrast tends to increase rather than soften. Mid-grey is held fixed, so only the top end of the range moves. 0 disables it.
+: In a real developing tank the chemistry gets locally used up where the film was most heavily exposed. Those areas then stop gaining density however much brighter the scene gets, so highlights run into a ceiling instead of climbing indefinitely -- and the approach to that ceiling steepens, so highlight contrast tends to rise rather than soften. Mid-grey is held still, so only the bright end moves. 0 switches it off.
 
-### couplers and quality
+### DIR couplers
+
+As one colour layer develops, it releases a chemical that slows development in its neighbours. This is where much of colour negative film's saturation comes from, and it sharpens edges too: a bright area holds back development just beyond its own boundary, which reads as extra definition.
 
 DIR couplers
-: Strength of inter-layer development inhibition (DIR couplers), which drives saturation and edge effects in the simulated film. 1.0 is film-accurate; 0 disables the effect. The slider stops at 1.0: the inhibition has to stay invertible for the film's "before couplers" curves to be recoverable, and beyond film-accurate strength that breaks down -- for some stocks well before 2.0. The module additionally reduces the effective amount if a particular stock's curves would become non-invertible sooner.
+: Overall strength of the effect. 1.0 matches the real film, 0 switches it off. The slider stops at 1.0 because the simulation has to be able to work backwards from the film's measured curves, and beyond film-accurate strength that becomes impossible -- for some stocks well before 2.0. The module quietly reduces the amount further for stocks where it would break down sooner.
+
+same-layer inhibition
+: How much each layer holds back its own development. Raising it flattens contrast within each colour channel.
+
+interlayer inhibition
+: How much each layer holds back the other two. This is the part that produces the saturation the effect is known for; at 0 the three colours develop independently.
+
+diffusion size
+: How far the released chemical spreads through the emulsion, in thousandths of a millimetre. This is what turns the couplers into an edge effect rather than a purely tonal one: the further it spreads, the further a bright area reaches past its own boundary, and the more the result looks like added sharpening. Shorten it for a gentler, more purely tonal response. Each film carries its own value, and the slider follows the film when you change stock.
+
+diffusion tail
+: A small part of the chemical travels much further than the rest. This sets how far, and is what gives large bright areas a broad, gentle falloff rather than a glow that stops abruptly.
+
+tail weight
+: How much of the chemical travels in that long tail rather than spreading normally. 0 removes the tail entirely.
+
+### advanced
 
 quality
-: Trade-off between spectral accuracy and processing speed. Higher settings use a finer-resolution lookup table, interpolated with PCHIP splines and validated against the reference implementation.
+: How finely the colour simulation is calculated. The three table settings work the answer out on a grid in advance and interpolate between the points, so a larger grid is closer to exact and slower to prepare. _exact spectral_ skips the grid and calculates every pixel directly: much slower, CPU only, and rarely visibly different.
+
+bandwidth adaptation
+: Trims the extreme violet and deep red ends of the film's sensitivity, as part of how each stock is characterised. On by default and best left on -- it belongs to the film's description rather than being a look.
+
+surface adaptation
+: An optional per-colour exposure correction carried in the film data, worth up to two stops for strongly coloured light and nothing at all for neutral. Off by default, because it shifts saturated colours noticeably and the reference implementation does not apply it either. Stocks whose data does not include the correction are unaffected either way.
 
 ## print
 
+### exposure
+
 print exposure compensation
-: Manual print brightness (enlarger exposure time), in EV. This is an offset either way: with _auto print exposure_ enabled it shifts the automatic result rather than being ignored -- see [usage](#usage) above.
+: How long the enlarger stays on, in EV -- the brightness of the print. Always an offset: with _auto print exposure_ on it shifts the automatic result rather than being ignored.
 
 auto print exposure
-: Automatically compensate print exposure for film exposure changes, the way a real printer would expose to a fixed density regardless of the negative's own exposure. Has no effect while _scan the film_ is enabled, since there's no print stage to compensate.
+: Compensate print exposure automatically for changes in film exposure, the way a real printer aims for consistent density whatever the negative. Does nothing while _scan the film_ is on.
 
 print contrast
-: Print contrast, applied by morphing the paper's own density curves rather than a simple RGB contrast operation.
+: Contrast of the print, achieved by reshaping the paper's own response rather than by a generic contrast adjustment.
 
 ### chemistry
 
 development time
-: The print-stage counterpart of the [film tab](#film)'s _development time_, working the same way and set independently of it. Only Kodak Print Film 2302 carries more than one measured development (2/3.5/5/7/9 minutes), so the slider is greyed out for every other paper -- and while _scan the film_ is enabled, since there is no print to develop.
+: How long the print is developed. Works exactly like the film tab's version and is set separately from it. Only Kodak Print Film 2302 was measured at more than one time (2, 3.5, 5, 7 and 9 minutes), so the slider is greyed out for every other paper -- and while _scan the film_ is on, since there is no print to develop.
 
 ### filtration
 
 filtration M / filtration Y
-: Magenta and yellow enlarger filtration, in Kodak CC units from neutral.
+: Magenta and yellow filters in the enlarger, in Kodak CC units away from neutral -- the colour balance of the print, adjusted the way it is in a darkroom.
 
 ### preflash
 
 preflash exposure
-: A brief, uniform pre-exposure of the print through the film's base density, applied before the main print exposure. Lifts shadows and reduces contrast, a real darkroom technique for controlling contrast on high-contrast negatives. 0 disables it.
+: A brief, even pre-exposure of the paper before the main one, through the blank part of the film. Lifts shadows and lowers contrast; a standard darkroom technique for printing difficult negatives. 0 switches it off.
 
 preflash M filter shift / preflash Y filter shift
-: Magenta/yellow filtration for the preflash exposure only, in Kodak CC units from neutral -- independent of the main enlarger filtration above.
+: Magenta and yellow filtration for the preflash alone, in Kodak CC units, independent of the main filtration above.
 
 ## grain
 
-Grain is not drawn as a separate layer on top of a sharp image. The simulation produces a grained film density, softens it with a small clump blur -- image detail and grain together, as the emulsion itself does -- and then restores the lost edge definition with the _acutance recovery_ sharpening below. The blur and the recovery are a matched pair, tuned together, so a picture with grain enabled is very slightly softer than the same picture with grain off. That is the film's own behaviour, not an artifact; if you want it sharper, reduce _grain strength_ or turn grain off rather than raising _grain recovery strength_.
+Grain is not sprinkled over a sharp picture. The simulation makes the film grainy, blurs detail and grain together the way an emulsion does, and then restores the lost edge definition with the sharpening under _acutance recovery_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, lower _grain strength_ or switch grain off rather than raising the recovery.
 
 enable grain
-: Enable film grain simulation.
+: Switch grain simulation on.
+
+### grain
 
 grain strength
-: Strength of the simulated film grain. 1.0 is film-accurate for the selected stock. The hard range extends to 8 (drag up to 2, right-click to enter higher values) for pushing naturally fine-grained stocks further than their catalogue amount allows.
+: How pronounced the grain is. 1.0 matches the real stock. The slider drags to 2 and accepts up to 8 by right-clicking, for pushing a naturally fine-grained film further than it would really go.
 
 grain size
-: Grain particle size. 1.0 is the film's own default; higher values are coarser.
+: How large the grain particles are. 1.0 is the film's own; higher is coarser.
 
 ### acutance recovery
 
 grain recovery sharpness
-: Radius of the acutance-recovery sharpening applied after grain's clump blur. 0 disables it; higher values produce wider halos, lower values finer detail.
+: How wide the recovery sharpening reaches. 0 switches it off; wider gives broader halos, narrower keeps to fine detail.
 
 grain recovery strength
-: Strength of the acutance-recovery sharpening -- it restores the edge definition the clump blur takes away. 0 disables it, which leaves the softening in place with nothing recovering it. The defaults are the reference implementation's own tuned pair; raising the strength well above them sharpens beyond what the blur removed, which makes grain look crunchy rather than photographic.
+: How strongly it sharpens, restoring the definition the grain blur took away. 0 leaves the softening in place with nothing countering it. The defaults are matched to the blur; pushing well beyond them sharpens more than was ever lost, which makes grain look crunchy rather than photographic.
 
 ## halation
 
+Two separate things happen to bright light inside film. Some of it scatters sideways within the emulsion as it passes through. Some goes all the way through, reflects off the film base behind, and comes back -- which is what puts a reddish glow around very bright highlights. Both are simulated, and adjusted independently.
+
 enable halation
-: Enable in-emulsion light scatter and back-reflection halation simulation -- the softening and reddish glow around bright highlights caused by light scattering within the emulsion and, separately, reflecting off the film base back into it.
+: Switch both effects on.
+
+### scatter
 
 scatter amount
-: Strength of in-emulsion light scatter -- the softening that happens as light passes through the emulsion, before any of it reaches the film base. Physically distinct from, and independent of, _halation strength_ below: 1.0 is film-accurate; 0 disables it. This is the fraction of light that scatters, so 1.0 (all of it) is the maximum -- unlike _halation strength_, it has no meaningful values above film-accurate.
+: How much light scatters sideways within the emulsion. 1.0 matches the film, 0 switches it off. This is a fraction of the light, so 1.0 -- all of it -- is genuinely the maximum, unlike _halation strength_ below.
 
 scatter size
-: Scales the in-emulsion scatter radius. 1.0 is film-accurate, and is the value the reference implementation always uses -- it doesn't expose this control at all. Above 1.0 you are past what the film model claims, and because the radius scales directly with the value the whole frame softens quickly. Drag up to 1.5, right-click to enter higher values.
+: How far it scatters. 1.0 matches the film and is the value the simulation normally works at. Above that the whole frame softens quickly, since the radius grows directly with the value. Drags to 1.5, right-click for more.
+
+### halation
 
 halation strength
-: Strength of the halation glow -- light reflecting off the film base back into the emulsion. 1.0 is film-accurate for the selected film stock: stocks with a strong built-in antihalation layer (most modern colour negative film) show much less glow than one with a weak or absent antihalation layer (e.g. a redscale-style stock), so the same 1.0 setting looks different from stock to stock, matching how the actual film behaves. The hard range extends to 8 (drag up to 2, right-click to enter higher values).
+: How strong the reflected glow is. 1.0 matches the chosen film, which means it looks very different from stock to stock: most modern colour negative film has a layer specifically to absorb this light and shows almost none, while film without one (a redscale-style stock, say) glows dramatically. That difference belongs to the real film, it is not an inconsistency. Drags to 2, right-click for up to 8.
 
 halation size
-: Halation glow radius. 1.0 is film-accurate.
+: How far the glow spreads. 1.0 matches the film.
 
 ### threshold
 
 highlight boost
-: Reconstructs clipped highlights so they can bloom into scatter, halation, and diffusion, in EV. 0 disables it. The boost is applied over a fixed 4 EV window above the _boost protect_ threshold, so the same setting produces the same result regardless of image size, zoom level, or whether the export is tiled.
+: Rebuilds highlights that were clipped in the original file, so they can glow into the scatter, halation and diffusion effects instead of sitting flat. In EV; 0 switches it off. The boost applies over a fixed range, so it gives the same result regardless of image size, zoom level, or how the export was processed.
 
 boost range
-: Widens or narrows the band of tones the highlight boost acts on. Lower confines it to the brightest clipped highlights; higher pulls more of the upper midtones into the bloom.
+: How far down the tonal range the boost reaches. Lower keeps it to the very brightest areas; higher pulls more of the upper midtones into the glow.
 
 boost protect
-: Protects tones below this many stops over mid-grey from the highlight boost, in EV.
+: Keeps everything below this many stops above mid-grey out of the boost entirely.
 
 ## diffusion
 
+Simulates a diffusion filter -- the physical piece of glass a cinematographer puts in front of the lens to bloom highlights and take the edge off contrast. There are two here, at different points in the chain: one at the camera, one at the enlarger.
+
 enable diffusion filter
-: Enable a diffusion filter, simulating the effect of a physical camera filter placed in front of the lens.
+: Switch on the camera-stage filter.
+
+### film
 
 diffusion filter type
-: The filter family to simulate:
-: - _black pro-mist_: a concentrated, punchy halo with deep blacks preserved.
-: - _glimmerglass_: a tight, subtle diffusion that preserves sharpness.
+: Which filter to imitate:
+: - _black pro-mist_: a concentrated, punchy halo that keeps blacks deep.
+: - _glimmerglass_: tight and subtle, preserving sharpness.
 : - _pro-mist_: broader and more pastel, a softer atmospheric look.
-: - _cinebloom_: a frame-wide, slow-decaying veil.
+: - _cinebloom_: a wide, slowly fading veil across the frame.
 
 diffusion strength
-: How much light is diverted into the diffusion halo. 0 disables it. The halo is added on top of the unfiltered image, so raising this lifts shadows and lowers contrast as well as glowing the highlights.
+: How much light is diverted into the halo. 0 switches it off. The halo is added on top of the unfiltered picture, so raising this lifts shadows and lowers contrast as well as making highlights glow.
 
 diffusion size
-: Scales the radius of the diffusion halo -- the same amount of light spread further from each highlight, rather than more of it. Use _diffusion strength_ for the latter.
+: How far the halo spreads -- the same light carried further, rather than more of it. Use _diffusion strength_ for more.
 
 diffusion halo warmth
-: Warmth of the diffusion halo -- positive values warm the outer halo, negative values cool it. Added on top of the selected filter type's own inherent warmth bias.
+: Warms (positive) or cools (negative) the outer halo, on top of whatever bias the chosen filter type already has.
 
-### print diffusion
+### print
 
-A second, independent diffusion filter applied at the print stage rather than the film stage -- simulating a filter placed at the enlarger instead of the camera. Its controls are the same as [diffusion](#diffusion) above, applied independently: _enable print diffusion_, _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, _print diffusion halo warmth_.
+enable print diffusion
+: A second, independent filter at the enlarger rather than the camera, diffusing the print instead of the exposure. Its controls work exactly like the ones above and are set separately: _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, _print diffusion halo warmth_.
 
 ## scanner
 
-The scanner stage models how the developed film or finished print is digitised, and the conditions it is viewed under. These act on the final image, after everything else.
+How the finished print -- or the negative, in _scan the film_ mode -- is digitised, and the conditions it is looked at under. These act on the final image, after everything else.
+
+### output
 
 pre-compression boost
-: Brightens the finished image without flattening its bright end -- the film's own highlight rolloff is applied after this, so the picture lifts rather than washing out. 1.0 leaves it alone. Because it acts at the very end of the module, the picker reads the finished image rather than the original: point it at an area of highlights and it sets the boost so the brightest tone lands just short of where the rolloff takes over.
+: Brightens the finished picture without flattening its highlights, because the film's own highlight rolloff is applied afterwards, so the image lifts instead of washing out. 1.0 leaves it alone. Since it acts right at the end, the colour picker reads the finished picture rather than the original: point it at a highlight area and it sets the boost so the brightest tone lands just short of where the rolloff takes over.
+
+### sharpness
 
 scanner blur
-: Softening from the scanner's own optics, in pixels. 0 disables it.
+: Softening from the scanner's own optics, in pixels. 0 switches it off.
 
 scanner sharpness
-: Radius of the scanner's sharpening pass, in pixels.
+: How wide the scanner's sharpening reaches, in pixels.
 
 scanner sharpen strength
-: Strength of the scanner's sharpening pass. 0 disables it. This defaults to the reference implementation's own value -- set it to 0 if you would rather sharpen further down the pipeline with darktable's [_sharpen_](./sharpen.md) or [_diffuse or sharpen_](./diffuse.md) modules.
+: How strongly it sharpens. 0 switches it off -- worth doing if you would rather sharpen later with darktable's [_sharpen_](./sharpen.md) or [_diffuse or sharpen_](./diffuse.md) modules.
+
+### glare
 
 viewing glare
-: A faint veil of the viewing light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print viewed in a real room never reaches true black. Has no effect while _scan the film_ is enabled, since a directly scanned film has no print surface to reflect off.
+: A faint veil of room light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print in a real room never quite reaches black. Does nothing while _scan the film_ is on, since there is no print surface.
