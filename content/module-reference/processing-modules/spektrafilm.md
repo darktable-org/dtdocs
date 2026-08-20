@@ -129,10 +129,10 @@ same-layer inhibition
 interlayer inhibition
 : How much each layer holds back the other two. This is the part that produces the saturation the effect is known for; at 0 the three colours develop independently.
 
-diffusion size
-: How far the released chemical spreads through the emulsion, in thousandths of a millimetre. This is what turns the couplers into an edge effect rather than a purely tonal one: the further it spreads, the further a bright area reaches past its own boundary, and the more the result looks like added sharpening. Shorten it for a gentler, more purely tonal response. Each film carries its own value, and the slider follows the film when you change stock.
+inhibitor spread
+: How far the released chemical spreads through the emulsion, in thousandths of a millimetre. This is what turns the couplers into an edge effect rather than a purely tonal one: the further it spreads, the further a bright area reaches past its own boundary, and the more the result looks like added sharpening. Shorten it for a gentler, more purely tonal response -- 5 to 20 is the useful range. Each film carries its own value, and the slider follows the film when you change stock.
 
-diffusion tail
+spread tail
 : A small part of the chemical travels much further than the rest. This sets how far, and is what gives large bright areas a broad, gentle falloff rather than a glow that stops abruptly.
 
 tail weight
