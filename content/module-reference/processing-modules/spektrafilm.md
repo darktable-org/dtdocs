@@ -84,7 +84,7 @@ format
 : A preset picker for common frame sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom), which sets _frame long edge_ below. The preset names a film _gauge_ (35mm) while the slider gives the frame's long edge (36mm); both describe the same format.
 
 frame long edge
-: The real-world width of the simulated frame, in mm. This is the physical scale everything else is measured against, so grain, scatter, halation and diffusion all come out proportionally larger on a smaller format at the same print size -- just as they do in reality. Grain becomes coarser relative to the frame rather than softer, since its clumping stays a fixed size on screen.
+: The real-world width of the simulated frame, in mm. This is the physical scale everything else is measured against, so grain, scatter, halation and diffusion all come out proportionally larger on a smaller format at the same print size -- just as they do in reality. It is the honest way to make grain coarser: a smaller frame enlarged further shows bigger grain, exactly as it would on paper.
 
 ## film
 
@@ -182,26 +182,46 @@ preflash M filter shift / preflash Y filter shift
 
 ## grain
 
-Grain is not sprinkled over a sharp picture. The simulation makes the film grainy, blurs detail and grain together the way an emulsion does, and then restores the lost edge definition with the sharpening under _acutance recovery_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, lower _grain strength_ or switch grain off rather than raising the recovery.
+Film grain is not noise sprinkled over a sharp picture. Silver crystals in the emulsion develop or don't, individually, and the picture is made out of them -- so the simulation builds a grainy emulsion, blurs detail and grain together the way a real one does, and then restores the lost edge definition with the sharpening under _texture_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, turn grain down rather than pushing the recovery past its default.
+
+The controls are split in two. _emulsion_ changes what the film is made of, and rebuilds the crystals. _texture_ changes only how those crystals are drawn at your output size.
 
 enable grain
 : Switch grain simulation on.
 
-### grain
+### emulsion
+
+granularity
+: How coarse the film's crystals are, relative to the value measured for this stock. 1.0 is the datasheet figure.
+: This is the size control. Raising it grows the crystals, which means there are fewer of them and each one counts for more, so the grain becomes coarser *and* stronger together -- the same way a faster film differs from a slower one. Because it rebuilds the emulsion rather than adjusting the finished picture, it behaves the same on negative and slide film.
 
 grain strength
-: How pronounced the grain is. 1.0 matches the real stock. The slider drags to 2 and accepts up to 8 by right-clicking, for pushing a naturally fine-grained film further than it would really go.
+: How far the grain is allowed to move each pixel. 1.0 matches the real stock, 0 switches it off.
+: Unlike granularity this scales the result rather than the film, and that has one consequence worth knowing: a negative's grain gets amplified a second time by the print stage, while a slide is scanned directly with nothing to amplify it. The same value therefore reads much weaker on slide film. Reach for granularity rather than pushing this past 2 (right-click for up to 8).
 
-grain size
-: How large the grain particles are. 1.0 is the film's own; higher is coarser.
+uniformity
+: How evenly the crystals are distributed, relative to the stock's own figure. Lowering it bends the noise into a bell: grain that peaks in the midtones and eases off again in the densest areas, rather than climbing all the way up.
 
-### acutance recovery
+sublayer particle scale
+: A real emulsion layers coarse crystals over finer ones. This scales the finer sub-layers against the coarsest, which stays fixed. Lower makes the fine layers finer still, so the coarse layer dominates; at 0 only the coarsest is left. No effect on stocks measured as a single layer.
 
-grain recovery sharpness
-: How wide the recovery sharpening reaches. 0 switches it off; wider gives broader halos, narrower keeps to fine detail.
+density floor
+: The density each crystal sits at even where the film received no light -- the reason grain does not disappear entirely in clear areas. Real stocks measure between about 0.03 and 0.06.
 
-grain recovery strength
-: How strongly it sharpens, restoring the definition the grain blur took away. 0 leaves the softening in place with nothing countering it. The defaults are matched to the blur; pushing well beyond them sharpens more than was ever lost, which makes grain look crunchy rather than photographic.
+### texture
+
+grain blur
+: How much the grain is blurred after it is drawn, in pixels. This softens grain rather than resizing it: the crystals are unchanged, so raising it makes grain smoother and less distinct, not coarser. Use _granularity_ above for that.
+: The value that looks right depends on output size, since it is measured in pixels rather than on the film. Raise it for large prints where one crystal covers several pixels; lower it for small output.
+
+dye cloud size
+: Each developed crystal leaves a small cloud of dye rather than a hard dot. This scales how far that cloud spreads, measured on the film itself, so it only becomes visible at magnifications where a single crystal covers more than a pixel.
+
+recovery radius
+: How wide the recovery sharpening reaches, in pixels. 0 switches it off. A broad radius puts the crispness back into mid-sized detail rather than at the pixel level, which is what stops the pixel grid itself from showing through.
+
+recovery strength
+: How strongly it sharpens, restoring the definition the grain blur took away. It moves density around without adding any, so it cannot invent detail and is not a noise reduction. 0 leaves the softening in place with nothing countering it; pushing well beyond the default sharpens more than was ever lost, which makes grain look crunchy rather than photographic.
 
 ## halation
 
