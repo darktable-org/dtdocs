@@ -35,7 +35,7 @@ Most film emulations are a colour recipe: someone photographed a scene on film, 
 
 Grain, halation and diffusion filters are simulated as things that physically happen along the way.
 
-Because the module works from what light actually is, the same film and paper render differently under different lighting -- exactly as real film does. Tungsten light and midday sun will not simply differ in white balance.
+Because the module simulates the physical properties of light and its interaction with film exposure and the printing process, the same film and paper render differently under different lighting. Tungsten light and midday sun will not simply differ in white balance.
 
 The measurement data comes from the [spektrafilm](https://github.com/andreavolpato/spektrafilm) project by Andrea Volpato.
 
