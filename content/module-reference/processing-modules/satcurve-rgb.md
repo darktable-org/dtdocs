@@ -56,11 +56,11 @@ The module has two tabs, one per curve, a row of shared controls below the curve
 saturation curve
 : Plots the output saturation multiplier (_y_ axis) against the normalized input saturation (_x_ axis). The default curve is a flat line at 50%, a neutral, unity multiplier. Moving a node above the midline increases saturation at that point on the input range; moving it below decreases it.
 
-: - click the curve to add a node, drag an existing node to reposition it
-: - Ctrl+right-click a node to reset it to neutral
-: - right-click a node to remove it, when more than two nodes are present
-: - double-click anywhere on the graph to reset the active curve
-: - scroll over a selected node to nudge its value; Ctrl+scroll uses larger steps
+- click the curve to add a node, drag an existing node to reposition it
+- Ctrl+right-click a node to reset it to neutral
+- right-click a node to remove it, when more than two nodes are present
+- double-click anywhere on the graph to reset the active curve
+- scroll over a selected node to nudge its value; Ctrl+scroll uses larger steps
 
 : The graph background shows a log-compressed histogram of the image's own input-saturation distribution, so you can see which parts of the range are populated before placing nodes. A gradient strip below the graph shows the corresponding hue-less perceptual gradient for reference.
 
