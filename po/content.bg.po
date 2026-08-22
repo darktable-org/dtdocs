@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-08-17 00:53+0000\n"
+"POT-Creation-Date: 2026-08-22 13:56+0000\n"
 "PO-Revision-Date: 2024-04-02 14:01+0000\n"
 "Last-Translator: Bojidar <vbs@users.noreply.weblate.pixls.us>\n"
 "Language-Team: Bulgarian <https://weblate.pixls.us/projects/darktable/dtdocs/"
@@ -6904,6 +6904,159 @@ msgstr ""
 #: content/preferences-settings/processing.md
 #, no-wrap
 msgid "OpenCL"
+msgstr ""
+
+#. type: Yaml Front Matter Hash Value: title
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "using multiple computers"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Editing the same photos from multiple computers requires some setup as darktable has no dedicated function for sharing its database across computers. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "The [local concept](../overview/sidecar-files/local-copies.md) feature is the included solution for \"editing on the road\" and could be used if your files live on a NAS or external storage. \n"
+msgstr ""
+
+#. type: Title ##
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "General considerations"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid ""
+"Multiple machines are not natively supported. darktable assumes one local database per installation; there is no built-in functionality for resolving edit-conflicts. \n"
+"* Make sure the same darktable version is used everywhere; using different versions can trigger incompatible edits.\n"
+"* Always make sure synchronization is up to date; never work on both machines at the same time or synchronization conflicts might arise. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "darktable stores its edits in two places: \n"
+msgstr ""
+
+#. type: Bullet: '  - '
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "XMP sidecar files: `image.raw.xmp`; if enabled in the [preferences](../preferences-settings/storage.md)\n"
+msgstr ""
+
+#. type: Bullet: '  - '
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "`library.db` (unless using `--library :memory:`-mode)\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Presets, settings etc. are stored in further files inside the [configuration directory](../preferences-settings/config-directory.md).\n"
+msgstr ""
+
+#. type: Title ##
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Approach A: Sync RAW-files + XMP-sidecars only"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "The simplest approach; syncs your edits leaving your configuration alone. Does allow for mixed setups with e.g. Windows and Linux.  \n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid ""
+"Setup:\n"
+"* Use a file-synchronization service of your choice (e.g. Syncthing, Dropbox) to sync the RAW-Files + XMP files between your devices.\n"
+"* Have darktable read the XMP files upon startup: In the [preferences](../preferences-settings/storage.md) set _create XMP files_ to \"on import\" and enable _look for updated XMP files on startup_.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid ""
+"Caveats: \n"
+"* Only updated XMP files will be read by darktable: New files added on one computer must be imported manually on the other. The same goes for deleted files.\n"
+"* Settings, presets, styles etc. will not be synced and will have to be manually transferred.\n"
+"* Take care to ensure synchronization is up to date before opening darktable. There is no built in function to resolve synchronization conflicts.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Can be combined with the [`--library :memory:` mode](program-invocation/darktable.md) to omit the usage of a local `library.db`; darktable will then always only work off the XMP files.\n"
+msgstr ""
+
+#. type: Title ##
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Approach B: Sync files and entire configuration directory"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "More complicated to setup, more error prone and requires some special considerations. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Setup:\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Use a file-synchronization service of your choice (e.g. Syncthing) to sync the RAW-Files + XMP files AND the contents of your [configuration directory](../preferences-settings/config-directory.md) between your devices.\n"
+msgstr ""
+
+#. type: Bullet: '  -  '
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Note: Services like Dropbox might not work as well because they mostly don't allow for syncing multiple folders in different locations.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Since the `library.db` in the configuration directory references the RAW-files by their _absolute_ path the location of the files has to be exactly matched between different machines.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Somewhat more error prone than Approach A as synchronization conflicts could mess with your configuration.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid "Variation: Sync the files and a separate `library.db`, specify the location of the `library.db` in your launcher, not automatically syncing the rest of the configuration folder. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/multiple-computers.md
+#, no-wrap
+msgid ""
+"Caveats:\n"
+"* Not cross platform compatible.\n"
+"* Machine specific settings could get overridden, for instance OpenCL settings.\n"
+"* Consider excluding the cache directory from sync. `~/.cache/darktable` (thumbnails etc.) is large; syncing it just costs bandwidth and storage for no benefit.\n"
+"* It is recommended to have a robust versioned backup strategy _including the configuration directory_ to avoid breaking/losing your setup.\n"
 msgstr ""
 
 #. type: Yaml Front Matter Hash Value: title
@@ -29597,7 +29750,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "adjust edge protection\n"
-": Controls how sensitively the underlying filter reacts to high-contrast edges. Lower values make for stronger local contrast around high-contrast edges at the risk of developing halos. Higher values allow for smoother transitions. \n"
+": Controls how sensitively the underlying filter reacts to high-contrast edges. Lower values make for stronger local contrast around high-contrast edges at the risk of developing halos. Higher values allow for smoother transitions. The scale affected by this setting is determined by _detail level_.\n"
 msgstr ""
 
 #. type: Plain text
