@@ -1,0 +1,3162 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - Exporter</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/fr\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/fr/module-reference/utility-modules/shared/export/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="Exporter">
+<meta property="og:description" content="Exporter les images sélectionnées
+Lorsqu’elle est utilisée dans la vue Chambre noire, l’image actuellement éditée sera exportée si aucune autre image n’est sélectionnée dans le bandeau des miniatures.
+Les fichiers peuvent être exportés vers un fichier sur le disque, un e-mail, divers emplacements de stockage en ligne, un album Web ou un modèle de livre.
+🔗Contrôles du module 🔗Options de stockage Stockage cible Le type d’emplacement pour stocker vos images sélectionnées. Différents types de stockage sont mis en œuvre, notamment le fichier sur disque, le modèle de livre LaTeX et divers albums Web. En fonction de la cible sélectionnée, il vous sera demandé de fournir des informations supplémentaires, telles que les noms de fichiers ou le nom de compte et le mot de passe. filename template Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, $(SEQUENCE) in a template records sequence number of the image exported to the target. See the variables section for details. Sélecteur de répertoire de sortie Le bouton situé à côté de l’entrée du modèle de nom de fichier ouvre une boîte de dialogue permettant de sélectionner le répertoire parent pour l’exportation. Sur conflit Choisir ce qu’il faut faire si le nom de fichier généré entre en conflit avec un fichier existant lors de l’exportation. créer fichier unique : crée automatiquement un nouveau nom unique de fichier en ajoutant un entier au nom du fichier en conflit. écraser : écrase les fichiers existants. Cette option présente une boîte de dialogue de confirmation afin de vous protéger contre la perte accidentelle de données – vous pouvez la désactiver dans Préférences &gt; Sécurité &gt; Demander avant d’exporter en mode écraser. Remarque : Cette boîte de dialogue n’est pas présentée à chaque fichier mais une seule fois au démarrage de la tâche d’exportation. écraser si modifié : Écrase automatiquement les fichiers existants si l’horodatage de la dernière exportation stocké dans la base de données de darktable ne correspond pas à la date/heure de la dernière modification du fichier existant. sauter : n’exporte pas les images dont le nom de destination existe déjà. 🔗Options de format Format de fichier Choisit le format de fichier pour l’image exportée. Des options supplémentaires apparaissent (ci-dessous) en fonction du format sélectionné. Qualité La qualité du fichier exporté. Des valeurs plus élevées entraînent des tailles de fichier plus importantes. La qualité par défaut (95) est un bon paramètre pour les exportations de très haute qualité (par exemple, pour l’archivage ou l’impression). Si vous avez besoin d’un bon compromis entre la taille et la qualité (par exemple, pour l’affichage ou le téléchargement d’images en ligne), vous devriez plutôt envisager une valeur de 90. Bits Le nombre de bits utilisés pour chaque canal de couleur. Plus il est élevé, moins il y aura de postérisation/bandes de couleur. Compression ou type de compression Le type de compression à utiliser (WebP ou OpenEXR). Compression Pour les formats où la compression peut être spécifiée, le curseur Niveau de compression permet de fixer sa force. Plus le niveau est élevé, plus les données seront compressées, au prix d’un plus grand temps de traitement. Image N&amp;B Pour le format TIFF, il est possible d’enregistrer une image monochrome. Ce paramètre contrôle si le fichier résultant code les nuances de gris en tant que canaux RVB distincts ou en tant que canal de niveaux de gris unique. 🔗Options globales Taille Choisissez comment est calculé la taille maximale de l’image exportée. En pixels (pour un fichier) : entrez la largeur et hauteur maximales en pixels. En cm (pour impression) : entrez la largeur et hauteur maximales en cm, ainsi que la résolution en points par pouce (DPI). La définition équivalente en pixels sera automatiquement calculée. En pouce (pour impression) : entrez la largeur et hauteur maximales en pouce, ainsi que la résolution en points par pouce (DPI). La définition équivalente en pixels sera automatiquement calculée. Par facteur (pour un fichier) : entrez un multiplicateur pour spécifier de combien l’image exportée doit être mise à l’échelle par rapport à l’image d’entrée. Par exemple, entrez une valeur de 0.5 pour réduire l’image de sortie de moitié en largeur et hauteur (en pixels). DPI Dans le cas des options pour l’impression (en cm ou en pouces), ceci enregistre la résolution de l’image de sortie. Cette résolution est enregistrée dans les données EXIF de l’image exportée. Elle est automatiquement réglée à 300 si les options En pixels ou Par facteur sont sélectionnées. Taille maximale Entrez la taille maximale de la largeur et de la hauteur de l’image exportée, en pixels, en cm ou en pouces (dépend de l’option choisie). Une valeur de zéro ne met aucune contrainte sur cette dimension. Les images exportées seront contraintes de manière à ne dépasser aucune de ces valeurs, tout en conservant le rapport hauteur/largeur. Mettez les deux à zéro pour exporter avec les dimensions d’origine (après recadrage). Si les valeurs saisies dépassent les dimensions d’origine, darktable exportera avec les dimensions d’origine ou augmentera l’échelle de l’image, en fonction du paramètre Autorise l’agrandissement. allow upscaling Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image’s dimensions will not exceed the dimensions of the original image (after cropping). This uses the pixel interpolator set in preferences; for higher-quality super-resolution upscaling using an AI model, see the neural restore module. Échantillonnage de haute qualité Mettez sur Oui pour effectuer un ré-échantillonnage de haute qualité sur l’image. L’image sera traitée en pleine résolution et uniquement réduite à la toute fin. Cela donne parfois une meilleure qualité, mais le traitement sera toujours plus lent. Enregistre les masques Enregistre dans l’image exportée les masques en tant que couches supplémentaires (pour le format TIFF) ou canaux (pour les formats EXR et XCF). Profil Le profil de couleur de sortie. Sélectionnez Paramètres d’image si vous souhaitez conserver celui du module Profil de couleur de sortie de chaque image. Rendu Cette option vous permet de définir le rendu : la manière dont darktable gère les couleurs hors gamut. Voir Intention de rendu pour une description plus détaillée des différentes options. Style Choisissez un Style que darktable ajoutera à l’historique existant pour générer l’image de sortie. Les éléments du style sont ajoutés temporairement : l’historique d’origine n’est pas écrasé. Vous pouvez utiliser cette fonctionnalité pour ajouter des étapes de traitement et des paramètres que vous souhaitez appliquer spécifiquement aux images avant l’exportation. Par exemple, vous pouvez définir un style qui ajoute une netteté plus élevée lorsque vous produisez des fichiers JPEG réduits pour Internet ou encore ajouter une compensation d’exposition à toutes vos images de sortie. Mode Lors de l’application d’un style pour l’exportation, cette option définit si les éléments de l’historique de ce style remplacent l’historique d’origine de l’image ou y sont ajoutés. Techniquement parlant, en mode ajout, des instances des modules de l’historique du style à appliquer, seront placées au-dessus des modules de l’historique existant (voir Instances multiples). Par conséquent, le traitement d’origine de l’image restera en vigueur, et en plus, les nouveaux modules lui seront appliqués. De cette façon, vous pouvez appliquer un ajustement global (par exemple l’exposition) à un certain nombre d’images à exporter, tout en respectant le traitement de chaque image réalisé avant l’exportation. start export Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the “x” icon located close to the progress bar. export avec multiples préréglages L’extension de cette section vous permet d’exporter facilement chacune des images sélectionnées avec plusieurs préréglages différents en une seule exportation. Par exemple, vous souhaiterez peut-être exporter chaque image dans plusieurs tailles en même temps pour l’utiliser sur un site Web. Créez simplement un préréglage pour chaque type d’exportation que vous souhaitez effectuer, en vous assurant que les paramètres de chemin de fichier pour chaque préréglage sont uniques (afin que les images exportées ne s’écrasent pas les unes les autres). Sélectionnez les préréglages souhaités et appuyez normalement sur le bouton « lancer l’export ». Remarque : Les images sélectionnées mais actuellement masquées (parce qu’elles sont membres d’un groupe réduit) ne seront pas exportées.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="fr">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span>Version: Development</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            <a class="dropdown-item" href="/usermanual/development/dtdocs/fr/module-reference/utility-modules/shared/export/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/4.8/dtdocs/fr/module-reference/utility-modules/shared/export/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/dtdocs/fr/module-reference/utility-modules/shared/export/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/dtdocs/fr/module-reference/utility-modules/shared/export/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="fr"
+              role="option"
+              lang="fr"
+              href="https://darktable-org.github.io/dtdocs/fr/module-reference/utility-modules/shared/export/"
+              >Français</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/module-reference/utility-modules/shared/export/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/utility-modules/shared/export/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/utility-modules/shared/export/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/utility-modules/shared/export/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="it"
+                role="option"
+                lang="it"
+                href="https://darktable-org.github.io/dtdocs/it/module-reference/utility-modules/shared/export/"
+                >Italian</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/utility-modules/shared/export/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/utility-modules/shared/export/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/utility-modules/shared/export/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/utility-modules/shared/export/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+
+<a href='/dtdocs/fr/'>darktable</a> / <a href='/dtdocs/fr/module-reference/'>Références des modules</a> / <a href='/dtdocs/fr/module-reference/utility-modules/'>Modules utilitaires</a> / <a href='/dtdocs/fr/module-reference/utility-modules/shared/'>Partagé</a> / Exporter
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/fr/module-reference/utility-modules/shared/focus-peaking/" class="next">&lt; Détection des zones nettes</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/fr/module-reference/utility-modules/shared/collection-filters/" class="prev">Filtres de collection &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        Exporter
+    </h1>
+
+    
+
+    <p>Exporter les images sélectionnées</p>
+<p>Lorsqu&rsquo;elle est utilisée dans la vue Chambre noire, l&rsquo;image actuellement éditée sera exportée si aucune autre image n&rsquo;est sélectionnée dans le bandeau des miniatures.</p>
+<p>Les fichiers peuvent être exportés vers un fichier sur le disque, un e-mail, divers emplacements de stockage en ligne, un album Web ou un modèle de livre.</p>
+<h1 id="contrôles-du-module"><a href="#contr%c3%b4les-du-module">🔗</a>Contrôles du module</h1>
+<h2 id="options-de-stockage"><a href="#options-de-stockage">🔗</a>Options de stockage</h2>
+<dl>
+<dt>Stockage cible</dt>
+<dd>Le type d&rsquo;emplacement pour stocker vos images sélectionnées. Différents types de stockage sont mis en œuvre, notamment le fichier sur disque, le modèle de livre LaTeX et divers albums Web. En fonction de la cible sélectionnée, il vous sera demandé de fournir des informations supplémentaires, telles que les noms de fichiers ou le nom de compte et le mot de passe.</dd>
+<dt>filename template</dt>
+<dd>Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, <code>$(SEQUENCE)</code> in a template records sequence number of the image exported to the target. See the <a href="/dtdocs/fr/special-topics/variables/">variables</a> section for details.</dd>
+<dt>Sélecteur de répertoire de sortie</dt>
+<dd>Le bouton situé à côté de l&rsquo;entrée du modèle de nom de fichier ouvre une boîte de dialogue permettant de sélectionner le répertoire parent pour l&rsquo;exportation.</dd>
+<dt>Sur conflit</dt>
+<dd>Choisir ce qu&rsquo;il faut faire si le nom de fichier généré entre en conflit avec un fichier existant lors de l&rsquo;exportation.</dd>
+<dd>
+<ul>
+<li>créer fichier unique : crée automatiquement un nouveau nom unique de fichier en ajoutant un entier au nom du fichier en conflit.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>écraser : écrase les fichiers existants. Cette option présente une boîte de dialogue de confirmation afin de vous protéger contre la perte accidentelle de données &ndash; vous pouvez la désactiver dans <a href="../../../preferences-settings/security.md">Préférences &gt; Sécurité &gt; Demander avant d&rsquo;exporter en mode écraser</a>. <em><strong>Remarque :</strong> Cette boîte de dialogue n&rsquo;est pas présentée à chaque fichier mais une seule fois au démarrage de la tâche d&rsquo;exportation.</em></li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>écraser si modifié : Écrase automatiquement les fichiers existants si l&rsquo;horodatage de la dernière exportation stocké dans la base de données de darktable ne correspond pas à la date/heure de la dernière modification du fichier existant.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>sauter : n&rsquo;exporte pas les images dont le nom de destination existe déjà.</li>
+</ul>
+</dd>
+</dl>
+<h2 id="options-de-format"><a href="#options-de-format">🔗</a>Options de format</h2>
+<dl>
+<dt>Format de fichier</dt>
+<dd>Choisit le format de fichier pour l&rsquo;image exportée. Des options supplémentaires apparaissent (ci-dessous) en fonction du format sélectionné.</dd>
+<dt>Qualité</dt>
+<dd>La qualité du fichier exporté. Des valeurs plus élevées entraînent des tailles de fichier plus importantes. La qualité par défaut (95) est un bon paramètre pour les exportations de très haute qualité (par exemple, pour l&rsquo;archivage ou l&rsquo;impression). Si vous avez besoin d&rsquo;un bon compromis entre la taille et la qualité (par exemple, pour l&rsquo;affichage ou le téléchargement d&rsquo;images en ligne), vous devriez plutôt envisager une valeur de 90.</dd>
+<dt>Bits</dt>
+<dd>Le nombre de bits utilisés pour chaque canal de couleur. Plus il est élevé, moins il y aura de postérisation/bandes de couleur.</dd>
+<dt>Compression ou type de compression</dt>
+<dd>Le type de compression à utiliser (WebP ou OpenEXR).</dd>
+<dt>Compression</dt>
+<dd>Pour les formats où la compression peut être spécifiée, le curseur Niveau de compression permet de fixer sa force. Plus le niveau est élevé, plus les données seront compressées, au prix d&rsquo;un plus grand temps de traitement.</dd>
+<dt>Image N&amp;B</dt>
+<dd>Pour le format TIFF, il est possible d&rsquo;enregistrer une image monochrome. Ce paramètre contrôle si le fichier résultant code les nuances de gris en tant que canaux RVB distincts ou en tant que canal de niveaux de gris unique.</dd>
+</dl>
+<h2 id="options-globales"><a href="#options-globales">🔗</a>Options globales</h2>
+<dl>
+<dt>Taille</dt>
+<dd>Choisissez comment est calculé la taille maximale de l&rsquo;image exportée.</dd>
+<dd>
+<ul>
+<li>En pixels (pour un fichier) : entrez la largeur et hauteur maximales en pixels.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>En cm (pour impression) : entrez la largeur et hauteur maximales en cm, ainsi que la résolution en points par pouce (DPI). La définition équivalente en pixels sera automatiquement calculée.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>En pouce (pour impression) : entrez la largeur et hauteur maximales en pouce, ainsi que la résolution en points par pouce (DPI). La définition équivalente en pixels sera automatiquement calculée.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>Par facteur (pour un fichier) : entrez un multiplicateur pour spécifier de combien l&rsquo;image exportée doit être mise à l&rsquo;échelle par rapport à l&rsquo;image d&rsquo;entrée. Par exemple, entrez une valeur de 0.5 pour réduire l&rsquo;image de sortie de moitié en largeur et hauteur (en pixels).</li>
+</ul>
+</dd>
+<dt>DPI</dt>
+<dd>Dans le cas des options pour l&rsquo;impression (en cm ou en pouces), ceci enregistre la résolution de l&rsquo;image de sortie. Cette résolution est enregistrée dans les données EXIF de l&rsquo;image exportée. Elle est automatiquement réglée à 300 si les options En pixels ou Par facteur sont sélectionnées.</dd>
+<dt>Taille maximale</dt>
+<dd>Entrez la taille maximale de la largeur et de la hauteur de l&rsquo;image exportée, en pixels, en cm ou en pouces (dépend de l&rsquo;option choisie). Une valeur de zéro ne met aucune contrainte sur cette dimension. Les images exportées seront contraintes de manière à ne dépasser aucune de ces valeurs, tout en conservant le rapport hauteur/largeur. Mettez les deux à zéro pour exporter avec les dimensions d&rsquo;origine (après recadrage). Si les valeurs saisies dépassent les dimensions d&rsquo;origine, darktable exportera avec les dimensions d&rsquo;origine ou augmentera l&rsquo;échelle de l&rsquo;image, en fonction du paramètre Autorise l’agrandissement.</dd>
+<dt>allow upscaling</dt>
+<dd>Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image&rsquo;s dimensions will not exceed the dimensions of the original image (after cropping). This uses the <a href="/dtdocs/fr/preferences-settings/processing/">pixel interpolator</a> set in preferences; for higher-quality super-resolution upscaling using an AI model, see the <a href="./neural-restore.md">neural restore</a> module.</dd>
+<dt>Échantillonnage de haute qualité</dt>
+<dd>Mettez sur Oui pour effectuer un ré-échantillonnage de haute qualité sur l&rsquo;image. L&rsquo;image sera traitée en pleine résolution et uniquement réduite à la toute fin. Cela donne parfois une meilleure qualité, mais le traitement sera toujours plus lent.</dd>
+<dt>Enregistre les masques</dt>
+<dd>Enregistre dans l&rsquo;image exportée les masques en tant que couches supplémentaires (pour le format TIFF) ou canaux (pour les formats EXR et XCF).</dd>
+<dt>Profil</dt>
+<dd>Le profil de couleur de sortie. Sélectionnez Paramètres d&rsquo;image si vous souhaitez conserver celui du module <a href="/dtdocs/fr/module-reference/processing-modules/output-color-profile/">Profil de couleur de sortie</a> de chaque image.</dd>
+<dt>Rendu</dt>
+<dd>Cette option vous permet de définir le rendu : la manière dont darktable gère les couleurs hors gamut. Voir <a href="/dtdocs/fr/special-topics/color-management/rendering-intent/">Intention de rendu</a> pour une description plus détaillée des différentes options.</dd>
+<dt>Style</dt>
+<dd>Choisissez un <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/styles/">Style</a> que darktable ajoutera à l&rsquo;historique existant pour générer l&rsquo;image de sortie. Les éléments du style sont ajoutés temporairement : l&rsquo;historique d&rsquo;origine n&rsquo;est pas écrasé. Vous pouvez utiliser cette fonctionnalité pour ajouter des étapes de traitement et des paramètres que vous souhaitez appliquer spécifiquement aux images avant l&rsquo;exportation. Par exemple, vous pouvez définir un style qui ajoute une netteté plus élevée lorsque vous produisez des fichiers JPEG réduits pour Internet ou encore ajouter une compensation d&rsquo;exposition à toutes vos images de sortie.</dd>
+<dt>Mode</dt>
+<dd>Lors de l&rsquo;application d&rsquo;un style pour l&rsquo;exportation, cette option définit si les éléments de l&rsquo;historique de ce style remplacent l&rsquo;historique d&rsquo;origine de l&rsquo;image ou y sont ajoutés. Techniquement parlant, en mode ajout, des instances des modules de l&rsquo;historique du style à appliquer, seront placées au-dessus des modules de l&rsquo;historique existant (voir <a href="/dtdocs/fr/darkroom/processing-modules/multiple-instances/">Instances multiples</a>). Par conséquent, le traitement d&rsquo;origine de l&rsquo;image restera en vigueur, et en plus, les nouveaux modules lui seront appliqués. De cette façon, vous pouvez appliquer un ajustement global (par exemple l&rsquo;exposition) à un certain nombre d&rsquo;images à exporter, tout en respectant le traitement de chaque image réalisé avant l’exportation.</dd>
+<dt>start export</dt>
+<dd>Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the &ldquo;x&rdquo; icon located close to the progress bar.</dd>
+<dt>export avec multiples préréglages</dt>
+<dd>L&rsquo;extension de cette section vous permet d&rsquo;exporter facilement chacune des images sélectionnées avec plusieurs préréglages différents en une seule exportation. Par exemple, vous souhaiterez peut-être exporter chaque image dans plusieurs tailles en même temps pour l&rsquo;utiliser sur un site Web. Créez simplement un préréglage pour chaque type d&rsquo;exportation que vous souhaitez effectuer, en vous assurant que les paramètres de chemin de fichier pour chaque préréglage sont uniques (afin que les images exportées ne s&rsquo;écrasent pas les unes les autres). Sélectionnez les préréglages souhaités et appuyez normalement sur le bouton « lancer l&rsquo;export ».</dd>
+</dl>
+<hr>
+<p><strong>Remarque :</strong> Les images sélectionnées mais actuellement masquées (parce qu&rsquo;elles sont membres d&rsquo;un groupe réduit) ne seront pas exportées.</p>
+<hr>
+<h1 id="préférences-des-métadonnées"><a href="#pr%c3%a9f%c3%a9rences-des-m%c3%a9tadonn%c3%a9es">🔗</a>Préférences des métadonnées</h1>
+<p>L&rsquo;option Préférences&hellip; du menu des préréglages fait apparaître une boîte de dialogue dans laquelle vous pouvez configurer les métadonnées à inclure dans les fichiers exportés :</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/export/metadata-config.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/export/metadata-config.png" alt="configuration des métadonnées"  class="w66"    /></a>
+
+</p>
+<p>Les paramètres entrés dans ce dialogue sont sauvegardés avec d&rsquo;autres paramètres d&rsquo;exportation dans des préréglages utilisateur et les dernières valeurs entrées sont conservées lorsque darktable est fermé.</p>
+<h2 id="paramètres-généraux"><a href="#param%c3%a8tres-g%c3%a9n%c3%a9raux">🔗</a>Paramètres généraux</h2>
+<p>La partie gauche de cette boîte de dialogue vous permet de choisir les groupes de métadonnées à exporter avec l&rsquo;image. Les options suivantes sont disponibles :</p>
+<dl>
+<dt>Données EXIF</dt>
+<dd>Exporte les données EXIF de l&rsquo;image source.</dd>
+<dt>Métadonnées</dt>
+<dd>Exporter les métadonnées définies dans le module <a href="../shared/metadata-editor.md">Éditeur de métadonnées</a>. Seuls les champs de métadonnées marqués comme Visible et non marqués comme Privé seront exportés.</dd>
+<dt>Géolocalisation</dt>
+<dd>Exporter les données de géolocalisation.</dd>
+<dt>Mots-clés</dt>
+<dd>Exporte les mots-clés créés dans le module <a href="/dtdocs/fr/module-reference/utility-modules/shared/tagging/">Mots-clés</a> (vers Xmp.dc.Subject). Trois options supplémentaires peuvent également être sélectionnées :</dd>
+<dd><ul>
+<li>Mots-clés privés : exporte les mots-clés privés</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Synonymes : exporte les synonymes des mots-clés</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Omet la hiérarchie : n&rsquo;exporte que le dernier nœud des mots-clés hiérarchiques</li>
+</ul>
+</dd>
+<dt>Mots-clés hiérarchiques</dt>
+<dd>Exporte les mots-clés hiérarchiques (vers Xmp.lr.Hierarchical Subject)</dd>
+<dt>Historique</dt>
+<dd>Exporte l&rsquo;intégralité du développement (historique et formes) lorsque ceci est pris en charge (par exemple, JPEG, JPEG2000, TIFF). L&rsquo;historique de développement sera stocké sous forme de balises XMP dans le fichier de sortie. Ces informations peuvent ensuite être utilisées pour reconstruire les paramètres et les réglages qui ont été utilisés pour produire l&rsquo;image exportée.</dd>
+</dl>
+<hr>
+<p><strong>Attention :</strong> Pour diverses raisons, l&rsquo;intégration de balises XMP dans les fichiers de sortie peut échouer sans préavis, par exemple si certaines limites de taille sont dépassées. Il est donc conseillé aux utilisateurs de ne pas se fier à cette fonctionnalité pour leur stratégie de sauvegarde. Pour sauvegarder vos données, assurez-vous toujours de sauvegarder votre fichier d&rsquo;entrée (RAW) ainsi que tous les fichiers annexes XMP de darktable.</p>
+<hr>
+<h2 id="pour-les-paramètres-de-métadonnées"><a href="#pour-les-param%c3%a8tres-de-m%c3%a9tadonn%c3%a9es">🔗</a>Pour les paramètres de métadonnées</h2>
+<p>La partie droite de cette boîte de dialogue vous permet de définir des formules pour alimenter les métadonnées de l&rsquo;image. Les formules définies ici ont priorité sur les paramètres de la partie gauche de la boîte de dialogue. La première colonne identifie l&rsquo;entrée à modifier. La deuxième colonne vous permet de définir comment calculer la valeur de cette entrée de métadonnées à l&rsquo;aide d&rsquo;une formule.</p>
+<p>Voir la section <a href="/dtdocs/fr/special-topics/variables/">Variables</a> pour plus de détails sur les variables que vous pouvez utiliser dans votre formule de métadonnées. Appuyez sur Entrée pour valider la formule. Laissez la formule vide pour empêcher l&rsquo;exportation de cette métadonnée (Exif.GPSInfo.GPSVersionID dans l&rsquo;exemple ci-dessus).</p>
+<p>Utilisez l&rsquo;icône &ndash; pour supprimer une entrée de métadonnées de la liste et l&rsquo;icône + pour en ajouter une nouvelle à partir d&rsquo;une liste prédéfinie des métadonnées disponibles.</p>
+<p>Cliquer sur le bouton Ajouter pour ajouter une métadonnée à la liste.</p>
+<p>Les formules vous permettent de définir virtuellement toutes les métadonnées dont vous avez besoin pour qualifier vos images lors du balisage et d&rsquo;exporter les valeurs dans les balises XMP ou IPTC de votre choix. Les mots-clés exportés peuvent être différents d&rsquo;une exportation à l&rsquo;autre en fonction de la destination des images. Les mots-clés et les catégories sont affichés séparément dans les informations sur les images.</p>
+<p><em>Rappelez-vous qu&rsquo;une balise définie comme une catégorie n&rsquo;est jamais exportée.</em></p>
+<h2 id="astuces"><a href="#astuces">🔗</a>Astuces</h2>
+<ul>
+<li>
+<p>Pour empêcher l&rsquo;exportation d&rsquo;une métadonnées spécifique, ajoutez-la à la liste et laissez la formule vide.</p>
+</li>
+<li>
+<p>Pour forcer l&rsquo;exportation d&rsquo;une métadonnée EXIF spécifique lorsque Données EXIF est désactivée, ajoutez-la à la liste et saisissez &ldquo;=&rdquo; dans la formule.</p>
+</li>
+</ul>
+<h2 id="exemples"><a href="#exemples">🔗</a>Exemples</h2>
+<dl>
+<dt>Exemple 1</dt>
+<dd>Un premier niveau de mot-clé appelé places est qualifié de catégorie, et est suivi de quatre niveaux d&rsquo;information (ou mots-clés) : pays, région, ville et lieu (par exemple &ldquo;places|France|Nord|Lille|rue Nationale&rdquo;). Chaque niveau peut être récupéré (quand défini) par une des variables $(CATEGORY0(places)), $(CATEGORY1(places)), $(CATEGORY2(places)) et $(CATEGORY3(places)). Dans cet exemple, les valeurs retournées sont &ldquo;France&rdquo;, &ldquo;Nord&rdquo;, &ldquo;Lille&rdquo; et &ldquo;rue Nationale&rdquo;, respectivement. Ces mots-clés peuvent aussi être récupérés comme simple mot-clé en utilisant la variable $(TAGS). Le dernier mot-clé défini (la feuille) est affiché dans <a href="/dtdocs/fr/module-reference/utility-modules/shared/image-information/">Informations de l&rsquo;image</a>, ici &ldquo;rue Nationale&rdquo;.</dd>
+<dt>Exemple 2</dt>
+<dd>Un mot-clé de premier niveau appelé créateur est suivie du nom du photographe, tous deux définis en tant que catégorie : &ldquo;Auteur|Prénom Nom&rdquo;. La formule copyrights ($(YEAR) $(CATEGORY0(creator))) construit le texte associé aux droits d&rsquo;image. Ici, <a href="/dtdocs/fr/module-reference/utility-modules/shared/image-information/">Informations de l&rsquo;image</a> affiche &ldquo;Auteur : Prénom Nom&rdquo; en tant que catégories. Ni &ldquo;Auteur&rdquo; ni &ldquo;Prénom Nom&rdquo; n&rsquo;apparaissent dans la liste des mots-clés et ils ne sont pas exportés en tant que mots-clés simples.</dd>
+</dl>
+<hr>
+<p><strong>Remarque :</strong> les mots-clés ne sont pas appropriés pour définir des métadonnées de texte libre, comme un titre ou une description, qui peuvent être spécifiques à chaque image. Utilisez l&rsquo;<a href="../shared/metadata-editor.md">Éditeur de métadonnées</a> pour ce type d&rsquo;informations.</p>
+<hr>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/utility-modules/shared/export/">
+            Dutch: exporteren
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/utility-modules/shared/export/">
+            English: export
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/utility-modules/shared/export/">
+            Español: exportar
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/utility-modules/shared/export/">
+            German: Exportieren
+        </a></li>
+        
+        <li><a href="/dtdocs/it/module-reference/utility-modules/shared/export/">
+            Italian: esporta
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/utility-modules/shared/export/">
+            Lao: ສົ່ງອອກ
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/utility-modules/shared/export/">
+            Polish: eksport
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/utility-modules/shared/export/">
+            Português: exportar
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/utility-modules/shared/export/">
+            Ukrainian: Експорт
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/fr/module-reference/utility-modules/shared/focus-peaking/" class="next">&lt; Détection des zones nettes</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/fr/module-reference/utility-modules/shared/collection-filters/" class="prev">Filtres de collection &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/" class="">
+          Présentation
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/" class="">
+          Interface utilisateur
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/views/" class="">
+          Vues
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/screen-layout/" class="">
+          Disposition de l&#39;affichage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/filmstrip/" class="">
+          Pellicule
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/top-panel/" class="">
+          Panneau supérieur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/bottom-panel/" class="">
+          Panneau inférieur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/user-interface/keyboard-shortcuts/" class="">
+          Raccourcis clavier
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/supported-file-formats/" class="">
+          Formats de fichier supportés
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/sidecar-files/" class="">
+          Fichiers liés et édition non destructive
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/sidecar-files/sidecar/" class="">
+          Fichiers liés
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/sidecar-files/sidecar-import/" class="">
+          Importer des fichiers liés générés par d&#39;autres applications
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/sidecar-files/local-copies/" class="">
+          Copies locales
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/workflow/" class="">
+          Une introduction au flux de travail de darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/workflow/introduction/" class="">
+          Introduction
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/workflow/import-review/" class="">
+          Importer &amp; examiner
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/workflow/process/" class="">
+          Traitement
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/overview/workflow/export/" class="">
+          Exporter
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/" class="">
+          Table lumineuse
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/lighttable-view-layout/" class="">
+          Disposition de la vue Table lumineuse
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/undo-redo/" class="">
+          Annuler/refaire
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/lighttable-modes/" class="">
+          Modes de la Table lumineuse
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/lighttable-modes/culling/" class="">
+          Sélection
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/lighttable-modes/full-preview/" class="">
+          Aperçu complet
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/digital-asset-management/" class="">
+          Gestion des données numériques
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/digital-asset-management/collections/" class="">
+          Collections et pellicules
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/digital-asset-management/sequence/" class="">
+          séquence d&#39;images
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/digital-asset-management/star-color/" class="">
+          Évaluation par étoiles et labels de couleur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/digital-asset-management/grouping/" class="">
+          Grouper des images
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lighttable/digital-asset-management/metadata-tagging/" class="">
+          Métadonnées et mots clés
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/" class="">
+          Chambre noire
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/darkroom-view-layout/" class="">
+          Disposition de la vue Chambre noire
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/pixelpipe/" class="">
+          Le pipeline graphique
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          L&#39;anatomie d&#39;un module de traitement
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/pixelpipe/the-pixelpipe-and-module-order/" class="">
+          Le pipeline graphique et l&#39;ordre des modules
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/pixelpipe/history-stack/" class="">
+          Le module Historique
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/pixelpipe/undo-redo/" class="">
+          Annuler et Refaire
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/" class="">
+          Modules de traitement
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/module-header/" class="">
+          En-tête d&#39;un module
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/multiple-instances/" class="">
+          Instances multiples
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/presets/" class="">
+          Préréglages
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/module-controls/" class="">
+          Contrôles du module
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/curves/" class="">
+          Courbes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/wavelets/" class="">
+          Ondelettes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/processing-modules/deprecated/" class="">
+          Modules dépréciés
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/masking-and-blending/" class="">
+          Masquage et fusion
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/masking-and-blending/blend-modes/" class="">
+          Modes de fusion
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/masking-and-blending/masks/" class="">
+          Masques
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/masking-and-blending/masks/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/masking-and-blending/masks/parametric/" class="">
+          Masques paramétriques
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          Combiner les masques dessinés/paramétriques
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/organization/" class="">
+          Organisation
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/organization/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/organization/module-groups/" class="">
+          Les groupes de modules
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/darkroom/organization/manage-module-layouts/" class="">
+          Gérer les dispositions de modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/tethering/" class="">
+          Capture
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/tethering/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/tethering/tethering-view-layout/" class="">
+          Disposition de la vue Capture
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/tethering/examples/" class="">
+          Exemples
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/tethering/troubleshooting/" class="">
+          Dépannage
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/map/" class="">
+          Carte
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/map/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/map/map-view-layout/" class="">
+          Disposition de la vue Carte
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/slideshow/" class="">
+          Diaporama
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/slideshow/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/slideshow/usage/" class="">
+          Utilisation
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/print/" class="">
+          Impression
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/print/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/print/print-view-layout/" class="">
+          Disposition de la vue Impression
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/" class="">
+          Références des modules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/" class="">
+          Modules de traitement
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/chromatic-aberrations/" class="">
+          Aberrations chromatiques
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          Aberrations chromatiques RAW
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/soften/" class="">
+          Adoucir (effet Orton)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-balance/" class="">
+          Balance de couleur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-balance-rgb/" class="">
+          Balance de couleur RVB
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/white-balance/" class="">
+          Balance des blancs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/framing/" class="">
+          Cadre décoratif
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-calibration/" class="">
+          Calibration des couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/censorize/" class="">
+          Censurer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-equalizer/" class="">
+          color equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-harmonizer/" class="">
+          color harmonizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/colorize/" class="">
+          Coloriser
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/contrast-texture/" class="">
+          contrast &amp; texture
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-contrast/" class="">
+          Contraste de couleur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/local-contrast/" class="">
+          Contraste local
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-correction/" class="">
+          Correction des couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/unbreak-input-profile/" class="">
+          Correction du profil d&#39;entrée
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/base-curve/" class="">
+          Courbe de base
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/tone-curve/" class="">
+          Courbe des tonalités
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/rgb-curve/" class="">
+          Courbe RVB
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/demosaic/" class="">
+          Dématriçage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/diffuse/" class="">
+          Diffusion ou netteté
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/contrast-equalizer/" class="">
+          Égaliseur de contraste
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/tone-equalizer/" class="">
+          Égaliseur de tons
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/exposure/" class="">
+          Exposition
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/external-raster/" class="">
+          external raster mask
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/lowlight-vision/" class="">
+          Faible lumière
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/watermark/" class="">
+          Filigrane
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/graduated-density/" class="">
+          Filtre gradué
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/lowpass/" class="">
+          Filtre passe-bas
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/highpass/" class="">
+          Filtre passe-haut
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/surface-blur/" class="">
+          Flou de surface
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/blurs/" class="">
+          Flous
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/grain/" class="">
+          Grain
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/dither-or-posterize/" class="">
+          Homogénéiser ou postériser
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/liquify/" class="">
+          Liquéfier
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/bloom/" class="">
+          Lumière d&#39;arrière plan
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/lut-3d/" class="">
+          LUT 3D
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-mapping/" class="">
+          Mappage des couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/scale-pixels/" class="">
+          Mise à l&#39;échelle des pixels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/monochrome/" class="">
+          Monochrome
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/shadows-and-highlights/" class="">
+          Ombres et hautes lumières
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/orientation/" class="">
+          Orientation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/hot-pixels/" class="">
+          Pixels chauds
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/raw-black-white-point/" class="">
+          Point noir/point blanc RAW
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/rgb-primaries/" class="">
+          Primaires RVB
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/input-color-profile/" class="">
+          Profil de couleur d&#39;entrée
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/output-color-profile/" class="">
+          Profil de couleur de sortie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/crop/" class="">
+          Recadrer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-reconstruction/" class="">
+          Reconstruction des couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/highlight-reconstruction/" class="">
+          Reconstruire hautes lumières
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/denoise-profiled/" class="">
+          Réduction du bruit (profil)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/astrophoto-denoise/" class="">
+          Réduction du bruit photo astro
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/raw-denoise/" class="">
+          Réduction du bruit RAW
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/sharpen/" class="">
+          Renforcer la netteté
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/retouch/" class="">
+          Retouche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/rotate-perspective/" class="">
+          Rotation et perspective
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/sigmoid/" class="">
+          Sigmoïde
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/haze-removal/" class="">
+          Suppression de la brume
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-look-up-table/" class="">
+          Table correspondance couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/velvia/" class="">
+          Velvia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/vignetting/" class="">
+          Vignettage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/split-toning/" class="">
+          Virage partiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/color-zones/" class="">
+          Zones de couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/basic-adjustments/" class="">
+          (deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/crop-rotate/" class="">
+          (deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/defringe/" class="">
+          (deprecated) defringe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/global-tonemap/" class="">
+          (deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/levels/" class="">
+          (deprecated) levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/spot-removal/" class="">
+          (deprecated) spot removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/tone-mapping/" class="">
+          (deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/vibrance/" class="">
+          (deprecated) vibrance
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/zone-system/" class="">
+          (deprecated) zone system
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/fill-light/" class="">
+          (obsolète) Lumière d&#39;appoint
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/processing-modules/channel-mixer/" class="">
+          mélangeur de canaux (obsolète)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/" class="">
+          Modules utilitaires
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/tethering/" class="">
+          Capture
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Paramètres de la capture
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/tethering/session/" class="">
+          Session
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/tethering/live-view/" class="">
+          Visée directe
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/map/" class="">
+          Carte
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/map/locations/" class="">
+          Emplacements
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/map/map-settings/" class="">
+          Paramètres de la carte
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/map/find-location/" class="">
+          Trouver un lieu
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/" class="">
+          chambre noire
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          Avertissement de surexposition RAW
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/clipping/" class="">
+          Avertissement de troncature
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          Épreuvage écran
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/color-assessment/" class="">
+          Évaluation des couleurs
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/duplicate-manager/" class="">
+          Gestion des clones
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          Gestion des masques
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          Guides et superpositions
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/history-stack/" class="">
+          Historique
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          Ligne d&#39;information sur l&#39;image
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/navigation/" class="">
+          Navigation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/darkroom/gamut/" class="">
+          Vérification de gamut
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/print/" class="">
+          Impression
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/print/print-settings/" class="">
+          Paramètres du module Impression
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/" class="">
+          Partagé
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/collections/" class="">
+          Collections
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/recent-collections/" class="">
+          Collections récentes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/focus-peaking/" class="">
+          Détection des zones nettes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/export/" class=" active">
+          Exporter
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/collection-filters/" class="">
+          Filtres de collection
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/geotagging/" class="">
+          Géolocalisation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/image-information/" class="">
+          Informations de l&#39;image
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/tagging/" class="">
+          Mots-clés
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/filmstrip/" class="">
+          Pellicule
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/shared/scopes/" class="">
+          Scopes
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/" class="">
+          Table lumineuse
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/lua-scripts-installer/" class="">
+          (deprecated) lua scripts installer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/selected-image/" class="">
+          Actions sur la sélection
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/timeline/" class="">
+          Chronologie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/select/" class="">
+          Sélection
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/module-reference/utility-modules/lighttable/styles/" class="">
+          Styles
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/" class="">
+          Préférences et réglages
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/backups/" class="">
+          backup settings &amp; edits
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/lighttable/" class="">
+          Table lumineuse
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/darkroom/" class="">
+          chambre noire
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/processing/" class="">
+          Traitement
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/storage/" class="">
+          Stockage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/miscellaneous/" class="">
+          Divers
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/presets/" class="">
+          Préréglages
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/ai/" class="">
+          IA
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/preferences-settings/config-directory/" class="">
+          configuration directory
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/" class="">
+          Automatisation avec Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/printing-labeled-images/" class="">
+          Impression d&#39;images étiquetées
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/exporting-images/" class="">
+          Exporter des images avec Lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/sharing-scripts/" class="">
+          Partage de scripts
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/calling-from-dbus/" class="">
+          Appeler Lua de dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/darktable-from-lua/" class="">
+          Utiliser darktable depuis un script Lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/lua/api/" class="">
+          API Lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/guides-tutorials/" class="">
+          Guides et Tutoriels
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/guides-tutorials/monochrome/" class="">
+          Développement d&#39;images monochromes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/guides-tutorials/batch-editing/" class="">
+          Édition d&#39;images par lots
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/guides-tutorials/other-resources/" class="">
+          Autres ressources
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/" class="">
+          Sujets spéciaux
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/" class="">
+          Gestion de la couleur
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/display-profile/" class="">
+          Profil d&#39;affichage
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/rendering-method/" class="">
+          Méthode de rendu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/rendering-intent/" class="">
+          Intention de rendu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/color-spaces/" class="">
+          Espaces colorimétriques de darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/unbounded-colors/" class="">
+          Couleurs non bornées
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/color-artifacts/" class="">
+          Possibles artefacts de couleur
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-management/color-dimensions/" class="">
+          Dimensions de la couleur dans darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/opencl/background/" class="">
+          Le contexte
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/opencl/setting-up/" class="">
+          setting up OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/opencl/problems-solutions/" class="">
+          Problèmes possibles et solutions
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/opencl/multiple-devices/" class="">
+          Multiples périphériques
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/ai/" class="">
+          Fonctionnalités IA
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/ai/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/ai/how-ai-works/" class="">
+          comment fonctionnent les fonctionnalités de l&#39;IA
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/ai/gpu-acceleration/" class="">
+          Accélération GPU
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/ai/performance-and-troubleshooting/" class="">
+          performance &amp; troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/" class="">
+          Utilisation de darktable-chart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/overview/" class="">
+          Présentation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/usage/" class="">
+          Utilisation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/source-image/" class="">
+          Image source
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/reference-values/" class="">
+          Valeurs de références
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/process/" class="">
+          Traitement
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/darktable-chart/making-input-images/" class="">
+          Faire une image d&#39;entrée pour darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/" class="">
+          Appel du programme
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/program-invocation/gimp-integration/" class="">
+          gimp integration
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/variables/" class="">
+          Variables
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/color-pipeline/" class="">
+          Pipeline graphique de darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/special-topics/midi-device-support/" class="">
+          Prise en charge des périphériques MIDI
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/fr/contributing/" class="">
+          Contributings
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/contributing/development-deployment/" class="">
+          développement et déploiement
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/contributing/workflow/" class="">
+          Flux de travail
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/fr/contributing/translators-guide/" class="">
+          Guide du traducteur
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

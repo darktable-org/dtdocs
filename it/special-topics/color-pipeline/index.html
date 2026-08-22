@@ -1,0 +1,1347 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - coda di elaborazione dei colori di darktable</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/special-topics/color-pipeline/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="coda di elaborazione dei colori di darktable">
+<meta property="og:description" content="Molte applicazione per l’elaborazione delle immagini viene dagli anni ‘90 e/o eredita il flusso di lavoro degli anni ‘90. Queste applicazione elaboravano immagini codificate a 8 bit usando interi senza segno in quanto più efficienti computazionalmente e in termini di memoria. Tuttavia, dato l’uso di valori interi (che implica errori di approssimazione), questi software dovevano applicare una “correzione gamma” (fondamentalmente una funzione di trasferimento che applica la potenza di 1/2.2 o 1/2.4 per codificare i valori RGB) e aumentare la profondità di bit nelle luci basse, al fine di ridurre gli errori di approssimazione in quell’area (gli umani sono molto sensibili ai dettagli nelle zone d’ombra. Inoltre, i formati con interi a 8 bit sono limitati tecnicamente all’intervallo 0-255. Qualsiasi valore oltre questo intervallo viene tagliato al valore valido più vicino.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="special-topics">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span>Version: Development</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            <a class="dropdown-item" href="/usermanual/development/dtdocs/it/special-topics/color-pipeline/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/4.8/dtdocs/it/special-topics/color-pipeline/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/dtdocs/it/special-topics/color-pipeline/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/dtdocs/it/special-topics/color-pipeline/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="it"
+              role="option"
+              lang="it"
+              href="https://darktable-org.github.io/dtdocs/it/special-topics/color-pipeline/"
+              >Italian</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/special-topics/color-pipeline/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/special-topics/color-pipeline/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/special-topics/color-pipeline/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/special-topics/color-pipeline/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/special-topics/color-pipeline/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/special-topics/color-pipeline/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/special-topics/color-pipeline/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/special-topics/color-pipeline/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+<a href='/dtdocs/it/'>darktable user manual</a> / <a href='/dtdocs/it/special-topics/'>Special-Topics</a> / coda di elaborazione dei colori di darktable
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="next">&lt; dimensione dei colori di darktable</a>
+	
+    </div>
+    <div class="col-6">
+    
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        coda di elaborazione dei colori di darktable
+    </h1>
+
+    
+
+    <p>Molte applicazione per l&rsquo;elaborazione delle immagini viene dagli anni &lsquo;90 e/o eredita il flusso di lavoro degli anni &lsquo;90. Queste applicazione elaboravano immagini codificate a 8 bit usando interi senza segno in quanto più efficienti computazionalmente e in termini di memoria. Tuttavia, dato l&rsquo;uso di valori interi (che implica errori di approssimazione), questi software dovevano applicare una &ldquo;correzione gamma&rdquo; (fondamentalmente una funzione di trasferimento che applica la potenza di 1/2.2 o 1/2.4 per codificare i valori RGB) e aumentare la profondità di bit nelle luci basse, al fine di ridurre gli errori di approssimazione in quell&rsquo;area (gli umani sono molto sensibili ai dettagli nelle zone d&rsquo;ombra. Inoltre, i formati con interi a 8 bit sono limitati tecnicamente all&rsquo;intervallo 0-255. Qualsiasi valore oltre questo intervallo viene tagliato al valore valido più vicino.</p>
+<p>Questo flusso di lavoro, che usa rappresentazioni RGB limitate e possibilmente trasformazioni non-linear per codificare i segnali RGB, è chiamato &ldquo;riferito allo schermo&rdquo;. Si basano sull&rsquo;assunto che l&rsquo;immagine venga preparata per la visualizzazione a schermo all&rsquo;inizio della coda di elaborazione, e integrano, codificandole rigidamente, supposizioni riguardo valori RGB di nero, grigio medio e bianco. Molti degli algoritmi di elaborazione immagini usati in questi flussi di lavoro girano attorno a queste supposizioni. Per esempio, la modalità di fusione <em>sovrapponi</em> si aspetta che il grigio medio sia codificato al 50% (o 128 usando la codifica in intero).</p>
+<p>Sfortunatamente il ridimensionamento non lineare, che è obbligatorio per far funzionare la codifica con gli interi, spezza il rapporto naturale tra i valori dei pixel. Tonalità e saturazione cambiano in maniere imprevedibili, e i rapporti con i valori tra i pixel intorno vengono dilatati i compressi in maniera che anche i gradienti vengono alterati imprevedibilmente.</p>
+<p>Quindi, le code di elaborazione riferite allo schermo complicano i filtri ottici (sfocatura e riduzione della sfocatura delle lenti), il compositing alfa (che si basa sulle definizioni ottiche e geometriche di occlusione), i colori e i gradienti (relazioni locali tra crominanza e luminanza dei pixel). Inoltre non si adattano bene alle immagini HDR, che ha portato allo sviluppo di molti discutibili metodi di mappatura tonale locale e globale, e allo scellerato &ldquo;aspetto HDR&rdquo; degli anni &lsquo;10.</p>
+<p>I computer moderni non sono legati alle stesse limitazioni computazionali degli anni &lsquo;90, e possono lavorare su pixel i cui valori sono illimitati (da zero a +infinito) e codificati come numeri reali (utilizzando il formato a virgola mobile). Queste possibilità aprono ai quello che chiamiamo flusso di lavoro &ldquo;riferito alla scena&rdquo;, dove i pixel possono conservare la loro relazione radiometrica originale per quasi tutta l&rsquo;intero processo di elaborazione. Nel flusso di lavoro riferito alla scena, i pixel vengono preparati per la visualizzazione solo nell&rsquo;ultimo passaggio della coda, nella trasformazione per il monitor. Questo significa che i valori RGB dei pixel vengono mantenuti proporzionali all&rsquo;intensità dell&rsquo;emissione di luce registrata dalla fotocamera sulla scena, abilitando quindi un&rsquo;accurato alfa compositing e l&rsquo;emulazione di filtri ottici, mentre si può anche ridimensionare verso qualsiasi gamma dinamica attraverso lo stesso algoritmo (SDR come HDR).</p>
+<p>Tuttavia, le code di elaborazione riferite alla scena perdono la convenienza dei valori prefissati del bianco, grigio medio e del nero, che caratterizzano le elaborazioni riferite al monitor, e impostare questi valori in base alla scena e alle condizioni di scatto, diventa ora responsabilità dell&rsquo;utente. Questo richiede un&rsquo;interfaccia utente più complessa.</p>
+<p>Inoltre, siccome si assume che i valori riferiti alla scena siano significativi in termini di fisica della luce, i pixel non possono aver intensità zero. Questo vorrebbe dire che non hanno ricevuto alcuna luce, e l&rsquo;esistenza di &ldquo;assenza di luce&rdquo; invalida molti algoritmi accurati dal punto di visita fisico. In fatti, bianco e nero non significano niente rispetto alla scena originale, che è solo una collezione di luminanze a varie intensità. Il flusso di lavoro riferito alla scena punta semplicemente a ricollocare alcune luminanze della scena su quello che appare &ldquo;bianco&rdquo; o &ldquo;nero&rdquo; sul mezzo di visualizzazione.</p>
+<p>Le versioni di darktable precedenti alla 2.6 avevano una coda di elaborazione non lineare e riferita allo schermo, assumendo che una trasformazione non lineare fosse avvenuta all&rsquo;inizio della coda e che quindi il grigio medio fosse codificato come il 50%. Tuttavia, non tutti i moduli e i filtri tagliavano i valori dei pixel oltre il 100%, lasciando la possibilità di recuperare questi valori più in là nella coda.</p>
+<p>La modalità del modulo <em>filmic</em>, introdotta in darktable 2.6, fu il primo passo verso una coda di elaborazione riferita alla scena, e rinviò l&rsquo;obbligatoria preparazione non lineare per lo schermo alla fine della coda, assieme alla possibilità di impostare valori personalizzabili di nero, grigio e bianco. Il modulo <em>bilanciamento colore</em> quindi introdusse un modo di gestire la definizione variabile di grigio medio.</p>
+<p>A partire da darktable 3.2, gli utenti hanno potuto scegliere tra due diversi flussi di lavoro che stabilivano impostazioni predefinite e consistenti per moduli e ordine della coda di elaborazione, sia per quelle <em>riferite allo schermo</em> che <em>riferite alla scena</em>.</p>
+<p>In darktable 3.4, sono state introdotte le opzioni per maschere e modalità di fusione completamente riferite alla scena, permettendo alle maschere di coprire valori dei pixel superiori all 100% e usando solo operatori di fusione &ldquo;illimitati&rdquo;.</p>
+<p>Switching to <em>scene-referred</em> is a cognitive leap for most experienced users, who are used thinking in display-referred ways. In a display-referred workflow, it is customary to anchor the white value and let tone adjustments revolve around that point, trying to maximize brightness while avoiding clipping. In a scene-referred workflow, white and black values are fluid and adapted to the output medium. It is advised that users anchor middle-gray (which will be preserved as-is for any output medium) and let the view transform (<em>filmic</em>) dilate or contract the dynamic range around that point. Because 10 bit HDR white is 4 times as bright as 8 bit SDR white, any rigid definition of &ldquo;white&rdquo; becomes irrelevant. But anchoring for middle-gray is actually more convenient, since it keeps the average brightness of the image unchanged through the view transform.</p>
+<p>Alcuni moduli (<em>livelli</em>, <em>livelli rgb</em>, <em>curva tono</em>, <em>curva rgb</em>) sono intrinsecamente incompatibili con il flusso di lavoro riferito alla scena in quanto la loro interfaccia grafica suggerisce implicitamente che i valori RGB siano imitati nell&rsquo;intervallo 0-100%. Mentre le operazioni sui pixel che possono eseguire, in quanto internamente senza limiti, possono lavorare in entrambi i flussi di lavoro riferiti alla scena o al monitor, la loro interfaccia di controllo non permette di selezionare pixel al di fuori dell&rsquo;intervallo 0-100%.</p>
+<p>In maniera simile, le modalità di fusione come sovrapposizione, luce lineare, luce morbida, luce dura, scurisci, schiarisci etc, hanno tutte valori di soglia codificati che presumono internamente un meccanismo non lineare riferito allo schermo.</p>
+<p>In darktable 3.4 e superiori, tenendo il mouse sopra l&rsquo;intestazione di un modulo, mostrerà un tooltip con i dettagli dello spazio colore, intervalli e codifiche che il modulo si aspetta, usa e produce. Qui la definizione dei termini usati:</p>
+<dl>
+<dt>lineare</dt>
+<dd>I valori dei pixel sono proporzionali all&rsquo;emissione radiometrica sulla scena, in modo che abiliti un&rsquo;emulazione accurata di filtri ottici.</dd>
+<dt>non lineare</dt>
+<dd>I valori dei pixel vengono ridimensionati in modo tale che alle basse luci venga assegnato un intervallo di codifica più ampio, solitamente al fine di riposizionare il riferimento grigio medio del 18.45% a valori tra il 46 e il 50%.</dd>
+<dt>riferito allo schermo</dt>
+<dd>Si presuppone che i valori dei pixel siano compresi tra 0 e 100% dell&rsquo;intervallo di visualizzazione, dove il 100% è definito come la luminanza di una superficie bianca riflessiva al 20% (la casella bianca di un Color Checker), e 0% è definito come la densità massima del dispositivo di uscita (inchiostro nero saturato, o retroilluminazione minima di un pannello LED).</dd>
+<dt>riferito alla scena</dt>
+<dd>Si presuppone che i valori dei pixel siano maggiori di zero verso il +infinito. Il significato di specifici valori dei pixel viene stabilito durante il processo dall&rsquo;utente. Valori riferiti alla scena non implicano automaticamente una codifica lineare e ridimensionata radiometricamente.</dd>
+</dl>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/special-topics/color-pipeline/">
+            Dutch: darktable&#39;s kleurenpijplijn
+        </a></li>
+        
+        <li><a href="/dtdocs/en/special-topics/color-pipeline/">
+            English: darktable&#39;s color pipeline
+        </a></li>
+        
+        <li><a href="/dtdocs/es/special-topics/color-pipeline/">
+            Español: tubería de color de darktable
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/special-topics/color-pipeline/">
+            Français: Pipeline graphique de darktable
+        </a></li>
+        
+        <li><a href="/dtdocs/de/special-topics/color-pipeline/">
+            German: Die Farb-Pipeline von darktable
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/special-topics/color-pipeline/">
+            Lao: ຂະບວນການຈັດການສີ (Color pipeline) ຂອງ darktable
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/special-topics/color-pipeline/">
+            Polish: kolejka przetwarzania koloru w darktable
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/special-topics/color-pipeline/">
+            Português: pipeline de cor do darktable
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/special-topics/color-pipeline/">
+            Ukrainian: Колірний конвеєр Darktable
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="next">&lt; dimensione dei colori di darktable</a>
+	
+    </div>
+    <div class="col-6">
+    
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/overview/" class="">
+          Panoramica
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/" class="">
+          Tavolo luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-view-layout/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">
+          Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">
+          gestione delle risorse digitali
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/star-color/" class="">
+          valutazione stelle &amp; etichette colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/" class="">
+          Camera Oscura
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/darkroom-view-layout/" class="">
+          disposizione della Camera Oscura
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">
+          il pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">
+          la coda di sviluppo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">
+          annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">
+          intestazione modulo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">
+          istanze multiple
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class="">
+          curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">
+          wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">
+          moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">
+          maschere &amp; fusione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class="">
+          modalità di fusione
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">
+          maschere
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/parametric/" class="">
+          maschere parametriche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combinare maschere disegnate &amp; parametriche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">
+          organizzazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/module-groups/" class="">
+          gruppi di moduli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">
+          gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/" class="">
+          Mappa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">
+          layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/slideshow/" class="">
+          Presentazione
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/" class="">
+          Stampa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/" class="">
+          Script con Luca
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/printing-labeled-images/" class="">
+          stampare immagini etichettate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/exporting-images/" class="">
+          esportare immagini con lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/calling-from-dbus/" class="">
+          chiamare luca dal dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/darktable-from-lua/" class="">
+          usare darktable da uno script lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class="">
+          Guide &amp; Tutorial
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">
+          sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/" class="">
+          Module-References
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">
+          ammorbidisci
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">
+          bilanciamento colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">
+          bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">
+          censura
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">
+          colora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">
+          contrasto colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">
+          correzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">
+          correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">
+          equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class="">
+          equalizzatore toni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">
+          filtro graduato
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">
+          luce soffusa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">
+          mappatura dei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">
+          passa-alto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">
+          punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">
+          ricostruzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">
+          riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="">
+          riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="">
+          rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">
+          sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">
+          Moduli utilità
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">
+          condivisi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/export/" class="">
+          esporta
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">
+          informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">
+          libreria
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">
+          mappa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">
+          Stampa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">
+          sviluppo
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">
+          Sessione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">
+          Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/" class="">
+          Special-Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">
+          gestione del colore
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">
+          Profilo dello schermo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">
+          metodi di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">
+          Intento di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-spaces/" class="">
+          spazi colore di darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/unbounded-colors/" class="">
+          colori senza confini
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-artifacts/" class="">
+          possibili artefatti nei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="">
+          dimensione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class=" active">
+          coda di elaborazione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+
