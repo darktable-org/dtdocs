@@ -43,7 +43,7 @@ More complicated to setup, more error prone and requires some special considerat
 Setup:
 
 * Use a file-synchronization service of your choice (e.g. Syncthing) to sync the RAW-Files + XMP files AND the contents of your [configuration directory](../preferences-settings/config-directory.md) between your devices.
-  -  Note: Services like Dropbox might not work as well because they mostly doesn't allow for syncing of multiple folders in different locations) 
+  -  Note: Services like Dropbox might not work as well because they mostly don't allow for syncing multiple folders in different locations.
 * Since the `library.db` in the configuration directory references the RAW-files by their _absolute_ path the location of the files has to be exactly matched between different machines.
 * Somewhat more error prone than Approach A as synchronization conflicts could mess with your configuration.
 
