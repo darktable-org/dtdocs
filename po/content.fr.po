@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-22 13:56+0000\n"
-"PO-Revision-Date: 2026-08-23 14:51+0000\n"
+"PO-Revision-Date: 2026-08-23 20:17+0000\n"
 "Last-Translator: Sébastien KALT <skalt@throka.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/darktable-"
 "documentation/dtdocs-github/fr/>\n"
@@ -28,17 +28,7 @@ msgstr "Jusqu'à présent, tous nos scripts ont fait des choses au démarrage. C
 
 #. type: Fenced code block
 #: content/lua/simple-shortcut.md
-#, fuzzy, no-wrap
-#| msgid ""
-#| "darktable = require \"darktable\"\n"
-#| "\n"
-#| "local function hello_shortcut(event, shortcut)\n"
-#| "darktable.print(\"Hello, I just received '\"..event..\n"
-#| "       \"' with parameter '\"..shortcut..\"'\")\n"
-#| "end\n"
-#| "\n"
-#| "darktable.register_event(\"shortcut\",hello_shortcut,\n"
-#| "       \"A shortcut that prints its parameters\")\n"
+#, no-wrap
 msgid ""
 "darktable = require \"darktable\"\n"
 "\n"
@@ -58,7 +48,8 @@ msgstr ""
 "       \"' with parameter '\"..shortcut..\"'\")\n"
 "end\n"
 "\n"
-"darktable.register_event(\"shortcut\",hello_shortcut,\n"
+"darktable.register_event(\"hello shortcut\",\n"
+"       \"shortcut\",hello_shortcut,\n"
 "       \"A shortcut that prints its parameters\")\n"
 
 #. type: Plain text
@@ -75,10 +66,16 @@ msgstr "Regardons le code en détail. Nous définissons d'abord une fonction qui
 
 #. type: Plain text
 #: content/lua/simple-shortcut.md
-#, fuzzy, no-wrap
-#| msgid "Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering a shortcut event, then we give the callback to call and finally, we give the string to use to describe the shortcut in the preferences window.\n"
+#, no-wrap
 msgid "Once that function is defined, we register it as a shortcut callback. To do that we call `darktable.register_event` which is a generic function for all types of events. We tell it that we are registering an event of type \"shortcut\" with the name \"hello shortcut\", then we give the callback to call and finally, we give the string to use to describe the shortcut in the preferences window.\n"
-msgstr "Une fois cette fonction définie, nous l'enregistrons en tant que fonction de rappel pour un événement de type raccourci. Pour ce faire, nous appelons darktable.register_event qui est une fonction générique pour tous les types d'événements. Nous lui disons que nous enregistrons un événement raccourci, puis nous donnons la _fonction de rappel_ à appeler et enfin, nous donnons la chaîne à utiliser pour décrire le raccourci dans la fenêtre des préférences.\n"
+msgstr ""
+"Une fois cette fonction définie, nous l'enregistrons en tant que fonction de "
+"rappel pour un événement de type raccourci. Pour ce faire, nous appelons "
+"`darktable.register_event` qui est une fonction générique pour tous les "
+"types d'événements. Nous lui disons que nous enregistrons un événement de "
+"type « raccourci » que nous appelons « hello shortcut », puis nous donnons "
+"la fonction de rappel à appeler et enfin, nous donnons la chaîne à utiliser "
+"pour décrire le raccourci dans la fenêtre des préférences.\n"
 
 #. type: Plain text
 #: content/lua/simple-shortcut.md
@@ -88,16 +85,7 @@ msgstr "Essayons un raccourci un peu plus interactif. Celui-ci examine les image
 
 #. type: Fenced code block
 #: content/lua/simple-shortcut.md
-#, fuzzy, no-wrap
-#| msgid ""
-#| "darktable = require \"darktable\"\n"
-#| "\n"
-#| "darktable.register_event(\"shortcut\",function(event,shortcut)\n"
-#| "    local images = darktable.gui.action_images\n"
-#| "    for _,v in pairs(images) do\n"
-#| "      v.rating = v.rating + 1\n"
-#| "    end\n"
-#| "  end,\"Increase the rating of an image\")\n"
+#, no-wrap
 msgid ""
 "darktable = require \"darktable\"\n"
 "\n"
@@ -111,7 +99,8 @@ msgid ""
 msgstr ""
 "darktable = require \"darktable\"\n"
 "\n"
-"darktable.register_event(\"shortcut\",function(event,shortcut)\n"
+"darktable.register_event(\"increase rating\",\"shortcut\",\n"
+"  function(event,shortcut)\n"
 "    local images = darktable.gui.action_images\n"
 "    for _,v in pairs(images) do\n"
 "      v.rating = v.rating + 1\n"
@@ -150,16 +139,7 @@ msgstr "Si vous sélectionnez une image et appuyez plusieurs fois sur votre racc
 
 #. type: Fenced code block
 #: content/lua/simple-shortcut.md
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<![CDATA[\n"
-#| "LUA ERROR : rating too high : 6\n"
-#| "stack traceback:\n"
-#| "   [C]: in ?\n"
-#| "   [C]: in function '__newindex'\n"
-#| "  ./configdir/luarc:10: in function <./configdir/luarc:7>\n"
-#| "      LUA ERROR : rating too high : 6\n"
-#| "  ]]>\n"
+#, no-wrap
 msgid ""
 "<![CDATA[\n"
 "LUA ERROR : rating too high : 6\n"
@@ -176,9 +156,11 @@ msgstr ""
 "LUA ERROR : rating too high : 6\n"
 "stack traceback:\n"
 "   [C]: in ?\n"
-"   [C]: in function '__newindex'\n"
-"  ./configdir/luarc:10: in function <./configdir/luarc:7>\n"
-"      LUA ERROR : rating too high : 6\n"
+"   [C]: in ?\n"
+"   [C]: in metamethod 'newindex'\n"
+"   ./configdir/luarc:10: in function <./configdir/luarc:7>\n"
+"   [C]: in ?\n"
+"   [C]: in ?\n"
 "  ]]>\n"
 
 #. type: Plain text
@@ -189,20 +171,7 @@ msgstr " C'est la façon dont Lua signale les erreurs. Nous avons essayé de don
 
 #. type: Fenced code block
 #: content/lua/simple-shortcut.md
-#, fuzzy, no-wrap
-#| msgid ""
-#| "darktable.register_event(\"shortcut\",function(event,shortcut)\n"
-#| "    local images = darktable.gui.action_images\n"
-#| "    for _,v in pairs(images) do\n"
-#| "      result,message = pcall(function()\n"
-#| "        v.rating = v.rating + 1\n"
-#| "        end)\n"
-#| "      if not result then\n"
-#| "        darktable.print_error(\"could not increase rating of image \"..\n"
-#| "          tostring(v)..\" : \"..message)\n"
-#| "      end\n"
-#| "    end\n"
-#| "end,\"Increase the rating of an image\")\n"
+#, no-wrap
 msgid ""
 "darktable.register_event(\"increase rating\",\"shortcut\",\n"
 "  function(event,shortcut)\n"
@@ -218,7 +187,8 @@ msgid ""
 "    end\n"
 "  end,\"Increase the rating of an image\")\n"
 msgstr ""
-"darktable.register_event(\"shortcut\",function(event,shortcut)\n"
+"darktable.register_event(\"increase rating\",\"shortcut\",\n"
+"  function(event,shortcut)\n"
 "    local images = darktable.gui.action_images\n"
 "    for _,v in pairs(images) do\n"
 "      result,message = pcall(function()\n"
@@ -226,10 +196,10 @@ msgstr ""
 "        end)\n"
 "      if not result then\n"
 "        darktable.print_error(\"could not increase rating of image \"..\n"
-"          tostring(v)..\" : \"..message)\n"
+"          tostring(v)..\" : \"..message)\n"
 "      end\n"
 "    end\n"
-"end,\"Increase the rating of an image\")\n"
+"  end,\"Increase the rating of an image\")\n"
 
 #. type: Plain text
 #: content/lua/simple-shortcut.md
@@ -315,10 +285,9 @@ msgstr "Notez également que l'appel require renvoie une fonction qui ne peut ê
 
 #. type: Yaml Front Matter Hash Value: title
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
-#| msgid "darktable's color spaces"
+#, no-wrap
 msgid "darktable's scripts"
-msgstr "Espaces colorimétriques de darktable"
+msgstr "Scripts de Darktable"
 
 #. type: Title ##
 #: content/lua/darktables-scripts.md
@@ -328,10 +297,11 @@ msgstr "à partir de 5.6"
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
-#| msgid "The module can be disabled with an option in [preferences > lua options](../../../preferences-settings/lua-options.md).\n"
+#, no-wrap
 msgid "A collection of scripts is included with darktable. They can be disabled in [preferences > lua](../preferences-settings/lua-options.md). \n"
-msgstr "Le module peut être désactivé par une option dans [Préférences > Options Lua](../../../preferences-settings/lua-options.md).\n"
+msgstr ""
+"Darktable inclut un recueil de scripts. Ils peuvent être désactivés dans "
+"[Préférences > Options Lua](../preferences-settings/lua-options.md). \n"
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
@@ -347,10 +317,12 @@ msgstr "Voir [principes de base](basic-principles.md) pour une explication de la
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
-#| msgid "The officially supported scripts are documented [here](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).\n"
+#, no-wrap
 msgid "Documentation for darktable's scripts is available in the [lua docs](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).\n"
-msgstr "Les scripts officiellement pris en charge sont documentés [ici](https ://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).\n"
+msgstr ""
+"La documentation pour les scripts de Darktable est disponible dans la "
+"[documentation Lua](https ://docs.darktable.org/lua/stable/"
+"lua.scripts.manual/scripts/).\n"
 
 #. type: Title ##
 #: content/lua/darktables-scripts.md
@@ -420,7 +392,7 @@ msgstr "Assurez-vous que git est installé sur votre système. Si ce n’est pas
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "    cd ~/snap/darktable/current\n"
 "    git clone https://github.com/darktable-org/lua-scripts.git lua\n"
@@ -438,7 +410,7 @@ msgstr "Redémarrez darktable deux fois et le module scripts devrait apparaître
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "__macOS__\n"
 msgstr "__macOS__\n"
 
@@ -456,7 +428,7 @@ msgstr "Alternativement, vous pouvez utiliser la console. Assurez-vous que git e
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "    cd ~/.config/darktable/\n"
 "    git clone https://github.com/darktable-org/lua-scripts.git lua\n"
@@ -466,7 +438,7 @@ msgstr ""
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "__Windows__\n"
 msgstr "__Windows__\n"
 
@@ -484,10 +456,9 @@ msgstr "Les scripts Lua peuvent désormais être installés en utilisant l'inter
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
-#| msgid "rating"
+#, no-wrap
 msgid "__Updating__\n"
-msgstr "Les notations"
+msgstr "__Mise à jour__\n"
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
@@ -497,13 +468,13 @@ msgstr "Pour mettre à jour le référentiel de scripts, utilisez l'interface gr
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "__Snap__\n"
 msgstr "__Snap__\n"
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "    cd ~/snap/darktable/current/lua\n"
 "    git pull\n"
@@ -513,13 +484,13 @@ msgstr ""
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "__Flatpak__\n"
 msgstr "__Flatpak__\n"
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "    cd ~/.var/app/org.darktable.Darktable/config/darktable/lua\n"
 "    git pull\n"
@@ -535,7 +506,7 @@ msgstr "__Linux et MacOS__\n"
 
 #. type: Plain text
 #: content/lua/darktables-scripts.md
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "    cd ~/.config/darktable/lua/\n"
 "    git pull\n"
