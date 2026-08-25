@@ -70,7 +70,7 @@ some print stocks need manual print exposure
 
 # module controls
 
-Film stock, print paper and film format are always visible at the top. Everything else is grouped into tabs, one per stage of the physical process: _film_, _print_, _grain_, _halation_, _diffusion_ and _scanner_.
+Film stock, print paper and film format are always visible at the top. Everything else is grouped into tabs, one per stage of the physical process: _film_, _print_, _grain_, _halation_, and _scanner_.
 
 ## header
 
@@ -138,6 +138,29 @@ spread tail
 tail weight
 : How much of the chemical travels in that long tail. 0 removes the tail entirely.
 
+### diffusion
+
+Simulates a diffusion filter -- the physical piece of glass a cinematographer puts in front of the lens to bloom highlights and take the edge off contrast. There are two here, at different points in the chain: one at the camera, one at the enlarger.
+
+enable diffusion filter
+: Switch on the camera-stage filter.
+
+diffusion filter type
+: Which filter to imitate:
+: - _black pro-mist_: a concentrated, punchy halo that keeps blacks deep.
+: - _glimmerglass_: tight and subtle, preserving sharpness.
+: - _pro-mist_: broader and more pastel, a softer atmospheric look.
+: - _cinebloom_: a wide, slowly fading veil across the frame.
+
+diffusion strength
+: How much light is diverted into the halo. 0 switches it off. The halo is added on top of the unfiltered picture, so raising this lifts shadows and lowers contrast as well as making highlights glow.
+
+diffusion size
+: How far the halo spreads -- the same light carried further. Use _diffusion strength_ for more.
+
+diffusion halo warmth
+: Warms (positive) or cools (negative) the outer halo, on top of whatever bias the chosen filter type already has.
+
 ### advanced
 
 quality
@@ -179,6 +202,11 @@ preflash exposure
 
 preflash M filter shift / preflash Y filter shift
 : Magenta and yellow filtration for the preflash alone, in Kodak CC units, independent of the main filtration above.
+
+### print diffusion
+
+enable print diffusion
+: A second, independent filter at the enlarger rather than the camera, diffusing the print instead of the exposure. Its controls work exactly like the ones above and are set separately: _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, _print diffusion halo warmth_.
 
 ## grain
 
@@ -257,36 +285,6 @@ boost range
 boost protect
 : Keeps everything below this many stops above mid-grey out of the boost entirely.
 
-## diffusion
-
-Simulates a diffusion filter -- the physical piece of glass a cinematographer puts in front of the lens to bloom highlights and take the edge off contrast. There are two here, at different points in the chain: one at the camera, one at the enlarger.
-
-enable diffusion filter
-: Switch on the camera-stage filter.
-
-### film
-
-diffusion filter type
-: Which filter to imitate:
-: - _black pro-mist_: a concentrated, punchy halo that keeps blacks deep.
-: - _glimmerglass_: tight and subtle, preserving sharpness.
-: - _pro-mist_: broader and more pastel, a softer atmospheric look.
-: - _cinebloom_: a wide, slowly fading veil across the frame.
-
-diffusion strength
-: How much light is diverted into the halo. 0 switches it off. The halo is added on top of the unfiltered picture, so raising this lifts shadows and lowers contrast as well as making highlights glow.
-
-diffusion size
-: How far the halo spreads -- the same light carried further. Use _diffusion strength_ for more.
-
-diffusion halo warmth
-: Warms (positive) or cools (negative) the outer halo, on top of whatever bias the chosen filter type already has.
-
-### print
-
-enable print diffusion
-: A second, independent filter at the enlarger rather than the camera, diffusing the print instead of the exposure. Its controls work exactly like the ones above and are set separately: _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, _print diffusion halo warmth_.
-
 ## scanner
 
 How the finished print -- or the negative, in _scan the film_ mode -- is digitised, and the conditions it is looked at under. These act on the final image, after everything else.
@@ -295,6 +293,9 @@ How the finished print -- or the negative, in _scan the film_ mode -- is digitis
 
 pre-compression boost
 : Brightens the finished picture without flattening its highlights, because the film's own highlight rolloff is applied afterwards, so the image lifts instead of washing out. 1.0 leaves it alone. Since it acts right at the end, the colour picker reads the finished picture rather than the original: point it at a highlight area and it sets the boost so the brightest tone lands just short of where the rolloff takes over.
+
+post-compression scale
+: Scales the finished picture after the gamut compressor. This only changes the level, leaving the relationship between the channels alone, similar to what a tone curve does by moving its white point.
 
 ### sharpness
 
