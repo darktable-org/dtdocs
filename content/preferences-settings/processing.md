@@ -55,6 +55,30 @@ detect monochrome previews
 show warning messages
 : Enable this option to display warning messages in processing modules where non-standard and possibly harmful settings have been used in the pipeline. Such messages can sometimes be false-positives (because of intentional non-standard settings) and can be disregarded if you know what you are doing. Disable to hide these warnings. (default on).
 
+# HDR alignment
+**Note:** These preferences are used for the [_create hdr_](../module-reference/utility-modules/lighttable/selected-image.md#images-tab) option, and are only effective when darktable is built with OpenCV.
+
+auto-align frames when merging HDR brackets
+: When enabled, darktable will attempt to align the images being used to create an HDR image (default on). To do this, it will register and warp exposure brackets onto a reference frame before merging, removing ghosting caused by a shaky tripod or handheld shots.
+
+pick the HDR alignment reference automatically
+: Before merging, examine every bracket and align to the one richest in detail instead of the first frame. Improves alignment when the first exposure is a poor template, at the cost of one extra decode pass over the frames (default off).
+
+alignment detail (proxy scale)
+: Controls the fraction of the full sensor resolution at which feature detection and alignment are computed. Higher values find more distinctive features (better on repetitive or low-contrast scenes) at the expense of more time and memory (default 0.625). 0.5 restores the legacy speed.
+
+shadow lift for feature detection (gamma)
+:  The display-gamma applied to the linear raw before feature detection, to lift shadow detail into the detector's range (default 2.2). 1.0 disables it. Higher values help under-exposed frames but can amplify shadow noise; the percentile stretch already does part of this, so the effect is scene-dependent.
+
+local contrast for feature detection (CLAHE clip)
+: Clip limit of the local contrast enhancement (CLAHE) applied before feature detection. 0 disables it (default 0). Enabling it (e.g. 2.0) helps detect features on extremely under-exposed frames, but on repetitive textures (e.g. façades, railings, foliage) it can change descriptor signatures between exposures and cause misalignment, so it is off by default.
+
+feature budget per frame (keypoints)
+: Maximum number of Scale-Invariant Feature Transform (SIFT) keypoints kept per frame after spatial balancing, before matching (default 5000). Balancing both frames to a common budget keeps a feature-dense frame from flooding the matcher with ambiguous candidates.
+
+save alignment debug images
+: Write per-frame diagnostic images while merging: the feature-detection input, the detected keypoints and all feature matches (green = inlier, red = outlier) (default off). Saved as Netpbm (PBM and PPM) files in a darktable_hdr_align_debug folder in the system temp directory (or the folder named by the DT_HDR_DEBUG_IMAGE_DIR environment variable). Only used for diagnosing alignment problems.
+
 # CPU / memory
 
 darktable resources
