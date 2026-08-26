@@ -4,7 +4,11 @@ id: config-directory
 weight: 150
 ---
 
-darktable stores its settings, presets, styles, library database, etc. in a default directory. This directory's location depends on your operating system and installation method. It can be changed by using the `--config-dir` option (see [darktable invocation](../special-topics/program-invocation/darktable.md)).
+darktable stores its settings, presets, styles, library database, etc. in a default directory. This directory's location depends on your operating system and installation method. It can be changed by using the `--configdir` option (see [darktable invocation](../special-topics/program-invocation/darktable.md)).
+
+The location of the configuration directory (and of other darktable directories and files) can be found by running [darktable](../special-topics/program-invocation/darktable.md) (or [darktable-cli](../special-topics/program-invocation/darktable-cli.md)) with the `--print-paths` (or `--print-paths-as-flags`) option.
+
+## Default locations
 
 * Linux 
     + Installed via package manager or AppImage: `$HOME/.config/darktable`

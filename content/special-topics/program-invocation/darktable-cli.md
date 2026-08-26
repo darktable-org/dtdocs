@@ -27,6 +27,8 @@ darktable-cli [<input file or folder>]
               [--icc-type <type>]
               [--icc-file <file>]
               [--icc-intent <intent>]
+              [--print-paths]
+              [--print-paths-as-flags]
               [--verbose]
               [--help [option]]
               [--core <darktable options>]
@@ -81,6 +83,12 @@ The user must supply an input filename and an output filename. All other paramet
 
 `--icc-intent <intent>` 
 : Specify the rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
+
+`--print-paths`
+: Print the resolved configdir, cachedir, tmpdir, datadir, moduledir, localedir and library paths for this install, honoring any of the overrides, then exit.
+
+`--print-paths-as-flags`
+: Like `--print-paths`, but printed as a single line of --flag value pairs ready to insert into another invocation's command line (for `darktable-cli` they need to be _after_ the `--core` flag).
 
 `--verbose`
 : Enables verbose output.
