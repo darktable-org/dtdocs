@@ -62,7 +62,7 @@ auto-align frames when merging HDR brackets
 : When enabled, darktable will attempt to align the images being used to create an HDR image (default on). To do this, it will register and warp exposure brackets onto a reference frame before merging, removing ghosting caused by a shaky tripod or handheld shots.
 
 pick the HDR alignment reference automatically
-: Before merging, examine every bracket and align to the one richest in detail instead of the first frame. Improves alignment when the first exposure is a poor template, at the cost of one extra decode pass over the frames (default off).
+: Before merging, automatically examine every bracket and align to the one richest in detail instead of the first frame. Improves alignment when the first exposure is a poor template, at the cost of one extra decode pass over the frames (default off).
 
 alignment detail (proxy scale)
 : Controls the fraction of the full sensor resolution at which feature detection and alignment are computed. Higher values find more distinctive features (better on repetitive or low-contrast scenes) at the expense of more time and memory (default 0.625). 0.5 restores the legacy speed.
