@@ -26,6 +26,8 @@ darktable [-d {all,act_on,ai,cache,camctl,camsupport,common,control,
           [--tmpdir <tmp directory>]
           [--cachedir <user cache directory>]
           [--localedir <locale directory>]
+          [--print-paths]
+          [--print-paths-as-flags]
           [--luacmd <lua command>]
           [--noiseprofiles <noiseprofiles json file>]
           [--conf <key>=<value>]
@@ -77,6 +79,12 @@ All parameters are optional. In most cases darktable should be started without a
 
 `--localedir <locale directory>`
 : Define where darktable can find its language-specific text strings. The default location depends on your installation. Typical locations are `/opt/darktable/share/locale/` and `/usr/share/locale/`.
+
+`--print-paths`
+: Print the resolved configdir, cachedir, tmpdir, datadir, moduledir, localedir and library paths for this install, honoring any of the overrides, then exit.
+
+`--print-paths-as-flags`
+: Like `--print-paths`, but printed as a single line of --flag value pairs ready to insert into another invocation's command line.
 
 `--luacmd <lua command>`
 : A string containing lua commands to execute after lua initialization. These commands will be run after your “luarc” file.
