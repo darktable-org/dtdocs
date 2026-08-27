@@ -16,7 +16,7 @@ darktable stores its settings, presets, styles, library database, etc. in a defa
 
 ## Notable files/folders:
 
-* `lua` (folder): Lua scripts.  Note: from 5.6 onwards Lua scripts are also bundled and this folder is not required. But it will be respected if present. Custom scripts can be added into a subfolder. See [Lu: basic principles](../lua/basic-principles.md).
+* `lua` (folder): Lua scripts.  Note: from 5.6 onwards Lua scripts are also bundled and this folder is not required. But it will be respected if present. Custom scripts can be added into a subfolder. See [Lua: basic principles](../lua/basic-principles.md).
 * `styles` (folder): User created styles
 * `darktablerc`: Main configuration file
 * `data.db` and `library.db`: Central libraries: Image File Locations, metadata, edits etc.
