@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-08-22 13:56+0000\n"
+"POT-Creation-Date: 2026-08-28 08:26+0000\n"
 "PO-Revision-Date: 2026-07-02 12:57+0000\n"
 "Last-Translator: Yannic Meyer <kathode@posteo.de>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -7727,6 +7727,8 @@ msgid ""
 "          [--tmpdir <tmp directory>]\n"
 "          [--cachedir <user cache directory>]\n"
 "          [--localedir <locale directory>]\n"
+"          [--print-paths]\n"
+"          [--print-paths-as-flags]\n"
 "          [--luacmd <lua command>]\n"
 "          [--noiseprofiles <noiseprofiles json file>]\n"
 "          [--conf <key>=<value>]\n"
@@ -7855,6 +7857,23 @@ msgstr ""
 msgid ""
 "`--localedir <locale directory>`\n"
 ": Define where darktable can find its language-specific text strings. The default location depends on your installation. Typical locations are `/opt/darktable/share/locale/` and `/usr/share/locale/`.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/program-invocation/darktable.md
+#: content/special-topics/program-invocation/darktable-cli.md
+#, no-wrap
+msgid ""
+"`--print-paths`\n"
+": Print the resolved configdir, cachedir, tmpdir, datadir, moduledir, localedir and library paths for this install, honoring any of the overrides, then exit.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/program-invocation/darktable.md
+#, no-wrap
+msgid ""
+"`--print-paths-as-flags`\n"
+": Like `--print-paths`, but printed as a single line of --flag value pairs ready to insert into another invocation's command line.\n"
 msgstr ""
 
 #. type: Plain text
@@ -8068,6 +8087,8 @@ msgid ""
 "              [--icc-type <type>]\n"
 "              [--icc-file <file>]\n"
 "              [--icc-intent <intent>]\n"
+"              [--print-paths]\n"
+"              [--print-paths-as-flags]\n"
 "              [--verbose]\n"
 "              [--help [option]]\n"
 "              [--core <darktable options>]\n"
@@ -8205,6 +8226,14 @@ msgstr ""
 msgid ""
 "`--icc-intent <intent>` \n"
 ": Specify the rendering intent. Defaults to \"image specified\". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/special-topics/program-invocation/darktable-cli.md
+#, no-wrap
+msgid ""
+"`--print-paths-as-flags`\n"
+": Like `--print-paths`, but printed as a single line of --flag value pairs ready to insert into another invocation's command line (for `darktable-cli` they need to be _after_ the `--core` flag).\n"
 msgstr ""
 
 #. type: Plain text
@@ -15084,6 +15113,74 @@ msgstr ""
 #. type: Title #
 #: content/preferences-settings/processing.md
 #, no-wrap
+msgid "HDR alignment"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid "**Note:** These preferences are used for the [_create hdr_](../module-reference/utility-modules/lighttable/selected-image.md#images-tab) option, and are only effective when darktable is built with OpenCV.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"auto-align frames when merging HDR brackets\n"
+": When enabled, darktable will attempt to align the images being used to create an HDR image (default on). To do this, it will register and warp exposure brackets onto a reference frame before merging, removing ghosting caused by a shaky tripod or handheld shots.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"pick the HDR alignment reference automatically\n"
+": Before merging, automatically examine every bracket and align to the one richest in detail instead of the first frame. Improves alignment when the first exposure is a poor template, at the cost of one extra decode pass over the frames (default off).\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"alignment detail (proxy scale)\n"
+": Controls the fraction of the full sensor resolution at which feature detection and alignment are computed. Higher values find more distinctive features (better on repetitive or low-contrast scenes) at the expense of more time and memory (default 0.625). 0.5 restores the legacy speed.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"shadow lift for feature detection (gamma)\n"
+":  The display-gamma applied to the linear raw before feature detection, to lift shadow detail into the detector's range (default 2.2). 1.0 disables it. Higher values help under-exposed frames but can amplify shadow noise; the percentile stretch already does part of this, so the effect is scene-dependent.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"local contrast for feature detection (CLAHE clip)\n"
+": Clip limit of the local contrast enhancement (CLAHE) applied before feature detection. 0 disables it (default 0). Enabling it (e.g. 2.0) helps detect features on extremely under-exposed frames, but on repetitive textures (e.g. façades, railings, foliage) it can change descriptor signatures between exposures and cause misalignment, so it is off by default.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"feature budget per frame (keypoints)\n"
+": Maximum number of Scale-Invariant Feature Transform (SIFT) keypoints kept per frame after spatial balancing, before matching (default 5000). Balancing both frames to a common budget keeps a feature-dense frame from flooding the matcher with ambiguous candidates.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/processing.md
+#, no-wrap
+msgid ""
+"save alignment debug images\n"
+": Write per-frame diagnostic images while merging: the feature-detection input, the detected keypoints and all feature matches (green = inlier, red = outlier) (default off). Saved as Netpbm (PBM and PPM) files in a darktable_hdr_align_debug folder in the system temp directory (or the folder named by the DT_HDR_DEBUG_IMAGE_DIR environment variable). Only used for diagnosing alignment problems.\n"
+msgstr ""
+
+#. type: Title #
+#: content/preferences-settings/processing.md
+#, no-wrap
 msgid "CPU / memory"
 msgstr ""
 
@@ -16938,7 +17035,19 @@ msgstr ""
 #. type: Plain text
 #: content/preferences-settings/config-directory.md
 #, no-wrap
-msgid "darktable stores its settings, presets, styles, library database, etc. in a default directory. This directory's location depends on your operating system and installation method. It can be changed by using the `--config-dir` option (see [darktable invocation](../special-topics/program-invocation/darktable.md)).\n"
+msgid "darktable stores its settings, presets, styles, library database, etc. in a default directory. This directory's location depends on your operating system and installation method. It can be changed by using the `--configdir` option (see [darktable invocation](../special-topics/program-invocation/darktable.md)).\n"
+msgstr ""
+
+#. type: Plain text
+#: content/preferences-settings/config-directory.md
+#, no-wrap
+msgid "The location of the configuration directory (and of other darktable directories and files) can be found by running [darktable](../special-topics/program-invocation/darktable.md) (or [darktable-cli](../special-topics/program-invocation/darktable-cli.md)) with the `--print-paths` (or `--print-paths-as-flags`) option.\n"
+msgstr ""
+
+#. type: Title ##
+#: content/preferences-settings/config-directory.md
+#, no-wrap
+msgid "Default locations"
 msgstr ""
 
 #. type: Bullet: '* '
@@ -16992,7 +17101,7 @@ msgstr ""
 #. type: Bullet: '* '
 #: content/preferences-settings/config-directory.md
 #, no-wrap
-msgid "`lua` (folder): Lua scripts.  Note: from 5.6 onwards Lua scripts are also bundled and this folder is not required. But it will be respected if present. Custom scripts can be added into a subfolder. See [Lu: basic principles](../lua/basic-principles.md).\n"
+msgid "`lua` (folder): Lua scripts.  Note: from 5.6 onwards Lua scripts are also bundled and this folder is not required. But it will be respected if present. Custom scripts can be added into a subfolder. See [Lua: basic principles](../lua/basic-principles.md).\n"
 msgstr ""
 
 #. type: Bullet: '* '
@@ -40355,7 +40464,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "create hdr\n"
-": Create a high dynamic range image from the selected images, and add the result to the library as a new image in DNG format. Images need to be properly aligned, which implies that they have been taken on a sturdy tripod. You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable can only create HDR images from raw files.\n"
+": Create a high dynamic range image from the selected images, and add the result to the library as a new image in DNG format. Image alignment can be done by darktable, and this is controlled by a [set of preferences](../../../preferences-settings/processing.md#hdr-alignment). You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable can only create HDR images from raw files.\n"
 msgstr ""
 
 #. type: Plain text
