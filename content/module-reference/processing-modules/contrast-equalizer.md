@@ -63,11 +63,13 @@ Increasing the local contrast can also amplify the luma noise in the image. A se
 
 ## chroma tab
 
-The chroma tab allows the color contrast or saturation to be adjusted at the selected wavelet scales. See the following example:
+The chroma tab allows the color contrast or saturation to be adjusted at the selected wavelet scales. You’ll usually see more saturation when dragging the nodes up, and less saturation when dragging them down. Keeping an eye on the vectorscope can help visualize the changes.
+
+See the following example:
 
 ![contrast-equalizer-chroma-orig](./contrast-equalizer/contrast-equalizer-chroma-orig.png#w66)
 
-Say you wanted to bring out the green color of the anthers at the end of the stamen. The pink petals of the flowers are already quite saturated, but using contrast equalizer you can selectively boost the saturation on the small scale of the anthers without impacting the saturation of the petals. By raising the third control point from the right, you can target the saturation of the anthers only:
+Say you wanted to boost the colour contrast around the anthers at the end of the stamen. The pink petals of the flowers are already quite saturated, but using contrast equalizer you can selectively boost the saturation on the small scale of the anthers without impacting the saturation of the petals. The third control point from the right corresponds to the detail scale of the anthers. By raising that control point, you can target anthers saturation only:
 
 ![contrast-equalizer-chroma-high](./contrast-equalizer/contrast-equalizer-chroma-high.png#w66)
 
