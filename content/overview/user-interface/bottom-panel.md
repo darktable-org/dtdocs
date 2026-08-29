@@ -20,4 +20,4 @@ The key features are:
 : - Consecutive identical messages are automatically deduplicated (e.g., repeated "exporting image" updates)
 : - Entries are displayed in monospace format with HH:MM:SS timestamps
 : - Individual entries are selectable and can be copied to the clipboard with Ctrl+C
-: - the viewer is closed by clicking anywhere outside the popover
+: - The viewer is closed by clicking anywhere outside the popover
