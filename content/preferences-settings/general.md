@@ -12,6 +12,23 @@ interface language
 theme
 : Set the theme for the user interface. Aside from any aesthetic considerations, the recommended interface color for color evaluation is middle gray. Visual perception is affected by ambient brightness, and a low user interface brightness causes all kinds of illusions. Using a dark interface to retouch photos can therefore lead to excessive retouching (abuse of contrast and saturation) and to a photo that is too dark when printed. It is therefore highly recommended that you use one of the "grey" themes for retouching work as these are designed so that the user interface approximates middle gray. For those who have difficulty reading text in the default theme, darktable includes two "highcontrast" themes with white text on a dark background, but the caveats mentioned previously apply if you select one of them (default "darktable-elegant-grey").
 
+  Some elements of a theme are customizable by these additional preferences:
+
+  condensed module controls
+  : When enabled, controls in modules are made smaller and spacing between them is reduced (default off).
+  
+  rounded module headers
+  : When enabled, one corner (the corner furthest from the application's edge) of each module's header is rounded (default off).
+  
+  focused module border
+  : When a color is selected, the currently focused processing module has a border of the selected color (default none).
+  
+  expanded module border
+  : When a color is selected, each expanded processing module has a border of the selected color (default none). If [_expand a single processing module at a time_](darkroom.md#modules) is enabled, then _expanded module border_ has no effect as the expanded module is also the focussed module.
+  
+  accent color
+  : When a color is selected, the on/off button of a module is tinted with the selected color (default none).
+
 use system font size
 : Select this option to use the font size defined by your system. If unchecked, you may enter a custom font size in the box below (default on).
 
