@@ -6,7 +6,7 @@ weight: 100
 
 Editing the same photos from multiple computers requires some setup as darktable has no dedicated function for sharing its database across computers. 
 
-The [local concept](../overview/sidecar-files/local-copies.md) feature is the included solution for "editing on the road" and could be used if your files live on a NAS or external storage. 
+The [local copies](../overview/sidecar-files/local-copies.md) feature is the included solution for "editing on the road" and could be used if your files live on a NAS or external storage. 
 
 ## General considerations
 
