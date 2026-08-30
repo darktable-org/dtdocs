@@ -6,7 +6,7 @@ weight: 65
 
 The `darktable-mcp` binary provides a [Module Context Protocol](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) (MCP) server interface for darktable.
 
-`darktable-mcp` lets an AI agent drive the raw pipeline over MCP, for example it can be used to:
+`darktable-mcp` can be used to let an AI agent drive the raw pipeline over MCP, for example it can be used to:
 * list modules and inspect their parameter schemas,
 * develop an image through a given module stack and get back a preview or per-channel statistics,
 * read history, styles and metadata from the library.
