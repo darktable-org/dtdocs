@@ -18,6 +18,12 @@ load default shortcuts at startup
 scale slider step with min/max
 : When activated, the default step-size, when altering sliders, will depend on the current min/max values for that slider (default on).
 
+marker shape
+: Select the shape of the slider marker from triangle, circle, diamond or bar (default triangle).
+
+automatically update module name
+: If enabled, darktable will automatically update the module name to match a preset name or preset instance name, if present (default on).
+
 sort built-in presets first
 : Choose how the presets menu is sorted. If this option is enabled, built-in presets are shown first. If the option is disabled, user presets are shown first (default on).
 
@@ -35,6 +41,9 @@ always show panels' scrollbars
 
 duration of the ui transitions in ms
 : Defines how long modules and other ui elements will take to transition between states (expand/collapse). Set to 0 to disable animation (default 250ms).
+
+auto-scroll filmstrip to center on selected image
+: When enabled, the filmstrip in culling mode and in the darkroom automatically scrolls to center on the selected image (default on).
 
 position of the scopes module
 : Choose whether to show the [scopes](../module-reference/utility-modules/shared/scopes.md) module in the left or right panel (default right). (needs a restart)
