@@ -28,7 +28,3 @@ darktable-mcp [--core <darktable options>]
 
   - `--library :memory:` - the database is kept in system memory - all changes are discarded when the application terminates.
   - `--conf write_sidecar_files=never` - never update XMP sidecars.
-
-
-
-
