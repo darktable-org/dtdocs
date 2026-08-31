@@ -48,7 +48,7 @@ You can also adjust the color nodes using sliders, which can be shown/hidden by 
 
 As with sliders, you can also right-click on a node/slider to perform fine adjustments (see [module controls/sliders](../../darkroom/processing-modules/module-controls.md#sliders) for more details).
 
-The values can also be adjusted by scrolling with the mouse while hovering the cursor over the image (see [_cursor indicator/control_](#cursor-indicatorcontrol) for details).
+In addition, you can hover the cursor over the image and scroll to adjust the value (see [_cursor indicator/control_](#cursor-indicatorcontrol) for details).
 
 
 Use the [picker](../../darkroom/processing-modules/module-controls.md#pickers) to choose a pixel or area on the image and show the hue of that pixel/area on the adjustment curve.
@@ -101,12 +101,12 @@ visualize changed output for the selected tab
 
 ## cursor indicator/control
 
-When the _color equalizer_ module is enabled and expanded, you can move the mouse pointer over the image to show a cursor that displays information about the pixel color under the pointer. It will also highlight the current setting in the open tab. When this cursor is shown, the mouse wheel can be used to alter the corresponding hue, saturation, or brightness band in the module.
+When the _color equalizer_ module is enabled and expanded, you can move the mouse pointer over the image to show a cursor that displays information about the pixel color under the pointer. It will also highlight the corresponding hue in the open tab. When this cursor is shown, the mouse wheel can be used to alter the corresponding hue, saturation, or brightness band in the module.
 
 ![color-equalizer-cursor](./color-equalizer/color-equalizer-cursor.png#w25)
 
 - the cross-hairs indicate the position of the pixel under the cursor.
-- the text label shows the value of the change in hue, saturation, or brightness (depending on which tab is selected) for the pixel color under the cursor, in the units applicable to the tab.
+- the text label shows the value of the change in hue, saturation, or brightness (depending on which tab is selected) for the pixel color under the cursor.
 - if the color equalizer has altered the color at the current cursor position, the magnitude of the adjustment is indicated by an arc on the left-hand-side. The longer the arc, the greater the adjustment.
 
 If you need to move or zoom the portion of the image shown in the center view while the module is expanded, hold down the 'A' key while dragging the mouse or using the scroll wheel. As long as the key is held down, mouse actions adjust the viewport rather than adjusting the color.
