@@ -77,8 +77,6 @@ Before you can preview the site with hugo you need to generate the stylesheets:
 ````
 cd ./themes/hugo-darktable-docs-theme/assets/
 yarn install
-cd ../../hugo-darktable-docs-pdf-theme/assets/
-yarn install
 ````
 
 Instead of `yarn install` you can use `npm install`.
