@@ -18,7 +18,7 @@
     <ul class="navbar-nav ml-auto">
       {{ if .IsTranslated }}
         <li class="nav-item dropdown">
-          <a
+
             class="nav-link dropdown-toggle"
             href="#"
             data-toggle="dropdown"
@@ -26,11 +26,18 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span>Version: Development</span>
+            {{/* Path portion of the baseURL this build was run with, e.g. "/usermanual/5.6/" */}}
+            {{ $basePath := (urls.Parse .Site.BaseURL).Path }}
+            {{/* Strip "/usermanual/" prefix and trailing slash to get the bare version string */}}
+            {{ $currentVersion := strings.TrimSuffix "/" (strings.TrimPrefix "/usermanual/" $basePath) }}
+            <span>Version: {{ if eq $currentVersion "development" }}Development{{ else }}{{ $currentVersion }}{{ end }}</span>
           </a>
           <div class="dropdown-menu dropdonw-trans" role="listbox">
-            {{ $cleanPath := replace .RelPermalink "/usermanual/development/" "/" }}
+            {{/* Remove the current version's prefix from the permalink so it can be
+                 re-prefixed with any target version below without doubling the path */}}
+            {{ $cleanPath := replace .RelPermalink $basePath "/" }}
             <a class="dropdown-item" href="/usermanual/development{{ $cleanPath }}">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6{{ $cleanPath }}">Version 5.6</a>
             <a class="dropdown-item" href="/usermanual/4.8{{ $cleanPath }}">Version 4.8</a>
             <a class="dropdown-item" href="/usermanual/4.6{{ $cleanPath }}">Version 4.6</a>
             <a class="dropdown-item" href="/usermanual/4.4{{ $cleanPath }}">Version 4.4</a>
