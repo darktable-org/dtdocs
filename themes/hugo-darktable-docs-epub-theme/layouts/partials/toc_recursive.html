@@ -1,0 +1,11 @@
+    {{ $child_pages := union .Sections .Pages }}
+    <ul>
+        {{ range $child_pages.ByWeight }}
+            <li>
+                <a href="#{{ with .Page.File}}{{ .UniqueID }}{{ end }}">
+		    {{ .Title }}
+                </a>
+                {{ partial "toc_recursive.html" . }}
+            </li>
+        {{ end }}
+    </ul>
