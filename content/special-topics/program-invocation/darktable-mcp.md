@@ -13,7 +13,7 @@ The `darktable-mcp` binary provides a [Model Context Protocol](https://modelcont
 
 `darktable-mcp` is only built if darktable was compiled with the `USE_MCP` option, so the binary may not be present in all packages.
 
-Parameters are addressed by name through darktable's own introspection rather than by fixed offsets, so a stack stays valid across module versions, and renders run on a throwaway duplicate so the source image is never modified.
+Module parameters are referred to by name, so a set of instructions written for one version of darktable keeps working when a module is updated. Images are developed on a temporary copy, so neither the original file nor its existing edits are changed.
 
 It waits for commands on its stdin, and outputs responses to its stdout; stdout carries only JSON-RPC (darktable's own logging is redirected to stderr), so a client can speak the protocol cleanly.
 
