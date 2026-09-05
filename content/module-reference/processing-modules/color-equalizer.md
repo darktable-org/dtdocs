@@ -70,7 +70,7 @@ white level
 : Set the upper bound of brightness corrections that can be made with the module -- the module will not allow brightness of any pixels to be greater than this value. Use the picker to set based on a point/area on the image. This should usually be kept at its default value.
 
 hue curve (_N/A for saturation/brightness curves_)
-: Control how the hue adjustment curve is interpolated between nodes. Values greater than 1 make the transitions between the nodes more gradual. Values less than 1 create sharper transitions, allowing for more precise adjustments to individual hues, while affecting neighbouring areas/colors less. Be aware that lower values can increase the likelihood of introducing noise or artifacts.
+: Control how the hue adjustment curve is interpolated between nodes. Values greater than 1 make the transitions between the nodes more gradual. Values less than 1 create sharper transitions, allowing for more precise adjustments to individual hues, while affecting neighboring areas/colors less. Be aware that lower values can increase the likelihood of introducing noise or artifacts.
 
 ### guided filter
 

@@ -82,7 +82,7 @@ desired hue directly from the image.
 ## Effect controls
 
 pull strength
-: Colours will be shifted depending on their proximity to the nodes. The shift is strongest for pixels between nodes,
+: Colors will be shifted depending on their proximity to the nodes. The shift is strongest for pixels between nodes,
 and weakest (or zero) for pixels exactly on a node.
 
     Note: pull strength scales the **hue** correction only. The saturation correction (per-node saturation multipliers) is applied independently, at full strength regardless of this slider.
@@ -110,7 +110,7 @@ neutral color protection
 
 smoothing
 : This smooths the spatial transitions at zone boundaries — visible as subtle
-colour steps in smooth gradients like skies or skin when adjacent regions fall in different
+color steps in smooth gradients like skies or skin when adjacent regions fall in different
 attraction zones.
 
     The blur sigma scales with both this slider and the current pull width: wider attraction zones
@@ -119,7 +119,7 @@ attraction zones.
 
     - **0 (default, off):** transitions are handled purely by the Gaussian interpolation in hue space.
       Maximum detail is preserved. Recommended for most uses.
-    - **0.1–0.5:** subtle spatial averaging to reduce colour noise in smooth areas.
+    - **0.1–0.5:** subtle spatial averaging to reduce color noise in smooth areas.
     - **> 1.0:** broad spatial blending; can create a painterly effect but may bleed corrections
       across image edges.
 

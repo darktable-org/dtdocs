@@ -252,7 +252,7 @@ auto-adjust hardness
 : Enabled by default. When disabled, the _hardness_ slider appears in the [_look_](#look) tab.
  
 iterations of high-quality reconstruction
-: The number of passes of the highlight reconstruction algorithm. The default reconstruction works on separate RGB channels in a single pass. The high-quality reconstruction works on RGB ratios and propagates color from neighbouring pixels into the clipped areas over several passes, which produces more neutral highlights at a higher processing cost. It is useful where channel clipping has produced magenta highlights.
+: The number of passes of the highlight reconstruction algorithm. The default reconstruction works on separate RGB channels in a single pass. The high-quality reconstruction works on RGB ratios and propagates color from neighboring pixels into the clipped areas over several passes, which produces more neutral highlights at a higher processing cost. It is useful where channel clipping has produced magenta highlights.
  
 : Too many iterations make the reconstruction degenerate: colors from further away bleed into the clipped areas -- white clouds filled with blue sky, or the sun disc behind trees filled with leaf green.
  
