@@ -52,5 +52,5 @@ Variation: Sync the files and a separate `library.db`, specify the location of t
 Caveats:
 * Not cross platform compatible.
 * Machine specific settings could get overridden, for instance OpenCL settings.
-* Consider excluding the cache directory from sync. `~/.cache/darktable` (thumbnails etc.) is large; syncing it just costs bandwidth and storage for no benefit.
+* Consider excluding the cache directory from sync. The [darktable cache](../preferences-settings/config-directory.md#cache-directory) (thumbnails etc.) is large; syncing it just costs bandwidth and storage for no benefit.
 * It is recommended to have a robust versioned backup strategy _including the configuration directory_ to avoid breaking/losing your setup.
