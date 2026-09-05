@@ -12,6 +12,6 @@ You can create local copies of selected images from within the lighttable. Local
 
 For safety reasons, if local copies exist and the external storage is available, the local XMP sidecars are automatically synchronized at start up.
 
-Local copies are stored within the `$HOME/.cache/darktable` directory and named `img-<SIGNATURE>.<EXT>` (where `SIGNATURE` is a hash signature (MD5) of the full pathname, and `EXT` is the original filename extension).
+Local copies are stored within the [cache directory](../../preferences-settings/config-directory.md#cache-directory) and named `img-<SIGNATURE>.<EXT>` (where `SIGNATURE` is a hash signature (MD5) of the full pathname, and `EXT` is the original filename extension).
 
 Local copies can be identified in the lighttable view by a white marker on the top right of the thumbnail. In addition, all local copies carry the `darktable|local-copy` tag to allow them to be easily selected.

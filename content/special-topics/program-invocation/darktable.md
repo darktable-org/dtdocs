@@ -75,10 +75,10 @@ All parameters are optional. In most cases darktable should be started without a
 : Define where darktable should store its temporary files. If this option is not supplied darktable uses the system default.
 
 `--cachedir <cache directory>`
-: darktable keeps a cache of image thumbnails for fast image preview and precompiled OpenCL binaries for fast startup. By default the cache is located in `$HOME/.cache/darktable/`. Multiple thumbnail caches may exist in parallel -- one for each library file.
+: darktable keeps a cache of image thumbnails for fast image preview and precompiled OpenCL binaries for fast startup. Multiple thumbnail caches may exist in parallel -- one for each library file. The default cache path is listed on the [configuration directory](../../preferences-settings/config-directory.md) page.
 
 `--localedir <locale directory>`
-: Define where darktable can find its language-specific text strings. The default location depends on your installation. Typical locations are `/opt/darktable/share/locale/` and `/usr/share/locale/`.
+: Define where darktable can find its language-specific text strings. The default locale path is listed on the [configuration directory](../../preferences-settings/config-directory.md) page.
 
 `--print-paths`
 : Print the resolved configdir, cachedir, tmpdir, datadir, moduledir, localedir and library paths for this install, honoring any of the overrides, then exit.
