@@ -26,18 +26,18 @@ raw denoise
 : AI denoise applied early in the raw pipeline. The exact stage depends on the sensor:
 
 : - **Bayer sensors** are denoised directly on the CFA mosaic, with denoise and demosaic combined into a single inference pass. The result is saved as a Bayer CFA DNG.
-: - **X-Trans sensors** (and any other non-Bayer colour CFA the Bayer model can't handle) are demosaicked first by darktable's pipeline, then the AI denoiser operates on the resulting linear Rec.2020 RGB image. The result is saved as a LinearRaw DNG.
+: - **X-Trans sensors** (and any other non-Bayer color CFA the Bayer model can't handle) are demosaicked first by darktable's pipeline, then the AI denoiser operates on the resulting linear Rec.2020 RGB image. The result is saved as a LinearRaw DNG.
 
 : Either output can be re-imported into darktable as a regular raw – downstream darkroom processing is unchanged.
 
-: **Limitations.** Monochrome sensors are not currently supported – the available raw-denoise models are trained on colour-CFA data and have no monochrome equivalent yet. Use _denoise_ in neural restore module on a monochrome image instead.
+: **Limitations.** Monochrome sensors are not currently supported – the available raw-denoise models are trained on color-CFA data and have no monochrome equivalent yet. Use _denoise_ in neural restore module on a monochrome image instead.
 
 : - _strength_ – linear blend between the source raw (0%) and the AI-denoised output (100%) at the raw sensor level. Lower values let some of the original noise back in, in direct proportion.
 
 denoise
 : Machine-learning RGB denoise applied to the already-demosaicked and mostly-edited image; writes a TIFF.
 
-: - _strength_ – at 100% the output is the full AI model result. Lower values do not just blend back the source – the difference between source and denoised is decomposed into wavelet (DWT) detail bands and the higher-frequency texture is brought back selectively, so you recover grain and surface detail without re-introducing the colour noise the model removed.
+: - _strength_ – at 100% the output is the full AI model result. Lower values do not just blend back the source – the difference between source and denoised is decomposed into wavelet (DWT) detail bands and the higher-frequency texture is brought back selectively, so you recover grain and surface detail without re-introducing the color noise the model removed.
 
 upscale
 : Super-resolution to 2x or 4x the input pixel dimensions. Writes a TIFF at the upscaled size. 4x on a high-resolution image is memory-hungry; tile processing is enabled automatically to keep peak memory bounded, at the cost of some extra processing time.
@@ -60,12 +60,12 @@ raw denoise – _before_ darkroom editing
 : 2. run _raw denoise_ – the output DNG is grouped with the source;
 : 3. open the new DNG and edit it normally.
 
-: As it works with the original sensor data it removes noise most cleanly, before demosaic spreads it across the colour channels. It is the AI counterpart to the classical [raw denoise](../../processing-modules/raw-denoise.md) module – both operate on the raw CFA data before demosaic. The original raw file stays untouched.
+: As it works with the original sensor data it removes noise most cleanly, before demosaic spreads it across the color channels. It is the AI counterpart to the classical [raw denoise](../../processing-modules/raw-denoise.md) module – both operate on the raw CFA data before demosaic. The original raw file stays untouched.
 
 denoise – _late_ in the workflow, _after_ darkroom editing
 : Exports your image through the full darkroom pipeline (every active module is applied) and then runs the AI denoiser on the result, writing a TIFF. The intended workflow is:
 
-: 1. develop the image up to and including the step that switches the pipeline from _scene-referred_ to _display-referred_ space ([_filmic rgb_](../../processing-modules/filmic-rgb.md), [_sigmoid_](../../processing-modules/sigmoid.md) or [_AgX_](../../processing-modules/agx.md)) and any display-referred colour grading – the point where the noise visible to the viewer has emerged;
+: 1. develop the image up to and including the step that switches the pipeline from _scene-referred_ to _display-referred_ space ([_filmic rgb_](../../processing-modules/filmic-rgb.md), [_sigmoid_](../../processing-modules/sigmoid.md) or [_AgX_](../../processing-modules/agx.md)) and any display-referred color grading – the point where the noise visible to the viewer has emerged;
 : 2. run _denoise_ – the output is a TIFF with the edit so far baked in, plus noise cleaned up;
 : 3. continue editing the TIFF if you want to add sharpening, local adjustments, output sizing, etc., or deliver it directly.
 
@@ -101,13 +101,13 @@ The collapsible _output parameters_ section controls how the result is written t
 bit depth _(denoise and upscale only)_
 : Bit depth of the output TIFF (_8 bit_, _16 bit_, _32 bit (float)_).
 profile _(denoise and upscale only)_
-: Colour profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog.
+: Color profile embedded in the output TIFF. _image settings_ uses the working profile of the source image. The other entries match the standard export dialog.
 
 compression _(denoise and upscale only)_
 : TIFF-compression of the output-file. Offers _uncompressed_, _deflate_ and _deflate with predictor_ (default). The default reduces file size by about 50-60%. 
 
 preserve wide-gamut colors _(denoise only)_
-: When on, pixels whose colour falls outside sRGB gamut pass through the model unchanged – wide-gamut colours are preserved exactly, but those specific pixels are not denoised. When off, every pixel is denoised but wide-gamut colours may be clipped to sRGB.
+: When on, pixels whose color falls outside sRGB gamut pass through the model unchanged – wide-gamut colors are preserved exactly, but those specific pixels are not denoised. When off, every pixel is denoised but wide-gamut colors may be clipped to sRGB.
 
 add to the current collection
 : Import the output into darktable automatically when it's written. The new image is grouped with the source image so they appear together in darktable.

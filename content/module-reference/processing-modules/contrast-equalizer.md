@@ -69,7 +69,7 @@ See the following example:
 
 ![contrast-equalizer-chroma-orig](./contrast-equalizer/contrast-equalizer-chroma-orig.png#w66)
 
-Say you wanted to boost the colour contrast around the anthers at the end of the stamen. The pink petals of the flowers are already quite saturated, but using contrast equalizer you can selectively boost the saturation on the small scale of the anthers without impacting the saturation of the petals. The third control point from the right corresponds to the detail scale of the anthers. By raising that control point, you can target anthers saturation only:
+Say you wanted to boost the color contrast around the anthers at the end of the stamen. The pink petals of the flowers are already quite saturated, but using contrast equalizer you can selectively boost the saturation on the small scale of the anthers without impacting the saturation of the petals. The third control point from the right corresponds to the detail scale of the anthers. By raising that control point, you can target anthers saturation only:
 
 ![contrast-equalizer-chroma-high](./contrast-equalizer/contrast-equalizer-chroma-high.png#w66)
 

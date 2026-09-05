@@ -115,7 +115,7 @@ In order to ensure a consistent co-ordinate system, when you place a shape on th
 : An AI-generated mask: instead of drawing the outline by hand, click on the subject and a segmentation model produces the mask for you. Iterate by adding more clicks until the mask covers exactly what you want, then apply it. Requires AI features to be enabled and a model for the _mask_ task active in [AI preferences](../../../preferences-settings/ai.md) – see the [AI features overview](../../../special-topics/ai/overview.md) for what runs where.
 
 : - **click** on the subject to add a foreground (positive) prompt point – the model produces a mask around the clicked region.
-: - **shift+click** to add a background (negative) point, telling the model "exclude this area from the mask". Useful when the mask spills onto a neighbouring object you didn't want.
+: - **shift+click** to add a background (negative) point, telling the model "exclude this area from the mask". Useful when the mask spills onto a neighboring object you didn't want.
 : - **ctrl+shift+click** to clear all prompt points and start over.
 : - **right-click** to apply the mask. The result is vectorized into a group of path shapes and registered with the [mask manager](../../../module-reference/utility-modules/darkroom/mask-manager.md).
 
