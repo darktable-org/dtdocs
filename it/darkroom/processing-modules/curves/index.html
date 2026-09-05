@@ -1,0 +1,1425 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - curve</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/darkroom/processing-modules/curves/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="curve">
+<meta property="og:description" content="I moduli curva base, curva di tono e curva rgb usano le curve per controllare i toni nell’immagine. Questi moduli hanno alcune caratteristiche in comune che giustificano una discussione separata.
+🔗nodi Nel loro stato predefinito le curve sono una linea retta, definita da due nodi di ancoraggio nell’angolo in alto a destra e in basso a sinistra del grafico. Puoi spostare i nodi per modificare la curva, oppure puoi generare nuovi nodi cliccando sulla curva. Usa Ctrl&#43;click per generare un nuovo nodo alla posizione sulle ascisse (x) del mouse e alla corrispondente posizione sulle ordine (y) della curva corrente – ciò aggiunge un nodo senza il rischio di modificare accidentalmente la curva. Per ciascuna curva possono essere definite fino a 20 nodi. Per rimuovere un nodo, fai click su di esso e trascinalo fuori dall’area del grafico.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="darkroom">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/it/darkroom/processing-modules/curves/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/it/darkroom/processing-modules/curves/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/it/darkroom/processing-modules/curves/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/it/darkroom/processing-modules/curves/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/it/darkroom/processing-modules/curves/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="it"
+              role="option"
+              lang="it"
+              href="https://darktable-org.github.io/dtdocs/it/darkroom/processing-modules/curves/"
+              >Italian</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/darkroom/processing-modules/curves/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/darkroom/processing-modules/curves/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/darkroom/processing-modules/curves/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/darkroom/processing-modules/curves/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/darkroom/processing-modules/curves/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/darkroom/processing-modules/curves/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/darkroom/processing-modules/curves/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/darkroom/processing-modules/curves/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/darkroom/processing-modules/curves/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/it/'>darktable user manual</a> / <a href='/dtdocs/it/darkroom/'>Camera Oscura</a> / <a href='/dtdocs/it/darkroom/processing-modules/'>moduli di elaborazione</a> / curve
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="next">&lt; istanze multiple</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="prev">wavelet (separazione di frequenza) &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        curve
+    </h1>
+
+    
+
+    <p>I moduli <a href="../../module-reference/processing-modules/base-curve.md">curva base</a>, <a href="../../module-reference/processing-modules/tone-curve.md">curva di tono</a> e <a href="../../module-reference/processing-modules/rgb-curve.md">curva rgb</a> usano le curve per controllare i toni nell&rsquo;immagine. Questi moduli hanno alcune caratteristiche in comune che giustificano una discussione separata.</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/darkroom/processing-modules/curves/curve.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/processing-modules/curves/curve.png" alt="curve"  class="w33"    /></a>
+
+</p>
+<h1 id="nodi"><a href="#nodi">🔗</a>nodi</h1>
+<p>Nel loro stato predefinito le curve sono una linea retta, definita da due nodi di ancoraggio nell&rsquo;angolo in alto a destra e in basso a sinistra del grafico. Puoi spostare i nodi per modificare la curva, oppure puoi generare nuovi nodi cliccando sulla curva. Usa Ctrl+click per generare un nuovo nodo alla posizione sulle ascisse (x) del mouse e alla corrispondente posizione sulle ordine (y) della curva corrente &ndash; ciò aggiunge un nodo senza il rischio di modificare accidentalmente la curva. Per ciascuna curva possono essere definite fino a 20 nodi. Per rimuovere un nodo, fai click su di esso e trascinalo fuori dall&rsquo;area del grafico.</p>
+<h1 id="controlli-della-curva"><a href="#controlli-della-curva">🔗</a>controlli della curva</h1>
+<p>I seguenti controlli sono in comune a due o più dei suddetti moduli e quindi vengono presi in esame separatamente qui. Controlla la documentazione di ciascun modulo per informazioni sui controlli addizionali.</p>
+<dl>
+<dt>metodo di interpolazione</dt>
+<dd><em>solo curva di tono e curva rgb</em></dd>
+<dd>
+<p>L&rsquo;interpolazione è il processo per il quale si deriva una curva continua da pochi nodi. Siccome questo processo non è mai perfetto, vengono offerti diversi metodi che possono mitigare alcuni dei problemi in cui puoi incorrere.</p>
+</dd>
+<dd>
+<ul>
+<li><em>funzione spline cubica</em> è, probabilmente, la più piacevole a vedersi. Dato che produce curve morbide si incrementa il contrasto nell&rsquo;immagine. Nonostante ciò, questo metodo è molto sensibile alla posizione dei nodi, e può produrre cuspidi e oscillazioni quando i nodi sono troppo vicini tra di loro, o quando ce ne sono troppi. Questo metodo funziona al meglio quando ci sono soltanto 4 o 5 nodi, distribuiti uniformemente.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>funzione spline centripeta</em> è progettata specificatamente per evitare cuspidi e oscillazioni ma, di contro, segue i nodi meno precisamente. La funzione è molto solida, non importa il numero di nodi e la loro distanza, ma produce contrasti più sbiaditi e spenti.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>Funzione spline monotonica</em> è pensata specificatamente per produrre un&rsquo;interpolazione monotonica, nel senso che non ci saranno oscillazioni come nella spline cubica. Questo metodo è il più adatto quando stai tentando di creare una funzione analitica da un&rsquo;interpolazione (per esempio: esponenziale, logaritmica, potenza, etc..). Questa funzione viene impostata come preset. E&rsquo; un discreto compromesso tra i due metodi sopra menzionati.</li>
+</ul>
+</dd>
+<dt>preserva colori</dt>
+<dd>Se viene applicata individualmente una curva di tono non lineare su ciascuno dei canali RGB, allora la quantità di correzione applicata a ciascun canale colore può essere differente, e ciò può causare una variazione (spostamento) della tonalità. L&rsquo;opzione <em>preserva colori</em> fornisce diversi metodi per calcolare il &ldquo;livello di luminanza&rdquo; dei pixel per minimizzare queste variazioni. La quantità di aggiustamento dei toni viene calcolata sulla base del valore di luminanza, e lo stesso aggiustamento viene applicato a tutti i canali RGB. Stime della luminanza differenti possono interessare il contrasto in aree diverse dell&rsquo;immagine, a seconda delle caratteristiche dell&rsquo;immagine stessa. L&rsquo;utente può quindi scegliere la stima che fornisce il miglior risultato per la data immagine. Alcuni di questi metodi vengono trattati in dettaglio nel controllo <strong>preserva crominanza</strong> nel modulo <a href="../../module-reference/processing-modules/filmic-rgb.md"><em>filmic rgb</em></a>. Sono disponibili le seguenti opzioni:</dd>
+<dd>
+<ul>
+<li><em>nessuno</em></li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>luminanza</em></li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>RGB max</em></li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>RGB medio</em></li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>somma RGB</em></li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>RGB normale</em></li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>potenza base</em></li>
+</ul>
+</dd>
+<dt>scala per il grafico</dt>
+<dd><em>solo per curva di tono e curva base</em></dd>
+<dd>
+<p>La scala ti permette di distorcere la visualizzazione del grafico in modo tale che alcune proprietà grafiche vengano evidenziate, aiutandoti a disegnare curve più utili. Notare che l&rsquo;opzione di scala interessa soltanto la visualizzazione della curva, non i valori correnti registrati dal modulo.</p>
+</dd>
+<dd>
+<p>By default, a “linear” scale is used (scale factor 0), which uses evenly spaced horizontal and vertical axes. Positive values give the graph a logarithmic scale, compressing high values and dilating low values on both the horizontal and vertical axes, so that nodes in lowlights get more space on the graph and can be controlled more precisely.</p>
+</dd>
+<dd>
+<p>Increasing the &lsquo;scale for graph&rsquo; slider sets the base of the logarithm used to scale the axes. This allows you to control the amount of compression/dilation operated by the scale. If you draw purely exponential or logarithmic functions from identity lines, setting this value defines the base of such functions.</p>
+</dd>
+</dl>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/darkroom/processing-modules/curves/">
+            Dutch: curves
+        </a></li>
+        
+        <li><a href="/dtdocs/en/darkroom/processing-modules/curves/">
+            English: curves
+        </a></li>
+        
+        <li><a href="/dtdocs/es/darkroom/processing-modules/curves/">
+            Español: curvas
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/darkroom/processing-modules/curves/">
+            Français: Courbes
+        </a></li>
+        
+        <li><a href="/dtdocs/de/darkroom/processing-modules/curves/">
+            German: Kurven
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/darkroom/processing-modules/curves/">
+            Lao: ເສັ້ນໂຄ້ງ (curves)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/darkroom/processing-modules/curves/">
+            Polish: krzywe
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/darkroom/processing-modules/curves/">
+            Português: curvas
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/darkroom/processing-modules/curves/">
+            Ukrainian: Криві
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="next">&lt; istanze multiple</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="prev">wavelet (separazione di frequenza) &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/overview/" class="">
+          Panoramica
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/" class="">
+          Tavolo luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-view-layout/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">
+          Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">
+          gestione delle risorse digitali
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/" class="">
+          Camera Oscura
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/darkroom-view-layout/" class="">
+          disposizione della Camera Oscura
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">
+          il pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">
+          la coda di sviluppo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">
+          annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">
+          intestazione modulo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">
+          istanze multiple
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class=" active">
+          curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">
+          wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">
+          moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">
+          maschere &amp; fusione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class="">
+          modalità di fusione
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">
+          maschere
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/parametric/" class="">
+          maschere parametriche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combinare maschere disegnate &amp; parametriche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">
+          organizzazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/module-groups/" class="">
+          gruppi di moduli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">
+          gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/" class="">
+          Mappa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">
+          layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/slideshow/" class="">
+          Presentazione
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/" class="">
+          Stampa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/" class="">
+          Script con Luca
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/printing-labeled-images/" class="">
+          stampare immagini etichettate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/exporting-images/" class="">
+          esportare immagini con lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/calling-from-dbus/" class="">
+          chiamare luca dal dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/darktable-from-lua/" class="">
+          usare darktable da uno script lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class="">
+          Guide &amp; Tutorial
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">
+          sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/" class="">
+          Module-References
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">
+          ammorbidisci
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">
+          bilanciamento colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">
+          bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">
+          censura
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">
+          colora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">
+          contrasto colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">
+          correzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">
+          correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">
+          equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class="">
+          equalizzatore toni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">
+          filtro graduato
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">
+          luce soffusa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">
+          mappatura dei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">
+          passa-alto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">
+          punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">
+          ricostruzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">
+          riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="">
+          riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="">
+          rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">
+          sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">
+          Moduli utilità
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">
+          condivisi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/export/" class="">
+          esporta
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">
+          informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">
+          libreria
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">
+          mappa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">
+          Stampa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">
+          sviluppo
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">
+          Sessione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">
+          Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/" class="">
+          Special-Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">
+          gestione del colore
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">
+          Profilo dello schermo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">
+          metodi di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">
+          Intento di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-spaces/" class="">
+          spazi colore di darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/unbounded-colors/" class="">
+          colori senza confini
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-artifacts/" class="">
+          possibili artefatti nei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="">
+          dimensione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class="">
+          coda di elaborazione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

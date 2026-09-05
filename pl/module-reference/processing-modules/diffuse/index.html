@@ -1,0 +1,2613 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - dyfuzja lub wyostrzenie</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/pl\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/diffuse/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="dyfuzja lub wyostrzenie">
+<meta property="og:description" content="Technical information opis symulacja kierunkowej dyfuzji światła modelem przepływu ciepła służy do iteracyjnego rozmywania krawędzi, rekonstrukcji uszkodzonych partii obrazu, lub usuwania rozmycia ze ślepą dekonwolucją. zastosowanie korekcyjne i kreatywne. wejście liniowe, RGB, scenocentryczny. przetwarzanie liniowe, RGB. wyjście liniowe, RGB, scenocentryczny. Dyfuzja to rodzina procesów fizycznych, dzięki którym cząstki poruszają się i rozprzestrzeniają stopniowo w czasie ze źródła, które je generuje. W przetwarzaniu obrazu dyfuzja występuje najczęściej w dwóch miejscach:
+dyfuzji fotonów przez szkło soczewki (rozmycie) lub wilgotne powietrze (zamglenie),">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="pl">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/pl/module-reference/processing-modules/diffuse/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/pl/module-reference/processing-modules/diffuse/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/pl/module-reference/processing-modules/diffuse/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/pl/module-reference/processing-modules/diffuse/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/pl/module-reference/processing-modules/diffuse/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="pl"
+              role="option"
+              lang="pl"
+              href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/diffuse/"
+              >Polish</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/diffuse/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/diffuse/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/diffuse/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/diffuse/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/diffuse/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/diffuse/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/diffuse/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/diffuse/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/pl/'>darktable user manual</a> / <a href='/dtdocs/pl/module-reference/'>Opis modułów</a> / <a href='/dtdocs/pl/module-reference/processing-modules/'>moduły produkcyjne (przetwarzające)</a> / dyfuzja lub wyostrzenie
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/pl/module-reference/processing-modules/dither-or-posterize/" class="next">&lt; dithering lub posteryzacja</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/pl/module-reference/processing-modules/split-toning/" class="prev">dzielone tonowanie &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        dyfuzja lub wyostrzenie
+    </h1>
+
+    
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt>opis</dt>
+<dd>symulacja kierunkowej dyfuzji światła modelem przepływu ciepła służy do iteracyjnego rozmywania krawędzi, rekonstrukcji uszkodzonych partii obrazu, lub usuwania rozmycia ze ślepą dekonwolucją.</dd>
+<dt>zastosowanie</dt>
+<dd>korekcyjne i kreatywne.</dd>
+<dt>wejście</dt>
+<dd>liniowe, RGB, scenocentryczny.</dd>
+<dt>przetwarzanie</dt>
+<dd>liniowe, RGB.</dd>
+<dt>wyjście</dt>
+<dd>liniowe, RGB, scenocentryczny.</dd>
+</dl>
+</details>
+
+<p>Dyfuzja to rodzina procesów fizycznych, dzięki którym cząstki poruszają się i rozprzestrzeniają stopniowo w czasie ze źródła, które je generuje. W przetwarzaniu obrazu dyfuzja występuje najczęściej w dwóch miejscach:</p>
+<ul>
+<li>
+<p>dyfuzji fotonów przez szkło soczewki (rozmycie) lub wilgotne powietrze (zamglenie),</p>
+</li>
+<li>
+<p>dyfuzji pigmentów w mokrych tuszach lub akwarelach.</p>
+</li>
+</ul>
+<p>W obu przypadkach dyfuzja sprawia, że obraz jest mniej ostry poprzez „wyciekanie” cząstek i wygładzanie lokalnych zmian.</p>
+<p>Moduł <em>dyfuzja lub wyostrzenie</em> wykorzystuje uogólniony model fizyczny do opisania kilku rodzajów dyfuzji i może być używany przez twórców obrazów do symulacji lub odwrócenia procesów dyfuzji.</p>
+<p>Ponieważ jest to wysoce techniczny moduł, dostępnych jest kilka presetów, aby zademonstrować jego użycie do różnych celów.</p>
+<p>Dyfuzję można usunąć w celu:</p>
+<ul>
+<li>
+<p>odzyskania oryginalnego obrazu z czujników za pomocą filtra antyaliasingowego lub zmniejszenia rozmycia, tworzonego przez większość algorytmów demozaikowania (użyj jednego z presetów <em>wyostrzania demozaikowania</em> i przesuń moduł w kolejce przetwarzania przed moduł <em>wejściowego profilu koloru</em>),</p>
+</li>
+<li>
+<p>odwrócenia rozmycia statycznego / rozmycia obiektywu (użyj jednego z presetów <em>usunięcia rozmycia obiektywu</em>),</p>
+</li>
+<li>
+<p>usuwania zamglenia atmosferycznego (użyj presetu <em>usuwania zamglenia</em>),</p>
+</li>
+<li>
+<p>dodania dodatkowej ostrość dla lepszej czytelności (użyj presetu <em>kontrast miejscowy</em>).</p>
+</li>
+</ul>
+<p>Zwróć uwagę, że rozmyć ruchu nie można cofnąć poprzez cofnięcie procesu dyfuzji, ponieważ nie mają one charakteru dyfuzyjnego.</p>
+<p>Dyfuzja może zostać dodana w celu:</p>
+<ul>
+<li>
+<p>stworzenia efektu poświaty lub Ortona (użyj presetu <em>poświata</em>),</p>
+</li>
+<li>
+<p>zamalowania brakujących lub uszkodzonych części obrazu (użyj presetu <em>rekonstrukcja świateł</em>),</p>
+</li>
+<li>
+<p>odszumiania z zachowaniem krawędzi (użyj jednego z presetów <em>odszumiania</em>)</p>
+</li>
+<li>
+<p>zastosowania rozmycia powierzchni (użyj presetu <em>rozmycia powierzchni</em>).</p>
+</li>
+</ul>
+<p>Ponieważ proces jest fizyczny, nawet jego usterki można wykorzystać do celów twórczych. Na przykład możesz:</p>
+<ul>
+<li>
+<p>symulować rysowanie linii lub akwarelę (użyj presetu <em>symuluj rysowanie linii</em> i <em>symuluj akwarelę</em>),</p>
+</li>
+<li>
+<p>tworzyć losowe wzory i tekstury, zwiększając szum (z biegiem czasu, z iteracjami, szum połączy się z sąsiadami, tworząc losowe plamki).</p>
+</li>
+</ul>
+<hr>
+<p><strong>Uwaga:</strong> ten moduł wymaga dużej ilości zasobów, ponieważ w rzeczywistości jest anizotropowym, wieloskalowym narzędziem do rozwiązywania równań różniczkowych cząstkowych. Środowisko wykonawcze modułu wydłuża się wraz z liczbą iteracji, dlatego zdecydowanie zaleca się stosowanie OpenCL. Niektóre „szybkie” presety są również dostępne do użytku w systemach bez OpenCL.</p>
+<hr>
+<h1 id="podstawowe-pojęcia"><a href="#podstawowe-poj%c4%99cia">🔗</a>podstawowe pojęcia</h1>
+<h2 id="czas"><a href="#czas">🔗</a>czas</h2>
+<p>Dyfuzja jest procesem zależnym od czasu: im więcej czasu, tym dalej cząsteczki mogą się rozprzestrzeniać. W tym module czas jest symulowany za pomocą liczby iteracji (ilości uruchomień algorytmu). Więcej iteracji może sprawić, że rekonstrukcja (usuwanie rozmycia, odszumianie, usuwanie zamglenia) będzie dokładniejsza, jeśli zostanie odpowiednio ustawiona, ale może również spowodować jej degenerację.</p>
+<h2 id="kierunek"><a href="#kierunek">🔗</a>kierunek</h2>
+<p>Dyfuzja naturalna odbywa się zwykle od punktów o wysokim potencjale (wysoka energia lub duże stężenie cząstek) do tych o niskim potencjale (niska energia lub niskie stężenie cząstek). Na obrazie oznacza to, że dyfuzja zawsze zachodzi od najjaśniejszych pikseli do najciemniejszych.</p>
+<p>Ta konkretna implementacja może symulować naturalną dyfuzję, używając tak zwanej dyfuzji izotropowej (wszystkie kierunki mają taką samą wagę, jak np. dyfuzja ciepła), ale może również wymusić ważony kierunek równoległy do gradientów (wymuszając dyfuzję wzdłuż krawędzi obiektów i tworząc krawędzie duchy) lub kierunek ważony prostopadły do gradientów, zwany izofotą (wymuszający dyfuzję wewnątrz krawędzi, jak w kropli akwareli). Względna waga każdego kierunku (gradientu i izofoty) jest zdefiniowana przez użytkownika i można ją znaleźć w sekcji <a href="#kierunek"><em>kierunek</em></a> modułu.</p>
+<h2 id="szybkość"><a href="#szybko%c5%9b%c4%87">🔗</a>szybkość</h2>
+<p>W zależności od tego, jak płynne jest środowisko, cząstki mogą poruszać się mniej lub bardziej swobodnie, a zatem szybciej lub wolniej. Prędkość dyfuzji można ustawić w sekcji <a href="#speed-sharpen--diffuse"><em>prędkość (wyostrzenie ↔ rozmycie)</em></a> modułu.</p>
+<p>Podczas wykonywania rekonstrukcji (odszumianie, usuwanie rozmycia, odmgławianie) zaleca się stosowanie mniejszych prędkości dla lepszej dokładności. Zapobiega to przekroczeniom liczbowym (a tym samym degeneracji rozwiązania) i może wymagać większej liczby iteracji. W przypadku małej liczby iteracji można zastosować wyższe prędkości. Zwróć uwagę, że duże rozmycia wymagają wielu iteracji do prawidłowej rekonstrukcji, więc należy dostosować prędkość, aby uniknąć degeneracji rozwiązania.</p>
+<p>Wszystkie prędkości są dodawane (od pierwszego do czwartego stopnia), a sumy prędkości pierwszej i drugiej ani trzeciej i czwartej nigdy nie powinny przekraczać ±100%, chyba że chcesz utworzyć <a href="https://en.wikipedia.org/wiki/Glitch_art" target="_blank">glitch art</a>.</p>
+<h2 id="skala"><a href="#skala">🔗</a>skala</h2>
+<p>Naturalna dyfuzja wywiera wpływ tylko na najbliższych sąsiadów. Oznacza to, że w każdej iteracji każdy piksel powinien oddziaływać tylko na 9 sąsiednich.</p>
+<p>W darktable przyspieszyliśmy nieco ten proces, aby zaoszczędzić czas i ponownie wykorzystać schemat falek o wielu skalach z modułu <a href="/dtdocs/pl/module-reference/processing-modules/contrast-equalizer/"><em>korektora kontrastu</em></a>, dzięki czemu możemy dyfundować w różnych skalach. Maksymalna skala dyfuzji jest określona przez parametr <em>promienia</em>.</p>
+<p>Niezależnie od rozproszenia, parametr <em>ostrości</em> umożliwia zwiększenie lub zmniejszenie szczegółów w każdej skali, podobnie jak kontrolki krzywej składanej <em>korektora kontrastu</em>. Wraz z suwakiem <em>czułości na krawędzie</em> zapewnia to te same funkcje, co moduł <em>korektora kontrastu</em> (i zakładki <em>lumy</em> i <em>krawędzi</em>), ale w scenocentrycznej przestrzeni RGB.</p>
+<h1 id="kontrolki-modułu"><a href="#kontrolki-modu%c5%82u">🔗</a>kontrolki modułu</h1>
+<h2 id="właściwości"><a href="#w%c5%82a%c5%9bciwo%c5%9bci">🔗</a>właściwości</h2>
+<dl>
+<dt>iteracje</dt>
+<dd>Parametr określający, ile razy algorytm powinien zadziałać rekurencyjnie. Wysokie wartości spowalniają moduł, ale umożliwiają dokładniejsze rekonstrukcje, pod warunkiem, że prędkości dyfuzji są wystarczająco niskie.</dd>
+<dt>promień centrum</dt>
+<dd>Główna skala dyfuzji. Zero powoduje, że dyfuzja silniej oddziałuje na drobne szczegóły (używane do usuwania rozmycia i odszumiania). Wartości niezerowe definiują rozmiar szczegółów, które mają być mocno rozproszone (użyte do zwiększenia lokalnego kontrastu).</dd>
+<dt>promień</dt>
+<dd>Kontrolka, pozwalająca wybrać pasmo promieni szczegółów, na których będzie działać, wokół promienia centralnego. Rozpiętość dyfuzji definiuje zakres skal szczegółów (pomiędzy „środek – rozpiętość” a „środek + rozpiętość”), w którym dyfuzja jest ograniczona. Wysokie wartości rozpraszają się na dużym paśmie promieni, kosztem czasu obliczeń. Niskie wartości rozchodzą się bliżej promienia centralnego. Jeśli planujesz usunąć rozmycie, rozpiętość promienia powinna wynosić w przybliżeniu szerokość rozmycia obiektywu, a promień centrum powinien wynosić zero. Jeśli planujesz zwiększyć lokalny kontrast, ale nie chcesz wpływać na ostrość lub szum, rozpiętość promienia powinna wynosić 3/4 maksymalnego promienia centrum.</dd>
+</dl>
+<p>Promienie wyrażone są w pikselach obrazu o pełnej rozdzielczości, więc ustawienia kopiowania i wklejania między obrazami o różnej rozdzielczości mogą prowadzić do nieco innych wyników, z wyjątkiem ostrości na poziomie pikseli.</p>
+<p>Dla inżynierów elektryków ustawiony jest tutaj filtr pasmowoprzepustowy w przestrzeni falkowej, wykorzystujący okno częstości Gaussa wyśrodkowane na „promieniu centrum” z odchyleniem (odchylenie standardowe) „promienia”. Skale falkowe są analogiczne do częstotliwości harmonicznych, a każda skala falkowa określa promień szczegółów, na których ma działać.</p>
+<h2 id="prędkość-wyostrzenie--rozmycie"><a href="#pr%c4%99dko%c5%9b%c4%87-wyostrzenie--rozmycie">🔗</a>prędkość (wyostrzenie ↔ rozmycie)</h2>
+<p>W poniższych kontrolkach wartości dodatnie powodują dyfuzję, wartości ujemne ją cofają (tj. wyostrzają), a zero nie wywiera żadnego efektu.</p>
+<dl>
+<dt>szybkość pierwszego rzędu (domyślna)</dt>
+<dd>Prędkość dyfuzji warstw falkowych o niskiej częstotliwości w kierunku określonym przez ustawienie anizotropii <em>1. stopnia</em>.</dd>
+<dt>szybkość drugiego rzędu (laplacjan)</dt>
+<dd>Szybkość dyfuzji warstw falkowych o niskiej częstotliwości w kierunku określonym przez ustawienie anizotropii <em>2. stopnia</em>.</dd>
+<dt>szybkość trzeciego rzędu (gradient laplasjana)</dt>
+<dd>Szybkość dyfuzji warstw falkowych o wysokiej częstotliwości w kierunku określonym przez ustawienie <em>Anizotropia trzeciego stopnia</em>.</dd>
+<dt>szybkość czwartego rzędu (laplasjan z laplasjana)</dt>
+<dd>Szybkość dyfuzji warstw falkowych o wysokiej częstotliwości w kierunku określonym przez ustawienie <em>Anizotropia czwartego stopnia</em>.</dd>
+</dl>
+<h2 id="kierunek-1"><a href="#kierunek-1">🔗</a>kierunek</h2>
+<p>W poniższych kontrolkach wartości dodatnie powodują dyfuzję w celu uniknięcia krawędzi (izofoty), wartości ujemne powodują, że dyfuzja ściślej podąża za gradientami, a zero wpływa na oba w równym stopniu (izotropowość).</p>
+<dl>
+<dt>anizotropia pierwszego stopnia</dt>
+<dd>Kierunek dyfuzji warstw falkowych o niskiej częstotliwości w stosunku do orientacji gradientu o niskiej częstotliwości (ustawienie <em>szybkości pierwszego rzędu</em>).</dd>
+<dt>anizotropia drugiego stopnia</dt>
+<dd>Kierunek dyfuzji warstw falkowych o niskiej częstotliwości w stosunku do orientacji gradientu o niskiej częstotliwości (ustawienie <em>szybkości drugiego rzędu</em>).</dd>
+<dt>anizotropia trzeciego stopnia</dt>
+<dd>Kierunek dyfuzji warstw falkowych o wysokiej częstotliwości w stosunku do orientacji gradientu o niskiej częstotliwości (ustawienie <em>szybkości trzeciego rzędu</em>).</dd>
+<dt>anizotropia czwartego stopnia</dt>
+<dd>Kierunek dyfuzji warstw falkowych wysokiej częstotliwości w stosunku do orientacji gradientu wysokiej częstotliwości (ustawienie <em>szybkości czwartego rzędu</em>).</dd>
+</dl>
+<h2 id="zarządzanie-brzegami"><a href="#zarz%c4%85dzanie-brzegami">🔗</a>zarządzanie brzegami</h2>
+<dl>
+<dt>ostrość</dt>
+<dd>Stosuje wzmocnienie na szczegółach falki, niezależnie od powyższych właściwości. Zero nic nie robi, wartości dodatnie wyostrzają, wartości ujemne rozmywają. Jest to przydatne głównie jako zmienna regulacji podczas stosowania poświaty lub rozmycia, aby zachować ostrość podczas dodawania blasku wokół krawędzi. Nie zaleca się używania tego do samego ostrzenia, ponieważ przy tym ustawieniu nic nie zapobiega powstawaniu aureoli lub frędzli.</dd>
+<dt>czułość na krawędzie</dt>
+<dd>Stosuje karę w stosunku do prędkości dyfuzji po wykryciu krawędzi. To wykrywanie wykorzystuje lokalną wariancję wokół każdego piksela. Zero wyłącza karę, wyższe wartości sprawiają, że kara jest silniejsza i bardziej wrażliwa na krawędzie. Zwiększ, jeśli zauważysz artefakty krawędzi, takie jak frędzle czy efekt halo (aureole).</dd>
+<dt>próg krawędzi</dt>
+<dd>Określa próg wariancji, który wpływa głównie na obszary o małej wariancji (obszary ciemne lub rozmyte albo płaskie powierzchnie). Wartości dodatnie zwiększą karę dla obszarów o małej zmienności, co jest dobre w przypadku wyostrzania lub zwiększania lokalnego kontrastu bez miażdżenia czerni. Wartości ujemne zmniejszą karę dla obszarów o niskiej zmienności, co jest dobre w przypadku odszumiania lub rozmycia z maksymalnym efektem na obszarach czarnych i rozmytych.</dd>
+</dl>
+<h2 id="przestrzenność-dyfuzji"><a href="#przestrzenno%c5%9b%c4%87-dyfuzji">🔗</a>przestrzenność dyfuzji</h2>
+<dl>
+<dt>próg odcinania maski luminancji</dt>
+<dd>Ta kontrolka jest przydatna, jeśli chcesz wmalować światła. W przypadku wartości większych niż 0% dyfuzja wystąpi tylko w regionach o luminancji większej niż to ustawienie. Zwróć uwagę, że w tych regionach zostanie dodany szum gaussowski, aby symulować cząsteczki i inicjować wmalowywanie.</dd>
+</dl>
+<h1 id="organizacja-pracy"><a href="#organizacja-pracy">🔗</a>organizacja pracy</h1>
+<p>The main difficulty with this module is that while its output can vary dramatically depending on its input parameters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.</p>
+<h2 id="zasady-ogólne"><a href="#zasady-og%c3%b3lne">🔗</a>zasady ogólne</h2>
+<p>If you intend to deblur your image using this module, always start by properly correcting any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don&rsquo;t have clipped black pixels in your image. These can be corrected with the <em>black level correction</em> of the <a href="/dtdocs/pl/module-reference/processing-modules/exposure/"><em>exposure</em></a> module.</p>
+<p>Ponieważ działa on na oddzielnych kanałach RGB, lepiej jest zastosować ten moduł po <a href="/dtdocs/pl/module-reference/processing-modules/color-calibration/"><em>kalibracji kolorów</em></a>, aby zacząć od całkowicie neutralnego, zbalansowanego bieli obrazu wejściowego. Zwróć uwagę, że zwiększenie miejscowego kontrastu lub ostrości spowoduje również nieznaczny wzrost kontrastu kolorów i nasycenia, co zwykle jest dobre. Ponieważ wykorzystuje on regularyzację opartą na wariancji do wykrywania krawędzi, lepiej jest również umieścić ten moduł przed jakąkolwiek operacją nieliniową.</p>
+<h2 id="praca-z-presetami"><a href="#praca-z-presetami">🔗</a>praca z presetami</h2>
+<p>Dostarczone presety zostały dostrojone przez programistę i przetestowane na wielu zdjęciach do typowych celów. Najłatwiej jest po prostu zacząć od presetów, a następnie dostosować je w razie potrzeby:</p>
+<ul>
+<li>
+<p>jeśli efekt wydaje się zbyt silny, zmniejsz liczbę iteracji,</p>
+</li>
+<li>
+<p>jeśli pojawią się artefakty na krawędziach, zwiększ czułość na krawędzie,</p>
+</li>
+<li>
+<p>jeśli rozmycie zaczyna wpływać na prawidłowe części rozmyte (bokeh), zmniejsz promień,</p>
+</li>
+<li>
+<p>jeśli rozmycie wydaje się prawidłowe w jasnych obszarach, ale nadmierne w ciemnych, zwiększ <em>próg krawędzi</em>,</p>
+</li>
+<li>
+<p>jeśli usuwanie rozmycia przycina czarne piksele, zmniejsz <em>korektę poziomu czerni</em> w module <em>naświetlania</em>,</p>
+</li>
+<li>
+<p>dostosuj <em>ostrość</em> wedle uznania.</p>
+</li>
+</ul>
+<h2 id="rozpoczęcie-pracy-z-modułem"><a href="#rozpocz%c4%99cie-pracy-z-modu%c5%82em">🔗</a>rozpoczęcie pracy z modułem</h2>
+<p>Domyślne ustawienia modułu są neutralne i nie zmieniają niczego na zdjęciu. Ideą modułu jest to, że każda kolejność wpływa na teksturę zdjęcia w inny sposób.</p>
+<p>Zacznij od dostrojenia parametrów pierwszego stopnia (szybkości i anizotropii), aby uzyskać początkową bazę. Następnie dostosuj promień. Wpłynie to na grubsze tekstury (albo je rozmyj, albo wyostrz). Pamiętaj, że pierwszy stopień działa na niskie częstotliwości skali falkowej i podąża w kierunku równoległym lub prostopadłym do gradientu niskich częstotliwości.</p>
+<p>Następnie zacznij dostrajać parametry drugiego stopnia (prędkość i anizotropię). Drugi stopień również działa na niskie częstotliwości skali falkowej, ale tym razem podąża w kierunku równoległym lub prostopadłym do gradientu wysokich częstotliwości, który może być kierunkiem maksymalnej ostrości lub szumu. Można to wykorzystać do zmniejszenia szumu (używając drugiego stopnia w trybie dyfuzji, z wartościami dodatnimi), gdy używałeś pierwszego stopnia w trybie wyostrzania (z wartościami ujemnymi).</p>
+<p>Te dwa kroki można wykonać na pomniejszonym obrazie. Pamiętaj, że chociaż dołożuliśmy wszelkich starań, aby wizualny wynik algorytmu był w miarę niezmienny w skali, podgląd będzie dokładny tylko przy powiększeniu 1:1. W każdym razie wszystko, co dzieje się na poziomie pikseli (promień &lt; 2px) nie będzie widoczne dla poziomów powiększenia niższych, niż 50%.</p>
+<p>W tym momencie możesz chcieć dostosować czułość krawędzi, aby zadbać o wszelkie artefakty krawędzi. Teoretycznie dyfuzja w kierunku izofotowym zapewnia, że jest ona zawarta wewnątrz krawędzi, ale nie jest to wystarczające, gdy na obrazie występują narożniki i ostre wypukłe kształty.</p>
+<p>Gdy regulacja czułości krawędzi zostanie dostosowana w celu uzyskania satysfakcjonujących rezultatów, obraz zwykle staje się dość miękki. W większości przypadków konieczne będzie w tym momencie zwiększenie liczby iteracji w celu skompensowania. Będzie to wiązało się z obniżeniem wydajności, więc postępuj mając na uwadze kompromis pomiędzy wydajnością a jakością w zależności od sprzętu. Jeśli nie możesz zwiększyć liczby iteracji, będziesz musiał zwiększyć prędkość dyfuzji.</p>
+<p>Ostatnim krokiem jest dostrojenie trzeciego i czwartego stopnia, które dbają o wysokie częstotliwości każdej skali falkowej. Przy tych ustawieniach będziesz musiał być o wiele bardziej delikatny niż w przypadku pierwszego i drugiego rzędu, ponieważ mogą one powodować bardzo szybkie zwiększanie szumu.</p>
+<p>Trzeci stopień podąża za gradientem lub kierunkiem izofotowym warstwy niskich częstotliwości, więc może być używany do kierowania dyfuzji wysokich częstotliwości w kierunku, który jest bardziej uzasadniony w odniesieniu do rzeczywistych krawędzi (i mniej podatny na wychwytywanie szumu).</p>
+<p>Czwarty stopień podąża za gradientem lub kierunkiem izofotowym warstwy wysokiej częstotliwości i jest bardziej podatny na wychwytywanie szumu. Dyfuzja czwartego stopnia to najlepszy sposób na redukcję szumu bez zbytniego wpływania na ostrość, zarówno jako samodzielny odszumiacz, jak i jako krok regularyzacji w procesie usuwania rozmycia.</p>
+<h1 id="używanie-wielu-instancji-do-rekonstrukcji-obrazu"><a href="#u%c5%bcywanie-wielu-instancji-do-rekonstrukcji-obrazu">🔗</a>używanie wielu instancji do rekonstrukcji obrazu</h1>
+<p>Końcowe filtrowanie szumu może skorzystać na <strong>wprowadzeniu</strong> procesu dyfuzji — można to zastosować jako dodatkowy krok po module <a href="/dtdocs/pl/module-reference/processing-modules/denoise-profiled/"><em>odszumiania (profilowanego)</em></a>.</p>
+<p>Skorzystać na rekonstrukcji poprzez <strong>cofanie</strong> procesu dyfuzji mogą dla odmiany:</p>
+<ol>
+<li>
+<p>rozmycie wprowadzone przez filtr dolnoprzepustowy (LPF) sensora i/lub wygładzanie krawędzi wykonywane przez moduł <a href="./demosaic.md"><em>demozaikowania</em></a>,</p>
+</li>
+<li>
+<p>statyczne rozmycie obiektywu,</p>
+</li>
+<li>
+<p>dym/mgła,</p>
+</li>
+<li>
+<p>lekka dyfuzja (przy użyciu zbyt dużego dyfuzora), prowadząca do równomiernego oświetlenia i braku miejscowego kontrastu.</p>
+</li>
+</ol>
+<p>While more than one of these issues can affect the same image at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following <a href="../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md">pipe order</a>:</p>
+<ol>
+<li>
+<p>odszumianie,</p>
+</li>
+<li>
+<p>wzmocnienie kontrastu miejscowego,</p>
+</li>
+<li>
+<p>usuwanie zamglenia,</p>
+</li>
+<li>
+<p>korekcja rozmycia obiektywu,</p>
+</li>
+<li>
+<p>korekcja sensora i demozaikowania.</p>
+</li>
+</ol>
+<p>Rozpoczęcie pracy w grubszej skali zmniejsza prawdopodobieństwo wprowadzenia lub zwiększenia szumu podczas wykonywania rekonstrukcji w mniejszej skali. Jest to nieintuicyjne, ponieważ te procesy nie zachodzą w tej kolejności podczas tworzenia obrazu. Z tego samego powodu odszumianie powinno być zawsze wykonywane przed jakąkolwiek próbą wyostrzenia lub zwiększenia ostrości.</p>
+<h1 id="uwagi-i-ostrzeżenia"><a href="#uwagi-i-ostrze%c5%bcenia">🔗</a>uwagi i ostrzeżenia</h1>
+<p>Chociaż ten moduł został zaprojektowany tak, aby był niezmienny wobec skali, jego efekty można zagwarantować tylko przy 100% powiększeniu i wysokiej jakości lub pełnowymiarowym eksporcie. Wyniki przy niższych poziomach powiększenia lub wymiarach eksportu mogą, ale nie muszą odpowiadać twoim oczekiwaniom.</p>
+<p>Ustawiając algorytm usuwania rozmycia, pamiętaj, że wiele z najlepszych zdjęć w historii fotografii zostało wykonanych obiektywami, które nie były tak ostre, jak te dostępne obecnie. Chociaż obecny trend polega na budowaniu i sprzedawaniu coraz ostrzejszych obiektywów i stosowaniu na wierzchu oprogramowania w szaleńczych ilościach wyostrzania, ta moda <em>nie</em> prowadzi do lepszych zdjęć i sprawia, że proces retuszu staje się bardziej nużący. Nieostrość i odrobina rozmycia mają również pewne zalety poetyckie, których chirurgicznie oczyszczone obrazy HD mogą nie oddać.</p>
+<p>Należy zauważyć, że kontrast globalny (przy użyciu prostych krzywych tonalnych lub poziomów czerni/bieli) również wpływa na naszą percepcję ostrości, która jest zupełnie inna niż ostrość optyczna (rozdzielczość optyczna). Oczy ludzkie są wrażliwe tylko na kontrast lokalny, który może pochodzić z ostrości optycznej (np. brak dyfuzji – cienkie krawędzie) oraz ze wzmocnionych przejść tonalnych. Jeśli istnieje globalne mapowanie tonów w celu zwiększenia kontrastu, obraz będzie wyglądał ostrzej. Jeśli do zmniejszenia kontrastu zostanie użyte mapowanie tonalne, obraz będzie bardziej rozmazany. W żadnym z tych przypadków rzeczywiste krawędzie obiektów nie są w żaden sposób naruszone, a percepcyjne konsekwencje są czystą iluzją.</p>
+<p>Częścią procesu starzenia jest utrata wzroku. Stopień ostrości, który podoba się osobom w wieku powyżej 50 lat, może nie być taki sam, jak w przypadku osób w wieku 20 lat. Warto rozważyć wyostrzenie, aby uzyskać <em>wiarygodny</em> wynik (odpowiadający twojej codziennej percepcji), a nie <em>przyjemny</em> wynik (który może dobrze wyglądać tylko dla osób o takim samym wzroku jak twój).</p>
+<p>Finally, assessing the sharpness of images zoomed to 1:1 (100%) or more is a foolish task. In museums, exhibitions and even on screen, the general audience looks at images as a whole, not with a magnifying glass. Moreover, in most practical uses, photographs rarely exceed a resolution of 3000×2000 pixels (roughly a 300 DPI print at A4/Letter dimensions) which, for 24 megapixel sensors, means downscaling by a factor of 4. When examining a 24 megapixel file at 1:1, you are actually looking at an image that will never exist. Sharpening at pixel level, in this context, is a waste of time and CPU cycles.</p>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/processing-modules/diffuse/">
+            Dutch: diffuus of verscherpen
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/diffuse/">
+            English: diffuse or sharpen
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/processing-modules/diffuse/">
+            Español: difuso / nítido
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/diffuse/">
+            Français: Diffusion ou netteté
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/diffuse/">
+            German: Diffusion / Schärfen
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/diffuse/">
+            Lao: ກະຈາຍ ຫຼື ເພີ່ມຄວາມຄົມຊັດ (diffuse or sharpen)
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/processing-modules/diffuse/">
+            Português: difusão ou nitidez
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/diffuse/">
+            Ukrainian: Дифузія / різкість
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/pl/module-reference/processing-modules/dither-or-posterize/" class="next">&lt; dithering lub posteryzacja</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/pl/module-reference/processing-modules/split-toning/" class="prev">dzielone tonowanie &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/" class="">
+          Przegląd
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/user-interface/" class="">
+          interfejs użytkownika
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/user-interface/views/" class="">
+          widoki
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/user-interface/screen-layout/" class="">
+          układ ekranu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/user-interface/top-panel/" class="">
+          górny panel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/user-interface/keyboard-shortcuts/" class="">
+          skróty klawiszowe
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/supported-file-formats/" class="">
+          wspierane formaty plików
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/sidecar-files/" class="">
+          pliki poboczne i edycja niedestruktywna
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/sidecar-files/sidecar-import/" class="">
+          import plików pobocznych z innych aplikacji
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/sidecar-files/local-copies/" class="">
+          kopie lokalne
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/workflow/" class="">
+          wprowadzenie do przebiegu pracy z darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/workflow/introduction/" class="">
+          wstęp
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/workflow/import-review/" class="">
+          import i przeglądanie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/overview/workflow/process/" class="">
+          praca ze zdjęciem
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/" class="">
+          Stół podświetlany
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/lighttable-view-layout/" class="">
+          układ widoku stołu podświetlanego
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/lighttable-modes/" class="">
+          tryby stołu podświetlanego
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/lighttable-modes/full-preview/" class="">
+          pełny podgląd
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/digital-asset-management/" class="">
+          zarządzanie zasobami cyfrowymi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/digital-asset-management/star-color/" class="">
+          gwiazdki i kolorowe etykiety
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/digital-asset-management/grouping/" class="">
+          grupowanie zdjęć
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadane i znaczniki
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/" class="">
+          Ciemnia
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/darkroom-view-layout/" class="">
+          układ widoku ciemni
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/pixelpipe/" class="">
+          kolejka przetwarzania
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia modułu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/pixelpipe/history-stack/" class="">
+          historia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/pixelpipe/undo-redo/" class="">
+          cofnij i ponów
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/" class="">
+          moduły produkcyjne (przetwarzające)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/module-header/" class="">
+          nagłówek modułu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/multiple-instances/" class="">
+          wiele instancji
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/presets/" class="">
+          presety
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/curves/" class="">
+          krzywe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/wavelets/" class="">
+          falki (ang. wavelets)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/processing-modules/deprecated/" class="">
+          moduły przestarzałe
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/masking-and-blending/" class="">
+          maski i mieszanie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/masking-and-blending/blend-modes/" class="">
+          tryby mieszania
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/masking-and-blending/masks/" class="">
+          maski
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/masking-and-blending/masks/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/masking-and-blending/masks/parametric/" class="">
+          maski parametryczne
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          łączenie masek wektorowych i parametrycznych
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/organization/" class="">
+          organizacja pracy z modułami
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/organization/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/organization/module-groups/" class="">
+          grupy modułów
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/darkroom/organization/manage-module-layouts/" class="">
+          zarządzanie układami modułu
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/tethering/" class="">
+          Tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/tethering/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/tethering/tethering-view-layout/" class="">
+          układ widoku tetheringu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/tethering/examples/" class="">
+          przykłady
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/tethering/troubleshooting/" class="">
+          rozwiązywanie problemów
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/map/" class="">
+          Mapa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/map/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/map/map-view-layout/" class="">
+          układ widoku mapy
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/slideshow/" class="">
+          Pokaz slajdów
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/slideshow/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/slideshow/usage/" class="">
+          użycie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/print/" class="">
+          Wydruk
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/print/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/print/print-view-layout/" class="">
+          układ widoku wydruku
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/" class="">
+          Opis modułów
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/" class="">
+          moduły narzędziowe
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/" class="">
+          ciemnia
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/history-stack/" class="">
+          historia operacji
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/gamut/" class="">
+          kontrola gamutu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          korekta ekranowa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          linia informacji o obrazie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          manager masek
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/navigation/" class="">
+          nawigacja
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          ostrzeżenie przed prześwietleniami raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          prowadnice i nakładki
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/darkroom/clipping/" class="">
+          sprawdzanie gamutu
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/map/" class="">
+          mapa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/map/locations/" class="">
+          położenia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/map/map-settings/" class="">
+          ustawienia mapy
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/map/find-location/" class="">
+          wyszukaj położenie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/lighttable/" class="">
+          stół podświetlany
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/lighttable/selected-image/" class="">
+          akcje na zaznaczonych
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/lighttable/timeline/" class="">
+          oś czasu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/lighttable/select/" class="">
+          zaznaczenie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/tethering/" class="">
+          tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/tethering/live-view/" class="">
+          podgląd na żywo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/tethering/session/" class="">
+          sesja
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/tethering/camera-settings/" class="">
+          ustawienia aparatu
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/" class="">
+          wspólne
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/scopes/" class="">
+          analiza obrazu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/export/" class="">
+          eksport
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/geotagging/" class="">
+          geotagging
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/image-information/" class="">
+          informacja o obrazie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/collections/" class="">
+          kolekcje
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/tagging/" class="">
+          nadawanie etykiet
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/recent-collections/" class="">
+          ostatnio używane kolekcje
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/shared/focus-peaking/" class="">
+          wykrywanie ostrości
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/print/" class="">
+          wydruk
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/utility-modules/print/print-settings/" class="">
+          ustawienia wydruku
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/" class="">
+          moduły produkcyjne (przetwarzające)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberracja chromatyczna
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          aberracja chromatyczna raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-balance/" class="">
+          balans kolorów
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-balance-rgb/" class="">
+          balans kolorów rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/rgb-primaries/" class="">
+          barwy podstawowe rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/censorize/" class="">
+          cenzor
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/shadows-and-highlights/" class="">
+          cienie i światła
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/dither-or-posterize/" class="">
+          dithering lub posteryzacja
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/diffuse/" class=" active">
+          dyfuzja lub wyostrzenie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/split-toning/" class="">
+          dzielone tonowanie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/exposure/" class="">
+          ekspozycja
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/lowpass/" class="">
+          filtr dolnoprzepustowy
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/highpass/" class="">
+          filtr górnoprzepustowy
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/graduated-density/" class="">
+          filtr połówkowy
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-calibration/" class="">
+          kalibracja koloru
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/colorize/" class="">
+          koloryzacja
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-contrast/" class="">
+          kontrast kolorów
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/local-contrast/" class="">
+          kontrast miejscowy
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-correction/" class="">
+          korekcja koloru
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/contrast-equalizer/" class="">
+          korektor kontrastu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/tone-equalizer/" class="">
+          korektor tonów
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/base-curve/" class="">
+          krzywa bazowa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/tone-curve/" class="">
+          krzywa tonalna
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/liquify/" class="">
+          liquify
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/lut-3d/" class="">
+          LUT 3D
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-mapping/" class="">
+          mapowanie kolorów
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/monochrome/" class="">
+          monochromatyczność
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/unbreak-input-profile/" class="">
+          naprawa profilu wejściowego
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/framing/" class="">
+          obramowanie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/rotate-perspective/" class="">
+          obrót i perspektywa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/denoise-profiled/" class="">
+          odszumianie (profilowane)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/astrophoto-denoise/" class="">
+          odszumianie astrofotograficzne
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/lowlight-vision/" class="">
+          ograniczenie światła
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/bloom/" class="">
+          poświata
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/raw-black-white-point/" class="">
+          punkt czerni/bieli RAW
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/highlight-reconstruction/" class="">
+          ratowanie prześwietleń
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-reconstruction/" class="">
+          rekonstrukcja koloru
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/retouch/" class="">
+          retusz
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/blurs/" class="">
+          rozmycie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/surface-blur/" class="">
+          rozmywanie powierzchni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/sigmoid/" class="">
+          sigmoida
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/color-zones/" class="">
+          strefy kolorów
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/velvia/" class="">
+          velvia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/vignetting/" class="">
+          winietowanie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/sharpen/" class="">
+          wyostrzenie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/soften/" class="">
+          zmiękczenie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/watermark/" class="">
+          znak wodny
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/basic-adjustments/" class="">
+          (deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/channel-mixer/" class="">
+          (deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/crop-rotate/" class="">
+          (deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/defringe/" class="">
+          (deprecated) defringe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/global-tonemap/" class="">
+          (deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/levels/" class="">
+          (deprecated) levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/spot-removal/" class="">
+          (deprecated) spot removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/tone-mapping/" class="">
+          (deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/module-reference/processing-modules/zone-system/" class="">
+          (deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/preferences-settings/" class="">
+          Ustawienia darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/preferences-settings/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/preferences-settings/lighttable/" class="">
+          stół podświetlany
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/preferences-settings/darkroom/" class="">
+          ciemnia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/preferences-settings/presets/" class="">
+          presety
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lua/" class="">
+          Skrypty Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lua/printing-labeled-images/" class="">
+          drukowanie oznakowanych zdjęć
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lua/exporting-images/" class="">
+          eksport zdjęć przy użyciu lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lua/calling-from-dbus/" class="">
+          wywołanie lua z dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lua/darktable-from-lua/" class="">
+          użycie darktable ze skryptu lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/guides-tutorials/" class="">
+          Przewodniki i tutoriale
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/guides-tutorials/monochrome/" class="">
+          wywoływanie zdjęć monochromatycznych
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/guides-tutorials/batch-editing/" class="">
+          wsadowa edycja zdjęć
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/" class="">
+          Tematy specjalne
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/" class="">
+          zarządzanie kolorem
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/display-profile/" class="">
+          profil monitora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/rendering-method/" class="">
+          metoda renderingu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/rendering-intent/" class="">
+          sposób odwzorowania barw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/color-spaces/" class="">
+          przestrzenie barwne darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/unbounded-colors/" class="">
+          kolory spoza zakresu
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/color-artifacts/" class="">
+          możliwe artefakty koloru
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-management/color-dimensions/" class="">
+          wymiary kolorów darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/opencl/setting-up/" class="">
+          setting up OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/opencl/problems-solutions/" class="">
+          możliwe problemy i rozwiązania
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/opencl/multiple-devices/" class="">
+          wiele urządzeń
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/" class="">
+          użycie darktable-chart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/overview/" class="">
+          przegląd
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/usage/" class="">
+          użycie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/source-image/" class="">
+          obraz źródłowy
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/reference-values/" class="">
+          wartości referencyjne
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/process/" class="">
+          praca ze zdjęciem
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/darktable-chart/making-input-images/" class="">
+          tworzenie zdjęć wejściowych dla darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/" class="">
+          uruchomienie programu
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/variables/" class="">
+          zmienne
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/color-pipeline/" class="">
+          kolejka przetwarzania koloru w darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/pl/special-topics/midi-device-support/" class="">
+          obsługa urządzeń midi
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

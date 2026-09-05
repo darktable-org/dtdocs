@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - labelen</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/nl\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/nl/module-reference/utility-modules/shared/tagging/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="labelen">
+<meta property="og:description" content="Beheer labels die aan afbeeldingen zijn gekoppeld.
+Labels bieden een manier om informatie aan afbeeldingen toe te voegen met behulp van een trefwoordenwoordenboek. Je kan labels ook beheren als een hiërarchische boomstructuur, wat handig kan zijn wanneer hun aantal groot wordt.
+Labels worden fysiek opgeslagen in XMP sidecar-bestanden en in de bibliotheekdatabase van darktable en kunnen worden opgenomen in [geëxporteerde](./export. md) afbeeldingen.
+🔗definities De volgende definities gaan ervan uit dat je een enkele tag hebt ingesteld met de naam “places|France|Nord|Lille”.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="nl">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/nl/module-reference/utility-modules/shared/tagging/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/nl/module-reference/utility-modules/shared/tagging/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/nl/module-reference/utility-modules/shared/tagging/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/nl/module-reference/utility-modules/shared/tagging/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/nl/module-reference/utility-modules/shared/tagging/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="nl"
+              role="option"
+              lang="nl"
+              href="https://darktable-org.github.io/dtdocs/nl/module-reference/utility-modules/shared/tagging/"
+              >Dutch</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/utility-modules/shared/tagging/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/utility-modules/shared/tagging/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/utility-modules/shared/tagging/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/utility-modules/shared/tagging/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/utility-modules/shared/tagging/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/utility-modules/shared/tagging/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/utility-modules/shared/tagging/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+
+<a href='/dtdocs/nl/'>darktable user manual</a> / <a href='/dtdocs/nl/module-reference/'>Module Referentie</a> / <a href='/dtdocs/nl/module-reference/utility-modules/'>toepassings modules</a> / <a href='/dtdocs/nl/module-reference/utility-modules/shared/'>gedeeld</a> / labelen
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/geotagging/" class="next">&lt; geotaggen</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/scopes/" class="prev">scopes &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        labelen
+    </h1>
+
+    
+
+    <p>Beheer labels die aan afbeeldingen zijn gekoppeld.</p>
+<p>Labels bieden een manier om informatie aan afbeeldingen toe te voegen met behulp van een trefwoordenwoordenboek. Je kan labels ook beheren als een hiërarchische boomstructuur, wat handig kan zijn wanneer hun aantal groot wordt.</p>
+<p>Labels worden fysiek opgeslagen in <a href="/dtdocs/nl/overview/sidecar-files/">XMP sidecar-bestanden</a> en in de bibliotheekdatabase van darktable en kunnen worden opgenomen in [geëxporteerde](./export. md) afbeeldingen.</p>
+<h1 id="definities"><a href="#definities">🔗</a>definities</h1>
+<p>De volgende definities gaan ervan uit dat je een enkele tag hebt ingesteld met de naam &ldquo;<code>places|France|Nord|Lille</code>&rdquo;.</p>
+<dl>
+<dt>label</dt>
+<dd>Een label is een beschrijvende tekenreeks die aan een afbeelding kan worden gekoppeld. Een label kan een enkele term zijn of een reeks verbonden termen die een pad vormen, gescheiden door het pijpsymbool. Bijvoorbeeld, &ldquo;<code>places|France|Nord|Lille</code>&rdquo; definieert een enkel label, waarbij elke term in het pad een kleinere subset vormt van de termen ervoor. Je kan zoveel tags aan een afbeelding toevoegen als je wilt.</dd>
+<dd>
+<p>Je kunt eigenschappen (naam, privé, categorie, synoniemen en afbeeldingsvolgorde) toewijzen aan een label.</p>
+</dd>
+<dd>
+<p>You can use tag names to define <a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/">collections</a> that are displayed, processed, and exported in a <em>durable</em> <a href="./collection-filters.md#custom-sort">custom sort</a> order, which does not change when other collections (containing some of the same images) are reordered.</p>
+</dd>
+<dt>Knooppunt</dt>
+<dd>Elk pad dat deel uitmaakt van een label is een knooppunt. In het bovenstaande voorbeeld zijn &ldquo;<code>plaatsen</code>&rdquo;, &ldquo;<code>plaatsen|Frankrijk</code>&rdquo;, &ldquo;<code>plaatsen|Frankrijk|Noord</code>&rdquo; en &ldquo;<code>plaatsen|Frankrijk|Noord|Lille</code>&rdquo; allemaal knooppunten. In de hiërarchische boomstructuur vormen de knopen de takken en bladeren van de boom.</dd>
+<dt>vrij knooppunt</dt>
+<dd>Elk knooppunt dat niet expliciet als label is gedefinieerd, wordt een vrij knooppunt genoemd. In het bovenstaande voorbeeld zijn &ldquo;<code>plaatsen</code>&rdquo;, &ldquo;<code>plaatsen|Frankrijk</code>&rdquo; en &ldquo;<code>plaatsen|Frankrijk|Noord</code>&rdquo; allemaal vrije knooppunten. Je kan geen eigenschappen instellen, behalve &ldquo;naam&rdquo;, voor een vrije knoop en je kan geen vrije knoop aan een afbeelding toevoegen. Zie het gedeelte &ldquo;meerdere tags&rdquo; hieronder voor meer informatie.</dd>
+<dt>categorie</dt>
+<dd>Elk label kan door de gebruiker worden gemarkeerd als een &ldquo;categorie&rdquo;.</dd>
+</dl>
+<h1 id="meervoudige-labels"><a href="#meervoudige-labels">🔗</a>meervoudige labels</h1>
+<p>De bovenstaande definities beschouwden een eenvoudig voorbeeld - een enkele label en zijn eigenschappen. Overweeg in plaats daarvan het scenario waarin de volgende vier door het pijpsymbool gescheiden labels elk afzonderlijk worden gedefinieerd in darktable.</p>
+<pre tabindex="0"><code>plaatsen|France|Nord|Lille
+plaatsen|France|Nord
+plaatsen|France
+plaatsen|England|London
+</code></pre><p>In dit geval zijn de knooppunten</p>
+<pre tabindex="0"><code>plaatsen
+plaatsen|France
+plaatsen|France|Nord
+plaatsen|France|Nord|Lille
+plaatsen|England
+plaatsen|England|London
+</code></pre><p>De enige vrije knooppunten zijn &ldquo;<code>plaatsen</code>&rdquo; en &ldquo;<code>plaatsen|England</code>&rdquo;. Beide vrije knooppunten zijn ook (impliciet) categorieën.</p>
+<p>Je kan elk van dezelabels aan elke afbeelding koppelen. Alle labels die aan een afbeelding zijn gekoppeld, behalve categorielabels, kunnen worden opgenomen wanneer die afbeelding <a href="/dtdocs/nl/module-reference/utility-modules/shared/export/">geëxporteerd</a> is.</p>
+<p>Als je het label &ldquo;<code>plaatsen|France|Nord|Lille</code>&rdquo; aan een afbeelding toevoegt, worden de labels &ldquo;<code>plaatsen|France|Nord</code>&rdquo; en &ldquo;<code>plaatsen|France</code>&rdquo; ook impliciet aan die afbeelding gekoppeld (je hoeft ze niet handmatig te bevestigen). Merk op dat dit hier alleen waar is omdat die extra labels afzonderlijk zijn gedefinieerd &ndash; het knooppunt &ldquo;`plaatsen&rsquo;&rdquo; is niet opgenomen omdat het een &ldquo;vrij knooppunt&rdquo; is (geen tag).</p>
+<h1 id="module-secties"><a href="#module-secties">🔗</a>module secties</h1>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/tagging-overview.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/tagging-overview.png" alt="labelen-overzicht"  class="w33"    /></a>
+
+</p>
+<p>De labelen-module bestaat uit twee delen</p>
+<ol>
+<li>
+<p>Het bovenste gedeelte <em>bijgevoegde labels</em> (met de <em>verbind/ontbind</em>-knoppen eronder)</p>
+</li>
+<li>
+<p>Het onderste gedeelte <em>labelwoordenboek</em> (met de knoppen <em>nieuw/importeren&hellip;/exporteren&hellip;</em> eronder)</p>
+</li>
+</ol>
+<h2 id="bijgevoegde-labels-sectie"><a href="#bijgevoegde-labels-sectie">🔗</a>bijgevoegde labels sectie</h2>
+<p>De sectie <em>bijgevoegde labels</em> geeft label(s) weer die aan afbeelding(en) zijn gekoppeld, waar die afbeeldingen zich bevinden</p>
+<ul>
+<li>
+<p>onder jouw muiscursor (als je over een afbeelding in de bibliotheekweergave zweeft); of</p>
+</li>
+<li>
+<p>momenteel geselecteerd (indien niet over een afbeelding zwevend)</p>
+</li>
+</ul>
+<p>Automatisch gegenereerde darktable labels (met namen beginnend met <code>darktable|</code>&quot;) kunnen niet geselecteerd worden.</p>
+<p>Onderaan het gedeelte <em>bijgevoegde labelss</em> staan de volgende knoppen, van links naar rechts:</p>
+<dl>
+<dt>verbind</dt>
+<dd>Als het label is geselecteerd in de sectie <em>label bibliotheek</em>, voeg dit label dan aan de geselecteerde afbeeldingen toe.</dd>
+<dt>ontbind</dt>
+<dd>Als een label is geselecteerd in de lijst <em>bijgevoegde labels</em>, koppel je dat label los van de geselecteerde afbeeldingen. Een label kan ook worden losgekoppeld als je met de rechtermuisknop op de labelnaam klikt en <em>ontbind</em> selecteert in het pop-upmenu.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/check-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/check-icon.png" alt="check-pictogram"  class="icon"    /></a>
+
+ verborgen labels</dt>
+<dd>kies of je verborgen labels wilt bekijken die darktable automatisch aan de geselecteerde afbeeldingen heeft toegevoegd.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/sort-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/sort-icon.png" alt="sorteer-pictorgam"  class="icon"    /></a>
+
+ sorteren</dt>
+<dd>Kies of je de lijst met <em>bijgevoegde labels</em> alfabetisch wilt sorteren of op het aantal dat tussen haakjes naast het label wordt weergegeven (dit aantal geeft aan hoeveel van de geselecteerde afbeeldingen dat label heeft).</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/minus-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/minus-icon.png" alt="minus-pictogram"  class="icon"    /></a>
+
+ ouders</dt>
+<dd>kies of je de bovenliggende categorieën van het label wilt weergeven.</dd>
+</dl>
+<p>Je kan de hoogte van het <em>bijgevoegde labels</em>-venster aanpassen door Ctrl ingedrukt te houden en te scrollen met jouw muiswiel.</p>
+<h2 id="label-woordenboeksectie"><a href="#label-woordenboeksectie">🔗</a>label woordenboeksectie</h2>
+<p>De sectie <em>label woordenboek</em> toont alle labels die beschikbaar zijn in de database van darktable. Boven aan het gedeelte <em>labelwoordenboek</em> bevindt zich een tekstvak waarin labelnamen kunnen worden ingevoerd. Hieronder vind je een lijst met beschikbare labels, die links van de labelnamen ook indicatorsymbolen kunnen bevatten. De betekenis van deze symbolen is als volgt:</p>
+<ul>
+<li>
+<p>een vinkje [✓] geeft aan dat het label aan alle geselecteerde afbeeldingen is bevestigd</p>
+</li>
+<li>
+<p>een minteken [&ndash;] geeft aan dat het label is gekoppeld aan ten minste één van de geselecteerde afbeeldingen. Als het symbool naast een knooppuntnaam staat in de hiërarchische _boom_weergave, betekent dit dat een van de onderliggende labels onder dat knooppunt is gekoppeld aan ten minste een van de geselecteerde afbeeldingen.</p>
+</li>
+<li>
+<p>als er geen indicatorsymbool aanwezig is, betekent dit dat het label niet is gekoppeld aan een van de geselecteerde afbeeldingen, of dat het knooppunt geen onderliggende labels heeft die zijn gekoppeld aan een van de geselecteerde afbeeldingen.</p>
+</li>
+</ul>
+<p>In de hiërarchische _boom_weergave vertegenwoordigt een cursieve naam een vrij knooppunt of een categorie.</p>
+<p>Onder de lijst met <em>labelwoordenboek</em> staan de volgende knoppen, van links naar rechts:</p>
+<dl>
+<dt>nieuw</dt>
+<dd>Maak een nieuw label met de naam die is ingevoerd in het tekstinvoervak bovenaan de sectie <em>label woordenboek</em>.</dd>
+<dt>importeren&hellip;</dt>
+<dd>labels importeren uit een bibliotheek-labelwoordenboek.</dd>
+<dt>exporteren&hellip;</dt>
+<dd>alle labels exporteren naar een bibliotheek-labelwoordenboek.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/plus-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/plus-icon.png" alt="plus-pictogram"  class="icon"    /></a>
+
+ suggesties</dt>
+<dd>een lijst met voorgestelde trefwoorden weergeven op basis van de trefwoorden die al aan de geselecteerde afbeeldingen zijn gekoppeld (zie de <a href="#voorkeuren">voorkeuren</a> sectie). VOORZICHTIG: Deze weergave doorzoekt de database en kan daarom traag zijn.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/list-tree-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/list-tree-icon.png" alt="list-tree-icon"  class="icon"    /></a>
+
+ lijst/boom</dt>
+<dd>Schakel de weergave van labels tussen de rechte <em>lijst</em>-weergave en de hiërarchische <em>boom</em>-weergave.</dd>
+</dl>
+<p>Je kan de hoogte van het _labelwoordenboek_venster aanpassen door Ctrl ingedrukt te houden terwijl je met jouw muiswiel scrolt.</p>
+<h1 id="gebruik"><a href="#gebruik">🔗</a>gebruik</h1>
+<p>In de volgende secties worden de bewerkingen beschreven die met labels kunnen worden uitgevoerd.</p>
+<h2 id="tekstinvoer"><a href="#tekstinvoer">🔗</a>tekstinvoer</h2>
+<p>Het tekstinvoervak (weergegeven onder de <em>verbind</em>/<em>ontbind</em>-knoppen) heeft meerdere doelen.</p>
+<ul>
+<li>
+<p>Als het <em>label woordenboek</em> zich in de <em>lijst</em> weergave-modus bevindt (in plaats van de <em>boom</em> weergave-modus), dan zal het typen van de eerste paar tekens van een tag een lijst met suggesties oproepen. Je kan dan naar beneden scrollen met de pijltjestoetsen en op Enter drukken om een van de suggesties te selecteren. Als je nogmaals op Enter drukt, wordt deze aan de geselecteerde afbeeldingen toegevoegd. Je kan ook de naam van het label bewerken voordat je op Enter drukt &ndash; in dit geval wordt het label gemaakt als deze nog niet in de database bestaat.</p>
+</li>
+<li>
+<p>Door wat gedeeltelijke tekst in het tekstinvoervak te typen, kunt u de reeks tags die in het _tag map_venster worden weergegeven, filteren op die waarvan de naam of het synoniem overeenkomt met de ingevoerde tekst. Druk op Enter om een tag met de ingevoerde naam aan de geselecteerde afbeeldingen toe te voegen. Als die tagnaam nog niet in de database is opgenomen, wordt deze aangemaakt voordat deze wordt gekoppeld.</p>
+</li>
+<li>
+<p>Het pop-upmenu-item &ldquo;kopiëren naar invoer&rdquo; kan worden gebruikt om een geselecteerd label naar het tekstinvoervak te kopiëren. Je kan deze naam vervolgens bewerken en op Enter drukken om een nieuw label met die naam te maken, zodat je gemakkelijk meerdere tags met vergelijkbare namen kan maken.</p>
+</li>
+</ul>
+<h2 id="label-maken"><a href="#label-maken">🔗</a>label maken</h2>
+<p>Er zijn verschillende manieren om een nieuw label aan te maken:</p>
+<ul>
+<li>
+<p><em>Importeer een tekstbestand</em>. Je kan een of meer tekstbestanden importeren in de bibliotheek-labelbestandsindeling. Je kan ook jouw labels exporteren, het geëxporteerde bestand bewerken en het vervolgens opnieuw importeren. De importfunctie werkt bestaande labels bij en maakt zo nodig nieuwe labels aan. Als je de naam van een label in een geïmporteerd bestand wijzigt, wordt deze als een nieuw label behandeld.</p>
+</li>
+<li>
+<p><em>Importeer reeds gelabelde afbeeldingen</em>. Deze methode biedt geen enkele flexibiliteit om labelnamen of categorieën te wijzigen tijdens het importproces.</p>
+</li>
+<li>
+<p><em>Gebruik het submenu “label maken”</em>. Een tag kan handmatig worden aangemaakt, onder een bestaande (hiërarchisch) of op rootniveau.</p>
+</li>
+<li>
+<p><em>Gebruik het submenu &ldquo;instellen als label&rdquo;</em>. Je kan een vrij knooppunt (bijv. ”<code>plaatsen|England</code>”) als label instellen, zodat het impliciet wordt gekoppeld aan alle afbeeldingen die zijn gelabeld met de bijbehorende sublabels (bijv. ”<code>plaatsen|England|London</code>”).</p>
+</li>
+<li>
+<p><em>Typ in het tekstvak en druk op de &ldquo;nieuwe&rdquo; knop</em> of de Enter knop. Hiërarchische labels worden gemaakt met behulp van het pijpsymbool &ldquo;<code>|</code>&rdquo; om knooppunten te scheiden. Houd er rekening mee dat het ingevoerde label ook is gekoppeld aan geselecteerde afbeeldingen.</p>
+</li>
+</ul>
+<p>Een aantal labels wordt automatisch gegenereerd door darktable wanneer bepaalde acties worden ondernomen. De labels &ldquo;<code>darktable|geëxporteerd'&quot; en &quot;</code>darktable|stijles|jouw_stijl&rsquo;&rdquo; kunnen bijvoorbeeld worden gebruikt om respectievelijk afbeeldingen te identificeren die zijn geëxporteerd en waarop stijlen zijn toegepast.</p>
+<h2 id="label-bewerkenhernoemen"><a href="#label-bewerkenhernoemen">🔗</a>label bewerken/hernoemen</h2>
+<p>Het <em>labelwoordenboek</em> kan worden onderhouden via de items &ldquo;bewerken&hellip;&rdquo; en &ldquo;pad wijzigen&hellip;&rdquo; in het snelmenu.</p>
+<p>Met de bewerking &ldquo;edit&hellip;&rdquo; kan je de naam van een label wijzigen, maar je kan niet wijzigen tot welke node deze behoort (je kan het pijp-symbool &ldquo;|&rdquo; in het labelnaamveld niet gebruiken). De opdracht wordt afgebroken als je probeert een labelnaam in te voeren die al bestaat. Je kan de vlaggen <em>privaat</em> en <em>categorie</em> instellen en <em>synoniemen</em> voor het label definiëren (zie hieronder). Deze attributen worden vastgelegd in respectievelijk de metadata-items &lsquo;XMP-dc Subject&rsquo; en &lsquo;XMP-lr Hiërarchical Subject&rsquo;. Je kan bepalen welke labels in exports worden opgenomen door instellingen in de module <a href="/dtdocs/nl/module-reference/utility-modules/shared/export/">export</a> te wijzigen.</p>
+<ul>
+<li>
+<p>Een label dat is ingesteld als &lsquo;privé&rsquo; wordt standaard niet geëxporteerd.</p>
+</li>
+<li>
+<p>Een label dat is ingesteld als “categorie” wordt niet geëxporteerd in <code>XMP-dc Subject</code>. Het wordt echter geëxporteerd in `XMP-lr Hiërarchisch onderwerp&rsquo; omdat deze XMP-metadata de organisatie van jouw labels bevatten.</p>
+</li>
+<li>
+<p>&ldquo;synoniemen&rdquo; verrijken de label-informatie en worden voornamelijk gebruikt om zoekmachines te helpen. Bijvoorbeeld &ldquo;jeugd&rdquo;, &ldquo;kleine&rdquo; of &ldquo;jongere&rdquo; kunnen worden ingesteld als synoniemen van &ldquo;kind&rdquo;. Synoniemen kunnen ook worden gebruikt om labelnamen naar andere talen te vertalen.</p>
+</li>
+</ul>
+<p>De bewerking &ldquo;pad wijzigen&hellip;&rdquo; is alleen beschikbaar in de _boom_weergavemodus en toont het aantal gelabelde afbeeldingen dat zou worden beïnvloed door een wijziging in de naam van dit knooppunt. In het venster pad wijzigen kan de gebruiker het volledige pad van het knooppunt wijzigen, inclusief de knooppunten waartoe het behoort (knooppunten kunnen worden gespecificeerd met behulp van het pijp &ldquo;<code>|</code>&quot;-symbool). Deze bewerking is krachtig, maar wees voorzichtig, want het kan een aanzienlijke impact hebben op de metadata van jouw afbeeldingen. De bewerking wordt afgebroken als de gevraagde wijziging een conflict veroorzaakt met een bestaande label.</p>
+<p>Een snelle manier om de labelstructuur te ordenen is door de knooppunten te slepen en neer te zetten. In de <em>boom</em>-weergavemodus kan je elk knooppunt slepen en op een ander knooppunt neerzetten. De eerste knoop en zijn nakomelingen, indien aanwezig, worden nakomelingen van de tweede knoop. Als je over een knooppunt sleept, wordt dat knooppunt automatisch geopend (om te voorkomen dat een knooppunt wordt geopend, sleept u in plaats daarvan over de knooppuntselectie-indicator). Om een knooppunt op het hoofdniveau te plaatsen, sleep je het naar de bovenkant van het labelings-venster. Als de gevraagde wijziging een conflict veroorzaakt met een bestaand label, wordt de bewerking afgebroken.</p>
+<h2 id="tag-bijvoegen"><a href="#tag-bijvoegen">🔗</a>tag bijvoegen</h2>
+<p>Er zijn een aantal manieren om een bestaand label aan een groep geselecteerde afbeeldingen te koppelen:</p>
+<ul>
+<li>
+<p>klik op een label in het <em>label woordenboek</em>-venster om deze te selecteren en klik vervolgens op de <em>verbind</em>-knop.</p>
+</li>
+<li>
+<p>klik met de rechtermuisknop op een label in het venster <em>label woordenboek</em> om een pop-upmenu weer te geven en selecteer vervolgens het menu-item “label toevoegen”.</p>
+</li>
+<li>
+<p>dubbelklik op een label in het venster <em>label woordenboek</em>.</p>
+</li>
+<li>
+<p>klik met de rechtermuisknop op een label dat wordt weergegeven in de weergave <em>bijgevoegde labels</em> om een pop-upmenu weer te geven. Als sommige van de geselecteerde afbeeldingen dat label momenteel niet hebben, kan het menu-item &ldquo;label aan alles toevoegen&rdquo; worden gebruikt om het label aan alle geselecteerde afbeeldingen toe te voegen.</p>
+</li>
+<li>
+<p>Typ in het tekstvak en druk op de &ldquo;nieuw&rdquo;-knop of de Enter-toets. Hiermee wordt het label gemaakt als deze nog niet bestaat, en wordt deze aan de geselecteerde afbeeldingen toegevoegd.</p>
+</li>
+<li>
+<p>Druk op Ctrl+T om een klein tekstvak onderaan de centrale weergave van de bibliotheekl te openen. Typ de naam van een label en druk op Enter. Het label wordt gemaakt als deze niet bestaat en aan alle geselecteerde afbeeldingen wordt toegevoegd.</p>
+</li>
+<li>
+<p>Sleep een afbeelding of groep afbeeldingen en zet deze neer op het gewenste label.</p>
+</li>
+</ul>
+<p>When hovering over the images in the lighttable you can check which tags are attached to the image, either by looking at the <em>attached tags</em> window in the <em>tagging</em> module, or in the <em>tags</em> attribute in the <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/">image information</a> module.</p>
+<h2 id="label-losmaken"><a href="#label-losmaken">🔗</a>label losmaken</h2>
+<p>Er zijn verschillende manieren om een label uit een groep geselecteerde afbeeldingen te verwijderen:</p>
+<ul>
+<li>
+<p>klik op een label in het <em>bijgevoegde label</em>-venster van de <em>labeling</em>-module om de label te selecteren en klik vervolgens op de knop <em>ontbind</em>.</p>
+</li>
+<li>
+<p>dubbelklik op een label in het <em>bijgevoegde label</em>-venster.</p>
+</li>
+<li>
+<p>klik met de rechtermuisknop op een label in het <em>bijgevoegde label</em>-venster om een popmenu weer te geven en selecteer &ldquo;ontbind&rdquo;.</p>
+</li>
+</ul>
+<h2 id="label-verwijderen"><a href="#label-verwijderen">🔗</a>label verwijderen</h2>
+<p>klik met de rechtermuisknop op een label in het <em>bijgevoegde label</em>-venster om een pop-upmenu weer te geven en selecteer &ldquo;ontbind label&rdquo;.</p>
+<ul>
+<li>
+<p>klik met de rechtermuisknop op een label in het <em>label woordenboek</em>-venster om een pop-upmenu weer te geven en kies &ldquo;ontbind label&rdquo;.</p>
+</li>
+<li>
+<p>klik met de rechtermuisknop op een vertakkingsknooppunt in het _label-woordenboek_venster om een pop-upmenu weer te geven, en kies &ldquo;knooppunt verwijderen&rdquo; om het geselecteerde knooppunt samen met eventuele onderliggende knooppunten te verwijderen.</p>
+</li>
+</ul>
+<h2 id="importeren--exporteren"><a href="#importeren--exporteren">🔗</a>importeren / exporteren</h2>
+<p>Met de knop &ldquo;importeren&rdquo; kan je een tekstbestand kiezen (dat moet voldoen aan de bibliotheek-labeltekstbestandsindeling) en de inhoud ervan importeren. Als er al een label in het geïmporteerde bestand bestaat, worden de eigenschappen ervan bijgewerkt, anders wordt er een nieuw label gemaakt.</p>
+<p>Met de knop &ldquo;exporteren&rdquo; exporteert je jouw volledige labelwoordenboek naar een tekstbestand naar keuze (bibliotheek-labeltekstbestandsindeling).</p>
+<h2 id="copy-tag-to-clipboard"><a href="#copy-tag-to-clipboard">🔗</a>copy tag to clipboard</h2>
+<p>It is possible to copy a single selected tag to the clipboard from both <em>attached tags</em> and <em>tag dictionary</em> sections by using the pop-up menu entry &ldquo;copy to clipboard&rdquo;.</p>
+<h2 id="find-tag"><a href="#find-tag">🔗</a>find tag</h2>
+<p>If you right-click on a tag name in the <em>attached tags</em> section and click <em>find tag</em>, then the <em>tag dictionary</em> will show all matching tags.</p>
+<h2 id="toetsenbord"><a href="#toetsenbord">🔗</a>toetsenbord</h2>
+<p>De volgende sleutels kunnen worden gebruikt binnen de tagging-module:</p>
+<ul>
+<li>
+<p>De Tab toets kan gebruikt worden om te navigeren tussen <em>gekoppelde labels</em> weergave, de tekst invoer veld en de <em>label map</em> weergave. Door op Tab te drukken in de tekst invoerveld wordt de eerst overeenkomstige label geselecteerd in de <em>label map</em> weergave (indien beschikbaar).</p>
+</li>
+<li>
+<p>De pijl omlaag toets is gelijk aan de Tab toets, wanneer ingedrukt in de tekst invoerveld.</p>
+</li>
+<li>
+<p>Shift+Tab doet hetzelfde als de Tab toets, maar werkt in de tegenovergestelde richting. Door te drukken op Shift+Tab in de tekst invoerveld wordt de eerste gebruikerslabel in de <em>gekoppelde labels</em> weergave geselecteerd (indien beschikbaar).</p>
+</li>
+<li>
+<p>De Enter toets kan in de _label map_weergave gebruikt worden om de geselecteerde label te koppelen en houd de focus op de gekoppelde label (op dezelfde manier als dat een label gekoppeld wordt met het gebruik van de muis).</p>
+</li>
+<li>
+<p>Door te drukken op Shift+Enter in de <em>label map</em> weergave gaat de focus terug naar de tekst invoerveld.</p>
+</li>
+<li>
+<p>De Delete / Backspace toetsen kunnen gebruikt worden in de <em>gekoppelde labels</em> weergave om de geselecteerde label te ontkoppelen.</p>
+</li>
+</ul>
+<h2 id="navigatie"><a href="#navigatie">🔗</a>navigatie</h2>
+<p>Om de afbeeldingen met een bepaald label in het <em>label woordenboek</em>-venster te zien, klik je met de rechtermuisknop op de labelnaam en kies je &ldquo;ga naar labelverzameling&rdquo; in het resulterende pop-upmenu. Dit opent een verzameling in de module <a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/">collecties</a> die alle afbeeldingen toont die dit label bevatten. Je kan in de module <em>collecties</em> ook andere labels selecteren door te dubbelklikken op de collectie voor de andere label.</p>
+<p>Om terug te keren naar de verzameling die was geselecteerd voordat een labelverzameling werd geopend, selecteer je het item &ldquo;terug aan het werk&rdquo; in het pop-up menu. Hiermee kan je terugkeren naar de oorspronkelijke collectie, zolang je in de tussentijd geen andere collecties hebt geselecteerd.</p>
+<h1 id="voorkeuren"><a href="#voorkeuren">🔗</a>voorkeuren</h1>
+<p>De &ldquo;voorkeuren&hellip;&rdquo; opties in de voorinstelling menu laat een dialoog venster zien waarin je het gedrag van de label suggestie lijst kan aanpassen. De label suggestie lijst bestaat uit twee delen met de beste overeenkomst labels aan een zijde en de meest recent gekoppelde labels aan de andere. De volgende opties zijn beschikbaar:</p>
+<dl>
+<dt>voorgestelde labels niveau van vertrouwen</dt>
+<dd>Niveau van vertrouwen gebruikt om de label toe te voegen aan de suggestie lijst (standaard 50):</dd>
+<dd><ul>
+<li>0: weergeven alle geassocieerde labels,</li>
+</ul>
+</dd>
+<dd><ul>
+<li>99: koppel labels met een vertrouwensniveau van 99%,</li>
+</ul>
+</dd>
+<dd><ul>
+<li>100: dit is uiteindelijk een onhaalbaar niveau van vertrouwen en geeft geen overeenkomstige labels terug. Gebruik 100% om de beste overeenkomst labels suggestie lijst uit te schakelen (sneller).</li>
+</ul>
+</dd>
+<dt>number of recently attached tags</dt>
+<dd>Number of recently attached tags to include in the suggestions list (default 20). A value of &ldquo;-1&rdquo; can be used to disable the most-recently-attached suggestions list.</dd>
+</dl>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/">
+            English: tagging
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/utility-modules/shared/tagging/">
+            Français: Mots-clés
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/utility-modules/shared/tagging/">
+            German: Verschlagwortung
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/utility-modules/shared/tagging/">
+            Lao: ການຕິດແທັກ
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/utility-modules/shared/tagging/">
+            Polish: nadawanie etykiet
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/utility-modules/shared/tagging/">
+            Português: etiquetas
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/utility-modules/shared/tagging/">
+            Ukrainian: Теги
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/geotagging/" class="next">&lt; geotaggen</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/scopes/" class="prev">scopes &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/" class="">
+          Overzicht
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/" class="">
+          gebruikersomgeving
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/views/" class="">
+          weergaven
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/screen-layout/" class="">
+          scherm layout
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/top-panel/" class="">
+          bovenpaneel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/keyboard-shortcuts/" class="">
+          snelkoppelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/supported-file-formats/" class="">
+          ondersteunde bestandsformaten
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/" class="">
+          sidecar bestanden en niet-destructieve bewerking
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/sidecar-import/" class="">
+          sidecar-bestanden importeren van andere applicaties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/local-copies/" class="">
+          lokale kopieën
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/" class="">
+          een inleiding tot de werkvolgorde van darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/introduction/" class="">
+          inleiding
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/import-review/" class="">
+          importeren &amp; beoordelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/process/" class="">
+          proces
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/" class="">
+          Bibliotheek
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-view-layout/" class="">
+          bibliotheek weergave layout
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/" class="">
+          bibliotheek modi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/full-preview/" class="">
+          volledige voorbeeldweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/" class="">
+          digitaal archief beheer
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/star-color/" class="">
+          sterbeoordelingen en kleurlabels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/grouping/" class="">
+          afbeeldingen groeperen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadata en labelen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/" class="">
+          Ontwikkelen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/darkroom-view-layout/" class="">
+          lay-out ontwikkelweergave
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/" class="">
+          de pixelpijp
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          de anatomie van een verwerkingsmodule
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/history-stack/" class="">
+          geschiedenis
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/undo-redo/" class="">
+          ongedaan maken / opnieuw uitvoeren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/" class="">
+          verwerkingsmodules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/module-header/" class="">
+          module koptekst
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/multiple-instances/" class="">
+          meerdere sessies
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/presets/" class="">
+          voorinstellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/curves/" class="">
+          curves
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/wavelets/" class="">
+          wavelets
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/deprecated/" class="">
+          verouderde modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/" class="">
+          maskeren &amp; overvloeien
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/blend-modes/" class="">
+          overvloei modes
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/" class="">
+          maskers
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/parametric/" class="">
+          parametrische maskers
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combineren van getekende- en parametrische- maskers
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/" class="">
+          organisatie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/module-groups/" class="">
+          modulegroepen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/manage-module-layouts/" class="">
+          module-indelingen beheren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/" class="">
+          Tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/tethering-view-layout/" class="">
+          lay-out van tetheringweergave
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/examples/" class="">
+          voorbeelden
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/troubleshooting/" class="">
+          Problemen oplossen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/" class="">
+          Kaart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/map-view-layout/" class="">
+          lay-out kaartweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/" class="">
+          Presentatie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/usage/" class="">
+          gebruik
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/" class="">
+          Print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/print-view-layout/" class="">
+          afdrukweergave lay-out
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/" class="">
+          Module Referentie
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/" class="">
+          toepassings modules
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/" class="">
+          bibliotheek
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/selected-image/" class="">
+          acties op selectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/select/" class="">
+          selectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/timeline/" class="">
+          tijdlijn
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/" class="">
+          gedeeld
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/" class="">
+          afbeeldingsinformatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/" class="">
+          collecties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/export/" class="">
+          exporteren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/focus-peaking/" class="">
+          focus peaking
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/geotagging/" class="">
+          geotaggen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/tagging/" class=" active">
+          labelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/scopes/" class="">
+          scopes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/recent-collections/" class="">
+          snelle verzamelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/" class="">
+          Kaart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/map-settings/" class="">
+          kaartinstellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/locations/" class="">
+          locaties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/find-location/" class="">
+          zoek locatie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/" class="">
+          ontwikkelen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          afbeelding informatie regel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/clipping/" class="">
+          clipping waarschuwing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/gamut/" class="">
+          gamma controle
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/history-stack/" class="">
+          geschiedenis
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          hulplijnen en overlays
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          masker-manager
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/navigation/" class="">
+          navigatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          raw overbelicht waarschuwing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/" class="">
+          print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/print-settings/" class="">
+          printer instellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/" class="">
+          tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/camera-settings/" class="">
+          camera instellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/live-view/" class="">
+          live weergave
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/session/" class="">
+          sessie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/" class="">
+          verwerkingsmodules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/base-curve/" class="">
+          basis curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/exposure/" class="">
+          belichting
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/censorize/" class="">
+          censureren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/chromatic-aberrations/" class="">
+          chromatische aberraties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/" class="">
+          contrast equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/diffuse/" class="">
+          diffuus of verscherpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/dither-or-posterize/" class="">
+          dither of posterisatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/split-toning/" class="">
+          duo-toning
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/bloom/" class="">
+          glans
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/graduated-density/" class="">
+          grijsverloop
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highpass/" class="">
+          highpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highlight-reconstruction/" class="">
+          hooglichten herstellen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/colorize/" class="">
+          inkleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-reconstruction/" class="">
+          kleur reconstructie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-contrast/" class="">
+          kleurcontrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-correction/" class="">
+          kleurcorrectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance/" class="">
+          kleurenbalans
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance-rgb/" class="">
+          kleurenbalans rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-mapping/" class="">
+          kleurenkaart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-calibration/" class="">
+          kleurkalibratie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-zones/" class="">
+          kleurzones
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/local-contrast/" class="">
+          lokaal contrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowpass/" class="">
+          lowpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lut-3d/" class="">
+          LUT 3D
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/monochrome/" class="">
+          monochroom
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/framing/" class="">
+          omlijsten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/astrophoto-denoise/" class="">
+          ontruis astrofoto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/surface-blur/" class="">
+          oppervlakte vervaging
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          raw chromatische aberraties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-black-white-point/" class="">
+          raw zwart/wit punt
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/retouch/" class="">
+          retoucheren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rgb-primaries/" class="">
+          rgb basiskleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rotate-perspective/" class="">
+          roteren en perspectief
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/denoise-profiled/" class="">
+          ruisreductie (profiel)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/shadows-and-highlights/" class="">
+          schaduwen en hooglichten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sigmoid/" class="">
+          sigmoïdale
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-curve/" class="">
+          toon curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-equalizer/" class="">
+          toon equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/liquify/" class="">
+          uitvloeien
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/velvia/" class="">
+          velvia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/unbreak-input-profile/" class="">
+          verbreek ingaand profiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sharpen/" class="">
+          verscherpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/blurs/" class="">
+          vervagen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/soften/" class="">
+          verzachten (soften)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/vignetting/" class="">
+          vignettering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/watermark/" class="">
+          watermerk
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowlight-vision/" class="">
+          zicht bij weinig licht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/basic-adjustments/" class="">
+          (deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/channel-mixer/" class="">
+          (deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/crop-rotate/" class="">
+          (deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/defringe/" class="">
+          (deprecated) defringe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/global-tonemap/" class="">
+          (deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/levels/" class="">
+          (deprecated) levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/spot-removal/" class="">
+          (deprecated) spot removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-mapping/" class="">
+          (deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/zone-system/" class="">
+          (deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/" class="">
+          Voorkeuren en instellingen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/lighttable/" class="">
+          bibliotheek
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/darkroom/" class="">
+          ontwikkelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/presets/" class="">
+          voorinstellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/" class="">
+          Scripten met Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/printing-labeled-images/" class="">
+          gelabelde afbeeldingen afdrukken
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/exporting-images/" class="">
+          afbeeldingen exporteren met lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/calling-from-dbus/" class="">
+          lua aanroepen vanuit dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/darktable-from-lua/" class="">
+          darktable gebruiken vanuit een lua-script
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/api/" class="">
+          lua API
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/" class="">
+          Gidsen en handleidingen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/monochrome/" class="">
+          ontwikkeling van monochrome afbeeldingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/batch-editing/" class="">
+          batch-bewerking afbeeldingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/" class="">
+          Speciale onderwerpen
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/" class="">
+          kleurbeheer
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/display-profile/" class="">
+          schermprofiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-method/" class="">
+          rendermethode
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-intent/" class="">
+          renderintentie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-spaces/" class="">
+          kleurruimten van darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/unbounded-colors/" class="">
+          ongebonden kleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-artifacts/" class="">
+          mogelijke kleurartefacten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-dimensions/" class="">
+          kleurdimensies van darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/setting-up/" class="">
+          setting up OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/problems-solutions/" class="">
+          mogelijke problemen &amp; oplossingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/multiple-devices/" class="">
+          meerdere apparaten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/" class="">
+          darktable-chart gebruiken
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/usage/" class="">
+          gebruik
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/source-image/" class="">
+          bronafbeelding
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/reference-values/" class="">
+          referentiewaarden
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/process/" class="">
+          proces
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/making-input-images/" class="">
+          invoerafbeeldingen maken voor darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/" class="">
+          programma oproepen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/variables/" class="">
+          variabelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/" class="">
+          darktable&#39;s kleurenpijplijn
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/midi-device-support/" class="">
+          ondersteuning voor midi-apparaten
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

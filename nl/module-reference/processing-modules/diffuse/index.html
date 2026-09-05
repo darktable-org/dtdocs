@@ -1,0 +1,2612 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - diffuus of verscherpen</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/nl\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/diffuse/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="diffuus of verscherpen">
+<meta property="og:description" content="Technical information omschrijving simuleer gerichte diffusie van licht met een warmteoverdrachts- model voor een iteratieve randgerichte vervaging, ‘inpainten’ van beschadigde delen, of verscherping door blinde deconvolutie. doel correctief en creatief. invoer lineair, RGB, scène-gerefereerd. verwerk lineair, RGB. uitvoer lineair, RGB, scène-gerefereerd. Diffusie is een familie van fysieke processen waarbij deeltjes bewegen en zich geleidelijk met de tijd verspreiden, vanuit een bron die ze genereert. Bij beeldverwerking vindt diffusie meestal op twee plaatsen plaats:">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="nl">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/nl/module-reference/processing-modules/diffuse/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/nl/module-reference/processing-modules/diffuse/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/nl/module-reference/processing-modules/diffuse/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/nl/module-reference/processing-modules/diffuse/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/nl/module-reference/processing-modules/diffuse/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="nl"
+              role="option"
+              lang="nl"
+              href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/diffuse/"
+              >Dutch</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/diffuse/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/diffuse/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/diffuse/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/diffuse/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/diffuse/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/diffuse/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/diffuse/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/diffuse/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/nl/'>darktable user manual</a> / <a href='/dtdocs/nl/module-reference/'>Module Referentie</a> / <a href='/dtdocs/nl/module-reference/processing-modules/'>verwerkingsmodules</a> / diffuus of verscherpen
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/" class="next">&lt; contrast equalizer</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/processing-modules/dither-or-posterize/" class="prev">dither of posterisatie &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        diffuus of verscherpen
+    </h1>
+
+    
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt>omschrijving</dt>
+<dd>simuleer gerichte diffusie van licht met een warmteoverdrachts- model voor een iteratieve randgerichte vervaging, &lsquo;inpainten&rsquo; van beschadigde delen, of verscherping door blinde deconvolutie.</dd>
+<dt>doel</dt>
+<dd>correctief en creatief.</dd>
+<dt>invoer</dt>
+<dd>lineair, RGB, scène-gerefereerd.</dd>
+<dt>verwerk</dt>
+<dd>lineair, RGB.</dd>
+<dt>uitvoer</dt>
+<dd>lineair, RGB, scène-gerefereerd.</dd>
+</dl>
+</details>
+
+<p>Diffusie is een familie van fysieke processen waarbij deeltjes bewegen en zich geleidelijk met de tijd verspreiden, vanuit een bron die ze genereert. Bij beeldverwerking vindt diffusie meestal op twee plaatsen plaats:</p>
+<ul>
+<li>
+<p>diffusie van fotonen door lensglas (blur) of vochtige lucht (nevel),</p>
+</li>
+<li>
+<p>diffusie van pigmenten in natte inkten of aquarellen.</p>
+</li>
+</ul>
+<p>In beide gevallen maakt diffusie het beeld minder scherp door deeltjes te &ldquo;lekken&rdquo; en lokale variaties glad te strijken.</p>
+<p>De module <em>diffuus of verscherpen</em> gebruikt een gegeneraliseerd fysiek model om verschillende soorten diffusie te beschrijven, en kan door beeldmakers worden gebruikt om diffusieprocessen te simuleren of terug te draaien.</p>
+<p>Omdat het een zeer technische module is, zijn er verschillende presets beschikbaar om het gebruik voor verschillende doeleinden te demonstreren.</p>
+<p>Diffusie kan worden verwijderd om:</p>
+<ul>
+<li>
+<p>herstel het originele beeld van sensoren met een anti-aliasingfilter of verzacht de onscherpte die wordt veroorzaakt door de meeste demozaïekalgoritmen (gebruik een van de <em>verscherp demozaïek</em> voorinstellingn en verplaats de module vóór de <em>ingaand kleurprofiel</em>-module in de pijplijn),</p>
+</li>
+<li>
+<p>omgekeerde statische lensvervaging/onscherpte (gebruik een van de <em>lens deblur</em>-presets),</p>
+</li>
+<li>
+<p>atmosferische nevel verwijderen (gebruik de <em>nevel verwijderen</em>-voorinstelling),</p>
+</li>
+<li>
+<p>voeg extra scherpte toe voor een betere leesbaarheid (gebruik de <em>lokaal contrast</em> voorinstelling).</p>
+</li>
+</ul>
+<p>Merk op dat bewegingsonscherpte niet ongedaan kan worden gemaakt door het diffusieproces ongedaan te maken, omdat ze niet diffuus van aard zijn.</p>
+<p>Diffusie kan worden toegevoegd om:</p>
+<ul>
+<li>
+<p>maak een gloei- of Orton-effect (gebruik de <em>gloei</em>-preset),</p>
+</li>
+<li>
+<p>vul ontbrekende of beschadigde delen van een afbeelding (gebruik de <em>vul hooglichten</em> voorinstelling),</p>
+</li>
+<li>
+<p>ontruis op een randbehoudende manier (gebruik een van de <em>ruisreductie</em>-voorinstellingen)</p>
+</li>
+<li>
+<p>een oppervlaktevervaging toepassen (gebruik de voorinstelling <em>oppervlakvervaging</em>).</p>
+</li>
+</ul>
+<p>Omdat het proces fysiek is, kunnen zelfs ongewenste effecten voor creatieve doeleinden worden gebruikt. Je kan bijvoorbeeld:</p>
+<ul>
+<li>
+<p>lijntekening of aquarel simuleren (gebruik de voorinstellingen <em>simuleer lijntekening</em> en <em>simuleer aquarel</em>),</p>
+</li>
+<li>
+<p>creëer willekeurige patronen en texturen door ruis te vergroten (na verloop van tijd, met iteraties, zal ruis contact maken met buren om willekeurige stippen te creëren).</p>
+</li>
+</ul>
+<hr>
+<p><strong>Opmerking:</strong> Deze module vergt veel rekenkracht, omdat het in feite een anisotrope, meerschalige partiële differentiaalvergelijkingsoplosser is. De looptijd van de module neemt toe met het aantal iteraties en OpenCL wordt daarom sterk aanbevolen. Sommige &ldquo;snelle&rdquo; voorinstellingen zijn ook beschikbaar voor gebruik op systemen zonder OpenCL.</p>
+<hr>
+<h1 id="concepten"><a href="#concepten">🔗</a>concepten</h1>
+<h2 id="tijd"><a href="#tijd">🔗</a>tijd</h2>
+<p>Diffusie is een tijdsafhankelijk proces: hoe meer tijd het heeft, hoe verder de deeltjes zich kunnen verspreiden. In deze module wordt tijd gesimuleerd met behulp van het aantal iteraties (het aantal keren dat het algoritme boven op zichzelf draait). Meer iteraties kunnen de reconstructie (vervaging wegwerken, ruisreductie, nevel verwijderen) nauwkeuriger maken als deze correct is ingesteld, maar kan er ook voor zorgen dat deze degenereert.</p>
+<h2 id="richting"><a href="#richting">🔗</a>richting</h2>
+<p>Natuurlijke diffusie vindt meestal plaats van punten met een hoog potentieel (hoge energie of hoge concentratie van deeltjes) naar punten met een laag potentieel (lage energie of lage concentratie van deeltjes). In een afbeelding betekent dit dat diffusie altijd plaatsvindt van de helderste pixels naar de donkerste.</p>
+<p>Deze specifieke implementatie kan natuurlijke diffusie simuleren, met behulp van wat een isotrope diffusie wordt genoemd (alle richtingen hebben hetzelfde gewicht, zoals warmtediffusie), maar kan ook een gewogen richting evenwijdig aan de gradiënten forceren (diffusie over objectranden forceren en spookranden creëren) , of een gewogen richting loodrecht op de gradiënten, isofoot genoemd (dwingt diffusie binnen randen te houden, zoals in een druppel waterverf). Het relatieve gewicht van elke richting (gradiënt en isofiet) is door de gebruiker gedefinieerd en kan worden gevonden in de sectie <a href="#richting"><em>richting</em></a> van de module.</p>
+<h2 id="snelheid"><a href="#snelheid">🔗</a>snelheid</h2>
+<p>Afhankelijk van hoe vloeibaar de omgeving is, kunnen deeltjes min of meer vrij bewegen en dus min of meer snel. De diffusiesnelheid kan worden ingesteld in de sectie <a href="#diffusiesnelheid"><em>snelheid</em></a> van de module.</p>
+<p>Bij het uitvoeren van reconstructies (ruisreductie, verscherpen, nevel verwijderen) is het raadzaam om kleinere snelheden te gebruiken voor een betere nauwkeurigheid. Dit voorkomt numerieke overshoots (en dus degeneratie van de oplossing) en kan meer iteraties vereisen. Voor kleine aantallen iteraties kunnen hogere snelheden worden gebruikt. Merk op dat grote vervagingen veel iteraties nodig hebben voor een goede reconstructie, dus de snelheid moet worden aangepast om te voorkomen dat de oplossing degenereert.</p>
+<p>Alle snelheden worden opgeteld (eerste tot vierde orde), en de sommen &ldquo;<code>eerste orde + tweede orde</code>&rdquo; en &ldquo;<code>derde orde + vierde orde</code>&rdquo; mogen nooit groter zijn dan ±100%, tenzij u <a href="https://en.wikipedia.org/wiki/Glitch_art" target="_blank">glitch art</a> wilt produceren.</p>
+<h2 id="schaal"><a href="#schaal">🔗</a>schaal</h2>
+<p>Natuurlijke diffusie wordt verondersteld alleen te gebeuren met de dichtstbijzijnde naburige coördinaten. Dat wil zeggen, bij elke iteratie mag elke pixel alleen interactie hebben met zijn 9 dichtstbijzijnde buren.</p>
+<p>Hier versnellen we de zaken een beetje om tijd te besparen en het meerschalige wavelets-schema van de <a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/"><em>contrast equalizer</em></a> module opnieuw te gebruiken, zodat we op verschillende schalen kunnen diffunderen. De maximale diffusieschaal wordt gedefinieerd door de parameter <em>straalbereik</em>.</p>
+<p>Ongeacht de diffusie, kan jemet een <em>scherpte</em>-parameter de details op elke schaal vergroten of verkleinen, net zoals de spline-instellingen van de <em>contrast-equalizer</em>. Samen met de <em>randgevoeligheid</em> schuiregelaar biedt dit dezelfde functies als de <em>contrast equalizer</em> module (<em>luma</em> en <em>rand</em> tabs), maar in een scene-gerefereerde RGB-ruimte.</p>
+<h1 id="module-instellingen"><a href="#module-instellingen">🔗</a>module instellingen</h1>
+<h2 id="kenmerken"><a href="#kenmerken">🔗</a>kenmerken</h2>
+<dl>
+<dt>iteraties</dt>
+<dd>Het aantal keren dat het algoritme bovenop zichzelf moet draaien. Hoge waarden vertragen de module, maar maken nauwkeurigere reconstructies mogelijk, op voorwaarde dat de diffusiesnelheden laag genoeg zijn.</dd>
+<dt>centrale straal</dt>
+<dd>De hoofdschaal van de diffusie. Nul zorgt ervoor dat de diffusie zwaarder werkt op fijne details (gebruikt voor onscherpte en ruisonderdrukking). Waarden die niet nul zijn, definiëren de grootte van details die sterk verspreid moeten worden (gebruikt om het lokale contrast te vergroten).</dd>
+<dt>straal span</dt>
+<dd>Hiermee kan je de band met detailradii selecteren om op te werken, rond de centrale straal. De diffusiespanwijdte definieert een reeks detailschalen (tussen &lsquo;center - span&rsquo; en &lsquo;center + span&rsquo;) waarbinnen de diffusie wordt beperkt. Hoge waarden diffunderen over een grote band van stralen, ten koste van rekentijd. Lage waarden diffunderen dichter rond de centrale straal. Als je van plan bent om onscherpte te verwijderen, moet de straal ongeveer de breedte van uw lensonscherpte zijn en moet de centrale straal nul zijn. Als je van plan bent om het lokale contrast te vergroten, maar de scherpte of ruis niet wilt beïnvloeden, moet de radiusspanwijdte 3/4 van uw centrale radiusmaximum zijn.</dd>
+</dl>
+<p>De stralen worden uitgedrukt in pixels van de afbeelding met volledige resolutie, dus instellingen voor kopiëren en plakken tussen afbeeldingen met verschillende resoluties kunnen tot licht verschillende resultaten leiden, behalve voor de scherpte op pixelniveau.</p>
+<p>Voor elektrotechnici is hier een banddoorlaatfilter in de wavelets-ruimte ingesteld, waarbij gebruik wordt gemaakt van een gaussiaans frequentievenster dat is gecentreerd op de &lsquo;centrale straal&rsquo; met een uitval (standaarddeviatie) van &lsquo;radius bereik&rsquo;. Wavelet-schalen zijn analoog aan harmonische frequenties en elke wavelet-schaal definieert de straal van de details waarop moet worden gereageerd.</p>
+<h2 id="snelheid-verscherpen--diffuus"><a href="#snelheid-verscherpen--diffuus">🔗</a>snelheid (verscherpen ↔ diffuus)</h2>
+<p>In de volgende bediening voegen positieve waarden diffusie toe en negatieve waarden maken diffusie ongedaan (ofwel verscherpen) en nul doet niets.</p>
+<dl>
+<dt>1e orde snelheid (gradiënt)</dt>
+<dd>De diffusiesnelheid van de laagfrequente wavelet lagen in de richting gedefinieerd door de instelling van de <em>1e orde anisotropie</em>.</dd>
+<dt>2e orde snelheid (laplacian)</dt>
+<dd>De diffusiesnelheid van de laagfrequente waveletlagen in de richting gedefinieerd door de instelling <em>2e orde anisotropie</em>.</dd>
+<dt>3e orde snelheid (gradiënt van laplaciaan)</dt>
+<dd>De diffusiesnelheid van de hoogfrequente waveletlagen in de richting gedefinieerd door de instelling van de <em>3e orde anisotropie</em>.</dd>
+<dt>4e orde snelheid (laplacian of laplacian)</dt>
+<dd>De diffusiesnelheid van de hoogfrequente waveletlagen in de richting gedefinieerd door de instelling van de <em>4e-orde anisotropie</em>.</dd>
+</dl>
+<h2 id="richting-1"><a href="#richting-1">🔗</a>richting</h2>
+<p>Bij de volgende bediening geven positieve waarden zorgen dat diffusie randen vermijd (isofoto&rsquo;s), negatieve waarden zorgen dat de diffusie de gradiënten meer nauwlettend volgen en nul heeft op beide evenveel invloed (isotroop).</p>
+<dl>
+<dt>1e orde anisotropie</dt>
+<dd>De diffusierichting van de laagfrequente wavelet lagen ten opzichte van de oriëntatie van de gradiënt van de laagfrequente (<em>1e orde snelheid</em> instelling)</dd>
+<dt>2e orde anisotropie</dt>
+<dd>De diffusierichting van de laagfrequente waveletlagen ten opzichte van de oriëntatie van de gradiënt van de hoogfrequente (<em>2e orde snelheid</em> instelling).</dd>
+<dt>3e orde anisotropie</dt>
+<dd>De diffusierichting van de hoogfrequente waveletlagen ten opzichte van de oriëntatie van de gradiënt van de laagfrequente (_3e orde snelheid instelling).</dd>
+<dt>4e orde anisotropie</dt>
+<dd>De diffusierichting van de hoogfrequente waveletlagen ten opzichte van de oriëntatie van de gradiënt van de hoogfrequente (<em>4e orde snelheid</em> instelling).</dd>
+</dl>
+<h2 id="rand-beheer"><a href="#rand-beheer">🔗</a>rand beheer</h2>
+<dl>
+<dt>scherpte</dt>
+<dd>Een versterking toepassen op wavelet details, ongeacht hierboven ingestelde eigenschappen. Nul doet niets, positieve waarden verscherpen, negatieve waarden vervagen. Dit is vooral handig als aanpassingsvariabele bij uitbloeien of vervagen, om wat scherpte te behouden terwijl er een gloed rond randen wordt toegevoegd. Het is niet aan te raden om dit alleen voor het slijpen te gebruiken, aangezien er met deze instelling niets is dat halo&rsquo;s of franjes voorkomt.</dd>
+<dt>randgevoeligheid</dt>
+<dd>Pas een boete toe op de diffusiesnelheden wanneer randen worden gedetecteerd. Deze detectie gebruikt de lokale variantie rond elke pixel. Nul schakelt de straf uit, hogere waarden maken de straf sterker en gevoeliger voor randen. Verhoog als je randartefacten zoals franjes en halo&rsquo;s opmerkt.</dd>
+<dt>rand drempel</dt>
+<dd>Definieer een variantiedrempel die vooral van invloed is op gebieden met een lage variantie (donkere of wazige gebieden of vlakke oppervlakken). Positieve waarden verhogen de straf voor gebieden met een lage variantie, wat goed is voor het verscherpen of vergroten van het lokale contrast zonder zwarten te verpletteren. Negatieve waarden verminderen de straf voor gebieden met een lage variantie, wat goed is voor ruisonderdrukking of vervaging met een maximaal effect op zwarte en wazige gebieden.</dd>
+</dl>
+<h2 id="diffusieruimtelijkheid"><a href="#diffusieruimtelijkheid">🔗</a>diffusieruimtelijkheid</h2>
+<dl>
+<dt>luminantie maskeerdrempel</dt>
+<dd>Deze instelling is handig als je markeringen in de verf wilt aanbrengen. Voor waarden groter dan 0% zal de diffusie alleen plaatsvinden in gebieden met een luminantie groter dan deze instelling. Merk op dat in deze regio&rsquo;s Gauss-ruis wordt toegevoegd om deeltjes te simuleren en de in-painting te initialiseren.</dd>
+</dl>
+<h1 id="werkvolgorde"><a href="#werkvolgorde">🔗</a>werkvolgorde</h1>
+<p>The main difficulty with this module is that while its output can vary dramatically depending on its input parameters, these parameters have no intuitive link to everyday life. Users are likely to be overwhelmed, unless they are already familiar with Fourier partial differential equations. This section proposes some ways to approach this module without the burden of having to understand the underlying theory.</p>
+<h2 id="globaal-advies"><a href="#globaal-advies">🔗</a>globaal advies</h2>
+<p>If you intend to deblur your image using this module, always start by properly correcting any chromatic aberrations and noise in the image, since the deblurring may magnify these artifacts. It is also important that you don&rsquo;t have clipped black pixels in your image. These can be corrected with the <em>black level correction</em> of the <a href="/dtdocs/nl/module-reference/processing-modules/exposure/"><em>exposure</em></a> module.</p>
+<p>Aangezien het op aparte RGB-kanalen werkt, is het beter deze module toe te passen na <a href="/dtdocs/nl/module-reference/processing-modules/color-calibration/"><em>kleurkalibratie</em></a>, zodat je begint met een volledig neutraal, witgebalanceerd, invoerbeeld. Merk op dat het verhogen van lokaal contrast of scherpte ook zal leiden tot een licht kleurcontrast en verzadiging, wat meestal een goede zaak is. Aangezien het een op variaties gebaseerde regularisatie gebruikt om randen te detecteren, is het ook beter om deze module voor een niet-lineaire operatie te plaatsen.</p>
+<h2 id="beginnend-met-voorinstellingen"><a href="#beginnend-met-voorinstellingen">🔗</a>beginnend met voorinstellingen</h2>
+<p>De meegeleverde voorinstellingen zijn door de ontwikkelaar afgestemd en getest op een reeks afbeeldingen voor typische doeleinden. De gemakkelijkste manier is om gewoon te beginnen met de voorinstellingen en ze vervolgens naar behoefte aan te passen:</p>
+<ul>
+<li>
+<p>als het effect te sterk lijkt, verminder dan het aantal iteraties,</p>
+</li>
+<li>
+<p>als er randartefacten verschijnen, verhoog dan de randgevoeligheid,</p>
+</li>
+<li>
+<p>als de vervaging verwijderen invloed begint te hebben op geldige wazige delen (bokeh), verklein dan de straal,</p>
+</li>
+<li>
+<p>als onscherpte correct lijkt in heldere gebieden, maar overdreven in donkere gebieden, verhoog dan de randen <em>drempel</em>,</p>
+</li>
+<li>
+<p>als de vervaging van zwarte pixels wordt verwijderd, verlaagt u de <em>zwartniveaucorrectie</em> in de <em>belichtings</em>-module,</p>
+</li>
+<li>
+<p>verfijn de <em>scherpte</em> naar jouw smaak.</p>
+</li>
+</ul>
+<h2 id="starten-bij-het-begin"><a href="#starten-bij-het-begin">🔗</a>starten bij het begin</h2>
+<p>De standaardinstellingen van de module zijn volledig neutraal en doen niets aan jouw afbeelding. De idee van de module is dat elke volgorde de textuur van de afbeelding op een bepaalde manier beïnvloedt.</p>
+<p>Begin met het afstemmen van de parameters van de eerste orde (snelheid en anisotropie) om een eerste basis te krijgen. Pas vervolgens de straal aan. Dit heeft invloed op grovere texturen (vervagen of verscherpen). Onthoud dat de eerste orde inwerkt op de lage frequenties van de wavelet-schaal en een richting volgt die evenwijdig of loodrecht staat op de gradiënt van de lage frequenties.</p>
+<p>Begin vervolgens met het afstemmen van de parameters van de tweede orde (snelheid en anisotropie). De tweede orde werkt ook op de lage frequenties van de wavelet-schaal, maar deze keer volgt een richting evenwijdig aan of loodrecht op de gradiënt van de <em>hoge</em> frequenties, die ofwel de richting van maximale scherpte of van ruis kan zijn. Dit kan worden gebruikt om ruis te verminderen (met behulp van de tweede orde in diffusiemodus, met positieve waarden) wanneer u de eerste orde in verscherpingsmodus gebruikte (met negatieve waarden).</p>
+<p>Deze twee stappen kunnen worden uitgevoerd op de uitgezoomde afbeelding. Onthoud dat, hoewel er grote zorg is besteed om het visuele resultaat van het algoritme redelijk schaalinvariant te maken, het voorbeeld alleen exact zal zijn als er 1:1 wordt ingezoomd. Alles wat op pixelniveau (straal &lt; 2px) gebeurt, is in ieder geval niet zichtbaar voor zoomniveaus lager dan 50%.</p>
+<p>Op dit punt wil je misschien de randgevoeligheid aanpassen om voor eventuele randartefacten te zorgen. In theorie zorgt diffunderen in de isofotische richting ervoor dat de diffusie binnen de randen wordt beperkt, maar dit is niet voldoende wanneer hoeken en scherpe convexe vormen in het beeld aanwezig zijn.</p>
+<p>Wanneer de randgevoeligheidsregeling is aangepast om bevredigende resultaten te produceren, wordt het beeld meestal vrij zacht. In de meeste gevallen zal het op dit punt nodig zijn om het aantal iteraties te verhogen om te compenseren. Dit gaat gepaard met een prestatiestraf, dus ga voorzichtig om met de afweging tussen prestaties en kwaliteit, afhankelijk van jouw hardware. Als je het aantal iteraties niet kan verhogen, moet je de diffusiesnelheid verhogen.</p>
+<p>De laatste stap is het verfijnen van de derde en vierde orde, die zorgen voor de hoge frequenties van elke wavelet-schaal. Je zult veel voorzichtiger moeten zijn met deze instellingen dan voor de eerste en tweede bestelling, omdat ze ervoor kunnen zorgen dat de ruis heel snel opblaast.</p>
+<p>De derde orde volgt de gradiënt of isofote richting van de laagfrequente laag, en kan dus worden gebruikt om de hoogfrequente diffusie te leiden in een richting die waarschijnlijker legitiem is met betrekking tot echte randen (en minder geneigd om ruis op te vangen).</p>
+<p>De vierde orde volgt de gradiënt of isofote richting van de hoogfrequente laag en heeft meer kans om ruis op te vangen. Diffuus op de vierde orde is de beste manier om ruis te verminderen zonder de scherpte al te veel aan te tasten, hetzij als een op zichzelf staande ruisonderdrukking, hetzij als een regularisatiestap in een onscherpteproces.</p>
+<h1 id="meerdere-instanties-gebruiken-voor-beeldreconstructie"><a href="#meerdere-instanties-gebruiken-voor-beeldreconstructie">🔗</a>meerdere instanties gebruiken voor beeldreconstructie</h1>
+<p>Ruis na filtering kan baat hebben bij <strong>introductie</strong> van een diffusieproces &ndash; dit kan worden toegepast als een extra stap na de <a href="/dtdocs/nl/module-reference/processing-modules/denoise-profiled/"><em>ruisreductie (profiel)</em></a> module.</p>
+<p>Omgekeerd kunnen de volgende optische problemen baat hebben bij reconstructie door het diffusieproces <strong>ongedaan te maken</strong>:</p>
+<ol>
+<li>
+<p>onscherpte veroorzaakt door een laagdoorlaatfilter (LPF) van een sensor en/of anti-aliasing uitgevoerd door de <a href="./demosaic.md"><em>demozaïek</em></a> module,</p>
+</li>
+<li>
+<p>statische lensvervaging,</p>
+</li>
+<li>
+<p>nevel/mist,</p>
+</li>
+<li>
+<p>lichtverspreiding (met een te grote diffusor), wat leidt tot gelijkmatige verlichting en gebrek aan lokaal contrast op het onderwerp.</p>
+</li>
+</ol>
+<p>While more than one of these issues can affect the same image at the same time, it is better to try to fix them separately using multiple instances of the module. When doing so, ensure the issues are corrected from coarse scale to fine scale, and that denoising always happens first. That is, your instances should appear in the following <a href="../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md">pipe order</a>:</p>
+<ol>
+<li>
+<p>ruisreductie,</p>
+</li>
+<li>
+<p>lokaal contrast verbeteren,</p>
+</li>
+<li>
+<p>nevel verwijderen,</p>
+</li>
+<li>
+<p>lensvervagingscorrectie,</p>
+</li>
+<li>
+<p>sensor en demozaïekcorrectie.</p>
+</li>
+</ol>
+<p>Beginnen met de reconstructies op grovere schaal vermindert de kans op het introduceren of vergroten van ruis bij het uitvoeren van de reconstructies op fijnere schaal. Dit is niet intuïtief omdat deze processen niet in deze volgorde plaatsvinden tijdens de vorming van het beeld. Om dezelfde reden moet ruisonderdrukking altijd plaatsvinden vóór elke poging tot verscherping of verhoging van de scherpte.</p>
+<h1 id="opmerkingen-en-waarschuwingen"><a href="#opmerkingen-en-waarschuwingen">🔗</a>opmerkingen en waarschuwingen</h1>
+<p>Hoewel deze module is ontworpen om schaalinvariant te zijn, kan de uitvoer alleen worden gegarandeerd bij 100% zoom en export van hoge kwaliteit of volledige grootte. Resultaten bij lagere zoomniveaus of exportafmetingen kunnen al dan niet overeenkomen met jouw verwachtingen.</p>
+<p>Probeer bij het instellen van een onscherpte-algoritme in gedachten te houden dat veel van de beste foto&rsquo;s in de geschiedenis van de fotografie zijn gemaakt met lenzen die in de verste verte niet zo scherp waren als de lenzen die tegenwoordig beschikbaar zijn. Hoewel de huidige trend is om steeds scherpere lenzen te bouwen en te verkopen en software waanzinnige hoeveelheden verscherping bovenop te laten toepassen, leidt deze mode niet tot betere beelden en maakt het retoucheren vervelender. Zachte focus en een beetje onscherpte hebben ook enkele poëtische voordelen, die chirurgisch gezuiverde HD-beelden mogelijk niet kunnen overbrengen.</p>
+<p>Opgemerkt moet worden dat globaal contrast (met behulp van eenvoudige tooncurven of zwart/wit-niveaus) ook onze perceptie van scherpte beïnvloedt, die heel anders is dan optische scherpte (optische resolutie). Menselijke ogen zijn alleen gevoelig voor lokaal contrast, dat kan komen door optische scherpte (bijv. afwezigheid van diffusie - dunne randen) en door versterkte toonovergangen. Als er een globale toonmapping aanwezig is om het contrast te verhogen, ziet het beeld er scherper uit. Als een toonmapping wordt gebruikt om het contrast te verlagen, ziet het beeld er waziger uit. In geen van deze gevallen worden de werkelijke randen van objecten op enigerlei wijze beïnvloed, en de perceptuele gevolgen zijn pure illusie.</p>
+<p>Een deel van het verouderingsproces is verlies van gezichtsvermogen. De hoeveelheid verscherping die mensen boven de 50 prettig vinden, is misschien niet hetzelfde als voor mensen van in de twintig. Het is de moeite waard om te overwegen om te verscherpen om een <em>plausibel</em> resultaat te krijgen (dat overeenkomt met jouw dagelijkse waarneming) in plaats van een <em>aangenaam</em> resultaat (dat er alleen goed uitziet voor mensen met hetzelfde gezichtsvermogen als het jouwe).</p>
+<p>Finally, assessing the sharpness of images zoomed to 1:1 (100%) or more is a foolish task. In museums, exhibitions and even on screen, the general audience looks at images as a whole, not with a magnifying glass. Moreover, in most practical uses, photographs rarely exceed a resolution of 3000×2000 pixels (roughly a 300 DPI print at A4/Letter dimensions) which, for 24 megapixel sensors, means downscaling by a factor of 4. When examining a 24 megapixel file at 1:1, you are actually looking at an image that will never exist. Sharpening at pixel level, in this context, is a waste of time and CPU cycles.</p>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/diffuse/">
+            English: diffuse or sharpen
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/processing-modules/diffuse/">
+            Español: difuso / nítido
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/diffuse/">
+            Français: Diffusion ou netteté
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/diffuse/">
+            German: Diffusion / Schärfen
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/diffuse/">
+            Lao: ກະຈາຍ ຫຼື ເພີ່ມຄວາມຄົມຊັດ (diffuse or sharpen)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/processing-modules/diffuse/">
+            Polish: dyfuzja lub wyostrzenie
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/processing-modules/diffuse/">
+            Português: difusão ou nitidez
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/diffuse/">
+            Ukrainian: Дифузія / різкість
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/" class="next">&lt; contrast equalizer</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/processing-modules/dither-or-posterize/" class="prev">dither of posterisatie &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/" class="">
+          Overzicht
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/" class="">
+          gebruikersomgeving
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/views/" class="">
+          weergaven
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/screen-layout/" class="">
+          scherm layout
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/top-panel/" class="">
+          bovenpaneel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/keyboard-shortcuts/" class="">
+          snelkoppelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/supported-file-formats/" class="">
+          ondersteunde bestandsformaten
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/" class="">
+          sidecar bestanden en niet-destructieve bewerking
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/sidecar-import/" class="">
+          sidecar-bestanden importeren van andere applicaties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/local-copies/" class="">
+          lokale kopieën
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/" class="">
+          een inleiding tot de werkvolgorde van darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/introduction/" class="">
+          inleiding
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/import-review/" class="">
+          importeren &amp; beoordelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/process/" class="">
+          proces
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/" class="">
+          Bibliotheek
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-view-layout/" class="">
+          bibliotheek weergave layout
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/" class="">
+          bibliotheek modi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/full-preview/" class="">
+          volledige voorbeeldweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/" class="">
+          digitaal archief beheer
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/star-color/" class="">
+          sterbeoordelingen en kleurlabels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/grouping/" class="">
+          afbeeldingen groeperen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadata en labelen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/" class="">
+          Ontwikkelen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/darkroom-view-layout/" class="">
+          lay-out ontwikkelweergave
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/" class="">
+          de pixelpijp
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          de anatomie van een verwerkingsmodule
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/history-stack/" class="">
+          geschiedenis
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/undo-redo/" class="">
+          ongedaan maken / opnieuw uitvoeren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/" class="">
+          verwerkingsmodules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/module-header/" class="">
+          module koptekst
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/multiple-instances/" class="">
+          meerdere sessies
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/presets/" class="">
+          voorinstellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/curves/" class="">
+          curves
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/wavelets/" class="">
+          wavelets
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/deprecated/" class="">
+          verouderde modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/" class="">
+          maskeren &amp; overvloeien
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/blend-modes/" class="">
+          overvloei modes
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/" class="">
+          maskers
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/parametric/" class="">
+          parametrische maskers
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combineren van getekende- en parametrische- maskers
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/" class="">
+          organisatie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/module-groups/" class="">
+          modulegroepen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/manage-module-layouts/" class="">
+          module-indelingen beheren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/" class="">
+          Tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/tethering-view-layout/" class="">
+          lay-out van tetheringweergave
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/examples/" class="">
+          voorbeelden
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/troubleshooting/" class="">
+          Problemen oplossen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/" class="">
+          Kaart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/map-view-layout/" class="">
+          lay-out kaartweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/" class="">
+          Presentatie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/usage/" class="">
+          gebruik
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/" class="">
+          Print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/print-view-layout/" class="">
+          afdrukweergave lay-out
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/" class="">
+          Module Referentie
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/" class="">
+          toepassings modules
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/" class="">
+          bibliotheek
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/selected-image/" class="">
+          acties op selectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/select/" class="">
+          selectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/timeline/" class="">
+          tijdlijn
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/" class="">
+          gedeeld
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/" class="">
+          afbeeldingsinformatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/" class="">
+          collecties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/export/" class="">
+          exporteren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/focus-peaking/" class="">
+          focus peaking
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/geotagging/" class="">
+          geotaggen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/tagging/" class="">
+          labelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/scopes/" class="">
+          scopes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/recent-collections/" class="">
+          snelle verzamelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/" class="">
+          Kaart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/map-settings/" class="">
+          kaartinstellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/locations/" class="">
+          locaties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/find-location/" class="">
+          zoek locatie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/" class="">
+          ontwikkelen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          afbeelding informatie regel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/clipping/" class="">
+          clipping waarschuwing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/gamut/" class="">
+          gamma controle
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/history-stack/" class="">
+          geschiedenis
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          hulplijnen en overlays
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          masker-manager
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/navigation/" class="">
+          navigatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          raw overbelicht waarschuwing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/" class="">
+          print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/print-settings/" class="">
+          printer instellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/" class="">
+          tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/camera-settings/" class="">
+          camera instellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/live-view/" class="">
+          live weergave
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/session/" class="">
+          sessie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/" class="">
+          verwerkingsmodules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/base-curve/" class="">
+          basis curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/exposure/" class="">
+          belichting
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/censorize/" class="">
+          censureren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/chromatic-aberrations/" class="">
+          chromatische aberraties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/" class="">
+          contrast equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/diffuse/" class=" active">
+          diffuus of verscherpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/dither-or-posterize/" class="">
+          dither of posterisatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/split-toning/" class="">
+          duo-toning
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/bloom/" class="">
+          glans
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/graduated-density/" class="">
+          grijsverloop
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highpass/" class="">
+          highpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highlight-reconstruction/" class="">
+          hooglichten herstellen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/colorize/" class="">
+          inkleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-reconstruction/" class="">
+          kleur reconstructie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-contrast/" class="">
+          kleurcontrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-correction/" class="">
+          kleurcorrectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance/" class="">
+          kleurenbalans
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance-rgb/" class="">
+          kleurenbalans rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-mapping/" class="">
+          kleurenkaart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-calibration/" class="">
+          kleurkalibratie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-zones/" class="">
+          kleurzones
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/local-contrast/" class="">
+          lokaal contrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowpass/" class="">
+          lowpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lut-3d/" class="">
+          LUT 3D
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/monochrome/" class="">
+          monochroom
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/framing/" class="">
+          omlijsten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/astrophoto-denoise/" class="">
+          ontruis astrofoto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/surface-blur/" class="">
+          oppervlakte vervaging
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          raw chromatische aberraties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-black-white-point/" class="">
+          raw zwart/wit punt
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/retouch/" class="">
+          retoucheren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rgb-primaries/" class="">
+          rgb basiskleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rotate-perspective/" class="">
+          roteren en perspectief
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/denoise-profiled/" class="">
+          ruisreductie (profiel)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/shadows-and-highlights/" class="">
+          schaduwen en hooglichten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sigmoid/" class="">
+          sigmoïdale
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-curve/" class="">
+          toon curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-equalizer/" class="">
+          toon equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/liquify/" class="">
+          uitvloeien
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/velvia/" class="">
+          velvia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/unbreak-input-profile/" class="">
+          verbreek ingaand profiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sharpen/" class="">
+          verscherpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/blurs/" class="">
+          vervagen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/soften/" class="">
+          verzachten (soften)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/vignetting/" class="">
+          vignettering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/watermark/" class="">
+          watermerk
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowlight-vision/" class="">
+          zicht bij weinig licht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/basic-adjustments/" class="">
+          (deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/channel-mixer/" class="">
+          (deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/crop-rotate/" class="">
+          (deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/defringe/" class="">
+          (deprecated) defringe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/global-tonemap/" class="">
+          (deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/levels/" class="">
+          (deprecated) levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/spot-removal/" class="">
+          (deprecated) spot removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-mapping/" class="">
+          (deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/zone-system/" class="">
+          (deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/" class="">
+          Voorkeuren en instellingen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/lighttable/" class="">
+          bibliotheek
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/darkroom/" class="">
+          ontwikkelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/presets/" class="">
+          voorinstellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/" class="">
+          Scripten met Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/printing-labeled-images/" class="">
+          gelabelde afbeeldingen afdrukken
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/exporting-images/" class="">
+          afbeeldingen exporteren met lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/calling-from-dbus/" class="">
+          lua aanroepen vanuit dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/darktable-from-lua/" class="">
+          darktable gebruiken vanuit een lua-script
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/api/" class="">
+          lua API
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/" class="">
+          Gidsen en handleidingen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/monochrome/" class="">
+          ontwikkeling van monochrome afbeeldingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/batch-editing/" class="">
+          batch-bewerking afbeeldingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/" class="">
+          Speciale onderwerpen
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/" class="">
+          kleurbeheer
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/display-profile/" class="">
+          schermprofiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-method/" class="">
+          rendermethode
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-intent/" class="">
+          renderintentie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-spaces/" class="">
+          kleurruimten van darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/unbounded-colors/" class="">
+          ongebonden kleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-artifacts/" class="">
+          mogelijke kleurartefacten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-dimensions/" class="">
+          kleurdimensies van darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/setting-up/" class="">
+          setting up OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/problems-solutions/" class="">
+          mogelijke problemen &amp; oplossingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/multiple-devices/" class="">
+          meerdere apparaten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/" class="">
+          darktable-chart gebruiken
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/usage/" class="">
+          gebruik
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/source-image/" class="">
+          bronafbeelding
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/reference-values/" class="">
+          referentiewaarden
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/process/" class="">
+          proces
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/making-input-images/" class="">
+          invoerafbeeldingen maken voor darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/" class="">
+          programma oproepen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/variables/" class="">
+          variabelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/" class="">
+          darktable&#39;s kleurenpijplijn
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/midi-device-support/" class="">
+          ondersteuning voor midi-apparaten
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

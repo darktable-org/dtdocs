@@ -1,0 +1,1477 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - riduzione rumore (profilato)</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/denoise-profiled/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="riduzione rumore (profilato)">
+<meta property="og:description" content="Technical information Descrizione Riduzione del rumore con l’utilizzo delle statistiche relative al rumore tipico del sensore. Scopo Correttivo. Input Lineare, RGB, riferito alla scena. Elaborazione Lineare, RGB. Output Lineare, RGB, riferito alla scena. Un modulo di riduzione del rumore, facile da usare e altamente efficiente, adattato ai profili rumore individuali di un’ampia gamma di sensori.
+Uno dei problemi di molti algoritmi per la riduzione del rumore è che danno per assunto che la varianza del rumore sia indipendente dalla luminosità del segnale. Profilando le caratteristiche del rumore del sensore della fotocamera a differenti ISO, si può stimare la varianza a luminosità differenti, e l’algoritmo di riduzione del rumore può essere regolato per addolcire il rumore più uniformemente.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/it/module-reference/processing-modules/denoise-profiled/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/it/module-reference/processing-modules/denoise-profiled/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/it/module-reference/processing-modules/denoise-profiled/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/it/module-reference/processing-modules/denoise-profiled/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/it/module-reference/processing-modules/denoise-profiled/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="it"
+              role="option"
+              lang="it"
+              href="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/denoise-profiled/"
+              >Italian</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/denoise-profiled/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/denoise-profiled/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/denoise-profiled/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/denoise-profiled/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/denoise-profiled/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/denoise-profiled/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/denoise-profiled/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/denoise-profiled/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/denoise-profiled/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/it/'>darktable user manual</a> / <a href='/dtdocs/it/module-reference/'>Module-References</a> / <a href='/dtdocs/it/module-reference/processing-modules/'>moduli di elaborazione</a> / riduzione rumore (profilato)
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="next">&lt; riduci rumore foto astronomiche</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="prev">rotazione e prospettiva &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        riduzione rumore (profilato)
+    </h1>
+
+    
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt>Descrizione</dt>
+<dd>Riduzione del rumore con l&rsquo;utilizzo delle statistiche relative al rumore tipico del sensore.</dd>
+<dt>Scopo</dt>
+<dd>Correttivo.</dd>
+<dt>Input</dt>
+<dd>Lineare, RGB, riferito alla scena.</dd>
+<dt>Elaborazione</dt>
+<dd>Lineare, RGB.</dd>
+<dt>Output</dt>
+<dd>Lineare, RGB, riferito alla scena.</dd>
+</dl>
+</details>
+
+<p>Un modulo di riduzione del rumore, facile da usare e altamente efficiente, adattato ai profili rumore individuali di un&rsquo;ampia gamma di sensori.</p>
+<p>Uno dei problemi di molti algoritmi per la riduzione del rumore è che danno per assunto che la varianza del rumore sia indipendente dalla luminosità del segnale. Profilando le caratteristiche del rumore del sensore della fotocamera a differenti ISO, si può stimare la varianza a luminosità differenti, e l&rsquo;algoritmo di riduzione del rumore può essere regolato per addolcire il rumore più uniformemente.</p>
+<p>Al momento, darktable ha profili di rumore dei sensori per oltre 300 modelli delle fotocamere più diffuse, di tutti i principali produttori. Se generi il tuo personale profilo per una fotocamera non ancora supportata da darktable, accertati di condividerlo con il team di sviluppo di darktable, in modo tale che possano includerlo nella prossima versione! Per favore controlla la pagina di darktable per il <a href="https://github.com/darktable-org/darktable/wiki/Camera-support" target="_blank">supporto alle fotocamere</a> per maggiori informazioni.</p>
+<p>For an AI-based alternative applied later in the workflow, on the already-demosaiced and edited image, see <a href="../utility-modules/shared/neural-restore.md">neural restore</a> and the <a href="../../special-topics/ai/overview.md">AI features overview</a>.</p>
+<h1 id="modalità"><a href="#modalit%c3%a0">🔗</a>modalità</h1>
+<p>Il modulo <em>riduzione rumore (profilato)</em> implementa due algoritmi, ciascuno dei quali è disponibile sia in una facile modalità &ldquo;automatica&rdquo; che in una modalità avanzata manuale con controlli aggiuntivi:</p>
+<dl>
+<dt>non-local means</dt>
+<dd>Questo algoritmo lavora nel dominio spaziale pressappoco alla stessa maniera del modulo <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/"><em>riduci rumore foto astronomiche</em></a>. Fa la media di ciascun pixel con alcuni pixel circostanti. Il peso di questo pixel nel calcolo della media dipende dalla somiglianza dei suoi vicini con i pixel adiacenti al pixel che di cui si sta riducendo il rumore. Per misurare questa similitudine viene usata un tassello di dimensione predefinita.</dd>
+<dd>
+<p>Notare che questo algoritmo è abbastanza dispendioso in termini di risorse.</p>
+</dd>
+<dt>wavelets (predefinito)</dt>
+<dd>Questo algoritmo lavora nel dominio delle <a href="/dtdocs/it/darkroom/processing-modules/wavelets/">wavelet</a>, e fornisce un&rsquo;interfaccia utente semplificata. La separazione di frequenza (wavelet) permette di regolare l&rsquo;intensità della riduzione del rumore a seconda della grossolanità del rumore nell&rsquo;immagine. Questa modalità può essere usata sia nella <em>modalità colore Y0U0V0</em> (che ti permette di gestire indipendentemente luminanza e crominanza) che in <em>modalità colore RGB</em> (che ti permette di controllare indipendentemente il rumore per ciascun canale RGB).</dd>
+<dd>
+<p>L&rsquo;algoritmo di separazione delle frequenze (wavelet) è meno avaro di risorse rispetto a quello <em>non-local means</em>.</p>
+</dd>
+</dl>
+<h2 id="rumore-di-luma-contro-rumore-di-crominanza"><a href="#rumore-di-luma-contro-rumore-di-crominanza">🔗</a>rumore di luma contro rumore di crominanza</h2>
+<p>Entrambe gli algoritmi &ldquo;non-local means&rdquo; e &ldquo;wavelet&rdquo; possono gestire efficientemente il rumore del luma (tono) e di crominanza (colore).</p>
+<p>Nel passato fu consigliato di usare due istanze separate di questo modulo per affrontare il rumore di <em>crominanza</em> e <em>luma</em> indipendentemente (usando le modalità di fusione <em>crominanza</em> e <em>chiarezza</em>). Quest&rsquo;operazione non è più raccomandata dato che il modulo <em>riduzione rumore (profilato)</em> è posizionato nella pixelpipe prima del modulo <em>colore profilo d&rsquo;ingresso</em> (in modo tale che i parametri del profilo siano accurati) e le modalità di fusione sul colore dovrebbero essere usate soltanto dopo che il profilo colore d&rsquo;ingresso è stato applicato.</p>
+<p>Il nuovo algoritmo in questo modulo ora fornisce un metodo proprio per gestire separatamente il rumore di crominanza e luma, e in entrambe i casi questo può essere gestito con una singola istanza del modulo.</p>
+<h1 id="controlli-modulo"><a href="#controlli-modulo">🔗</a>Controlli modulo</h1>
+<p>Il modulo <em>riduzione rumore (profilato)</em> fornisce alcuni controlli che sono indipendenti dall&rsquo;algoritmo usato. Questi vengono descritti prima di spostarsi sui controlli per l&rsquo;algoritmo specifico.</p>
+<p>Descrivendo i controlli specifici di un algoritmo, ci concentreremo all&rsquo;inizio sull&rsquo;interfaccia semplificata, e dopo ci sposteremo sui controlli avanzati per l&rsquo;algoritmo.</p>
+<p>Notare che i selettori scorrevoli vengono forniti con valori massimi e minimi predefiniti. Ciononostante, questi sono soltanto limiti &ldquo;morbidi&rdquo;, valori più alti possono essere inseriti quando necessario, cliccando di destro sul selettore scorrevole e digitando un nuovo valore.</p>
+<h2 id="controlli-in-comune"><a href="#controlli-in-comune">🔗</a>controlli in comune</h2>
+<dl>
+<dt>profilo</dt>
+<dd>darktable identifica automaticamente il modello della fotocamera e gli ISO sulla base dei dati Exif nel tuo file raw, e ricerca il profilo corrispondente nel suo database. Se la tua immagine ha un valore ISO intermedio, le impostazioni verranno interpolate tra le due impostazioni più vicine nel database, a questi valori interpolati verranno mostrati come prima opzione nel menu a discesa. Puoi anche sovrascrivere manualmente questa selezione se necessario. Selezionando nuovamente l&rsquo;opzione più in alto nella lista del menu a discesa riporterà il profilo predefinito.</dd>
+<dt>compensate highlight preservation</dt>
+<dd>Some cameras underexpose the raw file in specific modes such as HDR, dynamic range expansion, highlight tone priority, HLG or AutoLightingOptimizer to protect the highlights. When enabled, reduces the ISO used for denoise by the factor of the camera&rsquo;s hidden exposure bias. This control appears only when such a mode is detected in the image&rsquo;s Exif data.</dd>
+<dt>trasformazione bilanciamento del bianco adattiva</dt>
+<dd>Dato che il bilanciamento del bianco amplifica ciascuno dei canali RGB separatamente, ogni canale mostra un diverso livello di rumore. Questa casella di spunta adatta l&rsquo;algoritmo selezionato alle regolazioni del bilanciamento del bianco. Questa opzione dovrebbe essere disabilitata nella seconda istanza se hai applicato una prima istanza con la modalità di fusione colore.</dd>
+<dt>modo</dt>
+<dd>Scegli quale algoritmo di riduzione del rumore usare (vedi sopra), e se visualizzare l&rsquo;interfaccia semplificata (&ldquo;automatico&rdquo;) o completamente manuale per l&rsquo;algoritmo.</dd>
+<dt>adjust autoset parameters (auto modes only)</dt>
+<dd>Automatically adjust all the other parameters on the current denoising algorithm using a single slider. This is particularly useful when you have had to increase the exposure on an underexposed image, which normally introduces additional noise (as if you had taken the shot with a higher ISO). This control compensates for that by using settings similar to those used for a higher ISO image. The &ldquo;effective ISO&rdquo; used by the denoise algorithm is the actual ISO used, multiplied by the value of this slider.</dd>
+<dt>intensità</dt>
+<dd>mette a punto l&rsquo;intensità della riduzione del rumore. Il valore predefinito è stato scelto per massimizzare il rapporto segnale/rumore di picco. E&rsquo; per la gran parte una questione di gusti &ndash; preferisci minor rumore a discapito dei dettagli più piccoli, oppure accetti maggior rumore al fine di preservare i dettagli.</dd>
+<dt>preserva le ombre (solo modalità avanzata)</dt>
+<dd>Abbassare questo valore per ridurre il rumore nelle ombre in maniera più aggresiva. Solitamente, al crescere del rumore, hai bisogno di abbassare questo parametro.</dd>
+<dt>correzione distorsione (solo modalità avanzata)</dt>
+<dd>Correggi qualsiasi dominante cromatica che può apparire nelle ombre. Incrementare questo valore se le ombre scure appaiono troppo verdi, decrementare se appaiono troppo viola.</dd>
+</dl>
+<h2 id="selettori-scorrevoli-del-non-local-means-automatico"><a href="#selettori-scorrevoli-del-non-local-means-automatico">🔗</a>selettori scorrevoli del non-local means automatico</h2>
+<dl>
+<dt>peso del pixel centrale</dt>
+<dd>Controlla l&rsquo;ammontare del dettaglio che dovrebbe essere preservato dall&rsquo;algoritmo di riduzione del rumore. Questo avrà predefinitamente un valore basso, affinché l&rsquo;algoritmo tratti il rumore di luma e crominanza alla stessa maniera. Spostando il selettore scorrevole sulla destra per ridurre la quantità di riduzione del rumore di luma, in modo tale che l&rsquo;algoritmo interessi principalmente il rumore di crominanza. Regolando questo selettore scorrevole assieme a quello dell&rsquo;<em>intensità</em>, puoi trovare il giusto equilibrio tra riduzione del rumore di luma e crominanza.</dd>
+</dl>
+<h2 id="selettori-scorrevoli-per-il-non-local-means-in-modalità-avanzata"><a href="#selettori-scorrevoli-per-il-non-local-means-in-modalit%c3%a0-avanzata">🔗</a>selettori scorrevoli per il non-local means in modalità avanzata</h2>
+<p>Quando esci dalla modalità automatica del non-local means, il selettore scorrevole <em>regola i parametri automatici</em> viene sostituito dai seguenti controlli. Puoi usare il selettore scorrevole per la regolazione automatica per arrivare ad alcune impostazioni iniziali, quando passi in modalità manuale, i selettori scorrevoli mostreranno i valori manuali equivalenti. Da quel punto puoi continuare per mettere a punto le impostazioni manuali, partendo da quelli impostati automaticamente.</p>
+<dl>
+<dt>dimensione campione</dt>
+<dd>Controlla la dimensione dei campioni abbinati quando si decide di quali pixel fare una media &ndash; vedi <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/"><em>riduci rumore foto astronomiche</em></a> per maggiori informazioni. Incrementarlo per le immagini con maggior rumore, ma tieni a mente che valori più alti possono addolcire i bordi più sottili. L&rsquo;effetto di questo selettore scorrevole sui tempi di elaborazione è minimo.</dd>
+<dt>cerca raggio</dt>
+<dd>Controlla quando distante da un pixel l&rsquo;algoritmo cercheraà di trovare campioni simili. Incrementare questo valore può fornirti risultati migliori per immagini molto rumorose dove è visibile il rumore a grana grossa, ma il tempo di elaborazione è influenzato enormemente da questo parametero (il tempo di elaborazione si incrementa con il quadrato di questo parametro). Un valore più basso renderà l&rsquo;esecuzione più veloce, un valore più alto la renderà più lenta. Nella maggiorparte dei casi è meglio usare il parametro diffusione, che ha un effetto simile ma senza il grave costo di elaborazione.</dd>
+<dt>diffusione (rumore a grana grossa)</dt>
+<dd>Similarmente al <em>cerca raggio</em>, questo selettore scorrevole controla quanto distante da un pixel l&rsquo;algorimo tenta di cercare per campioni simili. Ciononostante, lo fa senza aumentare il numero di campioni considerati. Quindi, il tempo di elabrazione rimarrà circa lo stesso. Incrementare il valore ridurrà il rumore a grana grossa, ma potrebbe addolcire il contrasto locale. Questo selettore scorrevole è particolarmente efficace nel ridurre il rumore di crominanza.</dd>
+</dl>
+<h2 id="curve-wavelet"><a href="#curve-wavelet">🔗</a>curve wavelet</h2>
+<p>Le curve wavelet vengono mostrate quando una delle modalità &ldquo;wavelet&rdquo; viene selezionata.</p>
+<p>Il rumore in un&rsquo;immagine di solito è composto sia da rumore a grana grossa che a grana fine, a diversi gradi. Le curve wavelet permettono di regolare l&rsquo;intensità della riduzione del rumore in base alla grana del rumore visibile. L&rsquo;estremità sinistra della curva agirà sul rumore a grana molto grossa, mentre l&rsquo;estremità sulla destra agirà sul rumore a grana molto fine. Alzando la curva aumenterà la levigatura, mentre abbassando la curva la diminuirà.</p>
+<p>Per esempio, puoi preservare il rumore a grana molto fine spingendo in basso il l&rsquo;estremità destra della curva. Quando si affronta il rumore di crominanza (es in una cruva U0V0, o nella seconda istanza del modulo con un modalità fusione colore) puoi alzare in sicurezza la destra della curva, in quanto i colori non cambiano molto nei dettagli. Questo può essere utile se vedi alcuni pixel isolati con un rumore del colore sbagliato.</p>
+<h2 id="modalità-colore-y0u0v0-per-wavelet"><a href="#modalit%c3%a0-colore-y0u0v0-per-wavelet">🔗</a>modalità colore <em>Y0U0V0</em> per wavelet</h2>
+<p>Il modo preferito per usare i wavelet è con la modalità colore <em>Y0U0V0</em>. Questa modalità separa la curva di riduzione del rumore nei componenti di luminanza (<em>Y0</em>) e colore (<em>U0V0</em>). Puoi quindi usare la curva <em>Y0</em> per controllare il livello di riduzione rumore di luma, e la curva <em>U0V0</em> per controllare il livello della riduzione rumore di crominanza.</p>
+<p>
+
+
+
+
+
+
+
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/denoise-y0u0v0.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/denoise-profiled/denoise-y0u0v0.png" alt="denoise-y0u0v0"  class="w33"    /></a>
+
+</p>
+<h2 id="modalità-colore-rgb-per-wavelet"><a href="#modalit%c3%a0-colore-rgb-per-wavelet">🔗</a>modalità colore <em>RGB</em> per wavelet</h2>
+<p>Prima che fosse introdotta la modalità colore <em>Y0U0V0</em>, la riduzione del rumore basata sui wavelet poteva essere eseguita soltanto direttamente sui canali <em>R</em>, <em>G</em> e <em>B</em>, individualmente o assieme.</p>
+<p>
+
+
+
+
+
+
+
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/denoise-rgb.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/denoise-profiled/denoise-rgb.png" alt="denoise-rgb"  class="w33"    /></a>
+
+</p>
+<p>Se vuoi ridurre il rumore indipendentemente per i canali RGB, il modo migliore per farlo è usare un&rsquo;istanza del modulo <a href="./color-calibration.md"><em>calibrazione colore</em></a> posizionata immediatamente prima del modulo <em>riduzione del rumore (profilato)</em> in modo tale che restituisca un canale grigio basato sul solo canale <em>rosso</em>, e quindi ridurre il rumore su quell&rsquo;immagine monocromatica usando la curva wavelet per il <em>rosso</em>. Ripetere la procedura per i canali blu e verde. Questa procedura è dispendiosa in termini di tempo, ma produce i migliori risultati in quanto guardare il colore dei pixel rumorosi non è un metodo affidabile per determinare quale canale regolare. Per esempio, un pixel rosso rumoroso potrebbe essere dovuto ad un picco di rumore sul canare rosso, ma potrebbe anche essere dovuto ad una mancanza sui canali verde e blu dovuta al rumore.</p>
+<p>Il problema con la riduzione del rumore indipendente sui canali RGB è che potrebbe sopravvivere, alla fine del processo, del rumore di crominanza che richiede una levigatura eccessiva per essere eliminato. Questo fu infatti una delle motivazioni dietro all&rsquo;implementazione della modalità colore <em>Y0U0V0</em>.</p>
+<h2 id="selettori-scorrevoli-avanzati-per-wavelet"><a href="#selettori-scorrevoli-avanzati-per-wavelet">🔗</a>selettori scorrevoli avanzati per wavelet</h2>
+<p>Quando esci dalla modalità <em>automatica</em> dei <em>wavelet</em>, il selettore scorrevole <em>regola i parametri automatici</em> viene sostitiuto dai controlli <em>preserva ombre</em> e <em>correzione distorsione</em> elencati sopra nella sezione <a href="#common-controls">controlli comuni</a>.</p>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/processing-modules/denoise-profiled/">
+            Dutch: ruisreductie (profiel)
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/">
+            English: denoise (profiled)
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/processing-modules/denoise-profiled/">
+            Español: reducción de ruido (perfilado)
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/denoise-profiled/">
+            Français: Réduction du bruit (profil)
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/denoise-profiled/">
+            German: Entrauschen (Profil)
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/denoise-profiled/">
+            Lao: ລົດນອຍສ໌ (ຕາມໂປຣໄຟລ໌)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/processing-modules/denoise-profiled/">
+            Polish: odszumianie (profilowane)
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/processing-modules/denoise-profiled/">
+            Português: redução de ruído (perfilado)
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/denoise-profiled/">
+            Ukrainian: Знешумлення (профільоване)
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="next">&lt; riduci rumore foto astronomiche</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="prev">rotazione e prospettiva &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/overview/" class="">
+          Panoramica
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/" class="">
+          Tavolo luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-view-layout/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">
+          Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">
+          gestione delle risorse digitali
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/" class="">
+          Camera Oscura
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/darkroom-view-layout/" class="">
+          disposizione della Camera Oscura
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">
+          il pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">
+          la coda di sviluppo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">
+          annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">
+          intestazione modulo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">
+          istanze multiple
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class="">
+          curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">
+          wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">
+          moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">
+          maschere &amp; fusione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class="">
+          modalità di fusione
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">
+          maschere
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/parametric/" class="">
+          maschere parametriche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combinare maschere disegnate &amp; parametriche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">
+          organizzazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/module-groups/" class="">
+          gruppi di moduli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">
+          gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/" class="">
+          Mappa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">
+          layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/slideshow/" class="">
+          Presentazione
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/" class="">
+          Stampa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/" class="">
+          Script con Luca
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/printing-labeled-images/" class="">
+          stampare immagini etichettate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/exporting-images/" class="">
+          esportare immagini con lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/calling-from-dbus/" class="">
+          chiamare luca dal dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/darktable-from-lua/" class="">
+          usare darktable da uno script lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class="">
+          Guide &amp; Tutorial
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">
+          sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/" class="">
+          Module-References
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">
+          ammorbidisci
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">
+          bilanciamento colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">
+          bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">
+          censura
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">
+          colora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">
+          contrasto colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">
+          correzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">
+          correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">
+          equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class="">
+          equalizzatore toni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">
+          filtro graduato
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">
+          luce soffusa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">
+          mappatura dei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">
+          passa-alto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">
+          punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">
+          ricostruzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">
+          riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class=" active">
+          riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="">
+          rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">
+          sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">
+          Moduli utilità
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">
+          condivisi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/export/" class="">
+          esporta
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">
+          informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">
+          libreria
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">
+          mappa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">
+          Stampa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">
+          sviluppo
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">
+          Sessione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">
+          Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/" class="">
+          Special-Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">
+          gestione del colore
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">
+          Profilo dello schermo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">
+          metodi di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">
+          Intento di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-spaces/" class="">
+          spazi colore di darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/unbounded-colors/" class="">
+          colori senza confini
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-artifacts/" class="">
+          possibili artefatti nei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="">
+          dimensione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class="">
+          coda di elaborazione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

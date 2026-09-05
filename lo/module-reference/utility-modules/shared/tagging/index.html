@@ -1,0 +1,3858 @@
+<!doctype html>
+<html lang="lo">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - ການຕິດແທັກ</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/lo\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/lo/module-reference/utility-modules/shared/tagging/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="ການຕິດແທັກ">
+<meta property="og:description" content="ຈັດການແທັກທີ່ຕິດກັບຮູບ.
+ແທັກຊ່ວຍໃຫ້ສາມາດເພີ່ມຂໍ້ມູນໃສ່ຮູບໄດ້ໂດຍໃຊ້ວັດຈະນານຸກົມຄຳສຳຄັນ. ທ່ານຍັງສາມາດຈັດການແທັກໃນຮູບແບບຕົ້ນໄມ້ຕາມລຳດັບຂັ້ນ, ເຊິ່ງມີປະໂຫຍດຫຼາຍເມື່ອມີຈຳນວນແທັກຫຼາຍ.
+ແທັກຖືກເກັບໄວ້ໃນ ໄຟລ໌ XMP sidecar ແລະ ໃນຖານຂໍ້ມູນຫ້ອງສະໝຸດຂອງ darktable, ແລະ ສາມາດລວມເຂົ້າໃນຮູບທີ່ ສົ່ງອອກ.
+🔗ຄຳນິຍາມ ຄຳນິຍາມຕໍ່ໄປນີ້ແມ່ນສົມມຸດວ່າທ່ານໄດ້ຕັ້ງແທັກດຽວທີ່ມີຊື່ວ່າ “places|France|Nord|Lille”.
+ແທັກ (tag) ແທັກແມ່ນຂໍ້ຄວາມອະທິບາຍທີ່ອາດຈະຖືກຕິດໃສ່ກັບຮູບ. ແທັກສາມາດເປັນຄຳດຽວ ຫຼື ເປັນລຳດັບຂອງຄຳທີ່ເຊື່ອມຕໍ່ກັນເປັນເສັ້ນທາງ, ໂດຍແຍກດ້ວຍເຄື່ອງໝາຍ pipe (|). ຕົວຢ່າງ: “places|France|Nord|Lille” ແມ່ນການກຳນົດແທັກດຽວ, ເຊິ່ງແຕ່ລະຄຳໃນເສັ້ນທາງຈະເປັນກຸ່ມຍ່ອຍຂອງຄຳທີ່ມາກ່ອນ. ທ່ານສາມາດຕິດແທັກໃສ່ຮູບໄດ້ຫຼາຍເທົ່າທີ່ຕ້ອງການ. ທ່ານສາມາດກຳນົດຄຸນສົມບັດ (ຊື່, ສ່ວນຕົວ, ໝວດໝູ່, ຄຳໄວພົດ ແລະ ລຳດັບຮູບ) ໃຫ້ກັບແທັກໄດ້.
+ທ່ານສາມາດໃຊ້ຊື່ແທັກເພື່ອສ້າງ ຄໍເລັກຊັນ ທີ່ສະແດງ, ປະມວນຜົນ ແລະ ສົ່ງອອກຕາມລຳດັບ ການຈັດລຽງທີ່ກຳນົດເອງ ແບບ ຖາວອນ, ເຊິ່ງຈະບໍ່ປ່ຽນແປງເມື່ອຄໍເລັກຊັນອື່ນໆ (ທີ່ມີບາງຮູບຄືກັນ) ຖືກຈັດລຽງໃໝ່.
+ໂນດ (node) ເສັ້ນທາງໃດໜຶ່ງທີ່ເປັນສ່ວນໜຶ່ງຂອງແທັກແມ່ນເອີ້ນວ່າ ໂນດ. ໃນຕົວຢ່າງຂ້າງເທິງ, “places”, “places|France”, “places|France|Nord” ແລະ “places|France|Nord|Lille” ລ້ວນແຕ່ແມ່ນໂນດ. ໃນມຸມມອງຕົ້ນໄມ້ຕາມລຳດັບຂັ້ນ, ໂນດເຫຼົ່ານີ້ຈະເປັນກິ່ງງ່າ ແລະ ໃບຂອງຕົ້ນໄມ້. ໂໂນດອິດສະຫຼະ (free node) ໂນດໃດໆທີ່ບໍ່ໄດ້ຖືກກຳນົດເປັນແທັກຢ່າງຊັດເຈນຈະຖືກເອີ້ນວ່າ ໂນດອິດສະຫຼະ. ໃນຕົວຢ່າງຂ້າງເທິງ, “places”, “places|France” ແລະ “places|France|Nord” ລ້ວນແຕ່ແມ່ນໂນດອິດສະຫຼະ. ທ່ານບໍ່ສາມາດຕັ້ງຄຸນສົມບັດໃດໆ, ຍົກເວັ້ນ “ຊື່”, ສຳລັບໂນດອິດສະຫຼະ ແລະ ທ່ານບໍ່ສາມາດເພີ່ມໂນດອິດສະຫຼະລົງໃນຮູບໄດ້. ເບິ່ງສ່ວນ “ຫຼາຍແທັກ” ທາງລຸ່ມສຳລັບຂໍ້ມູນເພີ່ມເຕີມ. ໝວດໝູ່ (category) ທຸກແທັກສາມາດຖືກໝາຍໂດຍຜູ້ໃຊ້ໃຫ້ເປັນ “ໝວດໝູ່” ໄດ້. 🔗ແທັກຫຼາຍອັນ ຄຳນິຍາມຂ້າງເທິງນັ້ນແມ່ນພິຈາລະນາຈາກຕົວຢ່າງງ່າຍໆ – ແທັກດຽວ ແລະ ຄຸນສົມບັດຂອງມັນ. ລອງພິຈາລະນາສະຖານະການທີ່ແທັກທັງສີ່ທີ່ຂັ້ນດ້ວຍທໍ່ຕໍ່ໄປນີ້ຖືກກຳນົດແຍກກັນໃນ darktable.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="lo">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/lo/module-reference/utility-modules/shared/tagging/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/lo/module-reference/utility-modules/shared/tagging/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/lo/module-reference/utility-modules/shared/tagging/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/lo/module-reference/utility-modules/shared/tagging/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/lo/module-reference/utility-modules/shared/tagging/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="lo"
+              role="option"
+              lang="lo"
+              href="https://darktable-org.github.io/dtdocs/lo/module-reference/utility-modules/shared/tagging/"
+              >Lao</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/module-reference/utility-modules/shared/tagging/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/utility-modules/shared/tagging/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/utility-modules/shared/tagging/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/utility-modules/shared/tagging/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/utility-modules/shared/tagging/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/utility-modules/shared/tagging/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/utility-modules/shared/tagging/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+
+<a href='/dtdocs/lo/'>darktable</a> / <a href='/dtdocs/lo/module-reference/'>ຄູ່ມືອ້າງອີງໂມດູນ</a> / <a href='/dtdocs/lo/module-reference/utility-modules/'>ໂມດູນອຸປະກອນເສີມ (utility modules)</a> / <a href='/dtdocs/lo/module-reference/utility-modules/shared/'>ໃຊ້ຮ່ວມກັນ</a> / ການຕິດແທັກ
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/lo/module-reference/utility-modules/shared/" class="next">&lt; ໃຊ້ຮ່ວມກັນ</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/lo/module-reference/utility-modules/shared/geotagging/" class="prev">ການຕິດແທັກພູມສັນຖານ &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        ການຕິດແທັກ
+    </h1>
+
+    
+
+    <p>ຈັດການແທັກທີ່ຕິດກັບຮູບ.</p>
+<p>ແທັກຊ່ວຍໃຫ້ສາມາດເພີ່ມຂໍ້ມູນໃສ່ຮູບໄດ້ໂດຍໃຊ້ວັດຈະນານຸກົມຄຳສຳຄັນ. ທ່ານຍັງສາມາດຈັດການແທັກໃນຮູບແບບຕົ້ນໄມ້ຕາມລຳດັບຂັ້ນ, ເຊິ່ງມີປະໂຫຍດຫຼາຍເມື່ອມີຈຳນວນແທັກຫຼາຍ.</p>
+<p>ແທັກຖືກເກັບໄວ້ໃນ <a href="/dtdocs/lo/overview/sidecar-files/">ໄຟລ໌ XMP sidecar</a> ແລະ ໃນຖານຂໍ້ມູນຫ້ອງສະໝຸດຂອງ darktable, ແລະ ສາມາດລວມເຂົ້າໃນຮູບທີ່ <a href="/dtdocs/lo/module-reference/utility-modules/shared/export/">ສົ່ງອອກ</a>.</p>
+<h1 id="ຄຳນຍາມ"><a href="#%e0%ba%84%e0%ba%b3%e0%ba%99%e0%ba%8d%e0%ba%b2%e0%ba%a1">🔗</a>ຄຳນິຍາມ</h1>
+<p>ຄຳນິຍາມຕໍ່ໄປນີ້ແມ່ນສົມມຸດວ່າທ່ານໄດ້ຕັ້ງແທັກດຽວທີ່ມີຊື່ວ່າ &ldquo;<code>places|France|Nord|Lille</code>&rdquo;.</p>
+<dl>
+<dt>ແທັກ (tag)</dt>
+<dd>ແທັກແມ່ນຂໍ້ຄວາມອະທິບາຍທີ່ອາດຈະຖືກຕິດໃສ່ກັບຮູບ. ແທັກສາມາດເປັນຄຳດຽວ ຫຼື ເປັນລຳດັບຂອງຄຳທີ່ເຊື່ອມຕໍ່ກັນເປັນເສັ້ນທາງ, ໂດຍແຍກດ້ວຍເຄື່ອງໝາຍ pipe (|). ຕົວຢ່າງ: &ldquo;<code>places|France|Nord|Lille</code>&rdquo; ແມ່ນການກຳນົດແທັກດຽວ, ເຊິ່ງແຕ່ລະຄຳໃນເສັ້ນທາງຈະເປັນກຸ່ມຍ່ອຍຂອງຄຳທີ່ມາກ່ອນ. ທ່ານສາມາດຕິດແທັກໃສ່ຮູບໄດ້ຫຼາຍເທົ່າທີ່ຕ້ອງການ.</dd>
+<dd>
+<p>ທ່ານສາມາດກຳນົດຄຸນສົມບັດ (ຊື່, ສ່ວນຕົວ, ໝວດໝູ່, ຄຳໄວພົດ ແລະ ລຳດັບຮູບ) ໃຫ້ກັບແທັກໄດ້.</p>
+</dd>
+<dd>
+<p>ທ່ານສາມາດໃຊ້ຊື່ແທັກເພື່ອສ້າງ <a href="/dtdocs/lo/module-reference/utility-modules/shared/collections/">ຄໍເລັກຊັນ</a> ທີ່ສະແດງ, ປະມວນຜົນ ແລະ ສົ່ງອອກຕາມລຳດັບ <a href="/dtdocs/lo/module-reference/utility-modules/shared/collection-filters/#custom-sort">ການຈັດລຽງທີ່ກຳນົດເອງ</a> ແບບ <em>ຖາວອນ</em>, ເຊິ່ງຈະບໍ່ປ່ຽນແປງເມື່ອຄໍເລັກຊັນອື່ນໆ (ທີ່ມີບາງຮູບຄືກັນ) ຖືກຈັດລຽງໃໝ່.</p>
+</dd>
+<dt>ໂນດ (node)</dt>
+<dd>ເສັ້ນທາງໃດໜຶ່ງທີ່ເປັນສ່ວນໜຶ່ງຂອງແທັກແມ່ນເອີ້ນວ່າ ໂນດ. ໃນຕົວຢ່າງຂ້າງເທິງ, &ldquo;<code>places</code>&rdquo;, &ldquo;<code>places|France</code>&rdquo;, &ldquo;<code>places|France|Nord</code>&rdquo; ແລະ &ldquo;<code>places|France|Nord|Lille</code>&rdquo; ລ້ວນແຕ່ແມ່ນໂນດ. ໃນມຸມມອງຕົ້ນໄມ້ຕາມລຳດັບຂັ້ນ, ໂນດເຫຼົ່ານີ້ຈະເປັນກິ່ງງ່າ ແລະ ໃບຂອງຕົ້ນໄມ້.</dd>
+<dt>ໂໂນດອິດສະຫຼະ (free node)</dt>
+<dd>ໂນດໃດໆທີ່ບໍ່ໄດ້ຖືກກຳນົດເປັນແທັກຢ່າງຊັດເຈນຈະຖືກເອີ້ນວ່າ ໂນດອິດສະຫຼະ. ໃນຕົວຢ່າງຂ້າງເທິງ, &ldquo;<code>places</code>&rdquo;, &ldquo;<code>places|France</code>&rdquo; ແລະ &ldquo;<code>places|France|Nord</code>&rdquo; ລ້ວນແຕ່ແມ່ນໂນດອິດສະຫຼະ. ທ່ານບໍ່ສາມາດຕັ້ງຄຸນສົມບັດໃດໆ, ຍົກເວັ້ນ “ຊື່”, ສຳລັບໂນດອິດສະຫຼະ ແລະ ທ່ານບໍ່ສາມາດເພີ່ມໂນດອິດສະຫຼະລົງໃນຮູບໄດ້. ເບິ່ງສ່ວນ “ຫຼາຍແທັກ” ທາງລຸ່ມສຳລັບຂໍ້ມູນເພີ່ມເຕີມ.</dd>
+<dt>ໝວດໝູ່ (category)</dt>
+<dd>ທຸກແທັກສາມາດຖືກໝາຍໂດຍຜູ້ໃຊ້ໃຫ້ເປັນ “ໝວດໝູ່” ໄດ້.</dd>
+</dl>
+<h1 id="ແທກຫາຍອນ"><a href="#%e0%bb%81%e0%ba%97%e0%ba%81%e0%ba%ab%e0%ba%b2%e0%ba%8d%e0%ba%ad%e0%ba%99">🔗</a>ແທັກຫຼາຍອັນ</h1>
+<p>ຄຳນິຍາມຂ້າງເທິງນັ້ນແມ່ນພິຈາລະນາຈາກຕົວຢ່າງງ່າຍໆ – ແທັກດຽວ ແລະ ຄຸນສົມບັດຂອງມັນ. ລອງພິຈາລະນາສະຖານະການທີ່ແທັກທັງສີ່ທີ່ຂັ້ນດ້ວຍທໍ່ຕໍ່ໄປນີ້ຖືກກຳນົດແຍກກັນໃນ darktable.</p>
+<pre tabindex="0"><code>places|France|Nord|Lille
+places|France|Nord
+places|France
+places|England|London
+</code></pre><p>ໃນກໍລະນີນີ້ນີ້ ໂນດຕ່າງໆແມ່ນ</p>
+<pre tabindex="0"><code>places
+places|France
+places|France|Nord
+places|France|Nord|Lille
+places|England
+places|England|London
+</code></pre><p>ໂນດອິດສະຫຼະມີພຽງແຕ່ &ldquo;<code>places</code>&rdquo; ແລະ &ldquo;<code>places|England</code>&rdquo;. ທັງສອງໂນດອິດສະຫຼະນີ້ຍັງເປັນໝວດໝູ່ (ໂດຍທາງອ້ອມ).</p>
+<p>ທ່ານສາມາດຕິດແທັກເຫຼົ່ານີ້ໃສ່ຮູບໃດກໍໄດ້. ແທັກທຸກອັນທີ່ຕິດຢູ່ກັບຮູບ, ຍົກເວັ້ນແທັກໝວດໝູ່, ສາມາດຖືກລວມເຂົ້າເມື່ອຮູບນັ້ນຖືກ <a href="/dtdocs/lo/module-reference/utility-modules/shared/export/">ສົ່ງອອກ</a>.</p>
+<p>ຫາກທ່ານຕິດແທັກ &ldquo;<code>places|France|Nord|Lille</code>&rdquo; ໃສ່ຮູບ, ແທັກ &ldquo;<code>places|France|Nord</code>&rdquo; ແລະ &ldquo;<code>places|France</code>&rdquo; ກໍຈະຖືກຕິດໃສ່ຮູບນັ້ນໂດຍອັດຕະໂນມັດ (ທ່ານບໍ່ຈຳເປັນຕ້ອງຕິດພວກມັນດ້ວຍຕົນເອງ). ໝາຍເຫດວ່າສິ່ງນີ້ເປັນຈິງໃນກໍລະນີນີ້ເທົ່ານັ້ນ ເນື່ອງຈາກແທັກເພີ່ມເຕີມເຫຼົ່ານັ້ນໄດ້ຖືກກຳນົດແຍກໄວ້ແລ້ວ &ndash; ສ່ວນໂນດ &ldquo;<code>places</code>&rdquo; ແມ່ນບໍ່ໄດ້ຖືກລວມເຂົ້າ ນຳ ເພາະມັນເປັນ &ldquo;ໂນດອິດສະຫຼະ&rdquo; (ບໍ່ແມ່ນແທັກ).</p>
+<h1 id="ສວນຕາງໆຂອງໂມດນ"><a href="#%e0%ba%aa%e0%ba%a7%e0%ba%99%e0%ba%95%e0%ba%b2%e0%ba%87%e0%bb%86%e0%ba%82%e0%ba%ad%e0%ba%87%e0%bb%82%e0%ba%a1%e0%ba%94%e0%ba%99">🔗</a>ສ່ວນຕ່າງໆຂອງໂມດູນ</h1>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/tagging-overview.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/tagging-overview.png" alt="ພາບລວມການໃສ່ແທັກ"  class="w33"    /></a>
+
+</p>
+<p>ໂມດູນການໃສ່ແທັກປະກອບມີສອງສ່ວນ:</p>
+<ol>
+<li>
+<ol>
+<li>ສ່ວນ <em>ແທັກທີ່ຕິດຢູ່</em> ດ້ານເທິງ (ພ້ອມປຸ່ມ <em>ຕິດ/ຖອດ</em> ຢູ່ດ້ານລຸ່ມ)</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>ສ່ວນ <em>ວັດຈະນານຸກົມແທັກ</em> ດ້ານລຸ່ມ (ພ້ອມປຸ່ມ <em>ໃໝ່/ນຳເຂົ້າ&hellip;/ສົ່ງອອກ&hellip;</em> ຢູ່ດ້ານລຸ່ມ)</li>
+</ol>
+</li>
+</ol>
+<h2 id="ສວນແທກທຕດຢ"><a href="#%e0%ba%aa%e0%ba%a7%e0%ba%99%e0%bb%81%e0%ba%97%e0%ba%81%e0%ba%97%e0%ba%95%e0%ba%94%e0%ba%a2">🔗</a>ສ່ວນແທັກທີ່ຕິດຢູ່</h2>
+<p>ສ່ວນ <em>ແທັກທີ່ຕິດຢູ່</em> ຈະສະແດງແທັກທີ່ຕິດກັບຮູບ, ເຊິ່ງຮູບເຫຼົ່ານັ້ນແມ່ນ:</p>
+<ul>
+<li>
+<ul>
+<li>ຢູ່ກ້ອງເຄີເຊີເມົາສ໌ (ຫາກວາງເມົາສ໌ໄວ້ເທິງຮູບໃນມຸມມອງໂຕະແສງ); ຫຼື</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ຖືກເລືອກຢູ່ໃນຂະນະນັ້ນ (ຫາກບໍ່ໄດ້ວາງເມົາສ໌ໄວ້ເທິງຮູບ)</li>
+</ul>
+</li>
+</ul>
+<p>ແທັກ darktable ທີ່ສ້າງຂຶ້ນໂດຍອັດຕະໂນມັດ (ທີ່ມີຊື່ເລີ່ມຕົ້ນດ້ວຍ “<code>darktable|</code>”) ບໍ່ສາມາດເລືອກໄດ້.</p>
+<p>ຢູ່ດ້ານລຸ່ມຂອງສ່ວນ <em>ແທັກທີ່ຕິດຢູ່</em> ຈະມີປຸ່ມຕ່າງໆ ດັ່ງນີ້, ຈາກຊ້າຍໄປຂວາ:</p>
+<dl>
+<dt>ຕິດ (attach)</dt>
+<dd>ຫາກມີການເລືອກແທັກໃນສ່ວນ <em>ວັດຈະນານຸກົມແທັກ</em>, ໃຫ້ນຳແທັກນີ້ໄປຕິດໃສ່ຮູບທີ່ເລືອກ.</dd>
+<dt>ຖອດ (detach)</dt>
+<dd>ຫາກມີການເລືອກແທັກໃນລາຍການ <em>ແທັກທີ່ຕິດຢູ່</em>, ໃຫ້ຖອດແທັກນັ້ນອອກຈາກຮູບທີ່ເລືອກ. ທ່ານຍັງສາມາດຖອດແທັກໄດ້ໂດຍການຄລິກຂວາໃສ່ຊື່ແທັກ ແລ້ວເລືອກ <em>ຖອດ (detach)</em> ຈາກເມນູ.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/check-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/check-icon.png" alt="ໄອຄອນຕິກ"  class="icon"    /></a>
+
+ ແທັກທີ່ຊ່ອນຢູ່</dt>
+<dd>ເລືອກວ່າຈະສະແດງແທັກທີ່ຊ່ອນຢູ່ ເຊິ່ງ darktable ໄດ້ຕິດໃສ່ຮູບທີ່ເລືອກໂດຍອັດຕະໂນມັດ ຫຼື ບໍ່.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/sort-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/sort-icon.png" alt="ໄອຄອນຈັດລຽງ"  class="icon"    /></a>
+
+ ຈັດລຽງ</dt>
+<dd>ເລືອກວ່າຈະຈັດລຽງລາຍການ <em>ແທັກທີ່ຕິດຢູ່</em> ຕາມຕົວອັກສອນ ຫຼື ຕາມຈຳນວນທີ່ສະແດງໃນວົງເລັບຂ້າງແທັກ (ຈຳນວນນີ້ບອກວ່າຮູບທີ່ເລືອກມີຈັກຮູບທີ່ມີແທັກນັ້ນຕິດຢູ່).</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/minus-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/minus-icon.png" alt="ໄອຄອນລົບ"  class="icon"    /></a>
+
+ ໂນດຫຼັກ (parents)</dt>
+<dd>ເລືອກວ່າຈະສະແດງໝວດໝູ່ຫຼັກຂອງແທັກນັ້ນ ຫຼື ບໍ່.</dd>
+</dl>
+<p>ທ່ານສາມາດປັບຄວາມສູງຂອງປ່ອງຢ້ຽມ <em>ແທັກທີ່ຕິດຢູ່</em> ໄດ້ໂດຍການກົດ Ctrl ຄ້າງໄວ້ ແລະ ເລື່ອນລໍ້ເມົາສ໌.</p>
+<h2 id="ສວນວດຈະນານກມແທກ"><a href="#%e0%ba%aa%e0%ba%a7%e0%ba%99%e0%ba%a7%e0%ba%94%e0%ba%88%e0%ba%b0%e0%ba%99%e0%ba%b2%e0%ba%99%e0%ba%81%e0%ba%a1%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ສ່ວນວັດຈະນານຸກົມແທັກ</h2>
+<p>ສ່ວນ <em>ວັດຈະນານຸກົມແທັກ</em> ຈະສະແດງແທັກທັງໝົດທີ່ມີຢູ່ໃນຖານຂໍ້ມູນຂອງ darktable. ຢູ່ດ້ານເທິງຂອງສ່ວນນີ້ແມ່ນກ່ອງຂໍ້ຄວາມສຳລັບພິມຊື່ແທັກ. ຖັດລົງມາແມ່ນລາຍການແທັກທີ່ມີ, ເຊິ່ງອາດຈະມີເຄື່ອງໝາຍບົ່ງບອກຢູ່ທາງເບື້ອງຊ້າຍຂອງຊື່ແທັກ. ຄວາມໝາຍຂອງເຄື່ອງໝາຍເຫຼົ່ານີ້ມີດັ່ງນີ້:</p>
+<ul>
+<li>
+<p>: ເຄື່ອງໝາຍຖືກ [✓] ບົ່ງບອກວ່າແທັກນັ້ນຖືກຕິດຢູ່ກັບຮູບພາບທັງໝົດທີ່ເລືອກໄວ້.</p>
+</li>
+<li>
+<ul>
+<li>ເຄື່ອງໝາຍລົບ [-] ບົ່ງບອກວ່າແທັກນັ້ນຕິດຢູ່ກັບຢ່າງໜ້ອຍໜຶ່ງຮູບທີ່ເລືອກ. ຫາກເຄື່ອງໝາຍຢູ່ຂ້າງຊື່ໂນດໃນມຸມມອງ <em>ຕົ້ນໄມ້</em> ຕາມລຳດັບຂັ້ນ, ມັນໝາຍຄວາມວ່າແທັກຍ່ອຍພາຍໃຕ້ໂນດນັ້ນມີຢ່າງໜ້ອຍໜຶ່ງອັນທີ່ຕິດຢູ່ກັບຮູບທີ່ເລືອກ.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ຫາກບໍ່ມີເຄື່ອງໝາຍໃດໆ, ໝາຍຄວາມວ່າແທັກນັ້ນບໍ່ໄດ້ຕິດຢູ່ກັບຮູບໃດໆທີ່ເລືອກເລີຍ, ຫຼື ໂນດນັ້ນບໍ່ມີແທັກຍ່ອຍທີ່ຕິດກັບຮູບທີ່ເລືອກ.</li>
+</ul>
+</li>
+</ul>
+<p>ໃນມຸມມອງ <em>ຕົ້ນໄມ້</em> ຕາມລຳດັບຂັ້ນ, ຊື່ທີ່ເປັນຕົວເນີ້ງໝາຍເຖິງ ໂນດອິດສະຫຼະ ຫຼື ໝວດໝູ່.</p>
+<p>ຢູ່ດ້ານລຸ່ມຂອງລາຍການ <em>ວັດຈະນານຸກົມແທັກ</em> ຈະມີປຸ່ມຕ່າງໆ ດັ່ງນີ້, ຈາກຊ້າຍໄປຂວາ:</p>
+<dl>
+<dt>ໃໝ່ (new)</dt>
+<dd>ສ້າງແທັກໃໝ່ ໂດຍໃຊ້ຊື່ທີ່ພິມໄວ້ໃນກ່ອງຂໍ້ຄວາມດ້ານເທິງຂອງສ່ວນ <em>ວັດຈະນານຸກົມແທັກ</em>.</dd>
+<dt>ນຳເຂົ້າ&hellip;</dt>
+<dd>ນຳເຂົ້າແທັກຈາກໄຟລ໌ຄຳສຳຄັນຂອງ Lightroom.</dd>
+<dt>ສົ່ງອອກ&hellip;</dt>
+<dd>ສົ່ງອອກແທັກທັງໝົດເປັນໄຟລ໌ຄຳສຳຄັນຂອງ Lightroom.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/plus-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/plus-icon.png" alt="plus-icon"  class="icon"    /></a>
+
+ ຄຳແນະນຳ</dt>
+<dd>ສະແດງລາຍຊື່ຄຳສຳຄັນ (keywords) ທີ່ແນະນຳ ໂດຍອີງຕາມຄຳສຳຄັນທີ່ມີຢູ່ແລ້ວໃນຮູບພາບທີ່ເລືອກ (ເບິ່ງສ່ວນ <a href="#preferences">ການຕັ້ງຄ່າ</a>). ຂໍ້ຄວນລະວັງ: ມຸມມອງນີ້ຈະສອບຖາມຂໍ້ມູນຈາກຖານຂໍ້ມູນ ດັ່ງນັ້ນມັນອາດຈະຊ້າ.</dd>
+<dt>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/list-tree-icon.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/tagging/list-tree-icon.png" alt="ໄອຄອນລາຍການ/ຕົ້ນໄມ້"  class="icon"    /></a>
+
+ ລາຍການ/ຕົ້ນໄມ້</dt>
+<dd>ສະຫຼັບການສະແດງຜົນແທັກລະຫວ່າງມຸມມອງ <em>ລາຍການ</em> ແບບລຽງກັນ ແລະ ມຸມມອງ <em>ຕົ້ນໄມ້</em> ຕາມລຳດັບຂັ້ນ.</dd>
+</dl>
+<p>ທ່ານສາມາດປັບຄວາມສູງຂອງປ່ອງຢ້ຽມ <em>ວັດຈະນານຸກົມແທັກ</em> ໄດ້ໂດຍການກົດ Ctrl ຄ້າງໄວ້ ແລະ ເລື່ອນລໍ້ເມົາສ໌.</p>
+<h1 id="ການນຳໃຊ"><a href="#%e0%ba%81%e0%ba%b2%e0%ba%99%e0%ba%99%e0%ba%b3%e0%bb%83%e0%ba%8a">🔗</a>ການນຳໃຊ້</h1>
+<p>ພາກສ່ວນຕໍ່ໄປນີ້ຈະອະທິບາຍກ່ຽວກັບການຈັດການຕ່າງໆທີ່ສາມາດເຮັດໄດ້ກັບແທັກ.</p>
+<h2 id="ການປອນຂຄວາມ"><a href="#%e0%ba%81%e0%ba%b2%e0%ba%99%e0%ba%9b%e0%ba%ad%e0%ba%99%e0%ba%82%e0%ba%84%e0%ba%a7%e0%ba%b2%e0%ba%a1">🔗</a>ການປ້ອນຂໍ້ຄວາມ</h2>
+<p>ກ່ອງປ້ອນຂໍ້ຄວາມ (ທີ່ຢູ່ກ້ອງປຸ່ມ <em>ຕິດ</em>/<em>ຖອດ</em>) ມີໄວ້ເພື່ອຫຼາຍຈຸດປະສົງ.</p>
+<ul>
+<li>
+<p>ຫາກລາຍຊື່ <em>ວັດຈະນານຸກົມແທັກ (tag dictionary)</em> ຢູ່ໃນໂໝດມຸມມອງແບບ <em>ລາຍຊື່</em> (ແທັນທີ່ຈະເປັນແບບ <em>ຕົ້ນໄມ້</em>), ການພິມຕົວອັກສອນທຳອິດຂອງແທັກຈະສະແດງລາຍຊື່ຄຳແນະນຳ. ຈາກນັ້ນທ່ານສາມາດເລື່ອນລົງດ້ວຍປຸ່ມລູກສອນ ແລະ ກົດ Enter ເພື່ອເລືອກໜຶ່ງໃນຄຳແນະນຳນັ້ນ. ການກົດ Enter ເທື່ອທີສອງຈະເປັນການຕິດແທັກນັ້ນໃສ່ຮູບທີ່ເລືອກ. ທ່ານຍັງສາມາດແກ້ໄຂຊື່ຂອງແທັກກ່ອນກົດ Enter &ndash; ໃນກໍລະນີນີ້ແທັກຈະຖືກສ້າງຂຶ້ນຫາກມັນຍັງບໍ່ມີຢູ່ໃນຖານຂໍ້ມູນ.</p>
+</li>
+<li>
+<ul>
+<li>ການພິມຂໍ້ຄວາມບາງສ່ວນໃນກ່ອງຂໍ້ຄວາມຈະຊ່ວຍກັ່ນຕອງແທັກທີ່ສະແດງໃນປ່ອງຢ້ຽມ <em>ວັດຈະນານຸກົມແທັກ</em> ໃຫ້ເຫຼືອສະເພາະແທັກທີ່ມີຊື່ ຫຼື ຄຳໄວພົດກົງກັບຂໍ້ຄວາມທີ່ພິມ. ກົດ Enter ເພື່ອຕິດແທັກຕາມຊື່ນັ້ນໃສ່ຮູບທີ່ເລືອກ. ຫາກຊື່ແທັກນັ້ນຍັງບໍ່ມີໃນຖານຂໍ້ມູນ, ມັນຈະຖືກສ້າງຂຶ້ນກ່ອນແລ້ວຈຶ່ງນຳໄປຕິດໃສ່.</li>
+</ul>
+</li>
+<li>
+<p>ລາຍການເມນູປັອບອັບ “ສຳເນົາໄປຫາຊ່ອງປ້ອນ (copy to entry)” ສາມາດໃຊ້ເພື່ອສຳເນົາແທັກທີ່ເລືອກໄປຫາຊ່ອງປ້ອນຂໍ້ຄວາມ. ຈາກນັ້ນທ່ານສາມາດແກ້ໄຂຊື່ນີ້ ແລະ ກົດ Enter ເພື່ອສ້າງແທັກໃໝ່ດ້ວຍຊື່ນັ້ນ, ເຊິ່ງເຮັດໃຫ້ງ່າຍຕໍ່ການສ້າງຫຼາຍແທັກທີ່ມີຊື່ຄ້າຍຄືກັນ.</p>
+</li>
+</ul>
+<h2 id="ສາງແທກ"><a href="#%e0%ba%aa%e0%ba%b2%e0%ba%87%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ສ້າງແທັກ</h2>
+<p>ມີຫຼາຍວິທີໃນການສ້າງແທັກໃໝ່:</p>
+<ul>
+<li>
+<ul>
+<li><em>ນຳເຂົ້າໄຟລ໌ຂໍ້ຄວາມ</em>. ທ່ານສາມາດນຳເຂົ້າໄຟລ໌ຂໍ້ຄວາມໃນຮູບແບບໄຟລ໌ແທັກຂອງ Lightroom. ທ່ານຍັງສາມາດສົ່ງອອກແທັກຂອງທ່ານ, ແກ້ໄຂໄຟລ໌ນັ້ນ, ແລ້ວນຳເຂົ້າມາໃໝ່. ຟັງຊັນນຳເຂົ້າຈະອັບເດດແທັກທີ່ມີຢູ່ ແລະ ສ້າງແທັກໃໝ່ຕາມຄວາມຕ້ອງການ. ຫາກທ່ານປ່ຽນຊື່ແທັກໃນໄຟລ໌ທີ່ນຳເຂົ້າ, ມັນຈະຖືກຖືວ່າເປັນແທັກໃໝ່.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><em>ນຳເຂົ້າຮູບທີ່ຕິດແທັກແລ້ວ</em>. ວິທີນີ້ບໍ່ສາມາດປ່ຽນຊື່ແທັກ ຫຼື ໝວດໝູ່ໄດ້ໃນລະຫວ່າງຂະບວນການນຳເຂົ້າ.</li>
+</ul>
+</li>
+<li>
+<p><em>ໃຊ້ເມນູຍ່ອຍ “ສ້າງແທັກ”</em>. ແທັກສາມາດຖືກສ້າງຂຶ້ນດ້ວຍຕົນເອງ, ພາຍໃຕ້ແທັກທີ່ມີຢູ່ແລ້ວ (ຕາມລຳດັບຊັ້ນ) ຫຼື ຢູ່ລະດັບຮາກ.</p>
+</li>
+<li>
+<p><em>ໃຊ້ເມນູຍ່ອຍ “ຕັ້ງເປັນແທັກ”</em>. ທ່ານສາມາດຕັ້ງໂນດອິດສະຫຼະ (ເຊັ່ນ: ”<code>places|England</code>”) ໃຫ້ເປັນແທັກ ເພື່ອໃຫ້ມັນຖືກຕິດໃສ່ທຸກຮູບທີ່ຖືກແທັກດ້ວຍແທັກຍ່ອຍຂອງມັນໂດຍອັດຕະໂນມັດ (ເຊັ່ນ: ”<code>places|England|London</code>”).</p>
+</li>
+<li>
+<p><em>ພິມລົງໃນຊ່ອງຂໍ້ຄວາມ ແລະ ກົດປຸ່ມ “ໃໝ່” (new)</em> ຫຼື ກົດປຸ່ມ Enter. ແທັກແບບລຳດັບຊັ້ນ (hierarchical tags) ແມ່ນສ້າງຂຶ້ນໂດຍໃຊ້ສັນຍາລັກ “<code>|</code>” ເພື່ອແຍກແຕ່ລະຂັ້ນ. ໝາຍເຫດວ່າແທັກທີ່ປ້ອນເຂົ້າໄປຈະຖືກຕິດໃສ່ກັບຮູບພາບໃດໆທີ່ເລືອກໄວ້ຄືກັນ.</p>
+</li>
+</ul>
+<p>ແທັກຈຳນວນໜຶ່ງແມ່ນຖືກສ້າງຂຶ້ນໂດຍອັດຕະໂນມັດໂດຍ darktable ເມື່ອມີການດຳເນີນການບາງຢ່າງ. ຕົວຢ່າງ, ແທັກ “<code>darktable|exported</code>” ແລະ “<code>darktable|styles|your_style</code>” ສາມາດໃຊ້ເພື່ອລະບຸຮູບທີ່ຖືກສົ່ງອອກ ແລະ ຮູບທີ່ໄດ້ນຳໃຊ້ສະໄຕລ໌ຕາມລຳດັບ.</p>
+<h2 id="ແກໄຂປຽນຊແທກ"><a href="#%e0%bb%81%e0%ba%81%e0%bb%84%e0%ba%82%e0%ba%9b%e0%ba%bd%e0%ba%99%e0%ba%8a%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ແກ້ໄຂ/ປ່ຽນຊື່ແທັກ</h2>
+<p>ສ່ວນ <em>ວັດຈະນານຸກົມແທັກ</em> ສາມາດຈັດການໄດ້ຜ່ານລາຍການ &ldquo;ແກ້ໄຂ&hellip;&rdquo; ແລະ &ldquo;ປ່ຽນເສັ້ນທາງ&hellip;&rdquo; ໃນເມນູຄລິກຂວາ.</p>
+<p>ຄຳສັ່ງ &ldquo;ແກ້ໄຂ&hellip;&rdquo; ຊ່ວຍໃຫ້ທ່ານປ່ຽນຊື່ແທັກໄດ້, ແຕ່ບໍ່ສາມາດປ່ຽນໂນດທີ່ມັນສັງກັດຢູ່ໄດ້ (ທ່ານບໍ່ສາມາດໃຊ້ເຄື່ອງໝາຍ pipe &ldquo;|&rdquo; ໃນຊ່ອງຊື່ແທັກ). ຄຳສັ່ງຈະຖືກຍົກເລີກຫາກທ່ານພະຍາຍາມປ້ອນຊື່ແທັກທີ່ມີຢູ່ແລ້ວ. ທ່ານສາມາດຕັ້ງຄ່າ <em>ສ່ວນຕົວ (private)</em> ແລະ <em>ໝວດໝູ່ (category)</em> ພ້ອມທັງກຳນົດ <em>ຄຳໄວພົດ (synonyms)</em> ໃຫ້ກັບແທັກໄດ້. ຄຸນລັກສະນະເຫຼົ່ານີ້ຈະຖືກບັນທຶກໄວ້ໃນຂໍ້ມູນ <code>XMP-dc Subject</code> ແລະ <code>XMP-lr Hierarchical Subject</code>. ທ່ານສາມາດຄວບຄຸມວ່າແທັກໃດຈະຖືກລວມເຂົ້າໃນການສົ່ງອອກໄດ້ໂດຍການປ່ຽນການຕັ້ງຄ່າໃນໂມດູນ <a href="/dtdocs/lo/module-reference/utility-modules/shared/export/">ສົ່ງອອກ</a>.</p>
+<ul>
+<li>
+<p>ແທັກທີ່ຕັ້ງເປັນ “ສ່ວນຕົວ (private)” ໂດຍເລີ່ມຕົ້ນແລ້ວຈະບໍ່ຖືກສົ່ງອອກ.</p>
+</li>
+<li>
+<p>ແທັກທີ່ຕັ້ງເປັນ “ໝວດໝູ່ (category)” ຈະບໍ່ຖືກສົ່ງອອກໃນ <code>XMP-dc Subject</code>. ແນວໃດກໍຕາມ, ມັນຈະຖືກສົ່ງອອກໃນ <code>XMP-lr Hierarchical Subject</code> ເນື່ອງຈາກຂໍ້ມູນເມຕາ XMP ນີ້ເກັບຮັກສາການຈັດລະບຽບຂອງແທັກຂອງທ່ານ.</p>
+</li>
+<li>
+<p>“ຄຳໄວພົດ (synonyms)” ຊ່ວຍໃຫ້ຂໍ້ມູນແທັກສົມບູນຂຶ້ນ ແລະ ສ່ວນໃຫຍ່ແມ່ນໃຊ້ເພື່ອຊ່ວຍເຄື່ອງມືຄົ້ນຫາ. ຕົວຢ່າງ “juvenile”, “kid” ຫຼື “youth” ສາມາດຕັ້ງເປັນຄຳໄວພົດຂອງ “child”. ຄຳໄວພົດຍັງສາມາດໃຊ້ເພື່ອແປຊື່ແທັກເປັນພາສາອື່ນໄດ້ອີກດ້ວຍ.</p>
+</li>
+</ul>
+<p>ການດຳເນີນການ &ldquo;ປ່ຽນເສັ້ນທາງ&hellip;&rdquo; ແມ່ນມີໃຫ້ໃຊ້ສະເພາະໃນໂໝດມຸມມອງ <em>ແບບຕົ້ນໄມ້</em> ເທົ່ານັ້ນ, ແລະ ມັນຈະສະແດງຈຳນວນຮູບພາບທີ່ຕິດແທັກ ເຊິ່ງຈະໄດ້ຮັບຜົນກະທົບຈາກການປ່ຽນຊື່ຂອງໂນດນີ້. ໜ້າຕ່າງປ່ຽນເສັ້ນທາງ ຊ່ວຍໃຫ້ຜູ້ໃຊ້ສາມາດປ່ຽນເສັ້ນທາງເຕັມຂອງໂນດ, ລວມທັງໂນດທີ່ມັນຂຶ້ນກັບ (ໂນດສາມາດກຳນົດໄດ້ໂດຍການໃຊ້ສັນຍະລັກໄພ້ &ldquo;<code>|</code>&rdquo;). ການດຳເນີນການນີ້ມີປະສິດທິພາບສູງ, ແຕ່ກະລຸນາໃຊ້ດ້ວຍຄວາມລະມັດລະວັງ ເພາະວ່າມັນສາມາດສົ່ງຜົນກະທົບຢ່າງຫຼວງຫຼາຍຕໍ່ຂໍ້ມູນເມຕາຂອງຮູບພາບຂອງທ່ານ. ການດຳເນີນການຈະຖືກຍົກເລີກ ຖ້າຫາກການປ່ຽນແປງທີ່ຮ້ອງຂໍນັ້ນ ກໍ່ໃຫ້ເກີດຂໍ້ຂັດແຍ່ງກັບແທັກທີ່ມີຢູ່ແລ້ວ.</p>
+<p>ວິທີທີ່ໄວໃນການຈັດລະບຽບໂຄງສ້າງແທັກຄືການລາກ ແລະ ວາງໂນດ. ໃນໂໝດມຸມມອງ <em>ຕົ້ນໄມ້</em>, ທ່ານສາມາດລາກໂນດໃດໜຶ່ງໄປວາງໄວ້ເທິງໂນດອື່ນໄດ້. ໂນດທຳອິດ ແລະ ໂນດຍ່ອຍຂອງມັນ (ຖ້າມີ) ຈະກາຍເປັນໂນດຍ່ອຍຂອງໂນດທີສອງ. ການລາກຜ່ານໂນດຈະເປັນການເປີດໂນດນັ້ນໂດຍອັດຕະໂນມັດ (ເພື່ອຫຼີກລ່ຽງການເປີດໂນດ, ໃຫ້ລາກຜ່ານເຄື່ອງໝາຍເລືອກໂນດແທນ). ເພື່ອວາງໂນດໄວ້ໃນລະດັບເທິງສຸດ, ໃຫ້ລາກມັນໄປໄວ້ດ້ານເທິງສຸດຂອງປ່ອງຢ້ຽມແທັກ. ຫາກການປ່ຽນແປງນັ້ນຂັດແຍ້ງກັບແທັກທີ່ມີຢູ່, ຄຳສັ່ງຈະຖືກຍົກເລີກ.</p>
+<h2 id="ຕດແທກ"><a href="#%e0%ba%95%e0%ba%94%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ຕິດແທັກ</h2>
+<p>ມີຫຼາຍວິທີໃນການຕິດແທັກທີ່ມີຢູ່ໃສ່ກຸ່ມຮູບທີ່ເລືອກ:</p>
+<ul>
+<li>
+<ul>
+<li>ຄລິກໃສ່ແທັກໃນປ່ອງຢ້ຽມ <em>ວັດຈະນານຸກົມແທັກ</em> ເພື່ອເລືອກມັນ, ແລ້ວກົດປຸ່ມ <em>ຕິດ (attach)</em>.</li>
+</ul>
+</li>
+<li>
+<p>ຄລິກຂວາໃສ່ແທັກໃນໜ້າຕ່າງ <em>ພົດຈະນານຸກົມແທັກ</em> (tag dictionary) ເພື່ອສະແດງເມນູປັອບອັບ, ຈາກນັ້ນເລືອກລາຍການເມນູ “ຕິດແທັກ” (attach tag).</p>
+</li>
+<li>
+<ul>
+<li>ດັບເບິນຄລິກໃສ່ແທັກໃນປ່ອງຢ້ຽມ <em>ວັດຈະນານຸກົມແທັກ</em>.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ຄລິກຂວາໃສ່ແທັກທີ່ສະແດງໃນມຸມມອງ <em>ແທັກທີ່ຕິດຢູ່</em>. ຫາກຮູບທີ່ເລືອກບາງຮູບຍັງບໍ່ມີແທັກນັ້ນ, ທ່ານສາມາດໃຊ້ລາຍການເມນູ &ldquo;ຕິດແທັກໃສ່ທັງໝົດ&rdquo; ເພື່ອຕິດແທັກນັ້ນໃສ່ທຸກຮູບທີ່ເລືອກ.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ພິມໃນກ່ອງຂໍ້ຄວາມ ແລະ ກົດປຸ່ມ &ldquo;ໃໝ່&rdquo; ຫຼື ກົດ Enter. ນີ້ຈະສ້າງແທັກ (ຫາກຍັງບໍ່ມີ) ແລະ ຕິດໃສ່ຮູບທີ່ເລືອກ.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ກົດ Ctrl+T ເພື່ອເປີດກ່ອງຂໍ້ຄວາມນ້ອຍໆຢູ່ດ້ານລຸ່ມຂອງມຸມມອງກາງຂອງໂຕະແສງ. ພິມຊື່ແທັກ ແລະ ກົດ Enter. ແທັກຈະຖືກສ້າງຂຶ້ນ (ຫາກຍັງບໍ່ມີ) ແລະ ຕິດໃສ່ທຸກຮູບທີ່ເລືອກ.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>ລາກຮູບ ຫຼື ກຸ່ມຮູບແລ້ວໄປວາງໄວ້ເທິງແທັກທີ່ຕ້ອງການ.</li>
+</ul>
+</li>
+</ul>
+<p>ເມື່ອວາງເມົາສ໌ໄວ້ເທິງຮູບໃນໂຕະແສງ, ທ່ານສາມາດກວດເບິ່ງໄດ້ວ່າແທັກໃດຕິດຢູ່ກັບຮູບແດ່ ໂດຍການເບິ່ງທີ່ປ່ອງຢ້ຽມ <em>ແທັກທີ່ຕິດຢູ່</em> ໃນໂມດູນ <em>ການໃສ່ແທັກ</em> ຫຼື ໃນສ່ວນຄຸນລັກສະນະ <em>ແທັກ</em> ໃນໂມດູນ <a href="/dtdocs/lo/module-reference/utility-modules/shared/image-information/">ຂໍ້ມູນຮູບພາບ</a>.</p>
+<h2 id="ຖອດແທກ"><a href="#%e0%ba%96%e0%ba%ad%e0%ba%94%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ຖອດແທັກ</h2>
+<p>ມີຫຼາຍວິທີໃນການລຶບແທັກອອກຈາກກຸ່ມຮູບພາບທີ່ເລືອກໄວ້:</p>
+<ul>
+<li>
+<p>ຄລິກໃສ່ແທັກໃນປ່ອງຢ້ຽມ <em>ແທັກທີ່ຕິດຄັດ (attached tag)</em> ຂອງໂມດູນ <em>ການຕິດແທັກ (tagging)</em> ເພື່ອເລືອກແທັກ, ຈາກນັ້ນຄລິກໃສ່ປຸ່ມ <em>ຖອນອອກ (detach)</em>.</p>
+</li>
+<li>
+<p>ດັບເບິລຄລິກໃສ່ແທັກໃນປ່ອງຢ້ຽມ <em>ແທັກທີ່ຕິດຄັດ</em>.</p>
+</li>
+<li>
+<p>ຄລິກຂວາໃສ່ແທັກໃນປ່ອງຢ້ຽມ <em>ແທັກທີ່ຕິດຄັດ</em> ເພື່ອສະແດງເມນູປັອບອັບ, ແລ້ວເລືອກ &ldquo;ຖອນອອກ (detach)&rdquo;.</p>
+</li>
+</ul>
+<h2 id="ລບແທກ"><a href="#%e0%ba%a5%e0%ba%9a%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ລຶບແທັກ</h2>
+<p>ທ່ານສາມາດລຶບແທັກອອກຈາກທຸກຮູບພາບ (ບໍ່ວ່າຈະຖືກເລືອກໄວ້ຫຼືບໍ່) ແລະ ລຶບແທັກນັ້ນອອກຈາກຖານຂໍ້ມູນໄດ້ຢ່າງຖາວອນ. ເນື່ອງຈາກການກະທຳນີ້ອາດສົ່ງຜົນກະທົບຕໍ່ຮູບພາບຈຳນວນຫຼາຍ, ລະບົບຈະສະແດງຄຳເຕືອນເພື່ອບອກວ່າ ມີຈັກຮູບພາບທີ່ກຳລັງໃຊ້ແທັກນີ້ຢູ່. ຂໍໃຫ້ລະມັດລະວັງກັບຄຳເຕືອນນີ້ ເພາະບໍ່ມີວິທີການກັບຄືນການກະທຳໄດ້ (ຍົກເວັ້ນການກູ້ຄືນຖານຂໍ້ມູນ ຫຼື ໄຟລ໌ຊາຍຄາ XMP ຈາກບ່ອນສຳຮອງຂໍ້ມູນ). ແທັກໃນປ່ອງຢ້ຽມ <em>ຄັງແທັກ (tag dictionary)</em> ສາມາດລຶບໄດ້ດ້ວຍວິທີດັ່ງນີ້:</p>
+<ul>
+<li>
+<p>ຄລິກຂວາໃສ່ແທັກໃນປ່ອງຢ້ຽມ <em>ຄັງແທັກ</em> ເພື່ອສະແດງເມນູປັອບອັບ, ແລ້ວເລືອກ &ldquo;ລຶບແທັກ (delete tag)&rdquo;.</p>
+</li>
+<li>
+<p>ຄລິກຂວາໃສ່ຈຸດເຊື່ອມຕໍ່ (node) ໃນປ່ອງຢ້ຽມ <em>ຄັງແທັກ</em> ເພື່ອສະແດງເມນູປັອບອັບ, ແລ້ວເລືອກ &ldquo;ລຶບໂນດ (delete node)&rdquo; ເພື່ອລຶບໂນດທີ່ເລືອກພ້ອມກັບໂນດລູກທັງໝົດ.</p>
+</li>
+</ul>
+<h2 id="ນຳເຂາ--ສງອອກ"><a href="#%e0%ba%99%e0%ba%b3%e0%bb%80%e0%ba%82%e0%ba%b2--%e0%ba%aa%e0%ba%87%e0%ba%ad%e0%ba%ad%e0%ba%81">🔗</a>ນຳເຂົ້າ / ສົ່ງອອກ</h2>
+<p>ປຸ່ມ “ນຳເຂົ້າ (import)” ຊ່ວຍໃຫ້ທ່ານສາມາດເລືອກໄຟລ໌ຂໍ້ຄວາມ (ເຊິ່ງຕ້ອງເປັນໄປຕາມຮູບແບບໄຟລ໌ແທັກຂອງ Lightroom) ແລະ ນຳເຂົ້າເນື້ອຫາຂອງມັນ. ຫາກແທັກໃນໄຟລ໌ທີ່ນຳເຂົ້າມີຢູ່ແລ້ວ, ຄຸນສົມບັດຂອງມັນຈະຖືກອັບເດດ, ຖ້າບໍ່ດັ່ງນັ້ນແທັກໃໝ່ຈະຖືກສ້າງຂຶ້ນ.</p>
+<p>ປຸ່ມ “ສົ່ງອອກ (export)” ຈະສົ່ງອອກວັດຈະນານຸກົມແທັກທັງໝົດຂອງທ່ານໄປເປັນໄຟລ໌ຂໍ້ຄວາມຕາມທີ່ທ່ານຕ້ອງການ (ຮູບແບບໄຟລ໌ແທັກຂອງ Lightroom).</p>
+<h2 id="ສຳເນາແທກໄປໄວໃນຄລບບອດ"><a href="#%e0%ba%aa%e0%ba%b3%e0%bb%80%e0%ba%99%e0%ba%b2%e0%bb%81%e0%ba%97%e0%ba%81%e0%bb%84%e0%ba%9b%e0%bb%84%e0%ba%a7%e0%bb%83%e0%ba%99%e0%ba%84%e0%ba%a5%e0%ba%9a%e0%ba%9a%e0%ba%ad%e0%ba%94">🔗</a>ສຳເນົາແທັກໄປໄວ້ໃນຄລິບບອດ</h2>
+<p>ທ່ານສາມາດສຳເນົາແທັກດ່ຽວທີ່ເລືອກໄປໄວ້ໃນຄລິບບອດໄດ້ ທັງຈາກສ່ວນ <em>ແທັກທີ່ຕິດຄັດ</em> ແລະ <em>ຄັງແທັກ</em> ໂດຍການໃຊ້ເມນູປັອບອັບ &ldquo;ສຳເນົາໄປໄວ້ໃນຄລິບບອດ (copy to clipboard)&rdquo;.</p>
+<h2 id="ຄນຫາແທກ"><a href="#%e0%ba%84%e0%ba%99%e0%ba%ab%e0%ba%b2%e0%bb%81%e0%ba%97%e0%ba%81">🔗</a>ຄົ້ນຫາແທັກ</h2>
+<p>ຖ້າທ່ານຄລິກຂວາໃສ່ຊື່ແທັກໃນສ່ວນ <em>ແທັກທີ່ຕິດຄັດ</em> ແລ້ວຄລິກ <em>ຄົ້ນຫາແທັກ (find tag)</em>, ຈາກນັ້ນ <em>ຄັງແທັກ</em> ຈະສະແດງທຸກແທັກທີ່ກົງກັນ.</p>
+<h2 id="ຄບອດ"><a href="#%e0%ba%84%e0%ba%9a%e0%ba%ad%e0%ba%94">🔗</a>ຄີບອດ</h2>
+<p>ປຸ່ມຕ່າງໆດັ່ງຕໍ່ໄປນີ້ສາມາດໃຊ້ໄດ້ພາຍໃນໂມດູນການຕິດແທັກ:</p>
+<ul>
+<li>
+<p>ປຸ່ມ Tab ສາມາດໃຊ້ເພື່ອເລື່ອນລະຫວ່າງ ມຸມເບິ່ງ <em>ແທັກທີ່ຕິດຢູ່</em>, ຊ່ອງປ້ອນຂໍ້ຄວາມ, ແລະ ມຸມເບິ່ງ <em>ວັດຈະນານຸກົມແທັກ</em>. ການກົດ Tab ຈາກພາຍໃນຊ່ອງປ້ອນຂໍ້ຄວາມຈະເປັນການເລືອກແທັກທຳອິດທີ່ກົງກັນໃນມຸມເບິ່ງ <em>ວັດຈະນານຸກົມແທັກ</em> (ຖ້າມີ).</p>
+</li>
+<li>
+<p>ປຸ່ມລູກສອນລົງ ມີຄ່າເທົ່າກັບປຸ່ມ Tab ເມື່ອກົດໃນຂະນະທີ່ຢູ່ໃນຊ່ອງປ້ອນຂໍ້ຄວາມ.</p>
+</li>
+<li>
+<p>Shift+Tab ເຮັດຄືກັນກັບປຸ່ມ Tab ແຕ່ຈະເລື່ອນໄປໃນທິດທາງກົງກັນຂ້າມ. ການກົດ Shift+Tab ຈາກພາຍໃນຊ່ອງປ້ອນຂໍ້ຄວາມຈະເປັນການເລືອກແທັກທຳອິດຂອງຜູ້ໃຊ້ໃນມຸມເບິ່ງ <em>ແທັກທີ່ຕິດຢູ່</em> (ຖ້າມີ).</p>
+</li>
+<li>
+<p>ປຸ່ມ Enter ສາມາດໃຊ້ພາຍໃນມຸມເບິ່ງ <em>ວັດຈະນານຸກົມແທັກ</em> ເພື່ອຕິດແທັກທີ່ເລືອກ, ໂດຍຍັງຄົງຈຸດໂຟກັດໄວ້ທີ່ແທັກທີ່ຕິດນັ້ນ (ຄ້າຍຄືກັບເວລາຕິດແທັກໂດຍໃຊ້ເມົາສ໌).</p>
+</li>
+<li>
+<p>ການກົດ Shift+Enter ຈາກພາຍໃນມຸມເບິ່ງ <em>ວັດຈະນານຸກົມແທັກ</em> ຈະເປັນການກັບຄືນຈຸດໂຟກັດໄປທີ່ຊ່ອງປ້ອນຂໍ້ຄວາມ.</p>
+</li>
+<li>
+<p>ປຸ່ມ Delete / BackSpace ສາມາດໃຊ້ພາຍໃນມຸມເບິ່ງ <em>ແທັກທີ່ຕິດຢູ່</em> ເພື່ອຍົກເລີກການຕິດແທັກທີ່ເລືອກ.</p>
+</li>
+</ul>
+<h2 id="ການນຳທາງ-navigation"><a href="#%e0%ba%81%e0%ba%b2%e0%ba%99%e0%ba%99%e0%ba%b3%e0%ba%97%e0%ba%b2%e0%ba%87-navigation">🔗</a>ການນຳທາງ (navigation)</h2>
+<p>ເພື່ອເບິ່ງຮູບພາບທີ່ມີແທັກໃດໜຶ່ງໃນໜ້າຕ່າງ <em>ວັດຈະນານຸກົມແທັກ</em>, ໃຫ້ຄລິກຂວາໃສ່ຊື່ແທັກ ແລ້ວເລືອກ &ldquo;ໄປຫາຄໍເລັກຊັນແທັກ&rdquo; ໃນເມນູປັອບອັບທີ່ປະກົດຂຶ້ນ. ນີ້ຈະເປັນການເປີດຄໍເລັກຊັນໃນໂມດູນ <a href="/dtdocs/lo/module-reference/utility-modules/shared/collections/">ຄໍເລັກຊັນ</a> ເຊິ່ງຈະສະແດງຮູບພາບທັງໝົດທີ່ມີແທັກນີ້. ທ່ານຍັງສາມາດເລືອກແທັກອື່ນໆໃນໂມດູນ <em>ຄໍເລັກຊັນ</em> ໄດ້ ໂດຍການດັບເບິລຄລິກໃສ່ຄໍເລັກຊັນຂອງແທັກອື່ນ.</p>
+<p>ເພື່ອກັບຄືນໄປຫາກຸ່ມຮູບພາບທີ່ເລືອກໄວ້ກ່ອນທີ່ຈະເປີດກຸ່ມຮູບພາບຂອງແທັກ, ໃຫ້ເລືອກລາຍການ &ldquo;ກັບຄືນໄປເຮັດວຽກຕໍ່ (go back to work)&rdquo; ຈາກເມນູປັອບອັບ. ນີ້ຈະຊ່ວຍໃຫ້ທ່ານກັບຄືນໄປຫາກຸ່ມຮູບພາບເດີມໄດ້, ຕາບໃດທີ່ທ່ານຍັງບໍ່ໄດ້ເລືອກກຸ່ມຮູບພາບອື່ນໃນລະຫວ່າງນັ້ນ.</p>
+<h1 id="ການຕງຄາ"><a href="#%e0%ba%81%e0%ba%b2%e0%ba%99%e0%ba%95%e0%ba%87%e0%ba%84%e0%ba%b2">🔗</a>ການຕັ້ງຄ່າ</h1>
+<p>ຕົວເລືອກ &ldquo;ການຕັ້ງຄ່າ… (preferences…)&rdquo; ໃນເມນູພຣີເຊັດຈະເປີດໜ້າຕ່າງໂຕ້ຕອບທີ່ທ່ານສາມາດປັບແຕ່ງພຶດຕິກຳຂອງລາຍຊື່ຄຳແນະນຳແທັກໄດ້. ລາຍຊື່ຄຳແນະນຳແທັກປະກອບມີສອງສ່ວນ, ໂດຍມີແທັກທີ່ກົງກັນທີ່ສຸດຢູ່ດ້ານໜຶ່ງ ແລະ ແທັກທີ່ຖືກຕິດຫຼ້າສຸດຢູ່ອີກດ້ານໜຶ່ງ. ມີຕົວເລືອກຕໍ່ໄປນີ້:</p>
+<dl>
+<dt>ລະດັບຄວາມໝັ້ນໃຈຂອງແທັກທີ່ແນະນຳ</dt>
+<dd>ລະດັບຄວາມໝັ້ນໃຈທີ່ໃຊ້ໃນການລວມແທັກເຂົ້າໃນລາຍການແນະນຳ (ຄ່າເລີ່ມຕົ້ນ 50):</dd>
+<dd><ul>
+<li>0: ສະແດງທຸກແທັກທີ່ກ່ຽວຂ້ອງ,</li>
+</ul>
+</dd>
+<dd><ul>
+<li>99: ຈັບຄູ່ແທັກທີ່ມີລະດັບຄວາມໝັ້ນໃຈ 99%,</li>
+</ul>
+</dd>
+<dd><ul>
+<li>100: ນີ້ແມ່ນລະດັບຄວາມໝັ້ນໃຈທີ່ບໍ່ສາມາດບັນລຸໄດ້ ແລະ ຈະບໍ່ມີແທັກທີ່ກົງກັນ. ໃຊ້ 100% ເພື່ອປິດການໃຊ້ງານລາຍການແນະນຳແທັກທີ່ກົງກັນທີ່ສຸດ (ຈະເຮັດໃຫ້ເຮັດວຽກໄວຂຶ້ນ).</li>
+</ul>
+</dd>
+<dt>ຈຳນວນແທັກທີ່ຕິດຄັດຫຼ້າສຸດ</dt>
+<dd>ຈຳນວນແທັກທີ່ຕິດຄັດຫຼ້າສຸດທີ່ຈະລວມເຂົ້າໃນລາຍການແນະນຳ (ຄ່າເລີ່ມຕົ້ນ 20). ສາມາດໃຊ້ຄ່າ &ldquo;-1&rdquo; ເພື່ອປິດການໃຊ້ງານລາຍການແນະນຳແທັກທີ່ຕິດຄັດຫຼ້າສຸດ.</dd>
+</dl>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/utility-modules/shared/tagging/">
+            Dutch: labelen
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/">
+            English: tagging
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/utility-modules/shared/tagging/">
+            Français: Mots-clés
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/utility-modules/shared/tagging/">
+            German: Verschlagwortung
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/utility-modules/shared/tagging/">
+            Polish: nadawanie etykiet
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/utility-modules/shared/tagging/">
+            Português: etiquetas
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/utility-modules/shared/tagging/">
+            Ukrainian: Теги
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/lo/module-reference/utility-modules/shared/" class="next">&lt; ໃຊ້ຮ່ວມກັນ</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/lo/module-reference/utility-modules/shared/geotagging/" class="prev">ການຕິດແທັກພູມສັນຖານ &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/" class="">
+          ສ່ວນຕິດຕໍ່ຜູ້ໃຊ້
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/views/" class="">
+          ສ່ວນສະແດງຜົນ (views)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/screen-layout/" class="">
+          ຮູບແບບໜ້າຈໍ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/filmstrip/" class="">
+          ແຖບຟິມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/top-panel/" class="">
+          ແຜງດ້ານເທິງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/bottom-panel/" class="">
+          ແຜງດ້ານລຸ່ມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/user-interface/keyboard-shortcuts/" class="">
+          ຄີລັດ (keyboard shortcuts)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/supported-file-formats/" class="">
+          ຮູບແບບໄຟລ໌ທີ່ຮອງຮັບ
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/sidecar-files/" class="">
+          ໄຟລ໌ຊາຍຄາ (sidecar) &amp; ການແກ້ໄຂທີ່ບໍ່ທຳລາຍຕົ້ນສະບັບ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/sidecar-files/sidecar/" class="">
+          ໄຟລ໌ຊາຍຄາ (sidecar files)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/sidecar-files/sidecar-import/" class="">
+          ການນຳເຂົ້າໄຟລ໌ຊາຍຄາທີ່ສ້າງໂດຍແອັບພລິເຄຊັນອື່ນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/sidecar-files/local-copies/" class="">
+          ສຳເນົາພາຍໃນເຄື່ອງ (local copies)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/workflow/" class="">
+          ບົດນຳກ່ຽວກັບຂະບວນການເຮັດວຽກຂອງ darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/workflow/introduction/" class="">
+          ບົດນຳ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/workflow/import-review/" class="">
+          ການນຳເຂົ້າ &amp; ການກວດສອບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/workflow/process/" class="">
+          ປະມວນຜົນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/overview/workflow/export/" class="">
+          ສົ່ງອອກ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/" class="">
+          ແຜງແສງ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/lighttable-view-layout/" class="">
+          ເຄົ້າໂຄງມຸມມອງແຜງແສງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/undo-redo/" class="">
+          ເລີກເຮັດ/ເຮັດຄືນ
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/lighttable-modes/" class="">
+          ໂໝດແຜງແສງ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/lighttable-modes/filemanager/" class="">
+          ຕົວຈັດການໄຟລ໌
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/lighttable-modes/zoomable-lighttable/" class="">
+          ແຜງແສງແບບຊູມໄດ້
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/lighttable-modes/culling/" class="">
+          ການຄັດເລືອກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/lighttable-modes/full-preview/" class="">
+          ການສະແດງຕົວຢ່າງເຕັມ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/" class="">
+          ການຈັດການຊັບສິນດິຈິຕອນ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/collections/" class="">
+          ຊຸດຮູບພາບ ແລະ ມ້ວນຟິມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/sequence/" class="">
+          ລຳດັບຮູບພາບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/thumbnails/" class="">
+          ຮູບຕົວຢ່າງ (thumbnails)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/star-color/" class="">
+          ການໃຫ້ດາວ ແລະ ປ້າຍສີ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/grouping/" class="">
+          ການຈັດກຸ່ມຮູບພາບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lighttable/digital-asset-management/metadata-tagging/" class="">
+          ຂໍ້ມູນເສີມ ແລະ ການຕິດແທັກ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/" class="">
+          ຫ້ອງມືດ (Darkroom)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/darkroom-view-layout/" class="">
+          ໂຄງຮ່າງມຸມເບິ່ງຫ້ອງມືດ
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/pixelpipe/" class="">
+          ພິກເຊວໄປຣ໌ (pixelpipe)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          ໂຄງສ້າງຂອງໂມດູນການປະມວນຜົນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/pixelpipe/the-pixelpipe-and-module-order/" class="">
+          ພິກເຊວໄປຣ໌ (pixelpipe) &amp; ລຳດັບໂມດູນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/pixelpipe/history-stack/" class="">
+          ລຳດັບປະຫວັດ (history stack)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/pixelpipe/undo-redo/" class="">
+          ຍົກເລີກ ແລະ ເຮັດຊ້ຳ (undo and redo)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/" class="">
+          ໂມດູນການປະມວນຜົນ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/module-header/" class="">
+          ສ່ວນຫົວຂອງໂມດູນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/multiple-instances/" class="">
+          ຫຼາຍອິນສະແຕນຊ໌ (multiple instances)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/presets/" class="">
+          ຄ່າທີ່ຕັ້ງໄວ້ກ່ອນ (presets)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/module-controls/" class="">
+          ສ່ວນຄວບຄຸມໂມດູນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/curves/" class="">
+          ເສັ້ນໂຄ້ງ (curves)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/wavelets/" class="">
+          ເວບເລັດ (wavelets)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/processing-modules/deprecated/" class="">
+          ໂມດູນທີ່ຍົກເລີກການໃຊ້ງານແລ້ວ (deprecated modules)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/" class="">
+          ການໃຊ້ໜ້າກາກ ແລະ ການປະສົມ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/blend-modes/" class="">
+          ໂໝດການປະສົມ (blend modes)
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/" class="">
+          ໜ້າກາກ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/drawn/" class="">
+          ໜ້າກາກແບບແຕ້ມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/parametric/" class="">
+          ໜ້າກາກແບບກຳນົດຄ່າ (parametric masks)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          ການລວມໜ້າກາກແບບແຕ້ມ ແລະ ແບບກຳນົດຄ່າ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/refinement-controls/" class="">
+          ການປັບແຕ່ງໜ້າກາກ ແລະ ການຄວບຄຸມເພີ່ມເຕີມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/ai-masking/" class="">
+          ການໃຊ້ໜ້າກາກ AI
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/masking-and-blending/masks/raster/" class="">
+          ໜ້າກາກແບບຣາສເຕີ (raster masks)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/organization/" class="">
+          ການຈັດລະບຽບ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/organization/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/organization/module-groups/" class="">
+          ກຸ່ມໂມດູນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/organization/quick-access-panel/" class="">
+          ແຖບເຂົ້າເຖິງດ່ວນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/darkroom/organization/manage-module-layouts/" class="">
+          ຈັດການຮູບແບບໂມດູນ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/tethering/" class="">
+          ການຖ່າຍຮູບຜ່ານສາຍ (Tethering)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/tethering/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/tethering/tethering-view-layout/" class="">
+          ການຈັດວາງໜ້າຈໍໂໝດ tethering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/tethering/examples/" class="">
+          ຕົວຢ່າງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/tethering/troubleshooting/" class="">
+          ການແກ້ໄຂບັນຫາ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/map/" class="">
+          ແຜນທີ່
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/map/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/map/map-view-layout/" class="">
+          ເຄົ້າໂຄງມຸມມອງແຜນທີ່
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/slideshow/" class="">
+          ການສະແດງສະໄລ້
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/slideshow/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/slideshow/usage/" class="">
+          ການນຳໃຊ້
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/print/" class="">
+          ການພິມ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/print/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/print/print-view-layout/" class="">
+          ຜັງການຈັດວາງມຸມມອງການພິມ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/" class="">
+          ຄູ່ມືອ້າງອີງໂມດູນ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/" class="">
+          ໂມດູນການປະມວນຜົນ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/agx/" class="">
+          AgX
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-contrast/" class="">
+          color contrast (ຄວາມຄົມຊັດຂອງສີ)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-correction/" class="">
+          color correction (ການແກ້ໄຂສີ)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-equalizer/" class="">
+          color equalizer (ຕົວປັບສົມດຸນສີ)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-harmonizer/" class="">
+          color harmonizer (ຕົວປະສານສີ)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/filmic-rgb/" class="">
+          filmic rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/rgb-curve/" class="">
+          rgb curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/rgb-levels/" class="">
+          rgb levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/rgb-primaries/" class="">
+          rgb primaries
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/diffuse/" class="">
+          ກະຈາຍ ຫຼື ເພີ່ມຄວາມຄົມຊັດ (diffuse or sharpen)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/highlight-reconstruction/" class="">
+          ການກູ້ຄືນສ່ວນແຈ້ງ (highlight reconstruction)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/lens-correction/" class="">
+          ການແກ້ໄຂເລນ (lens correction)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-calibration/" class="">
+          ການຄາລິເບຣດສີ (color calibration)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-mapping/" class="">
+          ການຈັບຄູ່ສີ (color mapping)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-reconstruction/" class="">
+          ການສ້າງສີໃໝ່ (color reconstruction)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/framing/" class="">
+          ການໃສ່ກອບ (framing)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/censorize/" class="">
+          ການເຊັນເຊີ (censorize)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/split-toning/" class="">
+          ການແຍກໂທນສີ (split-toning)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/demosaic/" class="">
+          ການເດໂມເຊກ (demosaic)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/lowlight-vision/" class="">
+          ການເບິ່ງເຫັນໃນບ່ອນແສງໜ້ອຍ (lowlight vision)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/composite/" class="">
+          ການປະສົມພາບ (composite)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/graduated-density/" class="">
+          ການລົດແສງແບບໄລ່ລະດັບ (graduated density)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/haze-removal/" class="">
+          ການລົດໝອກຄັວນ (haze removal)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/orientation/" class="">
+          ການວາງແນວ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/exposure/" class="">
+          ການຮັບແສງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/vignetting/" class="">
+          ການເຮັດຂອບມືດ (vignetting)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/blurs/" class="">
+          ການເຮັດໃຫ້ເບີຼ (blurs)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/grain/" class="">
+          ເກຣນ (grain)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/unbreak-input-profile/" class="">
+          ແກ້ໄຂໂປຣໄຟລ໌ຂາເຂົ້າ (unbreak input profile)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/enlarge-canvas/" class="">
+          ຂະຫຍາຍພື້ນທີ່ພາບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/monochrome/" class="">
+          ຂາວດຳ (monochrome)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-zones/" class="">
+          ເຂດສີ (color zones)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/chromatic-aberrations/" class="">
+          ຄວາມຄາດເຄື່ອນຂອງສີ (chromatic aberrations)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-balance/" class="">
+          ຄວາມສົມດຸນສີ (color balance)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-balance-rgb/" class="">
+          ຄວາມສົມດຸນສີ rgb (color balance rgb)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          ຄວາມຜິດເພ້ຽນຂອງສີໃນໄຟລ໌ດິບ (raw chromatic aberrations)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/contrast-texture/" class="">
+          ຄອນທຣາສ ແລະ ພື້ນຜິວ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/local-contrast/" class="">
+          ຄອນທຣາສສະເພາະສ່ວນ (local contrast)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/shadows-and-highlights/" class="">
+          ເງົາ ແລະ ສ່ວນສະຫວ່າງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/raw-black-white-point/" class="">
+          ຈຸດດຳ/ຂາວ ຂອງໄຟລ໌ດິບ (raw black/white point)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/white-balance/" class="">
+          ສົມດຸນສີຂາວ (white balance)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/tone-curve/" class="">
+          ເສັ້ນໂຄ້ງໂທນ (tone curve)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/base-curve/" class="">
+          ເສັ້ນໂຄ້ງພື້ນຖານ (base curve)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/bloom/" class="">
+          ແສງຟຸ້ງ (bloom)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/sigmoid/" class="">
+          ຊິກມອຍ (sigmoid)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/colorize/" class="">
+          ຍ້ອມສີ (colorize)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/dither-or-posterize/" class="">
+          ດີເທີ ຫຼື ໂພສເຕີໄຣຊ໌ (dither or posterize)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/crop/" class="">
+          ຕັດຂອບ (crop)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/color-look-up-table/" class="">
+          ຕາຕະລາງຄົ້ນຫາສີ (color look up table)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/retouch/" class="">
+          ຕົບແຕ່ງ (retouch)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/tone-equalizer/" class="">
+          ຕົວປັບສົມດຸນໂທນ (tone equalizer)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/contrast-equalizer/" class="">
+          ໂຕປັບສະເໝີຄວາມຄົມຊັດ (contrast equalizer)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/negadoctor/" class="">
+          ເນກາດອກເຕີ (negadoctor)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/surface-blur/" class="">
+          ເບຼີພື້ນຜິວ (surface blur)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/scale-pixels/" class="">
+          ປັບຂະໜາດພິກເຊວ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/input-color-profile/" class="">
+          ໂປຣໄຟລ໌ສີຂາເຂົ້າ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/output-color-profile/" class="">
+          ໂປຣໄຟລ໌ສີຂາອອກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/hot-pixels/" class="">
+          ພິກເຊລທີ່ຜິດປົກກະຕິ (hot pixels)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/sharpen/" class="">
+          ເພີ່ມຄວາມຄົມຊັດ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/external-raster/" class="">
+          ມາກສ໌ແບບຣາສເຕີຈາກພາຍນອກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/lut-3d/" class="">
+          ລັດ 3D (LUT 3D)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/watermark/" class="">
+          ລາຍນ້ຳ (watermark)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/liquify/" class="">
+          ລິຄວິຟາຍ (liquify)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/astrophoto-denoise/" class="">
+          ລຸດສັນຍານລົບພາບດາລາສາດ (astrophoto denoise)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/raw-denoise/" class="">
+          ລົດສັນຍານລົບໄຟລ໌ດິບ (raw denoise)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/denoise-profiled/" class="">
+          ລົດນອຍສ໌ (ຕາມໂປຣໄຟລ໌)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/lowpass/" class="">
+          ໂລພາດ (lowpass)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/velvia/" class="">
+          ເວລເວຍ (velvia)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/rotate-perspective/" class="">
+          ໝຸນ ແລະ ເປີສະເປັກຕີບ (rotate and perspective)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/rotate-pixels/" class="">
+          ໝຸນເມັດສີ (rotate pixels)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/soften/" class="">
+          ເຮັດໃຫ້ພາບນຸ້ມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/highpass/" class="">
+          ໄຮພາດ (highpass)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/global-tonemap/" class="">
+          (ຍົກເລີກການໃຊ້) ການປັບໂທນແບບລວມ (global tonemap)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/fill-light/" class="">
+          (ຍົກເລີກການໃຊ້) ແສງເສີມ (fill light)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/invert/" class="">
+          (ຍົກເລີກການໃຊ້) ປີ້ນສີ (invert)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/levels/" class="">
+          (ຍົກເລີກການໃຊ້) ລະດັບ (levels)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/zone-system/" class="">
+          (ຍົກເລີກການໃຊ້) ລະບົບໂຊນ (zone system)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/basic-adjustments/" class="">
+          (ຍົກເລີກການນຳໃຊ້) ການປັບແຕ່ງພື້ນຖານ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/tone-mapping/" class="">
+          (ບໍ່ແນະນຳໃຫ້ໃຊ້ແລ້ວ) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/spot-removal/" class="">
+          (ບໍ່ແນະນຳໃຫ້ໃຊ້ແລ້ວ) ການລົບຈຸດ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/vibrance/" class="">
+          (ບໍ່ແນະນຳໃຫ້ໃຊ້ແລ້ວ) ຄວາມສົດຂອງສີ (vibrance)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/channel-mixer/" class="">
+          (ບໍ່ແນະນຳໃຫ້ໃຊ້ແລ້ວ) ຕົວປະສົມຊ່ອງສັນຍານ (channel mixer)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (ເລີກໃຊ້ແລ້ວ) ຄວາມຄົມຊັດ ຄວາມສະຫວ່າງ ຄວາມສົດ (contrast brightness saturation)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/crop-rotate/" class="">
+          (ເລີກໃຊ້ແລ້ວ) ຕັດຂອບ ແລະ ໝູນ (crop and rotate)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/processing-modules/defringe/" class="">
+          (ເລີກໃຊ້ແລ້ວ) ຫຼຸດສີພ້ຽນທີ່ຂອບ (defringe)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/" class="">
+          ໂມດູນອຸປະກອນເສີມ (utility modules)
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/tethering/" class="">
+          ການຖ່າຍຮູບຜ່ານສາຍ (tethering)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/tethering/camera-settings/" class="">
+          ການຕັ້ງຄ່າກ້ອງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/tethering/session/" class="">
+          ເຊດຊັນ (session)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/tethering/live-view/" class="">
+          ໄລຟ໌ວິວ (live view)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/" class="">
+          ໃຊ້ຮ່ວມກັນ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/tagging/" class=" active">
+          ການຕິດແທັກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/geotagging/" class="">
+          ການຕິດແທັກພູມສັນຖານ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/focus-peaking/" class="">
+          ການເນັ້ນຈຸດໂຟກັດ (focus peaking)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/neural-restore/" class="">
+          ການຟື້ນຟູດ້ວຍລະບົບປະສາດທຽມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/image-information/" class="">
+          ຂໍ້ມູນຮູບພາບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/scopes/" class="">
+          ຂອບເຂດການວັດແທກ (scopes)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/recent-collections/" class="">
+          ຄໍເລັກຊັນທີ່ໃຊ້ຫວ່າງໆນີ້
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/export/" class="">
+          ສົ່ງອອກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/collections/" class="">
+          ຊຸດສະສົມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/metadata-editor/" class="">
+          ຕົວແກ້ໄຂຂໍ້ມູນກຳກັບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/collection-filters/" class="">
+          ຕົວຕອງຄໍເລັກຊັນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/shared/filmstrip/" class="">
+          ແຖບຟິມ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/" class="">
+          ໂຕະແສງ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/lua-scripts-installer/" class="">
+          (ເລີກໃຊ້ແລ້ວ) ຕົວຕິດຕັ້ງສະຄຣິບ lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/selected-image/" class="">
+          ການດຳເນີນການກັບສິ່ງທີ່ເລືອກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/select/" class="">
+          ການເລືອກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/scripts/" class="">
+          ສະຄຣິບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/timeline/" class="">
+          ທາມລາຍ (timeline)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/import/" class="">
+          ນຳເຂົ້າ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/history-stack/" class="">
+          ລຳດັບການແກ້ໄຂ (history stack)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/lighttable/styles/" class="">
+          ຮູບແບບ (styles)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/map/" class="">
+          ແຜນທີ່
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/map/map-settings/" class="">
+          ການຕັ້ງຄ່າແຜນທີ່
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/map/find-location/" class="">
+          ຄົ້ນຫາສະຖານທີ່
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/map/locations/" class="">
+          ສະຖານທີ່ຕ່າງໆ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/print/" class="">
+          ພິມ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/print/print-settings/" class="">
+          ການຕັ້ງຄ່າການພິມ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/" class="">
+          ຫ້ອງມືດ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/gamut/" class="">
+          ການກວດສອບຂອບເຂດສີ (gamut check)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/navigation/" class="">
+          ການນຳທາງ (navigation)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/high-quality-processing/" class="">
+          ການປະມວນຜົນຄຸນນະພາບສູງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/color-assessment/" class="">
+          ການປະເມີນສີ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          ຄຳເຕືອນ raw ໄດ້ຮັບແສງຫຼາຍເກີນໄປ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/clipping/" class="">
+          ຄຳເຕືອນສ່ວນເກີນ (clipping warning)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          ເສັ້ນຊ່ວຍແນວ &amp; ການວາງຊ້ອນ (guides &amp; overlays)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          ຊອຟຕ໌ພຣູຟ (soft proof)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/duplicate-manager/" class="">
+          ຕົວຈັດການພາບສຳເນົາ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          ຕົວຈັດການມາກສ໌ (mask manager)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/global-color-picker/" class="">
+          ຕົວເລືອກສີທົ່ວໄປ (global color picker)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          ແຖວຂໍ້ມູນພາບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/snapshots/" class="">
+          ພາບຖ່າຍສະນັບຊັອດ (snapshots)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/history-stack/" class="">
+          ລຳດັບການແກ້ໄຂ (history stack)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/module-reference/utility-modules/darkroom/module-order/" class="">
+          ລຳດັບໂມດູນ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/" class="">
+          ຄວາມມັກ ແລະ ການຕັ້ງຄ່າ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/backups/" class="">
+          ສຳຮອງຂໍ້ມູນການຕັ້ງຄ່າ ແລະ ການປັບແຕ່ງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/general/" class="">
+          ທົ່ວໄປ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/import/" class="">
+          ນຳເຂົ້າ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/lighttable/" class="">
+          ໂຕະແສງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/darkroom/" class="">
+          ຫ້ອງມືດ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/processing/" class="">
+          ການປະມວນຜົນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/security/" class="">
+          ຄວາມປອດໄພ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/storage/" class="">
+          ການເກັບຂໍ້ມູນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/miscellaneous/" class="">
+          ອື່ນໆ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/shortcuts/" class="">
+          ຄີລັດ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/presets/" class="">
+          ຄ່າທີ່ຕັ້ງໄວ້ກ່ອນ (presets)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/ai/" class="">
+          AI
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/preferences-settings/lua-options/" class="">
+          ຕົວເລືອກ lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/" class="">
+          ການຂຽນສະຄຣິບດ້ວຍ Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/darktables-scripts/" class="">
+          ສະຄຣິບຂອງ darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/basic-principles/" class="">
+          ຫຼັກການພື້ນຖານ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/a-simple-example/" class="">
+          ຕົວຢ່າງ lua ແບບງ່າຍໆ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/printing-labeled-images/" class="">
+          ການພິມລາຍຊື່ຮູບພາບທີ່ມີປ້າຍສີ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/simple-shortcut/" class="">
+          ການເພີ່ມປຸ່ມລັດແບບງ່າຍໆ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/exporting-images/" class="">
+          ການສົ່ງອອກຮູບພາບດ້ວຍ lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/building-ui-elements/" class="">
+          ການສ້າງອົງປະກອບອິນເຕີເຟດຜູ້ໃຊ້
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/sharing-scripts/" class="">
+          ການແບ່ງປັນສະຄຣິບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/calling-from-dbus/" class="">
+          ການເອີ້ນໃຊ້ lua ຈາກ dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/darktable-from-lua/" class="">
+          ການໃຊ້ darktable ຈາກສະຄຣິບ lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/lua/api/" class="">
+          lua API
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/guides-tutorials/" class="">
+          ຄູ່ມື ແລະ ບົດຮຽນ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/guides-tutorials/monochrome/" class="">
+          ການລ້າງຮູບພາບຂາວດຳ (monochrome)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/guides-tutorials/batch-editing/" class="">
+          ການແກ້ໄຂຮູບພາບເປັນຊຸດ (batch-editing)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/guides-tutorials/other-resources/" class="">
+          ແຫຼ່ງຂໍ້ມູນອື່ນໆ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/" class="">
+          ຫົວຂໍ້ພິເສດ
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/" class="">
+          ການຈັດການສີ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/display-profile/" class="">
+          ໂປຣໄຟລ໌ຈໍສະແດງຜົນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/rendering-method/" class="">
+          ວິທີການສະແດງຜົນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/rendering-intent/" class="">
+          ຈຸດປະສົງການສະແດງຜົນ (rendering intent)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/color-spaces/" class="">
+          ກາມຸດສີຂອງ darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/unbounded-colors/" class="">
+          ສີທີ່ບໍ່ຈຳກັດຊ່ວງ (unbounded colors)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/color-artifacts/" class="">
+          ສິ່ງປົນເປື້ອນທາງສີທີ່ອາດເກີດຂຶ້ນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-management/color-dimensions/" class="">
+          ມິຕິຂອງສີໃນ darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/background/" class="">
+          ຄວາມເປັນມາ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/how-opencl-works/" class="">
+          OpenCL ເຮັດວຽກແນວໃດ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/activate-opencl/" class="">
+          ການເປີດໃຊ້ OpenCL ໃນ darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/setting-up/" class="">
+          ການຕັ້ງຄ່າ OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/problems-solutions/" class="">
+          ບັນຫາທີ່ອາດຈະເກີດຂຶ້ນ ແລະ ວິທີແກ້ໄຂ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/scheduling-profile/" class="">
+          ໂປຣໄຟລ໌ການຈັດຕາຕະລາງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/multiple-devices/" class="">
+          ຫຼາຍອຸປະກອນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL ຍັງບໍ່ທັນເຮັດວຽກສຳລັບຂ້ອຍ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/ai/" class="">
+          ຄຸນສົມບັດ AI
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/ai/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/ai/how-ai-works/" class="">
+          ຄຸນສົມບັດ AI ເຮັດວຽກແນວໃດ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/ai/gpu-acceleration/" class="">
+          ການເລັ່ງດ້ວຍ GPU
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/ai/performance-and-troubleshooting/" class="">
+          ປະສິດທິພາບ ແລະ ການແກ້ໄຂບັນຫາ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/mem-performance/" class="">
+          ໜ່ວຍຄວາມຈຳ ແລະ ການປັບແຕ່ງປະສິດທິພາບ
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/" class="">
+          ການໃຊ້ darktable-chart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/usage/" class="">
+          ການນຳໃຊ້
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/source-image/" class="">
+          ຮູບພາບຕົ້ນສະບັບ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/reference-values/" class="">
+          ຄ່າອ້າງອີງ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/process/" class="">
+          ປະມວນຜົນ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/darktable-chart/making-input-images/" class="">
+          ການສ້າງຮູບພາບຂາເຂົ້າສຳລັບ darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/" class="">
+          ການເອີ້ນໃຊ້ໂປຣແກຣມ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/darktable/" class="">
+          darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/program-invocation/gimp-integration/" class="">
+          ການເຊື່ອມຕໍ່ກັບ gimp
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/variables/" class="">
+          ຕົວປ່ຽນ (Variables)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/color-pipeline/" class="">
+          ຂະບວນການຈັດການສີ (Color pipeline) ຂອງ darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/special-topics/midi-device-support/" class="">
+          ການຮອງຮັບອຸປະກອນ midi
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/" class="">
+          ການມີສ່ວນຮ່ວມໃນເອກະສານ
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/overview/" class="">
+          ພາບລວມ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/development-deployment/" class="">
+          ການພັດທະນາ ແລະ ການນຳໃຊ້
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/workflow/" class="">
+          ຂັ້ນຕອນການເຮັດວຽກ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/styles-conventions/" class="">
+          ຮູບແບບ ແລະ ຂໍ້ກຳນົດ (styles &amp; conventions)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/translations-setup/" class="">
+          ການຕັ້ງຄ່າການແປພາສາ
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/lo/contributing/translators-guide/" class="">
+          ຄູ່ມືສຳລັບຜູ້ແປພາສາ
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

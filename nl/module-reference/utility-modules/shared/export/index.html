@@ -1,0 +1,2606 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - exporteren</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/nl\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/nl/module-reference/utility-modules/shared/export/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="exporteren">
+<meta property="og:description" content="Geselecteerde afbeeldingen exporteren.
+Bij gebruik in de ontwikkelenweergave wordt de momenteel bewerkte afbeelding geëxporteerd als er geen andere afbeeldingen in de filmstrip zijn geselecteerd.
+Bestanden kunnen worden geëxporteerd naar een bestand op schijf, e-mail, verschillende online opslaglocaties, een webalbum of een boeksjabloon.
+🔗module instellingen 🔗opslaginstellingen doel opslag Het type locatie om jouw geselecteerde afbeeldingen op te slaan. Er zijn een aantal verschillende back-ends geïmplementeerd, waaronder een bestand op schijf, een LaTeX-boeksjabloon en verschillende webalbums. Afhankelijk van het geselecteerde doel, wordt jou gevraagd om aanvullende informatie te verstrekken, zoals bestandsnamen of gebruikersnaam en wachtwoord. filename template Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, $(SEQUENCE) in a template records sequence number of the image exported to the target. See the variables section for details. uitvoermapkiezer De knop naast het bestandsnaamsjabloonitem opent een dialoogvenster om de bovenliggende map voor export te selecteren. bij conflicten Kies wat je moet doen als de gegenereerde bestandsnaam in conflict is met een bestaand bestand bij het exporteren: creëer unieke bestandsnaam: Kies automatisch een unieke nieuwe bestandsnaam door een geheel getal toe te voegen aan de naam van het conflicterende bestand. overschrijven: Bestaande bestanden automatisch overschrijven. Met deze optie krijgt je een bevestigingsvenster om jou te beschermen tegen onbedoeld gegevensverlies – je kan dit uitschakelen in [voorkeuren &gt; veiligheid &gt; vragen voordat je exporteert in de overschrijfmodus. Opmerking: Dit dialoogvenster wordt niet per bestand weergegeven, maar als eenmalige bevestiging voordat de exporteertaak start. overschrijf bij wijziging: Overschrijf automatisch bestaande bestanden als de laatste exporteertijdstempel die is opgeslagen in de database van darktable niet overeenkomt met de laatst gewijzigde datum/tijd in het bestaande bestand. overslaan: Exporteer geen afbeeldingen waarvan de doelbestandsnaam al bestaat. 🔗instellingenvoor formaat bestandstype kies de bestandsindeling voor de geëxporteerde afbeelding. Extra opties verschijnen (hieronder) afhankelijk van het geselecteerde formaat. kwaliteit De kwaliteit van het geëxporteerde bestand. Hogere waarden leiden tot grotere bestandsgroottes. De standaardkwaliteit (95) is een goede instelling voor export van zeer hoge kwaliteit (bijvoorbeeld voor archivering of afdrukken). Als je een goed compromis zoekt tussen grootte en kwaliteit (bijvoorbeeld voor online weergave van afbeeldingen of uploads), moet je in plaats daarvan een waarde van “90” overwegen. bit diepte Het aantal bits dat voor elk kleurkanaal wordt gebruikt. Meer bits betekent minder posterisatie/kleurbanden. compressie Het type compressie dat moet worden gebruikt. compressieniveau Voor exportformaten waarin compressie kan worden gespecificeerd, specificeert het compressieniveau hoeveel compressie moet worden toegepast. Hoe hoger het niveau, hoe meer de gegevens worden gecomprimeerd, wat ten koste gaat van meer CPU-cycli. zwart-wit afbeelding Voor het TIFF-exportformaat is het mogelijk om een monochrome afbeelding op te slaan. Deze instelling bepaalt of het resulterende bestand de grijstinten codeert als afzonderlijke RGB-kanalen of als een enkel grijswaardenkanaal. De laatste optie zal resulteren in kleinere bestanden. 🔗algemene instellingen stel formaat in kies hoe je de maximale grootte van jouw geëxporteerde afbeelding wilt hebben in pixels (voor bestand): Voer de maximale breedte en hoogte in pixels in. in cm (voor print): Voer de maximale breedte en hoogte in cm in en definieer de dpi van de afbeelding. De equivalente grootte in pixels wordt automatisch berekend. in cm (voor print): Voer de maximale breedte en hoogte in cm in en definieer de dpi van de afbeelding. De equivalente grootte in pixels wordt automatisch berekend. op schaal (for bestand): Voer een vermenigvuldiger in om aan te geven met hoeveel de geëxporteerde afbeelding moet worden geschaald in vergelijking met de invoerafbeelding. Als je bijvoorbeeld een waarde van 0,5 invoert, resulteert dit in een uitvoerafbeelding met de helft van de breedte en hoogte (in pixels) van de originele afbeelding. dpi Als eenheden van cm of inches zijn gekozen, stelt je de dpi van de uitvoerafbeelding in. De dpi wordt ook opgeslagen in de Exif-gegevens van de geëxporteerde afbeelding. Het wordt automatisch ingesteld op 300 als “in pixels” of “op schaal” wordt gekozen. maximale grootte Stel de maximale breedte en hoogte van de geëxporteerde afbeelding(en) in pixels, cm of inches in (afhankelijk van de geselecteerde eenheid) – nul betekent dat er geen beperking wordt ingesteld op die dimensie. Geëxporteerde afbeeldingen worden beperkt zodat ze geen van deze waarden overschrijden, terwijl de juiste beeldverhouding behouden blijft. Zet beide op nul om te exporteren met de originele afmetingen (na uitsnijden). Als de ingevoerde waarden de originele afmetingen overschrijden, zal darktable ofwel exporteren met de originele afmetingen of de afbeelding opschalen, afhankelijk van de parameter “opschalen toestaan”. allow upscaling Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image’s dimensions will not exceed the dimensions of the original image (after cropping). This uses the pixel interpolator set in preferences; for higher-quality super-resolution upscaling using an AI model, see the neural restore module. resampling van hoge kwaliteit Stel dit in op ‘ja’ om hersampling van hoge kwaliteit op de afbeelding uit te voeren. De afbeelding wordt in volledige resolutie verwerkt en pas aan het einde verkleind. Dit kan soms resulteren in een betere kwaliteit, maar zal altijd langzamer zijn. maskers opslaan maskers opslaan als extra lagen (voor TIFF-formaat) of kanalen (voor EXR- en XCF-formaten) in de geëxporteerde afbeelding. profiel Het uitvoerkleurprofiel. Selecteer “beeldinstellingen” als je wilt dat de instellingen in de module uitgaand kleurprofiel van de afzonderlijke afbeeldingen worden gerespecteerd. intentie Met deze optie kan je de intentie definiëren – de manier waarop darktable omgaat met kleuren die buiten het gamma vallen. Zie rendering intentie voor een meer gedetailleerde beschrijving van de beschikbare opties. stijl Kies een stijl die darktable zal combineren met de bestaande geschiedenis om de uitvoerafbeelding te genereren. Deze geschiedenisitems worden slechts tijdelijk toegevoegd – de originele geschiedenis wordt niet overschreven. Je kan deze functie gebruiken om verwerkingsstappen en parameters toe te voegen die je specifiek op afbeeldingen wilt toepassen voordat je ze exporteert. Je kan bijvoorbeeld een stijl definiëren die een sterker verscherpingsniveau toevoegt wanneer je verkleinde JPEG-bestanden voor internet maakt of een bepaald niveau van belichtingscompensatie toevoegt aan al jouw uitgevoerde afbeeldingen. modus Bij het toepassen van een stijl tijdens het exporteren bepaalt deze optie of de geschiedenisitems van die stijl de originele geschiedenis van de afbeelding vervangen of eraan worden toegevoegd. Technisch gesproken zullen in de toevoegmodus geschiedenisitems van de stijl afzonderlijke exemplaren van de respectieve modules vormen bovenop eventuele bestaande (zie ook [meerdere exemplaren](../../../darkroom/processing-modules/multiple -instanties.md)). Als gevolg hiervan blijft de oorspronkelijke geschiedenis van kracht en worden de nieuwe items bovendien toegepast. Op deze manier kan je een algehele aanpassing (bijv. belichting) toepassen op een aantal geëxporteerde afbeeldingen met respect voor de instellingen van elke afzonderlijke afbeelding. start export Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the “x” icon located close to the progress bar. multi-preset export Expanding this section allows you to easily export each of the selected images with several different presets in a single export run. For example, you may wish to export each image in multiple sizes at the same time for use in a website. Simply create a preset for each type of export you wish to make, ensuring that the file path settings for each preset is unique (so that the exported images don’t overwrite one another). Select the desired presets and press the “start export” button as normal. Opmerking: Afbeeldingen die zijn geselecteerd maar momenteel verborgen zijn (omdat ze lid zijn van een samengevouwen groep) worden niet geëxporteerd.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="nl">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/nl/module-reference/utility-modules/shared/export/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/nl/module-reference/utility-modules/shared/export/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/nl/module-reference/utility-modules/shared/export/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/nl/module-reference/utility-modules/shared/export/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/nl/module-reference/utility-modules/shared/export/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="nl"
+              role="option"
+              lang="nl"
+              href="https://darktable-org.github.io/dtdocs/nl/module-reference/utility-modules/shared/export/"
+              >Dutch</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/utility-modules/shared/export/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/utility-modules/shared/export/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/utility-modules/shared/export/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/utility-modules/shared/export/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="it"
+                role="option"
+                lang="it"
+                href="https://darktable-org.github.io/dtdocs/it/module-reference/utility-modules/shared/export/"
+                >Italian</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/utility-modules/shared/export/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/utility-modules/shared/export/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/utility-modules/shared/export/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/utility-modules/shared/export/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+
+<a href='/dtdocs/nl/'>darktable user manual</a> / <a href='/dtdocs/nl/module-reference/'>Module Referentie</a> / <a href='/dtdocs/nl/module-reference/utility-modules/'>toepassings modules</a> / <a href='/dtdocs/nl/module-reference/utility-modules/shared/'>gedeeld</a> / exporteren
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/" class="next">&lt; collecties</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/focus-peaking/" class="prev">focus peaking &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        exporteren
+    </h1>
+
+    
+
+    <p>Geselecteerde afbeeldingen exporteren.</p>
+<p>Bij gebruik in de ontwikkelenweergave wordt de momenteel bewerkte afbeelding geëxporteerd als er geen andere afbeeldingen in de filmstrip zijn geselecteerd.</p>
+<p>Bestanden kunnen worden geëxporteerd naar een bestand op schijf, e-mail, verschillende online opslaglocaties, een webalbum of een boeksjabloon.</p>
+<h1 id="module-instellingen"><a href="#module-instellingen">🔗</a>module instellingen</h1>
+<h2 id="opslaginstellingen"><a href="#opslaginstellingen">🔗</a>opslaginstellingen</h2>
+<dl>
+<dt>doel opslag</dt>
+<dd>Het type locatie om jouw geselecteerde afbeeldingen op te slaan. Er zijn een aantal verschillende back-ends geïmplementeerd, waaronder een bestand op schijf, een LaTeX-boeksjabloon en verschillende webalbums. Afhankelijk van het geselecteerde doel, wordt jou gevraagd om aanvullende informatie te verstrekken, zoals bestandsnamen of gebruikersnaam en wachtwoord.</dd>
+<dt>filename template</dt>
+<dd>Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, <code>$(SEQUENCE)</code> in a template records sequence number of the image exported to the target. See the <a href="/dtdocs/nl/special-topics/variables/">variables</a> section for details.</dd>
+<dt>uitvoermapkiezer</dt>
+<dd>De knop naast het bestandsnaamsjabloonitem opent een dialoogvenster om de bovenliggende map voor export te selecteren.</dd>
+<dt>bij conflicten</dt>
+<dd>Kies wat je moet doen als de gegenereerde bestandsnaam in conflict is met een bestaand bestand bij het exporteren:</dd>
+<dd>
+<ul>
+<li><em>creëer unieke bestandsnaam</em>: Kies automatisch een unieke nieuwe bestandsnaam door een geheel getal toe te voegen aan de naam van het conflicterende bestand.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>overschrijven</em>: Bestaande bestanden automatisch overschrijven. Met deze optie krijgt je een bevestigingsvenster om jou te beschermen tegen onbedoeld gegevensverlies &ndash; je kan dit uitschakelen in [voorkeuren &gt; veiligheid &gt; vragen voordat je exporteert in de <a href="../../../preferences-settings/beveiliging.md">overschrijfmodus</a>. <em><strong>Opmerking:</strong> Dit dialoogvenster wordt niet per bestand weergegeven, maar als eenmalige bevestiging voordat de exporteertaak start.</em></li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>overschrijf bij wijziging</em>: Overschrijf automatisch bestaande bestanden als de laatste exporteertijdstempel die is opgeslagen in de database van darktable niet overeenkomt met de laatst gewijzigde datum/tijd in het bestaande bestand.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>overslaan</em>: Exporteer geen afbeeldingen waarvan de doelbestandsnaam al bestaat.</li>
+</ul>
+</dd>
+</dl>
+<h2 id="instellingenvoor-formaat"><a href="#instellingenvoor-formaat">🔗</a>instellingenvoor formaat</h2>
+<dl>
+<dt>bestandstype</dt>
+<dd>kies de bestandsindeling voor de geëxporteerde afbeelding. Extra opties verschijnen (hieronder) afhankelijk van het geselecteerde formaat.</dd>
+<dt>kwaliteit</dt>
+<dd>De kwaliteit van het geëxporteerde bestand. Hogere waarden leiden tot grotere bestandsgroottes. De standaardkwaliteit (95) is een goede instelling voor export van zeer hoge kwaliteit (bijvoorbeeld voor archivering of afdrukken). Als je een goed compromis zoekt tussen grootte en kwaliteit (bijvoorbeeld voor online weergave van afbeeldingen of uploads), moet je in plaats daarvan een waarde van &ldquo;90&rdquo; overwegen.</dd>
+<dt>bit diepte</dt>
+<dd>Het aantal bits dat voor elk kleurkanaal wordt gebruikt. Meer bits betekent minder posterisatie/kleurbanden.</dd>
+<dt>compressie</dt>
+<dd>Het type compressie dat moet worden gebruikt.</dd>
+<dt>compressieniveau</dt>
+<dd>Voor exportformaten waarin <em>compressie</em> kan worden gespecificeerd, specificeert het <em>compressieniveau</em> hoeveel compressie moet worden toegepast. Hoe hoger het niveau, hoe meer de gegevens worden gecomprimeerd, wat ten koste gaat van meer CPU-cycli.</dd>
+<dt>zwart-wit afbeelding</dt>
+<dd>Voor het TIFF-exportformaat is het mogelijk om een monochrome afbeelding op te slaan. Deze instelling bepaalt of het resulterende bestand de grijstinten codeert als afzonderlijke RGB-kanalen of als een enkel grijswaardenkanaal. De laatste optie zal resulteren in kleinere bestanden.</dd>
+</dl>
+<h2 id="algemene-instellingen"><a href="#algemene-instellingen">🔗</a>algemene instellingen</h2>
+<dl>
+<dt>stel formaat in</dt>
+<dd>kies hoe je de maximale grootte van jouw geëxporteerde afbeelding wilt hebben</dd>
+<dd>
+<ul>
+<li><em>in pixels (voor bestand)</em>: Voer de maximale breedte en hoogte in pixels in.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>in cm (voor print)</em>: Voer de maximale breedte en hoogte in cm in en definieer de dpi van de afbeelding. De equivalente grootte in pixels wordt automatisch berekend.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>in cm (voor print)</em>: Voer de maximale breedte en hoogte in cm in en definieer de dpi van de afbeelding. De equivalente grootte in pixels wordt automatisch berekend.</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>op schaal (for bestand)</em>: Voer een vermenigvuldiger in om aan te geven met hoeveel de geëxporteerde afbeelding moet worden geschaald in vergelijking met de invoerafbeelding. Als je bijvoorbeeld een waarde van 0,5 invoert, resulteert dit in een uitvoerafbeelding met de helft van de breedte en hoogte (in pixels) van de originele afbeelding.</li>
+</ul>
+</dd>
+<dt>dpi</dt>
+<dd>Als eenheden van cm of inches zijn gekozen, stelt je de dpi van de uitvoerafbeelding in. De dpi wordt ook opgeslagen in de Exif-gegevens van de geëxporteerde afbeelding. Het wordt automatisch ingesteld op 300 als &ldquo;in pixels&rdquo; of &ldquo;op schaal&rdquo; wordt gekozen.</dd>
+<dt>maximale grootte</dt>
+<dd>Stel de maximale breedte en hoogte van de geëxporteerde afbeelding(en) in pixels, cm of inches in (afhankelijk van de geselecteerde eenheid) &ndash; nul betekent dat er geen beperking wordt ingesteld op die dimensie. Geëxporteerde afbeeldingen worden beperkt zodat ze geen van deze waarden overschrijden, terwijl de juiste beeldverhouding behouden blijft. Zet beide op nul om te exporteren met de originele afmetingen (na uitsnijden). Als de ingevoerde waarden de originele afmetingen overschrijden, zal darktable ofwel exporteren met de originele afmetingen of de afbeelding opschalen, afhankelijk van de parameter &ldquo;opschalen toestaan&rdquo;.</dd>
+<dt>allow upscaling</dt>
+<dd>Set to “yes” to perform an upscaling step if the user-defined maximum width and height exceed the original dimensions of the image. If set to “no” the exported image&rsquo;s dimensions will not exceed the dimensions of the original image (after cropping). This uses the <a href="../../../preferences-settings/processing.md">pixel interpolator</a> set in preferences; for higher-quality super-resolution upscaling using an AI model, see the <a href="./neural-restore.md">neural restore</a> module.</dd>
+<dt>resampling van hoge kwaliteit</dt>
+<dd>Stel dit in op &lsquo;ja&rsquo; om hersampling van hoge kwaliteit op de afbeelding uit te voeren. De afbeelding wordt in volledige resolutie verwerkt en pas aan het einde verkleind. Dit kan soms resulteren in een betere kwaliteit, maar zal altijd langzamer zijn.</dd>
+<dt>maskers opslaan</dt>
+<dd>maskers opslaan als extra lagen (voor TIFF-formaat) of kanalen (voor EXR- en XCF-formaten) in de geëxporteerde afbeelding.</dd>
+<dt>profiel</dt>
+<dd>Het uitvoerkleurprofiel. Selecteer “beeldinstellingen” als je wilt dat de instellingen in de module <a href="../../processing-modules/output-color-profile.md"><em>uitgaand kleurprofiel</em></a> van de afzonderlijke afbeeldingen worden gerespecteerd.</dd>
+<dt>intentie</dt>
+<dd>Met deze optie kan je de intentie definiëren &ndash; de manier waarop darktable omgaat met kleuren die buiten het gamma vallen. Zie <a href="/dtdocs/nl/special-topics/color-management/rendering-intent/">rendering intentie</a> voor een meer gedetailleerde beschrijving van de beschikbare opties.</dd>
+<dt>stijl</dt>
+<dd>Kies een <a href="../lighttable/styles.md">stijl</a> die darktable zal combineren met de bestaande geschiedenis om de uitvoerafbeelding te genereren. Deze geschiedenisitems worden slechts tijdelijk toegevoegd &ndash; de originele geschiedenis wordt niet overschreven. Je kan deze functie gebruiken om verwerkingsstappen en parameters toe te voegen die je specifiek op afbeeldingen wilt toepassen voordat je ze exporteert. Je kan bijvoorbeeld een stijl definiëren die een sterker verscherpingsniveau toevoegt wanneer je verkleinde JPEG-bestanden voor internet maakt of een bepaald niveau van belichtingscompensatie toevoegt aan al jouw uitgevoerde afbeeldingen.</dd>
+<dt>modus</dt>
+<dd>Bij het toepassen van een stijl tijdens het exporteren bepaalt deze optie of de geschiedenisitems van die stijl de originele geschiedenis van de afbeelding vervangen of eraan worden toegevoegd. Technisch gesproken zullen in de toevoegmodus geschiedenisitems van de stijl afzonderlijke exemplaren van de respectieve modules vormen bovenop eventuele bestaande (zie ook [meerdere exemplaren](../../../darkroom/processing-modules/multiple -instanties.md)). Als gevolg hiervan blijft de oorspronkelijke geschiedenis van kracht en worden de nieuwe items bovendien toegepast. Op deze manier kan je een algehele aanpassing (bijv. belichting) toepassen op een aantal geëxporteerde afbeeldingen met respect voor de instellingen van elke afzonderlijke afbeelding.</dd>
+<dt>start export</dt>
+<dd>Press this button to start a background job to export all selected images. A bar at the bottom of the left hand panel displays the progress of the export job. Furthermore a notification message pops up reporting the completion of each individual export. You may click on the pop-up to make it disappear. You may abort the export job by clicking on the &ldquo;x&rdquo; icon located close to the progress bar.</dd>
+<dt>multi-preset export</dt>
+<dd>Expanding this section allows you to easily export each of the selected images with several different presets in a single export run. For example, you may wish to export each image in multiple sizes at the same time for use in a website. Simply create a preset for each type of export you wish to make, ensuring that the file path settings for each preset is unique (so that the exported images don&rsquo;t overwrite one another). Select the desired presets and press the &ldquo;start export&rdquo; button as normal.</dd>
+</dl>
+<hr>
+<p><strong>Opmerking:</strong> Afbeeldingen die zijn geselecteerd maar momenteel verborgen zijn (omdat ze lid zijn van een samengevouwen groep) worden niet geëxporteerd.</p>
+<hr>
+<h1 id="metadata-voorkeuren"><a href="#metadata-voorkeuren">🔗</a>metadata voorkeuren</h1>
+<p>De optie &ldquo;voorkeuren&hellip;&rdquo; in het menu voorinstellingen geeft een dialoogvenster weer waarin je kan configureren welke metagegevens in geëxporteerde bestanden moeten worden opgenomen:</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/utility-modules/shared/export/metadata-config.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/utility-modules/shared/export/metadata-config.png" alt="metadata configuratie"  class="w66"    /></a>
+
+</p>
+<p>De parameters die in dit dialoogvenster worden ingevoerd, worden samen met andere exportparameters opgeslagen in gebruikersvoorinstellingen en de laatst ingevoerde waarden blijven behouden wanneer darktable wordt gesloten.</p>
+<h2 id="algemene-instellingen-1"><a href="#algemene-instellingen-1">🔗</a>algemene instellingen</h2>
+<p>De parameters die in dit dialoogvenster worden ingevoerd, worden samen met andere exportparameters opgeslagen in gebruikersvoorinstellingen en de laatst ingevoerde waarden blijven behouden wanneer darktable wordt gesloten.</p>
+<dl>
+<dt>exif-gegevens</dt>
+<dd>exporteer de Exif-gegevens van de bronafbeelding.</dd>
+<dt>metagegevens</dt>
+<dd>Exporteer metadata gedefinieerd in de <a href="../shared/metadata-editor.md">metadata editor</a> module. Alleen metagegevensvelden die zijn getagd als <em>zichtbaar</em> en niet als <em>prive</em> zijn getagd, worden geëxporteerd.</dd>
+<dt>geo labels</dt>
+<dd>Geo labels exporteren.</dd>
+<dt>labels</dt>
+<dd>Exporteer labelss gemaakt in de <a href="/dtdocs/nl/module-reference/utility-modules/shared/tagging/">labels</a> module (naar <code>Xmp.dc.Subject</code>). Er kunnen ook drie extra opties worden geselecteerd:</dd>
+<dd><ul>
+<li><em>privée labels</em>: privélabels exporteren</li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>synoniemen</em>: label synoniemen exporteren</li>
+</ul>
+</dd>
+<dd><ul>
+<li><em>hiërarchie</em>: exporteer alleen het laatste deel van hiërarchische labels</li>
+</ul>
+</dd>
+<dt>hiërarchische labels</dt>
+<dd>Hiërarchische labels exporteren (naar <code>Xmp.lr.Hierarchical Subject</code>)</dd>
+<dt>geschiedenis ontwikkelen</dt>
+<dd>Exporteer de volledige ontwikkelingsgeschiedenis (geschiedenis en vormen) waar ondersteund (bijv. JPEG, JPEG2000, TIFF). De ontwikkelingsgeschiedenis wordt opgeslagen als XMP-tags in het uitvoerbestand. Deze informatie kan later worden gebruikt om de parameters en instellingen te reconstrueren die zijn gebruikt om de geëxporteerde afbeelding te maken.</dd>
+</dl>
+<hr>
+<p><strong>Let op:</strong> Om verschillende redenen kan het insluiten van XMP-tags in uitvoerbestanden zonder kennisgeving mislukken, b.v. als bepaalde limieten voor de grootte worden overschreden. Gebruikers wordt daarom geadviseerd om niet op deze functie te vertrouwen voor hun back-upstrategie. Om een back-up van jouw gegevens te maken, moet je er altijd voor zorgen dat je jouw invoerbestand (onbewerkt) en alle XMP-sidecarbestanden van darktable opslaat.</p>
+<hr>
+<h2 id="per-metadata-instellingen"><a href="#per-metadata-instellingen">🔗</a>per metadata instellingen</h2>
+<p>Aan de rechterkant van dit dialoogvenster kan je formules definiëren om metagegevens van afbeeldingen te vullen. De hier gedefinieerde formules hebben voorrang op de instellingen aan de linkerkant van het dialoogvenster. De eerste kolom identificeert het item dat moet worden bewerkt. In de tweede kolom kan je definiëren hoe je de waarde voor die metagegevensinvoer kunt berekenen met behulp van een formule.</p>
+<p>Zie de sectie <a href="/dtdocs/nl/special-topics/variables/">variabelen</a> voor details over de variabelen die je in jouw metagegevensformule kan gebruiken. Druk op Enter om de formule te valideren. Laat de formule leeg om te voorkomen dat een gegeven metadata-item wordt geëxporteerd (<code>Exif.GPSInfo.GPSVersionID</code> in het bovenstaande voorbeeld).</p>
+<p>Gebruik het pictogram &ldquo;&ndash;&rdquo; om een metagegevensitem uit de lijst te verwijderen en het pictogram &ldquo;+&rdquo; om een nieuwe toe te voegen uit een vooraf gedefinieerde lijst met beschikbare metagegevenstags.</p>
+<p>Klik op de knop &ldquo;toevoegen&rdquo; om een metadata-item aan de lijst toe te voegen.</p>
+<p>Met de formules kan je vrijwel alle metadata definiëren die je nodig hebt om jouw afbeeldingen te kwalificeren voor het labelen en de waarden exporteren in de XMP- of IPTC-tags van jouw keuze. De geëxporteerde tags kunnen per export verschillend zijn, afhankelijk van de bestemming van de afbeeldingen. Tags en categorieën worden afzonderlijk weergegeven in afbeeldingsinformatie.</p>
+<p><em>Houd er rekening mee dat een label die als categorie is ingesteld, nooit wordt geëxporteerd.</em></p>
+<h2 id="tips"><a href="#tips">🔗</a>tips</h2>
+<ul>
+<li>
+<p>Om te voorkomen dat een specifiek metadataveld wordt geëxporteerd, voeg je het toe aan de lijst en laat je de formule leeg.</p>
+</li>
+<li>
+<p>Om een specifiek exif-metadataveld te forceren om te worden geëxporteerd wanneer exif-export is uitgeschakeld, voeg je het toe aan de lijst en voer je <code>=</code> in de formule in.</p>
+</li>
+</ul>
+<h2 id="voorbeelden"><a href="#voorbeelden">🔗</a>voorbeelden</h2>
+<dl>
+<dt>voorbeeld 1</dt>
+<dd>Een label op het eerste niveau met de naam plaatsen wordt ingesteld als categorie en wordt gevolgd door vier informatieniveaus (of trefwoorden): land, regio, stad en locatie (bijv. <code>places|France|Nord|Lille|rue Nationale</code>). Elk niveau kan worden opgehaald (wanneer het is gedefinieerd) door een van de variabelen <code>$(CATEGORY0(places))</code>, <code>$(CATEGORY1(places))</code>, <code>$(CATEGORY2(places))</code> en <code>$(CATEGORY3 (plaatsen))</code>. In dit voorbeeld zijn de geretourneerde waarden respectievelijk &ldquo;France&rdquo;, &ldquo;Nord&rdquo;, &ldquo;Lille&rdquo; en &ldquo;rue Nationale&rdquo;. Deze trefwoorden kunnen ook worden opgehaald als eenvoudige labels met behulp van de variabele <code>$(TAGS)</code>. Het laatst gedefinieerde trefwoordniveau (het blad) wordt weergegeven in <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/">afbeeldingsinformatie</a>, hier &ldquo;rue Nationale&rdquo;.</dd>
+<dt>voorbeeld 2</dt>
+<dd>Een label op het eerste niveau genaamd auteur wordt gevolgd door de naam van de fotograaf, beide ingesteld als categorieën: <code>auteur|voornaam achternaam</code>. De formule copyrights (<code>$(YEAR) $(CATEGORY0(auteur))</code>) bouwt de tekst op die is gekoppeld aan afbeeldingsrechten. Hier geeft <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/">afbeeldingsinformatie</a> &ldquo;auteur: voornaam achternaam&rdquo; weer als categorieën. Noch de auteur, noch de &ldquo;voornaam achternaam&rdquo; verschijnen in de lijst met labels en worden niet geëxporteerd als eenvoudige labels.</dd>
+</dl>
+<hr>
+<p><strong>Opmerking:</strong> labeling is niet geschikt om metadata van vrije tekst te definiëren, zoals een titel of een beschrijving, die specifiek kan zijn voor elke afbeelding. Gebruik de <a href="../shared/metadata-editor.md">metadata-editor</a> voor dit soort informatie.</p>
+<hr>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/en/module-reference/utility-modules/shared/export/">
+            English: export
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/utility-modules/shared/export/">
+            Español: exportar
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/utility-modules/shared/export/">
+            Français: Exporter
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/utility-modules/shared/export/">
+            German: Exportieren
+        </a></li>
+        
+        <li><a href="/dtdocs/it/module-reference/utility-modules/shared/export/">
+            Italian: esporta
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/utility-modules/shared/export/">
+            Lao: ສົ່ງອອກ
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/utility-modules/shared/export/">
+            Polish: eksport
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/utility-modules/shared/export/">
+            Português: exportar
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/utility-modules/shared/export/">
+            Ukrainian: Експорт
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/" class="next">&lt; collecties</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/nl/module-reference/utility-modules/shared/focus-peaking/" class="prev">focus peaking &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/" class="">
+          Overzicht
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/" class="">
+          gebruikersomgeving
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/views/" class="">
+          weergaven
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/screen-layout/" class="">
+          scherm layout
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/top-panel/" class="">
+          bovenpaneel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/keyboard-shortcuts/" class="">
+          snelkoppelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/supported-file-formats/" class="">
+          ondersteunde bestandsformaten
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/" class="">
+          sidecar bestanden en niet-destructieve bewerking
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/sidecar-import/" class="">
+          sidecar-bestanden importeren van andere applicaties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/local-copies/" class="">
+          lokale kopieën
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/" class="">
+          een inleiding tot de werkvolgorde van darktable
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/introduction/" class="">
+          inleiding
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/import-review/" class="">
+          importeren &amp; beoordelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/process/" class="">
+          proces
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/" class="">
+          Bibliotheek
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-view-layout/" class="">
+          bibliotheek weergave layout
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/" class="">
+          bibliotheek modi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/full-preview/" class="">
+          volledige voorbeeldweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/" class="">
+          digitaal archief beheer
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/star-color/" class="">
+          sterbeoordelingen en kleurlabels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/grouping/" class="">
+          afbeeldingen groeperen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadata en labelen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/" class="">
+          Ontwikkelen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/darkroom-view-layout/" class="">
+          lay-out ontwikkelweergave
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/" class="">
+          de pixelpijp
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          de anatomie van een verwerkingsmodule
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/history-stack/" class="">
+          geschiedenis
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/undo-redo/" class="">
+          ongedaan maken / opnieuw uitvoeren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/" class="">
+          verwerkingsmodules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/module-header/" class="">
+          module koptekst
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/multiple-instances/" class="">
+          meerdere sessies
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/presets/" class="">
+          voorinstellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/curves/" class="">
+          curves
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/wavelets/" class="">
+          wavelets
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/deprecated/" class="">
+          verouderde modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/" class="">
+          maskeren &amp; overvloeien
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/blend-modes/" class="">
+          overvloei modes
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/" class="">
+          maskers
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/parametric/" class="">
+          parametrische maskers
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combineren van getekende- en parametrische- maskers
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/" class="">
+          organisatie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/module-groups/" class="">
+          modulegroepen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/manage-module-layouts/" class="">
+          module-indelingen beheren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/" class="">
+          Tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/tethering-view-layout/" class="">
+          lay-out van tetheringweergave
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/examples/" class="">
+          voorbeelden
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/tethering/troubleshooting/" class="">
+          Problemen oplossen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/" class="">
+          Kaart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/map/map-view-layout/" class="">
+          lay-out kaartweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/" class="">
+          Presentatie
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/slideshow/usage/" class="">
+          gebruik
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/" class="">
+          Print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/print/print-view-layout/" class="">
+          afdrukweergave lay-out
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/" class="">
+          Module Referentie
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/" class="">
+          toepassings modules
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/" class="">
+          bibliotheek
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/selected-image/" class="">
+          acties op selectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/select/" class="">
+          selectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/timeline/" class="">
+          tijdlijn
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/" class="">
+          gedeeld
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/" class="">
+          afbeeldingsinformatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/" class="">
+          collecties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/export/" class=" active">
+          exporteren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/focus-peaking/" class="">
+          focus peaking
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/geotagging/" class="">
+          geotaggen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/tagging/" class="">
+          labelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/scopes/" class="">
+          scopes
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/recent-collections/" class="">
+          snelle verzamelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/" class="">
+          Kaart
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/map-settings/" class="">
+          kaartinstellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/locations/" class="">
+          locaties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/find-location/" class="">
+          zoek locatie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/" class="">
+          ontwikkelen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/image-info-line/" class="">
+          afbeelding informatie regel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/clipping/" class="">
+          clipping waarschuwing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/gamut/" class="">
+          gamma controle
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/history-stack/" class="">
+          geschiedenis
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/guides-overlays/" class="">
+          hulplijnen en overlays
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/mask-manager/" class="">
+          masker-manager
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/navigation/" class="">
+          navigatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/raw-overexposed/" class="">
+          raw overbelicht waarschuwing
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/soft-proof/" class="">
+          soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/" class="">
+          print
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/print-settings/" class="">
+          printer instellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/" class="">
+          tethering
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/camera-settings/" class="">
+          camera instellingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/live-view/" class="">
+          live weergave
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/session/" class="">
+          sessie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/" class="">
+          verwerkingsmodules
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/base-curve/" class="">
+          basis curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/exposure/" class="">
+          belichting
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/censorize/" class="">
+          censureren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/chromatic-aberrations/" class="">
+          chromatische aberraties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/" class="">
+          contrast equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/diffuse/" class="">
+          diffuus of verscherpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/dither-or-posterize/" class="">
+          dither of posterisatie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/split-toning/" class="">
+          duo-toning
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/bloom/" class="">
+          glans
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/graduated-density/" class="">
+          grijsverloop
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highpass/" class="">
+          highpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highlight-reconstruction/" class="">
+          hooglichten herstellen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/colorize/" class="">
+          inkleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-reconstruction/" class="">
+          kleur reconstructie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-contrast/" class="">
+          kleurcontrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-correction/" class="">
+          kleurcorrectie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance/" class="">
+          kleurenbalans
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance-rgb/" class="">
+          kleurenbalans rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-mapping/" class="">
+          kleurenkaart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-calibration/" class="">
+          kleurkalibratie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-zones/" class="">
+          kleurzones
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/local-contrast/" class="">
+          lokaal contrast
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowpass/" class="">
+          lowpass
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lut-3d/" class="">
+          LUT 3D
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/monochrome/" class="">
+          monochroom
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/framing/" class="">
+          omlijsten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/astrophoto-denoise/" class="">
+          ontruis astrofoto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/surface-blur/" class="">
+          oppervlakte vervaging
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-chromatic-aberrations/" class="">
+          raw chromatische aberraties
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-black-white-point/" class="">
+          raw zwart/wit punt
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/retouch/" class="">
+          retoucheren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rgb-primaries/" class="">
+          rgb basiskleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rotate-perspective/" class="">
+          roteren en perspectief
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/denoise-profiled/" class="">
+          ruisreductie (profiel)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/shadows-and-highlights/" class="">
+          schaduwen en hooglichten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sigmoid/" class="">
+          sigmoïdale
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-curve/" class="">
+          toon curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-equalizer/" class="">
+          toon equalizer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/liquify/" class="">
+          uitvloeien
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/velvia/" class="">
+          velvia
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/unbreak-input-profile/" class="">
+          verbreek ingaand profiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sharpen/" class="">
+          verscherpen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/blurs/" class="">
+          vervagen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/soften/" class="">
+          verzachten (soften)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/vignetting/" class="">
+          vignettering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/watermark/" class="">
+          watermerk
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowlight-vision/" class="">
+          zicht bij weinig licht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/basic-adjustments/" class="">
+          (deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/channel-mixer/" class="">
+          (deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-brightness-saturation/" class="">
+          (deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/crop-rotate/" class="">
+          (deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/defringe/" class="">
+          (deprecated) defringe
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/global-tonemap/" class="">
+          (deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/levels/" class="">
+          (deprecated) levels
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/spot-removal/" class="">
+          (deprecated) spot removal
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-mapping/" class="">
+          (deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/zone-system/" class="">
+          (deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/" class="">
+          Voorkeuren en instellingen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/lighttable/" class="">
+          bibliotheek
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/darkroom/" class="">
+          ontwikkelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/presets/" class="">
+          voorinstellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/" class="">
+          Scripten met Lua
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/printing-labeled-images/" class="">
+          gelabelde afbeeldingen afdrukken
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/exporting-images/" class="">
+          afbeeldingen exporteren met lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/calling-from-dbus/" class="">
+          lua aanroepen vanuit dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/darktable-from-lua/" class="">
+          darktable gebruiken vanuit een lua-script
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/lua/api/" class="">
+          lua API
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/" class="">
+          Gidsen en handleidingen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/monochrome/" class="">
+          ontwikkeling van monochrome afbeeldingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/batch-editing/" class="">
+          batch-bewerking afbeeldingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/" class="">
+          Speciale onderwerpen
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/" class="">
+          kleurbeheer
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/display-profile/" class="">
+          schermprofiel
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-method/" class="">
+          rendermethode
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-intent/" class="">
+          renderintentie
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-spaces/" class="">
+          kleurruimten van darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/unbounded-colors/" class="">
+          ongebonden kleuren
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-artifacts/" class="">
+          mogelijke kleurartefacten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/color-dimensions/" class="">
+          kleurdimensies van darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/" class="">
+          OpenCL
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/setting-up/" class="">
+          setting up OpenCL
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/problems-solutions/" class="">
+          mogelijke problemen &amp; oplossingen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/multiple-devices/" class="">
+          meerdere apparaten
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/still-doesnt-work/" class="">
+          OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/" class="">
+          darktable-chart gebruiken
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/overview/" class="">
+          overzicht
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/usage/" class="">
+          gebruik
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/source-image/" class="">
+          bronafbeelding
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/reference-values/" class="">
+          referentiewaarden
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/process/" class="">
+          proces
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/making-input-images/" class="">
+          invoerafbeeldingen maken voor darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/" class="">
+          programma oproepen
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cli/" class="">
+          darktable-cli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-generate-cache/" class="">
+          darktable-generate-cache
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-chart/" class="">
+          darktable-chart
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cltest/" class="">
+          darktable-cltest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cmstest/" class="">
+          darktable-cmstest
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/purge_non_existing_images_sh/" class="">
+          purge_non_existing_images.sh
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/variables/" class="">
+          variabelen
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/" class="">
+          darktable&#39;s kleurenpijplijn
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/nl/special-topics/midi-device-support/" class="">
+          ondersteuning voor midi-apparaten
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

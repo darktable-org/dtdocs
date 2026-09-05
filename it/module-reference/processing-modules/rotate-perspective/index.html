@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - rotazione e prospettiva</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/rotate-perspective/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="rotazione e prospettiva">
+<meta property="og:description" content="Technical information Descrizione Rotazione o distorsione prospettica. Scopo Correttivo o creativo. Input Lineare, RGB, riferito alla scena. Elaborazione Geometria, RGB. Output Lineare, RGB, riferito alla scena. Corregge automaticamente le linee convergenti, una forma di distorsione della prospettiva. Il meccanismo alla base è ispirato dal programma ShiftN di Markus Hebel. Questo modulo permette anche di regolare la rotazione dell’immagine.
+La distorsione della prospettiva è un effetto naturale che avviene quando si proietta una scena tridimensionale su un piano bidimensionale, e comporta che gli oggetti più vicini sembrino più grandi degli oggetti più lontani. Le linee convergenti è un caso speciale di distorsione della prospettiva, vista molto di frequent nelle fotografie architettoniche – le linee parallele, quando fotografate da un angolo, si trasformano in linee convergenti che si incontrano in un punto di osservazione all’interno o all’esterno della cornice dell’immagine.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/it/module-reference/processing-modules/rotate-perspective/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/it/module-reference/processing-modules/rotate-perspective/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/it/module-reference/processing-modules/rotate-perspective/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/it/module-reference/processing-modules/rotate-perspective/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/it/module-reference/processing-modules/rotate-perspective/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="it"
+              role="option"
+              lang="it"
+              href="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/rotate-perspective/"
+              >Italian</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/rotate-perspective/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/rotate-perspective/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/rotate-perspective/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/rotate-perspective/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/rotate-perspective/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/rotate-perspective/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/rotate-perspective/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/rotate-perspective/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/rotate-perspective/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/it/'>darktable user manual</a> / <a href='/dtdocs/it/module-reference/'>Module-References</a> / <a href='/dtdocs/it/module-reference/processing-modules/'>moduli di elaborazione</a> / rotazione e prospettiva
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="next">&lt; riduzione rumore (profilato)</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="prev">sfocature &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        rotazione e prospettiva
+    </h1>
+
+    
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt>Descrizione</dt>
+<dd>Rotazione o distorsione prospettica.</dd>
+<dt>Scopo</dt>
+<dd>Correttivo o creativo.</dd>
+<dt>Input</dt>
+<dd>Lineare, RGB, riferito alla scena.</dd>
+<dt>Elaborazione</dt>
+<dd>Geometria, RGB.</dd>
+<dt>Output</dt>
+<dd>Lineare, RGB, riferito alla scena.</dd>
+</dl>
+</details>
+
+<p>Corregge automaticamente le linee convergenti, una forma di distorsione della prospettiva. Il meccanismo alla base è ispirato dal programma <a href="http://www.shiftn.de/" target="_blank"><em>ShiftN</em></a> di Markus Hebel. Questo modulo permette anche di regolare la rotazione dell&rsquo;immagine.</p>
+<p>La distorsione della prospettiva è un effetto naturale che avviene quando si proietta una scena tridimensionale su un piano bidimensionale, e comporta che gli oggetti più vicini sembrino più grandi degli oggetti più lontani. Le linee convergenti è un caso speciale di distorsione della prospettiva, vista molto di frequent nelle fotografie architettoniche &ndash; le linee parallele, quando fotografate da un angolo, si trasformano in linee convergenti che si incontrano in un punto di osservazione all&rsquo;interno o all&rsquo;esterno della cornice dell&rsquo;immagine.</p>
+<p>Questo modulo è in grado di correggere le linee convergenti deformando l&rsquo;immagine in modo tale che le linee in questione diventino parallele nella cornice dell&rsquo;immagine. Le correzioni possono essere applicate in direzione orizzontale e verticale, sia separatamente sia in combinazione. Al fine di permettere l&rsquo;esecuzione della correzione in automatico, il modulo è in grado di analizzare l&rsquo;immagine per trovare le caratteristiche strutturali idonee, come segmenti di linee. Puoi anche impostare manualmente la struttura delle linee disegnando un &ldquo;rettangolo di prospettiva&rdquo;, o disegnando multiple linee orizzontali e verticali sull&rsquo;immagine. Sulla base di questi segmenti (disegnati automaticamente o manualmente), si attiva la procedura di adattamento, la quale determina i migliori valori per i parametri del modulo.</p>
+<p>Dato che il caso d&rsquo;uso più comune per questo modulo è la rotazione, i controlli di correzione della prospettiva sono nascosti di default. Fai click sull&rsquo;intestazione &ldquo;prospettiva&rdquo; per espandere i controlli.</p>
+<p>Fintantoché il modulo è attivo (e nessuno dei pulsanti struttura è selezionato) puoi fare click di destro e trascinare ovunque sull&rsquo;immagine per definire una linea orizzontale o verticale. Questa attiverà la regolazione automatica del parametro di rotazione, che verrà aggiustato in modo tale che la linea disegnata venga resa orizzontale/verticale rispetto alla cornice dell&rsquo;immagine.</p>
+<hr>
+<p><strong>Note</strong>: This functionality (right-click and drag to set horizontal/vertical) is also available when the module is inactive, as long as no other function (e.g. drawn mask creation) claims the right-hand mouse button.</p>
+<hr>
+<h1 id="flusso-di-lavoro-della-correzione-prospettiva"><a href="#flusso-di-lavoro-della-correzione-prospettiva">🔗</a>flusso di lavoro della correzione prospettiva</h1>
+<h2 id="struttura"><a href="#struttura">🔗</a>Struttura</h2>
+<p>Il primo passo è quello di acquisire i dettagli riguardanti le strutture orizzontali e/o verticali nell&rsquo;immagine. Per ottenerli vengono fornite tre metodi alternativi:</p>
+<h3 id="disegna-manualmente-delle-linee-di-struttura"><a href="#disegna-manualmente-delle-linee-di-struttura">🔗</a>Disegna manualmente delle linee di struttura</h3>
+<p>Fai click sull&rsquo;icona 
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-lines.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-lines.png" alt="disegna linee di struttura"  class="icon"    /></a>
+
+ per abilitare la modalità disegno linee e quindi clicca e trascina sull&rsquo;immagine per disegnare linee che desideri diventino orizzontali o verticali. Il modulo capirà automaticamente se le linee sono orizzontali o verticali e le colorerà rispettivamente verdi e blu. Disegna quante linee desideri (più ne fai e più migliori l&rsquo;accuratezza del meccanismo di adattamento) e dopodiché fai click su una delle icone &ldquo;Adatta&rdquo; per completare il processo. Puoi entrare nuovamente in questa modalità per modificare le tue linee disegnate in qualsiasi momento. Modifica la linea cliccando e trascinando la linea stessa o uno degli estremi, click di destro su una linea per eliminarla. Una volta che sei soddisfatto con le modifiche, riseleziona un&rsquo;icona &ldquo;Adatta&rdquo; per completare il processo.</p>
+<h3 id="definisci-manualmente-un-rettangolo-prospettico"><a href="#definisci-manualmente-un-rettangolo-prospettico">🔗</a>definisci manualmente un rettangolo prospettico</h3>
+<p>Fai click sull&rsquo;icona 
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-rectangle.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-rectangle.png" alt="disegna struttura rettangolo"  class="icon"    /></a>
+
+ per abilitare la modalità disegno rettangolo prospettico. Questo disegnerà un rettangolo sullo schermo e puoi trascinare i suoi angoli in modo tale che il lato sinistro e destro finiscano sulle linee che intendi diventino verticali, e il lato sopra e sotto finiscano sulle linee che intendi rendere orizzontali. Quando sei contento del tuo rettangolo, fai click su una delle icone &ldquo;adatta&rdquo; per completare il processare. Puoi rientrare in questa modalità per modificare il rettangolo in qualsiasi momento. Quando sei soddisfatto delle tue modifiche, riseleziona un&rsquo;icona &ldquo;adatta&rdquo; per completare il processo.</p>
+<p>Questo metodo è simile a come funziona la &ldquo;distorsione trapezoidale&rdquo; nel modulo <a href="./crop-rotate.md"><em>ritaglia e ruota</em></a>.</p>
+<h3 id="analizza-automaticamente-la-struttura"><a href="#analizza-automaticamente-la-struttura">🔗</a>analizza automaticamente la struttura</h3>
+<p>Fai click sull&rsquo;icona 
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-get-structure.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-get-structure.png" alt="get-structure-icon"  class="icon"    /></a>
+
+ per analizzare l&rsquo;immagine alla ricerca di elementi strutturali &ndash; darktable automaticamente individuerà e valuterà elementi lineari. Maiusc+Click per applicare un passaggio di miglioramento del contrasto prima di effettuare l&rsquo;analisi. Ctrl+Click per applicare un passaggio di miglioramento dei bordi prima di effettuare l&rsquo;analisi. Entrambe le variazioni possono essere usate da sole o in combinazione se l&rsquo;analisi predefinita non è in grado di rilevare un numero sufficiente di linee.</p>
+<p>Solo le linee che formano un set di linee verticali o orizzontali convergenti vengono usate per i successivi passi dell&rsquo;elaborazione. I segmenti vengono visualizzati in sovrapposizione all&rsquo;immagine, identificando il tipo di linea con i colori come segue:</p>
+<dl>
+<dt>verde</dt>
+<dd>Linee verticali convergenti</dd>
+<dt>rosso</dt>
+<dd>Linee verticali che non convergono</dd>
+<dt>blu</dt>
+<dd>Linee orizzontali convergenti</dd>
+<dt>giallo</dt>
+<dd>Linee orizzontali che non convergono</dd>
+<dt>grigio</dt>
+<dd>Altre linee non interessanti per questo modulo</dd>
+</dl>
+<p>Le linee in rosso o giallo vengono considerate &ldquo;anomalie&rdquo; e non vengono prese in considerazione durante il passaggio di adattamento automatico. Questa eliminazione delle anomalie è ottenuto con un processo statistico che usa un campionamento casuale, e ciò significa che ogni volta che viene premuto il tasto &ldquo;ottieni struttura&rdquo;, lo schema dei colori delle linee sarà leggermente diverso.</p>
+<p>Puoi cambiare manualmente lo stato dei segmenti: fai click su una linea per selezionarla (cambiare il colore in verde o blu) e click di destro per deselezionarla (cambiare il colore in rosso o giallo). Se tieni premuto il pulsante del mouse, puoi muovere il mouse sull&rsquo;immagine per selezionare/deselezionare più linee assieme. L&rsquo;ampiezza del pennello per la selezione/deselezione può essere cambiato con la rotellina del mouse. Tieni premuto il tasto Maiusc e il tasto destro o sinistro del mouse mentre trascini per selezionare o deselezionare tutte le linee nell&rsquo;area rettangolare selezionata.</p>
+<p>Quando sei soddisfatto con le linee identificate, seleziona un&rsquo;icona &ldquo;adatta&rdquo; per completare il processo.</p>
+<h2 id="adatta"><a href="#adatta">🔗</a>Adatta</h2>
+<p>Nel momento in cui sei soddisfatto delle linee orizzontali e verticali individuate usando uno dei metodi di cui sopra, fai click su una delle icone &ldquo;Adatta&rdquo; per impostare automaticamente i parametri del modulo sulla base della struttura stabilita. L&rsquo;immagine e la linee in sovrimpressione verranno quindi visualizzate applicando la correzione della prospettiva.</p>
+<p>Puoi scegliere di applicare automaticamente solo la correzione verticale 
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-vertical.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-vertical.png" alt="vertical-icon"  class="icon"    /></a>
+
+, solo la correzione orizzontale 
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-horizontal.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-horizontal.png" alt="horizontal-icon"  class="icon"    /></a>
+
+, o entrambe 
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-both.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-both.png" alt="both-icon"  class="icon"    /></a>
+
+. Ctrl+Click su qualunque delle icone per applicare la rotazione senza regolazione dell&rsquo;ottica. Maiusc+Click su qualunque delle icone per applicare la regolazione dell&rsquo;ottica senza alcuna rotazione.</p>
+<h2 id="ruota"><a href="#ruota">🔗</a>Ruota</h2>
+<p>Una volta che sei soddisfatto della correzione della prospettiva applicata, potresti voler effettuare una rotazione finale, o regolando il parametro di rotazione o con click di destro e trascinamento sull&rsquo;immagine per definire una linea orizzontale/verticale.</p>
+<h1 id="controlli-modulo"><a href="#controlli-modulo">🔗</a>Controlli modulo</h1>
+<dl>
+<dt>rotation</dt>
+<dd>Control the rotation of the image around its center to correct for a skewed horizon. To rotate by more than the default soft limit of ten degrees, right click and enter the desired value up to 180 degrees (see <a href="../../darkroom/processing-modules/module-controls.md">module controls</a>).</dd>
+<dt>ritaglio automatico</dt>
+<dd>Quando è attiva, questa funzione ritaglia l&rsquo;immagine rimuovendo qualsiasi area nera ai bordi, generate dalla correzione della distorsione. Puoi ritagliare sia l&rsquo;&ldquo;area più larga&rdquo;, o il rettangolo più ampio che mantiene la proporzione (aspect ratio) originale (&ldquo;formato originale&rdquo;). Nel secondo caso puoi regolare manualmente il ritaglio automatico cliccando sull&rsquo;area di ritaglio e muovendola nell&rsquo;immagine. La dimensione della regione viene cambiata automaticamente per escludere qualsiasi area nera.</dd>
+<dt>spostamento lente (verticale)</dt>
+<dd>Corregge le linee convergenti verticali (es: per rendere parallele le linee <em>verdi</em>). In alcuni casi puoi ottenere immagini dall&rsquo;aspetto più naturale se correggi la distorsione vertical dell'80 ~ 90%, piuttosto che al massimo livello. Per farlo, riduci il selettore a scorrimento della correzione dopo aver effettuato la correzione automatica.</dd>
+<dt>spostamento lente (orizzontale)</dt>
+<dd>Corregge le linee orizzontali convergenti (es: per rendere parallele le linee <em>blu</em>).</dd>
+<dt>stira</dt>
+<dd>Deforma l&rsquo;immagine rispetto alla sua diagonale. Questo è necessario quando si correggono simultaneamente le distorsioni prospettiche orizzontali e verticali.</dd>
+<dt>modello obiettivo</dt>
+<dd>Questo parametro controlla la lunghezza focale dell&rsquo;obiettivo, il fattore di taglio della fotocamera e la l&rsquo;aspect ratio per l&rsquo;algoritmo di correzione. Se impostato su &ldquo;generico&rdquo; si assume una lunghezza focale di 28mm su una fotocamera full-frame 35mm. Se impostato su &ldquo;specifico&rdquo;, lunghezza focale e proporzioni possono essere impostate manualmente usando i selettori a scorrimento forniti.</dd>
+<dt>lunghezza focale</dt>
+<dd>Se il <em>modello obiettivo</em> è impostato su &ldquo;specifico&rdquo;, imposta la lunghezza focale. Il valore di default è preso dai dati Exif dell&rsquo;immagine, e può essere cambiato regolando manualmente il selettore scorrevole.</dd>
+<dt>proporzioni</dt>
+<dd>Se il <em>modello obiettivo</em> è impostato su &ldquo;specifico&rdquo;, imposta le proporzioni della fotocamera (crop factor). Solitamente devi impostare questo valore manualmente.</dd>
+<dt>regolazione aspetto</dt>
+<dd>Se il <em>modello obiettivo</em> è impostato su &ldquo;specifico&rdquo;, questo parametro permette un aggiustamento libero delle proporzioni dell&rsquo;immagine. E&rsquo; utile per ripristinare il corretto ratio con immagini prese usando obiettivi anamorfici (che cambiano il ratio di un&rsquo;immagine).</dd>
+<dt>struttura</dt>
+<dd>Stabilisce le linee verticali e orizzontali nell&rsquo;immagine usando un metodo manuale o automatico (vedi la sezione sul flusso di lavoro per i dettagli).</dd>
+<dt>adatta</dt>
+<dd>Imposta i valori della correzione della distorsione in base alla struttura identificata (vedi la sezione sul flusso di lavoro per i dettagli).</dd>
+<dt>mostra guide</dt>
+<dd>Seleziona l&rsquo;opzione per mostrare la le linee guida quando il modulo è attivato. Fai click sull&rsquo;icona sulla destra per controllare le proprietà delle guide. Vedi <a href="../utility-modules/darkroom/guides-overlays.md">guide &amp; sovrapposizioni</a> per i dettagli.</dd>
+</dl>
+<h1 id="esempi"><a href="#esempi">🔗</a>esempi</h1>
+<p>Questa è un&rsquo;immagine con un orizzonte obliquo e linee convergenti, causati dall&rsquo;aver direzionato la fotocamera verso l&rsquo;alto:</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-before.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-before.png" alt="perspective-correction-example-before"  class="w66"    /></a>
+
+</p>
+<p>Qui l&rsquo;immagine dopo aver corretto la distorsione prospettica verticale e orizzontale usando l&rsquo;identificazione automatica della struttura. Notare la correzione della cornice generata dalla funzione di taglio automatico, e la sovrimpressione delle linee strutturali ancora visibile.</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-after.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-after.png" alt="perspective-correction-example-after"  class="w66"    /></a>
+
+</p>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/processing-modules/rotate-perspective/">
+            Dutch: roteren en perspectief
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/">
+            English: rotate and perspective
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/processing-modules/rotate-perspective/">
+            Español: rotación y perspectiva
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/rotate-perspective/">
+            Français: Rotation et perspective
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/rotate-perspective/">
+            German: Drehen und Perspektive
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/rotate-perspective/">
+            Lao: ໝຸນ ແລະ ເປີສະເປັກຕີບ (rotate and perspective)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/processing-modules/rotate-perspective/">
+            Polish: obrót i perspektywa
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/processing-modules/rotate-perspective/">
+            Português: rotação e perspectiva
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/rotate-perspective/">
+            Ukrainian: Обертання та перспектива
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="next">&lt; riduzione rumore (profilato)</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="prev">sfocature &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/overview/" class="">
+          Panoramica
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/" class="">
+          Tavolo luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-view-layout/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">
+          Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">
+          gestione delle risorse digitali
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/" class="">
+          Camera Oscura
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/darkroom-view-layout/" class="">
+          disposizione della Camera Oscura
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">
+          il pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">
+          la coda di sviluppo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">
+          annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">
+          intestazione modulo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">
+          istanze multiple
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class="">
+          curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">
+          wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">
+          moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">
+          maschere &amp; fusione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class="">
+          modalità di fusione
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">
+          maschere
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/parametric/" class="">
+          maschere parametriche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combinare maschere disegnate &amp; parametriche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">
+          organizzazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/module-groups/" class="">
+          gruppi di moduli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">
+          gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/" class="">
+          Mappa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">
+          layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/slideshow/" class="">
+          Presentazione
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/" class="">
+          Stampa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/" class="">
+          Script con Luca
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/printing-labeled-images/" class="">
+          stampare immagini etichettate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/exporting-images/" class="">
+          esportare immagini con lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/calling-from-dbus/" class="">
+          chiamare luca dal dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/darktable-from-lua/" class="">
+          usare darktable da uno script lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class="">
+          Guide &amp; Tutorial
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">
+          sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/" class="">
+          Module-References
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">
+          ammorbidisci
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">
+          bilanciamento colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">
+          bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">
+          censura
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">
+          colora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">
+          contrasto colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">
+          correzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">
+          correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">
+          equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class="">
+          equalizzatore toni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">
+          filtro graduato
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">
+          luce soffusa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">
+          mappatura dei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">
+          passa-alto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">
+          punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">
+          ricostruzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">
+          riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="">
+          riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class=" active">
+          rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">
+          sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">
+          Moduli utilità
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">
+          condivisi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/export/" class="">
+          esporta
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">
+          informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">
+          libreria
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">
+          mappa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">
+          Stampa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">
+          sviluppo
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">
+          Sessione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">
+          Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/" class="">
+          Special-Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">
+          gestione del colore
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">
+          Profilo dello schermo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">
+          metodi di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">
+          Intento di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-spaces/" class="">
+          spazi colore di darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/unbounded-colors/" class="">
+          colori senza confini
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-artifacts/" class="">
+          possibili artefatti nei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="">
+          dimensione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class="">
+          coda di elaborazione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+

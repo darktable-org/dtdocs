@@ -1,0 +1,1497 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - equalizzatore toni</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/tone-equalizer/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="equalizzatore toni">
+<meta property="og:description" content="Technical information Descrizione Illumina la scena come se ci fosse un’illuminazione reale. Scopo Correttivo e creativo. Input Lineare, RGB, riferito alla scena. Elaborazione Quasi-lineare, RGB. Output Quasi-lineare, RGB, riferito alla scena. Scherma e brucia preservando il contrasto locale.
+The tone equalizer module replaces the need for other tone-mapping modules such as the shadows and highlights, tone curve, zone system (deprecated), and similar modules. It works in linear RGB space and utilizes a user-defined mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/it/module-reference/processing-modules/tone-equalizer/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/it/module-reference/processing-modules/tone-equalizer/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/it/module-reference/processing-modules/tone-equalizer/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/it/module-reference/processing-modules/tone-equalizer/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/it/module-reference/processing-modules/tone-equalizer/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="it"
+              role="option"
+              lang="it"
+              href="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/tone-equalizer/"
+              >Italian</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/tone-equalizer/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/tone-equalizer/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/tone-equalizer/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/tone-equalizer/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/tone-equalizer/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/tone-equalizer/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/tone-equalizer/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/tone-equalizer/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/tone-equalizer/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+<a href='/dtdocs/it/'>darktable user manual</a> / <a href='/dtdocs/it/module-reference/'>Module-References</a> / <a href='/dtdocs/it/module-reference/processing-modules/'>moduli di elaborazione</a> / equalizzatore toni
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="next">&lt; equalizzatore contrasto</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="prev">filtro graduato &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        equalizzatore toni
+    </h1>
+
+    
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt>Descrizione</dt>
+<dd>Illumina la scena come se ci fosse un&rsquo;illuminazione reale.</dd>
+<dt>Scopo</dt>
+<dd>Correttivo e creativo.</dd>
+<dt>Input</dt>
+<dd>Lineare, RGB, riferito alla scena.</dd>
+<dt>Elaborazione</dt>
+<dd>Quasi-lineare, RGB.</dd>
+<dt>Output</dt>
+<dd>Quasi-lineare, RGB, riferito alla scena.</dd>
+</dl>
+</details>
+
+<p>Scherma e brucia preservando il contrasto locale.</p>
+<p>The <em>tone equalizer</em> module replaces the need for other tone-mapping modules such as the <a href="./shadows-and-highlights.md"><em>shadows and highlights</em></a>, <a href="./tone-curve.md"><em>tone curve</em></a>, <a href="./zone-system.md"><em>zone system (deprecated)</em></a>, and similar modules. It works in linear RGB space and utilizes a user-defined mask to guide the dodging and burning adjustments, helping to preserve local contrast within the image.</p>
+<p>Il seguente diagramma descrive come funziona l&rsquo;equalizzatore toni:</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/tone-equalizer/tone-equalizer-overview.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/tone-equalizer/tone-equalizer-overview.png" alt="maschera equalizzatore toni"  class="w100"    /></a>
+
+</p>
+<ol>
+<li>
+<p>Creare una <a href="#masking-tab"><em>maschera guidata</em></a> monocromatica che divide l&rsquo;immagine in regioni di luminosità simile. La maschera risultante dovrebbe sfumare i piccoli dettagli dell&rsquo;immagine, in modo tale che i pixel in ogni regione vengano trattati alla stessa maniera, preservando il contrasto locale.</p>
+</li>
+<li>
+<p>Aggiustare il selettore scorrevole nella scheda <a href="#simple-tab"><em>semplice</em></a> o l&rsquo;equalizzatore nella scheda <a href="#advanced-tab"><em>avanzato</em></a> per modificare la luminosità dell&rsquo;immagine sottostante, sulla base della maschera di luminosità. L&rsquo;esposizione può essere regolata anche con la rotella del mouse mentre si è con il mouse sopra l&rsquo;immagine (vedi <a href="#cursor-indicatorcontrol"><em>indicatore/controllo cursore</em></a> per i dettagli).</p>
+<p>Nella scheda semplice, ciascun selettore scorrevole corrisponde ad una zona di luminosità (EV) nella maschera, e può essere aumentato o diminuito per regolare l&rsquo;esposizione dell&rsquo;immagine nell&rsquo;area coperta dalla luminosità della maschera corrispondente. Similarmente, nella scheda dell&rsquo;equalizzatore, l&rsquo;asse orizzontale del grafico corrisponde al livello di luminosità della maschera, e l&rsquo;asse verticale stabilisce la correzione dell&rsquo;esposizione necessaria per i pixel nell&rsquo;area nella maschera con luminosità corrispondente.</p>
+</li>
+<li>
+<p>L&rsquo;esposizione di ciascun pixel dell&rsquo;immagine di input viene regolata usando la maschera e il grafico dell&rsquo;equalizzatore. Per ciascun pixel, il modulo controlla la luminosità della maschera in quel punto, cercando la luminosità corrispondente sull&rsquo;asse orizzontale del grafico dell&rsquo;equalizzatore, e incrementa o decrementa di conseguenza l&rsquo;esposizione (usando l&rsquo;asse verticale del grafico).</p>
+</li>
+</ol>
+<p>E&rsquo; importante che la maschera separi l&rsquo;immagine in aree di luminosità simile, e che venga applicata una congrua sfumatura all&rsquo;interno di queste aree. Questo significa che l&rsquo;esposizione di tutti i pixel in ogni area verrà regolata in maniera uniforme, senza modificare in modo negativo il contrasto locale. Esamina prima la tua immagine per identificare le aree che intendi schermare e bruciare, e usa i controlli nella scheda <a href="#masking-tab"><em>applica maschera</em></a> per assicurare che queste aree siano separate ragionevolmente nei toni nella maschera finale. Questo ti permetterà di regolare indipendentemente queste aree.</p>
+<h1 id="controlli-modulo"><a href="#controlli-modulo">🔗</a>Controlli modulo</h1>
+<p>I controlli del modulo <em>equalizzatore toni</em> sono divisi in tre schede.</p>
+<dl>
+<dt>visualizza maschera esposizione</dt>
+<dd>Fai click sull&rsquo;icona alla destra di questa etichetta per mostrare/nascondere la maschera guidata del modulo sovrimpressa all&rsquo;immagine. Questo controllo è disponibile in tutte e tre le schede.</dd>
+</dl>
+<h2 id="scheda-semplice"><a href="#scheda-semplice">🔗</a>scheda semplice</h2>
+<p>Questa scheda suddivide la luminosità della maschera guidata in nove zone (da &ndash;8 a 0 EV) e permette di modificare indipendentemente ciascuna zona. Questa è un&rsquo;interfaccia semplificata ed è usata per generare la stessa curva di modifica dei toni come mostrata nella scheda <a href="#advanced-tab"><em>avanzato</em></a>.</p>
+<dl>
+<dt>&ndash;8 EV &hellip; 0 EV</dt>
+<dd>Ciascun selettore scorrevole regola l&rsquo;esposizione di tutti i pixel dove la <em>maschera guidata</em> ha la luminosità indicata. Se l&rsquo;istogramma della maschera è distribuito uniformemente sull&rsquo;interno intervallo tonale, i selettori scorrevoli in alto interessano generalmente le ombre, mentre i selettori in basso interessano generalmente le alteluci. Puoi controllare la distribuzione dell&rsquo;istogramma all&rsquo;interno della scheda <a href="#advanced-tab"><em>avanzato</em></a>.</dd>
+</dl>
+<h2 id="scheda-avanzato"><a href="#scheda-avanzato">🔗</a>scheda avanzato</h2>
+<p>Questa scheda ti permette di controllare gli stessi livelli di intensità della scheda semplice, ma qui sono rappresentati come nodi di controllo su una curva. Dietro la curva c&rsquo;è un istogramma che rappresenta i livelli di intensità della <em>maschera guidata</em> (non dell&rsquo;immagine sottostante). Se l&rsquo;istogramma è troppo ammassato, significa che la tua maschera non ha una buona distribuzione dei livelli di intensità, il che rende più difficile controllare indipendentemente la luminosità delle differenti aree della tua immagine. Si raccomanda quindi di regolare l&rsquo;istogramma affinché estenda il suo intervallo, coprendo quanti nodi di controllo possibile, per la più alta flessibilità. Puoi regolare la maschera utilizzando i controlli nella scheda <a href="#masking-tab"><em>applica maschera</em></a>.</p>
+<p>Fai click e trascina per controllare i nodi sulla curva al fine di regolare la luminosità di tutti i pixel dove la maschera ha la data intensità. Se l&rsquo;istogramma della maschera è distribuita uniformemente sull&rsquo;interno intervallo tonale, in genere i nodi di controllo sulla sinistra interessano le ombre, e i nodi di controllo sulla destra interessano le alteluci. Spostando un singolo nodo di controllo, questo interesserà i nodi di controllo attorno, in modo tale da garantire che la curva rimanga dolce. Questo comportamento può essere regolato utilizzando il controllo <em>addolcire la curva</em>.</p>
+<dl>
+<dt>addolcire la curva</dt>
+<dd>Controlla come la curva è interpolata tra i nodi di controllo. Sposta il selettore scorrevole verso la destra per rendere più graduale la transizione tra i nodi di controllo, ma ricorda che andare oltre lo 0.6 può introdurre un po&rsquo; di instabilità (oscillazioni) nella curva a causa dei vincoli matematici. Sposta il selettore scorrevole sulla sinistra per avere una curva più educata, ma ricorda che questo può risultare in transizioni di tono più dure che possono danneggiare il contrasto locale.</dd>
+<dt>compensazione esposizione maschera</dt>
+<dd>Aggiusta l&rsquo;istogramma della maschera verso destra o sinistra. Se hai usato il modulo <em>esposizione</em> per regolare la luminosità dell&rsquo;immagine, potresti aver bisogno di compensare questa regolazione utilizzando questo selettore scorrevole per ri-centrare l&rsquo;istogramma della maschera. Fai click sull&rsquo;icona della bacchetta magica sulla destra del selettore scorrevole per impostare la compensazione dell&rsquo;esposizione in modo tale che la media dell&rsquo;istogramma della maschera coincida con il nodo di controllo centrale dei &ndash;4EV. Il selettore scorrevole può quindi essere messo a punto come necessario.</dd>
+<dt>compensazione contrasto maschera</dt>
+<dd>Dilata (distribuisce) o comprime l&rsquo;istogramma della maschera. L&rsquo;icona bacchetta magica alla destra del selettore scorrevole propone un punto di partenza ragionevole, che può essere messo a punto per ottimizzare la distribuzione dell&rsquo;istogramma sotto i nodi di controllo dell&rsquo;equalizzatore toni.</dd>
+</dl>
+<h2 id="scheda-applica-maschera"><a href="#scheda-applica-maschera">🔗</a>scheda applica maschera</h2>
+<p>Questa scheda contiene i controlli per regolare la maschera guidata.</p>
+<p>Lo scopo della maschera guidata è di separare le aree con differenti intervalli tonali in modo tale che possano essere schiariti o scuriti indipendentemente dall&rsquo;equalizzatore toni. I filtri di mascheramento sono progettati per preservare i confini più nitidi tra queste aree mentre si sfocano i dettagli all&rsquo;interno di un dato intervallo tonale, in modo tale che la luminosità possa essere regolata senza impattare negativamente sul contrasto locale. Idealmente l&rsquo;istogramma della maschera mostrato nella scheda <em>avanzato</em> dovrebbe essere distribuito lungo tutti i nodi di controllo.</p>
+<p>Quando si imposta la maschera guidata bisogna trovare un compromesso tra l&rsquo;ottenere una sfocatura morbida nelle regioni tonali (per preservare il contrasto locale) e la preservazione dei confini tra queste regioni. Per trovare le migliori impostazioni si richiede un po&rsquo; di sperimentazione. Spesso i controlli chiave da regolare sono i selettori scorrevoli di <em>compensazione esposizione/contrasto maschera</em> in basso nel modulo.</p>
+<p>Displaying the guided mask while making these adjustments will help you to understand these controls and better judge the quality of the mask.</p>
+<dl>
+<dt>stimatore di luminanza</dt>
+<dd>Scegli io metodo con il quale la luminanza di un pixel verrà valutata quando viene mappata ad un valore di intensità della maschera (predefinito <em>RGB norma eucleidiana</em>).</dd>
+<dt>conserva i dettagli</dt>
+<dd>Scegli l&rsquo;algoritmo di &ldquo;levigazione&rdquo; usato per sfocare la maschera:</dd>
+</dl>
+<ul>
+<li><em>no:</em> Non addolcire la maschera (l&rsquo;effetto è lo stesso dell&rsquo;usare le curve di tono). Quando il modulo viene usato per comprimere la gamma dinamica, quest&rsquo;opzione può causare la compressione del contrasto locale. Questo può essere utile quando si incrementa il contrasto (locale e globale).</li>
+<li><em>filtro guidato:</em> Usa l&rsquo;algoritmo originale di filtro guidato per sfocare la maschera cercando di preservare i bordi. Una delle limitazioni di questo algoritmo è che il filtro guidato è sensibile all&rsquo;esposizione, il che significa che le ombre tendono a venir sfocate più delle alteluci. Notare che questa limitazione può essere talvolta una risorsa: se si vuole schiarire di molto le ombre, il filtro guidato può produrre un&rsquo;ottima preservazione del contrasto locale.</li>
+<li><em>media filtro guidato:</em> Usare quest&rsquo;opzione nei casi in cui l&rsquo;effetto del filtro guidato è troppo forte. In questa modalità si ottiene una media geometrica tra l&rsquo;output dell&rsquo;algoritmo originale di <em>filtro guidato</em> e l&rsquo;output dato dall&rsquo;opzione <em>no</em>.</li>
+<li><em>eigf (predefinito):</em> Il <em>filtro guidato indipendente dall&rsquo;esposizione</em> (Exposure Independent Guided Filter) risolve il problema del <em>filtro guidato</em> originale, rendendo l&rsquo;intensità della sfocatura indipendente dall&rsquo;esposizione. Questo significa che l&rsquo;intensità della sfocatura applicata alle alteluci e alle ombre dovrebbe essere circa la stessa. Questo algoritmo aggiornato è ora l&rsquo;opzione predefinita.</li>
+<li><em>eigf medio:</em> Quest&rsquo;opzione produce la media geometrica tra la maschera <em>eigf</em> e la maschera generata con l&rsquo;opzione <em>no</em>, ed è utile quando si deve mitigare l&rsquo;intensità della sfocatura della maschera.</li>
+</ul>
+<dl>
+<dt>filtro di diffusione</dt>
+<dd>di default è impostato a 1, e ciò significa che l&rsquo;algoritmo di filtro viene eseguito solo una volta sull&rsquo;immagine di input per generare la maschera monocromatica sfocata.</dd>
+<dd>
+<p>Se lo aumenti a 2, l&rsquo;algoritmo di filtro girerà una volta sull&rsquo;immagine di input per produrre una maschera intermedia, e a seguire una seconda volta sulla maschera intermedia. Come risultato la maschera finale risulterà più sfocata rispetto a quando si usa una singola iterazione. Valori più alti disperderanno ulteriormente la maschera in maniera progressiva. Tuttavia, siccome l&rsquo;algoritmo di filtro viene eseguito più volte, ogni iterazione incrementerà il tempo di elaborazione.</p>
+</dd>
+<dt>diametro omogeneizzazione</dt>
+<dd>Questo controlla quanta di area circostante dell&rsquo;immagine bisogna tenere conto quando si calcola la sfocatura della maschera in un particolare punto, definita come percentuale del lato più lungo dell&rsquo;immagine (5% predefinito). Con valori più bassi, la transizione tra aree più scure e più chiare della maschera sarà più pronunciato. Incrementando il valore, invece, le transizioni si faranno più dolci e morbide. Per il predefinito <em>filtro guidato indipendente all&rsquo;esposizione (eigf)</em>, dovresti tipicamente usare un raggio di sfocatura attorno all&rsquo; 1-10%. Con il <em>filtro guidato</em> originale, un raggio di sfocatura attorno all'1-25% restituisce tipicamente i risultati migliori.</dd>
+<dt>rifinitura margini/sfumatura</dt>
+<dd>Valori più alti forzano la maschera a seguire più accuratamente i bordi con alto contrasto. Valori più bassi daranno sfumature più dolci, ma potrebbero introdurre aloni. Se necessario, la sfumatura può essere impostata fino ad un valore di 10.000.</dd>
+<dt>mask quantization</dt>
+<dd>Apply a degree of posterization to the mask, so that it tends to centre round a few discrete levels. In some cases, this may be useful to help separate out areas of your image into distinct masking levels.</dd>
+</dl>
+<h2 id="indicatoricontrolli-del-cursore"><a href="#indicatoricontrolli-del-cursore">🔗</a>indicatori/controlli del cursore</h2>
+<p>Quando il modulo <em>equalizzatore toni</em> è abilitato ed aperto, puoi muovere il puntatore del mouse sul preview dell&rsquo;immagine per mostrare un cursore che visualizza informazioni sul pixel al di sotto del puntatore. Quando il cursore è mostrato, si può usare la rotella del mouse per schiarire o scurire l&rsquo;area della tua immagine che corrisponde al livello d&rsquo;intensità della maschera in quel punto. Questo fornisce un modo pratico per schiarire o scurire velocemente specifiche aree dell&rsquo;immagine.</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/module-reference/processing-modules/tone-equalizer/tone-equalizer-cursor.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/tone-equalizer/tone-equalizer-cursor.png" alt="tone-equalizer-simple"  class="w25"    /></a>
+
+</p>
+<ul>
+<li>
+<p>il mirino indica la posizione del pixel sotto il cursore</p>
+</li>
+<li>
+<p>il testo mostra l&rsquo;intensità della maschera guidata in quel punto, in EV</p>
+</li>
+<li>
+<p>la tonalità del cerchio più esterno indica l&rsquo;intensità della maschera in quel punto</p>
+</li>
+<li>
+<p>se l&rsquo;equalizzatore toni ha schiarito o scurito i pixel che corrispondono all&rsquo;intensità della maschera, la magnitudo della correzione viene indicata con un arco sulla parte sinistra. Più l&rsquo;arco è esteso, e più ampia è la correzione della luminosità,</p>
+</li>
+<li>
+<p>se sono presenti correzioni dell&rsquo;esposizione, la tonalità del cerchio più interno mostra l&rsquo;ammontare di quanto è stato scurito o schiarito, in relazione all&rsquo;intensità della maschera in quel punto (come indicato dal cerchio grigio più esterno). Vale a dire, se il pixel sotto il mirino è stato schiarito, il cerchio più interno sarà di un grigio più chiaro rispetto a quello del cerchio più esterno; se il pixel è stato invece scurito, il cerchio più interno sarà più scuro del cerchio più esterno.</p>
+</li>
+</ul>
+<p>If you need to move or zoom the portion of the image shown in the center view while the module is expanded, hold down the &lsquo;a&rsquo; key while dragging the mouse or using the scroll wheel.  As long as the key is held down, mouse actions adjust the viewport rather than adjusting the tone curve.</p>
+<h2 id="preset"><a href="#preset">🔗</a>preset</h2>
+<p>L&rsquo;<em>equalizzatore toni</em> è equipaggiato con diversi preset che possono essere usati per comprimere ombre e alteluci. Ogni preset è fornito in due varianti, usando sia il filtro guidato o il filtro guidato indipendente dall&rsquo;esposizione (eigf). Le variati che usano il filtro guidato tendono a preservare il contrasto locale nelle ombre meglio dei preset che usano il filtro indipendente dall&rsquo;esposizione, ma al prezzo di ridurre il contrasto locale nelle alteluci. Tutte le varianti possono portare a migliori risultati, a seconda dell&rsquo;immagine. In entrambe i casi, questi preset preservano il grigio medio, e quindi non dovresti aver bisogno di aggiustare l&rsquo;esposizione globale dopo aver attivato l&rsquo;equalizzatore toni.</p>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/processing-modules/tone-equalizer/">
+            Dutch: toon equalizer
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/tone-equalizer/">
+            English: tone equalizer
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/processing-modules/tone-equalizer/">
+            Español: ecualizador de tono
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/tone-equalizer/">
+            Français: Égaliseur de tons
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/tone-equalizer/">
+            German: Tonwert-Equalizer
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/tone-equalizer/">
+            Lao: ຕົວປັບສົມດຸນໂທນ (tone equalizer)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/processing-modules/tone-equalizer/">
+            Polish: korektor tonów
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/processing-modules/tone-equalizer/">
+            Português: equalizador de tons
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/tone-equalizer/">
+            Ukrainian: Еквалайзер тонів
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="next">&lt; equalizzatore contrasto</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="prev">filtro graduato &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/overview/" class="">
+          Panoramica
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/" class="">
+          Tavolo luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-view-layout/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">
+          Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">
+          gestione delle risorse digitali
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/" class="">
+          Camera Oscura
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/darkroom-view-layout/" class="">
+          disposizione della Camera Oscura
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">
+          il pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">
+          la coda di sviluppo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">
+          annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">
+          intestazione modulo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">
+          istanze multiple
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class="">
+          curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">
+          wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">
+          moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">
+          maschere &amp; fusione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class="">
+          modalità di fusione
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">
+          maschere
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/parametric/" class="">
+          maschere parametriche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combinare maschere disegnate &amp; parametriche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">
+          organizzazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/module-groups/" class="">
+          gruppi di moduli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">
+          gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/" class="">
+          Mappa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">
+          layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/slideshow/" class="">
+          Presentazione
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/" class="">
+          Stampa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/" class="">
+          Script con Luca
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/printing-labeled-images/" class="">
+          stampare immagini etichettate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/exporting-images/" class="">
+          esportare immagini con lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/calling-from-dbus/" class="">
+          chiamare luca dal dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/darktable-from-lua/" class="">
+          usare darktable da uno script lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class="">
+          Guide &amp; Tutorial
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">
+          sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/" class="">
+          Module-References
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">
+          ammorbidisci
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">
+          bilanciamento colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">
+          bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">
+          censura
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">
+          colora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">
+          contrasto colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">
+          correzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">
+          correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">
+          equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class=" active">
+          equalizzatore toni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">
+          filtro graduato
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">
+          luce soffusa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">
+          mappatura dei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">
+          passa-alto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">
+          punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">
+          ricostruzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">
+          riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="">
+          riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="">
+          rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">
+          sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">
+          Moduli utilità
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">
+          condivisi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/export/" class="">
+          esporta
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">
+          informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">
+          libreria
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">
+          mappa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">
+          Stampa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">
+          sviluppo
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">
+          Sessione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">
+          Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/" class="">
+          Special-Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">
+          gestione del colore
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">
+          Profilo dello schermo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">
+          metodi di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">
+          Intento di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-spaces/" class="">
+          spazi colore di darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/unbounded-colors/" class="">
+          colori senza confini
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-artifacts/" class="">
+          possibili artefatti nei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="">
+          dimensione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class="">
+          coda di elaborazione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+
