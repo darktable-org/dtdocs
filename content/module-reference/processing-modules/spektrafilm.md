@@ -172,6 +172,9 @@ bandwidth adaptation
 surface adaptation
 : An optional per-colour exposure correction carried in the film data, worth up to two stops for strongly coloured light and nothing at all for neutral. Off by default, because it shifts saturated colours noticeably and the reference implementation does not apply it either. Stocks whose data does not include the correction are unaffected either way.
 
+gamut compression
+: When enabled colours the simulated film and print produce that fall outside the working colour profile's gamut are pulled back inside it along a smooth OkLCh curve, leaving already in-gamut colours untouched. When disabled, out-of-gamut colours pass through unchanged and are hard-clipped later in the pipeline instead, which can shift hues and merge distinct tones. This is useful for spotting which colours the simulation is pushing out of gamut.
+
 ## print
 
 ### exposure
