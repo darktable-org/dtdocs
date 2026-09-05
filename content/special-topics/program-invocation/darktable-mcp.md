@@ -48,7 +48,7 @@ The server exposes three groups of tools to the connected client.
 
 # connecting a client
 
-`darktable-mcp` is not run directly by the user -- it is launched by an MCP client, which talks to it over stdin and stdout. Most clients are configured with a JSON entry naming the command and its arguments:
+`darktable-mcp` is not run directly by the user -- it is launched by an MCP client, which talks to it over stdin and stdout. Most clients are configured with a JSON entry naming the command and its arguments, for instance like this example (which uses paths typical for a Linux system):
 
 ```json
 {
