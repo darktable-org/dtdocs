@@ -171,8 +171,6 @@ gamut compression
 
 ## print
 
-Slide film has no print stage. Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab as there is no print surface for the light to reflect off.
-
 ### exposure
 
 print exposure compensation
@@ -183,6 +181,8 @@ auto print exposure
 
 print contrast
 : Contrast of the print, achieved by reshaping the paper's own response.
+
+Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab as there is no print surface.
 
 ### chemistry
 
