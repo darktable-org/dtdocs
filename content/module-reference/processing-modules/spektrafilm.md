@@ -56,12 +56,6 @@ only use one display transform
 start simple
 : Choosing a film stock is enough. Everything else already carries a sensible value taken from that film's own measurements, and the paper follows the film automatically. The tabs are for fine-tuning.
 
-everything resets
-: Double-click any slider to return it to its default. Each section heading has its own reset button for just that group of controls, and double-clicking a tab resets the whole tab -- useful for getting back to the film's own behavior after experimenting, without starting over.
-
-slide film has no print stage
-: Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab -- there is no print surface for the light to reflect off.
-
 auto print exposure changes what film exposure does
 : Out of the box, _film exposure_ behaves like leaving the enlarger on for a fixed time: expose the film more and the print comes out brighter. Switch on _auto print exposure_ and it stops doing that, because print exposure now compensates automatically -- which is what a real printer does, aiming for consistent print density however the negative was exposed. _film exposure_ then changes only color and grain by moving the scene to a different part of the film's response.
 
@@ -124,7 +118,7 @@ DIR couplers
 : Overall strength of the effect. 1.0 matches the real film, 0 switches it off. The slider stops at 1.0 because the simulation has to be able to work backwards from the film's measured curves, and beyond film-accurate strength that becomes impossible -- for some stocks well before 2.0. The module reduces the amount further for stocks where it would break down sooner.
 
 same-layer inhibition
-: How much each layer holds back its own development. Raising it flattens contrast within each color channel.
+: How much each layer holds back its own development. Raising it flattens contrast within each color channel. Can be used for tuning local contrast and sharpening independently of the interlayer effect below.
 
 interlayer inhibition
 : How much each layer holds back the other two. This is the part that produces the saturation the effect is known for; at 0 the three colors develop independently.
@@ -176,6 +170,8 @@ gamut compression
 : When enabled colors the simulated film and print produce that fall outside the working color profile's gamut are pulled back inside it along a smooth OkLCh curve, leaving already in-gamut colors untouched. When disabled, out-of-gamut colors pass through unchanged and are hard-clipped later in the pipeline instead, which can shift hues and merge distinct tones. This is useful for spotting which colors the simulation is pushing out of gamut.
 
 ## print
+
+Slide film has no print stage. Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab as there is no print surface for the light to reflect off.
 
 ### exposure
 
