@@ -45,7 +45,7 @@ The measurement data comes from the [spektrafilm](https://github.com/andreavolpa
 
 ---
 
-# usage
+# usage and tips
 
 install the data first
 : The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored alongside your configuration, so they survive clearing the cache.
@@ -61,6 +61,15 @@ auto print exposure changes what film exposure does
 
 some print stocks need manual print exposure
 : A few print stocks respond only to a very narrow slice of the spectrum -- the duplicating and release print films (Kodak 2302, 2383, 2393) rather than the ordinary papers. _auto print exposure_ can misjudge these. If a print looks implausibly dark or bright with it on, correct it with _print exposure compensation_ or leave auto off for those stocks.
+
+want a clean "digital" look?
+: disable grain and halation. This will lead to fairly harsh local contrast/sharpening effects due to the couplers which can be reduced by toning down _film_ / _DIR couplers_ / _same-layer inhibition_.
+
+why is the histogram not hitting pure white?
+: This is an effect of the film simulation. If you want to increase the white point use _scanner_ / _pre-compression boost_ or _post-compression scale_. Or for more control use e.g. [tone curve](tone-curve.md) placed after _spektrafilm_
+
+why is the histogram not hitting pure black?
+: Some papers have flatter blacks. If you want to pull down the blacks experiment with different papers or use e.g. [tone curve](tone-curve.md) placed after _spektrafilm_. 
 
 # module controls
 
