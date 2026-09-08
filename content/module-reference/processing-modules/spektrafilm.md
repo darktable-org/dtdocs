@@ -57,14 +57,14 @@ start simple
 : Choosing a film stock is enough. Everything else already carries a sensible value taken from that film's own measurements, and the paper follows the film automatically. The tabs are for fine-tuning.
 
 auto print exposure changes what film exposure does
-: Out of the box, _film exposure_ behaves like leaving the enlarger on for a fixed time: expose the film more and the print comes out brighter. Switch on _auto print exposure_ and it stops doing that, because print exposure now compensates automatically -- which is what a real printer does, aiming for consistent print density however the negative was exposed. _film exposure_ then changes only color and grain by moving the scene to a different part of the film's response.
+: Out of the box, _film exposure_ behaves like leaving the enlarger on for a fixed time: expose the film more and the print comes out brighter. When _auto print exposure_ is on, the module sets the print exposure for you, changing it by exactly the amount needed to cancel out the brightness change that _film exposure_ would otherwise cause. This is what a real printer does, aiming for a consistent print density however the negative was exposed. _film exposure_ then changes only color and grain, by moving the scene to a different part of the film's response.
 
 some print stocks need manual print exposure
-: A few print stocks respond only to a very narrow slice of the spectrum -- the duplicating and release print films (Kodak 2302, 2383, 2393) rather than the ordinary papers. _auto print exposure_ can misjudge these. If a print looks implausibly dark or bright with it on, correct it with _print exposure compensation_ or leave auto off for those stocks.
+: A few print stocks respond only to a very narrow slice of the spectrum. These are the duplicating and release print films -- Kodak 2302, 2383 and 2393 -- rather than the ordinary papers. _auto print exposure_ can misjudge these stocks. If a print looks implausibly dark or bright with it on, correct it with _print exposure compensation_, or leave auto off for those stocks.
 
 # module controls
 
-Film stock, print paper and film format are always visible at the top. Everything else is grouped into tabs, one per stage of the physical process: _film_, _print_, _grain_, _halation_, and _scanner_.
+Film stock, print paper and film format are always visible at the top of the module. Everything else is grouped into tabs, one per stage of the physical process: _film_, _print_, _grain_, _halation_, and _scanner_.
 
 ## header
 
@@ -85,18 +85,18 @@ frame long edge
 ### exposure
 
 film exposure
-: Exposure adjustment at the film stage, in EV. With _auto print exposure_ on this no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain because it moves the scene to a different part of the film's response.
+: Exposure adjustment at the film stage, in EV. With _auto print exposure_ on, this no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.
 
 scan the film (skip print)
-: Look at the developed negative or slide directly instead of printing it. Switches on by itself for slide and reversal stocks and off again for negative stocks; you can override it either way afterward.
+: Look at the developed negative or slide directly instead of printing it. This option is enabled by default for slide and reversal stocks, and disabled by default for negative stocks; you can override it either way afterward.
 
 push/pull
-: Shooting the film at a speed other than the box says, then compensating in development, in stops. Positive values push (shoot darker, develop longer) negative values pull. An approximation, since the real result depends on the specific developer, which is not simulated. Stacks with the _chemistry_ controls below.
+: Shooting the film at a speed other than its box speed (the ISO rating printed on the film's packaging), then compensating in development, in stops. Positive values push (shoot darker, develop longer), negative values pull. This is an approximation, since the real result depends on the specific developer, which is not simulated. Stacks with the _chemistry_ controls below.
 
 ### chemistry
 
 development time
-: How long the film is developed, in minutes. Only a few black & white stocks were measured at more than one time -- Kodak Double-X at 4, 5, 6.5, 9, and 12 minutes, for instance -- so the slider is grayed out for color films and for anything measured only once. Values snap to the times actually measured, and 0 means the stock's standard development.
+: How long the film is developed, in minutes. Only a few black & white stocks have measurements for more than one development time -- Kodak Double-X at 4, 5, 6.5, 9, and 12 minutes, for instance -- so the slider is grayed out for color films and for anything measured at a single time only. Values snap to the times actually measured, and 0 means the stock's standard development.
 
 development gamma
 : Overall development contrast, as though you had developed for longer or shorter. 1.0 is normal.
@@ -108,7 +108,7 @@ slow layer gamma
 : Contrast of the less sensitive layers.
 
 developer exhaustion
-: In a real developing tank the chemistry gets locally used up where the film was most heavily exposed. Those areas then stop gaining density, however much brighter the scene gets, so highlights run into a ceiling instead of climbing indefinitely -- and the approach to that ceiling steepens, so highlight contrast tends to rise rather than soften. Mid-gray is held still, so only the bright end moves. 0 switches it off.
+: In a real developing tank the developer is locally depleted where the film was most heavily exposed. Those areas then stop gaining density, however much brighter the scene gets, so highlights run into a ceiling instead of climbing indefinitely -- and the approach to that ceiling steepens, so highlight contrast tends to rise rather than soften. Mid-gray is held still, so only the bright end moves. 0 switches it off.
 
 ### DIR couplers
 
