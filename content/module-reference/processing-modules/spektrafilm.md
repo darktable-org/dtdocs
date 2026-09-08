@@ -62,6 +62,8 @@ auto print exposure changes what film exposure does
 some print stocks need manual print exposure
 : A few print stocks respond only to a very narrow slice of the spectrum. These are the duplicating and release print films -- Kodak 2302, 2383 and 2393 -- rather than the ordinary papers. _auto print exposure_ can misjudge these stocks. If a print looks implausibly dark or bright with it on, correct it with _print exposure compensation_, or leave auto off for those stocks.
 
+The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf ). 
+
 # module controls
 
 Film stock, print paper and film format are always visible at the top of the module. Everything else is grouped into tabs, one per stage of the physical process: _film_, _print_, _grain_, _halation_, and _scanner_.
