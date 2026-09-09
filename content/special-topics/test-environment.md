@@ -31,7 +31,7 @@ To prevent an installation from writing to the same configuration directory as a
 
 You can run an experiment without making persistent changes to the library by specifying `--library :memory:`, which keeps the library database in RAM. All changes to the database are discarded on exit: `darktable --configdir /path/to/test-config --library :memory:`
 
-**Tip:** You can also copy an existing configuration directory into the new folder instead of starting from scratch. This allows the other installation to inherit your presets, styles, and keyboard shortcuts as a starting point, while both installations still run fully independently from then on. If you do this, take special care in step 3 to avoid affecting your existing edits.
+**Tip:** You can also copy an existing configuration directory into the new folder instead of starting from scratch. This allows the other installation to inherit your presets, styles, and keyboard shortcuts as a starting point, while both installations still run fully independently from then on. If you want to be more selective, `darktablerc`, `shortcutsrc`, `data.db`, styles folder, possibly lua folder and `luarc` (if present) should get you started with the setup you are used to. If you copy the entire directory, especially when including `library.db`, take special care in step 3 to avoid affecting your existing edits.
 
 Linux
 : Run the following commands in a terminal:
