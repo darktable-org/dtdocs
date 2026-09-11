@@ -24,7 +24,7 @@ output
 
 {{< /details >}}
 
-Recreate the look of a film stock printed onto darkroom paper.
+** Spektrafilm aims to recreate the look of an analog film stock printed onto darkroom paper for digital images. It is not intended to replace Negadoctor, but rather provides a software approach to emulate the process of developing film in the darkroom **
 
 Most film emulations are a color recipe: someone photographed a scene on film, measured how the colors moved, and saved that as a curve or a LUT. This module works the other way round. It starts from laboratory measurements of what real film and real paper are made of -- how sensitive each color layer is to each wavelength of light and how much dye each one produces -- and simulates what physically happens to a photograph, step by step:
 
@@ -136,7 +136,7 @@ tail weight
 
 ### diffusion
 
-Simulates a diffusion filter -- the physical piece of glass a cinematographer puts in front of the lens to bloom highlights and take the edge off contrast. There are two here, at different points in the chain: one at the camera, one at the enlarger.
+Simulates a diffusion filter -- the physical piece of glass placed in the optical path to bloom highlights and soften contrast. Two diffusion stages are modeled at different points in the analog film process: one in front of the camera lens during exposure (this one in the film tab), and another in the enlarger when the developed negative is projected onto photographic paper (in the print tab).
 
 enable diffusion filter
 : Switch on the camera-stage filter.
@@ -160,7 +160,7 @@ diffusion halo warmth
 ### advanced
 
 quality
-: How finely the color simulation is calculated. The three table settings work the answer out on a grid in advance and interpolate between the points, so a larger grid is closer to exact and slower to prepare. _exact spectral_ skips the grid and calculates every pixel directly: much slower, CPU only, and rarely visibly different.
+: How accurately the color simulation is calculated. The three table settings work the answer out on a grid in advance and interpolate between the points, so a larger grid is closer to exact and slower to prepare. _exact spectral_ skips the grid and calculates every pixel directly: much slower, CPU only, and rarely visibly different.
 
 bandwidth adaptation
 : Trims the extreme violet and deep red ends of the film's sensitivity as part of how each stock is characterized. On by default and best left on as it belongs to the film's description.
@@ -221,15 +221,15 @@ enable grain
 ### emulsion
 
 granularity
-: How coarse the film's crystals are, relative to the value measured for this stock. 1.0 is the datasheet figure.
-: This is the size control. Raising it grows the crystals, which means there are fewer of them and each one counts for more, so the grain becomes coarser *and* stronger together -- the same way a faster film differs from a slower one. Because it rebuilds the emulsion, it behaves the same on negative and slide film.
+: Controls the size of the film crystals relative to the measured value for this film stock. 1.0 corresponds to the stock's default crystal size as specified in its datasheet.
+: Raising the value grows the crystals, which means there are fewer of them and each one counts for more, so the grain becomes coarser *and* stronger together -- the same way a faster film differs from a slower one. Because it rebuilds the emulsion, it behaves the same on negative and slide film.
 
 grain strength
 : How far the grain is allowed to move each pixel. 1.0 matches the real stock, 0 switches it off.
 : Unlike granularity this scales the result: a negative's grain gets amplified a second time by the print stage, while a slide is scanned directly with nothing to amplify it. The same value therefore reads much weaker on slide film. Reach for granularity (right-click for up to 8).
 
 uniformity
-: How evenly the crystals are distributed, relative to the stock's own figure. Lowering it bends the noise into a bell curve: grain that peaks in the midtones and eases off again in the densest areas.
+: Controls how evenly the film crystals are distributed, relative to the stock’s measured value. Lower values concentrate grain toward the mid-tones, causing it to taper off in the densest areas. Higher values produce a more even distribution of grain across the tonal range, reducing this mid-tone peak.
 
 sublayer particle scale
 : A real emulsion layers coarse crystals over finer ones. This scales the finer sub-layers against the coarsest, which stays fixed. Lower makes the fine layers finer still, so the coarse layer dominates; at 0 only the coarsest is left. No effect on stocks measured as a single layer.
@@ -281,7 +281,7 @@ highlight boost
 : Rebuilds highlights that were clipped in the original file so they can glow into the scatter, halation and diffusion effects. In EV; 0 switches it off. The boost applies over a fixed range, so it gives the same result regardless of image size, zoom level, or how the export was processed.
 
 boost range
-: How far down the tonal range the boost reaches. Lower keeps it to the very brightest areas; higher pulls more of the upper midtones into the glow.
+: How far down the tonal range the boost reaches. Lower keeps it to the very brightest areas; higher pulls more of the upper mid-tones into the glow.
 
 boost protect
 : Keeps everything below this many stops above mid-gray out of the boost entirely.
