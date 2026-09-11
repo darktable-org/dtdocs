@@ -62,18 +62,17 @@ auto print exposure changes what film exposure does
 some print stocks need manual print exposure
 : A few print stocks respond only to a very narrow slice of the spectrum. These are the duplicating and release print films -- Kodak 2302, 2383 and 2393 -- rather than the ordinary papers. _auto print exposure_ can misjudge these stocks. If a print looks implausibly dark or bright with it on, correct it with _print exposure compensation_, or leave auto off for those stocks.
 
-Why doesn't the tone range hit 100% white?
+why doesn't the tone range hit 100% white?
 : Physical characteristics of the film simulation: Highlights sit on the shoulder of the film and print response curves, where additional exposure produces progressively less additional density. This means the brightest tones compress and lose separation as they approach white rather than clipping cleanly to it.
 : How to resolve: Either use _pre-compression boost_ or _post-compression scale_ in the _scanner_ tab, or an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
 
-Why doesn't the tone range hit 100% black?
+why doesn't the tone range hit 100% black?
 : Shadows sit on the toe/shoulder of the density curve where density saturates, so no more density can build up past a certain point. In addition, the scan stage models veiling glare: stray light scattered during scanning, which lifts the darkest tones slightly above true zero. Mirroring how a real film scanner never records a perfectly clean black.
 : How to resolve: Experiment with different film stocks as e.g. _Kodak Supra Endura_ has deeper blacks then _Kodak Portra Endura_. Or Use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
-
-How to set up a clean digital look?
+how to set up a clean digital look?
 : Disable _grain_ and _halation_. This will reveal fairly harsh local contrasts/sharpening due to the _DIR couplers_. Control these with _same-layer inhibiton_ or _inhibitor spread_. 
 
-How to control contrast?
+how to control contrast?
 : Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilms various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print contrast_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab and _preflash_. 
 
 The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf). 
