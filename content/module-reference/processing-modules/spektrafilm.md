@@ -24,7 +24,7 @@ output
 
 {{< /details >}}
 
-** Spektrafilm aims to recreate the look of an analog film stock printed onto darkroom paper for digital images. It is not intended to replace [_negadoctor_](./negadoctor.md), but rather provides a software approach to emulate the process of developing film in the darkroom **
+**Spektrafilm aims to recreate the look of an analog film stock printed onto darkroom paper for digital images. It is not intended to replace [_negadoctor_](./negadoctor.md), but rather provides a software approach to emulate the process of developing film in the darkroom**
 
 Most film emulations are a color recipe: someone photographed a scene on film, measured how the colors moved, and saved that as a curve or a LUT. This module works the other way round. It starts from laboratory measurements of what real film and real paper are made of -- how sensitive each color layer is to each wavelength of light and how much dye each one produces -- and simulates what physically happens to a photograph, step by step:
 
