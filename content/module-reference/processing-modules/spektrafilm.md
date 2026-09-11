@@ -70,6 +70,12 @@ Why doesn't the tone range hit 100% black?
 : Shadows sit on the toe/shoulder of the density curve where density saturates, so no more density can build up past a certain point. In addition, the scan stage models veiling glare: stray light scattered during scanning, which lifts the darkest tones slightly above true zero. Mirroring how a real film scanner never records a perfectly clean black.
 : How to resolve: Experiment with different film stocks as e.g. _Kodak Supra Endura_ has deeper blacks then _Kodak Portra Endura_. Or Use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
 
+How to set up a clean digital look?
+: Disable _grain_ and _halation_. This will reveal fairly harsh local contrasts/sharpening due to the _DIR couplers_. Control these with _same-layer inhibiton_ or _inhibitor spread_. 
+
+How to control contrast?
+: Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilms various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print contrast_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab and _preflash_. 
+
 The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf). 
 
 # module controls
