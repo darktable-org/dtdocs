@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - maschere parametriche</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.fec8472997c1f82fb9259b5a578fef4a5bdafa8f7ea02493a022c9336cc6f333.css" integrity="sha256-/shHKZfB&#43;C&#43;5JZtaV4/vSlva&#43;o9&#43;oCSToCLJM2zG8zM=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+<script src="/dtdocs/js/jquery.js"></script>
+<script src="/dtdocs/js/popper.js" type="module"></script>
+<script src="/dtdocs/js/bootstrap.js"></script>
+<script src="/dtdocs/js/lunr.js"></script>
+<script src="/dtdocs/js/app.js"></script>
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/darkroom/masking-and-blending/masks/parametric/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="maschere parametriche">
+<meta property="og:description" content="La maschera parametrica offre un minuzioso controllo della selezione di come i pixel individuali vengono mascherati. Questa viene creata creando automaticamente una maschera di fusione intermedia sulla base di parametri stabiliti dall’utente. Questi parametri sono le coordinate colore invece che le coordinate geometriche utilizzate nelle maschere disegnate.
+Per ciascuno dei canali dati di un modulo (es. Lab, RGB) e molti altri canali virtuali (es. tonalità, saturazione) puoi definire una funzione di opacità per canale. A seconda del valore di ciascun pixel per un dato canale dati, questa funzione calcolerà un fattore di fusione tra 0 e 1 (100%) per il dato pixel.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="darkroom">
+
+    </head>
+    <body>
+        
+
+        <header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dtdocs" rel="home" title="darktable user manual">
+    darktable user manual
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            
+            
+            
+            
+            <span>Version: /dtdocs</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            
+            
+            <a class="dropdown-item" href="/usermanual/development/it/darkroom/masking-and-blending/masks/parametric/">Development (Master)</a>
+            <a class="dropdown-item" href="/usermanual/5.6/it/darkroom/masking-and-blending/masks/parametric/">Version 5.6</a>
+            <a class="dropdown-item" href="/usermanual/4.8/it/darkroom/masking-and-blending/masks/parametric/">Version 4.8</a>
+            <a class="dropdown-item" href="/usermanual/4.6/it/darkroom/masking-and-blending/masks/parametric/">Version 4.6</a>
+            <a class="dropdown-item" href="/usermanual/4.4/it/darkroom/masking-and-blending/masks/parametric/">Version 4.4</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <p class="sr-only" id="language-picker-description">languages</p>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://darktable-org.github.io/dtdocs//language-icons/icon20x24px-exported-transparent.png"
+              alt="Language Icon"
+              height="20"
+              class="translation-icon"
+            />
+            <span>translations</span>
+          </a>
+          <div class="dropdown-menu dropdonw-trans" role="listbox">
+            <a
+              class="dropdown-item"
+              aria-selected="true"
+              hreflang="it"
+              role="option"
+              lang="it"
+              href="https://darktable-org.github.io/dtdocs/it/darkroom/masking-and-blending/masks/parametric/"
+              >Italian</a
+            >
+            
+              <a
+                class="dropdown-item"
+                hreflang="nl"
+                role="option"
+                lang="nl"
+                href="https://darktable-org.github.io/dtdocs/nl/darkroom/masking-and-blending/masks/parametric/"
+                >Dutch</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="en"
+                role="option"
+                lang="en"
+                href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/masks/parametric/"
+                >English</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="es"
+                role="option"
+                lang="es"
+                href="https://darktable-org.github.io/dtdocs/es/darkroom/masking-and-blending/masks/parametric/"
+                >Español</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="fr"
+                role="option"
+                lang="fr"
+                href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/masks/parametric/"
+                >Français</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="de"
+                role="option"
+                lang="de"
+                href="https://darktable-org.github.io/dtdocs/de/darkroom/masking-and-blending/masks/parametric/"
+                >German</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="lo"
+                role="option"
+                lang="lo"
+                href="https://darktable-org.github.io/dtdocs/lo/darkroom/masking-and-blending/masks/parametric/"
+                >Lao</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pl"
+                role="option"
+                lang="pl"
+                href="https://darktable-org.github.io/dtdocs/pl/darkroom/masking-and-blending/masks/parametric/"
+                >Polish</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="pt_br"
+                role="option"
+                lang="pt_br"
+                href="https://darktable-org.github.io/dtdocs/pt_br/darkroom/masking-and-blending/masks/parametric/"
+                >Português</a
+              >
+            
+              <a
+                class="dropdown-item"
+                hreflang="uk"
+                role="option"
+                lang="uk"
+                href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/masks/parametric/"
+                >Ukrainian</a
+              >
+            
+          </div>
+        </li>
+      
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        id="search-input"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        autocomplete="off"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
+
+<div id="search-results" class="search-results"></div>
+
+
+        <div class="container-fluid">
+	    <div class="row">
+		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
+		    
+
+
+
+<div class="crumbs">
+    <span class="crumb">
+	
+
+
+
+<a href='/dtdocs/it/'>darktable user manual</a> / <a href='/dtdocs/it/darkroom/'>Camera Oscura</a> / <a href='/dtdocs/it/darkroom/masking-and-blending/'>maschere & fusione</a> / <a href='/dtdocs/it/darkroom/masking-and-blending/masks/'>maschere</a> / maschere parametriche
+    </span>
+</div>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="next">&lt; Introduzione</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="prev">combinare maschere disegnate &amp; parametriche &gt;</a>
+	
+    </div>
+</div>
+
+
+<article role="main">
+
+    <h1 class="title">
+        maschere parametriche
+    </h1>
+
+    
+
+    <p>La maschera parametrica offre un minuzioso controllo della selezione di come i pixel individuali vengono mascherati. Questa viene creata creando automaticamente una maschera di fusione intermedia sulla base di parametri stabiliti dall&rsquo;utente. Questi parametri sono le coordinate colore invece che le coordinate geometriche utilizzate nelle maschere disegnate.</p>
+<p>Per ciascuno dei canali dati di un modulo (es. Lab, RGB) e molti altri canali virtuali (es. tonalità, saturazione) puoi definire una funzione di opacità per canale. A seconda del valore di ciascun pixel per un dato canale dati, questa funzione calcolerà un fattore di fusione tra 0 e 1 (100%) per il dato pixel.</p>
+<p>Ogni pixel dell&rsquo;immagine ha quindi un fattore di fusione differente per ognuno dei canali dati. Tutti i fattori di fusione vengono alla fine moltiplicati assieme (pixel per pixel), assieme al valore del cursore di opacità globale, per definire una maschera parametrica per l&rsquo;immagine.</p>
+<p>Le ma maschera di fusione ha valore 0 per un dato pixel, l&rsquo;input del modulo viene lasciato inalterato. Se la maschera di fusione ha valore 1 (100%) per un pixel, il modulo ha interamente effetto.</p>
+<h1 id="schede-canali"><a href="#schede-canali">🔗</a>schede canali</h1>
+<p>Fai click su uno delle schede dei canali per selezionare un canale dati da usare per create la maschera.</p>
+<p>I moduli che lavorano nello spazio colore <em>Lab</em> (<em>riferito allo schermo</em>) avranno i canali dati per L, a, b, C (crominanza di LCh) e h (tonalità di LCh).</p>
+<p>I moduli che lavorano nello spazio colore <em>riferito allo schermo RGB</em> avranno canali dati per g (grigio), R, G, B, H (tonalità di HSL), S (saturazione di HSL), e L (luminosità di HSL).</p>
+<p>I moduli che lavorano nello spazio colore <em>riferito alla scena RGB</em> avranno canali dati per g (grigio), R, G, B, Jz (la componente di luminanza in JzCzHz), Cz (crominanza, o saturazione, in JzCzhz) e hz (tonalità in JzCzhz). Il valore g (grigio) è calcolato come media ponderata dei canali R, G e B, l&rsquo;esatta ponderazione dipende dallo spazio colore che si sta usando. Lo spazio colore JzCzhz è una rappresentazione polare dello spazio colore Jzazbz, nello stesso modo in cui LCh è una rappresentazione polare dello spazio colore Lab. Come il valore L nello spazio colore Lab, il valore Jz è una rappresentazione della luminosità di un pixel analogo a come percepiamo la luminosità. Tuttavia, lo spazio colore Jzazbz è di gran lunga migliore per immagini con alta gamma dinamica, ed è meno suscettibile allo slittamento della tonalità rispetto allo spazio colore Lab.</p>
+<p><em>Controlla <a href="https://it.wikipedia.org/wiki/Spazio_dei_colori" target="_blank">Wikipedia</a> per maggiori dettagli su questi spazi colore.</em></p>
+<p>Due selettori scorrevoli possono essere mostrati per ciascun canale dati: uno che lavora sui <em>dati di input</em> ricevuti dal modulo, e uno che lavora sui <em>dati di output</em> che il modulo produce prima della fusione. I selettori scorrevoli per l&rsquo;output dei canali dati sono nascosti di default, e possono essere mostrati utilizzando l&rsquo;opzione <em>mostra i canali di output</em> nel menù &ldquo;opzioni di fusione&rdquo;.</p>
+<p>Il selettore scorrevole <em>fattore di incremento</em> permette di estendere l&rsquo;intervallo di valori raggiungibili dalle opzioni della maschera parametrica. Può essere usato nelle lavorazioni nello spazio riferito alla scena, dove i valori di luminanza possono estendersi oltre il 100%, per puntare alle luci alte. Questo selettore scorrevole è disponibile solo per i canali dove è significativo.</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/input-output-sliders.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/input-output-sliders.png" alt="selettori scorrevoli di input e di output"  class="w33"    /></a>
+
+</p>
+<h2 id="ispezionare-i-canali-dati-e-le-maschere"><a href="#ispezionare-i-canali-dati-e-le-maschere">🔗</a>ispezionare i canali dati e le maschere</h2>
+<p>Premere la lettera C quando si passa con il mouse su uno dei selettori scorrevoli di input/output per un canale per visualizzare l&rsquo;immagine di input/output per quel canale colore. L&rsquo;immagine nel pannello centrale cambierà mostrando solo quel canale colore o in scala di grigi o in falsi colori, a seconda delle impostazioni in <a href="../../../preferences-settings/darkroom.md">preferenze &gt; camera oscura &gt; visualizza i canali colore individualmente</a>.</p>
+<p>Premi la lettera M per vedere la maschera risultante per quel selettore scorrevole sovrapporsi sull&rsquo;immagine.</p>
+<p>Quando il puntatore del mouse abbandona il selettore scorrevole l&rsquo;immagine ritorna normale dopo poco tempo.</p>
+<h2 id="modalità-linearelogaritmica"><a href="#modalit%c3%a0-linearelogaritmica">🔗</a>modalità lineare/logaritmica</h2>
+<p>Premi la lettera A mentre si passa il mouse sopra un selettore scorrevole per cambiare la visualizzazione in modalità &rsquo;log&rsquo; (logaritmica). Questo fornisce maggior controllo fine nelle ombre. Premi di nuovo A per ritornare alla modalità &rsquo;lineare'.</p>
+<h1 id="selettori-scorrevoli-di-inputoutput-canale"><a href="#selettori-scorrevoli-di-inputoutput-canale">🔗</a>selettori scorrevoli di input/output canale</h1>
+<p>Per ciascun selettore scorrevole dei canali colore puoi definire una funzione trapezoidale per l&rsquo;opacità. A questo scopo ci sono quattro marcatori per ciascun selettore scorrevole. I due triangoli pieni sopra il selettore stabiliscono la gamma di valori dove l&rsquo;opacità è 1. I due triangoli vuoti sotto il selettore stabiliscono la gamma di valori dove l&rsquo;opacità è 0. I punti intermedi tra gli estremi hanno opacità proporzionale tra 1 e 0.</p>
+<p>I triangoli pieni, o marcatori interni, definiscono la base minore della funzione trapezoidale. I triangoli vuoti, o marcatori esterni, definiscono la base maggiore della funzione trapezoidale. La sequenza dei marcatori rimane sempre la stessa: si possono toccare ma non possono scambiarsi di posizione.</p>
+<p>Il pulsante di polarità (+/-) sulla destra di ogni selettore scorrevole scambia tra le modalità &ldquo;selezione intervallo&rdquo; e &ldquo;de-selezione intervallo&rdquo;, con la conferma visuale fornita dall&rsquo;avere i marcatori superiori e inferiori scambiati di posto. Questi due tipi di funzioni trapezoidali sono rappresentate graficamente da queste immagini.</p>
+<p><strong>selezione intervallo</strong></p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_2a.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_2a.png" alt="selettore scorrevole di selezione intervallo"  class="w33"    /></a>
+
+</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_2b.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_2b.png" alt="grafico selezione intervallo"  class="w33"    /></a>
+
+</p>
+<p><strong>de-selezione intervallo</strong></p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_3a.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_3a.png" alt="selettore scorrevole deselezione intervallo"  class="w33"    /></a>
+
+</p>
+<p>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_3b.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/blendif_3b.png" alt="grafico deselezione intervallo"  class="w33"    /></a>
+
+</p>
+<p>Nel loro stato predefinito tutti i marcatori sono posizionati agli estremi.</p>
+<p>In questo stato la funzione di selezione intervallo seleziona l&rsquo;intera gamma di valori data una maschera &ldquo;completamente al 100%&rdquo;. Partendo da qui si possono muovere i selettori scorrevoli verso l&rsquo;interno per escludere progressivamente più e più parti dell&rsquo;immagine, ad eccezione della parte interna della gamma.</p>
+<p>Al contrario, la funzione di de-selezione dell&rsquo;intervallo (abilitata usando il pulsante di polarità) de-seleziona di default l&rsquo;intero intervallo di valori, assegnando una maschera &ldquo;tutti zero&rdquo; come punto di partenza. Spostando i selettori scorrevoli verso l&rsquo;interno si includeranno più e più aree dell&rsquo;immagine ad eccezione dell&rsquo;intervallo interno rimanente.</p>
+<h1 id="pickers"><a href="#pickers">🔗</a>pickers</h1>
+<p>With the left-hand <a href="../../processing-modules/module-controls.md#pickers">picker</a> button you can select a point or area probe from your image. The corresponding values for the real and virtual data channels are then displayed within each color channel slider.</p>
+<p>With the right-hand picker button you can automatically set the slider&rsquo;s values based on the selected range. Click and drag to set the parameters for the input slider from the drawn rectangle; Ctrl+click and drag to set the parameters for the output slider.</p>
+<h1 id="inverti"><a href="#inverti">🔗</a>inverti</h1>
+<p>Fai click sul pulsante &ldquo;inverti&rdquo; sopra il selettore scorrevole per invertire la polarità di tutta la maschera parametrica. Questo differisce dai pulsanti di polarità vicino ciascun selettore verticale i quali invertono i parametri solo per il canale corrente.</p>
+<h1 id="reset"><a href="#reset">🔗</a>reset</h1>
+<p>Fai click sul pulsante reset sopra i selettori scorrevoli per ripristinare tutti i parametri della maschera parametrica nel loro stato predefinito.</p>
+
+
+    
+    <h3 class="translations_head">translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/darkroom/masking-and-blending/masks/parametric/">
+            Dutch: parametrische maskers
+        </a></li>
+        
+        <li><a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/">
+            English: parametric masks
+        </a></li>
+        
+        <li><a href="/dtdocs/es/darkroom/masking-and-blending/masks/parametric/">
+            Español: máscaras paramétricas
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/darkroom/masking-and-blending/masks/parametric/">
+            Français: Masques paramétriques
+        </a></li>
+        
+        <li><a href="/dtdocs/de/darkroom/masking-and-blending/masks/parametric/">
+            German: Parametrische Masken
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/darkroom/masking-and-blending/masks/parametric/">
+            Lao: ໜ້າກາກແບບກຳນົດຄ່າ (parametric masks)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/darkroom/masking-and-blending/masks/parametric/">
+            Polish: maski parametryczne
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/darkroom/masking-and-blending/masks/parametric/">
+            Português: máscaras paramétricas
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/darkroom/masking-and-blending/masks/parametric/">
+            Ukrainian: Параметричні маски
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<div class="prev-next row">
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="next">&lt; Introduzione</a>
+	
+    </div>
+    <div class="col-6">
+    
+	<a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="prev">combinare maschere disegnate &amp; parametriche &gt;</a>
+	
+    </div>
+</div>
+
+
+
+      </div>
+		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
+		    <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/overview/" class="">
+          Panoramica
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/" class="">
+          Tavolo luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-view-layout/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">
+          layout del Tavolo Luminoso
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">
+          Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">
+          gestione delle risorse digitali
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">
+          metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/" class="">
+          Camera Oscura
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/darkroom-view-layout/" class="">
+          disposizione della Camera Oscura
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">
+          il pixelpipe
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">
+          anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">
+          la coda di sviluppo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">
+          annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">
+          intestazione modulo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">
+          istanze multiple
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class="">
+          curve
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">
+          wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">
+          moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">
+          maschere &amp; fusione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class="">
+          modalità di fusione
+      </a>
+
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">
+          maschere
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/parametric/" class=" active">
+          maschere parametriche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/drawn-and-parametric/" class="">
+          combinare maschere disegnate &amp; parametriche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">
+          organizzazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/module-groups/" class="">
+          gruppi di moduli
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">
+          gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/" class="">
+          Mappa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">
+          layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/slideshow/" class="">
+          Presentazione
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/" class="">
+          Stampa
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/print/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/" class="">
+          Script con Luca
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/printing-labeled-images/" class="">
+          stampare immagini etichettate
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/exporting-images/" class="">
+          esportare immagini con lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/calling-from-dbus/" class="">
+          chiamare luca dal dbus
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/darktable-from-lua/" class="">
+          usare darktable da uno script lua
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/lua/api/" class="">
+          API lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class="">
+          Guide &amp; Tutorial
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">
+          sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/" class="">
+          Module-References
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">
+          moduli di elaborazione
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">
+          aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">
+          ammorbidisci
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">
+          bilanciamento colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">
+          bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">
+          censura
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">
+          colora
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">
+          contrasto colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">
+          correzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">
+          correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">
+          equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class="">
+          equalizzatore toni
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">
+          filtro graduato
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">
+          luce soffusa
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">
+          mappatura dei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">
+          passa-alto
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">
+          punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">
+          ricostruzione colore
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">
+          riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="">
+          riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="">
+          rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">
+          sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">
+          Moduli utilità
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">
+          condivisi
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/export/" class="">
+          esporta
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">
+          informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">
+          libreria
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">
+          mappa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">
+          Stampa
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">
+          sviluppo
+      </a>
+
+   <ul></ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">
+          Tethering (scatto remoto)
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">
+          Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">
+          Sessione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">
+          Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/" class="">
+          Special-Topics
+      </a>
+
+   <ul>
+   <li class="parent">
+      <i class="fa fa-plus-square toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">
+          gestione del colore
+      </a>
+
+   <ul>
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">
+          Introduzione
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">
+          Profilo dello schermo
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">
+          metodi di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">
+          Intento di rendering
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-spaces/" class="">
+          spazi colore di darktable
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/unbounded-colors/" class="">
+          colori senza confini
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-artifacts/" class="">
+          possibili artefatti nei colori
+      </a>
+
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/color-dimensions/" class="">
+          dimensione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   <li>
+      <i class="no-toggle"></i>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class="">
+          coda di elaborazione dei colori di darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+		</nav>
+	    </div>
+
+            
+
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+(function($) {
+  
+
+  $.fn.scrollToMiddle = function(options) {
+    var settings = $.extend({
+        duration: 0
+    }, options );
+
+    return this.each(function() {
+      var $el = $(this);
+      var elOffset = $el.offset().top;
+      var elHeight = $el.height();
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elOffset;
+      }
+      $('.navigation').scrollTop(offset);
+    });
+  };
+}(jQuery));
+
+$('.navigation').css('opacity', '0');
+ $(document).ready(function(){
+     $('.parent ul').hide();
+     $('.navigation').css('opacity', 1.0);
+     $('.active').parents('ul').show();
+     $('.active').siblings('ul').show();
+     $('.active').children('i.toggle').removeClass("fa-plus-squre").addClass("fa-minus-square-o");
+     $('.active').parents('li').children('.toggle').removeClass("fa-plus-square").addClass("fa-minus-square-o");
+     $('.active').scrollToMiddle();
+
+     $('.toggle').on('click', function (e) {
+       e.stopPropagation();
+       $(this).siblings('ul').slideToggle();
+
+       if($(this).hasClass("fa-plus-square")) {
+           $(this).addClass("fa-minus-square-o");
+           $(this).removeClass("fa-plus-square");
+       }
+       else {
+           $(this).addClass("fa-plus-square");
+           $(this).removeClass("fa-minus-square-o");
+       }
+     });
+ });
+
+</script>
+
