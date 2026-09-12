@@ -64,6 +64,12 @@ Some MIDI controllers have keys with a light beneath them. These can be used to 
 
 The shortcut mapping system has been most extensively tested with the Behringer devices and contains custom code to deal with their specific features. All other devices are treated as "generic midi" and may or may not work (well). If you succeed in getting a MIDI device up and running that hasn't been mentioned below, it would be greatly appreciated if you would provide feedback in order to assist others, if any special steps are required. You could do this either by submitting a documentation [pull request](https://github.com/darktable-org/dtdocs/pulls) to amend this page or by [filing an issue](https://github.com/darktable-org/dtdocs/issues) containing the necessary information.
 
+## Akai LPD8 mk2
+
+The device is [reported as](https://github.com/darktable-org/dtdocs/issues/996) plug and play on Windows (not yet tested on Mac and Linux). Shortcuts were easily assigned following the process described above. Editor software exists for Windows and Mac to customize the device controls (not yet tested).
+
+The device has eight absolute encoders and eight pressure pads. The pads can be assigned as buttons, but require more force to activate than a typical button as they're designed for finger drumming.
+
 ## Behringer X-touch Mini / Compact
 
 These devices should be in Standard Mode (not MC). Layers A & B are somewhat supported, however, since the device does not send a notification when switching between layers, and since lights (both under buttons and the pattern used around the rotors) are set based on which layer darktable believes is active, everything will only be updated completely after you press or turn something in the "new" layer. Default settings are assumed; if any have been changed they can be restored using the [X-Touch Editor](https://www.behringer.com/en/products/0808-AAF)
