@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-09-10 02:32+0000\n"
+"POT-Creation-Date: 2026-09-12 02:34+0000\n"
 "PO-Revision-Date: 2026-07-02 19:05+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/darktable-"
@@ -63,7 +63,6 @@ msgstr ""
 
 #. type: Yaml Front Matter Hash Value: title
 #: content/slideshow/usage.md
-#: content/module-reference/processing-modules/spektrafilm.md
 #: content/module-reference/processing-modules/lut-3D.md
 #: content/module-reference/processing-modules/color-calibration.md
 #: content/module-reference/processing-modules/sigmoid.md
@@ -2813,7 +2812,7 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/spektrafilm.md
 #, no-wrap
-msgid "Recreate the look of a film stock printed onto darkroom paper.\n"
+msgid "**Spektrafilm aims to recreate the look of an analog film stock printed onto darkroom paper for digital images. It is not intended to replace [_negadoctor_](./negadoctor.md), but rather provides a software approach to emulate the process of developing film in the darkroom**\n"
 msgstr ""
 
 #. type: Plain text
@@ -2870,6 +2869,12 @@ msgstr ""
 msgid "**Note**: Like other view transforms, modules placed before _spektrafilm_ in the pipeline operate in [scene-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#scene-referred-workflow) space. Modules after it work in [display-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#display-referred-workflow) space.\n"
 msgstr ""
 
+#. type: Title #
+#: content/module-reference/processing-modules/spektrafilm.md
+#, no-wrap
+msgid "usage and FAQ"
+msgstr ""
+
 #. type: Plain text
 #: content/module-reference/processing-modules/spektrafilm.md
 #, no-wrap
@@ -2913,7 +2918,41 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/spektrafilm.md
 #, no-wrap
-msgid "The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf ). \n"
+msgid ""
+"why doesn't the tone range hit 100% white?\n"
+": Physical characteristics of the film simulation: Highlights sit on the shoulder of the film and print response curves, where additional exposure produces progressively less additional density. This means the brightest tones compress and lose separation as they approach white rather than clipping cleanly to it.\n"
+": How to resolve: Either use _pre-compression boost_ or _post-compression scale_ in the _scanner_ tab, or an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/spektrafilm.md
+#, no-wrap
+msgid ""
+"why doesn't the tone range hit 100% black?\n"
+": Shadows sit on the toe/shoulder of the density curve where density saturates, so no more density can build up past a certain point. In addition, the scan stage models veiling glare: stray light scattered during scanning, which lifts the darkest tones slightly above true zero. Mirroring how a real film scanner never records a perfectly clean black.\n"
+": How to resolve: Experiment with different film stocks as e.g. _Kodak Supra Endura_ has deeper blacks then _Kodak Portra Endura_. Or Use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/spektrafilm.md
+#, no-wrap
+msgid ""
+"how to set up a clean digital look?\n"
+": Disable _grain_ and _halation_. This will reveal fairly harsh local contrasts/sharpening due to the _DIR couplers_. Control these with _same-layer inhibiton_ or _inhibitor spread_. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/spektrafilm.md
+#, no-wrap
+msgid ""
+"how to control contrast?\n"
+": Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilms various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print contrast_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab and _preflash_. \n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/spektrafilm.md
+#, no-wrap
+msgid "The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf). \n"
 msgstr ""
 
 #. type: Plain text
@@ -2971,7 +3010,13 @@ msgstr ""
 #, no-wrap
 msgid ""
 "film exposure\n"
-": Exposure adjustment at the film stage, in EV. With _auto print exposure_ on, this no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.\n"
+": Exposure adjustment at the film stage, in EV. Changes the overall brightness similar to [_exposure_](exposure.md). \n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/spektrafilm.md
+#, no-wrap
+msgid ": Note: With _auto print exposure_ on, _film exposure_ no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.\n"
 msgstr ""
 
 #. type: Plain text
@@ -3105,7 +3150,7 @@ msgstr ""
 #. type: Plain text
 #: content/module-reference/processing-modules/spektrafilm.md
 #, no-wrap
-msgid "Simulates a diffusion filter -- the physical piece of glass a cinematographer puts in front of the lens to bloom highlights and take the edge off contrast. There are two here, at different points in the chain: one at the camera, one at the enlarger.\n"
+msgid "Simulates a diffusion filter -- the physical piece of glass placed in the optical path to bloom highlights and soften contrast. Two diffusion stages are modeled at different points in the analog film process: one in front of the camera lens during exposure (this one in the film tab), and another in the enlarger when the developed negative is projected onto photographic paper (in the print tab).\n"
 msgstr ""
 
 #. type: Plain text
@@ -3163,7 +3208,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "quality\n"
-": How finely the color simulation is calculated. The three table settings work the answer out on a grid in advance and interpolate between the points, so a larger grid is closer to exact and slower to prepare. _exact spectral_ skips the grid and calculates every pixel directly: much slower, CPU only, and rarely visibly different.\n"
+": How accurately the color simulation is calculated. The three table settings work the answer out on a grid in advance and interpolate between the points, so a larger grid is closer to exact and slower to prepare. _exact spectral_ skips the grid and calculates every pixel directly: much slower, CPU only, and rarely visibly different.\n"
 msgstr ""
 
 #. type: Plain text
@@ -3323,8 +3368,8 @@ msgstr ""
 #, no-wrap
 msgid ""
 "granularity\n"
-": How coarse the film's crystals are, relative to the value measured for this stock. 1.0 is the datasheet figure.\n"
-": This is the size control. Raising it grows the crystals, which means there are fewer of them and each one counts for more, so the grain becomes coarser *and* stronger together -- the same way a faster film differs from a slower one. Because it rebuilds the emulsion, it behaves the same on negative and slide film.\n"
+": Controls the size of the film crystals relative to the measured value for this film stock. 1.0 corresponds to the stock's default crystal size as specified in its datasheet.\n"
+": Raising the value grows the crystals, which means there are fewer of them and each one counts for more, so the grain becomes coarser *and* stronger together -- the same way a faster film differs from a slower one. Because it rebuilds the emulsion, it behaves the same on negative and slide film.\n"
 msgstr ""
 
 #. type: Plain text
@@ -3341,7 +3386,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "uniformity\n"
-": How evenly the crystals are distributed, relative to the stock's own figure. Lowering it bends the noise into a bell curve: grain that peaks in the midtones and eases off again in the densest areas.\n"
+": Controls how evenly the film crystals are distributed, relative to the stock’s measured value. Lower values concentrate grain toward the mid-tones, causing it to taper off in the densest areas. Higher values produce a more even distribution of grain across the tonal range, reducing this mid-tone peak.\n"
 msgstr ""
 
 #. type: Plain text
@@ -3476,7 +3521,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "boost range\n"
-": How far down the tonal range the boost reaches. Lower keeps it to the very brightest areas; higher pulls more of the upper midtones into the glow.\n"
+": How far down the tonal range the boost reaches. Lower keeps it to the very brightest areas; higher pulls more of the upper mid-tones into the glow.\n"
 msgstr ""
 
 #. type: Plain text
