@@ -40,7 +40,8 @@ create
 : You can cancel the creation process by pressing the Cancel button or pressing the Esc key on your keyboard.
 
 edit
-: Select "edit" to bring up a dialog which allows you to include or exclude specific items from the stack of an existing style. Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
+: Select "edit" to bring up a dialog which allows you to edit an existing style. You can add or remove modules and pick modules to update from the current edit. 
+: Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
 
 remove
 : Delete the selected style, without any further prompt.
