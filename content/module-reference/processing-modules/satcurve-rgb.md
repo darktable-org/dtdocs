@@ -77,17 +77,17 @@ color picker
 : Samples the normalized saturation at the selected point and overlays it on the active curve's graph as a vertical guide, using the standard [picker](../../darkroom/processing-modules/module-controls.md#pickers) behavior. Use it to locate where a subject, such as skin or sky, sits on the input axis before shaping the curve. Always reads the raw, unfiltered per-pixel saturation, regardless of the guided filter setting.
 
 show saturation mask
-: Toggles a grayscale preview of the normalized input saturation used to look up both curves, shown in place of the image. Brighter areas correspond to higher input saturation. With the guided filter disabled, this shows the raw per-pixel saturation; enabled, it shows the guided-filter-smoothed version instead. Either way, the mask reflects the module's input, not any correction the curves apply.
+: Toggles a grayscale preview of the normalized input saturation used to look up both curves, shown in place of the image. Brighter areas correspond to higher input saturation. With the guided filter disabled, this shows the raw per-pixel saturation. With it enabled, it shows the exact coordinate described under [_protect near-neutrals_](#guided-filter) that both curves are looked up with -- raw near neutral, fully smoothed above the protected zone. _noise protection_ never shifts this coordinate, in the mask or in the actual correction; it only damps the resulting saturation and brilliance factors after the curve lookup, so it has no separate visual signature in this mask. Either way, the mask reflects the module's input, not any correction the curves apply.
 
 saturation formula
 : Selects the perceptual normalization model, described in [general principles](#general-principles). Affects both curves and is not meant to be changed regularly, hence its place in the shared row rather than duplicated per tab.
 
 ## guided filter
 
-Optional edge-aware smoothing of the saturation value that both curves are looked up with.
+Optional edge-aware smoothing of the saturation value that both curves are looked up with. Only available with the _darktable UCS_ [saturation formula](#general-principles); the whole section is disabled when _JzAzBz_ is selected.
 
 use guided filter
-: Enables the smoothing. Disabled by default. Off, each pixel's curve lookup uses its own raw, normalized saturation. On, that value is first passed through a fast scalar guided filter before being used as the lookup for both curves, so neighboring pixels with similar saturation are pulled toward a common, locally smoothed value. Reduces halos and stair-stepping at boundaries between saturated and neutral regions, especially with aggressive curves and brilliance changes.
+: Enables the smoothing. Disabled by default. Off, each pixel's curve lookup uses its own raw, normalized saturation. On, that value is blended toward a fast scalar guided filter's output before being used as the lookup for both curves, so neighboring pixels with similar saturation are pulled toward a common, locally smoothed value. Reduces halos and stair-stepping at boundaries between saturated and neutral regions, especially with aggressive curves and brilliance changes.
 
 filter radius
 : Neighborhood radius, in pixels, used for the guided filter's local statistics. Larger values give a more strongly smoothed lookup value with broader spatial influence; smaller values keep the smoothing tighter around local structures.
@@ -95,10 +95,18 @@ filter radius
 edge feathering
 : Controls how strongly the filter follows edges in the saturation signal. Lower values preserve harder edges and keep the smoothed value aligned to the underlying saturation structure; higher values give softer, less edge-anchored transitions.
 
-iterations
-: Number of times the guided filter runs in sequence. More iterations increase smoothing and the effective reach of the filter, at the cost of additional computation.
+protect near-neutrals
+: Center, as a percentage of the normalized saturation range, of a zone near zero saturation that is protected from the guided filter. Pixels at or below the protected side of this zone keep their own raw, unfiltered saturation as the curve lookup value instead of the smoothed one; pixels above it are looked up with the fully smoothed value. Raise this to keep more of the near-neutral range untouched by the smoothing.
 
-_Note that the _filter radius_, _edge feathering_ and _iterations_ sliders are only active when _use guided filter_ is enabled._
+protection transition width
+: Width, as a percentage, of the smooth ramp centered on _protect near-neutrals_ over which the lookup value fades from raw to fully smoothed. Wider values give a gentler, more gradual handover instead of a sharp cutoff between the protected and filtered parts of the range.
+
+noise protection
+: Reduces the strength of the saturation and brilliance corrections -- not the curve lookup value itself -- for pixels where the guided filter's local residual looks like noise rather than a real color edge, based on a per-pixel confidence estimate computed alongside the filter. Higher values damp the applied factors further toward no change (unity) in those regions. Only has an effect while _use guided filter_ is enabled.
+
+: Unlike _filter radius_, _edge feathering_, _protect near-neutrals_ and _protection transition width_, this control has no visible footprint in the [_saturation mask_](#shared-controls) preview: those four all shift the coordinate the curves are looked up at, which the mask shows directly, while _noise protection_ acts after that lookup, on the curves' output. Judge its effect on the image itself rather than on the mask.
+
+_Note that _filter radius_, _edge feathering_, _protect near-neutrals_, _protection transition width_ and _noise protection_ are only active when _use guided filter_ is enabled._
 
 # usage guide
 
@@ -111,17 +119,17 @@ When first enabled, both curves default to a flat, neutral line and the image is
 3. add a node near the picked position and drag it up to boost, or down to reduce, saturation in that range; the histogram overlay shows how much of the image is affected,
 4. add further nodes to protect one end of the range, for example keeping already-vivid colors near the right edge untouched, while adjusting another,
 5. switch to the brilliance tab if the corrected colors need a luminance/chroma trim at constant hue to look balanced, which is often useful after a strong saturation boost,
-6. if strong curve settings produce halos or stair-stepping around saturated edges, enable the guided filter and re-check the mask preview, which now shows the smoothed lookup value, while adjusting filter radius, edge feathering and iterations.
+6. if strong curve settings produce halos or stair-stepping around saturated edges, enable the guided filter and re-check the mask preview -- which reflects filter radius, edge feathering, protect near-neutrals and protection transition width directly -- then separately judge noise protection against the image itself, since it has no footprint in the mask.
 
 ## choosing a formula
 
-Leave the formula on _darktable UCS_ unless matching the behavior of an older edit or style built with _JzAzBz_. Switching formulas changes how input saturation is normalized and therefore changes the effect of existing curve nodes.
+Leave the formula on _darktable UCS_ unless matching the behavior of an older edit or style built with _JzAzBz_. Switching formulas changes how input saturation is normalized and therefore changes the effect of existing curve nodes. Switching to _JzAzBz_ also disables the [_guided filter_](#guided-filter) section entirely; its settings are kept but have no effect until you switch back to _darktable UCS_.
 
 _Note that you should re-check the curves against the histogram overlay after switching formulas._
 
 ## using the guided filter
 
-The guided filter does not change what the curves do; it only changes which saturation value they are evaluated at for each pixel. Start with the default radius and one iteration, and increase the radius or iteration count if halos persist across large color transitions. Increase edge feathering only if transitions still look too abrupt after adjusting radius and iterations. Because the smoothing sits upstream of both curves, it affects the saturation and brilliance results together; there is no separate guided-filter control per curve.
+The guided filter is only available with the _darktable UCS_ formula. It does not change what the curves do; it mainly changes which saturation value they are evaluated at for each pixel. Start with the default radius and increase it if halos persist across large color transitions; increase edge feathering only if transitions still look too abrupt afterward. Because the smoothing sits upstream of both curves, it affects the saturation and brilliance results together; there is no separate guided-filter control per curve. If near-neutral areas such as skies or skin start looking patchy or mottled once the guided filter is on, raise _protect near-neutrals_ (and soften the handover with _protection transition width_) to keep them on their own raw saturation instead. If strong curve settings amplify visible noise in otherwise flat, low-detail regions, raise _noise protection_ to damp the correction there; judge this against the corrected image, not the saturation mask, since this control has no coordinate to show there.
 
 # FAQ
 
@@ -143,12 +151,13 @@ The following is the internal order of operations within the module, for each ac
 
 1. convert from pipeline RGB to XYZ, then to the selected perceptual space, JzAzBz or darktable UCS JCH,
 2. compute the hue angle and the saturation normalized to the local gamut boundary,
-3. if the guided filter is enabled, replace this value with the corresponding value from a full-image scalar mask already smoothed with the guided filter, computed on CPU or, where available, GPU via OpenCL, with downsampling to stay efficient at high resolutions; otherwise use the value from step 2 directly,
-4. look up the saturation and brilliance curves at that value to obtain two correction factors,
-5. apply the saturation factor at constant hue, soft-clipping against the gamut boundary,
-6. apply the brilliance factor at constant hue, orthogonal to saturation,
-7. soft-clip the result again against the destination gamut,
-8. convert back to pipeline RGB.
+3. if the guided filter is enabled (darktable UCS only), computed on CPU or, where available, GPU via OpenCL: run the guided filter over a full-image scalar mask to get a smoothed value, estimate a per-pixel noise confidence from the local residual and color-edge energy, and blend the raw value toward the smoothed one using the _protect near-neutrals_/_protection transition width_ zone as the blend weight; otherwise use the value from step 2 directly,
+4. look up the saturation and brilliance curves at that (possibly blended) value to obtain two correction factors,
+5. if the guided filter is enabled, damp both factors toward unity in proportion to _noise protection_ times the pixel's noise confidence,
+6. apply the saturation factor at constant hue, soft-clipping against the gamut boundary,
+7. apply the brilliance factor at constant hue, orthogonal to saturation,
+8. soft-clip the result again against the destination gamut,
+9. convert back to pipeline RGB.
 
 # caveats
 
@@ -156,4 +165,6 @@ Changing the working RGB space mid-session will change how existing curve nodes 
 
 The saturation mask preview shows the module's input to the curves, raw or guided-filter-smoothed, not the corrected output. It is a diagnostic aid for shaping the curve, not a preview of the final result.
 
-_Note that enabling the guided filter adds computation cost that scales with filter radius and iteration count. Very large radii combined with several iterations will noticeably increase processing time on high-resolution images._
+_Note that enabling the guided filter adds computation cost that scales with filter radius. Very large radii will noticeably increase processing time on high-resolution images._
+
+The guided filter, and its _protect near-neutrals_, _protection transition width_ and _noise protection_ controls, only take effect with the _darktable UCS_ saturation formula; they are inert under _JzAzBz_.
