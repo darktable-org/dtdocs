@@ -64,7 +64,7 @@ some print stocks need manual print exposure
 
 why doesn't the tone range hit 100% white?
 : Physical characteristics of the film simulation: Highlights sit on the shoulder of the film and print response curves, where additional exposure produces progressively less additional density. This means the brightest tones compress and lose separation as they approach white rather than clipping cleanly to it.
-: How to resolve: Either use _pre-compression boost_ or _post-compression scale_ in the _scanner_ tab, or an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
+: How to resolve: Either use _pre-compression boost_ or _post-compression scale_ in the _scanner_ tab, disable _gamut compression_ in the _film_ tab (under advanced) or use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
 
 why doesn't the tone range hit 100% black?
 : Shadows sit on the toe/shoulder of the density curve where density saturates, so no more density can build up past a certain point. In addition, the scan stage models veiling glare: stray light scattered during scanning, which lifts the darkest tones slightly above true zero. Mirroring how a real film scanner never records a perfectly clean black.
