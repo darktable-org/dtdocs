@@ -40,7 +40,7 @@ create
 : You can cancel the creation process by pressing the Cancel button or pressing the Esc key on your keyboard.
 
 edit
-: Select "edit" to bring up a dialog which allows you to edit an existing style. The upper portion of the dialog shows modules currently included in the style, the lower portion all modules available from the source images history stack. In lighttable the source will be the selected image; when multiple images are selected no source will be offered. In darkroom the currently active image is the source.
+: Select "edit" to bring up a dialog which allows you to edit an existing style. The upper portion of the dialog shows modules currently included in the style, the lower portion all modules available from the source images history stack. For the latter to appear _one_ image has to be selected -- ff no or multiple images are currently selected no source history stack will be offered. 
 : You can add or remove modules and pick modules to update from the source history stack by setting the respective checkboxes. 
 : Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
 
