@@ -146,7 +146,7 @@ corner boost / sharp center (capture sharpen)
 
 # presets, styles and copy/paste
 
-Defining demosaic [presets](../../darkroom/processing-modules/presets.md) or using demosaic parameters for [styles](../../module-reference/utility-modules/lighttable/styles.md) or copying/pasting [history stacks](../../module-reference/utility-modules/lighttable/history-stack.md) is a bit more tricky than for other modules. Please bear in mind that demosaic works for a range of sensors each offering different algorithms and some specific options. Here are some reminders:
+Defining demosaic [presets](../../darkroom/processing-modules/presets.md) or using demosaic parameters for [styles](../../module-reference/utility-modules/shared/styles.md) or copying/pasting [history stacks](../../module-reference/utility-modules/lighttable/history-stack.md) is a bit more tricky than for other modules. Please bear in mind that demosaic works for a range of sensors each offering different algorithms and some specific options. Here are some reminders:
 
 1. It should always be safe to create an automatic preset that only applies to a specific camera.
 1. If a preset was defined while working on an image with a different sensor than the current image, darktable translates the algorithm as follows:

@@ -63,7 +63,7 @@ From left to right:
 ![presets-icon](./darkroom-view-layout/presets-icon.png#icon) [presets](./processing-modules/presets.md)
 : Quick access menu for module presets. You can manage the contents of this menu by selecting "manage quick presets list...".
 
-![styles-icon](./darkroom-view-layout/styles-icon.png#icon) [styles](../module-reference/utility-modules/lighttable/styles.md)
+![styles-icon](./darkroom-view-layout/styles-icon.png#icon) [styles](../module-reference/utility-modules/shared/styles.md)
 : Quick access menu for styles. Hover over a style name with your mouse to show a preview of the current darkroom image with the selected style applied.
 
 ![second-window-icon](./darkroom-view-layout/second-window-icon.png#icon) second darkroom window
