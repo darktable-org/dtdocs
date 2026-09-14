@@ -135,3 +135,9 @@ steepness
 : the steepness of the correction effect outside of the radius.
 
 The effect of the correction can be visualized by clicking on the mask button beside the strength slider.
+
+## manual distorsion correction
+
+Manual distorsion corrections are not natively supported. 
+
+A workaround can help to make manual corrections: Switch to the “generic” profiles, choose a “generic” rectilinear lens. Use the _mode_ option to switch between _barrel/pincushion_ and use the _mm_ adjustment to change the amount of pincushion/barrel distortion. Use the _scale_ slider to make the image fit and if need be fine tune with the _target geometry_. If you find a good fit for your lens (or the respective zoom range of a lens with variable focal length) you can then save the settings a a preset and set it up to auto apply if appropriate exif metadata is available. 
