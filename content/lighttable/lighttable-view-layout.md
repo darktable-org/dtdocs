@@ -36,7 +36,7 @@ From top to bottom:
 [history stack](../module-reference/utility-modules/lighttable/history-stack.md)
 : Manipulate the history stack of selected images.
 
-[styles](../module-reference/utility-modules/lighttable/styles.md)
+[styles](../module-reference/utility-modules/shared/styles.md)
 : Store an image's history stack as a named style and apply it to other images.
 
 [metadata editor](../module-reference/utility-modules/shared/metadata-editor.md)

@@ -18,6 +18,6 @@ The quality of the result (in terms of average delta-E and maximum delta-E) is d
 
 Once you are happy with the result you can click on “export” to save the generated style.
 
-Supply a style name and a style description under which the style will later appear in darktable. `darktable-chart` saves the style as a `.dtstyle` file which can be imported into darktable and shared with others. See [styles](../../module-reference/utility-modules/lighttable/styles.md).
+Supply a style name and a style description under which the style will later appear in darktable. `darktable-chart` saves the style as a `.dtstyle` file which can be imported into darktable and shared with others. See [styles](../../module-reference/utility-modules/shared/styles.md).
 
 The “export raw data as csv” button allows you to save the extracted raw data as a CSV file for debugging purposes or later use. `darktable-chart` offers a command line option to produce a style with the desired number of final patches from a supplied CSV file (see [`darktable-chart`](../program-invocation/darktable-chart.md)).
