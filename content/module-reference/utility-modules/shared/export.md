@@ -36,7 +36,7 @@ on conflict
 ## format options
 
 file format
-: Choose the file format for the exported image. Additional options will appear (below) depending on the selected format.
+: Choose the file format for the exported image. Additional options will appear (below) depending on the selected format. Note that for some export formats there are [caveats concerning metadata inclusion](#metadata-preferences).
 
 quality
 : The quality of the exported file. Higher values lead to larger file sizes. The default quality (95) is a good setting for very high quality exports (e.g. for archiving or printing purposes). If you need a good compromise between size and quality (e.g. for online image display or uploads) you should consider a value of “90” instead.
@@ -112,6 +112,12 @@ The “preferences…” option in the presets menu brings up a dialog where you
 ![metadata config](./export-selected/metadata-config.png#w66)
 
 The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. 
+
+---
+
+**Caution**: For **AVIF, EXR, HEIF, JPEG XL and XCF selecting specific metadata is not supported**. For these formats, *no* metadata fields will be included unless the user selects _all_ of the metadata checkboxes in the export module preferences.
+
+---
 
 ## general settings
 
