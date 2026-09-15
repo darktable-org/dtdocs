@@ -82,6 +82,75 @@ For the purposes of this guide, click on the hamburger icon (to the right of the
 
 ---
 
+## finding familiar adjustments
+
+If you have previously used other image-processing software, you may already be familiar with controls named *exposure*, *contrast*, *highlights*, *shadows*, *whites*, *blacks*, *texture*, *clarity*, *dehaze*, *vibrance* and *saturation*.
+
+darktable does not always provide a one-to-one equivalent for these controls. In particular, scene-referred processing separates adjustments to the brightness of the scene from the later mapping of that scene onto the display. As a result, an adjustment that is represented by a single slider elsewhere may be performed by a different module depending on what you are trying to achieve.
+
+The following table provides useful starting points.
+
+| familiar adjustment | darktable module/control                                                                                                                                                                         | notes                                                                                                                                                                                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **exposure**        | [exposure](../../module-reference/processing-modules/exposure.md) → **exposure**                                                                                                                 | Adjust the overall brightness of the image. This should normally be used to establish the desired mid-tone brightness early in the edit.                                                                                                                                  |
+| **contrast**        | [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md), or the contrast control of the active display transform                                                           | Use tone equalizer when you want to redistribute scene brightness. If using AgX, its **contrast** control adjusts the slope of the display tone curve.                                                                                                                    |
+| **highlights**      | [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) → brighter exposure zones                                                                                          | Lower the brighter zones to recover or compress bright areas, or raise them to make highlights more prominent.                                                                                                                                                            |
+| **shadows**         | [tone equalizer](../../module-reference/processing-modules/tone-equalizer.md) → darker exposure zones                                                                                            | Raise the darker zones to open shadows or lower them to make shadows deeper.                                                                                                                                                                                              |
+| **whites**          | display transform white point; for AgX use **white relative exposure**                                                                                                                           | This establishes which scene values are mapped towards display white. If you merely want to brighten the brightest objects without altering the white point, use the brighter zones of tone equalizer instead.                                                            |
+| **blacks**          | display transform black point; for AgX use **black relative exposure**                                                                                                                           | This establishes which scene values are mapped towards display black. If you merely want to darken shadow detail without altering the black point, use the darker zones of tone equalizer instead.                                                                        |
+| **texture**         | [contrast equalizer](../../module-reference/processing-modules/contrast-equalizer.md), or [diffuse or sharpen](../../module-reference/processing-modules/diffuse.md)                             | These modules can change contrast at selected spatial scales. Contrast equalizer is useful when you want to target fine or medium-sized details specifically.                                                                                                             |
+| **clarity**         | [local contrast](../../module-reference/processing-modules/local-contrast.md), or the **local contrast** presets in [diffuse or sharpen](../../module-reference/processing-modules/diffuse.md)   | Increase local contrast around structures in the image. Use moderate settings to avoid halos or an unnatural appearance.                                                                                                                                                  |
+| **dehaze**          | [haze removal](../../module-reference/processing-modules/haze-removal.md) → **strength**, or the **dehaze** preset in [diffuse or sharpen](../../module-reference/processing-modules/diffuse.md) | Positive haze-removal strength reduces atmospheric haze. **Negative strength adds haze**, which can also be useful as a creative effect.                                                                                                                                  |
+| **vibrance**        | [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) → **global vibrance**                                                                                        | Primarily increases the chroma of less-colorful pixels while having a smaller effect on colors that are already strongly chromatic.                                                                                                                                       |
+| **saturation**      | [color balance rgb](../../module-reference/processing-modules/color-balance-rgb.md) → **global saturation**                                                                                      | Adjusts the perceptual saturation of the image. darktable also distinguishes between saturation and chroma, so the [dimensions of color](../../special-topics/color-management/color-dimensions.md) section is worth reading when making more advanced color adjustments. |
+
+### exposure, whites and highlights are different operations
+
+These three adjustments are easy to confuse.
+
+**Exposure** changes the overall scene brightness and is normally used to establish the brightness of the mid-tones.
+
+**Highlights** changes the relative brightness of already-bright parts of the scene. The tone equalizer is usually the appropriate tool when, for example, you want to darken a bright sky while leaving the mid-tones largely unchanged.
+
+**Whites** determines how the brightest scene values are mapped to the display. With the AgX display transform this is controlled by **white relative exposure**.
+
+The same distinction applies at the other end of the tonal range: **shadows** adjusts dark parts of the scene, whereas **blacks** establishes the lower boundary used by the display transform.
+
+### texture and clarity
+
+Texture and clarity are both forms of local contrast adjustment rather than conventional sharpening.
+
+Use **contrast equalizer** when you want to target particular sizes of detail. Fine-scale adjustments can emphasize small textures, while larger scales affect broader structures.
+
+Use **local contrast** or the corresponding **diffuse or sharpen** presets when you want a more general increase in local contrast.
+
+For actual sharpening or deblurring, use the appropriate presets in **diffuse or sharpen** instead.
+
+### dehaze and adding haze
+
+The **haze removal** module estimates atmospheric haze and removes part of the diffuse light introduced by it.
+
+Its **strength** control is bidirectional:
+
+* positive values remove haze;
+* zero leaves the image unchanged;
+* negative values **add haze**.
+
+This makes the same module useful for both corrective dehazing and creative atmospheric effects.
+
+### vibrance, saturation and chroma
+
+darktable distinguishes between several ways of changing colorfulness.
+
+**Global vibrance** in color balance rgb preferentially increases the chroma of colors that are currently less colorful, making it useful when a general increase in colorfulness is desired without pushing already-colorful areas as strongly.
+
+**Global saturation** changes perceptual saturation.
+
+**Global chroma** changes chroma while preserving luminance.
+
+These controls are related but are not interchangeable. See [dimensions of color](../../special-topics/color-management/color-dimensions.md) for a more detailed explanation.
+
+
 # image processing in 3 modules
 
 The following basic adjustments are fundamental to scene-referred editing and will be required, to some extent, on the majority of images. You can usually produce a good-looking image with these steps alone.
