@@ -36,7 +36,7 @@ on conflict
 ## format options
 
 file format
-: Choose the file format for the exported image. Additional options will appear (below) depending on the selected format. Note that for some formats there are caveats concerning metadata inclusion, see [below](#metadata-preferences).
+: Choose the file format for the exported image. Additional options will appear (below) depending on the selected format. Note that for some export formats there are [caveats concerning metadata inclusion](#metadata-preferences).
 
 quality
 : The quality of the exported file. Higher values lead to larger file sizes. The default quality (95) is a good setting for very high quality exports (e.g. for archiving or printing purposes). If you need a good compromise between size and quality (e.g. for online image display or uploads) you should consider a value of “90” instead.
