@@ -13,6 +13,8 @@ Quickly navigate through images in the filmstrip by scrolling with the mouse. In
 
 In the darkroom, the image currently being processed is selected and highlighted. Double-click on an image to open it for editing. Single clicking a currently not-opened image will also select that image in addition to the currently open one. 
 
+By hovering inactive images you can act on them with a keyboard shortcut without changing the image being processed. Placing the cursor over the main viewport in effect hovers the current image.
+
 If you wish to select multiple images in the filmstrip, click to select the first image followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
 
 ----
