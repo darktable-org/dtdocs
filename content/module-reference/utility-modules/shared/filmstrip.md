@@ -9,11 +9,17 @@ The filmstrip can be used to quickly switch between images. The images shown are
 
 The filmstrip can be switched on and off using the shortcut Ctrl+F. The height of the filmstrip panel can be changed by clicking and dragging its top border.
 
-Quickly navigate through the images in the filmstrip by scrolling with the mouse. Increase scroll speed with Shift+scroll. Change the height of the filmstrip with Ctrl+scroll or by clicking+dragging the top of the panel. Change the [custom sort](./collection-filters.md#custom-sort) order of images by dragging and dropping image thumbnails.
+Quickly navigate through images in the filmstrip by scrolling with the mouse. Increase scroll speed with Shift+scroll. Change the height of the filmstrip with Ctrl+scroll or by clicking+dragging the top of the panel. Change the [custom sort](./collection-filters.md#custom-sort) order of images by dragging and dropping image thumbnails.
 
-In the darkroom, the image currently being processed is selected and highlighted. Click on or hover over a different image on the filmstrip with your mouse in order to act on it with a keyboard shortcut _without changing the image being processed_. Double-click on an image to open it for editing.
+In the darkroom, the image currently being processed is selected and highlighted. Double-click on an image to open it for editing. Single clicking a currently not-opened image will also select that image in addition to the currently open one. 
 
 If you wish to select multiple images in the filmstrip, click to select the first image followed by either Ctrl+click to select or de-select further images, or Shift+click to select a range of images.
+
+----
+
+**Note**: The currently open image will be kept selected, even when selecting other images. This is different from the behaviour in lighttable view and from what you might be used to from your file explorer. It is something to be aware of to avoid e.g. accidentaly rejecting the currently open image. 
+
+----
 
 The following shortcuts can be used to select images in the filmstrip:
 
