@@ -19,7 +19,7 @@ If you wish to select multiple images in the filmstrip, click to select the firs
 
 ----
 
-**Note**: The currently open image will be kept selected, even when selecting other images. This is different from the behaviour in lighttable view and from what you might be used to from your file explorer. It is something to be aware of to avoid e.g. accidentaly rejecting the currently open image. 
+**Note**: The currently open image will be kept selected, even when selecting other images. This is different from the behavior in lighttable view and from what you might be used to from your file explorer. It is something to be aware of to avoid e.g. accidentally rejecting the currently open image. 
 
 ----
 
