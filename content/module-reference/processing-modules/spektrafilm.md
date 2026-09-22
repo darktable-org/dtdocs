@@ -51,7 +51,7 @@ install the data first
 : The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored alongside your configuration, so they survive clearing the cache.
 
 only use one display transform
-: Never use _spektrafilm_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)) -- _spektrafilm_ performs the film's own tone mapping as part of simulating development and printing.
+: It is not recommended to use _spektrafilm_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)) -- _spektrafilm_ performs the film's own tone mapping as part of simulating development and printing.
 
 start simple
 : Choosing a film stock is enough. Everything else already carries a sensible value taken from that film's own measurements, and the paper follows the film automatically. The tabs are for fine-tuning.
