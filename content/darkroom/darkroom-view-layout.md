@@ -97,4 +97,4 @@ From left to right:
 
 ![filmstrip](./darkroom-view-layout/filmstrip.png)
 
-The [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen allows you select and interact with the currently selected collection.
+The [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen allows you to select and interact with the currently selected collection.
