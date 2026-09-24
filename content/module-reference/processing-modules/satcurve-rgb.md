@@ -56,11 +56,11 @@ The module has two tabs, one per curve, a row of shared controls below the curve
 saturation curve
 : Plots the output saturation multiplier (_y_ axis) against the normalized input saturation (_x_ axis). The default curve is a flat line at 50%, a neutral, unity multiplier. Moving a node above the midline increases saturation at that point on the input range; moving it below decreases it.
 
-- click the curve to add a node, drag an existing node to reposition it
-- Ctrl+right-click a node to reset it to neutral
-- right-click a node to remove it, when more than two nodes are present
-- double-click anywhere on the graph to reset the active curve
-- scroll over a selected node to nudge its value; Ctrl+scroll uses larger steps
+  - click the curve to add a node, drag an existing node to reposition it
+  - Ctrl+right-click a node to reset it to neutral
+  - right-click a node to remove it, when more than two nodes are present
+  - double-click anywhere on the graph to reset the active curve
+  - scroll over a selected node to nudge its value; Ctrl+scroll uses larger steps
 
 : The graph background shows a log-compressed histogram of the image's own input-saturation distribution, so you can see which parts of the range are populated before placing nodes. A gradient strip below the graph shows the corresponding hue-less perceptual gradient for reference.
 
@@ -106,7 +106,7 @@ noise protection
 
 : Unlike _filter radius_, _edge feathering_, _protect near-neutrals_ and _protection transition width_, this control has no visible footprint in the [_saturation mask_](#shared-controls) preview: those four all shift the coordinate the curves are looked up at, which the mask shows directly, while _noise protection_ acts after that lookup, on the curves' output. Judge its effect on the image itself rather than on the mask.
 
-_Note that _filter radius_, _edge feathering_, _protect near-neutrals_, _protection transition width_ and _noise protection_ are only active when _use guided filter_ is enabled._
+Note: _filter radius_, _edge feathering_, _protect near-neutrals_, _protection transition width_ and _noise protection_ are only active when _use guided filter_ is enabled.
 
 # usage guide
 
@@ -125,7 +125,7 @@ When first enabled, both curves default to a flat, neutral line and the image is
 
 Leave the formula on _darktable UCS_ unless matching the behavior of an older edit or style built with _JzAzBz_. Switching formulas changes how input saturation is normalized and therefore changes the effect of existing curve nodes. Switching to _JzAzBz_ also disables the [_guided filter_](#guided-filter) section entirely; its settings are kept but have no effect until you switch back to _darktable UCS_.
 
-_Note that you should re-check the curves against the histogram overlay after switching formulas._
+Note: You should re-check the curves against the histogram overlay after switching formulas.
 
 ## using the guided filter
 
@@ -165,6 +165,6 @@ Changing the working RGB space mid-session will change how existing curve nodes 
 
 The saturation mask preview shows the module's input to the curves, raw or guided-filter-smoothed, not the corrected output. It is a diagnostic aid for shaping the curve, not a preview of the final result.
 
-_Note that enabling the guided filter adds computation cost that scales with filter radius. Very large radii will noticeably increase processing time on high-resolution images._
+Note: enabling the guided filter adds computation cost that scales with filter radius. Very large radii will noticeably increase processing time on high-resolution images.
 
 The guided filter, and its _protect near-neutrals_, _protection transition width_ and _noise protection_ controls, only take effect with the _darktable UCS_ saturation formula; they are inert under _JzAzBz_.
