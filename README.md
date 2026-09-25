@@ -2,7 +2,7 @@
 
 This repository maintains the user documentation for [darktable](https://darktable.org). The content is authored in Markdown and rendered to HTML using [Hugo](https://gohugo.io) as well as to PDF and EPUB.
 
-The official documentation for the stable release is hosted at [docs.darktable.org](https://docs.darktable.org/usermanual/5.6/en/) (build from the branch [release-5.6](https://github.com/darktable-org/dtdocs/tree/release-5.6)). The ([master branch](https://github.com/darktable-org/dtdocs/tree/master) branch) is also [available](https://docs.darktable.org/usermanual/development/en/). The auto-built development preview is at [darktable-org.github.io/dtdocs](https://darktable-org.github.io/dtdocs/).
+The official documentation for the stable release is hosted at [docs.darktable.org](https://docs.darktable.org/usermanual/stable/en/) (build from the branch [release-5.6](https://github.com/darktable-org/dtdocs/tree/release-5.6)). The ([master branch](https://github.com/darktable-org/dtdocs/tree/master) branch) is also [available](https://docs.darktable.org/usermanual/development/en/). The auto-built development preview is at [darktable-org.github.io/dtdocs](https://darktable-org.github.io/dtdocs/).
 
 ## Contributing
 
