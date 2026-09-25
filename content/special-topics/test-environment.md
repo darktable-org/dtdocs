@@ -12,6 +12,12 @@ Three steps are needed:
 2. Give it its own configuration directory.
 3. Make sure it doesn't touch edits created by other installations.
 
+----
+
+Note: It is possible to affect your main installation if you make mistakes in separating your testing setup. Before starting off, make sure to backup your [configuration directory](../preferences-settings/config-directory.md) and consider setting up a regular backup schedule of the configuration directory. 
+
+----
+
 ## 1. Install the version you want to test
 
 Linux
