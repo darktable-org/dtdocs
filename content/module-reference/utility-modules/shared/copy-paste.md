@@ -23,7 +23,7 @@ copy (`ctrl+c`)
 : If you wish to include these modules use _selective copy_ and _selective paste_.
 
 selective copy (`ctrl+shift+c`)
-: Copy parts of the history stack from the selected image. A dialog appears, from which you will be able to select which history stack items you want to copy.
+: Copy parts of the history stack from the selected image. A dialog appears, from which you can select which history stack items you want to copy.
 
 : For any module, you may also choose to "reset" that module's parameters -- this will cause the module to be copied but with all controls set to their initial (default) state (as if you had clicked the module reset button). Double-click a history item to copy only that item and immediately close the dialog.
 
