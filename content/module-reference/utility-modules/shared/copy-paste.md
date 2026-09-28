@@ -1,5 +1,5 @@
 ---
-title: copy & paste
+title: copy and paste
 id: copy-paste
 ---
 
