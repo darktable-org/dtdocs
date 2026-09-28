@@ -309,7 +309,7 @@ How the finished print -- or the negative, in _scan the film_ mode -- is digitiz
 ### output
 
 pre-compression boost
-: Brightens the finished picture without flattening its highlights, because the film's own highlight roll-off is applied afterward, so the image lifts instead of washing out. 1.0 leaves it alone. Since it acts right at the end, the color picker reads the finished picture rather than the original: point it at a highlight area, and it sets the boost so the brightest tone lands just short of where the roll-off takes over.
+: Brightens the image with a focus on the midtones to highlights. Use it to lift midtones into the rolloff, and _post compression scale_ to define where highlights and white lands. this acts at the end of the module, so the picker measures the processed image. 
 
 post-compression scale
 : Scales the finished picture after the gamut compressor. This only changes the level, leaving the relationship between the channels alone, similar to what a tone curve does by moving its white point.
