@@ -114,7 +114,7 @@ This is equivalent to the ASC CDL _slope_, and falls back to multiplying a the m
 
 ### global power
 
-This is equivalent to the ASC CDL _power_, and falls back to applying a constant RGB exponent. It is not masked and needs to be normalized, since the power function has a different behaviour above and below 1, and we are in an unbounded pipeline where white is typically greater than 1. The normalization parameter is available in the [_masks_](#masks-tab) tab under _white fulcrum_.
+This is equivalent to the ASC CDL _power_, and falls back to applying a constant RGB exponent. It is not masked and needs to be normalized, since the power function has a different behavior above and below 1, and we are in an unbounded pipeline where white is typically greater than 1. The normalization parameter is available in the [_masks_](#masks-tab) tab under _white fulcrum_.
 
 ## masks tab
 
@@ -158,10 +158,10 @@ contrast gray fulcrum
 Note that this setting is not really appropriate for the _masks_ tab (since it is not technically related to the masks) but is placed here because it is not meant to be used regularly and in the spirit of saving some display real-estate. Two options are provided:
 
 JzAzBz (2021)
-: This mode is the original saturation algorithm. It uses the JzAzBz uniform color space (UCS) to compute the saturation. This color space is not meant for color changes and its lightness does not account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect), which states that colorful colors will look brighter than neutral or near-neutral colors (greys and pastels) having the same luminance. It also suffers from non-smooth behaviour near black, with colors being darkened too much.
+: This mode is the original saturation algorithm. It uses the JzAzBz uniform color space (UCS) to compute the saturation. This color space is not meant for color changes and its lightness does not account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect), which states that colorful colors will look brighter than neutral or near-neutral colors (greys and pastels) having the same luminance. It also suffers from non-smooth behavior near black, with colors being darkened too much.
 
 darktable UCS (2022)
-: The darktable Uniform Color Space has been [designed from the ground up](https://eng.aurelienpierre.com/2022/02/color-saturation-control-for-the-21th-century/), using psychoperceptual measurement datasets, for the sole purpose of the color manipulation (saturation) performed by this module. This color space does account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect) and has a built-in gamut mapping formula that is more accurate and efficient than can be achieved in JzAzBz. It displays a smoother behaviour which makes saturation changes more even across the lightness range.
+: The darktable Uniform Color Space has been [designed from the ground up](https://eng.aurelienpierre.com/2022/02/color-saturation-control-for-the-21th-century/), using psychoperceptual measurement datasets, for the sole purpose of the color manipulation (saturation) performed by this module. This color space does account for the [Helmholtz-Kohlrausch effect](https://en.wikipedia.org/wiki/Helmholtz%E2%80%93Kohlrausch_effect) and has a built-in gamut mapping formula that is more accurate and efficient than can be achieved in JzAzBz. It displays a smoother behavior which makes saturation changes more even across the lightness range.
 
 ### mask preview settings
 

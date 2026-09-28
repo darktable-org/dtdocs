@@ -315,11 +315,11 @@ Images edited with an earlier version of _filmic rgb_ keep the color science the
 In _v3_ to _v6_, the _preserve chrominance_ setting selects the norm N by which the RGB channels are divided before the S-curve is applied to N, so that the ratios between the channels are preserved:
  
 -   _no_ applies the curve to each channel independently. This saturates the shadows and desaturates the highlights, which can help with out-of-gamut blues or reds.
--   _max RGB_ uses the maximum of the R, G and B channels. This is the behaviour of the original version of the module. It tends to darken blues, especially skies, and may produce halos or fringes where channels are clipped.
+-   _max RGB_ uses the maximum of the R, G and B channels. This is the behavior of the original version of the module. It tends to darken blues, especially skies, and may produce halos or fringes where channels are clipped.
 -   _luminance Y_ uses a linear combination of the channels. It darkens reds and increases local contrast in them, and behaves poorly with saturated or out-of-gamut blues.
 -   _RGB power norm_ uses (R³ + G³ + B³)/(R² + G² + B²) and is usually a good compromise between _max RGB_ and _luminance Y_.
 -   _RGB euclidean norm_ is independent of the working color profile and gives the same result in any RGB space. It desaturates the highlights more than the power norm and is probably closest to a color film look.
-Several controls have been renamed over time. The tooltips in darktable always describe the behaviour of the version currently selected.
+Several controls have been renamed over time. The tooltips in darktable always describe the behavior of the version currently selected.
  
 | current name              | former name(s)                                          |
 | ------------------------- | ------------------------------------------------------- |
