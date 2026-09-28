@@ -21,7 +21,7 @@ paste
 
 ---
 
-**Note:** These are only brief descriptions on the copy and pasting operations, for an extensive explanation see [copy & paste](../shared/copy-paste.md).
+**Note:** These are only brief descriptions, for an extensive explanation see [copy & paste](../shared/copy-paste.md).
 
 ---
 
