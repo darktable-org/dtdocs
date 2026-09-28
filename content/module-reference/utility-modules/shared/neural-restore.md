@@ -86,7 +86,7 @@ Below the tab controls is a split before/after preview of a small patch of the c
 
 To choose a different patch of the image, click the picker button (to the right of _process_) and then click within the preview widget – the preview re-generates centred on the point you clicked.
 
-Hover over the preview to get a 2x magnified tooltip view, useful for evaluating per-pixel noise / detail behaviour.
+Hover over the preview to get a 2x magnified tooltip view, useful for evaluating per-pixel noise / detail behavior.
 
 # process
 
