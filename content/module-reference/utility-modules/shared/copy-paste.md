@@ -54,6 +54,6 @@ copy the last change to all selected images (`Ctrl+x`)
 
 **Note:**
 
-- Using _selective paste_ with _overwrite_ is a destructive process. Use it with care. _append_  allows you to revert to the images state before pasting (because the existing history stack is preserved). With _overwrite_ all previous edits are irrevocably lost.
+- Using _selective paste_ with _overwrite_ is a destructive process. Use it with care. When using _append_, the existing history stack items are preserved and can be used to restore the image's state from before the paste. With _overwrite_ all the image's previous edits are irrevocably lost.
 
 - Automatic module presets are added only to an image when it is first opened in the darkroom or its history stack is discarded. If you use _overwrite_ to paste history stack entries to images that haven't previously been opened in the darkroom, then the next time that image is opened in the darkroom, automatic presets will be applied to the image. It may therefore seem as if the _overwrite_ behavior did not accurately duplicate the existing history stack, but in this case, those automatic modules were applied after the paste action.
