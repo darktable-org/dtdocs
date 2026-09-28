@@ -6,7 +6,7 @@ id: copy-paste
 Copying and pasting edits between images is available in multiple views. In the lighttable, the [history stack](../lighttable/history-stack/history-stack.md) module provides buttons for these operations; the keyboard shortcuts listed below can also be used. In other views, such as the darkroom, copying and pasting is done through keyboard shortcuts.
 
 
-copy (`ctrl+c`)
+copy (`Ctrl+c`)
 : Copy the complete history stack from the selected image. If more than one image is selected, the history stack is taken from the image that was selected first.
 
 : Information relating to internal display encoding and mask management is considered unsafe to automatically copy to other images and is therefore not included in this operation.
@@ -23,19 +23,19 @@ copy (`ctrl+c`)
 
 : If you wish to include these modules use _selective copy_ and _selective paste_.
 
-selective copy (`ctrl+shift+c`)
+selective copy (`Ctrl+shift+c`)
 : Copy parts of the history stack from the selected image. A dialog appears, from which you can select which history stack items you want to copy.
 
 : For any module, you may also choose to "reset" that module's parameters -- this will cause the module to be copied but with all controls set to their initial (default) state (as if you had clicked the module reset button). Double-click a history item to copy only that item and immediately close the dialog.
 
 : If more than one image is selected, the history stack is taken from the image that was selected first.
 
-paste (`ctrl+v)`
+paste (`Ctrl+v)`
 : Paste all items of a copied history stack onto all selected images, preserving the existing history stack by appending the edits. If _selective copy_ was used to copy selected modules, only those modules are pasted. 
 
 : Pasting is always performed from the current state of the source image. If you change modules in the source image after copying and then paste, the  changed (most recent) settings will be pasted.
 
-selective paste (`ctrl+shift+v`)
+selective paste (`Ctrl+shift+v`)
 : Paste parts of a copied history stack onto all selected images. As with _selective copy_, a dialog appears from which you may choose items to paste (or _reset_) from the copied history stack. Choose to _append_ or to _overwrite_ the history stack of the target image(s).
 
 : A copied history stack can have multiple instances of the same module (with identical or different instance names) and pasting behaves differently for these entries depending on whether you use _overwrite_ or _append_:
@@ -44,11 +44,11 @@ selective paste (`ctrl+shift+v`)
 
 : - _append_ takes each module from the copied history stack and if there is a module in the destination image with the same name, it is replaced and added to the top of the history stack. If there is no such module, a new instance will be created and added to the top of the history stack. If a module has multiple instances in either history stack, only the last occurrence of that module will be added.
 
-copy the last change to all selected images (`ctrl+x`)
+copy the last change to all selected images (`Ctrl+x`)
 
 : Only available in the darkroom through its keyboard shortcut.
 
-: Copy the module that was changed last from the active (open) image to all selected images: Select multiple images and apply an edit to the opened image. Hit `ctrl+x`: The last changed module is synced from the currently open image to all selected images. 
+: Copy the module that was changed last from the active (open) image to all selected images: Select multiple images and apply an edit to the opened image. Hit `Ctrl+x`: The last changed module is synced from the currently open image to all selected images. 
 
 ---
 
