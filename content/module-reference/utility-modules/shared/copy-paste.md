@@ -19,7 +19,7 @@ copy (`Ctrl+c`)
 : - [_rotate pixels_](../../processing-modules/rotate-pixels.md)
 : - [_scale pixels_](../../processing-modules/scale-pixels.md)
 : - [_white balance_](../../processing-modules/white-balance.md)
-: - deprecated modules
+: - [deprecated modules](../../darkroom/processing-modules/deprecated.md)
 
 : If you wish to include these modules use _selective copy_ and _selective paste_.
 
