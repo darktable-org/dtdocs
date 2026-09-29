@@ -4,7 +4,7 @@ id: adding-a-simple-shortcut
 weight: 50
 ---
 
-So far, all our scripts have done things during startup. This is of limited use and doesn't allow us to react to real user actions. To do more advanced things we need to register a function that will be called on a given event. The most common event to react to is a keyboard shortcut.
+So far, all our scripts have done things during startup. This is of limited use and doesn't allow us to react to user actions. To do more advanced things we need to register a function that will be called on a given event. The most common event to react to is a keyboard shortcut.
 
 ```
 darktable = require "darktable"
@@ -62,7 +62,7 @@ stack traceback:
   ]]>
 ```
 
- This is lua's way of reporting errors. We have attempted to set a rating of 6 to an image, but a rating can only go as high as 5. It would be trivial to add a check, but let's go the complicated way and catch the error instead:
+ This is lua's way of reporting errors. We have attempted to set a rating of 6 to an image, but a rating can only go as high as 5. It would be trivial to add a check, but let's show how to catch the error instead:
 
 ```
 darktable.register_event("increase rating","shortcut",
