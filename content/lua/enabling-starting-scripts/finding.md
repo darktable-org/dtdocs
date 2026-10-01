@@ -13,9 +13,7 @@ use the following steps.
 1. You should then see
 ![the open scripts module](enabling-starting-scripts/finding/scripts-module-initial-view.png#w50) an initial view of the scripts module.
 1. Check that the scripts module has the "start/stop scripts" action selected, which should appear to the right of the word "action" in the second row from the top as shown above. (If that action is not selected, click on the word "action" and then select "start/stop scripts" from the menu that appears.)
-1. Find out what folder contains the script you want to enable. To do that look at https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/ and the lists under:
-* [contributed scripts](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/contrib/), or
-* [official scripts](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/official/)
+1. Find out what folder contains the script you want to enable. To do that [look at the Lua manual's scripts page](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/) and the lists under each folder.
 
 In our example "rename-images" is a contributed script and the "contributed" folder is already selected. (If you want to enable a script in the "official" folder, then you will need to select that folder, "official", from the menu that appears when you click on "folder".)
 
