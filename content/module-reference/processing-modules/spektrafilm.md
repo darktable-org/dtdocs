@@ -183,11 +183,14 @@ diffusion halo warmth
 ### advanced
 
 spectral upsampling
-: How a pixel's color is turned into the spectrum of light the film is exposed to. A digital image only records three colors, so the spectrum has to be reconstructed before the film's measured sensitivities can be applied to it. The methods differ mostly on saturated colors and near-neutrals, so changing it gives a different render rather than a more accurate version of the same one.
-: The list shows the methods of every installed data pack: _hanatos2025_ is the original method, and newer packs add others, such as _arctic2026beta04_. Grayed out when only one method is installed. Choosing a method from a newer pack moves the edit onto that pack.
+: How a pixel's color is turned into the spectrum of light the film is exposed to. A digital image only records three colors, so the spectrum has to be reconstructed before the film's measured sensitivities can be applied to it. Many different spectra produce the same three values and each method picks a different one, so switching changes the render even with the same film.
+: Methods come in two kinds:
+: - irradiance methods, such as _hanatos2025_, reconstruct the light reaching the film directly.
+: - reflectance methods reconstruct the color of the surface instead, as recovered under the scene's light, and relight it with the film's reference illuminant.
+: The list shows the methods of every installed data pack. _hanatos2025_ is the original one, and newer packs can add more. Grayed out when only one method is installed. Choosing a method from a newer pack moves the edit onto that pack.
 
 bandwidth adaptation
-: Trims the extreme violet and deep red ends of the film's sensitivity as part of how each stock is characterized. On by default and best left on as it belongs to the film's description. Only applies to irradiance methods such as _hanatos2025_ and is grayed out for reflectance methods such as _arctic2026beta04_.
+: Trims the extreme violet and deep red ends of the film's sensitivity as part of how each stock is characterized. On by default and best left on as it belongs to the film's description. Only applies to irradiance methods such as _hanatos2025_ and is grayed out for reflectance methods.
 
 surface adaptation
 : An optional per-color exposure correction carried in the film data, worth up to two stops for strongly colored light and nothing at all for neutral. Off by default, because it shifts saturated colors noticeably and the reference implementation does not apply it either. Stocks whose data does not include the correction are unaffected either way. Like _bandwidth adaptation_, it is grayed out for methods it does not apply to.
