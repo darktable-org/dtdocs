@@ -17,7 +17,7 @@ use the following steps.
 * [contributed scripts](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/contrib/), or
 * [official scripts](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/official/)
 
-In our example "rename-images" is a contributed script and the "contributed" folder is already selected. (If you want to enable a script in the the "official" folder, then you will need to select that folder, "official", from the menu that appears when you click on "folder".)
+In our example "rename-images" is a contributed script and the "contributed" folder is already selected. (If you want to enable a script in the "official" folder, then you will need to select that folder, "official", from the menu that appears when you click on "folder".)
 
 Once the correct folder is selected, such as "contributed" use the ![folder selection arrow icons](folder-selection-arrows.png#w50) arrows to navigate through that folder to find the desired script's name. In our example, "rename-images" is on the last page so navigate to that page.
 ![the contributed folder showing rename-images](contributed-folder-showing-rename-images.png#w50)
