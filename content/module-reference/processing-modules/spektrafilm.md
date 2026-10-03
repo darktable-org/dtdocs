@@ -50,6 +50,13 @@ The measurement data comes from the [spektrafilm](https://github.com/andreavolpa
 install the data first
 : The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored alongside your configuration, so they survive clearing the cache.
 
+edits stay on the data pack they were made with
+: Each data pack has its own identity, and an edit records the pack it was first rendered with. Installing a newer pack does not change how existing edits look: new packs are installed beside the old ones, and only new edits (or an edit where you choose a different _spectral upsampling_ method) use them. Edits made before packs had an identity are treated as made with the first published pack (spektrafilm 0.3.3).
+: If the pack an edit was made with is not installed, the module still renders it with the closest installed pack, shows a warning naming the pack it wants, and offers a button to download that pack.
+
+updating the data
+: New data packs are never downloaded automatically. Use _check for data pack updates_ at the bottom of the _advanced_ section of the _film_ tab to see whether a newer pack is published, and download it from the same button.
+
 only use one display transform
 : It is not recommended to use _spektrafilm_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)) -- _spektrafilm_ performs the film's own tone mapping as part of simulating development and printing.
 
@@ -64,17 +71,17 @@ some print stocks need manual print exposure
 
 why doesn't the tone range hit 100% white?
 : Physical characteristics of the film simulation: Highlights sit on the shoulder of the film and print response curves, where additional exposure produces progressively less additional density. This means the brightest tones compress and lose separation as they approach white rather than clipping cleanly to it.
-: How to resolve: Either use _pre-compression boost_ or _post-compression scale_ in the _scanner_ tab, disable _gamut compression_ in the _film_ tab (under advanced) or use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
+: How to resolve: Either use _pre-compression boost_ or _post-compression scale_ in the _scanner_ tab, place the white point with the _black and white point_ controls in the _scanner_ tab, disable _gamut compression_ in the _film_ tab (under advanced) or use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
 
 why doesn't the tone range hit 100% black?
 : Shadows sit on the toe/shoulder of the density curve where density saturates, so no more density can build up past a certain point. In addition, the scan stage models veiling glare: stray light scattered during scanning, which lifts the darkest tones slightly above true zero. Mirroring how a real film scanner never records a perfectly clean black.
-: How to resolve: Experiment with different film stocks as e.g. _Kodak Supra Endura_ has deeper blacks then _Kodak Portra Endura_. Or Use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
+: How to resolve: Experiment with different film stocks as e.g. _Kodak Supra Endura_ has deeper blacks then _Kodak Portra Endura_, place the black point with the _black and white point_ controls in the _scanner_ tab, or use an instance of [_tone curve_](tone-curve.md) or [_levels_](levels.md) set after _spektrafilm_.
 
 how to set up a clean digital look?
 : Disable _grain_ and _halation_. This will reveal fairly harsh local contrasts/sharpening due to the _DIR couplers_. Control these with _same-layer inhibiton_ or _inhibitor spread_. 
 
 how to control contrast?
-: Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilms various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print contrast_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab and _preflash_. 
+: Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilms various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print gamma_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab, _preflash_ and the _black and white point_ controls in the _scanner_ tab. 
 
 The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf). 
 
@@ -88,7 +95,7 @@ film stock
 : The film to simulate.
 
 print paper
-: The paper to print onto. Left on _auto_ it follows the film stock's own intended paper, and names which one that currently is -- for example _auto (Kodak Portra Endura)_. Choose a paper explicitly and it stays put when you change film.
+: The paper to print onto. Left on _auto_ it follows the film stock's own intended paper, and names which one that currently is -- for example _auto (Kodak Portra Endura)_. A black & white film that names no paper gets a black & white one. Choose a paper explicitly and it stays put when you change film.
 
 format
 : A preset picker for common frame sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom), which sets _frame long edge_ below. The preset names a film _gauge_ (35mm) while the slider gives the frame's long edge (36mm); both describe the same format.
@@ -175,17 +182,24 @@ diffusion halo warmth
 
 ### advanced
 
-quality
-: How accurately the color simulation is calculated. The three table settings work the answer out on a grid in advance and interpolate between the points, so a larger grid is closer to exact and slower to prepare. _exact spectral_ skips the grid and calculates every pixel directly: much slower, CPU only, and rarely visibly different.
+spectral upsampling
+: How a pixel's color is turned into the spectrum of light the film is exposed to. A digital image only records three colors, so the spectrum has to be reconstructed before the film's measured sensitivities can be applied to it. Many different spectra produce the same three values and each method picks a different one, so switching changes the render even with the same film.
+: Methods come in two kinds:
+: - irradiance methods, such as _hanatos2025_, reconstruct the light reaching the film directly.
+: - reflectance methods reconstruct the color of the surface instead, as recovered under the scene's light, and relight it with the film's reference illuminant.
+: The list shows the methods of every installed data pack. _hanatos2025_ is the original one, and newer packs can add more. Grayed out when only one method is installed. Choosing a method from a newer pack moves the edit onto that pack.
 
 bandwidth adaptation
-: Trims the extreme violet and deep red ends of the film's sensitivity as part of how each stock is characterized. On by default and best left on as it belongs to the film's description.
+: Trims the extreme violet and deep red ends of the film's sensitivity as part of how each stock is characterized. On by default and best left on as it belongs to the film's description. Only applies to irradiance methods such as _hanatos2025_ and is grayed out for reflectance methods.
 
 surface adaptation
-: An optional per-color exposure correction carried in the film data, worth up to two stops for strongly colored light and nothing at all for neutral. Off by default, because it shifts saturated colors noticeably and the reference implementation does not apply it either. Stocks whose data does not include the correction are unaffected either way.
+: An optional per-color exposure correction carried in the film data, worth up to two stops for strongly colored light and nothing at all for neutral. Off by default, because it shifts saturated colors noticeably and the reference implementation does not apply it either. Stocks whose data does not include the correction are unaffected either way. Like _bandwidth adaptation_, it is grayed out for methods it does not apply to.
 
 gamut compression
 : When enabled colors the simulated film and print produce that fall outside the working color profile's gamut are pulled back inside it along a smooth OkLCh curve, leaving already in-gamut colors untouched. When disabled, out-of-gamut colors pass through unchanged and are hard-clipped later in the pipeline instead, which can shift hues and merge distinct tones. This is useful for spotting which colors the simulation is pushing out of gamut.
+
+check for data pack updates
+: Asks the data repository whether a newer data pack is published. Nothing is downloaded until you press the button again, which then reads _download data pack_ followed by the pack's version. A newer pack is installed beside the ones you have and does not change existing edits (see [usage](#usage-and-faq) above).
 
 ## print
 
@@ -197,7 +211,7 @@ print exposure compensation
 auto print exposure
 : Compensate print exposure automatically for changes in film exposure, the way a real printer aims for consistent density whatever the negative. Does nothing while _scan the film_ is on.
 
-print contrast
+print gamma
 : Contrast of the print, achieved by reshaping the paper's own response.
 
 Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab as there is no print surface.
@@ -205,7 +219,10 @@ Slide and reversal stocks are viewed directly rather than printed. _scan the fil
 ### chemistry
 
 development time
-: How long the print is developed. Works exactly like the film tab's version and is set separately from it. Only Kodak Print Film 2302 was measured at more than one time (2, 3.5, 5, 7 and 9 minutes), so the slider is grayed out for every other paper -- and while _scan the film_ is on, since there is no print to develop.
+: How long the print is developed. Works exactly like the film tab's version and is set separately from it. Only Kodak Print Film 2302 was measured at more than one time (2, 3.5, 5, 7 and 9 minutes), so the slider is grayed out for every other paper -- and while _scan the film_ is on, since there is no print to develop. When the paper changes, the slider moves to that paper's standard time.
+
+print gamma red / print gamma green / print gamma blue
+: Contrast of each of the paper's three dye layers alone, on top of the overall _print gamma_. 1.0 leaves the layer unchanged. Splitting contrast per channel corrects a negative whose layers developed to different contrasts (crossover). Filtration cannot fix that, because it shifts every tone the same way, while crossover pushes shadows towards one color and highlights towards another.
 
 ### filtration
 
@@ -329,3 +346,25 @@ scanner sharpen strength
 
 viewing glare
 : A faint veil of room light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print in a real room never quite reaches black. Does nothing while _scan the film_ is on, since there is no print surface.
+
+### black and white point
+
+Sets where the darkest and lightest tones of the image end up. Two cases need this, because their range is set by the film rather than by the medium being viewed:
+
+- a scan of slide or other positive film: the film always carries some base density and never reaches its full maximum, so the scan looks washed out until its ends are set. Both corrections switch on by themselves when you choose a slide or reversal stock.
+- a print on negative paper: the paper's range is set by the negative behind it, so the print may not reach full black or white. Both corrections are off by default here, as in the reference implementation.
+
+The controls are grayed out for a scan of negative film and for a print on positive paper, which carry their own black and white. Mid-gray is held in place by adjusting the exposure, so _film exposure_, _print exposure compensation_ and _print gamma_ keep working as usual with the corrections on.
+
+black point correction
+: Set the darkest tone of the image with _black level_. Off, the shadows stay where the film puts them, which is often short of black.
+
+black level
+: Lifts or crushes the shadows. 0 is true black; higher values lift the blacks and soften the image, and below 0 the deepest shadows are crushed together.
+
+white point correction
+: Set the lightest tone of the image with _white level_. Off, the highlights stay where the film puts them.
+
+white level
+: Brightness of the lightest tone. 1 is full white. Because mid-gray is held in place, lowering it also darkens the shadows a little.
+: With only one correction switched on, the other end stays where the film puts it.
