@@ -81,7 +81,7 @@ how to set up a clean digital look?
 : Disable _grain_ and _halation_. This will reveal fairly harsh local contrasts/sharpening due to the _DIR couplers_. Control these with _same-layer inhibiton_ or _inhibitor spread_. 
 
 how to control contrast?
-: Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilms various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print gamma_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab, _preflash_ and the _black and white point_ controls in the _scanner_ tab. 
+: Either use modules in darktable's pipeline before/after spektrafilm or use spektrafilm's various built in options to modulate contrast. E.g. by using push/pull (work with _film exposure_ and _push/pull_ in the _film_ tab) or with _print gamma_ in the _print_ tab. Other options include _diffusion_ in _film_ or _print_ tab, _preflash_ and the _black and white point_ controls in the _scanner_ tab. 
 
 The scientifically inclined readers can find more detailed information in the Spektrafilm OFX plug-in [reference guide](https://github.com/chaert-s/spektrafilm-ofx/blob/main/documentation/spektrafilm_reference_guide.pdf). 
 
@@ -199,7 +199,7 @@ gamut compression
 : When enabled colors the simulated film and print produce that fall outside the working color profile's gamut are pulled back inside it along a smooth OkLCh curve, leaving already in-gamut colors untouched. When disabled, out-of-gamut colors pass through unchanged and are hard-clipped later in the pipeline instead, which can shift hues and merge distinct tones. This is useful for spotting which colors the simulation is pushing out of gamut.
 
 check for data pack updates
-: Asks the data repository whether a newer data pack is published. Nothing is downloaded until you press the button again, which then reads _download data pack_ followed by the pack's version. A newer pack is installed beside the ones you have and does not change existing edits (see [usage](#usage-and-faq) above).
+: Asks the data repository whether a newer data pack is published. Nothing is downloaded until you press the button again, which is now labeled _download data pack_ followed by the pack's version. A newer pack is installed beside the ones you have and does not change existing edits (see [usage](#usage-and-faq) above).
 
 ## print
 
