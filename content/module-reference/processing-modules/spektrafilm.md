@@ -259,7 +259,7 @@ granularity
 
 grain strength
 : How far the grain is allowed to move each pixel. 1.0 matches the real stock, 0 switches it off.
-: Unlike _granularity_, this scales the result: a negative's grain gets amplified a second time by the print stage, while a slide is scanned directly with nothing to amplify it. The same value therefore reads much weaker on slide film; to strengthen grain there, raise _granularity_ instead. Drags to 2, right-click for up to 8.
+: Unlike _granularity_, this scales the result: a negative's grain gets amplified a second time by the print stage, while a slide is scanned directly with nothing to amplify it. The same value therefore reads much weaker on slide film; to strengthen grain there, raise _granularity_ instead. Right-click for values up to 8.
 
 uniformity
 : Controls how evenly the film crystals are distributed, relative to the stock’s measured value. Lower values concentrate grain toward the mid-tones, causing it to taper off in the densest areas. Higher values produce a more even distribution of grain across the tonal range, reducing this mid-tone peak.
