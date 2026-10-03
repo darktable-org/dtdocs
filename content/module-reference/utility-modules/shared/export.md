@@ -14,7 +14,7 @@ Files can be exported to a file on disk, email, various online storage locations
 ## storage options
 
 target storage
-: The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
+: The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, system clipboard, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
 
 filename template
 : Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, `$(SEQUENCE)` in a template records sequence number of the image exported to the target. See the [variables](../../../special-topics/variables.md) section for details.
