@@ -1,5 +1,5 @@
 ---
-title: Scripting with Lua
+title: Scripting
 id: lua
 weight: 100
 ---
