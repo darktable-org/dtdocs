@@ -52,8 +52,8 @@ The primaries controls in _AgX_ work to prevent this by building a custom color 
 
 Please take note of the following guidelines while using this module within your workflow:
 
-only use one display transform
-: It is not recommended to use _AgX_ together with another display transform module (i.e. [_sigmoid_](./sigmoid.md), [_filmic rgb_](./filmic-rgb.md), [_spektrafilm_](./spektrafilm.md) or [_base curve_](./base-curve.md)).
+only use one tone mapper
+: AgX is a [tone mapper](../../overview/workflow/tone-mapper.md); you typically have exactly one tone mapper enabled for an image.
 
 adjust for the mid-tones first
 : By default, the module preserves middle gray. Before using _AgX_, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
