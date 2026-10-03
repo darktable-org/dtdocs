@@ -48,11 +48,16 @@ The measurement data comes from the [spektrafilm](https://github.com/andreavolpa
 # usage and FAQ
 
 install the data first
-: The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored alongside your configuration, so they survive clearing the cache.
+: The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored in darktable's data folder rather than the cache, so they survive clearing the cache (see [where data packs are stored](#where-data-packs-are-stored)).
 
 edits stay on the data pack they were made with
 : Each data pack has its own identity, and an edit records the pack it was first rendered with. Installing a newer pack does not change how existing edits look: new packs are installed beside the old ones, and only new edits (or an edit where you choose a different _spectral upsampling_ method) use them. Edits made before packs had an identity are treated as made with the first published pack (spektrafilm 0.3.3).
 : If the pack an edit was made with is not installed, the module still renders it with the closest installed pack, shows a warning naming the pack it wants, and offers a button to download that pack.
+
+where data packs are stored
+: Downloaded packs live in `darktable/spektrafilm/packs` inside your user data folder -- `~/.local/share/darktable/spektrafilm/packs` on Linux, `%LOCALAPPDATA%\darktable\spektrafilm\packs` on Windows. Each pack has its own subfolder, so several packs can be installed at once. The subfolder is named after the pack's identity, an 8-digit hexadecimal hash. The first published pack (spektrafilm 0.3.3) has no identity of its own, so its subfolder is named after its spectral upsampling table instead (`565f4ec4`, the _hanatos2025_ table).
+: A pack can also be installed by hand by placing its files directly in `darktable/spektrafilm` (one level above `packs`). The module never overwrites that folder, and a pack placed there takes precedence over downloaded ones. This is the way to use a pack that is not published for download, such as a testing pack.
+: The module itself does not list installed packs; the _spectral upsampling_ list shows the methods they provide.
 
 updating the data
 : New data packs are never downloaded automatically. Use _check for data pack updates_ at the bottom of the _advanced_ section of the _film_ tab to see whether a newer pack is published, and download it from the same button.
