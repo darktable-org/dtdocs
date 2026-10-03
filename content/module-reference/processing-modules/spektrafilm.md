@@ -98,17 +98,17 @@ print paper
 : The paper to print onto. Left on _auto_ it follows the film stock's own intended paper, and names which one that currently is -- for example _auto (Kodak Portra Endura)_. A black & white film that names no paper gets a black & white one. Choose a paper explicitly and it stays put when you change film.
 
 format
-: A preset picker for common frame sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom), which sets _frame long edge_ below. The preset names a film _gauge_ (35mm) while the slider gives the frame's long edge (36mm); both describe the same format.
+: A preset picker for common frame sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom), which sets _frame long edge_ below. The _frame long edge_ slider is only shown when _custom_ is selected. The preset names a film _gauge_ (35mm) while the slider gives the frame's long edge (36mm); both describe the same format.
 
 frame long edge
-: The real-world width of the simulated frame, in mm. This is the physical scale everything else is measured against, so grain, scatter, halation and diffusion all come out proportionally larger on a smaller format at the same print size -- just as they do in reality.
+: The real-world width of the simulated frame, in mm. Only available when _format_ is set to _custom_. This is the physical scale everything else is measured against, so grain, scatter, halation and diffusion all come out proportionally larger on a smaller format at the same print size.
 
 ## film
 
 ### exposure
 
 film exposure
-: Exposure adjustment at the film stage, in EV. Changes the overall brightness similar to [_exposure_](exposure.md). 
+: Exposure adjustment at the film stage, in EV. Unlike the [_exposure_](exposure.md) module, which only scales pixel values, this changes how much light reaches the simulated film. Besides brightness, it moves the scene to a different part of the film's response, so contrast, color and grain change too.
 
 : Note: With _auto print exposure_ on, _film exposure_ no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.
 
@@ -116,7 +116,7 @@ scan the film (skip print)
 : Look at the developed negative or slide directly instead of printing it. This option is enabled by default for slide and reversal stocks, and disabled by default for negative stocks; you can override it either way afterward.
 
 push/pull
-: Shooting the film at a speed other than its box speed (the ISO rating printed on the film's packaging), then compensating in development, in stops. Positive values push (shoot darker, develop longer), negative values pull. This is an approximation, since the real result depends on the specific developer, which is not simulated. Stacks with the _chemistry_ controls below.
+: Shooting the film at a speed other than its box speed (the ISO rating printed on the film's packaging), then compensating in development, in stops. Positive values push (shoot darker, develop longer), negative values pull. Development is adjusted automatically: each stop of push lowers the exposure by one stop and raises development contrast by about 15%, and pull does the opposite. This comes on top of _development gamma_ below, which does not move. This is an approximation, since the real result depends on the specific developer, which is not simulated.
 
 ### chemistry
 
@@ -196,7 +196,7 @@ surface adaptation
 : An optional per-color exposure correction carried in the film data, worth up to two stops for strongly colored light and nothing at all for neutral. Off by default, because it shifts saturated colors noticeably and the reference implementation does not apply it either. Stocks whose data does not include the correction are unaffected either way. Like _bandwidth adaptation_, it is grayed out for methods it does not apply to.
 
 gamut compression
-: When enabled colors the simulated film and print produce that fall outside the working color profile's gamut are pulled back inside it along a smooth OkLCh curve, leaving already in-gamut colors untouched. When disabled, out-of-gamut colors pass through unchanged and are hard-clipped later in the pipeline instead, which can shift hues and merge distinct tones. This is useful for spotting which colors the simulation is pushing out of gamut.
+: Keeps colors inside the working color profile's gamut. When enabled, colors from the simulated film and print that fall outside the gamut are pulled back inside along a smooth OkLCh curve. Colors already inside are left untouched. When disabled, out-of-gamut colors pass through unchanged and are hard-clipped later in the pipeline instead, which can shift hues and merge distinct tones. This is useful for spotting which colors the simulation is pushing out of gamut.
 
 check for data pack updates
 : Asks the data repository whether a newer data pack is published. Nothing is downloaded until you press the button again, which is now labeled _download data pack_ followed by the pack's version. A newer pack is installed beside the ones you have and does not change existing edits (see [usage](#usage-and-faq) above).
@@ -206,7 +206,7 @@ check for data pack updates
 ### exposure
 
 print exposure compensation
-: How long the enlarger stays on, in EV -- the brightness of the print. Always an offset: with _auto print exposure_ on, it shifts the automatic result.
+: How long the enlarger stays on, in EV -- the brightness of the print. It always acts as an offset: with _auto print exposure_ on, it shifts the automatic result.
 
 auto print exposure
 : Compensate print exposure automatically for changes in film exposure, the way a real printer aims for consistent density whatever the negative. Does nothing while _scan the film_ is on.
@@ -244,7 +244,7 @@ enable print diffusion
 
 ## grain
 
-Silver crystals in the emulsion develop or don't, and the picture is made out of them -- so the simulation builds a grainy emulsion, blurs detail and grain together the way a real one does, and then restores the lost edge definition with the sharpening under _texture_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, turn grain down.
+Film grain comes from the silver crystals the picture is made of. The simulation builds such an emulsion, blurs detail and grain together the way a real one does, and then restores the lost edge definition with the sharpening under _texture_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, turn grain down.
 
 The controls are split in two. _emulsion_ changes what the film is made of and rebuilds the crystals. _texture_ changes only how those crystals are drawn at your output size.
 
@@ -259,7 +259,7 @@ granularity
 
 grain strength
 : How far the grain is allowed to move each pixel. 1.0 matches the real stock, 0 switches it off.
-: Unlike granularity this scales the result: a negative's grain gets amplified a second time by the print stage, while a slide is scanned directly with nothing to amplify it. The same value therefore reads much weaker on slide film. Reach for granularity (right-click for up to 8).
+: Unlike _granularity_, this scales the result: a negative's grain gets amplified a second time by the print stage, while a slide is scanned directly with nothing to amplify it. The same value therefore reads much weaker on slide film; to strengthen grain there, raise _granularity_ instead. Drags to 2, right-click for up to 8.
 
 uniformity
 : Controls how evenly the film crystals are distributed, relative to the stock’s measured value. Lower values concentrate grain toward the mid-tones, causing it to taper off in the densest areas. Higher values produce a more even distribution of grain across the tonal range, reducing this mid-tone peak.
