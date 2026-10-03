@@ -44,7 +44,7 @@ The provided tabs can be used (either individually or in combination) to adjust 
 
 The main controls of this module are the hue/saturation/brightness adjustment curves. Use each of these tabs to adjust the hue, saturation, or brightness of pixels based on their current hue. Click and drag the color nodes (up/down) to alter the properties of pixels with the given hue. You can also adjust nodes using the scroll wheel on your mouse and, as with sliders, you can change the speed of the adjustment by combining the scroll with Ctrl (to adjust more slowly) or Shift (to adjust more quickly).
 
-You can also adjust the color nodes using sliders, which can be shown/hidden by middle-clicking on the curve adjustment section of the module with your mouse.
+You can also adjust the color nodes using sliders, which can be shown/hidden by middle-clicking on the curve adjustment section of the module with your mouse or by using the [_control sliders_](#control-sliders) button.
 
 As with sliders, you can also right-click on a node/slider to perform fine adjustments (see [module controls/sliders](../../darkroom/processing-modules/module-controls.md#sliders) for more details).
 
@@ -98,6 +98,10 @@ effect radius
 
 visualize changed output for the selected tab
 : The second "visualization" button (to the right of the "effect radius" slider) can be used to visualize the overall effect of the adjustments made in the current tab, taking into account both the guided filter and the adjustment curve. Red pixels indicate where the value of the chosen adjustment (hue/saturation/brightness) has increased. Blue pixels indicate where the value of the adjustment has decreased.
+
+## control sliders
+
+Click _control sliders_ to toggle the display of the sliders.
 
 ## cursor indicator/control
 
