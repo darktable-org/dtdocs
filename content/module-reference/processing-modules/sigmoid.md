@@ -40,7 +40,7 @@ You automatically enable this module in new images by setting the value of [pref
 Please take note of the following guidelines while using this module within your workflow:
 
 only use one tone mapper
-: _sigmoid_ is a [tone mapper](../../overview/workflow/tone-mapper.md); you typically have exactly one tone mapper enabled for an image.
+: _sigmoid_ is a [tone mapper](../../overview/workflow/tone-mapping.md); you typically have exactly one tone mapper enabled for an image.
 
 adjust for the mid-tones first
 : The sigmoid curve pivots around middle gray. Before using sigmoid, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.

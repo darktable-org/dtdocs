@@ -48,7 +48,7 @@ set the mid-tones
 : Avoid negative pixel values in dark areas, as they make the calculations in _filmic rgb_ unpredictable. On some camera models (mainly Canon), rawspeed -- the raw decoding library of darktable -- sets an exaggerated black level, which crushes the blacks and produces negative values. In that case, enter a negative black level correction in the [_exposure_](./exposure.md) module.
  
 use only one tone mapper
-: _filmic rgb_ is a [tone mapper](../../overview/workflow/tone-mapper.md); you typically have exactly one tone mapper enabled for an image.
+: _filmic rgb_ is a [tone mapper](../../overview/workflow/tone-mapping.md); you typically have exactly one tone mapper enabled for an image.
  
 prepare the image if you use the pickers
 : The pickers in the _scene_ tab measure luminance in RGB, where luminance and chrominance are linked. For reliable readings, first neutralize any color cast in the [_color calibration_](./color-calibration.md) or [_white balance_](./white-balance.md) module, use a high quality [_demosaic_](./demosaic.md) algorithm and denoise a noisy image beforehand. None of this is required if you set the exposure sliders by hand.

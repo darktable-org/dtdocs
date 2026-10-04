@@ -58,7 +58,7 @@ updating the data
 : New data packs are never downloaded automatically. Use _check for data pack updates_ at the bottom of the _advanced_ section of the _film_ tab to see whether a newer pack is published, and download it from the same button.
 
 only use one tone mapper
-: _spektrafilm_ is a [tone mapper](../../overview/workflow/tone-mapper.md); you typically have exactly one tone mapper enabled for an image.
+: _spektrafilm_ is a [tone mapper](../../overview/workflow/tone-mapping.md); you typically have exactly one tone mapper enabled for an image.
 
 start simple
 : Choosing a film stock is enough. Everything else already carries a sensible value taken from that film's own measurements, and the paper follows the film automatically. The tabs are for fine-tuning.
