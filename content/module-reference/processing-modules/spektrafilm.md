@@ -62,8 +62,8 @@ where data packs are stored
 updating the data
 : New data packs are never downloaded automatically. Use _check for data pack updates_ at the bottom of the _advanced_ section of the _film_ tab to see whether a newer pack is published, and download it from the same button.
 
-only use one display transform
-: It is not recommended to use _spektrafilm_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)) -- _spektrafilm_ performs the film's own tone mapping as part of simulating development and printing.
+only use one tone mapper
+: _spektrafilm_ is a [tone mapper](../../overview/workflow/tone-mapping.md); you typically have exactly one tone mapper enabled for an image.
 
 start simple
 : Choosing a film stock is enough. Everything else already carries a sensible value taken from that film's own measurements, and the paper follows the film automatically. The tabs are for fine-tuning.
