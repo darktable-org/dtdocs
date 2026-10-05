@@ -103,6 +103,7 @@ film stock
 
 print paper
 : The paper to print onto. Left on _auto_ it follows the film stock's own intended paper, and names which one that currently is -- for example _auto (Kodak Portra Endura)_. A black & white film that names no paper gets a black & white one. Choose a paper explicitly and it stays put when you change film.
+: Choose _none (scan the film)_ to look at the developed negative or slide directly instead of printing it. This is selected by itself for slide and reversal stocks, and you can switch back to a paper afterward.
 
 format
 : A preset picker for common frame sizes (half-frame, 35mm, 6x6, 6x7, 6x9, 4x5, 8x10, Super 8, 16mm, Super 16, Super 35, VistaVision, 65mm 5-perf, IMAX 15-perf, or custom), which sets _frame long edge_ below. The _frame long edge_ slider is only shown when _custom_ is selected. The preset names a film _gauge_ (35mm) while the slider gives the frame's long edge (36mm); both describe the same format.
@@ -118,9 +119,6 @@ film exposure
 : Exposure adjustment at the film stage, in EV. Unlike the [_exposure_](exposure.md) module, which only scales pixel values, this changes how much light reaches the simulated film. Besides brightness, it moves the scene to a different part of the film's response, so contrast, color and grain change too.
 
 : Note: With _auto print exposure_ on, _film exposure_ no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.
-
-scan the film (skip print)
-: Look at the developed negative or slide directly instead of printing it. This option is enabled by default for slide and reversal stocks, and disabled by default for negative stocks; you can override it either way afterward.
 
 push/pull
 : Shooting the film at a speed other than its box speed (the ISO rating printed on the film's packaging), then compensating in development, in stops. Positive values push (shoot darker, develop longer), negative values pull. Development is adjusted automatically: each stop of push lowers the exposure by one stop and raises development contrast by about 15%, and pull does the opposite. This comes on top of _development gamma_ below, which does not move. This is an approximation, since the real result depends on the specific developer, which is not simulated.
@@ -216,17 +214,17 @@ print exposure compensation
 : How long the enlarger stays on, in EV -- the brightness of the print. It always acts as an offset: with _auto print exposure_ on, it shifts the automatic result.
 
 auto print exposure
-: Compensate print exposure automatically for changes in film exposure, the way a real printer aims for consistent density whatever the negative. Does nothing while _scan the film_ is on.
+: Compensate print exposure automatically for changes in film exposure, the way a real printer aims for consistent density whatever the negative. Does nothing while _print paper_ is set to _none (scan the film)_.
 
 print gamma
 : Contrast of the print, achieved by reshaping the paper's own response.
 
-Slide and reversal stocks are viewed directly rather than printed. _scan the film_ switches on by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab as there is no print surface.
+Slide and reversal stocks are viewed directly rather than printed. _print paper_ switches to _none (scan the film)_ by itself when you choose one, and the entire print tab then has no effect, along with _viewing glare_ on the scanner tab as there is no print surface.
 
 ### chemistry
 
 development time
-: How long the print is developed. Works exactly like the film tab's version and is set separately from it. Only Kodak Print Film 2302 was measured at more than one time (2, 3.5, 5, 7 and 9 minutes), so the slider is grayed out for every other paper -- and while _scan the film_ is on, since there is no print to develop. When the paper changes, the slider moves to that paper's standard time.
+: How long the print is developed. Works exactly like the film tab's version and is set separately from it. Only Kodak Print Film 2302 was measured at more than one time (2, 3.5, 5, 7 and 9 minutes), so the slider is grayed out for every other paper -- and while _print paper_ is set to _none (scan the film)_, since there is no print to develop. When the paper changes, the slider moves to that paper's standard time.
 
 print gamma red / print gamma green / print gamma blue
 : Contrast of each of the paper's three dye layers alone, on top of the overall _print gamma_. 1.0 leaves the layer unchanged. Splitting contrast per channel corrects a negative whose layers developed to different contrasts (crossover). Filtration cannot fix that, because it shifts every tone the same way, while crossover pushes shadows towards one color and highlights towards another.
@@ -247,11 +245,11 @@ preflash M filter shift / preflash Y filter shift
 ### print diffusion
 
 enable print diffusion
-: A second, independent filter at the enlarger rather than the camera, diffusing the print instead of the exposure. Its controls work exactly like the ones above and are set separately: _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, and _print diffusion halo warmth_.
+: A second, independent filter at the enlarger rather than the camera, diffusing the light at the print exposure rather than the film exposure. Its controls work exactly like the ones above and are set separately: _print diffusion filter type_, _print diffusion strength_, _print diffusion size_, and _print diffusion halo warmth_.
 
 ## grain
 
-Film grain comes from the silver crystals the picture is made of. The simulation builds such an emulsion, blurs detail and grain together the way a real one does, and then restores the lost edge definition with the sharpening under _texture_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, turn grain down.
+Film grain comes from the silver crystals the picture is made of. The module simulates such an emulsion, blurs detail and grain together the way a real one does, and then restores the lost edge definition with the sharpening under _texture_ below. The blur and the recovery are tuned as a pair, so a picture with grain on is slightly softer than the same picture with grain off. That is how film behaves. If you want it sharper, turn grain down.
 
 The controls are split in two. _emulsion_ changes what the film is made of and rebuilds the crystals. _texture_ changes only how those crystals are drawn at your output size.
 
@@ -305,7 +303,7 @@ scatter amount
 : How much light scatters sideways within the emulsion. 1.0 matches the film, 0 switches it off.
 
 scatter size
-: How far it scatters. 1.0 matches the film and is the value the simulation normally works at. Above that, the whole frame softens quickly since the radius grows directly with the value. Drags to 1.5, right-click for more.
+: How far the light scatters. 1.0 matches the film and is the value the simulation normally works at. Above that, the whole frame softens quickly since the radius grows directly with the value. Drags to 1.5, right-click for more.
 
 ### halation
 
@@ -328,7 +326,7 @@ boost protect
 
 ## scanner
 
-How the finished print -- or the negative, in _scan the film_ mode -- is digitized, and the conditions it is looked at under. These act on the final image, after everything else.
+How the finished print -- or the film itself, when _print paper_ is set to _none (scan the film)_ -- is digitized, and the conditions it is looked at under. These act on the final image, after everything else.
 
 ### output
 
@@ -352,7 +350,7 @@ scanner sharpen strength
 ### glare
 
 viewing glare
-: A faint veil of room light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print in a real room never quite reaches black. Does nothing while _scan the film_ is on, since there is no print surface.
+: A faint veil of room light reflecting off the print surface, as a percentage. Lifts the deepest blacks very slightly, the way a real print in a real room never quite reaches black. Does nothing while _print paper_ is set to _none (scan the film)_, since there is no print surface.
 
 ### black and white point
 
