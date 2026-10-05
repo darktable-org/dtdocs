@@ -7,7 +7,7 @@ Copying and pasting edits between images is available in multiple views. In the 
 
 
 copy (`Ctrl+c`)
-: Copy the complete history stack from the selected image. If more than one image is selected, the history stack is taken from the image that was selected first.
+: Copy the complete history stack from the selected image, including the module order. If more than one image is selected, the history stack is taken from the image that was selected first.
 
 : Information relating to internal display encoding and mask management is considered unsafe to automatically copy to other images and is therefore not included in this operation.
 
@@ -28,6 +28,8 @@ selective copy (`Ctrl+shift+c`)
 
 : For any module, you may also choose to "reset" that module's parameters -- this will cause the module to be copied but with all controls set to their initial (default) state (as if you had clicked the module reset button). Double-click a history item to copy only that item and immediately close the dialog.
 
+: You can also choose to include or exclude the module order during copying. 
+
 : If more than one image is selected, the history stack is taken from the image that was selected first.
 
 paste (`Ctrl+v)`
@@ -38,17 +40,19 @@ paste (`Ctrl+v)`
 selective paste (`Ctrl+shift+v`)
 : Paste parts of a copied history stack onto all selected images. As with _selective copy_, a dialog appears from which you may choose items to paste (or _reset_) from the copied history stack. Choose to _append_ or to _overwrite_ the history stack of the target image(s).
 
+: You can also choose to include or exclude the module order during pasting. 
+
 : A copied history stack can have multiple instances of the same module (with identical or different instance names) and pasting behaves differently for these entries depending on whether you use _overwrite_ or _append_:
 
 : - _overwrite_ deletes the history of the destination image before adding every module instance from the copied history stack. Choosing _select all_ in both the _selective copy..._ and _selective paste..._ dialogs will precisely duplicate the copied history stack to the destination image(s) (including any duplicate occurrences).
 
 : - _append_ takes each module from the copied history stack and if there is a module in the destination image with the same name, it is replaced and added to the top of the history stack. If there is no such module, a new instance will be created and added to the top of the history stack. If a module has multiple instances in either history stack, only the last occurrence of that module will be added.
 
-copy the last change to all selected images (`Ctrl+x`)
+sync the last change to all selected images (`Ctrl+x`)
 
 : Only available in the darkroom through its keyboard shortcut.
 
-: Copy the module that was changed last from the active (open) image to all selected images: Select multiple images and apply an edit to the opened image. Hit `Ctrl+x`: The last changed module is synced from the currently open image to all selected images. 
+: Sync the module that was changed last from the active (open) image to all selected images: Select multiple images and apply an edit to the opened image. Hit `Ctrl+x`: The last changed module is synced from the currently open image to all selected images (you can also do the edit first and then select the images to sync the change to).
 
 ---
 
