@@ -3,7 +3,7 @@ title: copy and paste
 id: copy-paste
 ---
 
-Copying and pasting edits between images is available in multiple views. In the lighttable, the [history stack](../lighttable/history-stack/history-stack.md) module provides buttons for these operations; the keyboard shortcuts listed below can also be used. In other views, such as the darkroom, copying and pasting is done through keyboard shortcuts.
+Copying and pasting edits between images is available in multiple views. In the lighttable, the [history stack](../lighttable/history-stack.md) module provides buttons for these operations; the keyboard shortcuts listed below can also be used. In other views, such as the darkroom, copying and pasting is done through keyboard shortcuts.
 
 
 copy (`Ctrl+c`)
