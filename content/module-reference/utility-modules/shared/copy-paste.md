@@ -52,7 +52,7 @@ sync the last change to all selected images (`Ctrl+x`)
 
 : Only available in the darkroom through its keyboard shortcut.
 
-: Sync the module that was changed last from the active (open) image to all selected images: Select multiple images and apply an edit to the opened image. Hit `Ctrl+x`: The last changed module is synced from the currently open image to all selected images (you can also do the edit first and then select the images to sync the change to)
+: Sync the module that was changed last from the active (open) image to all selected images: Select multiple images and apply an edit to the opened image. Hit `Ctrl+x`: The last changed module is synced from the currently open image to all selected images (you can also do the edit first and then select the images to sync the change to).
 
 ---
 
