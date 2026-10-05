@@ -41,7 +41,9 @@ The measurement data comes from the [spektrafilm](https://github.com/andreavolpa
 
 ---
 
-**Note**: Like other view transforms, modules placed before _spektrafilm_ in the pipeline operate in [scene-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#scene-referred-workflow) space. Modules after it work in [display-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#display-referred-workflow) space.
+**Note**: _spektrafilm_ is a [tone mapper](../../overview/workflow/tone-mapping.md) and takes the place of [_filmic rgb_](./filmic-rgb.md), [_sigmoid_](./sigmoid.md) or [_AgX_](./agx.md). To use it for every new edit, set [preferences > processing > auto-apply pixel workflow defaults](../../preferences-settings/processing.md) to _scene-referred (spektrafilm)_.
+
+Like other view transforms, modules placed before _spektrafilm_ in the pipeline operate in [scene-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#scene-referred-workflow) space. Modules after it work in [display-referred](../../../darkroom/pixelpipe/the-pixelpipe-and-module-order.md/#display-referred-workflow) space.
 
 ---
 
