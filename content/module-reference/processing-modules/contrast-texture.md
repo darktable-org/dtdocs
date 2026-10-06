@@ -29,7 +29,9 @@ The module uses the same _exposure-independent guided filter (eigf)_ used by the
 
 A noise bias control lets you tame the amplification of shadow noise, which would otherwise be boosted along with genuine detail since both look like local contrast to the algorithm.
 
-To build up a more elaborate effect, multiple instances of _contrast & texture_ can be used together, each targeting different detail scales (via the _detail level_ slider) and possibly masked to different parts of the image.
+To build up a more elaborate effect, multiple instances of _contrast & texture_ can be used together, each targeting different detail scales and possibly masked to different parts of the image.
+
+Multiple controls have a mask display button ![mask-icon](./contrast-texture/mask.png#icon) available - only one mask can be displayed at a time, so clicking on a mask display button turns off any other mask currently being displayed.
 
 ----
 
@@ -39,19 +41,35 @@ Note: This module is a first step towards a more fully-featured scene-referred l
 
 # module controls
 
-local contrast
-: The strength of the module's effect. At 0% (the default) the effect is neutral. Positive values boost local contrast/texture; negative values reduce it. Click the mask icon to the right of the slider to visualize the details being adjusted: a mid-gray means no local detail was found at that point, while brighter or darker areas show where detail is being targeted.
+base detail level
+: Adjust the detail level used for highlights, shadows, and coarse details.
+: - higher values: more contrast boost in finer details.
+: - lower values: more contrast boost in coarser details.
+: Press the mask display button to preview the low pass filter result used for shadows (blue) and highlights (yellow).
+
+highlights
+: Adjust the highlights at the base detail level size.
+
+shadows
+: Adjust the shadows at the base detail level size.
+
+## local contrast
+
+coarse details
+: Adjust the coarse, low frequency content. Press the mask display button to preview the size of the coarse details to adjust.
+
+medium details
+: Adjust the medium frequency content between coarse and fine. Press the mask display button to preview the size of the medium details to adjust.
+
+fine details
+: Adjust the fine, high frequency content. Press the mask display button to preview the size of the fine details to adjust.
 
 ## filter settings
 
-detail level
-: Controls the scale of local contrast being affected. Higher values target finer detail; lower values shift the effect towards coarser, larger-scale contrasts.
-
-adjust edge protection
-: Controls how sensitively the underlying filter reacts to high-contrast edges. Lower values make for stronger local contrast around high-contrast edges at the risk of developing halos. Higher values allow for smoother transitions. The scale affected by this setting is determined by _detail level_.
-
-filter iterations
-: The number of passes of the guided filter to run. Increasing this further diffuses the filter's edges, which can help avoid artifacts, at the cost of processing speed.
+halo control
+: Adjust the halo control of the filter.
+: - higher values: suppress halos at the expense of details around edges.
+: - lower values: allow more halos to get more local contrast and details.
 
 noise bias
 : Helps reduce amplification of noise in the shadows by adding a bias to the luminance estimate before filtering. A higher value suppresses more shadow noise but can also reduce genuine fine detail in those areas. 
