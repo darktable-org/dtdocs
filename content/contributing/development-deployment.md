@@ -23,7 +23,21 @@ For development purposes, the docs are deployed to GitHub Pages on every push: A
  
 ## Official deployment to darktable.org
  
-The official home of the docs is the pixls.us server infrastructure at https://docs.darktable.org/usermanual/development/. There, the repository is pulled regularly and the documentation is built with Hugo, including translations as well as EPUB and PDF outputs. The build log can be found [here](https://docs.darktable.org/buildlog.txt).
+The official deployment of the manual is on the pixls.us server at [docs.darktable.org/usermanual/stable/](https://docs.darktable.org/usermanual/stable/) for the current release and [docs.darktable.org/usermanual/developent/](https://docs.darktable.org/usermanual/developent/) for darktables current development snapshot. 
 
-## Versioning of the docs 
-Up to 4.6 versioned copies of the docs were maintained (e.g. [.../usermanual/4.6/](https://docs.darktable.org/usermanual/4.6/)). From there on only one version documenting the current development version is maintained ([.../usermanual/development/](https://docs.darktable.org/usermanual/development/)). Links to the released versions following 4.6 are linked to the development version (e.g. [.../usermanual/5.4/](https://docs.darktable.org/usermanual/5.4/) links to [.../usermanual/development/](https://docs.darktable.org/usermanual/development/)).
+The repositories are pulled regularly and the documentation is built with Hugo, including translations as well as EPUB and PDF outputs. The build log can be found [here](https://docs.darktable.org/buildlog.txt).
+
+## Versioning and archiving of the manual
+
+With each major release of darktable a release-x.x-branch is created, from which a versioned snapshot of the manual is maintained and deployed as described above. 
+
+Older versions of the docs are taken offline from time to time and are archived in EPUB and PDF format as releases on Github: 
+
+* https://github.com/darktable-org/dtdocs/releases/tag/v4.8
+* https://github.com/darktable-org/dtdocs/releases/tag/v4.6
+* https://github.com/darktable-org/dtdocs/releases/tag/v4.2
+* https://github.com/darktable-org/dtdocs/releases/tag/v4.0
+* https://github.com/darktable-org/dtdocs/releases/tag/v3.8
+* https://github.com/darktable-org/dtdocs/releases/tag/v3.6
+
+Between 4.8 and 5.6 no snapshots are available because versioning of the manual had been suspended in that period.
