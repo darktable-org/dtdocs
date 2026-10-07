@@ -23,9 +23,9 @@ output
 
 {{< /details >}}
 
-_contrast & texture_ is the scene-referred counterpart to the display-referred [_local contrast_](local-contrast.md) module. It can be used for both adding punch to, for example, clouds or foliage and for smoothing busy areas (like softening skin or calming down a cluttered background).
+_contrast & texture_ is the scene-referred counterpart to the display-referred [_local contrast_](local-contrast.md) module. It can be used for both adding punch to, for example, clouds or foliage and for smoothing busy areas (like softening skin or calming down a cluttered background). It can also be used to manage highlights and shadows as the scene referred equivalent of the display referred [_shadows and highlights_](shadows-and-highlights.md).
 
-The module uses the same _exposure-independent guided filter (eigf)_ used by the [_tone equalizer_](tone-equalizer.md#masking-tab) module for its guided mask. The scale of detail being affected can be tuned with the module's controls. The underlying filter is exposure-independent, so the strength of the effect stays consistent across shadows and highlights alike.
+The module uses the same _exposure-independent guided filter (eigf)_ used by the [_tone equalizer_](tone-equalizer.md#masking-tab) module for its guided mask. The affected scale of detail can be tuned with the module's controls, and three separate scale levels can be targeted individually. The underlying filter is exposure-independent, so the strength of the effect stays consistent across shadows and highlights alike.
 
 A noise bias control lets you tame the amplification of shadow noise, which would otherwise be boosted along with genuine detail since both look like local contrast to the algorithm.
 
@@ -42,33 +42,36 @@ Note: This module is a first step towards a more fully-featured scene-referred l
 # module controls
 
 base detail level
-: Adjust the detail level used for highlights, shadows, and coarse details.
-: - higher values: more contrast boost in finer details.
-: - lower values: more contrast boost in coarser details.
+: Adjust the base detail level, which determines the scale targeted by highlights, shadows, and coarse, medium and fine details.
+: - higher values: affect local contrast in finer details.
+: - lower values: affect local contrast in coarser details.
 : Press the mask display button to preview the low pass filter result used for shadows (blue) and highlights (yellow).
+: The detail scales targeted by the three local contrast sliders can be previewed with their respective mask buttons (see below). Use them in conjunction with adjusting _base detail level_ to tune the detail level you want to affect.
 
 highlights
-: Adjust the highlights at the base detail level size.
+: Adjust highlights at the base detail level size.
 
 shadows
-: Adjust the shadows at the base detail level size.
+: Adjust shadows at the base detail level size.
+
+Note: When adjusting _highlights_ and _shadows_ a lower _base detail level_ will tend to enhance local contrast in those respective regions while a higher _base detail level_ will result in flatter local contrasts in those regions. 
 
 ## local contrast
 
 coarse details
-: Adjust the coarse, low frequency content. Press the mask display button to preview the size of the coarse details to adjust.
+: Adjust coarse, low frequency local contrasts. Click the mask display button to preview the size of the coarse details to adjust.
 
 medium details
-: Adjust the medium frequency content between coarse and fine. Press the mask display button to preview the size of the medium details to adjust.
+: Adjust medium frequency local contrasts. Click the mask display button to preview the size of the medium details to adjust.
 
 fine details
-: Adjust the fine, high frequency content. Press the mask display button to preview the size of the fine details to adjust.
+: Adjust fine, high frequency local contrasts. Click the mask display button to preview the size of the fine details to adjust. Can be used for sharpening.
 
 ## filter settings
 
 halo control
 : Adjust the halo control of the filter.
-: - higher values: suppress halos at the expense of details around edges.
+: - higher values: suppress halos at the expense of details around edges. Helps with making the effect on local contrast smoother
 : - lower values: allow more halos to get more local contrast and details.
 
 noise bias
