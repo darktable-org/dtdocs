@@ -313,7 +313,9 @@ halation strength
 halation size
 : How far the glow spreads. 1.0 matches the film.
 
-### threshold
+### highlight boost
+
+The highlight boost is not part of halation and is not switched off by _enable halation_. It acts on the film exposure before any light spreads, so it also feeds the film's _diffusion_ filter. It sits on this tab because its visible result is the glow scatter, halation and diffusion produce from it.
 
 highlight boost
 : Rebuilds highlights that were clipped in the original file so they can glow into the scatter, halation and diffusion effects. In EV; 0 switches it off. The boost applies over a fixed range, so it gives the same result regardless of image size, zoom level, or how the export was processed.
