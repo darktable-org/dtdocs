@@ -23,15 +23,15 @@ For development purposes, the docs are deployed to GitHub Pages on every push: A
  
 ## Official deployment to darktable.org
  
-The official deployment of the manual is on the pixls.us server at [docs.darktable.org/usermanual/stable/](https://docs.darktable.org/usermanual/stable/) for the current release and [docs.darktable.org/usermanual/developent/](https://docs.darktable.org/usermanual/developent/) for darktables current development snapshot. 
+The official deployment of the manual is on the pixls.us server at [docs.darktable.org/usermanual/stable/](https://docs.darktable.org/usermanual/stable/) for the current release and [docs.darktable.org/usermanual/development/](https://docs.darktable.org/usermanual/development/) for darktable's current development snapshot. 
 
 The repositories are pulled regularly and the documentation is built with Hugo, including translations as well as EPUB and PDF outputs. The build log can be found [here](https://docs.darktable.org/buildlog.txt).
 
 ## Versioning and archiving of the manual
 
-With each major release of darktable a release-x.x-branch is created, from which a versioned snapshot of the manual is maintained and deployed as described above. 
+With each major release of darktable a release-x.x branch is created, from which a versioned snapshot of the manual is maintained and deployed as described above. 
 
-Older versions of the docs are taken offline from time to time and are archived in EPUB and PDF format as releases on Github: 
+Older versions of the docs are taken offline from time to time and are archived in EPUB and PDF format as releases on GitHub: 
 
 * https://github.com/darktable-org/dtdocs/releases/tag/v4.8
 * https://github.com/darktable-org/dtdocs/releases/tag/v4.6
