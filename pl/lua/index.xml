@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skrypty Lua on darktable user manual</title>
+    <link>https://darktable-org.github.io/dtdocs/pl/lua/</link>
+    <description>Recent content in Skrypty Lua on darktable user manual</description>
+    <generator>Hugo</generator>
+    <language>pl</language>
+    <atom:link href="https://darktable-org.github.io/dtdocs/pl/lua/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>drukowanie oznakowanych zdjęć</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/lua/printing-labeled-images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/lua/printing-labeled-images/</guid>
+      <description>&lt;p&gt;Pierwszy przykład pokazał podstawy lua i pozwolił sprawdzić, czy wszystko działa poprawnie. Zróbmy teraz coś bardziej skomplikowanego. Spróbujmy wydrukować listę zdjęć, mających dołączoną &amp;ldquo;czerwoną&amp;rdquo; (ang. red) etykietę. Ale&amp;hellip; co to jest zdjęcie?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;local darktable = require &amp;#34;darktable&amp;#34;&#xA;local debug = require &amp;#34;darktable.debug&amp;#34;&#xA;print(darktable.debug.dump(darktable.database[1]))&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Uruchomienie tego kodu wygeneruje wiele komunikatów. Przyjrzymy się im za chwilę, na razie przeanalizujmy sam kod:&lt;/p&gt;&#xA;&lt;p&gt;Poznaliśmy &lt;code&gt;require darktable&lt;/code&gt;. Nadszedł czas na &lt;code&gt;require darktable.debug&lt;/code&gt;, będące opcjonalną sekcją API, dostarczającą funkcji pomocniczych do debugowania skryptów lua.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>eksport zdjęć przy użyciu lua</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/lua/exporting-images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/lua/exporting-images/</guid>
+      <description>&lt;p&gt;Do tej pory nauczyliśmy się używać lua do adaptacji darktable w naszym systemie pracy. Zobaczmy teraz, jak zaprząc lua do łatwego eksportu zdjęć do serwisu online. Jeśli jesteś w stanie przesłać plik na serwer przy użyciu linii poleceń, możesz użyć lua do automatyzacji tego z poziomu interfejsu użytkownika darktable.&lt;/p&gt;&#xA;&lt;p&gt;W tym przykładzie użyjemy lua do eksportu poprzez &lt;code&gt;scp&lt;/code&gt;. W interfejsie darktable pojawi się nowy typ miejsca docelowego, który wyeksportuje zdjęcia do zdalnej lokacji poprzez mechanizm kopiowania w &lt;code&gt;ssh&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>wywołanie lua z dbus</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/lua/calling-from-dbus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/lua/calling-from-dbus/</guid>
+      <description>&lt;p&gt;Możliwe jest wysłanie komendy lua do darktable poprzez interfejs DBus. Metoda &lt;code&gt;org.darktable.service.Remote.Lua&lt;/code&gt;pobiera parametr w postaci pojedynczego łańcucha znaków, interpretowany jako komenda lua. Komenda zostanie wykonana w aktualnym kontekście lua i powinna zwrócić łańcuch znakowy lub wartość nil. Wynik zostanie zwrócony jako rezultat metody DBus.&lt;/p&gt;&#xA;&lt;p&gt;Jeśli wywołanie Lua zakończy się błędem, metoda DBus zwróci błąd &lt;code&gt;org.darktable.Error.LuaError&lt;/code&gt; z komunikatem błędu lua jako wiadomością, dołączoną do błędu DBus.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>użycie darktable ze skryptu lua</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/lua/darktable-from-lua/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/lua/darktable-from-lua/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Uwaga: Ta opcja jest mocno eksperymentalna. Wiemy o kilku elementach, które wciąż nie działają dobrze w trybie biblioteki. Zalecamy ostrożne testy.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Interfejs lua pozwala na korzystanie z darktable z dowolnego skryptu lua. Spowoduje to załadowanie darktable jako biblioteki i udostępnienie większości API lua (darktable jest skonfigurowane bez plików nagłówkowych, więc funkcje interfejsu użytkownika nie są dostępne).&lt;/p&gt;&#xA;&lt;p&gt;Poniższy program zaprezentuje przykładowo wypisanie listy wszystkich zdjęć z Twojej biblioteki:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/usr/bin/env lua&#xA;package = require &amp;#34;package&amp;#34;&#xA;package.cpath=package.cpath..&amp;#34;;./lib/darktable/lib?.so&amp;#34;&#xA;&#xA;dt = require(&amp;#34;darktable&amp;#34;)(&#xA;&amp;#34;--library&amp;#34;, &amp;#34;./library.db&amp;#34;,&#xA;&amp;#34;--datadir&amp;#34;, &amp;#34;./share/darktable&amp;#34;,&#xA;&amp;#34;--moduledir&amp;#34;, &amp;#34;./lib/darktable&amp;#34;,&#xA;&amp;#34;--configdir&amp;#34;, &amp;#34;./configdir&amp;#34;,&#xA;&amp;#34;--cachedir&amp;#34;,&amp;#34;cachedir&amp;#34;,&#xA;&amp;#34;--g-fatal-warnings&amp;#34;)&#xA;&#xA;require(&amp;#34;darktable.debug&amp;#34;)&#xA;&#xA;for k,v in ipairs(dt.database) do&#xA;   print(tostring(v))&#xA;end&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Zwróć uwagę na trzecią linię, wskazującą lokalizację pliku &lt;code&gt;libdarktable.so&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>API lua</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/lua/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/lua/api/</guid>
+      <description>&lt;p&gt;API Lua w darktable jest udokumentowane w oddzielnej instrukcji, wraz ze szczegółowym opisem wszystkich struktur danych oraz funkcji. Instrukcję do API możesz pobrać &lt;a href=&#34;https://www.darktable.org/resources/&#34; target=&#34;_blank&#34;&gt;stąd&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
