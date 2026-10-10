@@ -1,5 +1,5 @@
 ---
-title: "basic principles"
+title: basic principles for writing scripts
 id: basic-principles
 weight: 20
 ---
@@ -36,6 +36,4 @@ Thus you can __add your own scripts__ as follows:
 
 ### a note on lua-script installations from previous darktable versions
 
-Before version 5.6, darktable's scripts had to be installed manually (see [darktable's scripts](darktables-scripts.md)). 
-
-To remain compatible with such an installation, `require` looks for a script manager in your configuration directory before loading the bundled one: if `[configuration-directory]/lua/tools/script_manager.lua` is present (for example from a manual pre-5.6 installation), _that_ script manager is run instead of the bundled one. 
+To remain compatible with scripts installed before darktable 5.6, `require` looks for a script manager in your configuration directory before loading the bundled one: if `[configuration-directory]/lua/tools/script_manager.lua` is present (for example from a manual pre-5.6 installation), _that_ script manager is run instead of the bundled one. 

@@ -1,16 +1,14 @@
 ---
 title: overview
 id: overview
-weight: 10
+weight: 1
 ---
 
-Lua scripts can be used to define actions for darktable to perform when an event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.
+Darktable can execute scripts written in Lua to perform various actions when an event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.
 
-[Lua](http://www.lua.org/) is an independent project founded in 1993, providing a powerful, fast, lightweight, embeddable scripting language. Lua is widely used by many open source applications, in commercial programs, and for games programming. darktable uses Lua version 5.4. Describing the principles and syntax of Lua is beyond the scope of this manual. For a detailed introduction see the [Lua reference manual](http://www.lua.org/manual/5.4/manual.html).
-
-darktable comes with a number of [scripts included](darktables-scripts.md). The central orchestrator for scripts is the script manager (see [basic principles](basic-principles.md)).
-
-The following sections will provide you with a brief introduction to how Lua scripts can be used within darktable. The comprehensive documentation on Lua Scripting in darktable can be found in the [darktable lua documentation](https://docs.darktable.org/lua/stable/).
+The following subsections provide an introduction to:
+1. [enabling and starting a script](enabling-starting-scripts), and
+1. [writing your own scripts](writing-lua-scripts).
 
 
 
