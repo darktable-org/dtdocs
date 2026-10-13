@@ -7,7 +7,7 @@ weight: 110
 # interface
 
 show splash screen at startup
-: When activated, darktable will display a splash screen indicating progress loading and initializing its code and data and scanning for updated sidecars until it is ready to display its main window. When disabled, darktable displays nothing until loading is complete and it can display the lighttable -- or darkrooom, if invoked with a single filename on the command line (default on).
+: When activated, darktable will display a splash screen indicating progress loading and initializing its code and data and scanning for updated XMP sidecars until it is ready to display its main window. When disabled, darktable displays nothing until loading is complete and it can display the lighttable -- or darkrooom, if invoked with a single filename on the command line (default on).
 
 show welcome screen on next run
 : When activated, the _Welcome_ setup pages will be shown the next time darktable is started (default on, but is set to off after the welcome pages are shown).

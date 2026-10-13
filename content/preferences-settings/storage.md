@@ -28,6 +28,8 @@ create XMP files
 
 : It's strongly recommended that you choose either "on import" or "after edit". Sidecar files provide a useful fail-safe to prevent data loss if your database becomes corrupted. Backing up your raw file plus the accompanying sidecar file will allow you to fully restore your work at a later date by re-importing your edit history back into darktable (default "on import").
 
+: This option also affects the creation of [DTDATA sidecar files](../overview/sidecar-files/dtdata.md) - DTDATA files will be created when required unless this option is set to _never_.
+
 store XMP tags in compressed format
 : Entries in XMP tags can get rather large and may exceed the available space to store the history stack in some output files on export. This option allows binary XMP tags to be compressed in order to save space. Available options are “never”, “always”, and “only large entries” (default).
 
