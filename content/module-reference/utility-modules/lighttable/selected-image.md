@@ -12,22 +12,22 @@ The module controls are spread over two tabs for manipulating the image files an
 ## images tab
 
 remove
-: Remove the selected images from the darktable library without deleting them. Removed images can no longer be viewed or edited within darktable but the image files remain on the filesystem along with any XMP sidecar files. As darktable keeps the XMP files up-to-date with your latest development history, you can fully restore your work later by re-importing the images.
+: Remove the selected images from the darktable library without deleting them. Removed images can no longer be viewed or edited within darktable but the image files remain on the filesystem along with any XMP and DTDATA sidecar files. As darktable keeps the XMP files up-to-date with your latest development history, you can fully restore your work later by re-importing the images.
 
 delete / delete (trash)
-: Remove the selected images from the darktable library and remove any associated XMP sidecar files from the filesystem. If no duplicates of a removed image remain in the darktable library, the image file itself is also deleted. You can control whether this action irrevocably deletes the files or attempts to put them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
+: Remove the selected images from the darktable library and remove any associated XMP and DTDATA sidecar files from the filesystem. If no duplicates of a removed image remain in the darktable library, the image file itself is also deleted. You can control whether this action irrevocably deletes the files or attempts to put them into your system's trash bin with a configuration item in [preferences > security](../../../preferences-settings/security.md). A second configuration item in the same tab allows you to control whether or not to be prompted before deleting images.
 
 move
-: Physically move selected images (the image files plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder the source image will not be moved. After the move the target folder becomes the selected collection if the source folder is empty. If a collection is manually selected during a move, then darktable will not change the selection.
+: Physically move selected images (the image files plus all associated XMP and DTDATA sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder the source image will not be moved. After the move the target folder becomes the selected collection if the source folder is empty. If a collection is manually selected during a move, then darktable will not change the selection.
 
 copy
-: Physically copy selected images (the image file plus all associated XMP sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder it will not be overwritten – instead a new duplicate will be generated with the same history stack as the source image. After the copy the target folder becomes the selected collection. If a collection is manually selected during a copy, then darktable will not change the selection.
+: Physically copy selected images (the image file plus all associated XMP and DTDATA sidecars) to another folder on the filesystem. If an image with the given filename already exists in the target folder it will not be overwritten – instead a new duplicate will be generated with the same history stack as the source image. After the copy the target folder becomes the selected collection. If a collection is manually selected during a copy, then darktable will not change the selection.
 
 create hdr
 : Create a high dynamic range image from the selected images, and add the result to the library as a new image in DNG format. Image alignment can be done by darktable, and this is controlled by a [set of preferences](../../../preferences-settings/processing.md#hdr-alignment). You can also generate HDRs with programs like Luminance HDR, and later import them into darktable for further processing. Note that darktable can only create HDR images from raw files.
 
 duplicate
-: Create duplicates of the selected images within darktable. Duplicate images share the same image file, but each duplicate has its own XMP sidecar file and a separate entry in darktable's library database. This allows you to test different edits on the same image.
+: Create duplicates of the selected images within darktable. Duplicate images share the same image file, but each duplicate has its own XMP and DTDATA sidecar files and a separate entry in darktable's library database. This allows you to test different edits on the same image.
 
 rotation
 : Perform a clockwise or counter-clockwise rotation on the selected images. A third button can be used to reset the image rotation to the value stored in the image's Exif data. This feature is directly linked to the [_orientation_](../../../module-reference/processing-modules/orientation.md) processing module -- adjustments made here are automatically converted into a history stack item for that module.
