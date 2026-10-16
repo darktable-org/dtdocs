@@ -6,7 +6,7 @@ weight: 20
 
 Enabling a Lua script for use is a two-step process:
 1. finding it, as described below, and then
-1. [starting it](starting-a-script).
+1. [starting it](#starting-a-script).
 
 ## finding a script
 
@@ -28,7 +28,7 @@ Now start that script as described below
 
 ## starting a script
 
-Once you have [found the folder containing a script](finding-a-script), 
+Once you have [found the folder containing a script](#finding-a-script), 
 such as "rename-images", use the following steps to start it
 
 1. Click (once) on the grayed-out start/stop icon to the left of the name of the script, which turns the script on.

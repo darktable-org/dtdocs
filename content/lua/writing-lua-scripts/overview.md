@@ -4,7 +4,7 @@ id: overview
 weight: 10
 ---
 
-Lua scripts can be used to define actions for darktable to perform when an event is triggered. Prior to version 5.6 you needed to treat all Lua scripts as described in this subsection, however, from version 5.6 onwards if you only wish to use a built-in script, then you can follow [the process described in the previous section](../enabling-starting-scripts/process-overview).
+Lua scripts can be used to define actions for darktable to perform when an event is triggered. Prior to version 5.6 you needed to treat all Lua scripts as described in this subsection, however, from version 5.6 onwards if you only wish to use a built-in script, then you can follow [the process described in the previous section](../using-scripts/enabling).
 
 On the other hand, if you wish to write a custom Lua script (or are using a version of darktable prior to 5.6), then you will need the information in this subsection.
 
