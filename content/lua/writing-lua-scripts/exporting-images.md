@@ -1,12 +1,12 @@
 ---
-title: exporting images with lua
+title: exporting images with Lua
 id: exporting-images-with-lua
 weight: 60
 ---
 
-So far we have learned to use lua to adapt darktable to our particular workflow. Let's look now at how to use lua to easily export images to an online service. If you are able to upload an image to a service via the command line then you can use lua to integrate this into darktable's user interface.
+So far we have learned to use Lua to adapt darktable to our particular workflow. Let's look now at how to use Lua to easily export images to an online service. If you are able to upload an image to a service via the command line then you can use lua to integrate this into darktable's user interface.
 
-In this next example we will use lua to export via `scp`. A new storage type will appear in darktable's UI that will export images to a remote target via the copy mechanism in `ssh`.
+In this next example we will use Lua to export via `scp`. A new storage type will appear in darktable's UI that will export images to a remote target via the copy mechanism in `ssh`.
 
 ```
 darktable = require "darktable"
@@ -40,6 +40,4 @@ This code will work but it has a couple of limitations. This is just a simple ex
 
 - There is no message displayed once the example is done, only the progress bar on the lower left side tells the user that the job is complete.
 
-- We use `darktable.control.execute` to call an external program. The normal `os.execute` would block other lua codes from happening.
-
-
+- We use `darktable.control.execute` to call an external program. The normal `os.execute` would block other Lua codes from happening.
