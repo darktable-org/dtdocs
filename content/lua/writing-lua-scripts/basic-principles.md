@@ -1,5 +1,5 @@
 ---
-title: basic principles for writing scripts
+title: basic principles
 id: basic-principles
 weight: 20
 ---
