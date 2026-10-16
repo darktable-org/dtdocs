@@ -4,11 +4,9 @@ id: overview
 weight: 1
 ---
 
-Darktable can execute scripts written in Lua to perform various actions when an event is triggered. One example might be calling an external application during file export in order to apply additional processing steps outside of darktable.
+darktable can execute scripts written in Lua to perform an extensive array of actions. Some examples include calling external applications (e.g. after exporting an image), creating keyboard shortcuts that trigger multiple actions in one keystroke, or building entire utility modules.
 
-The following subsections provide an introduction to:
-1. [enabling and starting a script](enabling-starting-scripts), and
-1. [writing your own scripts](writing-lua-scripts).
+The following subsections provide an introduction to [enabling and starting a script](using-scripts).
 
 
 
