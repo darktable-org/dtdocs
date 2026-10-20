@@ -50,7 +50,7 @@ Like other view transforms, modules placed before _spektrafilm_ in the pipeline 
 # usage and FAQ
 
 install the data first
-: The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored in darktable's data folder rather than the cache, so they survive clearing the cache (see [where data packs are stored](#where-data-packs-are-stored)).
+: The module needs a data pack -- the film and paper measurements it works from -- and cannot render anything without one. If none is installed, the module shows a single button that downloads it, and the rest of the controls appear once that finishes. Packs are checked against a checksum before being installed and are stored in darktable's data folder rather than the cache, so they survive clearing the cache (see _where data packs are stored_ below).
 
 edits stay on the data pack they were made with
 : Each data pack has its own identity, and an edit records the pack it was first rendered with. Installing a newer pack does not change how existing edits look: new packs are installed beside the old ones, and only new edits (or an edit where you choose a different _spectral upsampling_ method) use them. Edits made before packs had an identity are treated as made with the first published pack (spektrafilm 0.3.3).
