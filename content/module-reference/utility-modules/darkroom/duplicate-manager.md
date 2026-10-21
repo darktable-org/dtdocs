@@ -16,6 +16,6 @@ Buttons to manage the duplicates are shown to the right of each preview thumbnai
 : Create a 'virgin' duplicate of this image without any development.
 
 ![delete](./duplicate-manager/delete.png#icon) delete 
-: Delete the duplicate.
+: Delete the duplicate's [sidecar files](../../../overview/sidecar-files/sidecar.md) (only shown if there are multiple versions in the list).
 
 A version number is displayed to the right of each thumbnail. Click in the area below the version number to enter a description against that version of the image. This description is stored in the _version name_ metadata tag, which can also be edited within the [metadata editor](../shared/metadata-editor.md) module in the lighttable view.
