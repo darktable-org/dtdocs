@@ -111,11 +111,11 @@ Wavelet curves are shown when one of the “wavelet” modes is selected.
 
 The noise in an image usually consists of both fine grain and coarse grain noise, to varying degrees. The wavelet curves allow the strength of the denoising to be adjusted depending on the coarseness of the visible noise. The left end of the curve will act on very coarse grain noise, while the right of the curve will act on very fine grain noise. Raising the curve will increase the amount of smoothing, while lowering the curve will decrease it.
 
-For example, you can preserve very-fine-grain noise by pulling the right-most part of the curve down. When tackling chroma noise (e.g. on a U0V0 curve, or on a second module instance with a color blend mode) you can safely raise the right side of the curve, since colors do not change a lot on fine scales. This can be useful if you see some noisy isolated pixels with the wrong color.
+For example, you can preserve very-fine-grain noise by pulling the right-most part of the curve down. When tackling chroma noise (e.g. on a chroma curve, or on a second module instance with a color blend mode) you can safely raise the right side of the curve, since colors do not change a lot on fine scales. This can be useful if you see some noisy isolated pixels with the wrong color.
 
 ## wavelets _Y0U0V0_ color mode
 
-The preferred way to use wavelets is with the _Y0U0V0_ color mode. This mode separates the denoising curves into luminance (_Y0_) and color (_U0V0_) components. You can then use the _Y0_ curve to control the level of luma denoising, and the _U0V0_ curve to control the level of chroma denoising.
+The preferred way to use wavelets is with the _Y0U0V0_ color mode. This mode separates the denoising curves into luminance (_luma_) and color (_chroma_) components. You can then use the _luma_ curve to control the level of luma denoising, and the _chroma_ curve to control the level of chroma denoising.
 
 ![denoise-y0u0v0](./denoise-profiled/denoise-y0u0v0.png#w33)
 
