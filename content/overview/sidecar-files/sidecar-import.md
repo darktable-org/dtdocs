@@ -19,7 +19,8 @@ This migration happens automatically when entering the darkroom view, provided t
 
 At present, darktable is able to handle the following development steps from Lightroom-generated XMP files (with the corresponding darktable module in parentheses):
 
-- crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md) - deprecated module)
+- crop ([_crop_](../../module-reference/processing-modules/crop.md))
+- straightening angle ([_rotate and perspective_](../../module-reference/processing-modules/rotate-perspective.md))
 - black level ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - exposure ([_exposure_](../../module-reference/processing-modules/exposure.md))
 - vignette ([_vignetting_](../../module-reference/processing-modules/vignetting.md))
@@ -28,11 +29,9 @@ At present, darktable is able to handle the following development steps from Lig
 - HSL ([_color zones_](../../module-reference/processing-modules/color-zones.md))
 - split-toning ([_split-toning_](../../module-reference/processing-modules/split-toning.md))
 - grain ([_grain_](../../module-reference/processing-modules/grain.md))
-- spot removal ([_spot removal_](../../module-reference/processing-modules/spot-removal.md) - deprecated module)
+- spot removal ([_retouch_](../../module-reference/processing-modules/retouch.md))
 
----
+Lightroom's exposure and black level adjustments are added to darktable's default exposure rather than replacing it. The working profile in the [_input color profile_](../../module-reference/processing-modules/input-color-profile.md) module is set to linear ProPhoto RGB, the color space used by Lightroom. Tone curves that would not change the image are not imported.
 
-**Note**: Some of the modules used in the import of Lightroom-generated XMP files are deprecated. You will still be able to edit these files, but this feature should be used with caution.
-
----
+History items created by this process are labeled "lr import" in the [_history stack_](../../module-reference/utility-modules/darkroom/history-stack.md).
 
