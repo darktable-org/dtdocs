@@ -118,7 +118,7 @@ frame long edge
 film exposure
 : Exposure adjustment at the film stage, in EV. Unlike the [_exposure_](exposure.md) module, which only scales pixel values, this changes how much light reaches the simulated film. Besides brightness, it moves the scene to a different part of the film's response, so contrast, color and grain change too.
 
-: Note: With _auto print exposure_ on, _film exposure_ no longer changes overall brightness (see [usage](#usage) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.
+: Note: With _auto print exposure_ on, _film exposure_ no longer changes overall brightness (see [usage](#usage-and-faq) above), but it still changes color and grain, because it moves the scene to a different part of the film's response.
 
 push/pull
 : Shooting the film at a speed other than its box speed (the ISO rating printed on the film's packaging), then compensating in development, in stops. Positive values push (shoot darker, develop longer), negative values pull. Development is adjusted automatically: each stop of push lowers the exposure by one stop and raises development contrast by about 15%, and pull does the opposite. This comes on top of _development gamma_ below, which does not move. This is an approximation, since the real result depends on the specific developer, which is not simulated.
