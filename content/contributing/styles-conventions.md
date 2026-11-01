@@ -170,7 +170,7 @@ When taking screenshots from the darktable application itself, use the default d
 Several filename suffixes can be used to control how an image is rendered.
 
 icon
-: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./styles-conventions/contributing.png#icon)` outputs the following: ![squirrel icon](./styles-conventions/squirrel.png#icon)
+: To insert an image as an icon, include `#icon` after the image name in the link. The markdown `![squirrel icon](./styles-conventions/squirrel.png#icon)` outputs the following: ![squirrel icon](./styles-conventions/squirrel.png#icon)
 
 image width
 : You can set the image width to 25, 33, 50, 66, 75 or 100 per cent of the rendered page width by including `#wxx` after the image name in the link, where `xx` is the desired width. For example:
