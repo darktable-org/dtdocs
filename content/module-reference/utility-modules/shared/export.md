@@ -109,7 +109,7 @@ multi-preset export
 
 The “preferences…” option in the presets menu brings up a dialog where you can configure what metadata to include in exported files:
 
-![metadata config](./export-selected/metadata-config.png#w66)
+![metadata config](./export/metadata-config.png#w66)
 
 The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. 
 

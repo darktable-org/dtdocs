@@ -9,7 +9,7 @@ The duplicate manager lists each version of the current darkroom image along wit
 
 Buttons to manage the duplicates are shown to the right of each preview thumbnail:
 
-![duplicate with history](./dupicate-manager/copy-current.png#icon) duplicate with history 
+![duplicate with history](./duplicate-manager/copy-current.png#icon) duplicate with history 
 : Create a new duplicate with the same history stack (only shown if the selected duplicate has been edited).
 
 ![duplicate original](./duplicate-manager/copy-original.png#icon) duplicate original 
