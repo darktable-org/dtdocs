@@ -48,7 +48,7 @@ harmony rule
 
     **Note on dyad and tetrad:** the anchor hue sets the symmetry axis of the pattern, not the position of a node. The palette is symmetric around the anchor. This matches the vectorscope harmony guide overlay.
 
-![infer-from-image](./color-harmoinzer/infer-from-image.png#icon) infer from image *(standard modes only)*
+![infer-from-image](./color-harmonizer/infer-from-image.png#icon) infer from image *(standard modes only)*
 : Analyses the preview image's chroma-weighted hue histogram and automatically selects the harmony
 rule and anchor hue that best fit the image's existing color distribution — i.e. the combination
 that already covers the most chromatic energy and therefore requires the least correction.
