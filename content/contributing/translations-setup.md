@@ -41,6 +41,7 @@ Upon deployment at [docs.darktable.org](https://docs.darktable.org) translated .
        title: darktable user manual
        weight: 1
    ```
+4. Add new language files in the Hugo theme directories (`themes/hugo-darktable-docs-epub-theme/i18n`, `themes/hugo-darktable-docs-pdf-theme/i18n`, and `themes/hugo-darktable-docs-theme/i18n`).
 
 # Enabling and disabling languages
 
