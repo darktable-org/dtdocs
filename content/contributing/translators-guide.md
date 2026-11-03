@@ -6,7 +6,7 @@ weight: 110
 
 You are welcome to help translate darktable's docs. Please read through this guide to learn the conventions and requirements for translation work.
 
-Translations are maintained through [Weblate](https://hosted.weblate.org/projects/darktable-documentation/). Unregistered users can add suggestions for translations. To contribute to the translations you need to [register with Weblate](https://hosted.weblate.org/accounts/register/).
+Translations are maintained through [Weblate](https://hosted.weblate.org/projects/darktable-documentation/), apart from a small number of [Hugo-specific strings](#hugo-strings). Unregistered users can add suggestions for translations. To contribute to the translations you need to [register with Weblate](https://hosted.weblate.org/accounts/register/).
 
 We do __not__ accept automated AI translations without human review and quality control. 
 
@@ -33,3 +33,8 @@ It is helpful to open the page you are currently working on in a second window (
 # technical information sections
 
 At the top of each processing module's page there is a collapsible "Technical information" section that needs special formatting and is supposed to exactly mirror the descriptions available as tooltips in darktable. All languages were seeded with the exact translations from darktables program code/translations with "needs edit" to ensure human oversight.
+
+# Hugo strings
+
+A small number of strings are Hugo-specific (for instance, _Table of Contents_), and their translations are stored outside of the `po` files managed by Weblate. To update the Hugo strings it is necessary to submit changes to the appropriate language file in Hugo's `i18n` directories (there are separate ones for [web pages](https://github.com/darktable-org/dtdocs/tree/master/themes/hugo-darktable-docs-theme/i18n), [PDF](https://github.com/darktable-org/dtdocs/tree/master/themes/hugo-darktable-docs-pdf-theme/i18n), and [EPUB](https://github.com/darktable-org/dtdocs/tree/master/themes/hugo-darktable-docs-epub-theme/i18n)). 
+
