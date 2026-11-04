@@ -84,6 +84,10 @@ store masks
 profile
 : The output color profile. Select “image settings” if you want the settings in the [_output color profile_](../../processing-modules/output-color-profile.md) module of the individual images to be respected.
 
+PQ peak
+: The brightest highlight of a PQ (HDR) export, in nits (203 to 10000, default 1000). Tone mappers that follow the output, such as [_AgX_](../../processing-modules/agx.md#hdr-output) and [_sigmoid_](../../processing-modules/sigmoid.md), map their white to this peak, while mid-tones keep their SDR brightness. Set it to the peak brightness of the display the image is meant for. This option is only shown when _profile_ is a PQ profile or "image settings". HLG exports always peak at 1000 nits, and SDR exports are not affected. The setting is stored in export presets, and an export keeps the peak it was started with, even if the setting is changed while it runs. The darkroom also uses this setting when your display profile is PQ.
+: PQ exports also record how bright the image actually is, so that HDR displays and viewers can tone map it: PNG, AVIF and HEIF files carry its content light level (MaxCLL and MaxFALL), and JPEG XL files carry its measured peak luminance as their intensity target. AVIF needs darktable built with libavif 1.0.0 or newer, and HEIF with libheif 1.15.0 or newer.
+
 intent
 : This option lets you define the intent -- the way in which darktable will handle out-of-gamut colors. See [rendering intent](../../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
 
