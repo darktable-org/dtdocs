@@ -244,7 +244,7 @@ Another property of per-channel S-curves is the skewing of bright colors mention
 
 When an image is exported to an HDR format -- an output profile with a PQ or HLG transfer function, such as _PQ Rec2020_ or _HLG Rec2020_ -- _AgX_ adapts automatically, so the same edit can be exported to SDR and HDR without changes. darktable places the diffuse "reference" white of HDR output at 203 nits, and the room above it is called the _headroom_ of the output:
 
--   for PQ, the peak is set by the _PQ peak_ setting of the [_export_](../utility-modules/shared/export.md) module (default 1000 nits, a headroom of about 4.9×)
+-   for PQ, the peak is set by the _PQ peak_ setting of the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits, a headroom of about 4.9×)
 -   for HLG, the peak is always 1000 nits
 -   SDR output has no headroom, and is rendered exactly as before
 
@@ -252,7 +252,7 @@ With HDR output, _AgX_ follows the HDR design of Blender's AgX: shadows, mid-ton
 
 The [curve plot](#show-curve) and the curve warnings use the headroom of the darkroom's own output, so they show the HDR curve when your display profile is PQ or HLG. The picker for _pivot target output_ always works on the SDR curve.
 
-Edits made before darktable supported HDR output do not follow the output peak, and keep their white at 203 nits. Use the [_follow output peak_](#advanced-curve-parameters) checkbox to opt such an edit in.
+Edits made before darktable supported HDR output do not follow the output peak, and keep their white at 203 nits. To let such an edit extend its highlights to the peak of HDR output as well, tick its [_follow output peak_](#advanced-curve-parameters) checkbox.
 
 # recommended workflow
 
