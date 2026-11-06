@@ -140,7 +140,13 @@ shoulder start
 : Defines the point where the linear portion of the curve ends and the shoulder begins. Keeping the value at 0% allows the smooth transition to start at the pivot. Higher values push the transition point up towards the chosen _target white_. This may result in hard clipping, which can lead to a loss of detail in the highlights.
 
 target white
-: The upper bound that the curve converges to. This can be used to limit the maximum output luminance.
+: The upper bound that the curve converges to, relative to the peak of the output. This can be used to limit the maximum output luminance. For SDR output the peak is display white; for HDR output it is the peak of the export (see [HDR output](#hdr-output)).
+
+follow output peak
+: This checkbox is only shown for edits made before darktable supported HDR output, and only while it is unticked. Such edits keep their white at the 203 nit reference white, so they render exactly as before, also when exported as PQ or HLG. Tick it to let the curve extend the highlights to the peak of an HDR output. SDR output does not change. Once ticked, the checkbox is hidden; new instances of the module always follow the output peak.
+
+HDR purity
+: For HDR output, how much of the extra saturation and hue shift that comes from extending the highlights to the peak is kept (default 50%). This control has no effect on SDR output, and is hidden for edits that do not follow the output peak.
 
 toe start
 : Defines the point where the linear portion of the curve ends and the toe begins. Keeping the value at 0% allows the smooth transition to start at the pivot. Higher values push the transition point down towards the chosen _target black_. This may result in hard clipping, which can lead to a loss of detail in the shadows.
@@ -233,6 +239,20 @@ It is important to note that using the primaries controls, the properties of the
 Per-channel S-curves have the property of desaturating highlights, independently of the _attenuation_ control. This means you _can_ reverse the attenuation (restore saturation) for mid-tones using _purity boost_, but not so for highlights.
 
 Another property of per-channel S-curves is the skewing of bright colors mentioned above: the "Notorious 6". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the "Notorious 6" shift will skew the slightly yellow-tinted red more towards yellow, allowing you to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the [look](#look) section.
+
+# HDR output
+
+When an image is exported to an HDR format -- an output profile with a PQ or HLG transfer function, such as _PQ Rec2020_ or _HLG Rec2020_ -- _AgX_ adapts automatically, so the same edit can be exported to SDR and HDR without changes. darktable places the diffuse "reference" white of HDR output at 203 nits, and the room above it is called the _headroom_ of the output:
+
+-   for PQ, the peak is set by the _PQ peak_ setting of the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits, a headroom of about 4.9×)
+-   for HLG, the peak is always 1000 nits
+-   SDR output has no headroom, and is rendered exactly as before
+
+With HDR output, _AgX_ follows the HDR design of Blender's AgX: shadows, mid-tones and the pivot keep the brightness they have in SDR, and only the highlights are extended up to the peak of the output. The _target white_ is relative to that peak. The _HDR purity_ slider controls how saturated those extended highlights are.
+
+The [curve plot](#show-curve) and the curve warnings use the headroom of the darkroom's own output, so they show the HDR curve when your display profile is PQ or HLG. The picker for _pivot target output_ always works on the SDR curve.
+
+Edits made before darktable supported HDR output do not follow the output peak, and keep their white at 203 nits. To let such an edit extend its highlights to the peak of HDR output as well, tick its [_follow output peak_](#advanced-curve-parameters) checkbox.
 
 # recommended workflow
 
