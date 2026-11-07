@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-11-05 04:39+0000\n"
+"POT-Creation-Date: 2026-11-07 04:02+0000\n"
 "PO-Revision-Date: 2026-07-02 19:05+0000\n"
 "Last-Translator: Yannic Meyer <kathode@posteo.de>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/darktable-"
@@ -1443,6 +1443,15 @@ msgid ""
 msgstr ""
 "profiel\n"
 ": Het uitvoerkleurprofiel. Selecteer “beeldinstellingen” als je wilt dat de instellingen in de module [_uitgaand kleurprofiel_](../../processing-modules/output-color-profile.md) van de afzonderlijke afbeeldingen worden gerespecteerd.\n"
+
+#. type: Plain text
+#: content/module-reference/utility-modules/shared/export.md
+#, no-wrap
+msgid ""
+"PQ peak\n"
+": The brightest highlight of a PQ (HDR) export, in nits (203 to 10000, default 1000). Tone mappers that follow the output, such as [_AgX_](../../processing-modules/agx.md#hdr-output) and [_sigmoid_](../../processing-modules/sigmoid.md), map their white to this peak, while mid-tones keep their SDR brightness. Set it to the peak brightness of the display the image is meant for. This option is only shown when _profile_ is a PQ profile or \"image settings\". HLG exports always peak at 1000 nits, and SDR exports are not affected. The setting is stored in export presets, and an export keeps the peak it was started with, even if the setting is changed while it runs. The darkroom also uses this setting when your display profile is PQ.\n"
+": PQ exports also record how bright the image actually is, so that HDR displays and viewers can tone map it: PNG, AVIF and HEIF files carry its content light level (MaxCLL and MaxFALL), and JPEG XL files carry its measured peak luminance as their intensity target. AVIF needs darktable built with libavif 1.0.0 or newer, and HEIF with libheif 1.15.0 or newer.\n"
+msgstr ""
 
 #. type: Plain text
 #: content/module-reference/utility-modules/shared/export.md
@@ -15344,7 +15353,23 @@ msgstr ""
 #, no-wrap
 msgid ""
 "target white\n"
-": The upper bound that the curve converges to. This can be used to limit the maximum output luminance.\n"
+": The upper bound that the curve converges to, relative to the peak of the output. This can be used to limit the maximum output luminance. For SDR output the peak is display white; for HDR output it is the peak of the export (see [HDR output](#hdr-output)).\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid ""
+"follow output peak\n"
+": This checkbox is only shown for edits made before darktable supported HDR output, and only while it is unticked. Such edits keep their white at the 203 nit reference white, so they render exactly as before, also when exported as PQ or HLG. Tick it to let the curve extend the highlights to the peak of an HDR output. SDR output does not change. Once ticked, the checkbox is hidden; new instances of the module always follow the output peak.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid ""
+"HDR purity\n"
+": For HDR output, how much of the extra saturation and hue shift that comes from extending the highlights to the peak is kept (default 50%). This control has no effect on SDR output, and is hidden for edits that do not follow the output peak.\n"
 msgstr ""
 
 #. type: Plain text
@@ -15615,6 +15640,55 @@ msgstr ""
 #: content/module-reference/processing-modules/agx.md
 #, no-wrap
 msgid "Another property of per-channel S-curves is the skewing of bright colors mentioned above: the \"Notorious 6\". _AgX_ cleverly uses this effect to exaggerate hue shifts introduced using the rotation of primaries. For example, a red primary rotated a few degrees towards green (yellow) will turn ever so slightly yellow, and this can be reversed later using the _red reverse rotation_ slider, if desired. However, for brighter tones, the \"Notorious 6\" shift will skew the slightly yellow-tinted red more towards yellow, allowing you to obtain orange sunsets instead of pink ones. The reverse rotation will not recover this additional skew fully. To control how much _additional_ skew you want to allow, use the _preserve hue_ slider in the [look](#look) section.\n"
+msgstr ""
+
+#. type: Title #
+#: content/module-reference/processing-modules/agx.md
+#: content/module-reference/processing-modules/output-color-profile.md
+#, no-wrap
+msgid "HDR output"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "When an image is exported to an HDR format -- an output profile with a PQ or HLG transfer function, such as _PQ Rec2020_ or _HLG Rec2020_ -- _AgX_ adapts automatically, so the same edit can be exported to SDR and HDR without changes. darktable places the diffuse \"reference\" white of HDR output at 203 nits, and the room above it is called the _headroom_ of the output:\n"
+msgstr ""
+
+#. type: Bullet: '-   '
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "for PQ, the peak is set by the _PQ peak_ setting of the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits, a headroom of about 4.9×)\n"
+msgstr ""
+
+#. type: Bullet: '-   '
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "for HLG, the peak is always 1000 nits\n"
+msgstr ""
+
+#. type: Bullet: '-   '
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "SDR output has no headroom, and is rendered exactly as before\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "With HDR output, _AgX_ follows the HDR design of Blender's AgX: shadows, mid-tones and the pivot keep the brightness they have in SDR, and only the highlights are extended up to the peak of the output. The _target white_ is relative to that peak. The _HDR purity_ slider controls how saturated those extended highlights are.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "The [curve plot](#show-curve) and the curve warnings use the headroom of the darkroom's own output, so they show the HDR curve when your display profile is PQ or HLG. The picker for _pivot target output_ always works on the SDR curve.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/agx.md
+#, no-wrap
+msgid "Edits made before darktable supported HDR output do not follow the output peak, and keep their white at 203 nits. To let such an edit extend its highlights to the peak of HDR output as well, tick its [_follow output peak_](#advanced-curve-parameters) checkbox.\n"
 msgstr ""
 
 #. type: Title #
@@ -18992,6 +19066,36 @@ msgid ""
 msgstr ""
 "Uitgangs profiel\n"
 ": Het profiel dat wordt gebruikt om kleuren weer te geven voor uitvoer/export. De profielgegevens worden ingebed in het uitvoerbestand (indien ondersteund door het bestandsformaat), zodat andere toepassingen de kleuren correct kunnen interpreteren. Omdat niet alle applicaties bekend zijn met kleurprofielen, is de algemene aanbeveling om je aan sRGB te houden, tenzij je weet wat je doet en een goede reden hebt om het anders te doen.\n"
+
+#. type: Plain text
+#: content/module-reference/processing-modules/output-color-profile.md
+#, no-wrap
+msgid "The _PQ Rec2020_, _PQ P3_, _HLG Rec2020_ and _HLG P3_ profiles produce HDR images, for display on HDR screens. They use the [PQ](https://en.wikipedia.org/wiki/Perceptual_quantizer) (SMPTE ST 2084) and [HLG](https://en.wikipedia.org/wiki/Hybrid_log%E2%80%93gamma) (ARIB STD-B67) transfer functions of [Rec. ITU-R BT.2100](https://www.itu.int/rec/R-REC-BT.2100), together with Rec2020 or Display P3 primaries. To keep their brightness and color, export them in a format that can carry them with enough precision, such as 10-bit or higher AVIF, HEIF, JPEG XL or 16-bit PNG. For an introduction to HDR video and display standards, see [high-dynamic-range television](https://en.wikipedia.org/wiki/High-dynamic-range_television) on Wikipedia.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/output-color-profile.md
+#, no-wrap
+msgid "darktable maps a pipeline value of 1.0 (display white for SDR output) to the HDR \"reference white\" of 203 nits, as recommended by [Report ITU-R BT.2408](https://www.itu.int/pub/R-REP-BT.2408), so mid-tones look as bright as in an SDR export. Values above 1.0 are highlights brighter than reference white:\n"
+msgstr ""
+
+#. type: Bullet: '-   '
+#: content/module-reference/processing-modules/output-color-profile.md
+#, no-wrap
+msgid "PQ can encode up to 10000 nits. The brightest highlights reach the _PQ peak_ set in the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits).\n"
+msgstr ""
+
+#. type: Bullet: '-   '
+#: content/module-reference/processing-modules/output-color-profile.md
+#, no-wrap
+msgid "HLG is converted for a nominal 1000 nit display, so highlights reach at most 1000 nits, about 4.9 times reference white.\n"
+msgstr ""
+
+#. type: Plain text
+#: content/module-reference/processing-modules/output-color-profile.md
+#, no-wrap
+msgid "The ratio between the peak of the output and reference white is the _headroom_ of the output. The [_AgX_](./agx.md#hdr-output) and [_sigmoid_](./sigmoid.md) tone mappers follow it, so that a single edit can be exported to SDR, HLG and PQ without changes.\n"
+msgstr ""
 
 #. type: Yaml Front Matter Hash Value: title
 #: content/module-reference/processing-modules/lut-3D.md
@@ -23043,9 +23147,16 @@ msgstr ""
 msgid ""
 "target white\n"
 ": Upper bound that the sigmoid curve converges to as the scene value approaches infinity -- this should normally be left unchanged. You can use this to clip white at a defined scene intensity.\n"
+": For HDR output (an output profile with a PQ or HLG transfer function), target white is multiplied by the headroom of the output -- its peak divided by the 203 nit reference white -- so that the highlights extend to the peak of the export. HLG peaks at 1000 nits, and PQ at the _PQ peak_ set in the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits). The result is capped at 1600% (3248 nits). SDR output is not affected.\n"
 msgstr ""
-"doelwit wit\n"
-": Bovengrens waar de sigmoïde curve naar convergeert als de scene waarde oneindig nadert -- dit moet normaal ongewijzigd blijven. U kunt dit gebruiken om wit te knippen bij een bepaalde intensiteit van de scène.\n"
+
+#. type: Plain text
+#: content/module-reference/processing-modules/sigmoid.md
+#, no-wrap
+msgid ""
+"follow output peak\n"
+": This checkbox is only shown for edits made before darktable supported HDR output, and only while it is unticked. Such edits keep _target white_ as set, so they render exactly as before, also when exported as PQ or HLG. Tick it to scale _target white_ to the peak of an HDR output, as described above. SDR output does not change. New instances of the module always follow the output peak.\n"
+msgstr ""
 
 #. type: Plain text
 #: content/module-reference/processing-modules/sigmoid.md
@@ -41774,6 +41885,7 @@ msgid ""
 "              [--icc-type <type>]\n"
 "              [--icc-file <file>]\n"
 "              [--icc-intent <intent>]\n"
+"              [--pq-peak <nits>]\n"
 "              [--print-paths]\n"
 "              [--print-paths-as-flags]\n"
 "              [--verbose]\n"
@@ -41958,6 +42070,14 @@ msgid ""
 msgstr ""
 "`--icc-intent <intent>`\n"
 ": geef de weergave-intentie op. Standaard ingesteld op \"afbeelding gespecificeerd\". Gebruik `--help icc-intent` om een lijst van de ondersteunde intenties te verkrijgen. Zie [rendering intent](../../special-topics/color-management/rendering-intent) voor een meer gedetailleerde beschrijving van de beschikbare opties.\n"
+
+#. type: Plain text
+#: content/special-topics/program-invocation/darktable-cli.md
+#, no-wrap
+msgid ""
+"`--pq-peak <nits>`\n"
+": Set the peak luminance of PQ (HDR) output, from 203 to 10000 nits. Tone mappers that follow the output, such as _AgX_ and _sigmoid_, map their white to this peak. Defaults to the _PQ peak_ setting of the [_export_](../../module-reference/utility-modules/shared/export.md) module.\n"
+msgstr ""
 
 #. type: Plain text
 #: content/special-topics/program-invocation/darktable-cli.md
@@ -45429,8 +45549,9 @@ msgstr "Twee problemen kunnen zich voordoen:\n"
 
 #. type: Bullet: '- '
 #: content/special-topics/midi-device-support.md
-#, no-wrap
-msgid "a device you don't want to use might be opened anyway (and potentially cause inappropriate behavior, like starting a fireworks show prematurely -- see [this document](http://webcache.googleusercontent.com/search?q=cache:6EcEOjfjiAkJ:gmbh.pyropak.com/docs/downloads/surefire-prologic-digital-controller_rev2010.pdf+&cd=1&hl=en&ct=clnk&gl=us)); or\n"
+#, fuzzy, no-wrap
+#| msgid "a device you don't want to use might be opened anyway (and potentially cause inappropriate behavior, like starting a fireworks show prematurely -- see [this document](http://webcache.googleusercontent.com/search?q=cache:6EcEOjfjiAkJ:gmbh.pyropak.com/docs/downloads/surefire-prologic-digital-controller_rev2010.pdf+&cd=1&hl=en&ct=clnk&gl=us)); or\n"
+msgid "a device you don't want to use might be opened anyway (and potentially cause inappropriate behavior, like starting a fireworks show prematurely); or\n"
 msgstr "een apparaat die je niet wilt gebruiken, kan evengoed geopend worden (en mogelijk voor ongewenste gedrag zorgen, zoals het te vroeg starten van een vuurwerk show -- bekijk [dit document](http://webcache.googleusercontent.com/search?q=cache:6EcEOjfjiAkJ:gmbh.pyropak.com/docs/downloads/surefire-prologic-digital-controller_rev2010.pdf+&cd=1&hl=en&ct=clnk&gl=us)); of\n"
 
 #. type: Bullet: '- '
@@ -46563,6 +46684,14 @@ msgstr "In een typisch gebruiksgeval zal de tweede afbeelding gebaseerd zijn op 
 #, no-wrap
 msgid "In the lower text output frame you will see the color values extracted from the available data for each individual color patch. The first column gives the name of the patch, the second and third column show the corresponding color values of the source image in RGB and Lab format, respectively. The fourth column contains the Lab value coming from the reference (or from the chart file if no reference image has been given). Finally, the fifth and sixth columns display how strongly source and reference values deviate in terms of delta-E values.\n"
 msgstr "In het onderste tekstuitvoerkader zie je de kleurwaarden die zijn geëxtraheerd uit de beschikbare gegevens voor elk afzonderlijk kleurvlak. De eerste kolom geeft de naam van de patch weer, de tweede en derde kolom tonen de corresponderende kleurwaarden van de bronafbeelding in respectievelijk RGB- en Lab-formaat. De vierde kolom bevat de Lab-waarde die uit de referentie komt (of uit het kaartbestand als er geen referentie-afbeelding is gegeven). Ten slotte wordt in de vijfde en zesde kolom weergegeven hoe sterk bron- en referentiewaarden afwijken in termen van delta-E-waarden.\n"
+
+#, no-wrap
+#~ msgid ""
+#~ "target white\n"
+#~ ": Upper bound that the sigmoid curve converges to as the scene value approaches infinity -- this should normally be left unchanged. You can use this to clip white at a defined scene intensity.\n"
+#~ msgstr ""
+#~ "doelwit wit\n"
+#~ ": Bovengrens waar de sigmoïde curve naar convergeert als de scene waarde oneindig nadert -- dit moet normaal ongewijzigd blijven. U kunt dit gebruiken om wit te knippen bij een bepaalde intensiteit van de scène.\n"
 
 #, fuzzy, no-wrap
 #~| msgid "crop and rotate ([_crop and rotate_](../../module-reference/processing-modules/crop-rotate.md))\n"
