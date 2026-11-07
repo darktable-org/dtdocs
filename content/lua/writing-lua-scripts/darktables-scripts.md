@@ -1,22 +1,10 @@
 ---
-title: darktable's scripts
+title: darktable's scripts (before version 5.6)
 id: darktables-scripts
 weight: 15
 ---
 
-## from 5.6 onward
-
-A collection of scripts is included with darktable. They can be disabled in [preferences > lua](../preferences-settings/lua-options.md). 
-
-Starting with darktable 5.6, the lua-scripts are included with the release, so they no longer have to installed separately. 
-
-See [basic principles](basic-principles.md) for an explanation of how darktable loads Lua scripts. 
-
-Documentation for darktable's scripts is available in the [lua docs](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).
-
-## pre 5.6
-
-Pre 5.6 the scripts were not bundled and had to be installed using the following instructions. 
+Prior to darktable version 5.6 scripts were not bundled with darktable and must be installed using the following instructions. 
 
 ### Download and Install
 
