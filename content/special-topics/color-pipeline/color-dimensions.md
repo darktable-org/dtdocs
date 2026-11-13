@@ -1,6 +1,8 @@
 ---
 title: darktable's color dimensions
 id: color-dimensions
+aliases:
+- ../color-management/color-dimensions
 weight: 80
 ---
 
