@@ -4,7 +4,7 @@ id: printing-labeled-images
 weight: 40
 ---
 
-The first example showed us the very basics of lua and allowed us to check that everything was working properly. Now let's do something a little bit more complex. Let's try to print a list of images that have a "red" label attached to them. But first of all, what is an image?
+[The first example](a-simple-example) showed the very basics of Lua and allowed us to check that everything was working properly. Now let's do something a little bit more complex. Let's try to print a list of images that have a "red" label attached to them. But first of all, what is an image?
 
 ```
 local darktable = require "darktable"
