@@ -69,8 +69,28 @@ Alternatively you can sync your fork and local copy via terminal:
 10. If you need to make further corrections using the current branch, simply repeat 3-8. For the command in step 3 you can omit `-b` and in step 8 you can just do `git push`.
 11. After you are done and your pull request is merged or you are finished with your work for this specific pull request, execute `git checkout master` to return to the master branch. I recommend working on only one branch/pr at a time if you don't know how git works.
 
-## Running `hugo` locally to see changes
+## Pull request
+
+1. Go to https://github.com/darktable-org/dtdocs/compare
+2. Press `compare across forks`. Select your repository, and then the branch you just worked on.
+3. Press `Create Pull Request`
+
+## Running `hugo` locally to preview changes
 [hugo](https://github.com/gohugoio/hugo) can also be executed locally to create a local live preview of the docs. This is useful to check for formatting, links etc. 
+
+### 1. Use a compatible Hugo version
+
+You need the *extended* edition of Hugo, and **not** the latest release: the theme still uses the `libsass` transpiler, which was removed in Hugo v0.170.0. Trying to build the pages will versions > 0.170.0 will fail with `the libsass transpiler was removed in Hugo v0.170.0`.
+
+Use the same version as the official deployment to docs.darktable.org, currently **v0.152.2**. Check your version with `hugo version`. Package managers usually install the latest release, so download the matching binary from the [Hugo releases page](https://github.com/gohugoio/hugo/releases/tag/v0.152.2) instead (`hugo_extended_0.152.2_<os>-<arch>`) and put it in your `PATH`, e.g. for Linux as follows:
+
+```
+mkdir -p ~/.local/opt/hugo-0.152.2 ~/.local/bin
+curl -L https://github.com/gohugoio/hugo/releases/download/v0.152.2/hugo_extended_0.152.2_linux-amd64.tar.gz | tar xz -C ~/.local/opt/hugo-0.152.2
+ln -sf ~/.local/opt/hugo-0.152.2/hugo ~/.local/bin/hugo-0.152
+```
+
+### 2. Generate the stylesheets
 
 Before you can preview the site with hugo you need to generate the stylesheets:
 
@@ -81,10 +101,10 @@ yarn install
 
 Instead of `yarn install` you can use `npm install`.
 
-Execute `hugo server -D --disableFastRender` from the base directory of your local repository. When no errors are encountered, the terminal will report: `Web Server is available at http://localhost:1313/usermanual/development/ (bind address 127.0.0.1)` and the site should be available at the URL. Hugo will monitor the directory for changes and redeploy upon changing files automatically. When you have a specific page open and make changes to the corresponding .md file the browser should also reload the page after hugo has automatically redeployed. 
+### 3. Start the preview
 
-## Pull request
+Execute `hugo server -D --disableFastRender` (or `hugo-0.152 server …`) from the base directory of your local repository. When no errors are encountered, the terminal reports `Web Server is available at http://localhost:1313/usermanual/development/` and the site is available at that URL. Hugo will monitor the directory for changes and redeploy upon changing files automatically. When you have a specific page open and make changes to the corresponding .md file the browser should also reload the page after hugo has automatically redeployed. 
 
-1. Go to https://github.com/darktable-org/dtdocs/compare
-2. Press `compare across forks`. Select your repository, and then the branch you just worked on.
-3. Press `Create Pull Request`
+
+
+
