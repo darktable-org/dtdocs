@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenCL on darktable user manual</title>
+    <link>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/</link>
+    <description>Recent content in OpenCL on darktable user manual</description>
+    <generator>Hugo</generator>
+    <language>pl</language>
+    <atom:link href="https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>setting up OpenCL</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/setting-up/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/setting-up/</guid>
+      <description>&lt;p&gt;Ogromna różnorodność systemów i wyraźne różnice między dostawcami OpenCL a wersjami sterowników uniemożliwiają kompleksowy przegląd konfiguracji OpenCL. Możemy podać tylko przykład, w tym przypadku dla wersji sterownika NVIDIA 542.29.06 w systemie Fedora 39. Mamy nadzieję, że będzie to podstawowe wprowadzenie i pomoże rozwiązać wszelkie problemy, związane z konfiguracją.&lt;/p&gt;&#xA;&lt;p&gt;Zasada działania funkcji OpenCL wygląda następująco:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;darktable &amp;gt; libOpenCL.so &amp;gt; libnvidia-opencl.so.1 &amp;gt; moduł(y) sterownika jądra &amp;gt; GPU&lt;/code&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;darktable dynamicznie ładuje &lt;code&gt;libOpenCL.so&lt;/code&gt; &amp;ndash; bibliotekę systemową, która musi być dostępna dla dynamicznego programu ładującego systemu (&lt;code&gt;ld.so&lt;/code&gt;).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>możliwe problemy i rozwiązania</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/problems-solutions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/problems-solutions/</guid>
+      <description>&lt;p&gt;darktable automatycznie wykryje błędy uruchomieniowe OpenCL. Po wykryciu błędu ponownie przetworzy wszystko na procesorze. Chociaż spowolni to przetwarzanie, nie powinno to wpłynąć na wynik końcowy.&lt;/p&gt;&#xA;&lt;p&gt;Może istnieć wiele przyczyn niepowodzenia OpenCL podczas fazy inicjalizacji. OpenCL zależy od wymagań sprzętowych oraz obecności określonych sterowników i bibliotek. Ponadto wszystkie muszą pasować pod względem producenta, modelu i numeru wersji. Jeśli coś nie pasuje (np. twój sterownik graficzny &amp;ndash; załadowany jako moduł jądra &amp;ndash; nie pasuje do wersji twojego &lt;code&gt;libOpenCL.so&lt;/code&gt;), obsługa OpenCL prawdopodobnie nie będzie dostępna.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>wiele urządzeń</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/multiple-devices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/multiple-devices/</guid>
+      <description>&lt;p&gt;Szeregowanie urządzeń OpenCL można zoptymalizować w większości systemów za pomocą ustawień „profil szeregowania OpenCL”. Jeśli jednak twój system jest wyposażony w więcej niż jeden procesor graficzny, możesz ręcznie ustawić względny priorytet urządzenia. W tym celu należy wybrać „domyślny” profil planowania i zmienić ustawienia w parametrze konfiguracyjnym „opencl_device_priority”.&lt;/p&gt;&#xA;&lt;p&gt;Ważne jest, aby zrozumieć, w jaki sposób darktable korzysta z urządzeń OpenCL. Każda sekwencja przetwarzania obrazu — aby przekonwertować dane wejściowe na końcowy wynik przy użyciu stosu historii — jest uruchamiana w kolejce przetwarzania. W darktable istnieje pięć różnych kolejek. Jedna odpowiada za przetwarzanie centralnego widoku obrazu (lub pełnego widoku) w trybie ciemni, inna przetwarza obraz podglądu (okno nawigacji, potrzebne również dla histogramów i wewnętrznych procedur, odpowiednich dla wyjściowego pełnego widoku). Jeszcze inna kolejka potrzebna jest dla pokazania drugiego okna ciemni. W dowolnym momencie może być uruchomiona jedna z tych trzech kolejek, przy czym kolejki pełne i podglądowe działają równolegle. Ponadto może istnieć wiele równoległych kolejek, wykonujących eksport plików, a także wiele równoległych kolejek, generujących miniatury. Jeśli urządzenie OpenCL jest dostępne, darktable dynamicznie przypisuje je do jednej konkretnej kolejki na jeden przebieg i zwalnia go później.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenCL still does not run for me</title>
+      <link>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/still-doesnt-work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/pl/special-topics/opencl/still-doesnt-work/</guid>
+      <description>&lt;p&gt;Jak już wspomniano, systemy OpenCL mają ogromną różnorodność konfiguracji: różni producenci i modele GPU, różne ilości pamięci GPU, różne sterowniki, różne dystrybucje itp.&lt;/p&gt;&#xA;&lt;p&gt;Wiele potencjalnych problemów pojawi się tylko w przypadku bardzo konkretnych kombinacji tych czynników. Ponieważ programiści darktable mają dostęp tylko do niewielkiej części tych odmian zrozum, że możemy nie być w stanie rozwiązać twojego konkretnego problemu. Niewiele możemy zrobić, jeśli nie będziemy w stanie odtworzyć sytuacji, w której pojawia się błąd.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
