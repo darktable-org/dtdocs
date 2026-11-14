@@ -23,7 +23,7 @@ output
 
 {{< /details >}}
 
-Adjust the hue and [purity](../../special-topics/color-management/color-dimensions.md#definitions) of the RGB primary colors (i.e. _which_ red, green and blue they represent), while leaving uncolored (gray) pixels unchanged. In addition to preserving gray pixels, the opponency relationships between the colors are also preserved under this adjustment: If you increase the purity of the blue primary, the opponent yellow's intensity increases to balance things out; If you twist the blue hue toward cyan, the opponent yellow is twisted toward orange.
+Adjust the hue and [purity](../../special-topics/color-pipeline/color-dimensions.md) of the RGB primary colors (i.e. _which_ red, green and blue they represent), while leaving uncolored (gray) pixels unchanged. In addition to preserving gray pixels, the opponency relationships between the colors are also preserved under this adjustment: If you increase the purity of the blue primary, the opponent yellow's intensity increases to balance things out; If you twist the blue hue toward cyan, the opponent yellow is twisted toward orange.
 
 This module is essentially a channel mixer (as in the [color calibration](./color-calibration.md) module) but with a different interface. Even though the sliders are named "red", "green" and "blue", all adjustments are global and affect the overall colorimetry of the image, just like a channel mixer does.
 

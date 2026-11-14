@@ -25,7 +25,7 @@ output
 
 Selectively adjust the hue, saturation, and/or brightness of pixels based on their current hue.
 
-This module is an attempt to recreate _some_ of the functionality of the [_color zones_](./color-zones.md) module in the [scene-referred](../../special-topics/color-pipeline.md) part of the pipeline whilst overcoming some of that module's limitations. Specifically, the _color zones_ module is prone to increase chroma/luma noise, and introduce artifacts or harsh transitions. These are somewhat mitigated within _color equalizer_ with the following additions:
+This module is an attempt to recreate _some_ of the functionality of the [_color zones_](./color-zones.md) module in the [scene-referred](../../special-topics/color-pipeline/overview.md) part of the pipeline whilst overcoming some of that module's limitations. Specifically, the _color zones_ module is prone to increase chroma/luma noise, and introduce artifacts or harsh transitions. These are somewhat mitigated within _color equalizer_ with the following additions:
 
 -   a fixed number of equally-spaced adjustment nodes means a smoother adjustment curve
 -   a guided filter is used, which attempts to smooth out changes by taking into account both the hue of the neighboring pixels and their overall saturation
