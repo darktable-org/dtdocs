@@ -27,3 +27,7 @@ Images are inset along one dimension of their bounding box when they do not matc
 [print settings](../module-reference/utility-modules/print/print-settings.md)
 : Adjust print settings and initiate printing.
 
+# bottom panel
+
+[filmstrip](../module-reference/utility-modules/shared/filmstrip.md)
+: Select images to be printed from the filmstrip.

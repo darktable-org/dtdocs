@@ -6,7 +6,7 @@ weight: 110
 
 You are welcome to help translate darktable's docs. Please read through this guide to learn the conventions and requirements for translation work.
 
-Translations are maintained through [Weblate](https://hosted.weblate.org/projects/darktable-documentation/). Unregistered users can add suggestions for translations. To contribute to the translations you need to [register with Weblate](https://hosted.weblate.org/accounts/register/).
+Translations are maintained through [Weblate](https://hosted.weblate.org/projects/darktable-documentation/), apart from a small number of [Hugo-specific strings](translations-setup/#translating-theme-strings-for-website-epub-and-pdf). Unregistered users can add suggestions for translations. To contribute to the translations you need to [register with Weblate](https://hosted.weblate.org/accounts/register/).
 
 We do __not__ accept automated AI translations without human review and quality control. 
 

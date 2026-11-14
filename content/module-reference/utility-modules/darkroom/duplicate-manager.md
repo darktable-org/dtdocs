@@ -9,13 +9,13 @@ The duplicate manager lists each version of the current darkroom image along wit
 
 Buttons to manage the duplicates are shown to the right of each preview thumbnail:
 
-![duplicate with history](./dupicate-manager/copy-current.png#icon) duplicate with history 
+![duplicate with history](./duplicate-manager/copy-current.png#icon) duplicate with history 
 : Create a new duplicate with the same history stack (only shown if the selected duplicate has been edited).
 
 ![duplicate original](./duplicate-manager/copy-original.png#icon) duplicate original 
 : Create a 'virgin' duplicate of this image without any development.
 
 ![delete](./duplicate-manager/delete.png#icon) delete 
-: Delete the duplicate.
+: Delete the duplicate's [sidecar files](../../../overview/sidecar-files/sidecar.md) (only shown if there are multiple versions in the list).
 
 A version number is displayed to the right of each thumbnail. Click in the area below the version number to enter a description against that version of the image. This description is stored in the _version name_ metadata tag, which can also be edited within the [metadata editor](../shared/metadata-editor.md) module in the lighttable view.

@@ -40,7 +40,7 @@ Using this module, external raster mask files are made available as a raster mas
 # module controls
 
 file selection
-: Choose the external raster file to use. The initial raster mask files root folder can be set in [preferences > processing](../../preferences-settings/processing.md).
+: Choose the external raster file to use. The initial raster mask files root folder can be set in [preferences > processing](../../preferences-settings/processing.md). The raster mask is stored in the image's associated [DTDATA sidecar](../../overview/sidecar-files/sidecar.md) file unless [preferences > storage > XMP sidecar files](../../preferences-settings/storage.md#xmp-sidecar-files) is set to _never_, in which case the raster mask is referenced from the selected path.
 
 mode
 : Choose any of the RGB channels, or a combination of them, to generate the raster mask from.

@@ -36,3 +36,14 @@ output intent
 
 output profile
 : The profile used to render colors for output/export. The profile data will be embedded into the output file (if supported by the file format) allowing other applications to correctly interpret its colors. As not all applications are aware of color profiles, the general recommendation is to stick to sRGB unless you know what you are doing and have a good reason to do otherwise.
+
+# HDR output
+
+The _PQ Rec2020_, _PQ P3_, _HLG Rec2020_ and _HLG P3_ profiles produce HDR images, for display on HDR screens. They use the [PQ](https://en.wikipedia.org/wiki/Perceptual_quantizer) (SMPTE ST 2084) and [HLG](https://en.wikipedia.org/wiki/Hybrid_log%E2%80%93gamma) (ARIB STD-B67) transfer functions of [Rec. ITU-R BT.2100](https://www.itu.int/rec/R-REC-BT.2100), together with Rec2020 or Display P3 primaries. To keep their brightness and color, export them in a format that can carry them with enough precision, such as 10-bit or higher AVIF, HEIF, JPEG XL or 16-bit PNG. For an introduction to HDR video and display standards, see [high-dynamic-range television](https://en.wikipedia.org/wiki/High-dynamic-range_television) on Wikipedia.
+
+darktable maps a pipeline value of 1.0 (display white for SDR output) to the HDR "reference white" of 203 nits, as recommended by [Report ITU-R BT.2408](https://www.itu.int/pub/R-REP-BT.2408), so mid-tones look as bright as in an SDR export. Values above 1.0 are highlights brighter than reference white:
+
+-   PQ can encode up to 10000 nits. The brightest highlights reach the _PQ peak_ set in the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits).
+-   HLG is converted for a nominal 1000 nit display, so highlights reach at most 1000 nits, about 4.9 times reference white.
+
+The ratio between the peak of the output and reference white is the _headroom_ of the output. The [_AgX_](./agx.md#hdr-output) and [_sigmoid_](./sigmoid.md) tone mappers follow it, so that a single edit can be exported to SDR, HLG and PQ without changes.

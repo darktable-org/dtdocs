@@ -8,7 +8,7 @@ Most image processing applications come from the 1990s and/or inherit a 1990s wo
 
 These workflows, using bounded RGB representations and possibly non-linear transforms to encode RGB signals, are called "display-referred". They rely on the assumption that the image has been prepared for display at an early stage in the processing pipeline, and embed hard-coded assumptions about the RGB values of black, middle-gray and white. Most of the image-processing algorithms used in these workflows have been tuned around these assumptions. For example, the overlay blending mode expects a middle-gray encoded at 50% (or 128 in integer encoding).
 
-Unfortunately the non-linear scaling, which is mandatory to make the integer encoding work, breaks the natural relationships between pixel values. Hue and saturation change in unpredictable ways, and value relationships between neighbouring pixels are dilated or compressed such that gradients are also altered unpredictably.
+Unfortunately the non-linear scaling, which is mandatory to make the integer encoding work, breaks the natural relationships between pixel values. Hue and saturation change in unpredictable ways, and value relationships between neighboring pixels are dilated or compressed such that gradients are also altered unpredictably.
 
 Display-referred pipelines therefore break optical filters (lens blurring or deblurring), alpha compositing (which relies on optical and geometrical definitions of occlusion), colors and gradients (local relationships between chrominance and luminance of pixels). They also don't scale well to HDR images, which led to the development of many questionable local and global tonemapping methods and the infamous 2010s "HDR look".
 

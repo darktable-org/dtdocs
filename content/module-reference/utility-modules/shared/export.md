@@ -14,7 +14,7 @@ Files can be exported to a file on disk, email, various online storage locations
 ## storage options
 
 target storage
-: The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
+: The type of location to store your selected images. A number of different back-ends are implemented, including file on disk, system clipboard, LaTeX book template and various web albums. Depending on the selected target, you will be asked to provide additional information, such as filenames or account name and password.
 
 filename template
 : Define the folder and file to which the image will be exported. This can be automatically generated using several pre-defined variables. For example, `$(SEQUENCE)` in a template records sequence number of the image exported to the target. See the [variables](../../../special-topics/variables.md) section for details.
@@ -36,7 +36,7 @@ on conflict
 ## format options
 
 file format
-: Choose the file format for the exported image. Additional options will appear (below) depending on the selected format.
+: Choose the file format for the exported image. Additional options will appear (below) depending on the selected format. Note that for some export formats there are [caveats concerning metadata inclusion](#metadata-preferences).
 
 quality
 : The quality of the exported file. Higher values lead to larger file sizes. The default quality (95) is a good setting for very high quality exports (e.g. for archiving or printing purposes). If you need a good compromise between size and quality (e.g. for online image display or uploads) you should consider a value of “90” instead.
@@ -84,11 +84,15 @@ store masks
 profile
 : The output color profile. Select “image settings” if you want the settings in the [_output color profile_](../../processing-modules/output-color-profile.md) module of the individual images to be respected.
 
+PQ peak
+: The brightest highlight of a PQ (HDR) export, in nits (203 to 10000, default 1000). Tone mappers that follow the output, such as [_AgX_](../../processing-modules/agx.md#hdr-output) and [_sigmoid_](../../processing-modules/sigmoid.md), map their white to this peak, while mid-tones keep their SDR brightness. Set it to the peak brightness of the display the image is meant for. This option is only shown when _profile_ is a PQ profile or "image settings". HLG exports always peak at 1000 nits, and SDR exports are not affected. The setting is stored in export presets, and an export keeps the peak it was started with, even if the setting is changed while it runs. The darkroom also uses this setting when your display profile is PQ.
+: PQ exports also record how bright the image actually is, so that HDR displays and viewers can tone map it: PNG, AVIF and HEIF files carry its content light level (MaxCLL and MaxFALL), and JPEG XL files carry its measured peak luminance as their intensity target. AVIF needs darktable built with libavif 1.0.0 or newer, and HEIF with libheif 1.15.0 or newer.
+
 intent
 : This option lets you define the intent -- the way in which darktable will handle out-of-gamut colors. See [rendering intent](../../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
 
 style
-: Choose a [style](../lighttable/styles.md) which darktable will combine with the existing history stack to generate the output image. These history items are only added temporarily -- the original history stack is not overwritten. You can use this feature to add processing steps and parameters that you want to be applied specifically to images before export. For example you may define a style that adds a stronger level of sharpening when you produce scaled-down JPEG files for the internet or add a certain level of exposure compensation to all of your output images. 
+: Choose a [style](./styles.md) which darktable will combine with the existing history stack to generate the output image. These history items are only added temporarily -- the original history stack is not overwritten. You can use this feature to add processing steps and parameters that you want to be applied specifically to images before export. For example you may define a style that adds a stronger level of sharpening when you produce scaled-down JPEG files for the internet or add a certain level of exposure compensation to all of your output images. 
 
 mode
 : When applying a style during export this option defines whether the history stack items of that style replace the original history stack of the image or are appended to it. Technically speaking, in append mode history stack items of the style will constitute separate instances of the respective modules on top of any existing ones (see also [multiple instances](../../../darkroom/processing-modules/multiple-instances.md)). As a consequence the original history stack will remain in effect with the new items being applied in addition. This way you can apply an overall adjustment (e.g. exposure) to a number of exported images while respecting the settings of each individual image.
@@ -109,9 +113,15 @@ multi-preset export
 
 The “preferences…” option in the presets menu brings up a dialog where you can configure what metadata to include in exported files:
 
-![metadata config](./export-selected/metadata-config.png#w66)
+![metadata config](./export/metadata-config.png#w66)
 
 The parameters entered into this dialog are saved along with other export parameters to user presets and the last entered values are retained when darktable is closed. 
+
+---
+
+**Caution**: For **AVIF, EXR, HEIF, JPEG XL and XCF selecting specific metadata is not supported**. For these formats, *no* metadata fields will be included unless the user selects _all_ of the metadata checkboxes in the export module preferences.
+
+---
 
 ## general settings
 

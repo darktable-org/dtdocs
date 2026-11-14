@@ -27,6 +27,7 @@ darktable-cli [<input file or folder>]
               [--icc-type <type>]
               [--icc-file <file>]
               [--icc-intent <intent>]
+              [--pq-peak <nits>]
               [--print-paths]
               [--print-paths-as-flags]
               [--verbose]
@@ -83,6 +84,9 @@ The user must supply an input filename and an output filename. All other paramet
 
 `--icc-intent <intent>` 
 : Specify the rendering intent. Defaults to "image specified". Use `--help icc-intent` to obtain a list of the supported intents. See [rendering intent](../../special-topics/color-management/rendering-intent) for a more detailed description of the available options.
+
+`--pq-peak <nits>`
+: Set the peak luminance of PQ (HDR) output, from 203 to 10000 nits. Tone mappers that follow the output, such as _AgX_ and _sigmoid_, map their white to this peak. Defaults to the _PQ peak_ setting of the [_export_](../../module-reference/utility-modules/shared/export.md) module.
 
 `--print-paths`
 : Print the resolved configdir, cachedir, tmpdir, datadir, moduledir, localedir and library paths for this install, honoring any of the overrides, then exit.

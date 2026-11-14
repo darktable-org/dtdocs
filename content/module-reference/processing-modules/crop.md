@@ -56,9 +56,11 @@ aspect
 
 ---
 
-**Note:** When resizing an image in freehand mode you may retain the currently-set aspect ratio by holding Shift while dragging on any of the resize controls.
+**Note 1:** When resizing an image in freehand mode you may retain the currently-set aspect ratio by holding Shift while dragging on any of the resize controls.
 
 **Note 2:** The crop area is retained when changing [_orientation_](./orientation.md).
+
+**Note 3:** Some RAW files (for example, from Canon or Olympus) can store in-camera aspect ratio information, for when the user selects an aspect ratio in the camera settings. If this information is present, the _crop_ module will be automatically enabled and initially set to the in-camera aspect ratio when you start to edit the image. The full image is still available for manual cropping when the crop module is active.
 
 ---
 

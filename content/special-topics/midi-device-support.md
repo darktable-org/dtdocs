@@ -49,7 +49,7 @@ Starting darktable with the debug parameters `-d input` will give additional inf
 
 Two issues can arise:
 
-- a device you don't want to use might be opened anyway (and potentially cause inappropriate behavior, like starting a fireworks show prematurely -- see [this document](http://webcache.googleusercontent.com/search?q=cache:6EcEOjfjiAkJ:gmbh.pyropak.com/docs/downloads/surefire-prologic-digital-controller_rev2010.pdf+&cd=1&hl=en&ct=clnk&gl=us)); or
+- a device you don't want to use might be opened anyway (and potentially cause inappropriate behavior, like starting a fireworks show prematurely); or
 - devices might appear in a different order at the next startup (for example because they are plugged into a different usb port). Since configurations are stored with the device number only, reordering would cause an incorrect layout to be picked up.
 
 You can fix which devices to load in a specific location and which ones to skip using the configuration parameter [preferences > miscellaneous > interface > order or exclude midi devices](../preferences-settings/miscellaneous.md#interface). To skip loading the BCR2000 in the above example and to fix the other two devices into the number 0 and 2 slots, you could set this config parameter to "`BeatStep,dontuse,X-TOUCH,-BCR2000`". This would leave the BeatStep as device midi0, always leave midi1 unused and would not load the BCR2000 at all, but if any other devices are connected, they would appear as midi3, midi4 and so on. Adding "`,-`" at the end would prevent any further devices loading.
@@ -63,6 +63,12 @@ Some MIDI controllers have keys with a light beneath them. These can be used to 
 # devices reported to be working
 
 The shortcut mapping system has been most extensively tested with the Behringer devices and contains custom code to deal with their specific features. All other devices are treated as "generic midi" and may or may not work (well). If you succeed in getting a MIDI device up and running that hasn't been mentioned below, it would be greatly appreciated if you would provide feedback in order to assist others, if any special steps are required. You could do this either by submitting a documentation [pull request](https://github.com/darktable-org/dtdocs/pulls) to amend this page or by [filing an issue](https://github.com/darktable-org/dtdocs/issues) containing the necessary information.
+
+## Akai LPD8 mk2
+
+The device is [reported as](https://github.com/darktable-org/dtdocs/issues/996) plug and play on Windows (not yet tested on Mac and Linux). Shortcuts were easily assigned following the process described above. Editor software exists for Windows and Mac to customize the device controls (not yet tested).
+
+The device has eight absolute encoders and eight pressure pads. The pads can be assigned as buttons, but require more force to activate than a typical button as they're designed for finger drumming.
 
 ## Behringer X-touch Mini / Compact
 

@@ -44,7 +44,7 @@ enable disk backend for thumbnail cache
 : If activated, darktable stores all thumbnails on disk as a secondary cache, and thereby keeps thumbnails accessible if they are dropped from the primary cache. This needs more disk space but speeds up the [lighttable](../lighttable/_index.md) view as it avoids the reprocessing of thumbnails (default on).
 
 enable disk backend for full preview cache
-: If enabled, darktable writes full preview images to disk (`.cache/darktable/`) when evicted from the memory cache. Note that this can take a lot of storage (several gigabytes for 20k images) and darktable will never delete cached images. It's safe to delete these manually if you want. Enabling this option will greatly improve lighttable performance when zooming an image in full preview mode (default off).
+: If enabled, darktable writes full preview images to disk in the [cache directory](../preferences-settings/config-directory.md#cache-directory) when evicted from the memory cache. Note that this can take a lot of storage (several gigabytes for 20k images) and darktable will never delete cached images. It's safe to delete these manually if you want. Enabling this option will greatly improve lighttable performance when zooming an image in full preview mode (default off).
 
 enable smooth scrolling for lighttable thumbnails
 : If enabled, use fractional scrolling when navigating through the thumbnails in the filemanager layout for a smoother experience. When enabled, the top row of thumbnails may only show partial images as the scrolling is not aligned with each row. This setting is most useful when scrolling via a touchpad or other input device rather than a mouse with a scroll wheel (default off).

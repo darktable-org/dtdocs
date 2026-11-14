@@ -99,7 +99,7 @@ lightness, chroma & hue tabs
 edit by area
 : Choose how to interact with the curve. This setting is disabled by default, allowing the control points for the curve to be freely placed. Check the box to fall back to the legacy "edit by area" mode, which functions in a similar way to the spline curve controls used in [wavelet](../../darkroom/processing-modules/wavelets.md#spline-controls) modules.
 
- ![mask-icon](./color-zones/icon-mask.png#icon) mask display
+![mask-icon](./color-zones/icon-mask.png#icon) mask display
 : Enable the _mask display_ to highlight pixels that have been affected by _color zones_ adjustments in yellow.
 
 select by

@@ -35,7 +35,7 @@ threshold
 strength
 : The sensitivity of detection; higher values will fix more pixels by requiring less deviation from their neighbors.
 
-detect by 3 neighbours
+detect by 3 neighbors
 : Extend the detection of hot pixels -- regard a pixel as hot if a minimum of only three (instead of four) neighbor pixels deviate by more than the threshold level.
 
 mark fixed pixels

@@ -42,6 +42,8 @@ auto-apply pixel workflow defaults
 
 -   _scene-referred (sigmoid)_ (default) also follows the same assumptions and overall flow as _scene-referred (filmic)_, with the exception that it auto-enables the [_sigmoid_](../module-reference/processing-modules/sigmoid.md) module for tone mapping in place of _filmic rgb_.
 
+-   _scene-referred (spektrafilm)_ also follows the same assumptions and overall flow as _scene-referred (filmic)_, with the exception that it auto-enables the [_spektrafilm_](../module-reference/processing-modules/spektrafilm.md) module for tone mapping in place of _filmic rgb_.
+
 -   _display-referred (legacy)_ is the legacy mode (used by default in darktable 2.6 and earlier) and assumes that most processing will be performed in the Lab color space. Selecting this option automatically enables the [_base curve_](../module-reference/processing-modules/base-curve.md) module for tone mapping and sets the module order to _legacy_. This workflow uses only the _white balance_ module for chromatic adaptation.
 
 -   _none_ sets the module order to _v3.0 RAW_ and uses the _white balance_ module for chromatic adaptation. No other exposure or tone mapping modules are enabled by default.

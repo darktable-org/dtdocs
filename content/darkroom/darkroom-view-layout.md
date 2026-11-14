@@ -63,7 +63,7 @@ From left to right:
 ![presets-icon](./darkroom-view-layout/presets-icon.png#icon) [presets](./processing-modules/presets.md)
 : Quick access menu for module presets. You can manage the contents of this menu by selecting "manage quick presets list...".
 
-![styles-icon](./darkroom-view-layout/styles-icon.png#icon) [styles](../module-reference/utility-modules/lighttable/styles.md)
+![styles-icon](./darkroom-view-layout/styles-icon.png#icon) [styles](../module-reference/utility-modules/shared/styles.md)
 : Quick access menu for styles. Hover over a style name with your mouse to show a preview of the current darkroom image with the selected style applied.
 
 ![second-window-icon](./darkroom-view-layout/second-window-icon.png#icon) second darkroom window
@@ -93,4 +93,8 @@ From left to right:
 ![guides-overlays-icon](./darkroom-view-layout/guides-overlays-icon.png#icon) [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md)
 : Left-click to switch global guide overlays on/off and right-click to change the guide settings, including the color of all on-image drawing (masks, crop guides etc.)
 
-You can also enable the [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen to allow you select and interact with the currently selected collection in the [lighttable](../lighttable/_index.md) view.
+## filmstrip
+
+![filmstrip](./darkroom-view-layout/filmstrip.png)
+
+The [filmstrip](../module-reference/utility-modules/shared/filmstrip.md) module at the bottom of the screen allows you to select and interact with the currently selected collection.

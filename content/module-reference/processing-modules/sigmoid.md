@@ -39,8 +39,8 @@ You automatically enable this module in new images by setting the value of [pref
 
 Please take note of the following guidelines while using this module within your workflow:
 
-only use one display transform
-: Never use _sigmoid_ together with another display transform module (i.e. [_filmic rgb_](./filmic-rgb.md), [_AgX_](./agx.md) or [_base curve_](./base-curve.md)).
+only use one tone mapper
+: _sigmoid_ is a [tone mapper](../../overview/workflow/tone-mapping.md); you typically have exactly one tone mapper enabled for an image.
 
 adjust for the mid-tones first
 : The sigmoid curve pivots around middle gray. Before using sigmoid, you should first use the [_exposure_](./exposure.md) module to adjust the mid-tones to your liking.
@@ -76,6 +76,10 @@ target black
 
 target white
 : Upper bound that the sigmoid curve converges to as the scene value approaches infinity -- this should normally be left unchanged. You can use this to clip white at a defined scene intensity.
+: For HDR output (an output profile with a PQ or HLG transfer function), target white is multiplied by the headroom of the output -- its peak divided by the 203 nit reference white -- so that the highlights extend to the peak of the export. HLG peaks at 1000 nits, and PQ at the _PQ peak_ set in the [_export_](../utility-modules/shared/export.md#global-options) module (default 1000 nits). The result is capped at 1600% (3248 nits). SDR output is not affected.
+
+follow output peak
+: This checkbox is only shown for edits made before darktable supported HDR output, and only while it is unticked. Such edits keep _target white_ as set, so they render exactly as before, also when exported as PQ or HLG. Tick it to scale _target white_ to the peak of an HDR output, as described above. SDR output does not change. New instances of the module always follow the output peak.
 
 ## primaries
 

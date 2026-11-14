@@ -6,7 +6,14 @@
 {{- if $url.Path -}}
 {{ $fragment := "" }}
 {{- with $url.Fragment }}{{ $fragment = printf "#%s" . }}{{ end -}}
-{{- with .Page.GetPage $url.Path }}{{ $link = printf "%s%s" .Page.File.UniqueID $fragment }}{{ end }}{{ end -}}
+    {{- with .Page -}}
+      {{- with .GetPage $url.Path }}
+      {{- with .File -}}
+        {{ $link = printf "%s%s" .UniqueID $fragment }}
+      {{- end -}}
+      {{- end -}}
+    {{ end }}
+  {{ end -}}
 {{- end -}}
 {{ if $isRemote }}
     <a href="{{ $link | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }} target="_blank">{{ .Text | safeHTML }}</a>

@@ -34,5 +34,8 @@ sort by
 ![top panel shortcut mapping icon](./top-panel/top-panel_shortcut.png#icon) shortcut mapping
 : Click this icon to enter the [visual shortcut mapping](../../preferences-settings/shortcuts.md#visual-shortcut-mapping) mode to create keyboard/mouse shortcuts.
 
+![top panel workspace icon](./top-panel/top-panel_workspace.png#icon) workspace
+: Only shown when [preferences > storage > allow for multiple workspaces](../../preferences-settings/storage.md#database) is enabled. Click to open a menu to switch workspaces or create a new one (blank by default, with an optional copy of settings from an existing workspace). Switching or creating relaunches darktable into the chosen workspace.
+
 ![top panel_preferences icon](./top-panel/top-panel_preferences.png#icon) preferences
 : View and amend darktable's [preferences & settings](../../preferences-settings/_index.md).

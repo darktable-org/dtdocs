@@ -28,7 +28,7 @@ create duplicate
 : When applying a style to images, tick this box to create a duplicate of each image before applying the chosen style to that duplicate. Disable this option to apply the chosen style directly to the selected images. Beware that in this case any existing history stack is overwritten (depending on the mode -- see below) and cannot be recovered.
 
 mode
-: As with the [history stack](./history-stack.md) module, this combobox allows you to either "append" the style to the current history stack or to "overwrite" the history stack of the target image.
+: As with the [history stack](../lighttable/history-stack.md) module, this combobox allows you to either "append" the style to the current history stack or to "overwrite" the history stack of the target image.
 
 create
 : Create new style(s) using the history stack of the selected image(s). For each selected image a style creation window is shown. You must supply a unique name for each new style and you can also add an optional description.
@@ -40,7 +40,9 @@ create
 : You can cancel the creation process by pressing the Cancel button or pressing the Esc key on your keyboard.
 
 edit
-: Select "edit" to bring up a dialog which allows you to include or exclude specific items from the stack of an existing style. Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
+: Select "edit" to bring up a dialog which allows you to edit an existing style. The upper portion of the dialog shows modules currently included in the style, the lower portion all modules available from the source images history stack. For the latter to appear _one_ image has to be selected -- ff no or multiple images are currently selected no source history stack will be offered. 
+: You can add or remove modules and pick modules to update from the source history stack by setting the respective checkboxes. 
+: Check the “duplicate” option if you want to create a new style, instead of overwriting the existing one, in which case you will need to provide a unique name for the new style.
 
 remove
 : Delete the selected style, without any further prompt.

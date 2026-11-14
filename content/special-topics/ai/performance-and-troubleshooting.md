@@ -10,7 +10,7 @@ weight: 40
 - Upscale at 4x on a large image is memory-hungry regardless of provider. Tiling is enabled automatically to keep memory in check, at a cost of some extra processing time.
 - Loading ONNX Runtime lazily on first use means the very first AI operation after startup takes an extra moment. This is normal.
 - When switching between execution providers (e.g. auto → CUDA), the new provider's first inference incurs a graph-compilation delay. After that, runtime is steady for the rest of the session.
-- **AMD (MIGraphX) has a multi-minute first-run cost per model.** ROCm/MIGraphX compiles the model graph for your specific GPU the first time it sees it, which can take 1–3 minutes for large models (denoise, upscale); mask models are smaller and compile faster. The compiled graph is cached on disk under `~/.cache/darktable/ai_v*_migraphx_*` and reused across darktable restarts, so subsequent runs of the same model are fast.
+- **AMD (MIGraphX) has a multi-minute first-run cost per model.** ROCm/MIGraphX compiles the model graph for your specific GPU the first time it sees it, which can take 1–3 minutes for large models (denoise, upscale); mask models are smaller and compile faster. The compiled graph is cached on disk in `ai_v*_migraphx_*` in the darktable [cache directory](../../preferences-settings/config-directory.md#cache-directory) and reused across darktable restarts, so subsequent runs of the same model are fast.
 - Model discovery is cached at startup. If you drop a new `.dtmodel` file into the models directory manually while darktable is running, open AI preferences and toggle any control to force a rescan.
 
 # troubleshooting
