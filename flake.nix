@@ -25,6 +25,7 @@
             python311Packages.weasyprint
             lychee
             zip
+            dart-sass
           ];
           shellHook = ''
             PROJECTDIR=`pwd`
