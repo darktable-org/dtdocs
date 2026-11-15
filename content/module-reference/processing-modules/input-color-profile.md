@@ -46,6 +46,6 @@ working profile
 : The working profile used by darktable's processing modules. Each module can specify an alternative space that it will work in, and this will trigger a conversion. By default darktable will use "linear Rec. 2020 RGB", which is a good choice in most cases.
 
 gamut clipping
-: Activate a color clipping mechanism. In most cases you can leave this control in its default “off” state. However, if your image shows some specific features such as highly saturated blue light sources, gamut clipping might be useful to avoid black pixel artifacts. See [possible color artifacts](../../special-topics/color-management/color-artifacts.md) for more information.
+: Activate a color clipping mechanism. In most cases you can leave this control in its default “off” state. However, if your image shows some specific features such as highly saturated blue light sources, gamut clipping might be useful to avoid black pixel artifacts. See [possible color artifacts](../../special-topics/color-pipeline/color-artifacts.md) for more information.
 
 : Choose from a list of RGB profiles. Input colors with a saturation that exceeds the permissible range of the selected profile are automatically clipped to a maximum value. “linear Rec. 2020 RGB” and “Adobe RGB (compatible)” allow for a broader range of unclipped colors, while “sRGB” and “linear Rec. 709 RGB” produce a tighter clipping. Select the profile that prevents artifacts while still maintaining the highest color dynamics. 

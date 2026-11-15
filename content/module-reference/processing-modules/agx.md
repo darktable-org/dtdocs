@@ -34,7 +34,7 @@ You can automatically enable _AgX_ in new images by setting the value of [prefer
 
 # primaries
 
-The "primaries" are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md).
+The "primaries" are the defining feature of AgX and the core of how it handles color. They determine the basic color appearance of the image _before_ the tone mapping curve is applied. For precise definitions of the color terms used in this section, please refer to [_darktable's color dimensions_](../../special-topics/color-pipeline/color-dimensions.md).
 
 The core challenge in fitting a scene's wide dynamic range into a display's narrower range is managing color across the entire tonal scale. Without tone mapping, transitions would be abrupt, and lead to color distortions:
 
@@ -174,7 +174,7 @@ brightness
 : Applies a power function (gamma adjustment) to the image. The black and white points are not affected. Values above 1 will raise the mid-tones, opening up shadows, whereas those below 1 will darken the mid-tones and compress shadows.
 
 saturation
-: Controls color intensity by adjusting the image's chroma. For a precise definition of chroma vs. saturation, please see [_darktable's color dimensions_](../../special-topics/color-management/color-dimensions.md). A value of zero makes the image monochrome.
+: Controls color intensity by adjusting the image's chroma. For a precise definition of chroma vs. saturation, please see [_darktable's color dimensions_](../../special-topics/color-pipeline/color-dimensions.md). A value of zero makes the image monochrome.
 
 preserve hue
 : The tone mapping curve, being a per-channel curve, introduces color shifts, with color tending towards the primary (red, green and blue) and secondary (yellow, cyan and magenta) colors in the highlights. At a value of 0%, these color shifts are retained. By raising this slider, the input hues (those before the tone curve) can be partially or fully restored.

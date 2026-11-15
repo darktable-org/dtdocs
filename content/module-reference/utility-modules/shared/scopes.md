@@ -3,7 +3,7 @@ title: scopes
 id: scopes
 ---
 
-This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-management/color-dimensions/#definitions).
+This module provides various graphical depictions of the developed image's light levels or [chromaticity](../../../special-topics/color-pipeline/color-dimensions/).
 
 ![scopes module](./scopes/scopes.png#w50)
 
