@@ -68,7 +68,7 @@ weight
 ```
 
 include_toc
-: Optional; enables or disables the collapsible table of contents. Should only be used on large, complex pages. 
+: deprecated - used to enables or disables the collapsible table of contents. Irrelevant with the 2026 theme. 
 
 # content
 
