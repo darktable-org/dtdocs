@@ -1,0 +1,27 @@
+{{- /* Version switcher. Context: (dict "Page" . "Dropup" bool) */ -}}
+{{- $page := .Page -}}
+{{/* Path portion of the baseURL this build was run with, e.g. "/usermanual/5.6/" */}}
+{{- $basePath := (urls.Parse $page.Site.BaseURL).Path -}}
+{{/* Strip "/usermanual/" prefix and trailing slash to get the bare version string */}}
+{{- $currentVersion := strings.TrimSuffix "/" (strings.TrimPrefix "/usermanual/" $basePath) -}}
+{{/* Drop the current version's prefix from the permalink, then re-add a leading
+     slash, so it can be re-prefixed with any target version below without
+     doubling the path */}}
+{{- $cleanPath := printf "/%s" (strings.TrimPrefix $basePath $page.RelPermalink) -}}
+<div class="dt-switcher {{ if .Dropup }}dropup{{ else }}dropdown{{ end }}">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: {{ if eq $currentVersion "development" }}Development{{ else }}{{ $currentVersion }}{{ end }}</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    {{- range site.Data.versions }}
+    <a class="dropdown-item" href="/usermanual/{{ .path }}{{ $cleanPath }}">{{ .label }}</a>
+    {{- end }}
+  </div>
+</div>

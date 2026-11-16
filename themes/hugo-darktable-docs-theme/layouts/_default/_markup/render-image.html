@@ -4,6 +4,13 @@
 {{ $Scratch.Set "enLink" .Page.RelPermalink }}
 
 {{ $classSplit := split $imgBase "#" }}
+{{- /* Anything after a "#" in the image path becomes a CSS class, e.g.
+       foo.png#w50. The special marker "nolink" (e.g. foo.png#w50#nolink)
+       renders a plain image instead of the usual link to the full-size
+       file - useful for logos and other decorative images. */ -}}
+{{ $classList := after 1 $classSplit }}
+{{ $noLink := in $classList "nolink" }}
+{{ $classList = complement (slice "nolink") $classList }}
 
 {{ if hasPrefix $link "http" }}
 <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
@@ -13,5 +20,9 @@
     {{ $Scratch.Set "enLink" .RelPermalink }}
   {{ end }}
 {{ end }}
-<a href="{{ $Scratch.Get "enLink" }}{{ range first 1 $classSplit }}{{- . | safeURL -}}{{ end }}" target="_blank" rel="noopener noreferrer"><img src="{{ $Scratch.Get "enLink" }}{{ range first 1 $classSplit }}{{- . | safeURL -}}{{ end }}" alt="{{ .Text }}" {{ if gt (len $classSplit) 1}} class="{{ $classes := after 1 $classSplit }}{{ delimit $classes " " }}"  {{ end }} {{ with .Title}} title="{{ . }}"{{ end }} /></a>
+{{ $src := printf "%s%s" ($Scratch.Get "enLink") (index $classSplit 0) }}
+{{ $class := "" }}{{ if gt (len $classList) 0 }}{{ $class = printf " class=\"%s\"" (delimit $classList " ") }}{{ end }}
+{{ $title := "" }}{{ with .Title }}{{ $title = printf " title=\"%s\"" . }}{{ end }}
+{{ $img := printf "<img src=\"%s\" alt=\"%s\"%s%s />" $src .Text $class $title }}
+{{ if $noLink }}{{ $img | safeHTML }}{{ else }}<a href="{{ $src | safeURL }}" target="_blank" rel="noopener noreferrer">{{ $img | safeHTML }}</a>{{ end }}
 {{ end }}
