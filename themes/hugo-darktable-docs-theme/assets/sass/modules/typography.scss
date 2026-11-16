@@ -5,17 +5,54 @@ html {
 }
 
 body {
-    background-color: white;
-    font-family: 'Fira Sans', sans-serif;
+    font-family: $font-family-sans-serif;
     font-weight: 400;
     line-height: 1.65;
-    color: #333;
+    color: $dt-content-text;
 }
 
 pre, code, kbd {
-    font-family: 'Fira Mono', monospace;
+    font-family: $font-family-monospace;
     font-size: 0.9em;
-    color: navy;
+}
+
+pre, code {
+    color: $code-color;
+}
+
+// inline code: a light grey chip
+code {
+    padding: 0.1em 0.35em;
+    border: 1px solid $dt-code-border;
+    border-radius: 0.25rem;
+    background-color: $dt-code-bg;
+    // long options and paths may wrap instead of widening the page;
+    // every piece of a wrapped chip keeps its own border and padding
+    overflow-wrap: anywhere;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+// inside a link the chip takes the color of the link
+a > code {
+    color: inherit;
+}
+
+pre {
+    padding: 0.75rem 1rem;
+    border: 1px solid $dt-code-border;
+    border-radius: 0.375rem;
+    background-color: $dt-pre-bg;
+
+    // a code block is one box, not a chip per line
+    code {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	font-size: inherit;
+	overflow-wrap: normal;
+    }
 }
 
 p {
@@ -24,22 +61,24 @@ p {
 }
 
 h1, h2, h3, h4, h5 {
+    position: relative;
     margin: 2.0rem 0 1.0rem;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.15;
-    text-indent: -2.5rem;
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    // keep headings clear of the sticky header when jumping to an anchor
+    scroll-margin-top: calc(#{$dt-header-height} + 1rem);
 }
 
 h1.title {
     margin-top: 0;
-    margin-left: 2.5rem;
-    margin-bottom: 2rem;
-    font-size: 2.8em;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    line-height: 1.15;
 }
 
 h1 {
-    font-size: 2.2em;
+    font-size: 1.65rem;
 }
 
 h1+h2 {
@@ -47,7 +86,7 @@ h1+h2 {
 }
 
 h2 {
-    font-size: 1.66em;
+    font-size: 1.3rem;
 }
 
 h2+h3 {
@@ -55,16 +94,16 @@ h2+h3 {
 }
 
 h3 {
-
-    font-size: 1.333em;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 h4,
 h5,
 h6 {
     color: $red;
-    :before {
-	content: "We only allow H1, H2, or H3 headings in body content."
+    &::before {
+	content: "We only allow H1, H2, or H3 headings in body content.";
     }
 }
 
@@ -92,47 +131,34 @@ dd p {
    margin-bottom: 0.7rem;
 }
 
-h1 a:link,
-h2 a:link,
-h3 a:link {
-   opacity: 0;
-   font-size: 1.33rem;
-   color: dimgrey;
-   text-decoration: none;
-   width: 2.5rem;
-   display: inline-block;
-   vertical-align: middle;
-   text-indent: 0;
+// link to a heading, shown in the margin when hovering the heading
+.content a.dt-anchor {
+    position: absolute;
+    left: -1.4rem;
+    width: 1.4rem;
+    opacity: 0;
+    color: var(--dt-section-text);
+    font-weight: 400;
+    text-decoration: none;
 }
 
-h1:hover a,
-h2:hover a,
-h3:hover a
+h1:hover a.dt-anchor,
+h2:hover a.dt-anchor,
+h3:hover a.dt-anchor,
+.content a.dt-anchor:focus
 {
    opacity: 1;
 }
 
-.toc ul
-{
-   list-style: none;
-   padding-left: 0;
-   margin-left: 0;
-}
-
-.toc li
-{
-   margin-top: 0;
-   margin-bottom: 0;
-   padding-left: 2em;
-   margin-left: 0;
+hr {
+    border-top-color: $gray-300;
 }
 
 h3.translations_head
 {
-   border-top: 1px solid black;
+   border-top: 1px solid $gray-300;
    padding-top: 1em;
    margin-top: 2em;
-   margin-left: 2.5rem;
 }
 
 .translations li
@@ -147,62 +173,59 @@ h3.translations_head
    padding-left: 1.5rem;
 }
 
-/* icon for opening table of contents */
-.toc {
-margin-bottom: 1em;
-}
-
-.toc-icon{
-list-style: none;
-    text-decoration: none;
-  &::before {
-    content: "+";
-    color: white;
-    background-color: black;
-    border-radius: 1em;
-    font-weight: bold;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding: 0 5px;
-    margin-inline-start: 5px;
-    border: none;
-  }
-}
-
-.toc-icon[aria-expanded="true"]{
-list-style: none;
-  &::before {
-    content: "−";
-  }
-}
-
-/* details shortcode styling: add box round contents when open */
-details.technical-info[open]::details-content {
-  padding-left: 2em;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+/* details shortcode styling ("Technical information" on module pages) */
+details.technical-info {
+  margin: 1.25rem 0;
+  border: 1px solid $dt-details-border;
+  border-radius: 0.375rem;
+  background-color: $dt-details-bg;
+  font-size: 0.9375rem;
 }
 
 details.technical-info summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $gray-700;
+  cursor: pointer;
   list-style: none;
-  &::before {
+  &::after {
     content: "+";
-    color: white;
-    background-color: black;
-    border-radius: 1em;
-    font-weight: bold;
-    padding: 0 5px;
-    margin-right: 5px;
-    margin-inline-start: 5px;
+    font-size: 1.1rem;
+    font-weight: 400;
   }
 }
 
-details.technical-info[open] summary {
-  list-style: none;
-  &::before {
-    content: "−";
-  }
+details.technical-info[open] summary::after {
+  content: "\2212"; // minus sign
 }
 
 details.technical-info summary::-webkit-details-marker {
   display: none;
+}
+
+details.technical-info dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0 1rem 0.875rem;
+
+  dt {
+    margin: 0;
+    font-weight: 400;
+    color: $dt-content-muted;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  dd p {
+    margin: 0;
+  }
 }

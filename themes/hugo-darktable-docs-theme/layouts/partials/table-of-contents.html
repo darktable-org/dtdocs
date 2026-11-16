@@ -1,8 +1,8 @@
-<a class="toc-icon toc" data-toggle="collapse" href="#collapseTOC" role="button" aria-expanded="false" aria-controls="collapseTOC">
-  {{ i18n "table-of-contents" | default "Table of Contents" }}
-</a>
-<div class="collapse" id="collapseTOC">
-    <div class="card card-body">
-	{{ .TableOfContents }}
-    </div>
-</div>
+{{- /* Collapsible table of contents below the title, used where the right-hand column is hidden. */ -}}
+{{- $toc := .TableOfContents -}}
+{{- if ge (len (findRE "<li" $toc)) 2 }}
+<details class="dt-toc-inline d-xl-none">
+    <summary>{{ i18n "table-of-contents" | default "Table of Contents" }}</summary>
+    {{ $toc | replaceRE `id="TableOfContents"` "" | safeHTML }}
+</details>
+{{- end }}
