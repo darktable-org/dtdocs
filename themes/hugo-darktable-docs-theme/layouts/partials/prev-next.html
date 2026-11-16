@@ -28,15 +28,17 @@
 {{- end -}}
 
 
-<div class="prev-next row">
-    <div class="col-6">
-    {{ if  .Scratch.Get "pprevlink" }}
-	<a href="{{ .Scratch.Get "pprevlink" }}" class="next">&lt; {{ .Scratch.Get "pprevtitle" }}</a>
-	{{ end }}
-    </div>
-    <div class="col-6">
+<nav class="prev-next" aria-label="{{ i18n "page-navigation" | default "Page navigation" }}">
+    {{ if .Scratch.Get "pprevlink" }}
+    <a href="{{ .Scratch.Get "pprevlink" }}" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">{{ i18n "previous" | default "Previous" }}</span>
+        <span class="prev-next__title">{{ .Scratch.Get "pprevtitle" }}</span>
+    </a>
+    {{ else }}<span></span>{{ end }}
     {{ if .Scratch.Get "pnextlink" }}
-	<a href="{{ .Scratch.Get "pnextlink" }}" class="prev">{{ .Scratch.Get "pnexttitle" }} &gt;</a>
-	{{ end }}
-    </div>
-</div>
+    <a href="{{ .Scratch.Get "pnextlink" }}" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">{{ i18n "next" | default "Next" }}</span>
+        <span class="prev-next__title">{{ .Scratch.Get "pnexttitle" }}</span>
+    </a>
+    {{ end }}
+</nav>

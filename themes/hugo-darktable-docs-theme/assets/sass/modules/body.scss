@@ -1,72 +1,176 @@
 body, .card {
-    background-color: #CECECE;
+    background-color: $dt-panel-bg;
+}
+
+// The three columns: chapters | content | on this page.
+// Limited to $dt-layout-width and centered; the page background has the
+// color of the side columns so they appear to reach the window edges.
+.dt-layout {
+    max-width: $dt-layout-width;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(md) {
+	display: flex;
+	align-items: stretch;
+	min-height: calc(100vh - #{$dt-header-height});
+    }
 }
 
 .content {
-    padding-left: 13%;
-    padding-right: 13%;
-    padding-top: 1rem;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 1.25rem 1.25rem 2rem;
+    background-color: $dt-content-bg;
+
+    @include media-breakpoint-up(md) {
+	padding: 2rem 2.5rem 2.5rem;
+    }
+
     a {
 	text-decoration: underline;
 	background-color: transparent;
     }
 }
 
-a.toc {
-  text-decoration: none;
+.dt-content-inner {
+    max-width: $dt-reading-width;
+    margin: 0 auto;
 }
 
-@include media-breakpoint-up(md) {
-    .content {
-	top: 4rem;
-	display: block;
-	position: sticky;
-	max-height: calc(100vh - 4em);
-	overflow-y: auto;
-	z-index: 1000;
-    }
-}
-
-.next, .prev {
-    display: block;
-}
-
-.next {
-    text-align: left;
-}
-
-.prev {
-    text-align: right;
-}
-
+// breadcrumbs, with the color label of the current section
 .crumbs {
-    margin-bottom: 0.5rem;
-    text-align: center;
-    .crumb {
-	display: inline;
-    }
-}
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    color: $dt-content-muted;
 
-a {
-    color: #444;
+    &::before {
+	content: "";
+	display: inline-block;
+	width: 0.6rem;
+	height: 0.6rem;
+	margin-right: 0.5rem;
+	border-radius: 50%;
+	background-color: var(--dt-section);
+    }
+
+    a {
+	color: $dt-content-muted;
+	text-decoration: none;
+
+	&:hover {
+	    text-decoration: underline;
+	}
+    }
+
+    &__sep {
+	margin: 0 0.4rem;
+    }
+
+    // the page you are on
+    &__current {
+	color: $dt-content-text;
+	font-weight: 600;
+    }
 }
 
 section,article {
-    margin-top: 2.5rem;
+    margin-top: 0;
     margin-bottom: 2.5rem;
 }
 
+// previous / next page: a quiet row under the content, set off by a single
+// hairline instead of two bordered cards
+.prev-next {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $gray-400; // $gray-300 would vanish on the content bg
+
+    &__link {
+	display: flex;
+	flex-direction: column;
+
+	// no box to react to, so the title underlines on hover
+	&:hover .prev-next__title {
+	    text-decoration: underline;
+	}
+
+	&--next {
+	    grid-column: 2;
+	    align-items: flex-end;
+	    text-align: right;
+	}
+    }
+
+    &__label {
+	font-size: 0.75rem;
+	color: $dt-content-muted;
+    }
+
+    &__title {
+	font-weight: 400;
+    }
+}
+
+// .content underlines its links; the cards do not need that
+.content .prev-next__link {
+    text-decoration: none;
+}
+
+// quiet links below the page content: edit on GitHub / download the manual
+.dt-page-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid $gray-400; // $gray-300 would vanish on the content bg
+    font-size: 0.8125rem;
+
+    a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	color: $dt-content-muted;
+	text-decoration: none;
+
+	&:hover {
+	    color: $dt-content-text;
+	    text-decoration: underline;
+	}
+
+	.fa {
+	    font-size: 0.9375rem;
+	    opacity: 0.75;
+	}
+    }
+}
+
+// search results: a panel right below the search field
 .search-results {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 20%;
-    background-color: white;
-    z-index: 1001;
+    z-index: 1040;
     display: none;
-    max-width: 100%;
-    width: 450px;
-    overflow-y: scroll;
+    max-height: calc(100vh - #{$dt-header-height} - 1.5rem);
+    overflow-y: auto;
+    border: 1px solid $gray-400;
+    border-radius: 0.375rem;
+    background-color: $white;
+
+    // small screens: as wide as the field, inside the padding of the overlay
+    right: 0.5rem;
+    left: 0.5rem;
+    top: 100%;
+
+    @include media-breakpoint-up(md) {
+	top: calc(100% + 0.5rem);
+	right: 0;
+	left: auto;
+	width: 30rem;
+	max-width: calc(100vw - 3rem);
+    }
 
     @extend .list-group;
     @extend .shadow;
@@ -82,6 +186,11 @@ section,article {
 
         &:hover {
             text-decoration: none
+        }
+
+        // chosen with the arrow keys
+        &.is-selected {
+            background-color: $dt-result-selected-bg;
         }
     }
 
@@ -99,6 +208,6 @@ section,article {
 
     mark {
         padding: 0;
-        border-bottom: 2px solid red;
+        border-bottom: 2px solid $dt-mark-underline;
     }
 }

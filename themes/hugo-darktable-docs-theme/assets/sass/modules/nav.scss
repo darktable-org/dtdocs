@@ -3,30 +3,256 @@
 }
 
 .navigation {
-    padding-top: 1rem;
+    padding: 1rem 0.75rem 1rem 0.75rem;
+    background-color: $dt-panel-bg;
+    border-bottom: 1px solid $dt-panel-border;
+    font-size: 1rem;
 
     ul {
 	padding-left: 0px;
+	margin: 0;
 	list-style-type: none;
-	ul {
-	    padding-left: 20px;
+    }
 
+    // Nested levels hang on a vertical line.
+    // Below a top-level section the line has the section's color and sits
+    // exactly below the center of its color label:
+    // link padding (0.6rem) + half a label (0.3rem) - half the line (1px)
+    ul ul {
+	margin-left: calc(0.9rem - 1px);
+	padding-left: 0.5rem;
+	border-left: 2px solid var(--dt-nav-color, #{$gray-400});
+    }
+
+    // deeper levels: a thin grey line below the start of the parent's title
+    ul ul ul {
+	margin-left: 0.6rem;
+	border-left: 1px solid $gray-400;
+    }
+
+    li {
+	position: relative;
+    }
+
+    // room for the chevron
+    li.parent > a {
+	padding-right: 2.25rem;
+    }
+
+    a {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 0.2rem 0.6rem;
+	border-radius: 0.25rem;
+	color: $dt-nav-text;
+	line-height: $dt-nav-line-height;
+
+	&:hover {
+	    background-color: rgba(0, 0, 0, 0.06);
+	    color: $dt-nav-text-active;
+	    text-decoration: none;
 	}
     }
 
+    // the branch that contains the current page
+    li.in-trail > a {
+	color: $dt-nav-text-active;
+	font-weight: 600;
+    }
+
+    // Only the top-level section of the current page is shown as a box.
+    .dt-nav-tree > ul > li.in-trail > a {
+	background-color: $dt-panel-active;
+    }
+
+    // The current page itself is marked by a bead on the vertical line it
+    // hangs on, like the color label of the section.
+    a.active {
+	color: $dt-nav-text-active;
+    }
+
+    // on the 2px line: 8px wide, so 3px show on either side of the line
+    ul ul a.active::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: calc(-0.5rem - 5px);
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: var(--dt-nav-color, #{$gray-600});
+	transform: translateY(-50%);
+    }
+
+    // on the 1px line of the deeper levels: 7px wide
+    ul ul ul a.active::before {
+	left: calc(-0.5rem - 4px);
+	width: 7px;
+	height: 7px;
+    }
 }
 
-.toggle, .no-toggle {
-    width: 1rem;
+// Expand/collapse: a quiet chevron at the right end of the row.
+// A section is open when its <li> has the class "open".
+.navigation li.parent:not(.open) > ul {
+    display: none;
+}
+
+.dt-nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    // match the height of a link row (padding 0.2rem top/bottom + its line-height)
+    // so the hover square lines up with the row
+    height: calc(#{$dt-nav-line-height}em + 0.4rem);
+    padding: 0;
+    border: 0;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: $gray-600;
+
+    &:hover {
+	background-color: rgba(0, 0, 0, 0.08);
+	color: $gray-900;
+    }
+
+    // points to the right when closed, down when open
+    .fa {
+	transition: transform 0.15s ease;
+    }
+
+    &[aria-expanded="true"] .fa {
+	transform: rotate(90deg);
+    }
+}
+
+// version and language switchers below the chapters (small screens only)
+.dt-nav-switchers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0.75rem 0;
+    border-top: 1px solid $dt-panel-border;
+
+    .dt-switcher__toggle {
+	color: $gray-700;
+
+	&:hover,
+	&:focus,
+	.show > & {
+	    color: $gray-900;
+	}
+    }
+}
+
+// Small screens: the chapters slide in from the left as a drawer.
+// The tree scrolls, the switchers stay at the bottom of the drawer.
+@include media-breakpoint-down(sm) {
+    .navigation {
+	position: fixed;
+	top: $dt-header-height;
+	bottom: 0;
+	left: 0;
+	width: 20rem;
+	max-width: 85vw;
+	z-index: 1025;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	border-bottom: 0;
+	border-right: 1px solid $dt-panel-border;
+	box-shadow: 0.25rem 0 1rem rgba(0, 0, 0, 0.2);
+	transform: translateX(-105%);
+	visibility: hidden;
+	transition: transform 0.2s ease, visibility 0s linear 0.2s;
+    }
+
+    .dt-backdrop {
+	position: fixed;
+	top: $dt-header-height;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1024;
+	background-color: rgba(0, 0, 0, 0.45);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+    }
+
+    body.dt-menu-open {
+	overflow: hidden;
+
+	.navigation {
+	    transform: none;
+	    visibility: visible;
+	    transition: transform 0.2s ease;
+	}
+
+	.dt-backdrop {
+	    opacity: 1;
+	    visibility: visible;
+	    transition: opacity 0.2s ease;
+	}
+    }
+
+    .dt-nav-tree {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow-y: auto;
+	padding: 0.75rem;
+
+	a {
+	    min-height: 2.5rem;
+	}
+
+	// third level sits deeper and carries shorter entries: a smaller
+	// touch target keeps those rows from looking too tall
+	ul ul ul a {
+	    min-height: 2rem;
+	}
+    }
+
+    .dt-nav-toggle {
+	top: 0.25rem;
+	height: 2rem;
+    }
+
+    .dt-nav-switchers {
+	flex: none;
+	margin-top: 0;
+	padding: 0.25rem 1.25rem;
+	background-color: #e4e4e4;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navigation,
+    .dt-nav-toggle .fa,
+    .dt-backdrop {
+	transition: none !important;
+    }
 }
 
 @include media-breakpoint-up(md) {
     .navigation {
-	top: 4rem;
-	display: block;
+	flex: 0 0 $dt-nav-width;
+	width: $dt-nav-width;
+	padding: 1.5rem 0.75rem 1.5rem 1.25rem;
+	top: $dt-header-height;
 	position: sticky;
-	max-height: calc(100vh - 4em);
+	align-self: flex-start;
+	height: calc(100vh - #{$dt-header-height});
 	overflow-y: auto;
+	border-bottom: 0;
+	border-right: 1px solid $dt-panel-border;
 	z-index: 1000;
     }
 }
