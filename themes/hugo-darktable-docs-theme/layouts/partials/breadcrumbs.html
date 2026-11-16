@@ -1,15 +1,10 @@
-<div class="crumbs">
-    <span class="crumb">
-	{{ template "breadcrumb" dict "page" . "value" .Title }}
-    </span>
-</div>
-
-{{- define "breadcrumb" -}}
-{{- $parent := .page.Parent -}}
-{{- if $parent -}}
-{{ $value := (printf "<a href='%s'>%s</a> / %s" $parent.RelPermalink $parent.Title .value) }}
-{{ template "breadcrumb" dict "page" $parent "value" $value }}
-{{- else -}}
-{{.value|safeHTML}}
-{{- end -}}
-{{- end -}}
+{{- /* Path to the current page, without the manual's home page.
+       The current page is the last, emphasized entry. */ -}}
+<nav class="crumbs" aria-label="{{ i18n "breadcrumbs" | default "Breadcrumbs" }}">
+    {{- range .Ancestors.Reverse -}}
+        {{- if not .IsHome -}}
+    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a><span class="crumbs__sep" aria-hidden="true">/</span>
+        {{- end -}}
+    {{- end -}}
+    <span class="crumbs__current" aria-current="page">{{ .Title | markdownify }}</span>
+</nav>

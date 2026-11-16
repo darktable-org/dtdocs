@@ -1,0 +1,49 @@
+{{- /*
+  Color labels of the top-level sections.
+
+  The sections run once through the six colors of the darktable logo, in
+  navigation order: the first one is red, the last one magenta, the ones in
+  between are interpolated. A new section gets its color automatically.
+
+  Returns a map: section name -> (dict "color" "#rrggbb" "text" "#rrggbb")
+    color  the label itself
+    text   a dark shade of it that can be used for text
+
+  The labels sit on light grey, where the logo's bright yellow (#f7f10e) is
+  barely visible. A slightly deeper yellow from the same gradient of the
+  logo (#f7f10e to #c58907) is used here instead.
+
+  Call it with partialCached, once per language.
+  The six colors are also listed in assets/sass/modules/variables.scss.
+*/ -}}
+{{- $logo := slice
+    (slice 215 0 22)
+    (slice 255 112 4)
+    (slice 242 222 12)
+    (slice 23 180 20)
+    (slice 20 118 230)
+    (slice 208 0 208)
+-}}
+{{- $sections := where site.Home.Pages "Kind" "section" -}}
+{{- $last := sub (len $sections) 1 -}}
+{{- $steps := sub (len $logo) 1 -}}
+{{- $result := dict -}}
+{{- range $i, $page := $sections -}}
+  {{- $t := 0.0 -}}
+  {{- if gt $last 0 -}}
+    {{- $t = mul (div (float $i) (float $last)) (float $steps) -}}
+  {{- end -}}
+  {{- $seg := int (math.Floor $t) -}}
+  {{- if ge $seg $steps -}}{{- $seg = sub $steps 1 -}}{{- end -}}
+  {{- $f := sub $t (float $seg) -}}
+  {{- $from := index $logo $seg -}}
+  {{- $to := index $logo (add $seg 1) -}}
+  {{- $color := "#" -}}{{- $text := "#" -}}
+  {{- range $c := seq 0 2 -}}
+    {{- $v := add (float (index $from $c)) (mul (float (sub (index $to $c) (index $from $c))) $f) -}}
+    {{- $color = printf "%s%02x" $color (int (math.Round $v)) -}}
+    {{- $text = printf "%s%02x" $text (int (math.Round (mul $v 0.45))) -}}
+  {{- end -}}
+  {{- $result = merge $result (dict $page.Section (dict "color" $color "text" $text)) -}}
+{{- end -}}
+{{- return $result -}}

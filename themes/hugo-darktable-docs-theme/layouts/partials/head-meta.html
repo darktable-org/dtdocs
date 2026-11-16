@@ -1,7 +1,18 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>{{ block "title" . }}{{ .Site.Title }}{{ if .Title }} - {{ .Title }}{{ end }}{{ end }}</title>
-<meta name="description" content="">
+{{- /* description: front matter, else the beginning of the page text (without the
+       collapsed "technical information" box), else the home page's text */ -}}
+{{- $description := .Description -}}
+{{- if not $description -}}
+  {{- $description = .Content | replaceRE `(?s)<details.*?</details>` "" | plainify | htmlUnescape -}}
+  {{- $description = replaceRE `\s+` " " $description | strings.TrimSpace -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- $description = site.Home.Summary | plainify | htmlUnescape -}}
+{{- end -}}
+{{- $description = replaceRE `\s+` " " $description | strings.TrimSpace | truncate 160 }}
+<meta name="description" content="{{ $description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
