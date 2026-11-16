@@ -1,29 +1,42 @@
 {{- with .Site.GetPage "/" -}}
-{{- template "nav-children" (dict "Section" . "CurrentPage" $) -}}
+{{- template "nav-children" (dict "Section" . "CurrentPage" $ "Top" true) -}}
 {{- end -}}
 
-{{- define "nav-children" -}}{{- /* (dict "Section" .Section "CurrentPage" .CurrentPage) */ -}}
+{{- define "nav-children" -}}{{- /* (dict "Section" .Section "CurrentPage" .CurrentPage "Top" bool) */ -}}
 <ul>
    {{- range .Section.Pages -}}
+   {{- /* a top-level section hands its color down to its label, line and marker */ -}}
+   {{- $color := "" -}}
+   {{- if $.Top -}}
+     {{- with index (partialCached "section-colors.html" . .Lang) .Section -}}{{- $color = .color -}}{{- end -}}
+   {{- end }}
    {{ if .IsSection }}
-   <li class="parent">
-      <i class="fa fa-plus-square toggle"></i>
-   {{ template "nav-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
-   {{ template "nav-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+   {{- /* The branch that leads to the current page is rendered open; all other
+          sections start closed. The button toggles the class "open" (app.js). */ -}}
+   {{- $inTrail := or (eq . $.CurrentPage) (.IsAncestor $.CurrentPage) }}
+   <li class="parent{{ if $inTrail }} in-trail open{{ end }}"{{ with $color }} style="{{ printf "--dt-nav-color: %s;" . | safeCSS }}"{{ end }}>
+   {{ template "nav-link" (dict "Page" . "CurrentPage" $.CurrentPage "Top" $.Top) }}
+      <button type="button" class="dt-nav-toggle" aria-expanded="{{ if $inTrail }}true{{ else }}false{{ end }}" aria-label="{{ i18n "toggle-section" | default "Show or hide subpages" }}">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   {{ template "nav-children" (dict "Section" . "CurrentPage" $.CurrentPage "Top" false) }}
    </li>
    {{ else if and .IsPage .Content }}
    <li>
-      <i class="no-toggle"></i>
-   {{ template "nav-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+   {{ template "nav-link" (dict "Page" . "CurrentPage" $.CurrentPage "Top" $.Top) }}
    </li>
    {{ end }}
    {{- end -}}
 </ul>
 {{- end -}}
 
-{{ define "nav-link" }}{{/* (dict "Page" .Page "CurrentPage" .CurrentPage) */}}
+{{ define "nav-link" }}{{/* (dict "Page" .Page "CurrentPage" .CurrentPage "Top" bool) */}}
 {{ $current := eq .CurrentPage .Page }}
-      <a href="{{ .Page.RelPermalink }}" class="{{ if $current }} active{{ end }}">
+      <a href="{{ .Page.RelPermalink }}" class="{{ if $current }} active{{ end }}"{{ if $current }} aria-current="page"{{ end }}>
+          {{- if .Top -}}
+          {{- /* color label of the top-level section, colored by --dt-nav-color */ -}}
+          <span class="dt-dot" aria-hidden="true"></span>
+          {{- end -}}
           {{ .Page.Title }}
       </a>
 {{ end }}

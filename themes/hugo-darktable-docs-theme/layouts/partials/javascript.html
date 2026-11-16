@@ -1,31 +1,22 @@
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS, then lunr, then our own -->
 
 <script> var indexURL="{{ "index.json" | absLangURL }}"</script>
-{{- /*<!-- NOTE: Vendor Scripts -->*/ -}}
-{{- $jquery := resources.Get "/node_modules/jquery/dist/jquery.min.js" -}}
 
-{{ $javascript := slice $jquery | resources.Concat "/js/jquery.js" }}
-<script src="{{ $javascript.RelPermalink }}"></script>
+{{- $jquery := resources.Get "node_modules/jquery/dist/jquery.min.js" -}}
+{{- /* UMD build: defines the global "Popper" that bootstrap's dropdowns need
+       outside of a .navbar (the ES module build does not) */ -}}
+{{- $popper := resources.Get "node_modules/popper.js/dist/umd/popper.js" -}}
+{{- $bootstrap := resources.Get "node_modules/bootstrap/dist/js/bootstrap.js" -}}
+{{- $lunr := resources.Get "node_modules/lunr/lunr.js" -}}
+{{- /* app.js is run through the template engine (it needs the index URL) */ -}}
+{{- $app := resources.Get "js/app.js" | resources.ExecuteAsTemplate "js/app.js" . -}}
 
-{{- $popper := resources.Get "/node_modules/popper.js/dist/popper.js" -}}
-
-{{ $javascript := slice $popper | resources.Concat "/js/popper.js" }}
-<script src="{{ $javascript.RelPermalink }}" type="module"></script>
-
-{{- $bootstrap := resources.Get "/node_modules/bootstrap/dist/js/bootstrap.js" -}}
-
-{{ $javascript := slice $bootstrap | resources.Concat "/js/bootstrap.js" }}
-<script src="{{ $javascript.RelPermalink }}"></script>
-
-{{- $lunr := resources.Get "/node_modules/lunr/lunr.js" -}}
-
-{{ $javascript := slice $lunr | resources.Concat "/js/lunr.js" }}
-<script src="{{ $javascript.RelPermalink }}"></script>
-
-{{- /*<!-- NOTE: User Scripts -->*/ -}}
-{{- $app := resources.Get "/js/app.js" | resources.ExecuteAsTemplate "/js/app.js" . -}}
-
-{{ $javascript := slice $app | resources.Concat "/js/app.js" }}
-<script src="{{ $javascript.RelPermalink }}"></script>
-
+{{- $javascript := slice $jquery $popper $bootstrap $lunr $app | resources.Concat "js/bundle.js" -}}
+{{ if hugo.IsDevelopment }}
+    <script src="{{ $javascript.RelPermalink }}"></script>
+{{ else }}
+    {{ with $javascript | minify | fingerprint }}
+	<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end }}
+{{ end }}

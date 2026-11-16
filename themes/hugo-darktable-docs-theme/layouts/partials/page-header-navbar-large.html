@@ -1,101 +1,53 @@
-<header class="navbar navbar-expand-lg sticky-top  navbar-dark bg-dark">
-  <a class="navbar-brand" href="{{ relURL .Site.BaseURL }}" rel="home" title="{{ .Site.Title }}">
-    {{ .Site.Title | safeHTML }}
-  </a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      {{ if .IsTranslated }}
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            data-toggle="dropdown"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            {{/* Path portion of the baseURL this build was run with, e.g. "/usermanual/5.6/" */}}
-            {{ $basePath := (urls.Parse .Site.BaseURL).Path }}
-            {{/* Strip "/usermanual/" prefix and trailing slash to get the bare version string */}}
-            {{ $currentVersion := strings.TrimSuffix "/" (strings.TrimPrefix "/usermanual/" $basePath) }}
-            <span>Version: {{ if eq $currentVersion "development" }}Development{{ else }}{{ $currentVersion }}{{ end }}</span>
-          </a>
-          <div class="dropdown-menu dropdonw-trans" role="listbox">
-            {{/* Remove the current version's prefix from the permalink so it can be
-                 re-prefixed with any target version below without doubling the path */}}
-            {{ $cleanPath := replace .RelPermalink $basePath "/" }}
-            <a class="dropdown-item" href="/usermanual/development{{ $cleanPath }}">Development (Master)</a>
-            <a class="dropdown-item" href="/usermanual/5.8{{ $cleanPath }}">Version 5.8</a>
-            <a class="dropdown-item" href="/usermanual/5.6{{ $cleanPath }}">Version 5.6</a>
-          </div>
-        </li>
-
-        <li class="nav-item dropdown">
-          <p class="sr-only" id="language-picker-description">{{ i18n "languages" | default "languages" }}</p>
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            data-toggle="dropdown"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <img
-              src="{{ .Site.BaseURL }}/language-icons/icon20x24px-exported-transparent.png"
-              alt="Language Icon"
-              height="20"
-              class="translation-icon"
-            />
-            <span>{{ i18n "translations" | default "translations" }}</span>
-          </a>
-          <div class="dropdown-menu dropdonw-trans" role="listbox">
-            <a
-              class="dropdown-item"
-              aria-selected="true"
-              hreflang="{{ .Site.Language.Lang }}"
-              role="option"
-              lang="{{ .Site.Language.Lang }}"
-              href="{{ .Permalink }}"
-              >{{ .Site.Language.LanguageName }}</a
-            >
-            {{ range (sort .Translations ".Language.LanguageName")  }}
-              <a
-                class="dropdown-item"
-                hreflang="{{ .Language.Lang }}"
-                role="option"
-                lang="{{ .Language.Lang }}"
-                href="{{ .Permalink }}"
-                >{{ .Language.LanguageName }}</a
-              >
-            {{ end }}
-          </div>
-        </li>
+<header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="{{ relURL .Site.BaseURL }}" rel="home" title="{{ .Site.Title }}">
+      {{ with resources.Get "images/darktable.svg" }}
+        <img src="{{ .RelPermalink }}" alt="" width="32" height="32" />
       {{ end }}
-    </ul>
+      <span>{{ .Site.Title | safeHTML }}</span>
+    </a>
 
-    <form class="form-inline my-2 my-lg-0">
-      <input
-        id="search-input"
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        autocomplete="off"
-        aria-label="Search"
-      />
-    </form>
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      {{ partial "switcher-version.html" (dict "Page" . "Dropup" false) }}
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      {{ partial "switcher-language.html" (dict "Page" . "Dropup" false) }}
+    </div>
+
+    {{- /* The search field. On small screens app.js moves this form to the top
+           of the chapters drawer, so there is only ever one search input. */ -}}
+    <div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="{{ i18n "search" | default "Search" }}"
+          autocomplete="off"
+          aria-label="{{ i18n "search" | default "Search" }}"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd>
+        {{- /* results open right below the search field */ -}}
+        <div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div>
+
+    {{- /* Chapters button, on the right on small screens (hidden from md up). */ -}}
+    <button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="{{ i18n "chapters" | default "Chapters" }}"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
   </div>
+  {{- /* The six colors of the darktable logo */ -}}
+  <div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 </header>
-
-<div id="search-results" class="search-results"></div>

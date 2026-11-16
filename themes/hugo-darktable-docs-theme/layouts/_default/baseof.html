@@ -6,31 +6,40 @@
       {{ partial "javascript.html" . }}
       {{ partial "opengraph.html" . }}
     </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
+    {{- /* Accent color of the current top-level section (see partials/section-colors.html) */ -}}
+    {{- $sectionColor := dict -}}
+    {{- with .Section -}}
+      {{- $sectionColor = index (partialCached "section-colors.html" $ $.Lang) . | default dict -}}
+    {{- end }}
+    <body{{ if .IsHome }} class="dt-home"{{ end }}{{ with $sectionColor }} style="{{ printf "--dt-section: %s; --dt-section-text: %s;" .color .text | safeCSS }}"{{ end }}>
         {{ partial "page-header-navbar-large.html" . }}
 
-        <div class="container-fluid">
-	    <div class="row">
-		<div class="content col-sm-12 order-sm-1 col-md-9 mx-md-auto order-md-12">
-		    {{ block "main" .}}
-		    <!-- This is where the page content redners -->
-		    {{ end }}
-      </div>
-		<nav class="navigation col-sm-12 order-sm-12 col-md-3 order-md-1">
-		    {{ partial "nav.html" . }}
-		</nav>
-	    </div>
-
+        {{- /* dims the page while the chapters are open on a small screen */ -}}
+        <div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="{{ i18n "chapters" | default "Chapters" }}">
+                    <div class="dt-nav-tree">
+                        {{ partial "nav.html" . }}
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        {{ partial "switcher-version.html" (dict "Page" . "Dropup" true) }}
+                        {{ partial "switcher-language.html" (dict "Page" . "Dropup" true) }}
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        {{ block "main" .}}
+                        <!-- This is where the page content renders -->
+                        {{ end }}
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    {{ if not .IsHome }}{{ partial "toc-aside.html" . }}{{ end }}
+                </aside>
+            </div>
             <!-- {{ partial "page-footer.html" . }} -->
-
         </div>
-
 
     </body>
 </html>
-
-{{ partial "navjs.html" . }}
