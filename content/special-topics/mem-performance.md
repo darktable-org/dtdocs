@@ -151,7 +151,7 @@ Another device-specific configuration key is also provided, which takes into acc
 This configuration key currently only has a single parameter defined:
 
 headroom (default 600)
-: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is valid if you have more than one hardware device and the [tuned GPU memory](../preferences-settings/processing.md#opencl-devices) switch has been switched on. It can also be set from the GUI, per device, in [preferences > processing > OpenCL devices](../preferences-settings/processing.md#opencl-devices).
+: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is valid if you have more than one hardware device and the [tuned GPU memory](../preferences-settings/processing.md#opencl-devices) switch has been switched on. It can also be set from the GUI, per device, in [preferences > processing > OpenCL devices](../preferences-settings/processing.md#opencl-devices), where a changed value takes effect immediately.
 
 : If you are certain that no apps (or your OS) make use of the specific device you can set this parameter to 0 for the otherwise-unused device so that darktable will use all of that device's memory.
 

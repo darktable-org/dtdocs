@@ -125,13 +125,15 @@ OpenCL drivers
 
 This section lists every OpenCL device that darktable detected on your system, including those that are currently disabled. It lets you control settings that previously had to be edited by hand in `darktablerc` (see [device-specific OpenCL configuration](../special-topics/mem-performance.md#device-specific-opencl-configuration)).
 
-use this OpenCL device
-: Enable or disable individual OpenCl devices. You might, for example, switch off a second, slower device such as an integrated GPU. Enabling a device also re-activates OpenCL support if it had previously been switched off because all devices were disabled. This change only takes effect after darktable is re-started.
+This section is only shown if darktable looked for OpenCL devices when it started. It is absent if OpenCL is unavailable, while OpenCL compilations are still running, or if OpenCL was switched off in preferences the last time darktable started.
 
-: Note: _Identical_ devices share a single `darktablerc` entry and are therefore controlled by a single check box.
+use this OpenCL device
+: Enable or disable individual OpenCL devices. You might, for example, switch off a second, slower device such as an integrated GPU. Enabling a device also re-activates OpenCL support if it had previously been switched off because all devices were disabled. This change only takes effect after darktable is restarted.
+
+: Note: _Identical_ devices share a single `darktablerc` entry and are therefore controlled by a single check box. Each of them still has its own headroom field, however.
 
 headroom
-: If you have two or more devices installed, each device in use is given a headroom field, specifying the amount of GPU memory (in MB) that darktable will not use during OpenCL processing (default 600). The headroom rows are not available and grayed out while "tuned GPU memory" (below) is switched off. See [id-specific OpenCL configuration](../special-topics/mem-performance.md#id-specific-opencl-configuration) for more details. 
+: Each usable device has a headroom field, specifying the amount of GPU memory (in MB) that darktable will _not_ use during OpenCL processing (default 600). Unlike the check box above, a changed headroom value takes effect immediately. These fields are grayed out unless "tuned GPU memory" (below) is switched on and two or more devices are in use. A device that darktable failed to initialize has a check box but no headroom field. See [id-specific OpenCL configuration](../special-topics/mem-performance.md#id-specific-opencl-configuration) for more details.
 
 tuned GPU memory
 : When enabled, darktable applies the per-device headroom values defined above. This option takes effect immediately. It is grayed out when only a single device is in use, as darktable ignores it in that case.
