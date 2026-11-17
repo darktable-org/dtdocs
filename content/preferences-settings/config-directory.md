@@ -20,11 +20,11 @@ The location of the configuration directory (and of other darktable directories 
 
 ### Notable contents:
 
-* `lua` (folder): Lua scripts.  Note: from 5.6 onwards Lua scripts are also bundled and this folder is not required. But it will be respected if present. Custom scripts can be added into a subfolder. See [Lua: basic principles](../lua/basic-principles.md).
+* `lua` (folder): Lua scripts.  Note: from 5.6 onwards Lua scripts are also bundled and this folder is not required. But it will be respected if present. Custom scripts can be added into a subfolder. See [Lua: using custom scripts](../lua/using-lua-scripts.md#using-custom-scripts).
 * `styles` (folder): User created styles
 * `darktablerc`: Main configuration file
 * `data.db` and `library.db`: Central libraries: Image File Locations, metadata, edits etc.
-* `luarc`: Defines Lua scripts to be loaded upon startup. Optional from 5.6 onwards, see [Lua: basic principles](../lua/basic-principles.md). 
+* `luarc`: Defines Lua scripts to be loaded upon startup. Optional from 5.6 onwards, see [Lua: using custom scripts](../lua/using-lua-scripts.md#using-custom-scripts). 
 * `shortcutsrc`: Keyboard shortcut configuration
 * `user.css`: User-defined [CSS-tweaks](../preferences-settings/general/#css-theme-modifications)
 
