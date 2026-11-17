@@ -29,7 +29,7 @@ To use a supplied script, you first must enable it. In this example we will enab
 
 ## using custom scripts
 
-If you want to use [custom scripts](./writing-lua-scripts.md) it is recommended to place them inside the [configuration directory](../preferences-settings/config-directory.md) into `lua/<name>/`. Replace `<name>` with a string of your liking, e.g. `user`. The scripts module will pick up those folders and offer them to be enabled in their folder.
+If you want to use [custom scripts](./writing-lua-scripts.md) it is recommended to place them inside the [configuration directory](../preferences-settings/config-directory.md) into `lua/<name>/`. Replace `<name>` with a string of your liking, e.g. `user`. darktable will pick up those folders and offer the included scripts to be enabled by selecting the corresponding folder within the scripts module. More information on how darktable loads scripts is availabe in the [programmers guide](https://docs.darktable.org/lua/development/lua.programmers.guide/).
 
 # installing and updating scripts
 
