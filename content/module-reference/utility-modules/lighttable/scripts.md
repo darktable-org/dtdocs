@@ -58,11 +58,3 @@ new folder to place scripts in
 
 install additional scripts
 : Clone the repository into the folder named above. Once installed, the scripts appear under that folder name in the _start/stop scripts_ view.
-
-__disable scripts__
-
-enable "disable scripts" button
-: A safety check that must be ticked before the _disable scripts_ button becomes active, to prevent it from being clicked by accident.
-
-disable scripts
-: Renames the `luarc` file in your [configuration directory](../../../preferences-settings/config-directory.md) to `luarc.disabled`. Note that in the bundled installation (5.6 onwards) this does _not_ stop the bundled scripts from loading (see this [issue](https://github.com/darktable-org/lua-scripts/issues/701)). They are loaded independently of your `luarc`. To actually prevent the Lua scripts from running, use the _disable Lua scripts_ option in [preferences > lua options](../../../preferences-settings/lua-options.md) instead. (To undo the rename, manually rename change `luarc.disabled` back to `luarc`.)
