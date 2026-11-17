@@ -50,7 +50,7 @@ Finally, the whole mask is applied together with the [blend mode and the global 
 
 ![how a mask is evaluated](./overview/information-flow.png#w75)
 
-1. Each element produces its own opacity values, which are refined, optionally inverted and scaled by the element's opacity. Elements are shown here with a drawn shape, a parametric range, a raster mask and a second drawn shape.
+1. Each element produces its own opacity values. These are then refined, optionally inverted and scaled by the element's opacity, before being passed to the group. The four elements shown here are, from left to right, a drawn shape, a parametric range, a raster mask and a second drawn shape.
 2. A group combines its members with its operator. It then refines, inverts and scales the result, as an element does, before handing it on.
 3. The whole mask is a group like any other. Here it combines the result of the group from step 2 with a further element.
 4. The mask is scaled by the global opacity of the module and used to blend the module's output (at the bottom) over its input (at the top), using the chosen blend mode.
@@ -63,7 +63,7 @@ The quickest way to see how this works:
 2. In the [mask panel](./mask-panel.md) at the bottom of the module, click the ![mask on/off](./mask-panel/icon-mask-toggle.png#icon) toggle to switch the mask on. The mask starts with the _default layout_ -- a single group (the whole mask) ready to receive shapes.
 3. Click a shape button in the toolbar (for example the ellipse) and click on the image to place it. The module is now applied only inside the ellipse.
 4. Click a parametric channel button (for example _Jz_ or _L_) to add a luminance element and narrow its range with the sliders in the _controls_ section.
-5. The new channel was added to the same group as the ellipse. Change the group's operator to decide how the two combine: _union_ applies the module inside the ellipse _or_ to the selected tones; _intersection_ applies it only to the selected tones _inside_ the ellipse.
+5. The new channel was added to the same group as the ellipse. The group's operator defines how the two elements of the mask interact: for example, _union_ applies the module inside the ellipse _or_ to the selected tones, whereas _intersection_ applies it only to the selected tones _inside_ the ellipse.
 
 [Groups & operators](./groups-and-operators.md) explains how to plan and read more complex masks.
 

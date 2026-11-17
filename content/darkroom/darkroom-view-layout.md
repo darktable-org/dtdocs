@@ -93,7 +93,7 @@ From left to right:
 ![guides-overlays-icon](./darkroom-view-layout/guides-overlays-icon.png#icon) [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md)
 : Left-click to switch global guide overlays on/off and right-click to change the guide settings, including the color of all on-image drawing (masks, crop guides etc.)
 
-![mask-panel-icon](./masking-and-blending/masks/mask-panel/icon-panel-toolbar.png#icon) [mask panel](./masking-and-blending/masks/mask-panel.md)
+![mask-panel-icon](./darkroom-view-layout/mask-panel-icon.png#icon) [mask panel](./masking-and-blending/masks/mask-panel.md)
 : Show or hide the mask panel of the focused processing module. The icon is dimmed when the focused module has no mask. Right-click to open the [mask options](./masking-and-blending/masks/mask-panel.md#mask-options) without showing the panel.
 
 ## filmstrip

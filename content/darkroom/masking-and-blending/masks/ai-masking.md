@@ -23,7 +23,7 @@ Every object you click on is kept in the selection, including one that does not 
 While the tool is active, the [controls](./mask-panel.md#controls) section of the mask panel shows its settings:
 
 refine mask boundary
-: Snap the boundary of the mask to nearby image edges after each click. This recovers details that the model missed, at the cost of a few hundred milliseconds per click.
+: Snap the boundary of the mask to nearby image edges after each click. This recovers details that the model missed, but the extra processing makes each click take a little longer.
 
 apply as paths
 : Trace the object into path shapes, which can then be edited node by node, instead of storing it as pixels (see below). When enabled, two more settings are shown, which can also be changed by scrolling on the image: _smoothing_ (scroll) sets how closely the traced outline follows the edge of the selection -- higher values give smoother, more rounded corners; _cleanup_ (Shift+scroll) discards small, stray fragments below the given size.
@@ -36,9 +36,9 @@ apply as paths
 
 ## how AI objects are stored
 
-By default, an AI object is stored _as pixels_, exactly as selected, in the image's [DTDATA sidecar](../../../overview/sidecar-files/sidecar.md). An object stored as pixels is shown on the image as an icon, along with the other shapes of the mask. To refine the object later, click its icon: the tool reopens on the stored mask, so that you can add or remove points and apply again. Refining a stored object requires the AI model to be available and sidecar writing to be enabled in [preferences > storage](../../../preferences-settings/storage.md#xmp-sidecar-files); without them, the stored object still renders.
+By default, an AI object is stored _as pixels_, exactly as selected, in the image's [DTDATA sidecar](../../../overview/sidecar-files/sidecar.md). The pixels are kept only in that sidecar -- the library database holds just a reference to them. An object stored as pixels is shown on the image as an icon, along with the other shapes of the mask. To refine the object later, click its icon: the tool reopens on the stored mask, so that you can add or remove points and apply again. Refining a stored object requires the AI model to be available and sidecar writing to be enabled in [preferences > storage](../../../preferences-settings/storage.md#xmp-sidecar-files); without them, the stored object still renders.
 
-If the stored pixels of an object are missing (for example because the sidecar was deleted), the module that uses it is not applied anywhere and darktable reports the problem. If sidecar writing is enabled, clicking the object's icon regenerates it.
+If the stored pixels of an object are missing (for example because the sidecar was deleted), the module that uses it is not applied anywhere and darktable reports the problem. The sidecar is not recreated, but if the AI model is available you can regenerate the object's pixels by clicking its icon.
 
 With _apply as paths_, the object is instead traced into Bézier paths once and stored in that form, as a group of path shapes (with holes cut out using _difference_ groups). The paths can then be edited like any other [drawn shape](./drawn.md), and the AI model is not involved any more. _Apply as paths_ is always used when sidecar writing is set to "never".
 

@@ -11,7 +11,9 @@ A mask is a tree of groups. Each group combines its members -- elements and othe
 
 # the one rule
 
-A group is a stack of members with one operator. A group starts from its _bottom_ member and applies its operator to each member above it in turn, in the same way as modules are applied in the pixelpipe. A member can be an element or another group: once a group has been computed, its result is used by the group above as if it were a single element, in the same way as brackets work in arithmetic.
+A group is a stack of members whose interaction is governed by the group's operator. A group starts from its _bottom_ member and applies its operator to each member above it in turn, in the same way as modules are applied in the pixelpipe. A member can be an element or another group: once a group has been computed, its result is used by the group above as if it were a single element, in the same way as brackets work in arithmetic.
+
+The [cheat sheet](#cheat-sheet) at the end of this page summarizes the operators.
 
 Everything else is a matter of choosing the operator of each group and putting the members in the right order.
 

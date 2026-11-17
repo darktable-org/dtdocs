@@ -54,7 +54,7 @@ Whatever the position, the ![mask panel](./mask-panel/icon-panel-toolbar.png#ico
 : While enabled, only the selected shape, or the shapes of the selected group, are shown and editable on the image. The other members still contribute to the mask. This is useful when many shapes overlap.
 
 ![lock mask](./mask-panel/icon-lock.png#icon) lock mask
-: Lock or unlock the mask. A locked mask cannot be edited and is kept as it is when the module is reset, or when a preset, a style or pasted module parameters are applied to the module. Discarding the history still removes it.
+: Lock or unlock the mask. A locked mask, including its parametric elements, cannot be edited and is kept as it is when the module is reset, or when a preset, a style or pasted module parameters are applied to the module. Discarding the history still removes it.
 
 When the panel is in the separate or utility position, a row under the header names the module whose mask is shown (this can be disabled in the [mask options](#mask-options)).
 

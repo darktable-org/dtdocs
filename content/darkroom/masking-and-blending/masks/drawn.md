@@ -4,13 +4,13 @@ id: drawn
 weight: 30
 ---
 
-Drawn shapes are mask elements that you draw directly on the image: brush strokes, circles, ellipses, paths and gradients. Like any element, a shape can be combined with other elements in [groups](./groups-and-operators.md), and it can be reused in other modules. [AI objects](./ai-masking.md) are created in the same way.
+Drawn shapes are mask elements that you draw directly on the image: brush strokes, circles, ellipses, paths and gradients. Like any element, a shape can be combined with other elements in [groups](./groups-and-operators.md), and it can be reused in other modules. [AI objects](./ai-masking.md) are created in the same way, but differ from other shapes in that, by default, they are stored as pixels (a raster) and not as editable outlines -- see [how AI objects are stored](./ai-masking.md#how-ai-objects-are-stored).
 
 Shapes are stored internally as vectors and are rendered with the required resolution during pixelpipe processing. Shapes are expressed in the coordinate system of the original image and are transformed along with the rest of the image by any active distorting modules in the pipe ([_lens correction_](../../../module-reference/processing-modules/lens-correction.md), [_rotate and perspective_](../../../module-reference/processing-modules/rotate-perspective.md) for example). This means that a shape will always work on the same image area regardless of any modifications that may be subsequently applied.
 
 # creating shapes
 
-Click on one of the shape buttons in the [toolbar](./mask-panel.md#toolbar) of the mask panel (from left to right: path, brush, circle, ellipse, gradient and AI object -- the latter if [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active). If the mask is off, it is switched on.
+Click on one of the shape buttons in the [toolbar](./mask-panel.md#toolbar) of the mask panel (from left to right: path, brush, circle, ellipse, gradient and AI object -- the latter if [AI features](../../../special-topics/ai/overview.md) are enabled and a model for the _mask_ task is active). If the mask is off, it is enabled.
 
 ![shape icons](./drawn/shape-icons.png#w33)
 
@@ -20,7 +20,11 @@ The new shape is added to the selected group (or to the group of the selected el
 
 Ctrl+click on a shape button to continuously draw multiple shapes of the same type -- each time a shape is completed, you re-enter creation mode for a new instance of that shape. Right-click on the image or press Escape to stop drawing shapes and enter edit mode.
 
-For all drawn shapes, you can hold Shift while scrolling with the mouse wheel to change the extent of the shape's feathering (the blur at the edge of the shape) and use Ctrl+scroll to change the shape's opacity. The feathering shape can also be changed by dragging a node on the feathering outline. If the feathering node coincides with a path node, hold Shift when selecting the node to limit selection to feathering nodes. These operations are available in both creation and edit modes (as long as your mouse is over the shape in question).
+For all drawn shapes, the following operations are available in both creation and edit modes (as long as your mouse is over the shape in question):
+
+- Shift+scroll changes the extent of the shape's feathering (the blur at the edge of the shape).
+- Ctrl+scroll changes the shape's opacity.
+- Dragging a node on the feathering outline changes the feathering shape. If the feathering node coincides with a path node, hold Shift when selecting the node to limit selection to feathering nodes.
 
 By default, scrolling your mouse up increases the value of the relevant shape parameters. This behavior can be changed with the _scroll down to increase mask parameters_ option in the [mask options](./mask-panel.md#editing-options).
 
