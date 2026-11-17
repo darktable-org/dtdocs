@@ -24,7 +24,7 @@ To use a supplied script, you first must enable it. In this example we will enab
 1. Find the [scripts](../module-reference/utility-modules/lighttable/scripts.md) module in the lower left corner of the lighttable view and expand it. 
 1. Select the _action_: _start/stop scripts_ from the dropdown. 
 1. Under _scripts_ select the appropriate folder from the dropdown (in our example _contributed_).
-1. Find the script you want to enable by using the ![left](left-folder-arrow.png#icon) left and ![right](right-folder-arrow.png#icon) right arrows to flip through the pages. In our example, _rename-images_ is (as of this writing) on the last page.
+1. Find the script you want to enable by using the arrows to flip through the pages. In our example, _rename-images_ is (as of this writing) on the last page.
 1. Click the grayed-out start/stop icon to the left of the script's name to start it. The icon should turn white and the script's user interface (if it has one) will appear in a panel in the appropriate view. In this example, an additional utility module _rename images_ will appear in the lighttable's right panel. 
 
 ## using custom scripts
