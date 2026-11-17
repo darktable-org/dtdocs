@@ -54,6 +54,8 @@ This site is built with the static site generator [Hugo](https://github.com/gohu
 
 You can use a prebuilt binary of the latest *extended* version for your system. A detailed guide for installation of the prebuilt binaries is given in the [Hugo installation documentation](https://gohugo.io/installation/).
 
+Note: The official deployment is running on version _0.152.2 extended_. See the [workflow-guide](https://docs.darktable.org/usermanual/development/en/contributing/workflow/#running-hugo-locally-to-preview-changes) for instructions on how to run that exact version locally. 
+
 ### Local Website for development
 
 Building the site to test locally can be done from the root of the repo.
