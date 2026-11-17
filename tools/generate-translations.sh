@@ -64,7 +64,17 @@ for section in content; do
 EOF
     # for f in $section/*.md; do
     for f in  $(find content -type f -name '*.md'); do
-	echo "[type: markdown] $f \$lang:$(dirname $f)/$(basename $f .md).\$lang.md" >> $po4a_conf
+	# Section index pages (_index.md) usually have only their title as a
+	# translatable string. We want to generate them for every language even when
+	# untranslated, so Hugo always has a section page in each language and
+	# the subpages stay at the correct menu level. The title then falls
+	# back to English. All other files keep the default 80% threshold.
+	if [ "$(basename $f)" == "_index.md" ]; then
+	    keep_opt=' opt:"--keep 0"'
+	else
+	    keep_opt=''
+	fi
+	echo "[type: markdown] $f \$lang:$(dirname $f)/$(basename $f .md).\$lang.md$keep_opt" >> $po4a_conf
     done
     po4a $1 --verbose $po4a_conf &
 done
