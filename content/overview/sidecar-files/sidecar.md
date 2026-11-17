@@ -54,4 +54,4 @@ create
 
 If the creation of sidecar files is enabled in [preferences > storage > XMP sidecar files](../../preferences-settings/storage.md#xmp-sidecar-files) then, in addition to  the XMP sidecar files, darktable will store additional data in DTDATA sidecar files.
 
-The DTDATA sidecar holds per-pixel edit data such as raster masks. It is only created for images that use such data, and only when sidecar writing is enabled; most images never get one. It follows the image when it is moved, duplicated or deleted using darktable.
+The DTDATA sidecar holds per-pixel edit data such as imported [raster masks](../../module-reference/processing-modules/external-raster.md) and [AI object](../../darkroom/masking-and-blending/masks/ai-masking.md) masks. It is only created for images that use such data, and only when sidecar writing is enabled; most images never get one. It follows the image when it is moved, duplicated or deleted using darktable.

@@ -37,6 +37,8 @@ create
 
 : The panel supports a hierarchical view, meaning that you can create categories using the pipe symbol “|” as a separator. For example “print|tone curve +0.5 EV” will create a "print" category with a style of "tone curve +0.5 EV" below it.
 
+: The masks of the modules in a style are saved with it, including their shapes, and are rebuilt on every image the style is applied to (see [presets and masks](../../../darkroom/processing-modules/presets.md#presets-and-masks)). [AI objects](../../../darkroom/masking-and-blending/masks/ai-masking.md) that are stored as pixels belong to one image and are left out of the style: darktable asks for confirmation first, naming the modules that are affected. To keep an AI object in a style, create it with _apply as paths_ selected.
+
 : You can cancel the creation process by pressing the Cancel button or pressing the Esc key on your keyboard.
 
 edit

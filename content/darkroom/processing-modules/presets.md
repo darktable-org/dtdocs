@@ -104,6 +104,19 @@ If you delete a preset that has the same name as one of the built-in presets, th
 
 ---
 
+## presets and masks
+
+A preset saved from a module that has a mask also stores that mask: its groups, operators, opacities, inversions and refinements, and the shapes and [parametric elements](../masking-and-blending/masks/parametric.md) it holds. This applies when you create a preset, update it, or edit it. When the preset is applied, the mask is rebuilt on the target image, and its shapes are added to that image as new, independent shapes (also if they were linked to other modules in the source image).
+
+The presets menu only shows the module as being on a preset when its mask still matches the preset's. After you edit a shape, or a group setting, the preset is no longer marked as selected and the _update preset_ and _store new preset_ entries are offered again.
+
+Two things are not carried over:
+
+- [AI objects](../masking-and-blending/masks/ai-masking.md) that are stored as pixels exist only on their own image, so they are left out of the preset. darktable asks for confirmation before saving a preset whose mask contains any. To keep an AI object in a preset, create it with _apply as paths_ selected.
+- A [locked](../masking-and-blending/masks/mask-panel.md#panel-header) mask is left as it is when a preset is applied to it.
+
+Presets saved with darktable 5.6 and earlier stored only the blending parameters of the mask, not its shapes. Their masks are converted to the new format when the preset is applied -- see [migrating from classic masks](../masking-and-blending/masks/migration.md).
+
 ## module naming in the darkroom view
 
 By default, if the current parameters of a processing module match those of a saved preset, darktable will attempt to automatically set the name (label) of the module in question, as follows:

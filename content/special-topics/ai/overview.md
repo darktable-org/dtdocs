@@ -21,7 +21,7 @@ This setup allows for flexibility so the model repository can publish alternativ
 darktable currently exposes four tasks:
 
 mask
-: Interactive object segmentation. Click on a subject in the darkroom and the model produces a mask around it, vectorised into a group of path shapes that can be edited like any other drawn shape. Used by the [AI object](../../../darkroom/masking-and-blending/masks/ai-masking.md) drawn-mask shape to select regions without drawing by hand. Powered by models such as SAM 2.1 and SegNext.
+: Interactive object segmentation. Click on a subject in the darkroom and the model produces a mask around it, stored as pixels in the image's sidecar or, optionally, traced into path shapes that can be edited like any other drawn shape. Used by the [AI object](../../../darkroom/masking-and-blending/masks/ai-masking.md) mask element to select regions without drawing by hand. Powered by models such as SAM 2.1 and SegNext.
 
 denoise
 : Machine-learning RGB denoise as an alternative to the classical denoise modules. Operates on already demosaiced RGB image data, trained on pairs of noisy and clean images. Removes sensor noise without the blocky or smoothed look that can come from traditional filters. Used by the [neural restore](../../../module-reference/utility-modules/shared/neural-restore.md) module's _denoise_ tab.

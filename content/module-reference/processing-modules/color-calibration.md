@@ -56,7 +56,7 @@ For consistency, the _color calibration_ module's default settings always assume
 
 It is also worth noting that, unlike the _white balance_ module, _color calibration_ can be used with [masks](../../darkroom/masking-and-blending/masks/_index.md). This means that you can selectively correct different parts of the image to account for differing light sources.
 
-To achieve this, create an instance of the _color calibration_ module to perform global adjustments using a mask to exclude those parts of the image that you wish to handle differently. Then create a second instance of the module reusing the mask from the first instance (inverted) using a [raster mask](../../darkroom/masking-and-blending/masks/raster.md).
+To achieve this, create an instance of the _color calibration_ module to perform global adjustments using a mask to exclude those parts of the image that you wish to handle differently. Then create a second instance of the module, add the mask of the first instance to its mask as a [raster mask](../../darkroom/masking-and-blending/masks/raster.md), and invert it.
 
 ## CAT tab workflow
 

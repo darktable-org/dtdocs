@@ -49,7 +49,13 @@ In such cases, the _heal_ tool ![retouch-heal-icon](./retouch/rt-heal-icon.png#i
 
 ## source and target shapes
 
-Once you have chosen _heal_ or _clone_ mode, you must choose the shape you wish to use (_circle_, _ellipse_, _path_ or _brush_ -- see the [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) section for details). The source and target patches will both use the same shape.
+Once you have chosen _heal_ or _clone_ mode, you must choose the shape you wish to use (_circle_, _ellipse_, _path_ or _brush_ -- see [drawn shapes](../../darkroom/masking-and-blending/masks/drawn.md) for details). The source and target patches will both use the same shape.
+
+---
+
+**Note:** The shapes of this module are its own tools and are separate from its [mask](../../darkroom/masking-and-blending/masks/overview.md). The [mask panel](../../darkroom/masking-and-blending/masks/mask-panel.md) of this module therefore offers parametric elements and raster masks, but no drawn shapes.
+
+---
 
 When you hover over the image with your mouse, a plus symbol (+) will appear to indicate where the _source_ shape will be placed by default. Your normal mouse cursor will indicate the position of the target shape:
 
@@ -104,7 +110,7 @@ The _retouch tools_ section consists of two items:
 shapes
 : The number after the _shapes_ label indicates how many shapes have been placed on the image, either directly or within a wavelet layer.
 
-: Click on one of the shape icons to draw a new shape on the image (see [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) for details).
+: Click on one of the shape icons to draw a new shape on the image (see [drawn shapes](../../darkroom/masking-and-blending/masks/drawn.md) for details).
 
 : Ctrl+click on a shape icon to draw multiple shapes continuously (right-click to cancel).
 
