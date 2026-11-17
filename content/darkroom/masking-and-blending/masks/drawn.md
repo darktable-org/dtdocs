@@ -36,9 +36,9 @@ By default, scrolling your mouse up increases the value of the relevant shape pa
 
 # editing shapes
 
-Click the ![edit on canvas](./mask-panel/icon-edit-on-canvas.png#icon) _edit on canvas_ button in the [panel header](./mask-panel.md#panel-header) to show the shapes of the mask on the image and edit them. Ctrl+click on the same button to enter restricted edit mode, where certain actions (e.g. dragging a complete shape or changing its size) are blocked. This is particularly useful to avoid costly mistakes when editing path and brush shapes.
+Click the ![edit on canvas](./drawn/icon-edit-on-canvas.png#icon) _edit on canvas_ button in the [panel header](./mask-panel.md#panel-header) to show the shapes of the mask on the image and edit them. Ctrl+click on the same button to enter restricted edit mode, where certain actions (e.g. dragging a complete shape or changing its size) are blocked. This is particularly useful to avoid costly mistakes when editing path and brush shapes.
 
-Hovering over a shape on the image highlights its row in the mask layout, and clicking on a shape selects it in the mask layout (and vice versa). To edit only the shapes of one group, select the group and enable ![solo edit](./mask-panel/icon-solo-edit.png#icon) _solo edit_: the other shapes are then neither shown nor editable on the image, but they still contribute to the mask.
+Hovering over a shape on the image highlights its row in the mask layout, and clicking on a shape selects it in the mask layout (and vice versa). To edit only the shapes of one group, select the group and enable ![solo edit](./drawn/icon-solo-edit.png#icon) _solo edit_: the other shapes are then neither shown nor editable on the image, but they still contribute to the mask.
 
 Click and drag a shape to move it around the image canvas.
 
@@ -48,10 +48,7 @@ Shape nodes that lie close to or beyond the edges of the image can be edited: wh
 
 ## shape controls
 
-The [controls](./mask-panel.md#controls) section of the mask panel shows the settings of the selected shape (or of the shape under the mouse pointer):
-
-opacity
-: How strongly the shape counts in its group.
+The [controls](./mask-panel.md#controls) section of the mask panel shows the settings of the selected shape (or of the shape under the mouse pointer). The shape's opacity is not listed here: it is shared by all members of the mask, so the _opacity_ slider is shown above the controls (see [controls](./mask-panel.md#controls)):
 
 size
 : The size of the shape.
@@ -73,7 +70,7 @@ shrink or grow
 
 # removing shapes
 
-Select the shape and click the ![delete](./mask-panel/icon-delete.png#icon) button in the [selection caption](./mask-panel.md#selection-caption), or press Delete. In edit mode, you can also right-click on a shape on the image to remove it.
+Select the shape and click the ![delete](./drawn/icon-delete.png#icon) button in the [selection caption](./mask-panel.md#selection-caption), or press Delete. In edit mode, you can also right-click on a shape on the image to remove it.
 
 A removed shape stays available in the image's list of shapes until it is cleaned up, and can be brought back with the [import](./mask-panel.md#toolbar) menu (_link shapes > not currently used_). Use _clean up unused shapes_ from the same menu to delete such shapes for good.
 
@@ -88,7 +85,7 @@ A removed shape stays available in the image's list of shapes until it is cleane
 Shapes drawn in one module can be used in the mask of another, with the [import](./mask-panel.md#toolbar) button of the toolbar. The menu lists shapes by source module, by type, and those used most recently. Hover over an entry to preview the shape on the image.
 
 link shapes
-: Add the shape as a _linked_ shape: the same shape is shared by both modules, and editing it in one module changes it everywhere. A linked shape is shown with a dashed frame and a ![link](./mask-panel/icon-link.png#icon) link button in the mask layout: click the button to go to the next module that uses the shape, or Shift+click it to give this module its own copy. Each module keeps its own opacity, inversion and refinements for the shape.
+: Add the shape as a _linked_ shape: the same shape is shared by both modules, and editing it in one module changes it everywhere. A linked shape is shown with a dashed frame and a ![link](./drawn/icon-link.png#icon) link button in the mask layout: click the button to go to the next module that uses the shape, or Shift+click it to give this module its own copy. Each module keeps its own opacity, inversion and refinements for the shape.
 
 copy shapes
 : Add an independent copy of the shape, which can then be changed without affecting the original.
@@ -159,7 +156,7 @@ In order to ensure a consistent co-ordinate system, when you place a shape on th
 
 # inverting a shape
 
-Click the ![invert](./mask-panel/icon-invert.png#icon) invert button on a shape's row to invert it. For example, a circle will, by default, cause the module to be applied only to the area inside the drawn circle. An inverted circle causes the module to apply everywhere _except for_ that circle. To invert the result of several shapes at once, invert the group that holds them -- see [inverting](./groups-and-operators.md#inverting).
+Click the ![invert](./drawn/icon-invert.png#icon) invert button on a shape's row to invert it. For example, a circle will, by default, cause the module to be applied only to the area inside the drawn circle. An inverted circle causes the module to apply everywhere _except for_ that circle. To invert the result of several shapes at once, invert the group that holds them -- see [inverting](./groups-and-operators.md#inverting).
 
 # panning and zooming the image
 

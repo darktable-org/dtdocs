@@ -58,7 +58,7 @@ The refinement settings (details threshold, feathering, blur, brightness and con
 
 | in darktable 5.6 and earlier | now |
 |---|---|
-| choose the "off" mode | switch the mask off with the ![mask on/off](./mask-panel/icon-mask-toggle.png#icon) toggle in the [panel header](./mask-panel.md#panel-header) |
+| choose the "off" mode | switch the mask off with the ![mask on/off](./migration/icon-mask-toggle.png#icon) toggle in the [panel header](./mask-panel.md#panel-header) |
 | choose the "uniformly" mode | switch the mask on, and leave it empty |
 | choose "drawn", "parametric" or "drawn & parametric" | switch the mask on, then add shapes or parametric elements from the [toolbar](./mask-panel.md#toolbar). To start from a familiar arrangement, choose one of the _classic_ [group layout presets](./layout-presets.md), or set one as the default layout for new masks |
 | choose "raster mask", then the module | switch the mask on, then use [import](./mask-panel.md#toolbar) > _add raster mask_ |
@@ -69,10 +69,10 @@ The refinement settings (details threshold, feathering, blur, brightness and con
 | in darktable 5.6 and earlier | now |
 |---|---|
 | click a shape icon below the module and draw | click a shape button in the [toolbar](./mask-panel.md#toolbar) and draw. The shape goes into the selected group |
-| "show and edit mask elements" button | ![edit on canvas](./mask-panel/icon-edit-on-canvas.png#icon) _edit on canvas_ in the panel header (Ctrl+click for restricted mode, as before) |
+| "show and edit mask elements" button | ![edit on canvas](./migration/icon-edit-on-canvas.png#icon) _edit on canvas_ in the panel header (Ctrl+click for restricted mode, as before) |
 | drawn mask polarity (+/-) | invert the group that holds the shapes (or the whole mask) |
 | right-click a shape in the mask manager > _mode_ (union, intersection, difference, exclusion, sum) | put the shape in a group with the corresponding [operator](./groups-and-operators.md#operators): select it and use [restructure](./mask-panel.md#selection-caption) > _wrap in group_ or _compose_, or drag it into an existing group |
-| _use inverted shape_ | the ![invert](./mask-panel/icon-invert.png#icon) invert button on the shape's row |
+| _use inverted shape_ | the ![invert](./migration/icon-invert.png#icon) invert button on the shape's row |
 | _move up_ / _move down_ | drag the row |
 | _group the forms_ | select the shapes (Ctrl+click) and use _group together..._ |
 | _add existing shape_ | [import](./mask-panel.md#toolbar) > _link shapes_ |

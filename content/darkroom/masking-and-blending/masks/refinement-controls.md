@@ -14,8 +14,6 @@ Refinements are not limited to the final mask. They act on whatever is selected 
 
 This allows, for example, feathering only the drawn part of a mask while leaving its parametric part untouched, or applying the details threshold to a single branch of the mask.
 
-![refinements](./refinement-controls/refinements.png#w33)
-
 Click the section header to fold or unfold it. Two buttons in the header act on the refinements of the current selection:
 
 ![bypass](./refinement-controls/icon-eye.png#icon) bypass

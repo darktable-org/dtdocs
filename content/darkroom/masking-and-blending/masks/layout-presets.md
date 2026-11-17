@@ -8,7 +8,7 @@ A group layout preset is a ready-made arrangement of groups and operators, witho
 
 # applying a preset
 
-Select a group (or the whole mask) and click the ![presets](./mask-panel/icon-presets.png#icon) presets button in the [selection caption](./mask-panel.md#selection-caption) of the mask panel. The popover lists the _built-in presets_ followed by your _user defined presets_. Hover over a preset's name to see an outline of its groups, operators and opacities.
+Select a group (or the whole mask) and click the ![presets](./layout-presets/icon-presets.png#icon) presets button in the [selection caption](./mask-panel.md#selection-caption) of the mask panel. The popover lists the _built-in presets_ followed by your _user defined presets_. Hover over a preset's name to see an outline of its groups, operators and opacities.
 
 ![group layout presets](./layout-presets/presets-popover.png#w50)
 

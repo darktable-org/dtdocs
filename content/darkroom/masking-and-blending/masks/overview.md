@@ -60,7 +60,7 @@ Finally, the whole mask is applied together with the [blend mode and the global 
 The quickest way to see how this works:
 
 1. Expand a module that supports masks (for example [_exposure_](../../../module-reference/processing-modules/exposure.md)).
-2. In the [mask panel](./mask-panel.md) at the bottom of the module, click the ![mask on/off](./mask-panel/icon-mask-toggle.png#icon) toggle to switch the mask on. The mask starts with the _default layout_ -- a single group (the whole mask) ready to receive shapes.
+2. In the [mask panel](./mask-panel.md) at the bottom of the module, click the ![mask on/off](./overview/icon-mask-toggle.png#icon) toggle to switch the mask on. The mask starts with the _default layout_ -- a single group (the whole mask) ready to receive shapes.
 3. Click a shape button in the toolbar (for example the ellipse) and click on the image to place it. The module is now applied only inside the ellipse.
 4. Click a parametric channel button (for example _Jz_ or _L_) to add a luminance element and narrow its range with the sliders in the _controls_ section.
 5. The new channel was added to the same group as the ellipse. The group's operator defines how the two elements of the mask interact: for example, _union_ applies the module inside the ellipse _or_ to the selected tones, whereas _intersection_ applies it only to the selected tones _inside_ the ellipse.

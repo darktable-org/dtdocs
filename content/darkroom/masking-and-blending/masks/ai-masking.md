@@ -8,7 +8,7 @@ AI masking requires AI features to be enabled in [AI preferences](../../../prefe
 
 # AI object
 
-![drawn-mask-object](./drawn/ai-object.png#icon) The _AI object_ tool selects an object for you: instead of drawing its outline by hand, click on the subject and a segmentation model produces the mask. An AI object is an element like any other: it can be combined with other elements in [groups](./groups-and-operators.md), inverted, refined, and given its own opacity.
+![drawn-mask-object](./ai-masking/ai-object.png#icon) The _AI object_ tool selects an object for you: instead of drawing its outline by hand, click on the subject and a segmentation model produces the mask. An AI object is an element like any other: it can be combined with other elements in [groups](./groups-and-operators.md), inverted, refined, and given its own opacity.
 
 Click the AI object button in the [toolbar](./mask-panel.md#toolbar) of the mask panel, then:
 
@@ -36,7 +36,7 @@ apply as paths
 
 ## how AI objects are stored
 
-By default, an AI object is stored _as pixels_, exactly as selected, in the image's [DTDATA sidecar](../../../overview/sidecar-files/sidecar.md). The pixels are kept only in that sidecar -- the library database holds just a reference to them. An object stored as pixels is shown on the image as an icon, along with the other shapes of the mask. To refine the object later, click its icon: the tool reopens on the stored mask, so that you can add or remove points and apply again. Refining a stored object requires the AI model to be available and sidecar writing to be enabled in [preferences > storage](../../../preferences-settings/storage.md#xmp-sidecar-files); without them, the stored object still renders.
+By default, an AI object is stored _as pixels_, exactly as selected, in the image's [DTDATA sidecar](../../../overview/sidecar-files/sidecar.md#dtdata-sidecar-files). The pixels are kept only in that sidecar -- the library database holds just a reference to them. An object stored as pixels is shown on the image as an icon, along with the other shapes of the mask. To refine the object later, click its icon: the tool reopens on the stored mask, so that you can add or remove points and apply again. Refining a stored object requires the AI model to be available and sidecar writing to be enabled in [preferences > storage](../../../preferences-settings/storage.md#xmp-sidecar-files); without them, the stored object still renders.
 
 If the stored pixels of an object are missing (for example because the sidecar was deleted), the module that uses it is not applied anywhere and darktable reports the problem. The sidecar is not recreated, but if the AI model is available you can regenerate the object's pixels by clicking its icon.
 

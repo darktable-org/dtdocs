@@ -177,7 +177,7 @@ Work from the outside in, starting from a sentence that describes what you want:
 Then, in the [mask panel](./mask-panel.md):
 
 1. Click the operator of the whole mask and choose _difference_.
-2. Click ![add group](./mask-panel/icon-add-group.png#icon) _add group_ and choose _maximum (union)_. Alt+click its name to rename it "to dim".
+2. Click ![add group](./groups-and-operators/icon-add-group.png#icon) _add group_ and choose _maximum (union)_. Alt+click its name to rename it "to dim".
 3. With "to dim" selected, draw the _sky_ and the _lake_: new elements go into the selected group.
 4. Click the name of "to dim" again to select the whole mask, then draw the _tree_: new elements now go into the whole mask.
 5. If a member ends up in the wrong place, drag it. "to dim" must be the bottom member of the whole mask.
@@ -218,7 +218,7 @@ The opacity of a member scales it before it is combined with the others. In a _d
 
 # restructuring
 
-The restructure (![wand](./mask-panel/icon-wand.png#icon)) menu in the [selection caption](./mask-panel.md#selection-caption) changes the structure of the mask around the selected member:
+The restructure (![wand](./groups-and-operators/icon-wand.png#icon)) menu in the [selection caption](./mask-panel.md#selection-caption) changes the structure of the mask around the selected member:
 
 wrap in group
 : Put the selected member in a new group of the chosen operator, where it is, so that you can combine it with what you add to the new group later.

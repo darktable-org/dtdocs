@@ -29,7 +29,7 @@ fulcrum
 opacity
 : The global opacity of the module's effect. It applies on top of any mask. A warning sign is displayed next to its label when the opacity is below 10%, as the module then has very little effect on the image.
 
-Blending only takes place when the mask is switched on (with the ![mask on/off](./masks/mask-panel/icon-mask-toggle.png#icon) toggle in the panel header). This gives three possible states:
+Blending only takes place when the mask is switched on (with the ![mask on/off](./overview/icon-mask-toggle.png#icon) toggle in the panel header). This gives three possible states:
 
 mask off
 : The module's output is passed to the next module without blending (the "off" mode of darktable 5.6 and earlier).
@@ -42,7 +42,7 @@ mask on, with elements
 
 # blending options
 
-Right-click the ![mask on/off](./masks/mask-panel/icon-mask-toggle.png#icon) toggle to open the [mask options](./masks/mask-panel.md#mask-options) popover. Its _instance settings_ section sets the _blend colorspace_, i.e. the color space in which the module is blended and in which its [parametric elements](./masks/parametric.md) are evaluated:
+Right-click the ![mask on/off](./overview/icon-mask-toggle.png#icon) toggle to open the [mask options](./masks/mask-panel.md#mask-options) popover. Its _instance settings_ section sets the _blend colorspace_, i.e. the color space in which the module is blended and in which its [parametric elements](./masks/parametric.md) are evaluated:
 
 - _default_: use the default color space for the module.
 - _Lab_: use the Lab color space. Only offered on modules that work in Lab.

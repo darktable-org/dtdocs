@@ -76,7 +76,7 @@ In their default state all markers are at their extreme positions, and the eleme
 
 ## inverting an element
 
-Click the ![invert](./mask-panel/icon-invert.png#icon) invert button on the element's row to invert it: the element then _deselects_ the chosen range of values instead of selecting it. The markers of the sliders swap to show this, as in the following images.
+Click the ![invert](./parametric/icon-invert.png#icon) invert button on the element's row to invert it: the element then _deselects_ the chosen range of values instead of selecting it. The markers of the sliders swap to show this, as in the following images.
 
 ![range deselect slider](./parametric/blendif_3a.png#w33)
 
