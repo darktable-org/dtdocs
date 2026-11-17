@@ -33,6 +33,12 @@ Correct areas of an image (the target) using details from another area of the im
 
 This module uses some of the shapes that are available for [drawn masks](../../darkroom/masking-and-blending/masks/drawn.md) (circles, ellipses and paths), and the user interface is similar. 
 
+---
+
+**Note:** The shapes of this module are its own tools and are separate from its [mask](../../darkroom/masking-and-blending/masks/overview.md). The [mask panel](../../darkroom/masking-and-blending/masks/mask-panel.md) of this module therefore offers parametric elements and raster masks, but no drawn shapes.
+
+---
+
 To use this module, first select the desired shape by clicking the corresponding shape icon (Ctrl+click to enable continuous shape creation mode). Next, you may optionally choose the source for the correction by using Shift+Ctrl+click or Shift+click on the image canvas to choose absolute or relative mode, respectively (see below). Finally click on the canvas to choose the area to be healed (the target area). A cross is displayed where the source area will be positioned.
 
 The source positioning has two modes

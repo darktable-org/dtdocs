@@ -214,7 +214,7 @@ You may also have groups of module settings that you commonly apply only to cert
 
 ## perform adjustments locally
 
-Most darktable modules can either be applied to the whole image, or restricted to parts of the image using [drawn and parametric masks](../../darkroom/masking-and-blending/masks/_index.md).
+Most darktable modules can either be applied to the whole image, or restricted to parts of the image using [masks](../../darkroom/masking-and-blending/masks/overview.md), built from drawn shapes, ranges of pixel values, the masks of other modules and AI-selected objects.
 
 ## control darktable with other input methods
 

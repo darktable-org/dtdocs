@@ -1,13 +1,33 @@
 ---
-title: mask refinement & additional controls
-id: masks
-weight: 50
+title: refinements
+id: refinement-controls
+weight: 60
 ---
 
-When a mask is active, several additional sliders are shown which allow the mask to be further refined.
+The _refinements_ section of the [mask panel](./mask-panel.md) contains sliders that further refine a mask: they select by the amount of detail, align the mask's edges with the image, blur it, or change its tonal response.
+
+Refinements are not limited to the final mask. They act on whatever is selected in the [mask layout](./mask-panel.md#mask-layout):
+
+- with an element selected, they refine that element alone, before it is combined with the other members of its group;
+- with a group selected, they refine the group's result, after its operator has combined its members;
+- with the whole mask selected (nothing else selected), they refine the final mask of the module.
+
+This allows, for example, feathering only the drawn part of a mask while leaving its parametric part untouched, or applying the details threshold to a single branch of the mask.
+
+![refinements](./refinement-controls/refinements.png#w33)
+
+Click the section header to fold or unfold it. Two buttons in the header act on the refinements of the current selection:
+
+![bypass](./refinement-controls/icon-eye.png#icon) bypass
+: Temporarily disable the refinements of the selected member, keeping their settings. Click again to enable them.
+
+reset
+: Reset the refinements of the selected member to their default values.
+
+The following controls are available:
 
 details threshold
-: This control allows you to alter the opacity of the mask based on the amount of detail in the image. Use this slider to select either areas with lots of detail (positive values) or areas that are flat and lacking in detail (negative values). The default (zero) effectively bypasses details refinement. This is mostly useful to apply sharpening and blurring effects that ignore out-of-focus (bokeh) regions or to sharpen only blurry parts, preventing over-sharpening of in-focus regions.
+: Alter the opacity of the mask based on the amount of detail in the image. Use this slider to select either areas with lots of detail (positive values) or areas that are flat and lacking in detail (negative values). The default (zero) effectively bypasses details refinement. This is mostly useful to apply sharpening and blurring effects that ignore out-of-focus (bokeh) regions or to sharpen only blurry parts, preventing over-sharpening of in-focus regions.
 
 ---
 
@@ -26,19 +46,13 @@ feathering radius
 : Adjust the strength of the feathering effect. Feathering works best if the mask's edges already approximately match some edges in the guiding image. The larger the “feathering radius” the better the feathering algorithm can align the mask to more distant edges. If this radius is too large, however, the feathered mask may overshoot (cover regions that the user wants to exclude). Feathering is disabled when the feathering radius is set to 0.
 
 blurring radius
-: Blurring the mask creates a softer transition between blended and unblended parts of an image and can be used to avoid artifacts. The blurring radius slider controls the radius of a gaussian blur applied to the final blend mask. The higher the radius, the stronger the blur (set to 0 for an unblurred mask). Mask blur is always applied after feathering if both kinds of mask adjustment are activated. This allows any resulting sharp edges or artifacts to be smoothed.
+: Blurring the mask creates a softer transition between blended and unblended parts of an image and can be used to avoid artifacts. The blurring radius slider controls the radius of a gaussian blur applied to the mask. The higher the radius, the stronger the blur (set to 0 for an unblurred mask). Mask blur is always applied after feathering if both kinds of mask adjustment are activated. This allows any resulting sharp edges or artifacts to be smoothed.
 
-mask opacity
-: The strength of the module's effect is determined by the mask's local opacity. Feathering and blurring the mask may reduce the opacity of the original mask. The “mask opacity” slider allows you to readjust the mask opacity to compensate. If the mask opacity is decreased (negative slider values) less opaque parts are affected more strongly. Conversely, if the mask opacity is increased (positive slider values) more opaque parts are affected more strongly. As a consequence, completely opaque portions of the mask always remain opaque and completely transparent portions always remain transparent. This is to ensure that regions that have been fully excluded from or included in a module's effect (by setting the mask's opacity to 0% or 100%) remain fully excluded or included.
+mask brightness
+: Feathering and blurring the mask may reduce its opacity. The “mask brightness” slider shifts the tone curve of the mask to compensate. If the brightness is decreased (negative slider values) less opaque parts are affected more strongly. Conversely, if the brightness is increased (positive slider values) more opaque parts are affected more strongly. Completely opaque portions of the mask always remain opaque and completely transparent portions always remain transparent. This is to ensure that regions that have been fully excluded from or included in a module's effect (by setting the mask's opacity to 0% or 100%) remain fully excluded or included. This slider was called "mask opacity" in darktable 5.6 and earlier.
 
 mask contrast
 : This slider increases or decreases the mask contrast. This allows you to adjust the transition between the opaque and transparent parts of the mask.
-
-![eye icon](./refinement-controls/icon-eye.png#icon) temporarily switch off mask
-: Sometimes it is useful to visualize a module's effect without the mask being active. Click on this icon to temporarily deactivate the mask (the selected blend mode and global opacity remain in effect).
-
-![mask icon](./refinement-controls/icon-mask.png#icon) display mask
-: Click on this icon to display the current mask as a yellow overlay over a black-and-white version of the image. Solid yellow indicates an opacity of 100%; a fully visible gray background image (without yellow overlay) indicates an opacity of 0%.
 
 # example: feathering a drawn mask
 
@@ -47,8 +61,12 @@ mask contrast
 It can be rather tedious to create a drawn mask that precisely covers a particular feature in an image. In this example, we want to enhance the color contrast of the lion sculpture shown in the left image above without affecting the background.
 
 1. The first image above shows the original, unaltered image.
-2. The second image shows a rough selection of the sculpture created with a drawn mask. Note that the mask is rather fuzzy and does not precisely follow the outline of the lion sculpture.
-3. The third image shows the effect of adjusting the feathering radius, mask opacity and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask opacity and mask contrast have been increased to 0.3 and 0.5, respectively.
+2. The second image shows a rough selection of the sculpture created with a drawn shape. Note that the mask is rather fuzzy and does not precisely follow the outline of the lion sculpture.
+3. The third image shows the effect of adjusting the feathering radius, mask brightness and mask contrast, leading to a well matched mask with little effort. In this example the feathering radius has been adjusted to 50 and a blur radius of 5 was chosen to smooth the mask to some degree. The mask brightness and mask contrast have been increased to 0.3 and 0.5, respectively.
 4. The final image above shows the end result, where the color enhancement (via the [_color contrast_](../../../module-reference/processing-modules/color-contrast.md) module) is restricted to only the lion sculpture.
 
 Mask feathering works particularly well in this example because the sculpture is well separated from the out-of-focus background. The distinct edge at the border of the sculpture guides the feathering mask adjustment to match the shape of the sculpture.
+
+# display and comparison
+
+The buttons to display the mask as a yellow overlay (![display mask](./refinement-controls/icon-mask.png#icon)) and to temporarily switch it off (![eye icon](./refinement-controls/icon-eye.png#icon)) are located in the [panel header](./mask-panel.md#panel-header) of the mask panel. To see the contribution of a single element or group, _solo_ it by Shift+clicking its eye in the mask layout, and display the mask.

@@ -18,9 +18,9 @@ Every processing module acts independently of the others, but all modules perfor
 
 3. Generate a _mask_, which defines an _opacity_ for each pixel in the image. The _opacity_ is later used to control how strongly the module's operation is applied to each part of the image. 
 
-   You may define your own mask by drawing shapes over the image or by using pixel properties from the _module input_ or _processed output_ (see [masks](../masking-and-blending/masks/_index.md) for details). This mask may be further modified with a global opacity setting, which affects every pixel equally. 
+   You may define your own mask by drawing shapes over the image, by using pixel properties from the _module input_ or _processed output_, by reusing the masks of earlier modules, or by any combination of these (see [masks](../masking-and-blending/masks/overview.md) for details). This mask may be further modified with a global opacity setting, which affects every pixel equally. 
 
-   If no drawn/parametric mask is used, the output of this step is a mask where every pixel has the same opacity (governed by the global opacity setting). If no opacity is defined (no blending is performed) a global opacity of 1.0 (or 100%) is assumed.
+   If the mask is empty, the output of this step is a mask where every pixel has the same opacity (governed by the global opacity setting). If no opacity is defined (no blending is performed) a global opacity of 1.0 (or 100%) is assumed.
 
 4. Combine the _module input_ and _blended output_ pixel-by-pixel using the _mask_ as a mixing operator, to produce the _final output_. Where the mask opacity is 100%, the _final output_ is the _blended output_ for that pixel. Where the mask opacity is 0 the final output is the _module input_ for that pixel. An intermediate opacity combines the _blended output_ and _module input_ proportionally. The _final output_ is passed to the next module for further processing.
 

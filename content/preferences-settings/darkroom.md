@@ -8,9 +8,6 @@ Control functionality in the [darkroom](../darkroom/_index.md) view and associat
 
 # general
 
-scroll down to increase mask parameters
-: By default, scrolling your mouse up increases the value of the relevant shape parameters in [drawn masks](../darkroom/masking-and-blending/masks/drawn.md). Set this preference to reverse the behavior (default off).
-
 middle mouse button zooms to 200%
 : When enabled, clicking the middle mouse button on the image canvas causes the zoom level to toggle between fit, 100% and 200%. When disabled, the middle mouse button toggles between fit and 100%. In the latter case, you can use Ctrl+middle-click to access the 200% zoom level (default on).
 
@@ -32,7 +29,7 @@ show loading screen between images
 # modules
 
 display of individual color channels
-: Control how individual color channels are displayed when activated in the [parametric masks](../darkroom/masking-and-blending/masks/parametric.md) feature. You can choose between “false color” and “gray scale” (default "false color").
+: Control how individual color channels are displayed when previewed from the [mask panel](../darkroom/masking-and-blending/masks/parametric.md#adding-parametric-elements), before adding a parametric element. You can choose between “false color” and “gray scale” (default "false color").
 
 hide built-in presets for processing modules
 : If enabled, only user-defined presets will be shown in the presets menu for processing modules -- built-in presets will be hidden (default off).
@@ -67,11 +64,14 @@ show right-side buttons in processing module headers
 : - _glide_: gradually hide individual buttons as needed
 : (default _always_)
 
-show mask indicator in module headers
-: If enabled, an icon will be shown in the header of any processing modules that have a [mask](../darkroom/masking-and-blending/masks/_index.md) applied (default on).
-
 prompt for name on addition of new instance
 : If enabled, when creating a new instance of a processing module, a prompt will be immediately displayed allowing you to set a name for the new instance (default off).
 
 automatically update module name
 : Automatically update the name (label) on processing modules if the current parameters of the module match those of a saved [preset](../darkroom/processing-modules/presets.md#module-naming-in-the-darkroom-view). The module name will only be updated if it hasn't already been manually amended for the current image. It will be set either to the module name from which the preset was made (if the module name was manually adjusted before the preset was created) or to the name of the preset itself (default on).
+
+---
+
+**Note:** The options that control masks -- such as the scroll direction for mask parameters and the mask indicator in module headers -- are set in the [mask options](../darkroom/masking-and-blending/masks/mask-panel.md#mask-options) popover of the mask panel.
+
+---
