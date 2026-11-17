@@ -3,9 +3,9 @@ title: scripts
 id: scripts
 ---
 
-The _scripts_ module is created by the _script manager_ and lets you start, stop, configure, install and update darktable's Lua scripts directly from the lighttable. See [basic principles](../../../lua/basic-principles.md) for an explanation of how the script manager loads scripts.
+The _scripts_ module is created by the _script manager_ and lets you start, stop, configure, install and update darktable's Lua scripts directly from the lighttable. See the lua scripts [programmers guide](https://docs.darktable.org/lua/development/lua.programmers.guide/basic-principles/) for an explanation of how the script manager loads scripts.
 
-Since darktable 5.6 a collection of scripts is [bundled](../../../lua/darktables-scripts.md) with the program, so this module is available without any manual installation. Documentation for the individual bundled scripts is available in the [lua docs](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).
+Since darktable 5.6 a collection of scripts is [bundled](../../../lua/using-lua-scripts.md) with the program, so this module is available without any manual installation. Documentation for the individual bundled scripts is available in the [lua docs](https://docs.darktable.org/lua/stable/lua.scripts.manual/scripts/).
 
 Installing or updating scripts requires [git](https://git-scm.com/) to be installed and available on your path.
 
@@ -20,7 +20,7 @@ The __action__ dropdown at the top of the module switches between three views: _
 Lists the scripts contained in the selected folder, each preceded by an on/off button used to start or stop it.
 
 folder
-: Select which group of scripts to display. The bundled scripts are grouped into _contributed_, _examples_, _official_ and _tools_. Scripts placed in `[configuration directory]/lua/FOLDER/file.lua` can be selected here. See [basic principles](../../../lua/basic-principles.md) on how darktable loads added scripts. 
+: Select which group of scripts to display. The bundled scripts are grouped into _contributed_, _examples_, _official_ and _tools_. Scripts placed in `[configuration directory]/lua/FOLDER/file.lua` can be selected here. See [using custom scripts](../../../lua/using-lua-scripts.md#using-custom-scripts) on how darktable loads added scripts. 
 
 page navigation
 : When a folder holds more scripts than fit on a single page, use the _<_ and _>_ buttons to move between pages. The current position is shown as "page x of y". The number of scripts shown per page is set in the _configure_ view.
