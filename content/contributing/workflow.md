@@ -80,19 +80,19 @@ Alternatively you can sync your fork and local copy via terminal:
 
 ### 1. Use a compatible Hugo version
 
-You need the *extended* edition of Hugo, and **not** the latest release: the theme still uses the `libsass` transpiler, which was removed in Hugo v0.170.0. Trying to build the pages will versions > 0.170.0 will fail with `the libsass transpiler was removed in Hugo v0.170.0`.
-
-Use the same version as the official deployment to docs.darktable.org, currently **v0.152.2**. Check your version with `hugo version`. Package managers usually install the latest release, so download the matching binary from the [Hugo releases page](https://github.com/gohugoio/hugo/releases/tag/v0.152.2) instead (`hugo_extended_0.152.2_<os>-<arch>`) and put it in your `PATH`, e.g. for Linux as follows:
+The official deployment uses hugo **v0.152.2+extended**, it makes sense to use the same binary for local testing instead of the latest release, usually installed by your package manager. Download the matching binary from the [Hugo releases page](https://github.com/gohugoio/hugo/releases/tag/v0.152.2) instead (`hugo_extended_0.152.2_<os>-<arch>`) and put it in your `PATH`, e.g. for Linux as follows:
 
 ```
 mkdir -p ~/.local/opt/hugo-0.152.2 ~/.local/bin
 curl -L https://github.com/gohugoio/hugo/releases/download/v0.152.2/hugo_extended_0.152.2_linux-amd64.tar.gz | tar xz -C ~/.local/opt/hugo-0.152.2
-ln -sf ~/.local/opt/hugo-0.152.2/hugo ~/.local/bin/hugo-0.152
+ln -s ~/.local/opt/hugo-0.152.2/hugo ~/.local/bin/hugo-0.152
 ```
+
+You can now call that version with `hugo-0.152`.
 
 ### 2. Generate the stylesheets
 
-Before you can preview the site with hugo you need to generate the stylesheets:
+Before you can preview the site with H1ugo you need to generate the stylesheets:
 
 ````
 cd ./themes/hugo-darktable-docs-theme/assets/
@@ -103,7 +103,7 @@ Instead of `yarn install` you can use `npm install`.
 
 ### 3. Start the preview
 
-Execute `hugo server -D --disableFastRender` (or `hugo-0.152 server …`) from the base directory of your local repository. When no errors are encountered, the terminal reports `Web Server is available at http://localhost:1313/usermanual/development/` and the site is available at that URL. Hugo will monitor the directory for changes and redeploy upon changing files automatically. When you have a specific page open and make changes to the corresponding .md file the browser should also reload the page after hugo has automatically redeployed. 
+Execute `hugo-0.152 server -D --disableFastRender` (or `hugo server …` to use a hugo version installed via package manager) from the base directory of your local repository. When no errors are encountered, the terminal reports `Web Server is available at http://localhost:1313/usermanual/development/` and the site is available at that URL. Hugo will monitor the directory for changes and redeploy upon changing files automatically. When you have a specific page open and make changes to the corresponding .md file the browser should also reload the page after hugo has automatically redeployed. 
 
 
 
