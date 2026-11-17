@@ -121,6 +121,8 @@ device
 : _on = enable device; off = disable device_
 : If darktable detects a malfunctioning device it will automatically mark it as such by setting this parameter to _off_. If you have a device that reports a lot of errors you can manually disable it by setting this field to _off_. If darktable has disabled the device but you are sure it should be used you can re-enable it by setting this field to _on_.
 
+: This parameter can also be set from the GUI in [preferences > processing > OpenCL devices](../preferences-settings/processing.md#opencl-devices), where each detected device has a check box. Changes made there only take effect the next time darktable is started.
+
 unifraction
 : The unifraction is a float and can be chosen by the user in the 0.02-0.5 range (default: 0.25). Some OpenCL devices don't have dedicated memory but share it with the CPU -- Apple ARM silicon is one example but also onboard devices from Intel, AMD or ARM SOCs. As we want to keep system memory available for caching or CPU codepaths we restrict the amount of all memory used to the given fraction. So with a value of 0.5 and an Apple computer with 16GB of system RAM, OpenCL would be able to make use of 8GB.
 
@@ -149,7 +151,7 @@ Another device-specific configuration key is also provided, which takes into acc
 This configuration key currently only has a single parameter defined:
 
 headroom (default 600)
-: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is valid if you have more than one hardware device and the [tuned GPU memory](../preferences-settings/processing/#opencl) switch has been switched on.
+: The amount of memory (in MB) that will **not** be used by darktable during OpenCL processing. This setting is valid if you have more than one hardware device and the [tuned GPU memory](../preferences-settings/processing.md#opencl-devices) switch has been switched on. It can also be set from the GUI, per device, in [preferences > processing > OpenCL devices](../preferences-settings/processing.md#opencl-devices).
 
 : If you are certain that no apps (or your OS) make use of the specific device you can set this parameter to 0 for the otherwise-unused device so that darktable will use all of that device's memory.
 
