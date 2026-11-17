@@ -76,7 +76,7 @@ Alternatively you can sync your fork and local copy via terminal:
 3. Press `Create Pull Request`
 
 ## Running `hugo` locally to preview changes
-[hugo](https://github.com/gohugoio/hugo) can also be executed locally to create a local live preview of the docs. This is useful to check for formatting, links etc. 
+[hugo](https://github.com/gohugoio/hugo) can also be executed locally to create a local live preview of the docs. This is useful to check for formatting, links etc. Install hugo through the means fitting your OS and make sure [dart-sass](https://sass-lang.com/install/) is installed/available in your path. 
 
 ### 1. Use a compatible Hugo version
 
