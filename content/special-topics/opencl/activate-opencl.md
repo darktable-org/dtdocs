@@ -10,6 +10,8 @@ When darktable starts, it will first try to find and load `libOpenCL.so` and -- 
 
 By default, OpenCL support is activated in darktable if all the above steps were successful. If you want to de-activate it you can do so in [preferences > processing > OpenCL](../../preferences-settings/processing/#opencl). This configuration parameter is grayed out if the OpenCL initialization failed.
 
+You can also enable or disable each detected OpenCL device individually in [preferences > processing > OpenCL devices](../../preferences-settings/processing.md#opencl-devices). Changes made there take effect the next time darktable is started.
+
 You can switch OpenCL support off and on at any time without requiring a restart. Depending on the type of modules you are using, you will notice the effect as a general speed-up during interactive work and export. Most modules in darktable can take advantage of OpenCL but not all modules are demanding enough to make a noticeable difference. In order to feel a real difference, use modules like [_diffuse or sharpen_](../../module-reference/processing-modules/diffuse.md), and [_denoise (profiled)_](../../module-reference/processing-modules/denoise-profiled.md).
 
 If you are interested in profiling statistics, you can start darktable with command line parameters `-d opencl -d perf`. After each run of the pixelpipe you will be shown details of processing time for each module plus an even more fine-grained profile for all used OpenCL kernels.
