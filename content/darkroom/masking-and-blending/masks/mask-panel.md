@@ -7,8 +7,6 @@ include_toc: true
 
 The mask panel is where a module's blending and masking are controlled. It holds everything needed to build a mask: creating shapes and parametric elements, importing masks from other modules, arranging elements into groups, choosing operators, and refining the result.
 
-The panel always shows the mask of the focused module.
-
 ![the mask panel](./mask-panel/panel-overview.png#w50)
 
 From top to bottom, the panel is made of:
@@ -23,7 +21,7 @@ From top to bottom, the panel is made of:
 
 # panel position
 
-The panel can be shown in one of three places, chosen in the [mask options](#mask-options) popover (_interface options > panel position_):
+The panel can be shown in one of three places, chosen in the [mask options](#mask-options) popover (_interface options > panel position_). When moved from its default position under the module, the ![mask panel](./mask-panel/icon-panel-toolbar.png#icon) displays the mask of the focused module.
 
 embedded within each module
 : The panel is shown at the bottom of each processing module that supports masks (default). Click the arrow at the right of the panel header, or an empty part of the header, to fold the panel away and give the module's own controls more room.
@@ -34,7 +32,7 @@ utility module, left panel
 separate panel, beside the canvas
 : The panel is detached into a resizable panel beside the image. Move the mouse pointer to the left or right edge of the canvas to reveal a highlighted strip, and click it to open the panel on that side. When the panel is open, clicking on the strip at the opposite edge moves it across. Click the panel header, or the handle on its edge, to hide it again; drag the handle to resize it. A divider between the mask layout and the rest of the panel can be dragged, and each part scrolls on its own.
 
-Whatever the position, the ![mask panel](./mask-panel/icon-panel-toolbar.png#icon) button in the [bottom panel](../../darkroom-view-layout.md#bottom-panel) of the darkroom shows or hides the panel of the focused module. The icon is dimmed when the focused module has no mask. Right-click it to open the [mask options](#mask-options) without showing the panel.
+Whatever the position, the ![mask panel](./mask-panel/icon-panel-toolbar.png#icon) button in the [bottom panel](../../darkroom-view-layout.md#bottom-panel) of the darkroom shows or hides the mask panel. The icon is dimmed when the focused module has no mask. Right-click it to open the [mask options](#mask-options) without showing the panel.
 
 # panel header
 
