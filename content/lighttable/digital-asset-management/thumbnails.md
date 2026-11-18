@@ -24,17 +24,20 @@ If you choose not to activate the disk backend and select too small a cache size
 
 All thumbnails are fully color managed. Colors are rendered accurately on screen as long as your system is properly set up to hand over the right monitor profile to darktable. For more information see the [color management](../../../special-topics/color-management/_index.md) section.
 
-# skulls, question marks, and warning triangles
+# broken file, question marks, and warning triangles
 
 If for some reason darktable is unable to generate a thumbnail, it displays one of three placeholder images to indicate the type of error preventing it from doing so.
 
 There are three main reasons this could happen:
 
-- _Missing image file_: If the file could not be found at the location recorded in the database, a skull ![skull icon](./thumbnails/skull.png#icon) will be displayed in place of the image. You are advised to remove images from the database using the [actions on selection](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the [purge](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) script from darktable's toolset to clean-up your database.
+Missing image file 
+: If the file could not be found at the location recorded in the database, a broken-file-icon ![boken file](./thumbnails/broken-file.png#icon) will be displayed in place of the image. You are advised to remove images from the database using the [actions on selection](../../../module-reference/utility-modules/lighttable/selected-image.md) module before physically removing them from disk. Alternatively you may occasionally run the [purge](../../../special-topics/program-invocation/purge_non_existing_images_sh.md) script from darktable's toolset to clean-up your database.
 
-- _Invalid image format_: While darktable will attempt to import all supported file extensions, the extension is not a guarantee that darktable will be able to interpret the file's contents. If the file format (or an option within that format, such as compressed mode) is unsupported, darktable will display a question mark ![unsupported](./thumbnails/unsupported.png#icon) in place of the image. If the file appears to be corrupted, darktable will display a warning triangle ![error warning](./thumbnails/corrupt.png#icon) in place of the image.
+Invalid image format
+: While darktable will attempt to import all supported file extensions, the extension is not a guarantee that darktable will be able to interpret the file's contents. If the file format (or an option within that format, such as compressed mode) is unsupported, darktable will display a question mark ![unsupported](./thumbnails/unsupported.png#icon) in place of the image. If the file appears to be corrupted, darktable will display a warning triangle ![error warning](./thumbnails/corrupt.png#icon) in place of the image.
 
-- _Low memory_: In the rare event that darktable runs out of memory while generating a thumbnail, it will warn you and display a skull. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
+Low memory
+: In the rare event that darktable runs out of memory while generating a thumbnail, it will warn you and display the broken-file-icon. This can happen if darktable is run with sub-optimal settings, especially on a 32-bit system. See [memory & performance tuning](../../../special-topics/mem-performance.md) for more information.
 
 # thumbnail icons
 
