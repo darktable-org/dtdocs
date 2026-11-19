@@ -76,4 +76,10 @@ Masks can be shared between modules in several ways:
 - The final mask of any active module can be used, as a [raster mask](./raster.md), by any module later in the pixelpipe.
 - The _layout_ of a mask (its groups and operators, without elements) can be saved as a [group layout preset](./layout-presets.md) and applied in any module.
 
-Modules can also be copied with their masks, and stored in [styles](../../../module-reference/utility-modules/shared/styles.md) and [presets](../../processing-modules/presets.md); their shapes are saved with them (see [presets and masks](../../processing-modules/presets.md#presets-and-masks)). A [locked](./mask-panel.md#panel-header) mask is kept as it is when a module is reset, or when a preset, a style or pasted parameters are applied to it.
+Modules can also be copied with their masks, and stored in [styles](../../../module-reference/utility-modules/shared/styles.md) and [presets](../../processing-modules/presets.md); their shapes are saved with them (see [presets and masks](../../processing-modules/presets.md#presets-and-masks)). 
+
+---
+
+**Note:** A [locked](./mask-panel.md#panel-header) mask is kept as it is when a module is reset, or when a preset, a style or pasted parameters are applied to it.
+
+---

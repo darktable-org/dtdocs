@@ -4,9 +4,11 @@ id: overview
 weight: 10
 ---
 
+# introduction
+
 Each processing module takes its input from the preceding module in the pixelpipe, performs its operation on the image data, and then hands the output to the next module in the pixelpipe.
 
-A module's output data can optionally be reprocessed (combined) with its input data before being handed to the next module. This additional processing step is called _blending_ -- input and output data is reprocessed using algorithms called blending operators or [blend modes](./blend-modes.md).
+A module's output data can optionally be reprocessed (combined) with its input data before being handed to the next module. This additional processing step is called _blending_ -- input and output data is reprocessed using algorithms called blending operators or [blend modes](./blend-modes.md). The most commonly used (and default) blend mode is _normal_, which simply passes the module's output on to the next module, influenced only by the _opacity_ parameter described below.
 
 Each blend mode is further controlled by the _opacity_ parameter (having a value between 0% and 100%) which defines how much the input and output images contribute to the final result. Typically an opacity of 0% outputs an image which is identical to the input image (the module has no effect) whereas an opacity of 100% delivers the maximum effect of the module.
 
@@ -29,7 +31,7 @@ fulcrum
 opacity
 : The global opacity of the module's effect. It applies on top of any mask. A warning sign is displayed next to its label when the opacity is below 10%, as the module then has very little effect on the image.
 
-Blending only takes place when the mask is switched on (with the ![mask on/off](./overview/icon-mask-toggle.png#icon) toggle in the panel header). This gives three possible states:
+The blend mode, blend order and opacity are part of the mask panel, so they take effect only when the mask is switched on (with the ![mask on/off](./overview/icon-mask-toggle.png#icon) toggle in the panel header), even if the mask itself is empty and no masking takes place. This gives three possible states:
 
 mask off
 : The module's output is passed to the next module without blending (the "off" mode of darktable 5.6 and earlier).
