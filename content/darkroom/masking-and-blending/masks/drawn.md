@@ -140,6 +140,8 @@ In order to ensure a consistent co-ordinate system, when you place a shape on th
 
 : Consider fine-tuning paths in restricted edit mode (enabled by Ctrl+clicking on the _edit on canvas_ button). This allows you to adjust single nodes and segments without the risk of accidentally shifting or resizing the whole shape.
 
+: Changes made to a shape on the canvas are recorded as undo steps, so a sequence of changes can be undone one step at a time with Ctrl+Z.
+
 ![drawn-mask-gradient](./drawn/gradient.png#icon) gradient
 : The gradient shape is a linear gradient which extends from a given point to the edge of the image.
 

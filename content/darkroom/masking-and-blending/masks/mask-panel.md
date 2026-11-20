@@ -121,7 +121,7 @@ Drag a row or a group header to move it. Drop it onto a group to put it inside t
 
 ## folded runs
 
-When a group holds a long run of elements in a row (typically many brush strokes), only the top element of the run is shown, followed by a row that stands for the others. Click it, or the node on the rail next to it, to unfold the run. Groups are never folded, and a run that holds the selection is never folded away. The length of the runs that are folded can be set (or folding disabled) in the [mask options](#mask-options).
+When a group holds a long run of elements in a row (typically many brush strokes), only the top element of the run is shown, followed by a row that stands for the others. Click it, or the node on the rail next to it, to unfold the run; click the node again to fold it back. Groups are never folded, and a run that holds the selection is never folded away. The length of the runs that are folded can be set (or folding disabled) in the [mask options](#mask-options).
 
 # selecting members
 
@@ -158,7 +158,7 @@ While several members are selected, clicking the eye, invert or operator button 
 
 # selection caption
 
-The row below the mask layout names the selected member (or _whole mask_). When you hover over a shape on the image, it shows that shape's name instead, highlighted. Alt+click the name (Ctrl+click on macOS) to rename the selected member.
+The row below the mask layout names the selected member (or _whole mask_). When you hover over a shape on the image, it shows that shape's name instead, highlighted. Alt+click the name (Ctrl+click on macOS) to rename the selected member. While several members are selected, the buttons below are replaced by those described in [multiple selection](#multiple-selection).
 
 ![delete](./mask-panel/icon-delete.png#icon) delete
 : Delete the selected member. On a linked shape, this only removes it from this module's mask. With the whole mask selected, this resets the mask to the default layout. Shift+click a group to empty it, keeping the group itself with its name and settings. You can also press Delete (the default shortcut for _delete selection_).
@@ -180,12 +180,11 @@ The row below the mask layout names the selected member (or _whole mask_). When 
 : Add a new, empty group to the selected group. Choose its operator from the menu.
 
 ![import](./mask-panel/icon-import.png#icon) import
-: Bring in what other modules already have:
-: - _link shapes_: add shapes or AI objects used by other modules, or not currently used, as linked shapes -- editing one changes it everywhere.
-: - _copy shapes_: add independent copies of such shapes.
-: - _copy parametric channel_: copy a parametric element from another module using the same blend colorspace.
-: - _add raster mask_: add the mask of another module as a [raster mask](./raster.md). Modules that come later in the pixelpipe are listed but cannot be picked.
-: - _clean up unused shapes_: delete every shape that is no longer used by any module. _compress history and clean up unused shapes_ also compresses the history stack, which allows shapes still used by earlier history steps to be removed.
+: Bring in what other modules already have. The menu is divided into sections:
+: - _shared: editing one changes it everywhere_ -- _link shapes_: add shapes or AI objects used by other modules, or not currently used, as linked shapes.
+: - _independent copies_ -- _copy shapes_: add independent copies of such shapes; _copy parametric channel_: copy a parametric element from another module using the same blend colorspace.
+: - _add raster mask_: add the mask of another module as a [raster mask](./raster.md). A raster mask is linked to its source, not copied: when the mask of the source module changes, so does the raster mask. Modules listed under _processed later in the pipe_ come later in the pixelpipe and cannot be picked.
+: - _clean up unused shapes_ (last section): delete every shape that is no longer used by any module. _compress history and clean up unused shapes_ also compresses the history stack, which allows shapes still used by earlier history steps to be removed.
 : Hovering over an entry previews it on the image.
 
 drawn shapes
@@ -263,4 +262,4 @@ scroll down to increase mask parameters
 
 # shortcuts
 
-The following actions can be assigned [shortcuts](../../../preferences-settings/shortcuts.md). They are listed under _\<blending\> > masks_ and act on the mask of the focused module: _show/hide mask panel_, _add group in selected group_, _invert all members of selected group_, _invert output of selected group_, _invert selected element_, _delete selection_ (Delete by default), _move selection into group_, _group selection_, _solo edit the selection_, _change operator of selected group_, _disable/enable selected group_, _preview channel under cursor_ and _sticky opacity_. The _channel overlay_ section has one action per parametric channel, to show or hide its preview. The shape buttons and the controls of the selected member can also be assigned shortcuts.
+The following actions can be assigned [shortcuts](../../../preferences-settings/shortcuts.md). They are listed under _\<blending\> / masks_ in the shortcuts mapping screen (see [shortcuts](../../../preferences-settings/shortcuts.md); the search box at the bottom of the screen helps to find them), and act on the mask of the focused module: _show/hide mask panel_, _add group in selected group_, _invert all members of selected group_, _invert output of selected group_, _invert selected element_, _delete selection_ (Delete by default), _move selection into group_, _group selection_, _solo edit the selection_, _change operator of selected group_, _disable/enable selected group_, _preview channel under cursor_ and _sticky opacity_. The _channel overlay_ section has one action per parametric channel, to show or hide its preview. The shape buttons and the controls of the selected member can also be assigned shortcuts.

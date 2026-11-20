@@ -97,4 +97,8 @@ When _reuse the last picked area_ is enabled in the [mask options](./mask-panel.
 
 Use _copy parametric channel_ in the [import](./mask-panel.md#toolbar) menu to copy a parametric element from another module. Only modules that use the same blend colorspace are offered; elements set up in another blend colorspace are listed but cannot be picked.
 
-Note that a parametric element evaluates the input of the module it belongs to. Using the same parametric element in modules at different stages of the pixelpipe can therefore give different results, because the image they see is different.
+---
+
+**Note:** A parametric element evaluates the input of the module it belongs to. Using the same parametric element in modules at different stages of the pixelpipe can therefore give different results, because the image they see is different.
+
+---

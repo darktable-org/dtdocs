@@ -10,7 +10,7 @@ As with any element, if the opacity value for a pixel in a raster mask is zero, 
 
 # adding a raster mask
 
-Click the ![import](./raster/icon-import.png#icon) import button in the [toolbar](./mask-panel.md#toolbar) and choose a module under _add raster mask_. The raster mask is added to the selected group. Modules that come later in the pixelpipe are listed for reference, but cannot be chosen.
+Click the ![import](./raster/icon-import.png#icon) import button in the [toolbar](./mask-panel.md#toolbar) and choose a module under _add raster mask_. The raster mask is added to the selected group. A raster mask is linked to its source, not copied: when the mask of the source module changes, the raster mask changes with it. Modules that come later in the pixelpipe are listed for reference, but cannot be chosen.
 
 Raster masks are identified in the mask layout by the name of the module that produced them. The ![link](./raster/icon-link.png#icon) link button on the row focuses that module, so that you can edit its mask. When _edit on canvas_ is enabled, hovering over a raster mask's row tints the area it covers on the image.
 

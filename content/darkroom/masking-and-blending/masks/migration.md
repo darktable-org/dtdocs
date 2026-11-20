@@ -7,6 +7,12 @@ include_toc: true
 
 The masking system of darktable was redesigned after version 5.6. This section is for users who know the previous ("classic") system. It explains what happens to existing edits and how familiar workflows translate to the [mask panel](./mask-panel.md).
 
+---
+
+**Important:** The conversion is one way. Once an edit has been saved by the new version of darktable, older versions cannot read its masks: darktable 5.6 and earlier report a mask version mismatch and drop **every** mask of that image. If you may still want to open your edits with an older version, back up your library database and XMP sidecar files first.
+
+---
+
 # what changed
 
 In darktable 5.6 and earlier, each module offered one of six mask modes -- off, uniformly, drawn mask, parametric mask, drawn & parametric mask, and raster mask -- each with its own controls. Drawn shapes were combined in an ordered list, where each shape had its own set operator, and were arranged in a separate utility module, the _mask manager_. Parametric channels could only be multiplied together, drawn and parametric masks could only be combined in one fixed way, and a raster mask replaced the module's mask entirely.
@@ -45,12 +51,6 @@ The conversion translates each classic mask into an equivalent layout:
 Some classic settings produced a mask that did not depend on the image at all (for example, a parametric mask set up so that it selected everything or nothing). Such masks are converted to uniform blending, with an opacity of 0 where the classic mask was empty. In a few other unusual cases, the conversion keeps a shape at 0% opacity rather than deleting it, so that you can still see it in the mask layout.
 
 The refinement settings (details threshold, feathering, blur, brightness and contrast) are kept and apply to the whole mask, as before.
-
----
-
-**Important:** The conversion is one way. Once an edit has been saved by the new version of darktable, older versions cannot read its masks: darktable 5.6 and earlier report a mask version mismatch and drop **every** mask of that image. If you may still want to open your edits with an older version, back up your library database and XMP sidecar files first.
-
----
 
 # how workflows translate
 
