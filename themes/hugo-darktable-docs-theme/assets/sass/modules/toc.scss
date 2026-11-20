@@ -59,6 +59,14 @@
 	    text-decoration: none;
 	}
     }
+
+    // any inline markup carried over from the heading (code chips, bold,
+    // italic, links, …) is stripped of its styling: TOC entries read as
+    // plain text. :where() keeps specificity at zero so the link rules above
+    // still decide color, and `all: unset` covers markup we don't foresee.
+    a :where(*) {
+	all: unset;
+    }
 }
 
 // Right-hand column: one vertical line for all levels. The levels are
