@@ -4,6 +4,12 @@ id: overview
 weight: 10
 ---
 
+---
+
+**Note:** The masking system was redesigned after darktable 5.6. If you are familiar with the drawn, parametric and raster mask modes and the mask manager, read [migrating from classic masks](./masks/migration.md) first.
+
+---
+
 # introduction
 
 Each processing module takes its input from the preceding module in the pixelpipe, performs its operation on the image data, and then hands the output to the next module in the pixelpipe.
