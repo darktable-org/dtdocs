@@ -1,0 +1,32 @@
+{{- /*
+  Wrap every content table in a .dt-table container so it can scroll
+  horizontally on narrow screens instead of squeezing its cells. The table
+  itself is emitted unchanged; column alignment from the markdown (:---:, etc.)
+  is carried over as an inline text-align style. Cell content (.Text) is already
+  rendered HTML, so links, inline code and emphasis keep working.
+*/ -}}
+<div class="dt-table">
+<table
+  {{- range $k, $v := .Attributes }}
+    {{- if $v }} {{ $k }}="{{ $v }}"{{ end }}
+  {{- end }}>
+  <thead>
+    {{- range .THead }}
+      <tr>
+        {{- range . }}
+          <th{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>
+        {{- end }}
+      </tr>
+    {{- end }}
+  </thead>
+  <tbody>
+    {{- range .TBody }}
+      <tr>
+        {{- range . }}
+          <td{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</td>
+        {{- end }}
+      </tr>
+    {{- end }}
+  </tbody>
+</table>
+</div>

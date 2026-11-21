@@ -1,0 +1,53 @@
+// Content tables
+//
+// Markdown tables are wrapped in a .dt-table container by the render-table.html
+// hook. Cells are top-aligned; a thin line separates each row and a heavier 2px
+// line frames the header band and closes the table. The wrapper scrolls
+// horizontally when the table is wider than the text column.
+
+.dt-table {
+    // the wrapper scrolls sideways; the page itself does not
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+}
+
+.dt-table > table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dt-table th,
+.dt-table td {
+    // an inline text-align from the markdown (:---:) wins over this default
+    text-align: left;
+    vertical-align: top;
+    // tighter than the body's 1.65 so cells with wrapping text or multi-line
+    // inline code stay compact and the rows keep an even rhythm
+    line-height: 1.45;
+}
+
+.dt-table th {
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    vertical-align: bottom;
+    // a 2px line above and below frames the header as a band; the thinner row
+    // rules below carry less weight, so the rows read as the content
+    border-top: 2px solid $dt-table-rule-strong;
+    border-bottom: 2px solid $dt-table-rule-strong;
+}
+
+.dt-table td {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid $dt-table-rule;
+}
+
+// no left padding on the first column so the table lines up with the text
+.dt-table th:first-child,
+.dt-table td:first-child {
+    padding-left: 0;
+}
+
+// close the table with the same 2px line as the header band
+.dt-table tbody tr:last-child td {
+    border-bottom: 2px solid $dt-table-rule-strong;
+}
