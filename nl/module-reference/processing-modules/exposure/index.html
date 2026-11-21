@@ -1,0 +1,2276 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - belichting</title>
+<meta name="description" content="Verhoog of verlaag de algehele helderheid van een afbeelding. Deze module heeft twee werkingsmodi: manual Set the exposure and black level manually automatisch …">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.508d8a7d0d3bebef7aa77947cc7a1b631efa0c716fea5f2346d6ad96f47684a7.css" integrity="sha256-UI2KfQ076&#43;96p3lHzHobYx76DHFv6l8jRtatlvR2hKc=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/nl\/index.json"</script>
+    
+	<script src="/dtdocs/js/bundle.min.42af7beb0e2d8b285c5278eff99d26a28029994f5a7979d518a46189be6ce623.js" integrity="sha256-Qq976w4tiyhcUnjv&#43;Z0mooApmU9aeXnVGKRhib5s5iM=" crossorigin="anonymous"></script>
+    
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/exposure/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="belichting">
+<meta property="og:description" content="Technical information omschrijving maak de belichting van de opname opnieuw alsof je nog met de camera bezig bent met een kleurveilige opheldering vergelijkbaar met het verhogen van de ISO-instelling. doel correctief en creatief. invoer lineair, RGB, scène-gerefereerd. verwerk lineair, RGB. uitvoer lineair, RGB, scène-gerefereerd. Verhoog of verlaag de algehele helderheid van een afbeelding.
+Deze module heeft twee werkingsmodi:
+manual Set the exposure and black level manually automatisch (alleen RAW-afbeeldingen) gebruik een analyse van het histogram van de afbeelding om de belichting automatisch in te stellen. Darktable selecteert automatisch de belichtingscompensatie die nodig is om het geselecteerde percentiel naar het geselecteerde doelniveau te verschuiven (zie onderstaande definities). Deze modus is met name handig voor het automatisch wijzigen van een groot aantal afbeeldingen om dezelfde belichting te krijgen. Een typisch gebruiksvoorbeeld van de automatische modus is het flikkeren van time-lapse-foto’s. #module instellingen modus Kies de werkingsmodus (automatisch/handmatig). camerabelichting compenseren (handmatige modus) Automatisch de belichtingsbias van de camera verwijderen (overgenomen uit de Exif-gegevens van de afbeelding). highlight preservation mode (manual mode) Some cameras underexpose the raw file in specific modes such as HDR, dynamic range expansion, highlight tone priority, HLG or AutoLightingOptimizer to protect the highlights. When enabled, it restores the withheld exposure (the amount, in EV, is shown on the button). This control appears only when such a mode is detected in the image’s Exif data. exposure (manual mode) Increase (move to the right) or decrease (move to the left) the exposure value (EV). To adjust by more than the default limits shown on the slider, right click and enter the desired value up to &#43;/-18 EV (see module controls). The picker tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in area exposure mapping options. percentiel (automatische modus) Definieer een locatie in het histogram om te gebruiken voor automatische belichtingscorrectie. Een percentiel van 50% geeft een positie in het histogram aan waar 50% van de pixelwaarden boven en 50% van de pixelwaarden onder die belichting ligt. doelniveau (automatische modus) Definieer het doelniveau voor automatische belichtingscorrectie (EV) ten opzichte van het witpunt van de camera. zwartniveaucorrectie (handmatige en automatische modi) Pas het zwartniveaupunt aan om negatieve RGB-waarden los te maken. Opmerking: Gebruik de zwartniveaucorrectie niet om meer densiteit in zwart toe te voegen, aangezien dit bijna-zwarte kleuren uit het kleurbereik kan halen door negatieve RGB-waarden te genereren. Dit kan bij sommige modules later in de pixelpijp voor problemen zorgen. Gebruik in plaats daarvan een tonemapping-curve om dichtheid aan de zwarten toe te voegen. Je kan bijvoorbeeld de schuifregelaar relatieve zwart belichting op het tabblad scene van de module filmisch rgb gebruiken, of een diepere teen in de base curve maken module.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="nl">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body style="--dt-section: #29b813; --dt-section-text: #135309;">
+        <header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="/dtdocs" rel="home" title="darktable user manual">
+      
+        <img src="/dtdocs/images/darktable.svg" alt="" width="32" height="32" />
+      
+      <span>darktable user manual</span>
+    </a>
+
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      <div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/nl/module-reference/processing-modules/exposure/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/nl/module-reference/processing-modules/exposure/">Version 5.6</a>
+  </div>
+</div>
+
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      
+<div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Dutch"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Dutch</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="nl"
+      role="option"
+      lang="nl"
+      href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/exposure/"
+      >Dutch</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/exposure/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/exposure/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="de"
+        role="option"
+        lang="de"
+        href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/exposure/"
+        >German</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/exposure/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pl"
+        role="option"
+        lang="pl"
+        href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/exposure/"
+        >Polish</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pt_br"
+        role="option"
+        lang="pt_br"
+        href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/exposure/"
+        >Português</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/exposure/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+    </div><div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd><div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div><button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="Chapters"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div><div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="Chapters">
+                    <div class="dt-nav-tree">
+                        <ul>
+   
+   <li class="parent" style="--dt-nav-color: #d70016;">
+   
+
+      <a href="/dtdocs/nl/overview/" class=""><span class="dt-dot" aria-hidden="true"></span>Overzicht
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/" class="">gebruikersomgeving
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/views/" class="">weergaven
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/screen-layout/" class="">scherm layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/user-interface/keyboard-shortcuts/" class="">snelkoppelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/" class="">sidecar bestanden en niet-destructieve bewerking
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/sidecar-files/local-copies/" class="">lokale kopieën
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/overview/workflow/" class="">een inleiding tot de werkvolgorde van darktable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/introduction/" class="">inleiding
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/import-review/" class="">importeren &amp; beoordelen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/overview/workflow/process/" class="">proces
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e82f0f;">
+   
+
+      <a href="/dtdocs/nl/lighttable/" class=""><span class="dt-dot" aria-hidden="true"></span>Bibliotheek
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-view-layout/" class="">bibliotheek weergave layout
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/" class="">bibliotheek modi
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/lighttable/lighttable-modes/full-preview/" class="">volledige voorbeeldweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/" class="">digitaal archief beheer
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/star-color/" class="">sterbeoordelingen en kleurlabels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/grouping/" class="">afbeeldingen groeperen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/lighttable/digital-asset-management/metadata-tagging/" class="">metadata en labelen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f85d07;">
+   
+
+      <a href="/dtdocs/nl/darkroom/" class=""><span class="dt-dot" aria-hidden="true"></span>Ontwikkelen
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/" class="">de pixelpijp
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">de anatomie van een verwerkingsmodule
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/history-stack/" class="">geschiedenis
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/pixelpipe/undo-redo/" class="">ongedaan maken / opnieuw uitvoeren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/" class="">verwerkingsmodules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/module-header/" class="">module koptekst
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/multiple-instances/" class="">meerdere sessies
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/curves/" class="">curves
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/wavelets/" class="">wavelets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/processing-modules/deprecated/" class="">verouderde modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/" class="">maskeren &amp; overvloeien
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/blend-modes/" class="">overvloei modes
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/darkroom/masking-and-blending/masks/" class="">maskers
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/" class="">organisatie
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/darkroom/organization/manage-module-layouts/" class="">module-indelingen beheren
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #fc8c06;">
+   
+
+      <a href="/dtdocs/nl/tethering/" class=""><span class="dt-dot" aria-hidden="true"></span>Tethering
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/tethering/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/tethering/tethering-view-layout/" class="">lay-out van tetheringweergave
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/tethering/examples/" class="">voorbeelden
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/tethering/troubleshooting/" class="">Problemen oplossen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f6b909;">
+   
+
+      <a href="/dtdocs/nl/map/" class=""><span class="dt-dot" aria-hidden="true"></span>Kaart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/map/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/map/map-view-layout/" class="">lay-out kaartweergave
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e0db0d;">
+   
+
+      <a href="/dtdocs/nl/slideshow/" class=""><span class="dt-dot" aria-hidden="true"></span>Presentatie
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/slideshow/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/slideshow/usage/" class="">gebruik
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #85c910;">
+   
+
+      <a href="/dtdocs/nl/print/" class=""><span class="dt-dot" aria-hidden="true"></span>Print
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/print/print-view-layout/" class="">afdrukweergave lay-out
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open" style="--dt-nav-color: #29b813;">
+   
+
+      <a href="/dtdocs/nl/module-reference/" class=""><span class="dt-dot" aria-hidden="true"></span>Module Referentie
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/" class="">toepassings modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/" class="">bibliotheek
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/select/" class="">selectie
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/lighttable/timeline/" class="">tijdlijn
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/" class="">gedeeld
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/image-information/" class="">afbeeldingsinformatie
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/collections/" class="">collecties
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/export/" class="">exporteren
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/focus-peaking/" class="">focus peaking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/geotagging/" class="">geotaggen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/tagging/" class="">labelen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/shared/recent-collections/" class="">snelle verzamelingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/" class="">Kaart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/map-settings/" class="">kaartinstellingen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/locations/" class="">locaties
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/map/find-location/" class="">zoek locatie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/" class="">ontwikkelen
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/image-info-line/" class="">afbeelding informatie regel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/clipping/" class="">clipping waarschuwing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/gamut/" class="">gamma controle
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/history-stack/" class="">geschiedenis
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/guides-overlays/" class="">hulplijnen en overlays
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/raw-overexposed/" class="">raw overbelicht waarschuwing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/darkroom/soft-proof/" class="">soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/" class="">print
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/print/print-settings/" class="">printer instellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/" class="">tethering
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/camera-settings/" class="">camera instellingen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/live-view/" class="">live weergave
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/utility-modules/tethering/session/" class="">sessie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/" class="">verwerkingsmodules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/base-curve/" class="">basis curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/exposure/" class=" active" aria-current="page">belichting
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/censorize/" class="">censureren
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/chromatic-aberrations/" class="">chromatische aberraties
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-equalizer/" class="">contrast equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/diffuse/" class="">diffuus of verscherpen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/dither-or-posterize/" class="">dither of posterisatie
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/split-toning/" class="">duo-toning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/bloom/" class="">glans
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/graduated-density/" class="">grijsverloop
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highpass/" class="">highpass
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/highlight-reconstruction/" class="">hooglichten herstellen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/colorize/" class="">inkleuren
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-reconstruction/" class="">kleur reconstructie
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-contrast/" class="">kleurcontrast
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-correction/" class="">kleurcorrectie
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance/" class="">kleurenbalans
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-balance-rgb/" class="">kleurenbalans rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-mapping/" class="">kleurenkaart
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-calibration/" class="">kleurkalibratie
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/color-zones/" class="">kleurzones
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/local-contrast/" class="">lokaal contrast
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowpass/" class="">lowpass
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lut-3d/" class="">LUT 3D
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/monochrome/" class="">monochroom
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/framing/" class="">omlijsten
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/astrophoto-denoise/" class="">ontruis astrofoto
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/surface-blur/" class="">oppervlakte vervaging
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-chromatic-aberrations/" class="">raw chromatische aberraties
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/raw-black-white-point/" class="">raw zwart/wit punt
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/retouch/" class="">retoucheren
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rgb-primaries/" class="">rgb basiskleuren
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/rotate-perspective/" class="">roteren en perspectief
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/denoise-profiled/" class="">ruisreductie (profiel)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/shadows-and-highlights/" class="">schaduwen en hooglichten
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-curve/" class="">toon curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-equalizer/" class="">toon equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/liquify/" class="">uitvloeien
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/velvia/" class="">velvia
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/unbreak-input-profile/" class="">verbreek ingaand profiel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/sharpen/" class="">verscherpen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/blurs/" class="">vervagen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/soften/" class="">verzachten (soften)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/vignetting/" class="">vignettering
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/watermark/" class="">watermerk
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/lowlight-vision/" class="">zicht bij weinig licht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/basic-adjustments/" class="">(deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/channel-mixer/" class="">(deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/contrast-brightness-saturation/" class="">(deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/crop-rotate/" class="">(deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/defringe/" class="">(deprecated) defringe
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/global-tonemap/" class="">(deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/levels/" class="">(deprecated) levels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/spot-removal/" class="">(deprecated) spot removal
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/tone-mapping/" class="">(deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/module-reference/processing-modules/zone-system/" class="">(deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #169f5a;">
+   
+
+      <a href="/dtdocs/nl/preferences-settings/" class=""><span class="dt-dot" aria-hidden="true"></span>Voorkeuren en instellingen
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/darkroom/" class="">ontwikkelen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/preferences-settings/presets/" class="">voorinstellingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #1586b2;">
+   
+
+      <a href="/dtdocs/nl/lua/" class=""><span class="dt-dot" aria-hidden="true"></span>Scripting
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #3362e2;">
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/" class=""><span class="dt-dot" aria-hidden="true"></span>Gidsen en handleidingen
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/monochrome/" class="">ontwikkeling van monochrome afbeeldingen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/guides-tutorials/batch-editing/" class="">batch-bewerking afbeeldingen
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #8231d9;">
+   
+
+      <a href="/dtdocs/nl/special-topics/" class=""><span class="dt-dot" aria-hidden="true"></span>Speciale onderwerpen
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/" class="">darktable&#39;s kleurenpijplijn
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/color-spaces/" class="">kleurruimten van darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/unbounded-colors/" class="">ongebonden kleuren
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/color-artifacts/" class="">mogelijke kleurartefacten
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-pipeline/color-dimensions/" class="">kleurdimensies van darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/" class="">kleurbeheer
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/display-profile/" class="">schermprofiel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-method/" class="">rendermethode
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/color-management/rendering-intent/" class="">renderintentie
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/" class="">OpenCL
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/setting-up/" class="">setting up OpenCL
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/problems-solutions/" class="">mogelijke problemen &amp; oplossingen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/multiple-devices/" class="">meerdere apparaten
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/opencl/still-doesnt-work/" class="">OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/special-topics/ai/" class="">AI features
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/" class="">darktable-chart gebruiken
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/overview/" class="">overzicht
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/usage/" class="">gebruik
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/source-image/" class="">bronafbeelding
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/reference-values/" class="">referentiewaarden
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/process/" class="">proces
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/darktable-chart/making-input-images/" class="">invoerafbeeldingen maken voor darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/" class="">programma oproepen
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cli/" class="">darktable-cli
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-generate-cache/" class="">darktable-generate-cache
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-chart/" class="">darktable-chart
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cltest/" class="">darktable-cltest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/darktable-cmstest/" class="">darktable-cmstest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/program-invocation/purge_non_existing_images_sh/" class="">purge_non_existing_images.sh
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/variables/" class="">variabelen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/nl/special-topics/midi-device-support/" class="">ondersteuning voor midi-apparaten
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #d000d0;">
+   
+
+      <a href="/dtdocs/nl/contributing/" class=""><span class="dt-dot" aria-hidden="true"></span>Contributing to the Docs
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        <div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/nl/module-reference/processing-modules/exposure/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/nl/module-reference/processing-modules/exposure/">Version 5.6</a>
+  </div>
+</div>
+
+                        
+<div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Dutch"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Dutch</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="nl"
+      role="option"
+      lang="nl"
+      href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/exposure/"
+      >Dutch</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/exposure/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/exposure/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="de"
+        role="option"
+        lang="de"
+        href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/exposure/"
+        >German</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/exposure/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pl"
+        role="option"
+        lang="pl"
+        href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/exposure/"
+        >Polish</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pt_br"
+        role="option"
+        lang="pt_br"
+        href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/exposure/"
+        >Português</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/exposure/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        
+
+
+
+<nav class="crumbs" aria-label="Breadcrumbs"><a href="/dtdocs/nl/module-reference/">Module Referentie</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/nl/module-reference/processing-modules/">verwerkingsmodules</a><span class="crumbs__sep" aria-hidden="true">/</span><span class="crumbs__current" aria-current="page">belichting</span>
+</nav>
+
+
+<article>
+
+    <h1 class="title">
+        belichting
+    </h1>
+
+    
+<details class="dt-toc-inline d-xl-none">
+    <summary>Table of Contents</summary>
+    <nav >
+  <ul>
+    <li><a href="#module-instellingen">module instellingen</a></li>
+    <li><a href="#gebied-belichting-mapping">gebied belichting mapping</a>
+      <ul>
+        <li><a href="#stap-1-stel-doel-in">stap 1: stel doel in</a></li>
+        <li><a href="#stap-2-overeen-komen-met-het-doel">stap 2: overeen komen met het doel</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</details>
+
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt id="omschrijving">omschrijving</dt>
+<dd>maak de belichting van de opname opnieuw alsof je nog met de camera bezig bent met een kleurveilige opheldering vergelijkbaar met het verhogen van de ISO-instelling.</dd>
+<dt id="doel">doel</dt>
+<dd>correctief en creatief.</dd>
+<dt id="invoer">invoer</dt>
+<dd>lineair, RGB, scène-gerefereerd.</dd>
+<dt id="verwerk">verwerk</dt>
+<dd>lineair, RGB.</dd>
+<dt id="uitvoer">uitvoer</dt>
+<dd>lineair, RGB, scène-gerefereerd.</dd>
+</dl>
+</details>
+
+<p>Verhoog of verlaag de algehele helderheid van een afbeelding.</p>
+<p>Deze module heeft twee werkingsmodi:</p>
+<dl>
+<dt id="manual">manual</dt>
+<dd>Set the <em>exposure</em> and <em>black level</em> manually</dd>
+<dt id="automatisch-alleen-raw-afbeeldingen">automatisch (alleen RAW-afbeeldingen)</dt>
+<dd>gebruik een analyse van het histogram van de afbeelding om de belichting automatisch in te stellen. Darktable selecteert automatisch de belichtingscompensatie die nodig is om het geselecteerde <em>percentiel</em> naar het geselecteerde <em>doelniveau</em> te verschuiven (zie onderstaande definities). Deze modus is met name handig voor het automatisch wijzigen van een groot aantal afbeeldingen om dezelfde belichting te krijgen. Een typisch gebruiksvoorbeeld van de automatische modus is het flikkeren van time-lapse-foto&rsquo;s.</dd>
+</dl>
+<h1 id="module-instellingen"><a class="dt-anchor" href="#module-instellingen" aria-label="Link to this section">#</a>module instellingen</h1>
+<dl>
+<dt id="modus">modus</dt>
+<dd>Kies de werkingsmodus (automatisch/handmatig).</dd>
+<dt id="camerabelichting-compenseren-handmatige-modus">camerabelichting compenseren (handmatige modus)</dt>
+<dd>Automatisch de belichtingsbias van de camera verwijderen (overgenomen uit de Exif-gegevens van de afbeelding).</dd>
+<dt id="highlight-preservation-mode-manual-mode">highlight preservation mode (manual mode)</dt>
+<dd>Some cameras underexpose the raw file in specific modes such as HDR, dynamic range expansion, highlight tone priority, HLG or AutoLightingOptimizer to protect the highlights. When enabled, it restores the withheld exposure (the amount, in EV, is shown on the button). This control appears only when such a mode is detected in the image&rsquo;s Exif data.</dd>
+<dt id="exposure-manual-mode">exposure (manual mode)</dt>
+<dd>Increase (move to the right) or decrease (move to the left) the exposure value (EV). To adjust by more than the default limits shown on the slider, right click and enter the desired value up to +/-18 EV (see <a href="../../darkroom/processing-modules/module-controls.md">module controls</a>).</dd>
+<dd>The <a href="../../darkroom/processing-modules/module-controls.md#pickers">picker</a> tool on the right sets the exposure such that the average of the selected region matches the target lightness defined in <a href="#area-exposure-mapping">area exposure mapping</a> options.</dd>
+<dt id="percentiel-automatische-modus">percentiel (automatische modus)</dt>
+<dd>Definieer een locatie in het histogram om te gebruiken voor automatische belichtingscorrectie. Een percentiel van 50% geeft een positie in het histogram aan waar 50% van de pixelwaarden boven en 50% van de pixelwaarden onder die belichting ligt.</dd>
+<dt id="doelniveau-automatische-modus">doelniveau (automatische modus)</dt>
+<dd>Definieer het doelniveau voor automatische belichtingscorrectie (EV) ten opzichte van het witpunt van de camera.</dd>
+<dt id="zwartniveaucorrectie-handmatige-en-automatische-modi">zwartniveaucorrectie (handmatige en automatische modi)</dt>
+<dd>Pas het zwartniveaupunt aan om negatieve RGB-waarden los te maken.</dd>
+</dl>
+<hr>
+<p><strong>Opmerking:</strong> Gebruik de zwartniveaucorrectie niet om meer densiteit in zwart toe te voegen, aangezien dit bijna-zwarte kleuren uit het kleurbereik kan halen door negatieve RGB-waarden te genereren. Dit kan bij sommige modules later in de pixelpijp voor problemen zorgen. Gebruik in plaats daarvan een tonemapping-curve om dichtheid aan de zwarten toe te voegen. Je kan bijvoorbeeld de schuifregelaar <em>relatieve zwart belichting</em> op het tabblad <em>scene</em> van de module <a href="filmic-rgb.md#scene">filmisch rgb</a> gebruiken, of een diepere teen in de <a href="/dtdocs/nl/module-reference/processing-modules/base-curve/">base curve</a> maken module.</p>
+<hr>
+<h1 id="gebied-belichting-mapping"><a class="dt-anchor" href="#gebied-belichting-mapping" aria-label="Link to this section">#</a>gebied belichting mapping</h1>
+<p>De gebied belichting mapping mogelijkheid is gemaakt om te helpen met <a href="/dtdocs/nl/guides-tutorials/batch-editing/">batchbewerking</a> een serie van afbeeldingen op een efficiënte manier. In deze scenario bewerk je een enkele referentie afbeelding voor de hele serie, waarna je de bewerkingsstappen kopieert en plakt op alle andere afbeeldingen in de serie.</p>
+<p>Helaas kan het licht iets veranderen tussen de verschillende opnamen in dezelfde serie onder dezelfde condities. Dit kan onder andere veroorzaakt worden door het passeren van wolken voor de zon bij natuurlijk licht, oppervlakte reflecties die onder een andere hoek minder schitteren of door onvermijdelijke variaties in de mechanische diafragma bladen. Om een perfecte gelijkmatige weergave over de hele serie te krijgen, kan het mogelijk zijn dat voor elke afbeelding nog een kleine aanpassing nodig is. Dit kan tijdrovend en frustrerend zijn.</p>
+<p>Gebied belichting mapping maakt het mogelijk om een doel helderheid te definiëren voor wat betreft belichting voor een specifiek deel van de afbeelding (de controlemonster), welke dan gebruikt kan worden om dezelfde helderheid in andere afbeeldingen overeen te laten komen. De controlemonster kan een belangrijke onderdeel zijn van je onderwerp die een constante helderheid moet hebben of een niet bewegende en constant verlichte oppervlak over de hele reeks van afbeeldingen.</p>
+<p>De mapping proces bestaat uit twee delen.</p>
+<h2 id="stap-1-stel-doel-in"><a class="dt-anchor" href="#stap-1-stel-doel-in" aria-label="Link to this section">#</a>stap 1: stel doel in</h2>
+<p>Er zijn twee manieren om de doel helderheid van de controlemonster in te stellen:</p>
+<ol>
+<li>
+<p>wanneer je een willekeurige kleur weet of verwacht voor een controlemonster (bijvoorbeeld een grijs kaart, kleurenkaart, een product of een logo met een bepaalde helderheid), is het mogelijk zijn L waarde direct in te voeren in CIE Lab 1976 ruimte,</p>
+</li>
+<li>
+<p>if you simply want to match the development of your reference image, set the <em>area mode</em> to <em>measure</em>, then enable the <a href="../../darkroom/processing-modules/module-controls.md#pickers">picker</a> (to the right of the <em>exposure</em> slider) and draw a rectangle over your control sample. The <em>input</em> column will then be updated with the lightness value of the control sample before the exposure correction, and the <em>target</em> column will show the resulting lightness of the control sample after the current exposure setting is applied.</p>
+</li>
+</ol>
+<p>Wanneer je de helderheid waarde reset is de standaard waarde 50% (midden grijs) &ndash; dit kan handig zijn wanneer je snel een gemiddelde belichting voor een willekeurige afbeelding wilt instellen.</p>
+<p>Merk op dat de doel waarde niet gereset wordt wanneer je de module zelf reset, maar wordt voor onbepaalde tijd opgeslagen in darktable&rsquo;s configuratie en is bij zowel de volgende herstart als bij de volgende afbeelding bewerking beschikbaar.</p>
+<h2 id="stap-2-overeen-komen-met-het-doel"><a class="dt-anchor" href="#stap-2-overeen-komen-met-het-doel" aria-label="Link to this section">#</a>stap 2: overeen komen met het doel</h2>
+<p>When you open a new image, the <em>area mode</em> is automatically reset to <em>correction</em>. Using the <a href="../../darkroom/processing-modules/module-controls.md#pickers">picker</a> attached to the exposure slider, you can then directly reselect your control sample in the new image. The proper exposure setting required for the control sample to match the memorized target lightness will be automatically computed, and the setting will be updated in the same operation.</p>
+<p>Deze bewerking kan net zo vaak uitgevoerd worden als het aantal afbeeldingen in de serie, zonder verdere handelingen.</p>
+<hr>
+<p><strong>Opmerking 1:</strong>  Om de lichtheid van bewegende delen van een onderwerp overeen te laten komen over meerdere kaders kan nog een uitdaging zijn, omdat er waarneembare verschillen kunnen optreden door wijzigingen in oriëntatie ten opzicht van het hoofd licht. Het gezicht kan bijvoorbeeld in sommige kaders volledig verlicht zijn en deels in de schaduw bij andere. Een inconsistent verlichte controlemonster zal over het algemeen geen betrouwbare referentie zijn om een serie overeen te laten komen en zal uiteindelijk meer werk geven, dan deze handmatig visueel aan te passen.</p>
+<p><strong>Opmerking 2:</strong> De belichtingsmodule werkt (standaard) in het scene-gerefereerde, lineaire, camera RGB-gedeelte van de pixelpijplijn, voordat het invoerkleurprofiel wordt toegepast. De conversie van camera-RGB naar CIE Lab 1976-ruimte is echter afhankelijk van het invoerkleurprofiel. Alle lichtheid L-statistieken die in de <em>gebied mapping</em> instellingen worden gegeven, gebruiken het invoerprofiel dat later in de <a href="./input-color-profile.md"><em>ingaand kleurprofiel module</em></a> is gedefinieerd om de conversie nauwkeurig uit te voeren, maar de conversie zelf veronderstelt een lineair (RAW)-signaal en werkt niet voor JPEG- en PNG-afbeeldingen (die niet-lineair zijn gecodeerd vóór de module <em>ingaand kleurprofiel</em>). Als u deze functie op niet-RAW-afbeeldingen wilt gebruiken, moet u de belichtingsmodule verplaatsen naar na <em>ingaand kleurprofiel</em> of de <a href="../utility-modules/darkroom/module-order.md"><em>module volgorde</em></a> voorinstelling <em>v3.0 voor JPEG/niet-RAW-invoer</em> gebruiken.</p>
+<p><strong>Opmerking 3:</strong> Het perfect afstemmen van uw controlemonster op de doel lichtheid levert mogelijk nog steeds geen vergelijkbaar perceptueel resultaat op, zelfs als de cijfers precies hetzelfde zijn. Als uw onderwerp bijvoorbeeld voor een achtergrond staat die bestaat uit enkele heldere delen en enkele donkere delen, zal de verhouding tussen heldere delen en donkere delen de perceptie van contrast en helderheid beïnvloeden. Als deze verhouding over uw reeks verandert, zal de helderheid van het onderwerp niet constant lijken, ook al is de lichtheidswaarde precies constant. Zie voor meer details de <a href="https://en.wikipedia.org/wiki/Checker_shadow_illusion" target="_blank">checker-schaduwillusie</a> en de <a href="https://en.wikipedia.org/wiki/Chubb_illusion" target="_blank">Chubb-illusie</a>.</p>
+<hr>
+
+
+    
+    <h3 class="translations_head">Translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/exposure/">
+            English: exposure
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/exposure/">
+            Français: Exposition
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/exposure/">
+            German: Belichtung
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/exposure/">
+            Lao: ການຮັບແສງ
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/processing-modules/exposure/">
+            Polish: ekspozycja
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/module-reference/processing-modules/exposure/">
+            Português: exposição
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/exposure/">
+            Ukrainian: Експозиція
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<nav class="prev-next" aria-label="Page navigation">
+    
+    <a href="/dtdocs/nl/module-reference/processing-modules/base-curve/" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">Previous</span>
+        <span class="prev-next__title">basis curve</span>
+    </a>
+    
+    
+    <a href="/dtdocs/nl/module-reference/processing-modules/censorize/" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">Next</span>
+        <span class="prev-next__title">censureren</span>
+    </a>
+    
+</nav>
+
+
+<div class="dt-page-meta">
+    <a href="/dtdocs/nl/darktable_user_manual.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download manual (PDF)</a>
+</div>
+
+
+
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    
+<div class="dt-toc__inner">
+    <a class="dt-toc__title" href="#" title="Back to top">Table of Contents</a>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#module-instellingen">module instellingen</a></li>
+    <li><a href="#gebied-belichting-mapping">gebied belichting mapping</a>
+      <ul>
+        <li><a href="#stap-1-stel-doel-in">stap 1: stel doel in</a></li>
+        <li><a href="#stap-2-overeen-komen-met-het-doel">stap 2: overeen komen met het doel</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+                </aside>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,1563 @@
+<!doctype html>
+<html lang="it">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - modalità di fusione</title>
+<meta name="description" content="Le modalità di fusione definiscono come l’input e l’output di un modulo vengono combinati assieme (fusi) prima che l’output finale del modulo venga passato al …">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.508d8a7d0d3bebef7aa77947cc7a1b631efa0c716fea5f2346d6ad96f47684a7.css" integrity="sha256-UI2KfQ076&#43;96p3lHzHobYx76DHFv6l8jRtatlvR2hKc=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/it\/index.json"</script>
+    
+	<script src="/dtdocs/js/bundle.min.42af7beb0e2d8b285c5278eff99d26a28029994f5a7979d518a46189be6ce623.js" integrity="sha256-Qq976w4tiyhcUnjv&#43;Z0mooApmU9aeXnVGKRhib5s5iM=" crossorigin="anonymous"></script>
+    
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/it/darkroom/masking-and-blending/blend-modes/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="modalità di fusione">
+<meta property="og:description" content="Le modalità di fusione definiscono come l’input e l’output di un modulo vengono combinati assieme (fusi) prima che l’output finale del modulo venga passato al modulo successivo nella pixelpipe.
+Le modalità di fusione classiche, progettate per RGB riferito allo schermo (limitate tra 0-100%), definiscono implicitamente nei loro algoritmi il fulcro al 50% (grigio) o al 100% (bianco), a seconda della modalità di fusione. Siccome lo spazio colore riferito alla scena non è soggetto a queste limitazioni, il fulcro necessita di essere stabilito dall’utente durante l’operazione di fusione nello spazio colore RGB (riferito alla scena). Il parametro aggiuntivo fulcro fusione verrà mostrato all’utente quando si usa uno di queste modalità di fusione in questo spazio colore. L’effetto dipende dall’operatore utilizzato. Per esempio, valori al di sopra del fulcro potrebbero venire illuminati di più e valori al di sotto illuminati di meno, o viceversa.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="it">
+<meta property="og:type" content="article">
+<meta property="article:section" content="darkroom">
+
+    </head>
+    <body style="--dt-section: #f85d07; --dt-section-text: #702a03;">
+        <header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="/dtdocs" rel="home" title="darktable user manual">
+      
+        <img src="/dtdocs/images/darktable.svg" alt="" width="32" height="32" />
+      
+      <span>darktable user manual</span>
+    </a>
+
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      <div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/it/darkroom/masking-and-blending/blend-modes/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/it/darkroom/masking-and-blending/blend-modes/">Version 5.6</a>
+  </div>
+</div>
+
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      
+<div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Italian"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Italian</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="it"
+      role="option"
+      lang="it"
+      href="https://darktable-org.github.io/dtdocs/it/darkroom/masking-and-blending/blend-modes/"
+      >Italian</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="nl"
+        role="option"
+        lang="nl"
+        href="https://darktable-org.github.io/dtdocs/nl/darkroom/masking-and-blending/blend-modes/"
+        >Dutch</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/blend-modes/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="es"
+        role="option"
+        lang="es"
+        href="https://darktable-org.github.io/dtdocs/es/darkroom/masking-and-blending/blend-modes/"
+        >Español</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/blend-modes/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="de"
+        role="option"
+        lang="de"
+        href="https://darktable-org.github.io/dtdocs/de/darkroom/masking-and-blending/blend-modes/"
+        >German</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/darkroom/masking-and-blending/blend-modes/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pl"
+        role="option"
+        lang="pl"
+        href="https://darktable-org.github.io/dtdocs/pl/darkroom/masking-and-blending/blend-modes/"
+        >Polish</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pt_br"
+        role="option"
+        lang="pt_br"
+        href="https://darktable-org.github.io/dtdocs/pt_br/darkroom/masking-and-blending/blend-modes/"
+        >Português</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/blend-modes/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+    </div><div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd><div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div><button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="Chapters"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div><div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="Chapters">
+                    <div class="dt-nav-tree">
+                        <ul>
+   
+   <li class="parent" style="--dt-nav-color: #d70016;">
+   
+
+      <a href="/dtdocs/it/overview/" class=""><span class="dt-dot" aria-hidden="true"></span>Panoramica
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/overview/user-interface/" class="">user interface
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/overview/sidecar-files/" class="">sidecar files &amp; non-destructive editing
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/overview/workflow/" class="">an introduction to darktable&#39;s workflow
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e82f0f;">
+   
+
+      <a href="/dtdocs/it/lighttable/" class=""><span class="dt-dot" aria-hidden="true"></span>Tavolo luminoso
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/" class="">layout del Tavolo Luminoso
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/lighttable/lighttable-modes/full-preview/" class="">Anteprima completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/" class="">gestione delle risorse digitali
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/lighttable/digital-asset-management/metadata-tagging/" class="">metadati e etichettatura
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open" style="--dt-nav-color: #f85d07;">
+   
+
+      <a href="/dtdocs/it/darkroom/" class=""><span class="dt-dot" aria-hidden="true"></span>Camera Oscura
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/" class="">il pixelpipe
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">anatomia di un modulo di elaborazione
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/history-stack/" class="">la coda di sviluppo
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/pixelpipe/undo-redo/" class="">annulla e ripeti
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/" class="">moduli di elaborazione
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/module-header/" class="">intestazione modulo
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/multiple-instances/" class="">istanze multiple
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/curves/" class="">curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/wavelets/" class="">wavelet (separazione di frequenza)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/processing-modules/deprecated/" class="">moduli deprecati
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/" class="">maschere &amp; fusione
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/blend-modes/" class=" active" aria-current="page">modalità di fusione
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="">maschere
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/darkroom/organization/" class="">organizzazione
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/overview/" class="">Introduzione
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/darkroom/organization/manage-module-layouts/" class="">gestione preset
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #fc8c06;">
+   
+
+      <a href="/dtdocs/it/tethering/" class=""><span class="dt-dot" aria-hidden="true"></span>Tethering (scatto remoto)
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f6b909;">
+   
+
+      <a href="/dtdocs/it/map/" class=""><span class="dt-dot" aria-hidden="true"></span>Mappa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/map/overview/" class="">Introduzione
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/map/map-view-layout/" class="">layout visualizzazione mappa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e0db0d;">
+   
+
+      <a href="/dtdocs/it/slideshow/" class=""><span class="dt-dot" aria-hidden="true"></span>Presentazione
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #85c910;">
+   
+
+      <a href="/dtdocs/it/print/" class=""><span class="dt-dot" aria-hidden="true"></span>Stampa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #29b813;">
+   
+
+      <a href="/dtdocs/it/module-reference/" class=""><span class="dt-dot" aria-hidden="true"></span>Module Reference
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/" class="">moduli di elaborazione
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/chromatic-aberrations/" class="">aberrazioni cromatiche
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/soften/" class="">ammorbidisci
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance/" class="">bilanciamento colore
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-balance-rgb/" class="">bilanciamento colore rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/censorize/" class="">censura
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/colorize/" class="">colora
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-contrast/" class="">contrasto colore
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-correction/" class="">correzione colore
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/unbreak-input-profile/" class="">correzione profilo di ingresso
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/contrast-equalizer/" class="">equalizzatore contrasto
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/tone-equalizer/" class="">equalizzatore toni
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/graduated-density/" class="">filtro graduato
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/bloom/" class="">luce soffusa
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-mapping/" class="">mappatura dei colori
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/highpass/" class="">passa-alto
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/raw-black-white-point/" class="">punto nero/bianco raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/color-reconstruction/" class="">ricostruzione colore
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/astrophoto-denoise/" class="">riduci rumore foto astronomiche
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/denoise-profiled/" class="">riduzione rumore (profilato)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/" class="">rotazione e prospettiva
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/processing-modules/blurs/" class="">sfocature
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/" class="">Moduli utilità
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/" class="">condivisi
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/shared/image-information/" class="">informazioni immagine
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/lighttable/" class="">libreria
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/map/" class="">mappa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/print/" class="">Stampa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/darkroom/" class="">sviluppo
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/" class="">Tethering (scatto remoto)
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/camera-settings/" class="">Impostazioni fotocamera
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/session/" class="">Sessione
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/module-reference/utility-modules/tethering/live-view/" class="">Tethering (Scatto remoto)
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #169f5a;">
+   
+
+      <a href="/dtdocs/it/preferences-settings/" class=""><span class="dt-dot" aria-hidden="true"></span>Preferences &amp; Settings
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #1586b2;">
+   
+
+      <a href="/dtdocs/it/lua/" class=""><span class="dt-dot" aria-hidden="true"></span>Scripting
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #3362e2;">
+   
+
+      <a href="/dtdocs/it/guides-tutorials/" class=""><span class="dt-dot" aria-hidden="true"></span>Guide &amp; Tutorial
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/guides-tutorials/monochrome/" class="">sviluppare immagini monocromatiche
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #8231d9;">
+   
+
+      <a href="/dtdocs/it/special-topics/" class=""><span class="dt-dot" aria-hidden="true"></span>Special Topics
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/" class="">coda di elaborazione dei colori di darktable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/overview/" class="">Introduzione
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/color-spaces/" class="">spazi colore di darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/unbounded-colors/" class="">colori senza confini
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-pipeline/color-artifacts/" class="">possibili artefatti nei colori
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/" class="">gestione del colore
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/overview/" class="">Introduzione
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/display-profile/" class="">Profilo dello schermo
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-method/" class="">metodi di rendering
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/it/special-topics/color-management/rendering-intent/" class="">Intento di rendering
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/special-topics/opencl/" class="">OpenCL
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/special-topics/ai/" class="">AI features
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/special-topics/darktable-chart/" class="">using darktable-chart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/it/special-topics/program-invocation/" class="">program invocation
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #d000d0;">
+   
+
+      <a href="/dtdocs/it/contributing/" class=""><span class="dt-dot" aria-hidden="true"></span>Contributing to the Docs
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        <div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/it/darkroom/masking-and-blending/blend-modes/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/it/darkroom/masking-and-blending/blend-modes/">Version 5.6</a>
+  </div>
+</div>
+
+                        
+<div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Italian"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Italian</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="it"
+      role="option"
+      lang="it"
+      href="https://darktable-org.github.io/dtdocs/it/darkroom/masking-and-blending/blend-modes/"
+      >Italian</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="nl"
+        role="option"
+        lang="nl"
+        href="https://darktable-org.github.io/dtdocs/nl/darkroom/masking-and-blending/blend-modes/"
+        >Dutch</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/blend-modes/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="es"
+        role="option"
+        lang="es"
+        href="https://darktable-org.github.io/dtdocs/es/darkroom/masking-and-blending/blend-modes/"
+        >Español</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/blend-modes/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="de"
+        role="option"
+        lang="de"
+        href="https://darktable-org.github.io/dtdocs/de/darkroom/masking-and-blending/blend-modes/"
+        >German</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/darkroom/masking-and-blending/blend-modes/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pl"
+        role="option"
+        lang="pl"
+        href="https://darktable-org.github.io/dtdocs/pl/darkroom/masking-and-blending/blend-modes/"
+        >Polish</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pt_br"
+        role="option"
+        lang="pt_br"
+        href="https://darktable-org.github.io/dtdocs/pt_br/darkroom/masking-and-blending/blend-modes/"
+        >Português</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/blend-modes/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        
+
+
+
+<nav class="crumbs" aria-label="Breadcrumbs"><a href="/dtdocs/it/darkroom/">Camera Oscura</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/it/darkroom/masking-and-blending/">maschere &amp; fusione</a><span class="crumbs__sep" aria-hidden="true">/</span><span class="crumbs__current" aria-current="page">modalità di fusione</span>
+</nav>
+
+
+<article>
+
+    <h1 class="title">
+        modalità di fusione
+    </h1>
+
+    
+<details class="dt-toc-inline d-xl-none">
+    <summary>Table of Contents</summary>
+    <nav >
+  <ul>
+    <li><a href="#modalità-normale">modalità normale</a></li>
+    <li><a href="#modalità-aritmetiche">modalità aritmetiche</a></li>
+    <li><a href="#modalità-aumento-contrasto">modalità aumento contrasto</a></li>
+    <li><a href="#modalità-canali-colore">modalità canali colore</a>
+      <ul>
+        <li><a href="#canali-lab">canali Lab</a></li>
+        <li><a href="#canali-rgb">canali RGB</a></li>
+      </ul>
+    </li>
+    <li><a href="#canali-hsv">canali HSV</a></li>
+    <li><a href="#altri">altri</a></li>
+  </ul>
+</nav>
+</details>
+
+
+    <p>Le modalità di fusione definiscono come l&rsquo;input e l&rsquo;output di un modulo vengono combinati assieme (fusi) prima che l&rsquo;output finale del modulo venga passato al modulo successivo nella pixelpipe.</p>
+<p>Le modalità di fusione classiche, progettate per RGB riferito allo schermo (limitate tra 0-100%), definiscono implicitamente nei loro algoritmi il fulcro al 50% (grigio) o al 100% (bianco), a seconda della modalità di fusione. Siccome lo spazio colore riferito alla scena non è soggetto a queste limitazioni, il fulcro necessita di essere stabilito dall&rsquo;utente durante l&rsquo;operazione di fusione nello spazio colore RGB (riferito alla scena). Il parametro aggiuntivo <em>fulcro fusione</em> verrà mostrato all&rsquo;utente quando si usa uno di queste modalità di fusione in questo spazio colore. L&rsquo;effetto dipende dall&rsquo;operatore utilizzato. Per esempio, valori al di sopra del fulcro potrebbero venire illuminati di più e valori al di sotto illuminati di meno, o viceversa.</p>
+<p>Il risultato finale di un modulo è calcolato &lsquo;per pixel&rsquo; come segue:</p>
+<pre tabindex="0"><code>output_finale = (1.0 - opacità) * input_modulo + opacità * output_fusione
+</code></pre><p>dove <code>output_fusione</code> è la combinazione delle immagini di input e di output, a seconda della modalità di fusione sottostante, e della <code>opacità</code> definita &lsquo;per pixel&rsquo; dalla combinazione della maschera e del parametro di opacità globale. Un&rsquo;opacità dello 0% risulta in un&rsquo;immagine identica all&rsquo;immagine di input del modulo.</p>
+<p>Il pulsante &ldquo;inverti&rdquo; 
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/blend-modes/blend-reverse.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/blend-modes/blend-reverse.png" alt="inverti-fuszione" class="icon" /></a>
+
+ inverte attualmente i ruoli delle immagini di input e di output nel calcolo &lsquo;per pixel&rsquo;:</p>
+<pre tabindex="0"><code>output_finale = (1.0 - opacità) * output_modulo + opacità * input_fusione
+</code></pre><p>dove <code>input_fusione</code> è la combinazione delle immagini di output e input, a seconda della modalità di fusione sottostante, dove i riferimenti a <em>output</em> e <em>input</em> sono invertiti. Nella modalità di fusione &ldquo;invertita&rdquo; l&rsquo;opacità dello 0% risulta in un&rsquo;immagine che è identica all&rsquo;immagine di <em>output</em> del modulo.</p>
+<h1 id="modalità-normale"><a class="dt-anchor" href="#modalit%c3%a0-normale" aria-label="Link to this section">#</a>modalità normale</h1>
+<dl>
+<dt id="normale">normale</dt>
+<dd>La modalità di fusione più usata, &ldquo;normale&rdquo;, semplicemente fonde input e output in base al parametro di opacità. Questa modalità è generalmente utilizzata per ridurre l&rsquo;effetto di un modulo riducendone l&rsquo;opacità. Questa è anche la modalità di fusione scelta quando si applica selettivamente l&rsquo;effetto di un modulo con le maschere. Questa modalità è anche conosciuta come l&rsquo;operazione di &ldquo;alpha blending&rdquo; schematizzata da Porter-Duff (controlla <a href="https://en.wikipedia.org/wiki/Alpha_compositing" target="_blank">alpha blending (in inglese)</a> per maggiori informazioni).</dd>
+<dt id="normale-limitata">normale limitata</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Questa modalità di fusione è la medesima di &ldquo;normale&rdquo; tranne per il fatto che i dati di input e di output sono limitati in un particolare intervallo di valori minimo/massimo. I valori fuori dall&rsquo;intervallo vengono bloccati e non vengono passati ai moduli successivi. Certe volte aiuta a prevenire artefatti. Comunque sia, nella maggior parte dei casi (es: alte luci estreme in aree molto saturate), è meglio lasciare che i valori fuori dall&rsquo;intervallo viaggino lungo la pixelpipe per essere gestiti efficentemente più avanti. Quindi la modalità di fusione &ldquo;normale&rdquo; è normalmente da preferire.</dd>
+</dl>
+<h1 id="modalità-aritmetiche"><a class="dt-anchor" href="#modalit%c3%a0-aritmetiche" aria-label="Link to this section">#</a>modalità aritmetiche</h1>
+<dl>
+<dt id="addizione">addizione</dt>
+<dd>Somma i valori dei pixel delle immagini di input e di output, illuminando l&rsquo;output. Quando si fonde nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, i valori dei pixel dell&rsquo;immagine di output vengono moltiplicati per un valore proporzionale al &ldquo;fulcro fusione&rdquo;.</dd>
+<dt id="sottrai">sottrai</dt>
+<dd>Sottrae il valore del pixel dell&rsquo;<em>output</em> dall&rsquo;<em>input</em>. Quando si è nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, i valori dei pixel dell&rsquo;immagine risultante vengono moltiplicati per un valore proporzionale al &ldquo;fulcro fusione&rdquo;. Valori dei pixel minori di 0 vengono riportati a 0.</dd>
+<dt id="moltiplica">moltiplica</dt>
+<dd>Moltiplica i valori dei pixel dell&rsquo;input e dell&rsquo;output. Quando si è negli spazi colore riferiti allo schermo, i valori dei pixel sono nell&rsquo;intervallo tra 0 e 1.0, il risultato finale sarà sempre più scuro. Quando si fonde nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, questo valore verrà moltiplicato ulteriormente per un valore proporzionale al &ldquo;fulcro fusione&rdquo;. In questo caso i valori possono essere più grandi di 1.0 e quindi schiariranno l&rsquo;immagine di base. Questo potrebbe avere altri effetti collaterali, come ad esempio modificare il punto di bianco del modulo filmic RGB.</dd>
+<dd>
+<p>La modalità di fusione &ldquo;moltiplica&rdquo; simula un filtro a densità variable, dove la densità è definita dall&rsquo;output del modulo. Ha molti impieghi, dal &ldquo;blooming&rdquo; e l&rsquo;aumento del contrasto locale (quando usato con la sfumatura o il filtro passa-basso) agli effetti di schiarimento/scurimento e l&rsquo;aumento del contrasto globale (quando usato con l&rsquo;esposizione). Il fulcro imposta la soglia dell&rsquo;intensità tra lo scurimento e lo schiarimento (qualsiasi valore RGB al di sotto del fulcro sarà più scuro).</p>
+</dd>
+<dt id="dividi">dividi</dt>
+<dd>Divide i valori dei pixel di input per i valori dei pixel di output. Quando si è nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, i valori dei pixel vengono moltiplicati per un valore proporzionale al &ldquo;fulcro fusione&rdquo;.</dd>
+<dd>
+<p>Dato che è l&rsquo;inverso della modalità &ldquo;moltiplica&rdquo;, scurirà dove il &ldquo;moltiplica&rdquo; schiarisce e vice versa. Tutto il resto funziona essenzialmente alla stessa maniera.</p>
+</dd>
+<dt id="scherma">scherma</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Inverte i valori dei pixel di input e di output, moltiplicando questi valori e invertendo il risultato. Questo ottiene approssimativamente l&rsquo;effetto opposto alla modalità &ldquo;moltiplica&rdquo; &ndash; l&rsquo;immagine risultante è di solito più chiara, e talvolta anche &ldquo;slavata&rdquo;.</dd>
+<dt id="media">media</dt>
+<dd>Restituisce la media aritmetica dei valori dei pixel di input e output</dd>
+<dt id="differenza">differenza</dt>
+<dd>Restituisce il valore assoluto di differenza tra i valori di pixel di input e output</dd>
+<dt id="media-geometrica">media geometrica</dt>
+<dd>Restituisce la radice quadrata del prodotto dei valori dei pixel di input e output.</dd>
+<dt id="media-armonica">media armonica</dt>
+<dd>Restituisce il prodotto dei valori dei pixel di input e output, moltiplicata per 2 e divisa per la loro somma.</dd>
+</dl>
+<h1 id="modalità-aumento-contrasto"><a class="dt-anchor" href="#modalit%c3%a0-aumento-contrasto" aria-label="Link to this section">#</a>modalità aumento contrasto</h1>
+<p>The following modes are not available in the &ldquo;RGB (scene)&rdquo; blending color space as they rely on an assumption of &ldquo;50% mid gray&rdquo; which only applies to display-referred and non-linear color spaces.  In addition, they clamp pixel values of <em>both</em> input and output images as the underlying math is not valid outside the range 0..1, and can thus cause visible changes <em>anywhere</em> in the image.  To avoid these, you will need to ensure that the module&rsquo;s input does not exceed the display-referred range.</p>
+<dl>
+<dt id="sovrapponi">sovrapponi</dt>
+<dd>Questa modalità combina le modalità di fusione &ldquo;moltiplica&rdquo; e &ldquo;scherma&rdquo;: le aree dell&rsquo;input dove l&rsquo;output è più chiaro diverranno più chiare; le aree dell&rsquo;immagine dove l&rsquo;output è più scuro, diverranno più scure; il grigio medio rimane inalterato. Questa modalità viene spesso usata in combinazione con i moduli <a href="../../../module-reference/processing-modules/lowpass.md"><em>passa-basso</em></a> e <a href="/dtdocs/it/module-reference/processing-modules/highpass/"><em>passa-alto</em></a>.</dd>
+<dt id="luce-soffusa">luce soffusa</dt>
+<dd>Questa modalità è simile a &ldquo;sovrapponi&rdquo;, ad eccezione del fatto che il risultato è spesso più soffuso e meno luminoso. Come &ldquo;sovrapponi&rdquo; è spesso usato in combinazione con i moduli <a href="../../../module-reference/processing-modules/lowpass.md"><em>passa-basso</em></a> e <a href="/dtdocs/it/module-reference/processing-modules/highpass/"><em>passa-alto</em></a>.</dd>
+<dt id="luce-intensa">luce intensa</dt>
+<dd>Questa modalità non è legata a &ldquo;luci soffuse&rdquo; se non per il nome. Come &ldquo;sovrapponi&rdquo; è utilizzata in combinazione con le modalità &ldquo;moltiplica&rdquo; e &ldquo;scherma&rdquo; e ha effetti diversi sopra e sotto il grigio medio. Il risultato con la modalità &ldquo;luce intensa&rdquo; tende ad essere parecchio forte e solitamente viene usata con una opacità ridotta.</dd>
+<dt id="luce-vivida">luce vivida</dt>
+<dd>Questa modalità è una versione estrema di &ldquo;sovrapponi&rdquo;/&ldquo;luce soffusa&rdquo;. Valori più scuri del grigio medio sono resi più scuri; valori più luminosi del grigio medio vengono resi più luminosi. Probabilmente sarà necessario di ridurre il suo effetto riducendo l&rsquo;opacità.</dd>
+<dt id="luce-lineare">luce lineare</dt>
+<dd>Questa modalità ha risultati simili alla modalità &ldquo;luce vivida&rdquo;</dd>
+<dt id="luce-puntiforme">luce puntiforme</dt>
+<dd>Questa modalità applica le modalità &ldquo;scurisci&rdquo; e &ldquo;schiarisci&rdquo; simultaneamente, rimuovendo i mezzi toni. Può risultare in artefatti come macchine e &ldquo;pezzamenti&rdquo;</dd>
+</dl>
+<h1 id="modalità-canali-colore"><a class="dt-anchor" href="#modalit%c3%a0-canali-colore" aria-label="Link to this section">#</a>modalità canali colore</h1>
+<h2 id="canali-lab"><a class="dt-anchor" href="#canali-lab" aria-label="Link to this section">#</a>canali Lab</h2>
+<p>Le seguenti opzioni sono disponibili solo per la fusione nello spazio colore Lab</p>
+<dl>
+<dt id="luminosità-lab">luminosità Lab</dt>
+<dd>Mescola la luminosità dalle immagini di input e di output, mantenendo inalterati i canali colore (a e b) dell&rsquo;immagine di input. Al contrario della modalità &ldquo;luminosità&rdquo; questa modalità non prevede alcuna conversione dello spazio colore e non blocca alcun valore. In alcuni casi questa modalità è meno incline a generare artefatti rispetto a &ldquo;luminosità&rdquo;.</dd>
+<dt id="canale-lab-a">canale Lab a</dt>
+<dd>Mescola il canale colore Lab &ldquo;a&rdquo; dalle immagini di input e di output, mantenendo inalterati gli altri canali dall&rsquo;immagine di input.</dd>
+<dt id="canale-lab-b">canale Lab b</dt>
+<dd>Mescola il canale colore Lab &ldquo;b&rdquo; dalle immagini di input e di output, mantenendo inalterati gli altri canali dall&rsquo;immagine di input.</dd>
+<dt id="colore-lab">colore Lab</dt>
+<dd>Mescola i canali colore Lab (a e b) dalle immagini di input e di output, mantenendo inalterata la luminosità dall&rsquo;immagine di input. Al contrario della modalità &ldquo;colore&rdquo;, questa non prevede alcuna conversione dello spazio colore e non limita alcun dato. In alcuni casi questa modalità è meno incline a produrre artefatti rispetto a &ldquo;colore&rdquo;.</dd>
+</dl>
+<h2 id="canali-rgb"><a class="dt-anchor" href="#canali-rgb" aria-label="Link to this section">#</a>canali RGB</h2>
+<p>Le seguenti opzioni sono disponibili solo per la fusione negli spazi colore RGB</p>
+<dl>
+<dt id="canale-rosso-rgb">canale rosso RGB</dt>
+<dd>Miscela il canale &ldquo;rosso&rdquo; delle immagini di input e di output, lasciando inalterati gli altri canali dall&rsquo;immagine di input. Quando si fonde nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, il canale &ldquo;rosso&rdquo; dell&rsquo;immagine di output viene moltiplicato per un valore proporzionale al &ldquo;fulcro fusione&rdquo;.</dd>
+<dt id="canale-verde-rgb">canale verde RGB</dt>
+<dd>Miscela il canale &ldquo;verde&rdquo; delle immagini di input e di output, lasciando inalterati gli altri canali dall&rsquo;immagine di input. Quando si fonde nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, il canale &ldquo;verde&rdquo; dell&rsquo;immagine di output viene moltiplicato per un valore proporzionale al &ldquo;fulcro fusione&rdquo;.</dd>
+<dt id="canale-blu-rgb">canale blu RGB</dt>
+<dd>Miscela il canale &ldquo;blu&rdquo; delle immagini di input e di output, lasciando inalterati gli altri canali dall&rsquo;immagine di input. Quando si fonde nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;, il canale &ldquo;blu&rdquo; dell&rsquo;immagine di output viene moltiplicato per un valore proporzionale al &ldquo;fulcro fusione&rdquo;.</dd>
+</dl>
+<h1 id="canali-hsv"><a class="dt-anchor" href="#canali-hsv" aria-label="Link to this section">#</a>canali HSV</h1>
+<p>Le seguenti opzioni sono disponibili solo nello spazio colore &ldquo;RGB (riferito allo schermo)&rdquo;.</p>
+<dl>
+<dt id="hsv-value">HSV value</dt>
+<dd>Mix the lightness from the input and output images, while taking color unaltered from the input image. In contrast to “lightness” this blend mode does not involve clamping.</dd>
+<dt id="colore-hsv">colore HSV</dt>
+<dd>Miscela il colore delle immagini di input e di output, lasciando inalterata la luminosità dell&rsquo;immagine di input. Contrariamente alla modalità &ldquo;colore&rdquo; questa non prevede alcuna limitazione dei valori.</dd>
+</dl>
+<h1 id="altri"><a class="dt-anchor" href="#altri" aria-label="Link to this section">#</a>altri</h1>
+<dl>
+<dt id="lightness">lightness</dt>
+<dd>Mix lightness from the input and output images, while taking color (chromaticity and hue) unaltered from the input image.</dd>
+<dt id="chromaticity">chromaticity</dt>
+<dd>Mix chromaticity from the input and output images, while taking lightness and hue unaltered from the input image. This blend mode uses RGB ratios, divided by a Euclidean norm.</dd>
+<dt id="schiarisci">schiarisci</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Confronta i valori dei pixel delle immagini di input e di output, e ritorna il valore più luminoso.</dd>
+<dt id="scurisci">scurisci</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Confronta i valori dei pixel delle immagini di input e di output, e ritorna il valore meno luminoso.</dd>
+<dt id="tonalità">tonalità</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Miscela la tonalità colore delle immagini di input e di output, lasciando inalterati luminosità e cromaticità dell&rsquo;immagine di input.</dd>
+<dt id="colore">colore</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Miscela i colori (cromaticità e tonalità) delle immagini di input e di output, lasciando inalterata la luminosità dell&rsquo;immagine di input.</dd>
+<dd>
+<p><em>Attenzione: quando i moduli agiscono drasticamente sulla tonalità (per esempio generando colori complementari) questa modalità di fusione può generare rumore colore molto forte.</em></p>
+</dd>
+<dt id="regolazione-colore">regolazione colore</dt>
+<dd><em>non disponibile nello spazio colore &ldquo;RGB (riferito alla scena)&rdquo;</em></dd>
+<dd>Alcuni moduli agiscono in maniera predominante sui valori tonali dell&rsquo;immagine ma effettuano anche alcuni aggiustamenti sulla saturazione colore (ad esempio i moduli <a href="../../module-reference/processing-modules/levels.md"><em>livelli</em></a> e <a href="../../module-reference/processing-modules/tone-curve.md"><em>curva tono</em></a>). Questa modalità di fusione usa la luminosità dall&rsquo;output del modulo e miscela i colori delle immagini di input e output, abilitando la possibilità di aggiustare i colori.</dd>
+</dl>
+
+
+    
+    <h3 class="translations_head">Translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/darkroom/masking-and-blending/blend-modes/">
+            Dutch: overvloei modes
+        </a></li>
+        
+        <li><a href="/dtdocs/en/darkroom/masking-and-blending/blend-modes/">
+            English: blend modes
+        </a></li>
+        
+        <li><a href="/dtdocs/es/darkroom/masking-and-blending/blend-modes/">
+            Español: modos de fusión
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/darkroom/masking-and-blending/blend-modes/">
+            Français: Modes de fusion
+        </a></li>
+        
+        <li><a href="/dtdocs/de/darkroom/masking-and-blending/blend-modes/">
+            German: Überblendmodi
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/darkroom/masking-and-blending/blend-modes/">
+            Lao: ໂໝດການປະສົມ (blend modes)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/darkroom/masking-and-blending/blend-modes/">
+            Polish: tryby mieszania
+        </a></li>
+        
+        <li><a href="/dtdocs/pt_br/darkroom/masking-and-blending/blend-modes/">
+            Português: modos de mesclagem
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/darkroom/masking-and-blending/blend-modes/">
+            Ukrainian: Режими змішування
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<nav class="prev-next" aria-label="Page navigation">
+    
+    <a href="/dtdocs/it/darkroom/masking-and-blending/" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">Previous</span>
+        <span class="prev-next__title">maschere &amp; fusione</span>
+    </a>
+    
+    
+    <a href="/dtdocs/it/darkroom/masking-and-blending/masks/" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">Next</span>
+        <span class="prev-next__title">maschere</span>
+    </a>
+    
+</nav>
+
+
+<div class="dt-page-meta">
+    <a href="/dtdocs/it/darktable_user_manual.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download manual (PDF)</a>
+</div>
+
+
+
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    
+<div class="dt-toc__inner">
+    <a class="dt-toc__title" href="#" title="Back to top">Table of Contents</a>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#modalità-normale">modalità normale</a></li>
+    <li><a href="#modalità-aritmetiche">modalità aritmetiche</a></li>
+    <li><a href="#modalità-aumento-contrasto">modalità aumento contrasto</a></li>
+    <li><a href="#modalità-canali-colore">modalità canali colore</a>
+      <ul>
+        <li><a href="#canali-lab">canali Lab</a></li>
+        <li><a href="#canali-rgb">canali RGB</a></li>
+      </ul>
+    </li>
+    <li><a href="#canali-hsv">canali HSV</a></li>
+    <li><a href="#altri">altri</a></li>
+  </ul>
+</nav>
+</div>
+
+                </aside>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

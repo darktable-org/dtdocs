@@ -1,0 +1,2648 @@
+<!doctype html>
+<html lang="pt_br">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>manual do usuário darktable - rotação e perspectiva</title>
+<meta name="description" content="Corrige automaticamente as linhas convergentes, uma forma de distorção da perspectiva. O processo usado é inspirado no programa ShiftN de Markus Hebel. Este …">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.508d8a7d0d3bebef7aa77947cc7a1b631efa0c716fea5f2346d6ad96f47684a7.css" integrity="sha256-UI2KfQ076&#43;96p3lHzHobYx76DHFv6l8jRtatlvR2hKc=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/pt_br\/index.json"</script>
+    
+	<script src="/dtdocs/js/bundle.min.42af7beb0e2d8b285c5278eff99d26a28029994f5a7979d518a46189be6ce623.js" integrity="sha256-Qq976w4tiyhcUnjv&#43;Z0mooApmU9aeXnVGKRhib5s5iM=" crossorigin="anonymous"></script>
+    
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/rotate-perspective/">
+<meta property="og:site_name" content="manual do usuário darktable">
+<meta property="og:title" content="rotação e perspectiva">
+<meta property="og:description" content="Technical information descrição rotaciona ou distorce a perspectiva automaticamente. propósito corretivo ou criativo. entrada linear, RGB, relativo à cena. processamento geométrico, RGB. saída linear, RGB, relativo à cena. Corrige automaticamente as linhas convergentes, uma forma de distorção da perspectiva. O processo usado é inspirado no programa ShiftN de Markus Hebel. Este módulo também permite ajustar a rotação da imagem.
+As distorções de perspectiva são um efeito natural quando se projeta uma cena tridimensional em um plano bidimensional e faz com que os objetos próximos ao observador pareçam maiores do que os mais distantes. As linhas convergentes são um caso especial de distorção de perspectiva que se vê com frequência em fotografias de arquitetura – as linhas paralelas, quando fotografadas em ângulo, se transformam em linhas convergentes que se encontram em algum ponto final fora do quadro da imagem.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="pt_br">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body style="--dt-section: #29b813; --dt-section-text: #135309;">
+        <header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="/dtdocs" rel="home" title="manual do usuário darktable">
+      
+        <img src="/dtdocs/images/darktable.svg" alt="" width="32" height="32" />
+      
+      <span>manual do usuário darktable</span>
+    </a>
+
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      <div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/pt_br/module-reference/processing-modules/rotate-perspective/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/pt_br/module-reference/processing-modules/rotate-perspective/">Version 5.6</a>
+  </div>
+</div>
+
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      
+<div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Português"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Português</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="pt_br"
+      role="option"
+      lang="pt_br"
+      href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/rotate-perspective/"
+      >Português</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="nl"
+        role="option"
+        lang="nl"
+        href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/rotate-perspective/"
+        >Dutch</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/rotate-perspective/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="es"
+        role="option"
+        lang="es"
+        href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/rotate-perspective/"
+        >Español</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/rotate-perspective/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="de"
+        role="option"
+        lang="de"
+        href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/rotate-perspective/"
+        >German</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="it"
+        role="option"
+        lang="it"
+        href="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/rotate-perspective/"
+        >Italian</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/rotate-perspective/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pl"
+        role="option"
+        lang="pl"
+        href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/rotate-perspective/"
+        >Polish</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/rotate-perspective/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+    </div><div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd><div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div><button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="Chapters"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div><div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="Chapters">
+                    <div class="dt-nav-tree">
+                        <ul>
+   
+   <li class="parent" style="--dt-nav-color: #d70016;">
+   
+
+      <a href="/dtdocs/pt_br/overview/" class=""><span class="dt-dot" aria-hidden="true"></span>Visão geral
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/overview/user-interface/" class="">interface do usuário
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/user-interface/views/" class="">vistas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/user-interface/screen-layout/" class="">disposição da tela
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/user-interface/keyboard-shortcuts/" class="">atalhos de teclado
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/overview/sidecar-files/" class="">arquivos auxiliares &amp; edição não destrutiva
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/sidecar-files/local-copies/" class="">cópias locais
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/overview/workflow/" class="">uma introdução do fluxo de trabalho do darktable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/workflow/introduction/" class="">introdução
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/workflow/import-review/" class="">importar &amp; revisar
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/overview/workflow/process/" class="">processar
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e82f0f;">
+   
+
+      <a href="/dtdocs/pt_br/lighttable/" class=""><span class="dt-dot" aria-hidden="true"></span>Mesa de luz
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/lighttable/lighttable-view-layout/" class="">disposição da mesa de luz
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/lighttable/lighttable-modes/" class="">modos da mesa de luz
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/lighttable/lighttable-modes/full-preview/" class="">visualização completa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/lighttable/digital-asset-management/" class="">gerenciamento de ativos digitais
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/lighttable/digital-asset-management/star-color/" class="">classificações com estrelas &amp; etiquetas de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/lighttable/digital-asset-management/grouping/" class="">agrupamento de imagens
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/lighttable/digital-asset-management/metadata-tagging/" class="">metadados e etiquetas
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f85d07;">
+   
+
+      <a href="/dtdocs/pt_br/darkroom/" class=""><span class="dt-dot" aria-hidden="true"></span>Sala escura
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/darkroom/pixelpipe/" class="">o pixelpipe
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">a anatomia de um módulo de processamento
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/pixelpipe/history-stack/" class="">o histórico
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/pixelpipe/undo-redo/" class="">desfazer e refazer
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/darkroom/processing-modules/" class="">módulos de processamento
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/processing-modules/module-header/" class="">cabeçalho de módulo
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/processing-modules/multiple-instances/" class="">múltiplas instâncias
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/processing-modules/curves/" class="">curvas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/processing-modules/wavelets/" class="">wavelets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/processing-modules/deprecated/" class="">módulos obsoletos
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/darkroom/masking-and-blending/" class="">máscaras &amp; mesclagem
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/masking-and-blending/blend-modes/" class="">modos de mesclagem
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/darkroom/masking-and-blending/masks/" class="">máscaras
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/darkroom/organization/" class="">organização
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/organization/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/darkroom/organization/manage-module-layouts/" class="">gerenciar disposição dos módulos
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #fc8c06;">
+   
+
+      <a href="/dtdocs/pt_br/tethering/" class=""><span class="dt-dot" aria-hidden="true"></span>Acesso remoto
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/tethering/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/tethering/tethering-view-layout/" class="">disposição do acesso remoto
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/tethering/examples/" class="">exemplos
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/tethering/troubleshooting/" class="">solução de problemas
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f6b909;">
+   
+
+      <a href="/dtdocs/pt_br/map/" class=""><span class="dt-dot" aria-hidden="true"></span>Mapa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/map/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/map/map-view-layout/" class="">disposição do mapa
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e0db0d;">
+   
+
+      <a href="/dtdocs/pt_br/slideshow/" class=""><span class="dt-dot" aria-hidden="true"></span>Apresentação
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/slideshow/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/slideshow/usage/" class="">uso
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #85c910;">
+   
+
+      <a href="/dtdocs/pt_br/print/" class=""><span class="dt-dot" aria-hidden="true"></span>Impressão
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/print/print-view-layout/" class="">disposição da impressão
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open" style="--dt-nav-color: #29b813;">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/" class=""><span class="dt-dot" aria-hidden="true"></span>Referência de Módulos
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/" class="">módulos de processamento
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/chromatic-aberrations/" class="">aberrações cromáticas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/raw-chromatic-aberrations/" class="">aberrações cromáticas em raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-balance/" class="">balanço de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-balance-rgb/" class="">balanço de cor rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-calibration/" class="">calibração de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/censorize/" class="">censurar
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/colorize/" class="">colorir
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-contrast/" class="">contraste de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/local-contrast/" class="">contraste local
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-correction/" class="">correção de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/unbreak-input-profile/" class="">correção de perfil de entrada
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/base-curve/" class="">curva base
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/tone-curve/" class="">curva de tons
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/graduated-density/" class="">densidade graduada
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/surface-blur/" class="">desfoque de superfície
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/blurs/" class="">desfoques
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/diffuse/" class="">difusão ou nitidez
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/liquify/" class="">distorcer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/split-toning/" class="">divisão de tons
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/contrast-equalizer/" class="">equalizador de contraste
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/tone-equalizer/" class="">equalizador de tons
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/exposure/" class="">exposição
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/lut-3d/" class="">LUT 3D
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/bloom/" class="">luz suave
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-mapping/" class="">mapeamento de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/watermark/" class="">marca d&#39;água
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/sharpen/" class="">melhorar nitidez
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/framing/" class="">moldura
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/monochrome/" class="">monocromático
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/highpass/" class="">passa-altas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/lowpass/" class="">passa-baixas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/dither-or-posterize/" class="">pontilhar ou posterizar
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/raw-black-white-point/" class="">ponto de preto/branco em raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/rgb-primaries/" class="">primárias rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-reconstruction/" class="">reconstrução de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/highlight-reconstruction/" class="">reconstrução de realce
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/denoise-profiled/" class="">redução de ruído (perfilado)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/astrophoto-denoise/" class="">redução de ruído em astrofotografia
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/retouch/" class="">retocar
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/rotate-perspective/" class=" active" aria-current="page">rotação e perspectiva
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/shadows-and-highlights/" class="">sombras e realces
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/soften/" class="">suavização
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/velvia/" class="">vélvia
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/vignetting/" class="">vinheta
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/lowlight-vision/" class="">visão com pouca luz
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/color-zones/" class="">zonas de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/basic-adjustments/" class="">(deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/channel-mixer/" class="">(deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/contrast-brightness-saturation/" class="">(deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/crop-rotate/" class="">(deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/defringe/" class="">(deprecated) defringe
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/global-tonemap/" class="">(deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/levels/" class="">(deprecated) levels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/spot-removal/" class="">(deprecated) spot removal
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/tone-mapping/" class="">(deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/processing-modules/zone-system/" class="">(deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/" class="">módulos utilitários
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/tethering/" class="">acesso remoto
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/tethering/camera-settings/" class="">configurações da câmera
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/tethering/session/" class="">sessão
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/tethering/live-view/" class="">visualização ao vivo
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/" class="">compartilhados
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/collections/" class="">coleções
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/recent-collections/" class="">coleções usadas recentemente
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/tagging/" class="">etiquetas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/export/" class="">exportar
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/focus-peaking/" class="">foco máximo
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/geotagging/" class="">geoetiquetas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/shared/image-information/" class="">informações da imagem
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/print/" class="">impressão
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/print/print-settings/" class="">configurações de impressão
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/map/" class="">mapa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/map/map-settings/" class="">configurações do mapa
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/map/find-location/" class="">encontrar localização
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/map/locations/" class="">localizações
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/lighttable/" class="">mesa de luz
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/lighttable/timeline/" class="">linha do tempo
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/lighttable/select/" class="">seleção
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/" class="">sala escura
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/clipping/" class="">indicador de recorte
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/raw-overexposed/" class="">indicador de superexposição raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/image-info-line/" class="">linha de informações da imagem
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/guides-overlays/" class="">linhas guia &amp; sobreposições
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/history-stack/" class="">pilha de histórico
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/soft-proof/" class="">prova digital
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/gamut/" class="">verificação de gama
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #169f5a;">
+   
+
+      <a href="/dtdocs/pt_br/preferences-settings/" class=""><span class="dt-dot" aria-hidden="true"></span>Preferências e Configurações
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/preferences-settings/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/preferences-settings/darkroom/" class="">sala escura
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/preferences-settings/presets/" class="">predefinições
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #1586b2;">
+   
+
+      <a href="/dtdocs/pt_br/lua/" class=""><span class="dt-dot" aria-hidden="true"></span>Scripting
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #3362e2;">
+   
+
+      <a href="/dtdocs/pt_br/guides-tutorials/" class=""><span class="dt-dot" aria-hidden="true"></span>Guias e Tutoriais
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/guides-tutorials/monochrome/" class="">processar imagens monocromáticas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/guides-tutorials/batch-editing/" class="">editar imagens em lote
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #8231d9;">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/" class=""><span class="dt-dot" aria-hidden="true"></span>Tópicos especiais
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-pipeline/" class="">pipeline de cor do darktable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-pipeline/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-pipeline/color-spaces/" class="">espaços de cor do darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-pipeline/unbounded-colors/" class="">cores ilimitadas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-pipeline/color-artifacts/" class="">possíveis artefatos de cor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-pipeline/color-dimensions/" class="">dimensões da cor no darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-management/" class="">gerenciamento de cor
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-management/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-management/display-profile/" class="">perfil do monitor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-management/rendering-method/" class="">método de renderização
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/color-management/rendering-intent/" class="">intenção de renderização
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/opencl/" class="">OpenCL
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/opencl/setting-up/" class="">setting up OpenCL
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/opencl/problems-solutions/" class="">possíveis problemas e soluções
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/opencl/multiple-devices/" class="">múltiplos dispositivos
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/opencl/still-doesnt-work/" class="">OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/ai/" class="">AI features
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/" class="">usando o darktable-chart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/overview/" class="">visão geral
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/usage/" class="">uso
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/source-image/" class="">imagem fonte
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/reference-values/" class="">valores de referência
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/process/" class="">processar
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/darktable-chart/making-input-images/" class="">criar imagens de entrada para o darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/" class="">invocação do programa
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/darktable-cli/" class="">darktable-cli
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/darktable-generate-cache/" class="">darktable-generate-cache
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/darktable-chart/" class="">darktable-chart
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/darktable-cltest/" class="">darktable-cltest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/darktable-cmstest/" class="">darktable-cmstest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/program-invocation/purge_non_existing_images_sh/" class="">purge_non_existing_images.sh
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/variables/" class="">variáveis
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/pt_br/special-topics/midi-device-support/" class="">suporte a dispositivo midi
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #d000d0;">
+   
+
+      <a href="/dtdocs/pt_br/contributing/" class=""><span class="dt-dot" aria-hidden="true"></span>Contributing to the Docs
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul></ul>
+   </li>
+   </ul>
+
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        <div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/pt_br/module-reference/processing-modules/rotate-perspective/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/pt_br/module-reference/processing-modules/rotate-perspective/">Version 5.6</a>
+  </div>
+</div>
+
+                        
+<div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Português"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Português</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="pt_br"
+      role="option"
+      lang="pt_br"
+      href="https://darktable-org.github.io/dtdocs/pt_br/module-reference/processing-modules/rotate-perspective/"
+      >Português</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="nl"
+        role="option"
+        lang="nl"
+        href="https://darktable-org.github.io/dtdocs/nl/module-reference/processing-modules/rotate-perspective/"
+        >Dutch</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/rotate-perspective/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="es"
+        role="option"
+        lang="es"
+        href="https://darktable-org.github.io/dtdocs/es/module-reference/processing-modules/rotate-perspective/"
+        >Español</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/rotate-perspective/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="de"
+        role="option"
+        lang="de"
+        href="https://darktable-org.github.io/dtdocs/de/module-reference/processing-modules/rotate-perspective/"
+        >German</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="it"
+        role="option"
+        lang="it"
+        href="https://darktable-org.github.io/dtdocs/it/module-reference/processing-modules/rotate-perspective/"
+        >Italian</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/rotate-perspective/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="pl"
+        role="option"
+        lang="pl"
+        href="https://darktable-org.github.io/dtdocs/pl/module-reference/processing-modules/rotate-perspective/"
+        >Polish</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/rotate-perspective/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        
+
+
+
+<nav class="crumbs" aria-label="Breadcrumbs"><a href="/dtdocs/pt_br/module-reference/">Referência de Módulos</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/pt_br/module-reference/processing-modules/">módulos de processamento</a><span class="crumbs__sep" aria-hidden="true">/</span><span class="crumbs__current" aria-current="page">rotação e perspectiva</span>
+</nav>
+
+
+<article>
+
+    <h1 class="title">
+        rotação e perspectiva
+    </h1>
+
+    
+<details class="dt-toc-inline d-xl-none">
+    <summary>Table of Contents</summary>
+    <nav >
+  <ul>
+    <li><a href="#fluxo-de-trabalho-de-correção-de-perspectiva">fluxo de trabalho de correção de perspectiva</a>
+      <ul>
+        <li><a href="#estrutura">estrutura</a>
+          <ul>
+            <li><a href="#desenhar-linhas-de-estrutura-manualmente">desenhar linhas de estrutura manualmente</a></li>
+            <li><a href="#definir-manualmente-um-retângulo-de-perspectiva">definir manualmente um retângulo de perspectiva</a></li>
+            <li><a href="#detectar-estrutura-automaticamente">detectar estrutura automaticamente</a></li>
+          </ul>
+        </li>
+        <li><a href="#ajustar">ajustar</a></li>
+        <li><a href="#rotação">rotação</a></li>
+      </ul>
+    </li>
+    <li><a href="#controles-do-módulo">controles do módulo</a></li>
+    <li><a href="#exemplos">exemplos</a></li>
+  </ul>
+</nav>
+</details>
+
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt id="descrição">descrição</dt>
+<dd>rotaciona ou distorce a perspectiva automaticamente.</dd>
+<dt id="propósito">propósito</dt>
+<dd>corretivo ou criativo.</dd>
+<dt id="entrada">entrada</dt>
+<dd>linear, RGB, relativo à cena.</dd>
+<dt id="processamento">processamento</dt>
+<dd>geométrico, RGB.</dd>
+<dt id="saída">saída</dt>
+<dd>linear, RGB, relativo à cena.</dd>
+</dl>
+</details>
+
+<p>Corrige automaticamente as linhas convergentes, uma forma de distorção da perspectiva. O processo usado é inspirado no programa <a href="http://www.shiftn.de/" target="_blank"><em>ShiftN</em></a> de Markus Hebel. Este módulo também permite ajustar a rotação da imagem.</p>
+<p>As distorções de perspectiva são um efeito natural quando se projeta uma cena tridimensional em um plano bidimensional e faz com que os objetos próximos ao observador pareçam maiores do que os mais distantes. As linhas convergentes são um caso especial de distorção de perspectiva que se vê com frequência em fotografias de arquitetura &ndash; as linhas paralelas, quando fotografadas em ângulo, se transformam em linhas convergentes que se encontram em algum ponto final fora do quadro da imagem.</p>
+<p>Este módulo pode corrigir linhas convergentes, deformando a imagem de tal maneira que as linhas em questão se tornem paralelas ao quadro da imagem. As correções podem ser aplicadas na direção vertical e horizontal, seja separadamente ou em combinação. Para realizar a correção automática, o módulo é capaz de analisar primeiro a imagem em busca de referências estruturais adequadas onde estão os segmentos de linha. Você pode também definir manualmente conjuntos de linhas estruturais desenhando um “retângulo de perspectiva” ou desenhando múltiplas linhas horizontais e verticais. Baseado nestes segmentos de linhas (desenhados automaticamente ou manualmente) se inicia um procedimento de ajuste que determina os melhores valores para os parâmetros do módulo.</p>
+<p>Como o caso de uso mais comum para este módulo é para rotação, os controles de correção de perspectiva ficam ocultos por padrão. Clique no cabeçalho &ldquo;perspectiva&rdquo; para expandir os controles.</p>
+<p>Enquanto o módulo está ativo (e nenhum dos botões de estrutura está selecionado), você pode clicar com o botão direito e arrastar em qualquer lugar na imagem para definir uma linha horizontal ou vertical. Isso fará com que o parâmetro de rotação seja ajustado automaticamente para tornar a linha desenhada horizontal/vertical em relação ao quadro da imagem.</p>
+<hr>
+<p><strong>Nota</strong>: Esta funcionalidade (clique com o botão direito e arraste para definir horizontal/vertical) também está disponível quando o módulo está inativo, desde que nenhuma outra função (por exemplo, criação de máscara desenhada) reivindique o botão direito do mouse.</p>
+<hr>
+<h1 id="fluxo-de-trabalho-de-correção-de-perspectiva"><a class="dt-anchor" href="#fluxo-de-trabalho-de-corre%c3%a7%c3%a3o-de-perspectiva" aria-label="Link to this section">#</a>fluxo de trabalho de correção de perspectiva</h1>
+<h2 id="estrutura"><a class="dt-anchor" href="#estrutura" aria-label="Link to this section">#</a>estrutura</h2>
+<p>O primeiro passo é obter detalhes sobre as estruturas horizontais e/ou verticais da imagem. Três métodos alternativos são fornecidos para fazer isso:</p>
+<h3 id="desenhar-linhas-de-estrutura-manualmente"><a class="dt-anchor" href="#desenhar-linhas-de-estrutura-manualmente" aria-label="Link to this section">#</a>desenhar linhas de estrutura manualmente</h3>
+<p>Clique no ícone 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-lines.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-lines.png" alt="draw-structure-lines-icon" class="icon" /></a>
+
+ para ativar o modo de desenho de linha e, em seguida, clique e arraste na imagem para desenhar linhas que você deseja tornar horizontais ou verticais. O módulo detectará automaticamente se as linhas são horizontais ou verticais e as colorirá de verde ou azul, respectivamente. Desenhe quantas linhas desejar (quanto mais linhas, melhor funcionará o mecanismo de ajuste) e clique em um dos ícones de &ldquo;ajustar&rdquo; para concluir o processo. Você pode entrar novamente neste modo para editar suas linhas desenhadas a qualquer momento. Edite uma linha clicando e arrastando na linha ou nos nós finais e clique com o botão direito em uma linha para excluí-la. Quando estiver satisfeito com suas alterações, selecione novamente um ícone de &ldquo;ajustar&rdquo; para concluir o processo.</p>
+<h3 id="definir-manualmente-um-retângulo-de-perspectiva"><a class="dt-anchor" href="#definir-manualmente-um-ret%c3%a2ngulo-de-perspectiva" aria-label="Link to this section">#</a>definir manualmente um retângulo de perspectiva</h3>
+<p>Clique no ícone 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-rectangle.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-draw-structure-rectangle.png" alt="draw-structure-rectangle-icon" class="icon" /></a>
+
+ para ativar o modo de desenho do retângulo de perspectiva. Isso desenhará um retângulo na tela e você pode arrastar os cantos do retângulo de forma que os lados esquerdo e direito caiam nas linhas que você deseja verticais, e o topo e a base nas linhas que deseja horizontais. Quando estiver satisfeito com seu retângulo, clique em um dos ícones &ldquo;ajustar&rdquo; para concluir o processo. Você pode entrar novamente neste modo para editar o retângulo desenhado a qualquer momento. Quando estiver satisfeito com suas alterações, selecione novamente um ícone de &ldquo;ajustar&rdquo; para concluir o processo.</p>
+<p>Este método é semelhante a como a correção de &ldquo;keystone&rdquo; funciona no módulo <a href="/dtdocs/pt_br/module-reference/processing-modules/crop-rotate/"><em>cortar e girar</em></a>.</p>
+<h3 id="detectar-estrutura-automaticamente"><a class="dt-anchor" href="#detectar-estrutura-automaticamente" aria-label="Link to this section">#</a>detectar estrutura automaticamente</h3>
+<p>Clique no ícone 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-get-structure.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-get-structure.png" alt="get-structure-icon" class="icon" /></a>
+
+ para analisar a imagem em busca de elementos estruturais &ndash; o darktable automaticamente detecta e avalia segmentos de linha. Shift+clique para aplicar um melhoramento de contraste antes de realizar a análise. Ctrl+clique para aplicar um passo de melhoria de bordas antes de realizar a análise. Ambas as variações podem ser utilizadas individualmente ou combinadas se a análise padrão não for capaz de detectar um número de linhas suficiente.</p>
+<p>Somente as linhas que formam um conjunto de linhas convergentes verticais ou horizontais serão usadas para os passos de processamento posteriores. Os segmentos de linha são mostrados como sobreposições na imagem, com o tipo de linha identificado pela cor conforme a seguir:</p>
+<dl>
+<dt id="verde">verde</dt>
+<dd>Linhas convergentes verticais</dd>
+<dt id="vermelho">vermelho</dt>
+<dd>Linhas verticais que não convergem</dd>
+<dt id="azul">azul</dt>
+<dd>Linhas convergentes horizontais</dd>
+<dt id="amarelo">amarelo</dt>
+<dd>Linhas horizontais que não convergem</dd>
+<dt id="cinza">cinza</dt>
+<dd>Outras linhas que não são de interesse deste módulo</dd>
+</dl>
+<p>As linhas marcadas em vermelho e amarelo são consideradas valores atípicos e não são computadas durante o passo de ajuste automático. Esta eliminação de valores atípicos implica em um processo estatístico que utiliza uma amostra aleatória, o que significa que cada vez que pressionar o botão “obter estrutura”, o padrão de cor das linhas poderá ser ligeiramente diferente.</p>
+<p>Você pode mudar manualmente o estado dos segmentos de linha: clique-esquerdo na linha para selecioná-la (alterna a cor para verde ou azul) e clique-direito para anular seleção (alterna a cor para vermelho ou amarelo). Se você mantiver o botão do mouse pressionado, você pode usar uma ação de varredura para selecionar/anular seleção de várias linhas ao mesmo tempo. O tamanho do pincel de seleção/anular seleção pode ser alterado com a roda do mouse. Mantenha pressionada a tecla Shift e o botão esquerdo ou direito do mouse enquanto arrasta para selecionar ou anular a seleção de todas as linhas na área retangular selecionada.</p>
+<p>Quando estiver satisfeito com as linhas detectadas, selecione um ícone de &ldquo;ajustar&rdquo; para concluir o processo.</p>
+<h2 id="ajustar"><a class="dt-anchor" href="#ajustar" aria-label="Link to this section">#</a>ajustar</h2>
+<p>Uma vez que esteja satisfeito com as linhas horizontais e verticais identificadas, usando um dos métodos acima, clique em um dos ícones de “ajuste automático” para definir automaticamente os parâmetros do módulo baseados na estrutura definida. A imagem e as linhas sobrepostas são então exibidas com as correções de perspectiva aplicadas.</p>
+<p>Você pode optar por aplicar automaticamente somente as correções verticais 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-vertical.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-vertical.png" alt="vertical-icon" class="icon" /></a>
+
+, somente as correções horizontais 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-horizontal.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-horizontal.png" alt="horizontal-icon" class="icon" /></a>
+
+, ou ambas as correções 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-both.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/icon-both.png" alt="both-icon" class="icon" /></a>
+
+. Ctrl+clique em qualquer dos ícones para aplicar uma rotação sem deslocamento da lente. Shift+clique em qualquer um dos ícones para aplicar o deslocamento da lente sem rotação.</p>
+<h2 id="rotação"><a class="dt-anchor" href="#rota%c3%a7%c3%a3o" aria-label="Link to this section">#</a>rotação</h2>
+<p>Quando estiver satisfeito com as correções de perspectiva aplicadas, você pode desejar realizar uma correção de rotação final ajustando o parâmetro de rotação ou clicando com o botão direito e arrastando a imagem para definir uma linha horizontal/vertical.</p>
+<h1 id="controles-do-módulo"><a class="dt-anchor" href="#controles-do-m%c3%b3dulo" aria-label="Link to this section">#</a>controles do módulo</h1>
+<dl>
+<dt id="rotação-1">rotação</dt>
+<dd>Controla a rotação da imagem em torno de seu centro para corrigir um horizonte inclinado. Para rotacionar mais do que o limite suave padrão de dez graus, clique com o botão direito e insira o valor desejado até 180 graus (consulte <a href="../../darkroom/processing-modules/module-controls.md">controles de módulo</a>).</dd>
+<dt id="corte-automático">corte automático</dt>
+<dd>Quando ativado, esta função corta a imagem para eliminar as áreas pretas nas bordas causadas pela correção da distorção. Você pode cortar para a “maior área” ou para o maior retângulo que mantenha a proporção original da imagem (“formato original”). No último caso, você pode ajustar manualmente o resultado do corte automático clicando na região de corte e movendo-a. O tamanho da região é modificado automaticamente para excluir áreas pretas.</dd>
+<dt id="deslocamento-da-lente-vertical">deslocamento da lente (vertical)</dt>
+<dd>Corrige as linhas verticais convergentes (isto é, faz com que as linhas <em>verdes</em> fiquem paralelas). Em alguns casos você pode obter um resultado mais natural se você corrigir as distorções verticais para um nível de 80~90% ao invés de sua correção máxima. Para fazer isto, reduza o controle deslizante de correção após ter realizado a correção automática.</dd>
+<dt id="deslocamento-da-lente-horizontal">deslocamento da lente (horizontal)</dt>
+<dd>Corrige as linhas horizontais convergentes (isto é, faz com que as linhas <em>azuis</em> fiquem paralelas).</dd>
+<dt id="inclinação-diagonal">inclinação diagonal</dt>
+<dd>Inclina a imagem ao longo de uma de suas diagonais. Isto é necessário ao corrigir distorções de perspectiva na vertical e horizontal simultaneamente.</dd>
+<dt id="modelo-da-lente">modelo da lente</dt>
+<dd>Este parâmetro controla a distância focal da objetiva, o fator de corte da câmera e a proporção usada pelo algoritmo de correção. Se configurado para “genérico”, uma lente com distância focal de 28 mm em uma câmera de 35 mm <em>full-frame</em> é considerada. Se configurado como “específico”, a distância focal e o fator de corte podem ser configurados manualmente usando os controles fornecidos.</dd>
+<dt id="distância-focal">distância focal</dt>
+<dd>Se o <em>modelo da lente</em> for definido para “específico”, define a distância focal da lente. O valor padrão é obtido dos dados Exif da imagem e pode ser alterado ajustando o controle deslizante manualmente.</dd>
+<dt id="fator-de-corte-crop">fator de corte (crop)</dt>
+<dd>Se o <em>modelo da lente</em> for definido para “específico”, define o fator de corte da câmera. Você precisará normalmente inserir este valor manualmente.</dd>
+<dt id="ajuste-de-proporção">ajuste de proporção</dt>
+<dd>Se o <em>modelo da lente</em> for definido para “específico”, este parâmetro permite um ajuste manual livre da relação de proporção da imagem. Isto é útil para “descomprimir” imagens obtidas com lentes anamórficas (que alteram a relação entre altura e largura da imagem).</dd>
+<dt id="estrutura-1">estrutura</dt>
+<dd>Define linhas horizontais e verticais na imagem usando um método manual ou automático (consulte a seção de fluxo de trabalho para obter detalhes).</dd>
+<dt id="ajustar-1">ajustar</dt>
+<dd>Define os controles deslizantes de correção de distorção automaticamente com base na estrutura identificada (consulte a seção do fluxo de trabalho para obter detalhes).</dd>
+<dt id="mostrar-linhas-guia">mostrar linhas guia</dt>
+<dd>Selecione a caixa para mostrar guias sobrepostas sempre que o módulo for ativado. Clique no ícone à direita para controlar as propriedades das guias. Consulte <a href="/dtdocs/pt_br/module-reference/utility-modules/darkroom/guides-overlays/">guias &amp; sobreposições</a> para mais detalhes.</dd>
+</dl>
+<h1 id="exemplos"><a class="dt-anchor" href="#exemplos" aria-label="Link to this section">#</a>exemplos</h1>
+<p>Aqui está uma imagem com um horizonte inclinado e linhas convergentes causadas por apontar a câmera para cima:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-before.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-before.png" alt="perspective-correction-example-before" class="w66" /></a>
+
+</p>
+<p>Aqui está a imagem depois de haver corrigido as distorções de perspectiva vertical e horizontal usando a detecção automática de estrutura. Note o ajuste do enquadramento pela função de corte automático e a sobreposição de linhas estruturais ainda visível:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-after.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/module-reference/processing-modules/rotate-perspective/perspective-correction-example-after.png" alt="perspective-correction-example-after" class="w66" /></a>
+
+</p>
+
+
+    
+    <h3 class="translations_head">Translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/nl/module-reference/processing-modules/rotate-perspective/">
+            Dutch: roteren en perspectief
+        </a></li>
+        
+        <li><a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/">
+            English: rotate and perspective
+        </a></li>
+        
+        <li><a href="/dtdocs/es/module-reference/processing-modules/rotate-perspective/">
+            Español: rotación y perspectiva
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/rotate-perspective/">
+            Français: Rotation et perspective
+        </a></li>
+        
+        <li><a href="/dtdocs/de/module-reference/processing-modules/rotate-perspective/">
+            German: Drehen und Perspektive
+        </a></li>
+        
+        <li><a href="/dtdocs/it/module-reference/processing-modules/rotate-perspective/">
+            Italian: rotazione e prospettiva
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/rotate-perspective/">
+            Lao: ໝຸນ ແລະ ເປີສະເປັກຕີບ (rotate and perspective)
+        </a></li>
+        
+        <li><a href="/dtdocs/pl/module-reference/processing-modules/rotate-perspective/">
+            Polish: obrót i perspektywa
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/rotate-perspective/">
+            Ukrainian: Обертання та перспектива
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<nav class="prev-next" aria-label="Page navigation">
+    
+    <a href="/dtdocs/pt_br/module-reference/processing-modules/retouch/" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">Previous</span>
+        <span class="prev-next__title">retocar</span>
+    </a>
+    
+    
+    <a href="/dtdocs/pt_br/module-reference/processing-modules/shadows-and-highlights/" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">Next</span>
+        <span class="prev-next__title">sombras e realces</span>
+    </a>
+    
+</nav>
+
+
+<div class="dt-page-meta">
+    <a href="/dtdocs/pt_br/darktable_user_manual.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download manual (PDF)</a>
+</div>
+
+
+
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    
+<div class="dt-toc__inner">
+    <a class="dt-toc__title" href="#" title="Back to top">Table of Contents</a>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fluxo-de-trabalho-de-correção-de-perspectiva">fluxo de trabalho de correção de perspectiva</a>
+      <ul>
+        <li><a href="#estrutura">estrutura</a>
+          <ul>
+            <li><a href="#desenhar-linhas-de-estrutura-manualmente">desenhar linhas de estrutura manualmente</a></li>
+            <li><a href="#definir-manualmente-um-retângulo-de-perspectiva">definir manualmente um retângulo de perspectiva</a></li>
+            <li><a href="#detectar-estrutura-automaticamente">detectar estrutura automaticamente</a></li>
+          </ul>
+        </li>
+        <li><a href="#ajustar">ajustar</a></li>
+        <li><a href="#rotação">rotação</a></li>
+      </ul>
+    </li>
+    <li><a href="#controles-do-módulo">controles do módulo</a></li>
+    <li><a href="#exemplos">exemplos</a></li>
+  </ul>
+</nav>
+</div>
+
+                </aside>
+            </div>
+            
+        </div>
+
+    </body>
+</html>
