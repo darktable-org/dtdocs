@@ -21,7 +21,7 @@ From top to bottom, the panel is made of:
 
 # panel position
 
-The panel can be shown in one of three places, chosen in the [mask options](#mask-options) popover (_interface options > panel position_). When moved from its default position under the module, the ![mask panel](./mask-panel/icon-panel-toolbar.png#icon) displays the mask of the focused module.
+When moved from its default position under the module (see the [panel position options](#panel-position-1)), the mask panel displays the mask of the focused module.
 
 embedded within each module
 : The panel is shown at the bottom of each processing module that supports masks (default). Click the arrow at the right of the panel header, or an empty part of the header, to fold the panel away and give the module's own controls more room.
