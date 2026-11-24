@@ -92,7 +92,7 @@ You can now call that version with `hugo-0.152`.
 
 ### 2. Generate the stylesheets
 
-Before you can preview the site with H1ugo you need to generate the stylesheets:
+Before you can preview the site with Hugo you need to generate the stylesheets:
 
 ````
 cd ./themes/hugo-darktable-docs-theme/assets/
