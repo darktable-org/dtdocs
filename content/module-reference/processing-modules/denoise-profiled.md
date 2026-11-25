@@ -117,13 +117,13 @@ For example, you can preserve very-fine-grain noise by pulling the right-most pa
 
 The preferred way to use wavelets is with the _Y0U0V0_ color mode. This mode separates the denoising curves into luminance (_luma_) and color (_chroma_) components. You can then use the _luma_ curve to control the level of luma denoising, and the _chroma_ curve to control the level of chroma denoising.
 
-![denoise-y0u0v0](./denoise-profiled/denoise-y0u0v0.png#w33)
+![denoise (profiled) module in Y0U0V0 color mode with luma and chroma tabs](./denoise-profiled/denoise-y0u0v0.png#w33)
 
 ## wavelets _RGB_ color mode
 
 Before the _Y0U0V0_ color mode was introduced, wavelet-based denoising could only be performed directly on the _R_, _G_ and _B_ channels, either together or individually.
 
-![denoise-rgb](./denoise-profiled/denoise-rgb.png#w33)
+![denoise (profiled) module in RGB color mode with all, R, G and B tabs](./denoise-profiled/denoise-rgb.png#w33)
 
 If you want to denoise the RGB channels independently, the best way to do this is to use an instance of the [_color calibration_](./color-calibration.md) module placed immediately before the _denoise (profiled)_ module so that it outputs a gray channel based on the _red_ channel only, then denoise that monochrome image using the _red_ wavelet curve. Repeat this procedure for the blue and green channels. This procedure is time-consuming, but gives the best result because looking at the color of a noisy pixel is not a reliable way to determine which channel to adjust. For example, a noisy red pixel could be due to a noise peak on the red channel, but could also be due to a noise lull on the blue and green channels.
 

@@ -59,7 +59,7 @@ If you attach the "`places|France|Nord|Lille`" tag to an image, the "`places|Fra
 
 # module sections
 
-![tagging-overview](./tagging/tagging-overview.png#w33)
+![tagging module: attached tags section above the tag dictionary section](./tagging/tagging-overview.png#w33)
 
 The tagging module consists of two sections
 
@@ -85,13 +85,13 @@ attach
 detach
 : If a tag is selected in the _attached tags_ list, detach that tag from the selected images. A tag can also be detached if you right click on the tag name and select _detach_ from the pop-up menu.
 
-![check-icon](./tagging/check-icon.png#icon) hidden tags
+![](./tagging/check-icon.png#icon#nolink) hidden tags
 : Choose whether to view any hidden tags that darktable has automatically attached to the selected images.
 
-![sort-icon](./tagging/sort-icon.png#icon) sort
+![](./tagging/sort-icon.png#icon#nolink) sort
 : Choose whether to sort the _attached tags_ list alphabetically or by the count shown in brackets next to the tag (this count indicates how many of the selected images have that tag attached to them).
 
-![minus-icon](./tagging/minus-icon.png#icon) parents
+![](./tagging/minus-icon.png#icon#nolink) parents
 : Choose whether or not to show the parent categories of the tag.
 
 You can adjust the height of the _attached tags_ window by holding Ctrl and scrolling with your mouse wheel.
@@ -119,10 +119,10 @@ import...
 export...
 : Export all tags to a Lightroom keyword file.
 
-![plus-icon](./tagging/plus-icon.png#icon) suggestions
+![](./tagging/plus-icon.png#icon#nolink) suggestions
 : Show a list of suggested keywords based on the keywords already associated with the selected images (see the [preferences](#preferences) section). CAUTION: This view queries the database so might be slow.
 
-![list-tree-icon](./tagging/list-tree-icon.png#icon) list/tree
+![](./tagging/list-tree-icon.png#icon#nolink) list/tree
 : Toggle the display of tags between the straight _list_ view and hierarchical _tree_ view.
 
 You can adjust the height of the _tag dictionary_ window by holding Ctrl while scrolling with your mouse wheel.

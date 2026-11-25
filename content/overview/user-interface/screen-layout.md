@@ -6,7 +6,7 @@ weight: 20
 
 The layout of all darktable views is similar and consists of a center area with panels at the edges: 
 
-![screen-layout](./screen-layout/screen-layout.png#w100)
+![darktable window divided into seven numbered areas, listed below](./screen-layout/screen-layout.png#w100)
 
 1. center area
 : Contains information and functionality specific to the current view.

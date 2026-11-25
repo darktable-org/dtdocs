@@ -6,7 +6,7 @@ weight: 40
 
 The top panel appears in all darktable views and provides access to common functions.
 
-![top-panel](./top-panel/top-panel.png#w100)
+![lighttable top panel: filter and sort controls on the left, selection count and global buttons on the right](./top-panel/top-panel.png#w100)
 
 # On the left-hand-side
 

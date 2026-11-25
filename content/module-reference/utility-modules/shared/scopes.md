@@ -81,7 +81,7 @@ Shows a combined mode with the waveform on the left and the vectorscope on the r
 
 The vectorscope provides some additional controls beyond those provided by the other modes, which deserve separate discussion. Hovering over the scopes module while in vectorscope mode shows the following additional buttons:
 
-![vectorscope-options](./scopes/vectorscope-options.png#w50)
+![vectorscope with option buttons along the right edge](./scopes/vectorscope-options.png#w50)
 
 Click the second-to-right-most button to toggle the chroma scale between linear and logarithmic mode.
 
@@ -89,7 +89,7 @@ Click the right-most button to toggle the color space of the vectorscope between
 
 Finally, along the right-hand edge of the module are a series of buttons that allow the selected color harmony indicator to be overlaid on the vectorscope graphic when in RYB color space. For example, the following shows the "triad" color harmony:
 
-![vectorscope-ch-triad](./scopes/vectorscope-ch-triad.png#w50)
+![vectorscope with triad harmony guides rotated to 315°](./scopes/vectorscope-ch-triad.png#w50)
 
 Rotate the display of the overlaid harmony guides by hovering over the scopes module and scrolling with the mouse scroll wheel. Hold Ctrl while scrolling to rotate more slowly. Hold Shift while scrolling to change the area covered by the guide overlays.
 

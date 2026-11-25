@@ -107,7 +107,7 @@ Click _control sliders_ to toggle the display of the sliders.
 
 When the _color equalizer_ module is enabled and expanded, you can move the mouse pointer over the image to show a cursor that displays information about the pixel color under the pointer. It will also highlight the corresponding hue in the open tab. When this cursor is shown, the mouse wheel can be used to alter the corresponding hue, saturation, or brightness band in the module.
 
-![color-equalizer-cursor](./color-equalizer/color-equalizer-cursor.png#w25)
+![color equalizer cursor: cross-hairs with an arc showing the adjustment and a label reading +31.9°](./color-equalizer/color-equalizer-cursor.png#w25)
 
 - the cross-hairs indicate the position of the pixel under the cursor.
 - the text label shows the value of the change in hue, saturation, or brightness (depending on which tab is selected) for the pixel color under the cursor.

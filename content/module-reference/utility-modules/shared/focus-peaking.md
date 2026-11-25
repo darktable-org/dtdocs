@@ -5,7 +5,7 @@ id: focus-peaking
 
 Identify which parts of the image contain high contrast details such as edges and textures, which are usually a useful guide to sharpness and therefore focus.
 
-Activate the module by clicking on the ![focus-peaking-icon](./focus-peaking/focus-peaking-icon.png#icon) icon. The sharpest parts of the image will be highlighted with a yellow, green and blue overlay:
+Activate the module by clicking on the ![focus peaking](./focus-peaking/focus-peaking-icon.png#icon) icon. The sharpest parts of the image will be highlighted with a yellow, green and blue overlay:
 
 Focus peaking works by filtering out most of the image noise, measuring the intensity gradients in the image and calculating average and standard deviation statistics. When the gradient of an edge differs significantly from the mean, the associated pixels are marked with a "heat map" indicating how sharp the edge is.
 
@@ -21,5 +21,5 @@ Focus peaking works by filtering out most of the image noise, measuring the inte
 
 The following example image was taken with a wide aperture to give a shallow depth of field, and you can see how the camera has focused on the chinese character written on the second red lantern along from the front. There are also stems of the pink flowers that fall within the area of acceptable sharpness around the focal plane, and these have also been marked up with yellow and green.
 
-![focus-peaking-overview](./focus-peaking/focus-peaking-overview.png#w75)
+![photo of red lanterns with the in-focus areas highlighted in yellow, green and blue](./focus-peaking/focus-peaking-overview.png#w75)
 

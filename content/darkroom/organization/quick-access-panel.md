@@ -6,7 +6,7 @@ weight: 30
 
 The quick access panel allows you to access widgets from a number of processing modules all in one place.
 
-![quick-access-panel](./quick-access-panel/quick-access-panel.png#w33)
+![quick access panel with controls for local contrast, sigmoid, color balance rgb, color equalizer and color calibration](./quick-access-panel/quick-access-panel.png#w33)
 
 
 The initial set of modules (and widgets) in the panel is determined by the _auto-apply pixel workflow defaults_ setting in [processing preferences](../../preferences-settings/processing.md).

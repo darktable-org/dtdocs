@@ -31,7 +31,7 @@ A noise bias control lets you tame the amplification of shadow noise, which woul
 
 To build up a more elaborate effect, multiple instances of _contrast & texture_ can be used together, each targeting different detail scales and possibly masked to different parts of the image.
 
-Multiple controls have a mask display button ![mask-icon](./contrast-texture/mask.png#icon) available - only one mask can be displayed at a time, so clicking on a mask display button turns off any other mask currently being displayed.
+Multiple controls have a mask display button ![](./contrast-texture/mask.png#icon#nolink) available - only one mask can be displayed at a time, so clicking on a mask display button turns off any other mask currently being displayed.
 
 ----
 

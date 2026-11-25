@@ -9,7 +9,7 @@ Other darkroom functionality also draws colored overlay lines on the image (for 
 
 # global guides
 
- Left-click the ![guides-overlays-icon](./guides-overlays/guides-overlays-icon.png#icon) icon in the bottom bar to globally display guide overlays. The overlays will remain switched on until you click the button a second time to switch them off. 
+ Left-click the ![guides & overlays](./guides-overlays/guides-overlays-icon.png#icon) icon in the bottom bar to globally display guide overlays. The overlays will remain switched on until you click the button a second time to switch them off.
 
  Right-click the icon to show the settings dialog (see below).
 
@@ -17,7 +17,7 @@ Other darkroom functionality also draws colored overlay lines on the image (for 
 
 A more common use is to switch the guides on only when a specific module is activated. The following control is added by default to all modules that crop/distort the image (currently [crop](../../processing-modules/crop.md), [crop and rotate](../../processing-modules/crop-rotate.md), [orientation](../../processing-modules/orientation.md), [framing](../../processing-modules/framing.md), [liquify](../../processing-modules/liquify.md), [lens correction](../../processing-modules/lens-correction.md) and [rotate and perspective](../../processing-modules/rotate-perspective.md)):
 
-![local-controls](./guides-overlays/local-controls.png#w25)
+![show guides checkbox with the guide settings button on the right](./guides-overlays/local-controls.png#w25)
 
 Tick the box to show guide overlays whenever the module is active. Click the icon on the right to show the settings dialog (see below).
 

@@ -48,14 +48,14 @@ harmony rule
 
     **Note on dyad and tetrad:** the anchor hue sets the symmetry axis of the pattern, not the position of a node. The palette is symmetric around the anchor. This matches the vectorscope harmony guide overlay.
 
-![infer-from-image](./color-harmonizer/infer-from-image.png#icon) infer from image *(standard modes only)*
+![](./color-harmonizer/infer-from-image.png#icon#nolink) infer from image *(standard modes only)*
 : Analyses the preview image's chroma-weighted hue histogram and automatically selects the harmony
 rule and anchor hue that best fit the image's existing color distribution — i.e. the combination
 that already covers the most chromatic energy and therefore requires the least correction.
 
 anchor hue
 : The primary hue from which all node positions are derived (not shown in *custom* mode). Expressed
-as a normalized value displayed in degrees. An eyedropper ![eye-dropper](./color-harmonizer/eye-dropper.png#icon)  is available to sample a color directly
+as a normalized value displayed in degrees. An eyedropper ![](./color-harmonizer/eye-dropper.png#icon#nolink)  is available to sample a color directly
 from the image.
 The color swatch strip below the slider shows the actual node colors for quick visual feedback.
 
@@ -66,7 +66,7 @@ reflected back in the module. Disable to make adjustments without disturbing the
 display. If enabled, using the module will automatically switch the scopes module to show the vectorscope.
 
 
-![import-from-vectorscope](./color-harmonizer/import-from-vectorscope.png#icon) import from vectorscope *(standard modes only)*
+![](./color-harmonizer/import-from-vectorscope.png#icon#nolink) import from vectorscope *(standard modes only)*
 : Imports the harmony rule and anchor hue currently configured in the vectorscope panel, then
 switches the histogram panel to the vectorscope view.
 
@@ -190,4 +190,4 @@ being corrected. Use this to verify the pull is moving in the intended direction
 Aside from using the hue slider the anchor hue can be moved by scrolling with the cursor over the vectorscope.
 
 To start from a palette already set in the vectorscope panel, click the *import from vectorscope*
-button (![import-from-vectorscope](./color-harmonizer/import-from-vectorscope.png#icon)).
+button (![](./color-harmonizer/import-from-vectorscope.png#icon#nolink)).

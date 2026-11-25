@@ -13,7 +13,7 @@ Click on the icons at the top of this panel to reveal, from left to right,
 ![quick access](./organization/quick-access-panel-icon.png#icon) [quick access panel](./quick-access-panel.md)
 : A customizable panel allowing quick access to commonly-used module controls.
 
-![module-group-active-icon](./manage-module-layouts/module-group-active-icon.png#icon) active modules
+![](./overview/module-group-active-icon.png#icon#nolink) active modules
 : A group containing the modules that are currently active in the pixelpipe.  Right-click to show all modules that are present in the [history stack](../pixelpipe/history-stack.md) within the active group, regardless of whether or not they are actually active.
 
 [module groups](./module-groups.md)
