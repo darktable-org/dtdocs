@@ -3,6 +3,6 @@
 {{- if ge (len (findRE "<li" $toc)) 2 }}
 <details class="dt-toc-inline d-xl-none">
     <summary>{{ i18n "table-of-contents" | default "Table of Contents" }}</summary>
-    {{ $toc | replaceRE `id="TableOfContents"` "" | safeHTML }}
+    {{ $toc | replaceRE `id="TableOfContents"` (printf `aria-label="%s"` (htmlEscape (i18n "table-of-contents" | default "Table of Contents"))) | safeHTML }}
 </details>
 {{- end }}

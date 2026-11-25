@@ -329,14 +329,25 @@ $(document).ready(function () {
     var $body = $('body');
     var $button = $('#dtMenuButton');
     var chapters = document.getElementById('dtChapters');
+    // the page behind the open drawer is taken out of the tab order
+    var $behind = $('.content, .dt-toc');
+    var small = window.matchMedia('(max-width: 767.98px)');
 
     function setMenu(open) {
+        if (!chapters) return;
+        var wasOpen = $body.hasClass('dt-menu-open');
         $body.toggleClass('dt-menu-open', open);
         $button.attr('aria-expanded', open ? 'true' : 'false');
+        $behind.prop('inert', open);
         if (open) {
-            // bring the current page into view
-            var active = chapters && chapters.querySelector('a.active');
+            // bring the current page into view and move focus into the drawer
+            var active = chapters.querySelector('a.active');
             if (active) active.scrollIntoView({ block: 'center' });
+            var target = active || chapters.querySelector('a, button, input');
+            if (target) target.focus({ preventScroll: true });
+        } else if (wasOpen && chapters.contains(document.activeElement)) {
+            // the closed drawer is hidden, so focus returns to its button
+            $button.trigger('focus');
         }
     }
 
@@ -347,9 +358,17 @@ $(document).ready(function () {
     $(document).on('keydown', function (e) {
         if (e.key === 'Escape' && $body.hasClass('dt-menu-open')) {
             setMenu(false);
-            $button.trigger('focus');
         }
     });
+    // the drawer only exists on small screens
+    function onBreakpoint(e) {
+        if (!e.matches) setMenu(false);
+    }
+    if (small.addEventListener) {
+        small.addEventListener('change', onBreakpoint);
+    } else {
+        small.addListener(onBreakpoint);
+    }
 });
 
 // The search field lives in the header on wide screens and at the top of the
