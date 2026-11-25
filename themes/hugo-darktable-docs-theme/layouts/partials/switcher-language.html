@@ -2,24 +2,21 @@
 {{- $page := .Page -}}
 {{- if $page.IsTranslated }}
 <div class="dt-switcher {{ if .Dropup }}dropup{{ else }}dropdown{{ end }}">
-  <a
+  <button
     class="dt-switcher__toggle dropdown-toggle"
-    href="#"
+    type="button"
     data-toggle="dropdown"
-    role="button"
-    aria-haspopup="true"
     aria-expanded="false"
     aria-label="{{ i18n "languages" | default "languages" }}: {{ $page.Site.Language.LanguageName }}"
   >
     <i class="fa fa-globe" aria-hidden="true"></i>
     <span>{{ $page.Site.Language.LanguageName }}</span>
-  </a>
-  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
     <a
       class="dropdown-item"
-      aria-selected="true"
+      aria-current="true"
       hreflang="{{ $page.Site.Language.Lang }}"
-      role="option"
       lang="{{ $page.Site.Language.Lang }}"
       href="{{ $page.Permalink }}"
       >{{ $page.Site.Language.LanguageName }}</a
@@ -28,7 +25,6 @@
       <a
         class="dropdown-item"
         hreflang="{{ .Language.Lang }}"
-        role="option"
         lang="{{ .Language.Lang }}"
         href="{{ .Permalink }}"
         >{{ .Language.LanguageName }}</a

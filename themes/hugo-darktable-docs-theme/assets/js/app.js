@@ -107,18 +107,26 @@ function getTextExcerpt(text, keyword, length) {
     return excerpt;
 }
 
+// Text of the screen reader status line below the search field.
+function announceSearch(text) {
+    var status = document.getElementById('search-status');
+    if (status) status.textContent = text;
+}
+
 function renderResults(results) {
     var searchResults = document.getElementById('search-results');
     var $searchResults = $(searchResults);
+    var status = document.getElementById('search-status');
 
     if (!results.length) {
         $searchResults.hide();
+        if (status) announceSearch(status.getAttribute('data-no-results'));
         return;
     }
 
     var resultsFragment = document.createDocumentFragment();
     // Only show the first twenty results
-    results.forEach(function (result) {
+    results.forEach(function (result, i) {
         var page = pagesMap[result.ref];
         var matchedTerms = Object.keys(result.matchData.metadata)
             .map(sanitizeRegex)
@@ -128,6 +136,9 @@ function renderResults(results) {
         var content = document.createElement('small');
 
         link.className = 'search-results__item';
+        link.id = 'search-result-' + i;
+        link.setAttribute('role', 'option');
+        link.setAttribute('aria-selected', 'false');
         title.className = 'search-results__title';
         content.className = 'search-results__content';
 
@@ -149,6 +160,8 @@ function renderResults(results) {
     });
     searchResults.appendChild(resultsFragment);
     $searchResults.show();
+    $('#search-input').attr('aria-expanded', 'true');
+    if (status) announceSearch(status.getAttribute('data-results').replace('%d', results.length));
 }
 
 // index of the result chosen with the arrow keys, -1 for none
@@ -165,6 +178,7 @@ function selectResult(index) {
     var item = $items.get(selectedResult);
     item.classList.add('is-selected');
     item.setAttribute('aria-selected', 'true');
+    $('#search-input').attr('aria-activedescendant', item.id);
     item.scrollIntoView({ block: 'nearest' });
 }
 
@@ -172,6 +186,8 @@ function selectResult(index) {
 function closeSearchResults() {
     selectedResult = -1;
     $('#search-results').empty().hide();
+    $('#search-input').attr('aria-expanded', 'false').removeAttr('aria-activedescendant');
+    announceSearch('');
 }
 
 function handleSearchInput() {
@@ -230,7 +246,7 @@ $(document).ready(function () {
 
         if (e.key === 'Escape') {
             closeSearchResults();
-            $searchInput.val('').trigger('blur');
+            $searchInput.val('');
         } else if (e.key === 'ArrowDown') {
             e.preventDefault();
             selectResult(selectedResult + 1);
@@ -247,13 +263,9 @@ $(document).ready(function () {
 
     $searchInput.on('input', handleSearchInput);
 
-    // Ctrl+K / Cmd+K anywhere, or "/" outside of a text field, jumps to the search
+    // Ctrl+K / Cmd+K anywhere jumps to the search
     $(document).on('keydown', function (e) {
-        var inField = /^(input|textarea|select)$/i.test(e.target.tagName) || e.target.isContentEditable;
         if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'k') {
-            e.preventDefault();
-            focusSearch();
-        } else if (e.key === '/' && !inField && !e.ctrlKey && !e.metaKey && !e.altKey) {
             e.preventDefault();
             focusSearch();
         }
