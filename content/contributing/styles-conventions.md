@@ -128,7 +128,7 @@ gui control name
 
 : You can include as many paragraphs as you like, but try to limit to 2 or 3 where possible.
 
-![active-icon](./styles-conventions/active-icon.png#icon) a control accessed through a button with an icon
+![module on/off (power)](./styles-conventions/active-icon.png#icon) a control accessed through a button with an icon
 : When a control is activated using an icon, take a screenshot of the icon using the standard darktable theme (darktable-elegant-grey) and add it before the name of the control
 
 gui combobox name

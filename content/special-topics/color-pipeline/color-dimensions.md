@@ -85,9 +85,9 @@ The gamut is the volume of colors that a certain color space can encompass and e
 
 The following examples show the gamut volume of the sRGB space on hue slices containing the primary red, green and blue lights of the sRGB space, over a lightness-chroma plane with a uniform scale:
 
-![sRGB-red](./color-dimensions/sRGB-red.png)
-![sRGB-green](./color-dimensions/sRGB-green.png)
-![sRGB-blue](./color-dimensions/sRGB-blue.png)
+![sRGB gamut slice at red hue: chroma across, lightness up](./color-dimensions/sRGB-red.png)
+![sRGB gamut slice at green hue: chroma across, lightness up](./color-dimensions/sRGB-green.png)
+![sRGB gamut slice at blue hue: chroma across, lightness up](./color-dimensions/sRGB-blue.png)
 
 This shows that increasing the chroma (displacement over the horizontal axis) of some quantity can be safe for some hues at some lightness, but can push other hue-lightness coordinates way out of gamut. For example, we have much more margin in green or magenta than in cyan.
 
@@ -97,9 +97,9 @@ Many gamut issues at export are actually user-induced and the result of harsh ch
 
 Cyan, magenta, yellow (CMY) are complementary colors of red, green, blue (RGB). However, the complementary CMY spaces computed from RGB spaces are not perceptually complementary. To show this, we create a CMY space from sRGB, where cyan has sRGB coordinates (0, 1, 1), magenta (1, 0, 1) and yellow (1, 1, 0), and display it in a lightness-chroma space:
 
-![sRGB-cyan](./color-dimensions/sRGB-cyan.png)
-![sRGB-magenta](./color-dimensions/sRGB-magenta.png)
-![sRGB-yellow](./color-dimensions/sRGB-yellow.png)
+![sRGB gamut slice at cyan hue: chroma across, lightness up](./color-dimensions/sRGB-cyan.png)
+![sRGB gamut slice at magenta hue: chroma across, lightness up](./color-dimensions/sRGB-magenta.png)
+![sRGB gamut slice at yellow hue: chroma across, lightness up](./color-dimensions/sRGB-yellow.png)
 
 By comparing with the hue slices of the primary colors in the previous section, it is easy to see not only that the gamuts don't have the same shapes, but that the colors do not match.
 

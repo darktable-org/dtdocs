@@ -29,7 +29,7 @@ The _tone equalizer_ module replaces the need for other tone-mapping modules suc
 
 The following diagram describes how the tone equalizer works:
 
-![tone-equalizer-mask](./tone-equalizer/tone-equalizer-overview.png#w100)
+![diagram of the tone equalizer steps: 1 input image, 2 guided mask with exposure curve, 3 corrected image](./tone-equalizer/tone-equalizer-overview.png#w100)
 
 1. Create a monochrome [_guided mask_](#masking-tab) that divides the input image into regions of similar luminosity. The resulting mask should blur the fine details within the image so that pixels within each region are all treated similarly, preserving local contrast.
 
@@ -109,7 +109,7 @@ mask quantization
 
 When the _tone equalizer_ module is enabled and expanded, you can move the mouse pointer over the preview image to show a cursor that displays information about the pixel under the pointer. When this cursor is shown, the mouse wheel can be used to brighten or darken the areas of your image that match the mask intensity level at that point. This provides a convenient way to quickly brighten or darken specific parts of the image.
 
-![tone-equalizer-simple](./tone-equalizer/tone-equalizer-cursor.png#w25)
+![tone equalizer cursor: cross-hairs with a label reading -2.0 EV](./tone-equalizer/tone-equalizer-cursor.png#w25)
 
 - the cross-hairs indicate the position of the pixel under the cursor
 - the text label shows the intensity of the guided mask at that point, in EV

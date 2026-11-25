@@ -64,7 +64,7 @@ Each of the three import buttons (add to library, copy & import, copy & import f
 
 The following example screenshot is taken from the "add to library" button:
 
-![import-dialog](./import/import-dialog.png#w100)
+![import dialog: places and folders on the left, file list on the right](./import/import-dialog.png#w100)
 
 ## common functionality
 

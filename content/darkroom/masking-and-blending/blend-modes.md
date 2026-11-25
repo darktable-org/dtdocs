@@ -16,7 +16,7 @@ final_output = (1.0 - opacity) * module_input + opacity * blended_output
 
 where the `blended_output` is a combination of the input and output images, depending on the blend mode (below), and the `opacity` is defined 'per-pixel' by a combination of the mask and global opacity parameter. An opacity of 0% outputs an image that is identical to the input image of the module.
 
-The "reverse" button ![blend-reverse](./blend-modes/blend-reverse.png#icon) effectively reverses the roles of the input and output images in the 'per-pixel' computation:
+The "reverse" button ![](./blend-modes/blend-reverse.png#icon#nolink) effectively reverses the roles of the input and output images in the 'per-pixel' computation:
 
 ```
 final_output = (1.0 - opacity) * module_output + opacity * blended_input

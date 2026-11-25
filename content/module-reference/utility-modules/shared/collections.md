@@ -9,7 +9,7 @@ Importing images into darktable stores information about them (filename, path, E
 
 The default collection is based on the _film roll_ attribute and displays all images of the last imported or selected film roll.
 
-The sort order of the listed collections (ascending/descending) can be toggled by clicking ![collect-sort-order-icon](./collections/collect-sort-order.png#icon).
+The sort order of the listed collections (ascending/descending) can be toggled by clicking the ![sort order](./collections/collect-sort-order.png#icon) icon.
 
 # filtering attributes
 
@@ -161,7 +161,7 @@ select by value
 
 You can combine multiple filters together to create more complex collections of images using a series of rules. A rule is a combination of a filter criteria along with a logical operation that defines how that criteria is combined with any previous rules.
 
-Click on the ![collect-expander-icon](./collections/collect-expander.png#icon) button (to the right of the search field) to open a menu with the following options:
+Click on the ![collections menu](./collections/collect-expander.png#icon) button (to the right of the search field) to open a menu with the following options:
 
 clear this rule
 : Remove the current rule, or reset it if this is the only rule defined.
@@ -175,7 +175,7 @@ add more images
 exclude images
 : Add a new rule, which is combined with the previous rule(s) in a logical EXCEPT operation. Images that fulfill the new criteria are removed from the collection.
 
-The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![collect-and-icon](./collections/collect-and.png#icon) symbol, OR by the ![collect-or-icon](./collections/collect-or.png#icon) symbol, and EXCEPT by the ![collect-except-icon](./collections/collect-except.png#icon) symbol. Click on any of these icons to change the logical operation for that rule.
+The logical operators defining how rules are combined are indicated with icons to the right of each added rule: AND by the ![AND](./collections/collect-and.png#icon) symbol, OR by the ![OR](./collections/collect-or.png#icon) symbol, and EXCEPT by the ![EXCEPT](./collections/collect-except.png#icon) symbol. Click on any of these icons to change the logical operation for that rule.
 
 ## updating the folder path of moved images
 

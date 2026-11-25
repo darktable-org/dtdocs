@@ -56,7 +56,7 @@ From top to bottom:
 
 # bottom panel
 
-![lighttable-bottom-panel](./lighttable-view-layout/lighttable-bottom-panel.png#w100)
+![lighttable bottom panel: star ratings and color labels on the left, layout and zoom controls on the right](./lighttable-view-layout/lighttable-bottom-panel.png#w100)
 
 From left to right:
 

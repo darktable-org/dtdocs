@@ -50,7 +50,7 @@ As with sliders, you can double-click the combobox or its label to reset back to
 
 # pickers
 
-Many modules allow parameters to be set using pickers (identified by the ![picker-icon](./module-controls/color-picker.png#icon) icon). Pickers allow you to select sample areas of the image from which to calculate values for module parameters. You can usually choose to select either a "point" (a single pixel) or an "area" (a rectangular selection of pixels) from the image, although some modules only allow one mode to be used.
+Many modules allow parameters to be set using pickers (identified by the ![eyedropper](./module-controls/color-picker.png#icon) icon). Pickers allow you to select sample areas of the image from which to calculate values for module parameters. You can usually choose to select either a "point" (a single pixel) or an "area" (a rectangular selection of pixels) from the image, although some modules only allow one mode to be used.
 
 Selecting pixel(s) will cause the appropriate module value(s) to be updated, and may also cause additional visual feedback (for example, overlaying the range of selected pixels on a tone curve).
 

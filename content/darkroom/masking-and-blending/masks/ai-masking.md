@@ -8,7 +8,7 @@ AI masking requires AI features to be enabled in [AI preferences](../../../prefe
 
 # AI object
 
-![drawn-mask-object](./ai-masking/ai-object.png#icon) The _AI object_ tool selects an object for you: instead of drawing its outline by hand, click on the subject and a segmentation model produces the mask. An AI object is an element like any other: it can be combined with other elements in [groups](./groups-and-operators.md), inverted, refined, and given its own opacity.
+![](./ai-masking/ai-object.png#icon#nolink) The _AI object_ tool selects an object for you: instead of drawing its outline by hand, click on the subject and a segmentation model produces the mask. An AI object is an element like any other: it can be combined with other elements in [groups](./groups-and-operators.md), inverted, refined, and given its own opacity.
 
 Click the AI object button in the [toolbar](./mask-panel.md#toolbar) of the mask panel, then:
 

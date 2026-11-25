@@ -56,44 +56,44 @@ search module
 
 # bottom panel
 
-![darkroom-view-layout](./darkroom-view-layout/darkroom-bottom-panel.png#w100)
+![darkroom bottom panel: image information on the left, quick access buttons and toggles on the right](./darkroom-view-layout/darkroom-bottom-panel.png#w100)
 
 From left to right:
 
-![presets-icon](./darkroom-view-layout/presets-icon.png#icon) [presets](./processing-modules/presets.md)
+![](./darkroom-view-layout/presets-icon.png#icon#nolink) [presets](./processing-modules/presets.md)
 : Quick access menu for module presets. You can manage the contents of this menu by selecting "manage quick presets list...".
 
-![styles-icon](./darkroom-view-layout/styles-icon.png#icon) [styles](../module-reference/utility-modules/shared/styles.md)
+![](./darkroom-view-layout/styles-icon.png#icon#nolink) [styles](../module-reference/utility-modules/shared/styles.md)
 : Quick access menu for styles. Hover over a style name with your mouse to show a preview of the current darkroom image with the selected style applied.
 
-![second-window-icon](./darkroom-view-layout/second-window-icon.png#icon) second darkroom window
+![](./darkroom-view-layout/second-window-icon.png#icon#nolink) second darkroom window
 : Allows the user to display a second image in a separate window. By default, the second window shows the same contents as the main view. When an image is "pinned" in the  second window, it will remain unchanged when making module changes, navigating the history stack or opening a different image in the main view. This is especially useful on large screens and multi-monitor setups.
 
-![focus-peak-icon](./darkroom-view-layout/focus-peak-icon.png#icon) [focus peaking](../module-reference/utility-modules/shared/focus-peaking.md)
+![](./darkroom-view-layout/focus-peak-icon.png#icon#nolink) [focus peaking](../module-reference/utility-modules/shared/focus-peaking.md)
 : Toggle focus peaking mode.
 
-![color-assessment-icon](./darkroom-view-layout/color-assessment-icon.png#icon) [color assessment](../module-reference/utility-modules/darkroom/color-assessment.md)
+![](./darkroom-view-layout/color-assessment-icon.png#icon#nolink) [color assessment](../module-reference/utility-modules/darkroom/color-assessment.md)
 : Toggle the ISO12646 color assessment view.
 
-![high-quality-processing-icon](./darkroom-view-layout/high-quality-processing-icon.png#icon) [high quality processing](../module-reference/utility-modules/darkroom/high-quality-processing.md)
+![](./darkroom-view-layout/high-quality-processing-icon.png#icon#nolink) [high quality processing](../module-reference/utility-modules/darkroom/high-quality-processing.md)
 : Toggle high quality processing mode.
 
-![raw-overexposed-icon](./darkroom-view-layout/raw-overexposed-icon.png#icon) [raw overexposed warning](../module-reference/utility-modules/darkroom/raw-overexposed.md)
+![](./darkroom-view-layout/raw-overexposed-icon.png#icon#nolink) [raw overexposed warning](../module-reference/utility-modules/darkroom/raw-overexposed.md)
 : Toggle raw overexposed indicators (right-click for options).
 
-![clipping-icon](./darkroom-view-layout/clipping-icon.png#icon) [clipping warning](../module-reference/utility-modules/darkroom/clipping.md)
+![](./darkroom-view-layout/clipping-icon.png#icon#nolink) [clipping warning](../module-reference/utility-modules/darkroom/clipping.md)
 : Toggle clipping warnings (right-click for options).
 
-![softproof-icon](./darkroom-view-layout/softproof-icon.png#icon) [soft proof](../module-reference/utility-modules/darkroom/soft-proof.md)
+![](./darkroom-view-layout/softproof-icon.png#icon#nolink) [soft proof](../module-reference/utility-modules/darkroom/soft-proof.md)
 : Toggle softproofing overlays (right-click for options).
 
-![gamut-check-icon](./darkroom-view-layout/gamut-check-icon.png#icon) [gamut check](../module-reference/utility-modules/darkroom/gamut.md)
+![](./darkroom-view-layout/gamut-check-icon.png#icon#nolink) [gamut check](../module-reference/utility-modules/darkroom/gamut.md)
 : Toggle gamut checking (right-click for options).
 
-![guides-overlays-icon](./darkroom-view-layout/guides-overlays-icon.png#icon) [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md)
+![](./darkroom-view-layout/guides-overlays-icon.png#icon#nolink) [guides & overlays](../module-reference/utility-modules/darkroom/guides-overlays.md)
 : Left-click to switch global guide overlays on/off and right-click to change the guide settings, including the color of all on-image drawing (masks, crop guides etc.)
 
-![mask-panel-icon](./darkroom-view-layout/mask-panel-icon.png#icon) [mask panel](./masking-and-blending/masks/mask-panel.md)
+![](./darkroom-view-layout/mask-panel-icon.png#icon#nolink) [mask panel](./masking-and-blending/masks/mask-panel.md)
 : Show or hide the mask panel of the focused processing module. The icon is dimmed when the focused module has no mask. Right-click to open the [mask options](./masking-and-blending/masks/mask-panel.md#mask-options) without showing the panel.
 
 ## filmstrip
