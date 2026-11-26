@@ -62,7 +62,7 @@ fade-out border
 rotation
 : _Ellipse and gradient._ The rotation of the shape.
 
-curvature, compression
+curvature, transition
 : _Gradient only._ How much the gradient's line bends, and the width of its transition.
 
 shrink or grow
