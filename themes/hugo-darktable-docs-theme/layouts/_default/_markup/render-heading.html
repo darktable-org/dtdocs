@@ -1,1 +1,16 @@
-<h{{ .Level }} id="{{ .Anchor | safeURL }}"><a class="dt-anchor" href="#{{ .Anchor | safeURL }}" aria-label="{{ i18n "link-to-section" | default "Link to this section" }}">#</a>{{ .Text | safeHTML }}</h{{ .Level }}>
+{{- /* The page title is the only h1. Section headings start at h2: the
+       highest markdown level used on the page becomes h2, the levels below
+       it follow in order. Fenced code is ignored, so "# comment" lines in
+       code blocks do not count as headings. */ -}}
+{{- $min := .Page.Scratch.Get "dt-heading-min" -}}
+{{- if not $min -}}
+  {{- $min = 6 -}}
+  {{- $raw := replaceRE "(?s)```.*?```" "" .Page.RawContent -}}
+  {{- range findRE `(?m)^#{1,6}[ \t]` $raw -}}
+    {{- $min = math.Min $min (len (strings.TrimRight " \t" .)) -}}
+  {{- end -}}
+  {{- $min = int $min -}}
+  {{- .Page.Scratch.Set "dt-heading-min" $min -}}
+{{- end -}}
+{{- $level := int (math.Max 2 (math.Min 6 (add (sub .Level $min) 2))) -}}
+<h{{ $level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}<a class="dt-anchor" href="#{{ .Anchor | safeURL }}" aria-label="{{ i18n "link-to-section" | default "Link to this section" }}">#</a></h{{ $level }}>

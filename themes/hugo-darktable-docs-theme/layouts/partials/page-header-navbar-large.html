@@ -25,14 +25,25 @@
           id="search-input"
           class="form-control"
           type="search"
+          role="combobox"
           placeholder="{{ i18n "search" | default "Search" }}"
           autocomplete="off"
           aria-label="{{ i18n "search" | default "Search" }}"
+          aria-autocomplete="list"
           aria-controls="search-results"
+          aria-expanded="false"
         />
         <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd>
         {{- /* results open right below the search field */ -}}
-        <div id="search-results" class="search-results" role="listbox"></div>
+        <div id="search-results" class="search-results" role="listbox" aria-label="{{ i18n "search-results-label" | default "Search results" }}"></div>
+        {{- /* announces the number of results; %d is replaced by the count */}}
+        <div
+          id="search-status"
+          class="sr-only"
+          role="status"
+          data-results="{{ i18n "search-results-count" | default "%d results" }}"
+          data-no-results="{{ i18n "search-no-results" | default "No results" }}"
+        ></div>
       </form>
     </div>
 

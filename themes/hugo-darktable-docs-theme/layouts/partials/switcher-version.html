@@ -9,19 +9,17 @@
      doubling the path */}}
 {{- $cleanPath := printf "/%s" (strings.TrimPrefix $basePath $page.RelPermalink) -}}
 <div class="dt-switcher {{ if .Dropup }}dropup{{ else }}dropdown{{ end }}">
-  <a
+  <button
     class="dt-switcher__toggle dropdown-toggle"
-    href="#"
+    type="button"
     data-toggle="dropdown"
-    role="button"
-    aria-haspopup="true"
     aria-expanded="false"
   >
-    <span>Version: {{ if eq $currentVersion "development" }}Development{{ else }}{{ $currentVersion }}{{ end }}</span>
-  </a>
-  <div class="dropdown-menu" role="listbox">
+    <span>{{ i18n "version" | default "Version" }}: {{ if eq $currentVersion "development" }}{{ i18n "development" | default "Development" }}{{ else }}{{ $currentVersion }}{{ end }}</span>
+  </button>
+  <div class="dropdown-menu">
     {{- range site.Data.versions }}
-    <a class="dropdown-item" href="/usermanual/{{ .path }}{{ $cleanPath }}">{{ .label }}</a>
+    <a class="dropdown-item" href="/usermanual/{{ .path }}{{ $cleanPath }}"{{ if eq .path $currentVersion }} aria-current="true"{{ end }}>{{ .label }}</a>
     {{- end }}
   </div>
 </div>
