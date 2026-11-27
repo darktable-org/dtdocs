@@ -29,7 +29,7 @@ This module works by blurring the highlights and then blending the result with t
 
 ---
 
-_**Note:** This module performs blurs in Lab color space, and is no longer recommended. Instead, use the [tone equalizer](./tone-equalizer.md) module or the [exposure](./exposure.md) module with a [parametric mask](../../darkroom/masking-and-blending/masks/parametric.md)._
+_**Note:** This module performs blurs in Lab color space, and is no longer recommended. Instead, use the scene referred alternatives [diffuse or sharpen](./diffuse.md) module or the [blurs](./blurs.md) module, if needed fine tuned with a mask._
 
 ---
 
