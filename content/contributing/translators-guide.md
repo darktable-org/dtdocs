@@ -33,3 +33,7 @@ It is helpful to open the page you are currently working on in a second window (
 # technical information sections
 
 At the top of each processing module's page there is a collapsible "Technical information" section that needs special formatting and is supposed to exactly mirror the descriptions available as tooltips in darktable. All languages were seeded with the exact translations from darktables program code/translations with "needs edit" to ensure human oversight.
+
+# Privacy note
+
+Translations made on Weblate are committed to the public dtdocs Git repository under the name and e-mail address configured in your Weblate account. If you don't want your e-mail address to be published, go to your [account settings](https://hosted.weblate.org/accounts/profile/) choose a private address under Commit e-mail (and optionally Commit name). This only affects future commits; already published commits cannot be changed. Note that using a private address means your contributions may no longer be linked to your GitHub profile.
