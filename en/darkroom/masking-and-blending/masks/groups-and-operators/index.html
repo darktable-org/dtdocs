@@ -1,0 +1,3881 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - groups &amp; operators</title>
+<meta name="description" content="A mask is a tree of groups. Each group combines its members – elements and other groups – with a single operator. This page explains the operators, and how to …">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.508d8a7d0d3bebef7aa77947cc7a1b631efa0c716fea5f2346d6ad96f47684a7.css" integrity="sha256-UI2KfQ076&#43;96p3lHzHobYx76DHFv6l8jRtatlvR2hKc=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/en\/index.json"</script>
+    
+	<script src="/dtdocs/js/bundle.min.42af7beb0e2d8b285c5278eff99d26a28029994f5a7979d518a46189be6ce623.js" integrity="sha256-Qq976w4tiyhcUnjv&#43;Z0mooApmU9aeXnVGKRhib5s5iM=" crossorigin="anonymous"></script>
+    
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="groups & operators">
+<meta property="og:description" content="A mask is a tree of groups. Each group combines its members – elements and other groups – with a single operator. This page explains the operators, and how to arrange groups to get the mask you want.
+#the one rule A group is a stack of members whose interaction is governed by the group’s operator. A group starts from its bottom member and applies its operator to each member above it in turn, in the same way as modules are applied in the pixelpipe. A member can be an element or another group: once a group has been computed, its result is used by the group above as if it were a single element, in the same way as brackets work in arithmetic.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="darkroom">
+
+    </head>
+    <body style="--dt-section: #f85d07; --dt-section-text: #702a03;">
+        <header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="/dtdocs" rel="home" title="darktable user manual">
+      
+        <img src="/dtdocs/images/darktable.svg" alt="" width="32" height="32" />
+      
+      <span>darktable user manual</span>
+    </a>
+
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      <div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/en/darkroom/masking-and-blending/masks/groups-and-operators/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/en/darkroom/masking-and-blending/masks/groups-and-operators/">Version 5.6</a>
+  </div>
+</div>
+
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      
+<div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: English"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>English</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="en"
+      role="option"
+      lang="en"
+      href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/"
+      >English</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+    </div><div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd><div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div><button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="Chapters"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div><div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="Chapters">
+                    <div class="dt-nav-tree">
+                        <ul>
+   
+   <li class="parent" style="--dt-nav-color: #d70016;">
+   
+
+      <a href="/dtdocs/en/overview/" class=""><span class="dt-dot" aria-hidden="true"></span>Overview
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/overview/user-interface/" class="">user interface
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/views/" class="">views
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/screen-layout/" class="">screen layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/filmstrip/" class="">filmstrip
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/top-panel/" class="">top panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/bottom-panel/" class="">bottom panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/keyboard-shortcuts/" class="">keyboard shortcuts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/supported-file-formats/" class="">supported file formats
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/" class="">sidecar files &amp; non-destructive editing
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/sidecar/" class="">sidecar files
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/sidecar-import/" class="">importing sidecar files generated by other applications
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/local-copies/" class="">local copies
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/overview/workflow/" class="">an introduction to darktable&#39;s workflow
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/introduction/" class="">introduction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/import-review/" class="">import &amp; review
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/process/" class="">process
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/tone-mapping/" class="">tone mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/export/" class="">export
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e82f0f;">
+   
+
+      <a href="/dtdocs/en/lighttable/" class=""><span class="dt-dot" aria-hidden="true"></span>Lighttable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-view-layout/" class="">lighttable view layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/undo-redo/" class="">undo/redo
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/" class="">lighttable modes
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/filemanager/" class="">filemanager
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/zoomable-lighttable/" class="">zoomable lighttable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/culling/" class="">culling
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/full-preview/" class="">full preview
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/" class="">digital asset management
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/collections/" class="">collections &amp; film rolls
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/sequence/" class="">image sequence
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/thumbnails/" class="">thumbnails
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/star-color/" class="">star ratings &amp; color labels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/grouping/" class="">image grouping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/metadata-tagging/" class="">metadata and tagging
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open" style="--dt-nav-color: #f85d07;">
+   
+
+      <a href="/dtdocs/en/darkroom/" class=""><span class="dt-dot" aria-hidden="true"></span>Darkroom
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/darkroom-view-layout/" class="">darkroom view layout
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/" class="">the pixelpipe
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">the anatomy of a processing module
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/the-pixelpipe-and-module-order/" class="">the pixelpipe &amp; module order
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/history-stack/" class="">the history stack
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/undo-redo/" class="">undo and redo
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/" class="">processing modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/module-header/" class="">module header
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/multiple-instances/" class="">multiple instances
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/presets/" class="">presets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/module-controls/" class="">module controls
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/curves/" class="">curves
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/wavelets/" class="">wavelets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/deprecated/" class="">deprecated modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/" class="">masking &amp; blending
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/blend-modes/" class="">blend modes
+      </a>
+
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/" class="">masks
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/" class="">the mask panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/" class=" active" aria-current="page">groups &amp; operators
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/drawn/" class="">drawn shapes
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/" class="">parametric elements
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/raster/" class="">raster masks
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/ai-masking/" class="">AI masking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/refinement-controls/" class="">refinements
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/layout-presets/" class="">group layout presets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/migration/" class="">migrating from classic masks
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/organization/" class="">organization
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/module-groups/" class="">module groups
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/quick-access-panel/" class="">quick access panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/manage-module-layouts/" class="">manage module layouts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #fc8c06;">
+   
+
+      <a href="/dtdocs/en/tethering/" class=""><span class="dt-dot" aria-hidden="true"></span>Tethering
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/tethering-view-layout/" class="">tethering view layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/examples/" class="">examples
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/troubleshooting/" class="">troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f6b909;">
+   
+
+      <a href="/dtdocs/en/map/" class=""><span class="dt-dot" aria-hidden="true"></span>Map
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/map/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/map/map-view-layout/" class="">map view layout
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e0db0d;">
+   
+
+      <a href="/dtdocs/en/slideshow/" class=""><span class="dt-dot" aria-hidden="true"></span>Slideshow
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/slideshow/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/slideshow/usage/" class="">usage
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #85c910;">
+   
+
+      <a href="/dtdocs/en/print/" class=""><span class="dt-dot" aria-hidden="true"></span>Print
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/print/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/print/print-view-layout/" class="">print view layout
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #29b813;">
+   
+
+      <a href="/dtdocs/en/module-reference/" class=""><span class="dt-dot" aria-hidden="true"></span>Module Reference
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/" class="">processing modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/agx/" class="">AgX
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/astrophoto-denoise/" class="">astrophoto denoise
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/base-curve/" class="">base curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/bloom/" class="">bloom
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/blurs/" class="">blurs
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/censorize/" class="">censorize
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/chromatic-aberrations/" class="">chromatic aberrations
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-balance/" class="">color balance
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-balance-rgb/" class="">color balance rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-calibration/" class="">color calibration
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-contrast/" class="">color contrast
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-correction/" class="">color correction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-equalizer/" class="">color equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-harmonizer/" class="">color harmonizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-look-up-table/" class="">color look up table
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-mapping/" class="">color mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-reconstruction/" class="">color reconstruction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-zones/" class="">color zones
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/colorize/" class="">colorize
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/composite/" class="">composite
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-texture/" class="">contrast &amp; texture
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-equalizer/" class="">contrast equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/crop/" class="">crop
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/demosaic/" class="">demosaic
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/" class="">denoise (profiled)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/diffuse/" class="">diffuse or sharpen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/dither-or-posterize/" class="">dither or posterize
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/enlarge-canvas/" class="">enlarge canvas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/exposure/" class="">exposure
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/external-raster/" class="">external raster mask
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/filmic-rgb/" class="">filmic rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/framing/" class="">framing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/graduated-density/" class="">graduated density
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/grain/" class="">grain
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/haze-removal/" class="">haze removal
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/highlight-reconstruction/" class="">highlight reconstruction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/highpass/" class="">highpass
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/hot-pixels/" class="">hot pixels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/input-color-profile/" class="">input color profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lens-correction/" class="">lens correction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/liquify/" class="">liquify
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/local-contrast/" class="">local contrast
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lowlight-vision/" class="">lowlight vision
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lowpass/" class="">lowpass
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lut-3d/" class="">LUT 3D
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/monochrome/" class="">monochrome
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/negadoctor/" class="">negadoctor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/orientation/" class="">orientation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/output-color-profile/" class="">output color profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-black-white-point/" class="">raw black/white point
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-chromatic-aberrations/" class="">raw chromatic aberrations
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-denoise/" class="">raw denoise
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/retouch/" class="">retouch
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-curve/" class="">rgb curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-levels/" class="">rgb levels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-primaries/" class="">rgb primaries
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/" class="">rotate and perspective
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rotate-pixels/" class="">rotate pixels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/satcurve-rgb/" class="">saturation curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/scale-pixels/" class="">scale pixels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/shadows-and-highlights/" class="">shadows and highlights
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/sharpen/" class="">sharpen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/sigmoid/" class="">sigmoid
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/soften/" class="">soften
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/spektrafilm/" class="">spektrafilm
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/split-toning/" class="">split-toning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/surface-blur/" class="">surface blur
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-curve/" class="">tone curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-equalizer/" class="">tone equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/unbreak-input-profile/" class="">unbreak input profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/velvia/" class="">velvia
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/vignetting/" class="">vignetting
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/watermark/" class="">watermark
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/white-balance/" class="">white balance
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/basic-adjustments/" class="">(deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/channel-mixer/" class="">(deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-brightness-saturation/" class="">(deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/crop-rotate/" class="">(deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/defringe/" class="">(deprecated) defringe
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/fill-light/" class="">(deprecated) fill light
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/global-tonemap/" class="">(deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/invert/" class="">(deprecated) invert
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/levels/" class="">(deprecated) levels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/spot-removal/" class="">(deprecated) spot removal
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-mapping/" class="">(deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/vibrance/" class="">(deprecated) vibrance
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/zone-system/" class="">(deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/" class="">utility modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/" class="">darkroom
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/clipping/" class="">clipping warning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/color-assessment/" class="">color assessment
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/duplicate-manager/" class="">duplicate manager
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/gamut/" class="">gamut check
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/global-color-picker/" class="">global color picker
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/guides-overlays/" class="">guides &amp; overlays
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/high-quality-processing/" class="">high quality processing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/history-stack/" class="">history stack
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/image-info-line/" class="">image information line
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/masking/" class="">masking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/module-order/" class="">module order
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/navigation/" class="">navigation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/raw-overexposed/" class="">raw overexposed warning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/snapshots/" class="">snapshots
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/soft-proof/" class="">soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/" class="">lighttable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/lua-scripts-installer/" class="">(deprecated) lua scripts installer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/selected-image/" class="">actions on selection
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/history-stack/" class="">history stack
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/import/" class="">import
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/scripts/" class="">scripts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/select/" class="">selection
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/timeline/" class="">timeline
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/" class="">map
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/find-location/" class="">find location
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/locations/" class="">locations
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/map-settings/" class="">map settings
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/print/" class="">print
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/print/print-settings/" class="">print settings
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/" class="">shared
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/collection-filters/" class="">collection filters
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/collections/" class="">collections
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/copy-paste/" class="">copy and paste
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/export/" class="">export
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/filmstrip/" class="">filmstrip
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/focus-peaking/" class="">focus peaking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/geotagging/" class="">geotagging
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/image-information/" class="">image information
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/metadata-editor/" class="">metadata editor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/neural-restore/" class="">neural restore
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/recent-collections/" class="">recently used collections
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/scopes/" class="">scopes
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/styles/" class="">styles
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/" class="">tagging
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/" class="">tethering
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/camera-settings/" class="">camera settings
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/live-view/" class="">live view
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/session/" class="">session
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #169f5a;">
+   
+
+      <a href="/dtdocs/en/preferences-settings/" class=""><span class="dt-dot" aria-hidden="true"></span>Preferences &amp; Settings
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/backups/" class="">backup settings &amp; edits
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/general/" class="">general
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/import/" class="">import
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/lighttable/" class="">lighttable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/darkroom/" class="">darkroom
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/processing/" class="">processing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/security/" class="">security
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/storage/" class="">storage
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/miscellaneous/" class="">miscellaneous
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/shortcuts/" class="">shortcuts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/presets/" class="">presets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/ai/" class="">AI
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/lua-options/" class="">lua options
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/config-directory/" class="">configuration directory
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #1586b2;">
+   
+
+      <a href="/dtdocs/en/lua/" class=""><span class="dt-dot" aria-hidden="true"></span>Scripting
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lua/using-lua-scripts/" class="">using Lua scripts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lua/writing-lua-scripts/" class="">writing Lua scripts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #3362e2;">
+   
+
+      <a href="/dtdocs/en/guides-tutorials/" class=""><span class="dt-dot" aria-hidden="true"></span>Guides &amp; Tutorials
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/monochrome/" class="">developing monochrome images
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/batch-editing/" class="">batch-editing images
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/other-resources/" class="">other resources
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #8231d9;">
+   
+
+      <a href="/dtdocs/en/special-topics/" class=""><span class="dt-dot" aria-hidden="true"></span>Special Topics
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/" class="">darktable’s color pipeline
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/color-spaces/" class="">darktable&#39;s color spaces
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/unbounded-colors/" class="">unbounded colors
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/color-artifacts/" class="">possible color artifacts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/color-dimensions/" class="">darktable&#39;s color dimensions
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/" class="">color management
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/display-profile/" class="">display profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/rendering-method/" class="">rendering method
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/rendering-intent/" class="">rendering intent
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/" class="">OpenCL
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/background/" class="">the background
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/how-opencl-works/" class="">how OpenCL works
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/activate-opencl/" class="">activating OpenCL in darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/setting-up/" class="">setting up OpenCL
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/problems-solutions/" class="">possible problems &amp; solutions
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/scheduling-profile/" class="">scheduling profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/multiple-devices/" class="">multiple devices
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/still-doesnt-work/" class="">OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/ai/" class="">AI features
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/how-ai-works/" class="">how AI features work
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/gpu-acceleration/" class="">GPU acceleration
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/performance-and-troubleshooting/" class="">performance &amp; troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/mem-performance/" class="">memory &amp; performance tuning
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/" class="">using darktable-chart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/usage/" class="">usage
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/source-image/" class="">source image
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/reference-values/" class="">reference values
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/process/" class="">process
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/making-input-images/" class="">making input images for darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/" class="">program invocation
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/invocation-per-os/" class="">invocation per OS
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable/" class="">darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cli/" class="">darktable-cli
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-generate-cache/" class="">darktable-generate-cache
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-chart/" class="">darktable-chart
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cltest/" class="">darktable-cltest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cmstest/" class="">darktable-cmstest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-mcp/" class="">darktable-mcp
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/purge_non_existing_images_sh/" class="">purge_non_existing_images.sh
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/gimp-integration/" class="">gimp integration
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/variables/" class="">variables
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/midi-device-support/" class="">midi device support
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/test-environment/" class="">using a test environment
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/multiple-computers/" class="">using multiple computers
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #d000d0;">
+   
+
+      <a href="/dtdocs/en/contributing/" class=""><span class="dt-dot" aria-hidden="true"></span>Contributing to the Docs
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/development-deployment/" class="">development &amp; deployment
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/workflow/" class="">workflow
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/styles-conventions/" class="">styles &amp; conventions
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/translations-setup/" class="">translations setup
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/translators-guide/" class="">translators guide
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        <div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/en/darkroom/masking-and-blending/masks/groups-and-operators/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/en/darkroom/masking-and-blending/masks/groups-and-operators/">Version 5.6</a>
+  </div>
+</div>
+
+                        
+<div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: English"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>English</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="en"
+      role="option"
+      lang="en"
+      href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/"
+      >English</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        
+
+
+
+<nav class="crumbs" aria-label="Breadcrumbs"><a href="/dtdocs/en/darkroom/">Darkroom</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/en/darkroom/masking-and-blending/">masking &amp; blending</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/en/darkroom/masking-and-blending/masks/">masks</a><span class="crumbs__sep" aria-hidden="true">/</span><span class="crumbs__current" aria-current="page">groups &amp; operators</span>
+</nav>
+
+
+<article>
+
+    <h1 class="title">
+        groups &amp; operators
+    </h1>
+
+    
+<details class="dt-toc-inline d-xl-none">
+    <summary>Table of Contents</summary>
+    <nav >
+  <ul>
+    <li><a href="#the-one-rule">the one rule</a></li>
+    <li><a href="#operators">operators</a>
+      <ul>
+        <li><a href="#soft-edges-union-and-intersection-variants">soft edges: union and intersection variants</a></li>
+        <li><a href="#order-matters-in-a-difference">order matters in a difference</a></li>
+      </ul>
+    </li>
+    <li><a href="#reading-a-mask">reading a mask</a></li>
+    <li><a href="#an-example">an example</a>
+      <ul>
+        <li><a href="#adding-the-lake">adding the lake</a></li>
+        <li><a href="#building-it-in-the-panel">building it in the panel</a></li>
+        <li><a href="#the-power-of-composition">the power of composition</a></li>
+      </ul>
+    </li>
+    <li><a href="#inverting">inverting</a></li>
+    <li><a href="#opacity">opacity</a></li>
+    <li><a href="#restructuring">restructuring</a></li>
+    <li><a href="#cheat-sheet">cheat sheet</a></li>
+  </ul>
+</nav>
+</details>
+
+
+    <p>A mask is a tree of groups. Each group combines its members &ndash; elements and other groups &ndash; with a single operator. This page explains the operators, and how to arrange groups to get the mask you want.</p>
+<h1 id="the-one-rule"><a class="dt-anchor" href="#the-one-rule" aria-label="Link to this section">#</a>the one rule</h1>
+<p>A group is a stack of members whose interaction is governed by the group&rsquo;s operator. A group starts from its <em>bottom</em> member and applies its operator to each member above it in turn, in the same way as modules are applied in the pixelpipe. A member can be an element or another group: once a group has been computed, its result is used by the group above as if it were a single element, in the same way as brackets work in arithmetic.</p>
+<p>The <a href="#cheat-sheet">cheat sheet</a> at the end of this page summarizes the operators.</p>
+<p>Everything else is a matter of choosing the operator of each group and putting the members in the right order.</p>
+<h1 id="operators"><a class="dt-anchor" href="#operators" aria-label="Link to this section">#</a>operators</h1>
+<p>The following images show what a group with two circles produces. The blue outline is the bottom member, the pink outline is the member above it, and the resulting mask is shown in yellow.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-maximum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-maximum.png" alt="maximum (union)" class="w25 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-minimum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-minimum.png" alt="minimum (intersection)" class="w25 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-difference.png" alt="difference" class="w25 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-exclusion.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-exclusion.png" alt="exclusion" class="w25 inline" /></a>
+
+</p>
+<p><em>From left to right: maximum (union), minimum (intersection), difference, exclusion.</em></p>
+<dl>
+<dt id="maximum-union">maximum (union)</dt>
+<dd>Everything that any member covers. Where members overlap, the stronger one wins. The order of the members does not matter.</dd>
+<dt id="minimum-intersection">minimum (intersection)</dt>
+<dd>Only the area that every member covers. Where members overlap, the weaker one wins. The order of the members does not matter.</dd>
+<dt id="difference">difference</dt>
+<dd>The bottom member, minus every member above it. Use it to cut something out of a selection. <strong>The order matters</strong>: see <a href="#order-matters-in-a-difference">order matters in a difference</a>.</dd>
+<dt id="exclusion">exclusion</dt>
+<dd>The areas covered by an odd number of members. With two members, this is &ldquo;either, but not both&rdquo;: where the two overlap they cancel out. A third member brings the area where all three overlap back.</dd>
+</dl>
+<h2 id="soft-edges-union-and-intersection-variants"><a class="dt-anchor" href="#soft-edges-union-and-intersection-variants" aria-label="Link to this section">#</a>soft edges: union and intersection variants</h2>
+<p>Masks are not just &ldquo;in&rdquo; or &ldquo;out&rdquo;: feathered edges, parametric transitions and reduced opacities make them partial. Unions and intersections therefore come in several variants, which behave the same on fully opaque areas and differ only in how partial areas combine.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-maximum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-maximum.png" alt="maximum (union)" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-screen.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-screen.png" alt="screen (smooth union)" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-sum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-sum.png" alt="sum (additive union)" class="w33 inline" /></a>
+
+</p>
+<p><em>From left to right: maximum (union), screen (smooth union), sum (additive union), with feathered circles.</em></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-minimum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-minimum.png" alt="minimum (intersection)" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-product.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-product.png" alt="product (smooth intersection)" class="w33 inline" /></a>
+
+</p>
+<p><em>From left to right: minimum (intersection), product (smooth intersection), with feathered circles.</em></p>
+<dl>
+<dt id="screen-smooth-union">screen (smooth union)</dt>
+<dd>Like <em>maximum (union)</em>, but overlapping feathered edges merge smoothly, without a visible seam. Mathematically: a + b - a×b.</dd>
+<dt id="sum-additive-union">sum (additive union)</dt>
+<dd>Like <em>maximum (union)</em>, but opacities add up where members overlap, up to 100%. Two members at 50% opacity give full opacity where they overlap. This is useful for building up an effect with several low-opacity brush strokes (e.g. for dodging and burning).</dd>
+<dt id="product-smooth-intersection">product (smooth intersection)</dt>
+<dd>Like <em>minimum (intersection)</em>, but feathered edges fade together smoothly: the mask is strong only where every member is strong. Mathematically: a×b. This is how parametric channels have always been combined in darktable.</dd>
+</dl>
+<p>When in doubt, use <em>maximum (union)</em> to add and <em>minimum (intersection)</em> to restrict.</p>
+<h2 id="order-matters-in-a-difference"><a class="dt-anchor" href="#order-matters-in-a-difference" aria-label="Link to this section">#</a>order matters in a difference</h2>
+<p>A <em>difference</em> keeps the bottom member and cuts away everything above it. Swap the members and you cut the other way:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference.png" alt="difference" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference-swapped.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference-swapped.png" alt="difference, members swapped" class="w33 inline" /></a>
+
+</p>
+<p>So, to subtract <em>A</em> from <em>B</em>, make a <em>difference</em> group with <em>B</em> at the bottom and <em>A</em> above it. Read it upwards, as a sentence: &ldquo;<em>B</em>, minus <em>A</em>&rdquo;. If the result is the opposite of what you wanted, drag the members to swap them.</p>
+<h1 id="reading-a-mask"><a class="dt-anchor" href="#reading-a-mask" aria-label="Link to this section">#</a>reading a mask</h1>
+<p>Read each group as:</p>
+<blockquote>
+<p>the <strong>[operator]</strong> of <em>[bottom member]</em>, &hellip;, <em>[top member]</em></p>
+</blockquote>
+<p>or, for a <em>difference</em>:</p>
+<blockquote>
+<p><em>[bottom member]</em> minus <em>[every member above it]</em></p>
+</blockquote>
+<p>Read the whole mask from the outside in (start from the whole mask, then read each group it holds) and, within each group, from the bottom up.</p>
+<h1 id="an-example"><a class="dt-anchor" href="#an-example" aria-label="Link to this section">#</a>an example</h1>
+<p>Suppose you want to darken the sky of this photo with the <a href="/dtdocs/en/module-reference/processing-modules/exposure/"><em>exposure</em></a> module, but a tree sticks up into the sky, and the tree should keep its exposure.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree.png" alt="the photo" class="w50" /></a>
+
+</p>
+<p>You want to mask the <em>sky</em>, and then remove the <em>tree</em> from it. Assume that you already have one element (or group) that covers the sky and one that covers the tree &ndash; these could be drawn shapes, parametric elements, raster masks or AI objects; it does not matter. If you put both into the whole mask, with its default <em>union</em> operator, you get:</p>
+<pre tabindex="0"><code>whole mask: maximum (union)
+├ tree
+└ sky
+</code></pre><p>This reads &ldquo;the union of <em>sky</em> and <em>tree</em>&rdquo;, which includes the tree instead of excluding it:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-union.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-union.png" alt="sky and tree" class="w50" /></a>
+
+</p>
+<p>What you want is to subtract the <em>tree</em> from the <em>sky</em>, so change the operator of the whole mask to <em>difference</em>:</p>
+<pre tabindex="0"><code>whole mask: difference
+├ tree
+└ sky
+</code></pre><p>This reads &ldquo;<em>sky</em> minus <em>tree</em>&rdquo;, which is exactly what you wanted:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-difference.png" alt="sky minus tree" class="w50" /></a>
+
+</p>
+<p>If you swap the two members, you get &ldquo;<em>tree</em> minus <em>sky</em>&rdquo; &ndash; just the bit of trunk below the horizon:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-swapped.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-swapped.png" alt="tree minus sky" class="w50" /></a>
+
+</p>
+<h2 id="adding-the-lake"><a class="dt-anchor" href="#adding-the-lake" aria-label="Link to this section">#</a>adding the lake</h2>
+<p>Now suppose that the photo also has a lake, which should be darkened too:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree.png" alt="the photo with a lake" class="w50" /></a>
+
+</p>
+<p>Adding the <em>lake</em> to the whole mask does not work:</p>
+<pre tabindex="0"><code>whole mask: difference
+├ tree
+├ lake
+└ sky
+</code></pre><p>A <em>difference</em> removes everything above its bottom member, so this reads &ldquo;<em>sky</em> minus <em>lake</em> and <em>tree</em>&rdquo; &ndash; the lake is subtracted rather than added:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-difference.png" alt="sky minus lake and tree" class="w50" /></a>
+
+</p>
+<p>What you want is to subtract the <em>tree</em> from the union of the <em>sky</em> and the <em>lake</em>. The union has to be computed first, so it needs a group of its own:</p>
+<pre tabindex="0"><code>whole mask: difference
+├ tree
+└ to dim: maximum (union)
+  ├ lake
+  └ sky
+</code></pre><p>This reads &ldquo;what you want <em>to dim</em>, minus the <em>tree</em>&rdquo;, where what you want <em>to dim</em> is &ldquo;the union of <em>sky</em> and <em>lake</em>&rdquo;:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-correct.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-correct.png" alt="the correct mask" class="w50" /></a>
+
+</p>
+<p>There is often more than one way to build the same mask. Here, the tree does not overlap the lake, so you could also subtract the tree from the sky first, and then add the lake:</p>
+<pre tabindex="0"><code>whole mask: maximum (union)
+├ lake
+└ sky without tree: difference
+  ├ tree
+  └ sky
+</code></pre><p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-alternative.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-alternative.png" alt="the same mask, built the other way" class="w50" /></a>
+
+</p>
+<p>Pick whichever matches how you think about the photo &ndash; but note that the two layouts only give the same result because the tree and the lake do not overlap. If a branch hung over the water, only the first layout would keep it out of the mask.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-lake-tree-panel.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-lake-tree-panel.png" alt="the example in the mask panel" class="w50" /></a>
+
+</p>
+<p>This is the same mask in the <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/#mask-layout">mask panel</a>, with real elements: the sky is a parametric element (a range of hues), the tree an AI object and the lake a path. The sky is selected, which is why its row is framed.</p>
+<h2 id="building-it-in-the-panel"><a class="dt-anchor" href="#building-it-in-the-panel" aria-label="Link to this section">#</a>building it in the panel</h2>
+<p>Work from the outside in, starting from a sentence that describes what you want:</p>
+<ol>
+<li>Find the last step. In &ldquo;<em>sky</em> and <em>lake</em>, but not <em>tree</em>&rdquo;, the last step is &ldquo;but not&rdquo;: a cut. So the whole mask is a <em>difference</em>.</li>
+<li>Find what is cut. In a <em>difference</em>, this is the bottom member: &ldquo;<em>sky</em> and <em>lake</em>&rdquo;. As this is more than one thing, it needs a group of its own &ndash; a <em>maximum (union)</em>.</li>
+<li>Find what cuts: everything above the bottom member. Here, the <em>tree</em>.</li>
+<li>Repeat inside each new group, until every member is a single element.</li>
+</ol>
+<p>Then, in the <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/">mask panel</a>:</p>
+<ol>
+<li>Click the operator of the whole mask and choose <em>difference</em>.</li>
+<li>Click 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-add-group.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-add-group.png" alt="add group" class="icon" /></a>
+
+ <em>add group</em> and choose <em>maximum (union)</em>. Alt+click its name to rename it &ldquo;to dim&rdquo;.</li>
+<li>With &ldquo;to dim&rdquo; selected, draw the <em>sky</em> and the <em>lake</em>: new elements go into the selected group.</li>
+<li>Click the name of &ldquo;to dim&rdquo; again to select the whole mask, then draw the <em>tree</em>: new elements now go into the whole mask.</li>
+<li>If a member ends up in the wrong place, drag it. &ldquo;to dim&rdquo; must be the bottom member of the whole mask.</li>
+</ol>
+<h2 id="the-power-of-composition"><a class="dt-anchor" href="#the-power-of-composition" aria-label="Link to this section">#</a>the power of composition</h2>
+<p>Once you have understood this, more complex masks require nothing new. Each element of the example could itself be made of several pieces. For example, the <em>tree</em> could be the union of two parametric elements on the <em>hz</em> channel (one selecting the green leaves, the other the brown trunk), minus a few brush strokes to clean up the selection. The <em>tree</em> then becomes a <em>difference</em> group, with the union of the parametric elements at the bottom (as that is what you subtract from) and the brush strokes above:</p>
+<pre tabindex="0"><code>whole mask: difference
+├ tree: difference
+│ ├ clean up: maximum (union)
+│ │ ├ brush stroke 2
+│ │ └ brush stroke 1
+│ └ leaves and trunk: maximum (union)
+│   ├ hz &#34;leaves&#34;
+│   └ hz &#34;trunk&#34;
+└ to dim: maximum (union)
+  ├ lake
+  └ sky
+</code></pre><p>The mask gets bigger, but the principle is always the same.</p>
+<h1 id="inverting"><a class="dt-anchor" href="#inverting" aria-label="Link to this section">#</a>inverting</h1>
+<dl>
+<dt id="invert-an-element">invert an element</dt>
+<dd>The element selects what it used to leave out: &ldquo;everything except this circle&rdquo;.</dd>
+<dt id="invert-a-group">invert a group</dt>
+<dd>The group&rsquo;s result is inverted after its operator has combined the members.</dd>
+</dl>
+<p>These are not the same thing when a group has several members. In a <em>union</em> group of two circles, inverting each circle selects everything except the area where the circles overlap, while inverting the group selects everything except both circles. Shift+click the invert button of a group to flip the inversion of each of its members instead of inverting the group itself.</p>
+<h1 id="opacity"><a class="dt-anchor" href="#opacity" aria-label="Link to this section">#</a>opacity</h1>
+<p>The opacity of a member scales it before it is combined with the others. In a <em>difference</em> group, a member at 50% opacity only cuts halfway through. The opacity of a group scales its result, on top of its members&rsquo; own opacities.</p>
+<h1 id="restructuring"><a class="dt-anchor" href="#restructuring" aria-label="Link to this section">#</a>restructuring</h1>
+<p>The restructure (
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-wand.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-wand.png" alt="wand" class="icon" /></a>
+
+) menu in the <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/#selection-caption">selection caption</a> changes the structure of the mask around the selected member:</p>
+<dl>
+<dt id="wrap-in-group">wrap in group</dt>
+<dd>Put the selected member in a new group of the chosen operator, where it is, so that you can combine it with what you add to the new group later.</dd>
+<dt id="compose">compose</dt>
+<dd>Use the selected member as a building block for a larger mask. It is placed at the bottom of a new group of the chosen operator, with an empty group above it to draw into. For example, to cut something out of a finished selection, <em>compose</em> it with <em>difference</em> and draw the area to remove in the empty group.</dd>
+<dt id="simplify">simplify</dt>
+<dd>Remove the groups inside the selected group that change nothing (for example, a group holding a single member). Groups that you have named are kept.</dd>
+</dl>
+<p>Operators that would change nothing are not offered. You can also select several members and use <em>group together&hellip;</em> (see <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/#multiple-selection">multiple selection</a>).</p>
+<h1 id="cheat-sheet"><a class="dt-anchor" href="#cheat-sheet" aria-label="Link to this section">#</a>cheat sheet</h1>
+<div class="dt-table">
+<table>
+  <thead>
+      <tr>
+          <th>I want&hellip;</th>
+          <th>build</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><em>A</em> and <em>B</em> together</td>
+          <td><em>maximum (union)</em>, any order</td>
+      </tr>
+      <tr>
+          <td>only where <em>A</em> and <em>B</em> overlap</td>
+          <td><em>minimum (intersection)</em>, any order</td>
+      </tr>
+      <tr>
+          <td><em>B</em> without <em>A</em></td>
+          <td><em>difference</em>, with <em>B</em> at the bottom and <em>A</em> above</td>
+      </tr>
+      <tr>
+          <td><em>A</em> or <em>B</em>, but not where they overlap</td>
+          <td><em>exclusion</em></td>
+      </tr>
+      <tr>
+          <td>everything except <em>A</em></td>
+          <td><em>A</em>, inverted</td>
+      </tr>
+      <tr>
+          <td><em>A</em> and <em>B</em>, without <em>C</em></td>
+          <td><em>difference</em>: a <em>union</em> group of <em>A</em> and <em>B</em> at the bottom, <em>C</em> above</td>
+      </tr>
+      <tr>
+          <td>soft brush strokes that merge without seams</td>
+          <td><em>screen (smooth union)</em></td>
+      </tr>
+      <tr>
+          <td>brush strokes that build up the effect where they overlap</td>
+          <td><em>sum (additive union)</em></td>
+      </tr>
+      <tr>
+          <td>a range of colors, only inside a drawn area</td>
+          <td><em>product</em> or <em>minimum</em>: the parametric elements and the drawn shapes in one group</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+
+    
+    <h3 class="translations_head">Translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/fr/darkroom/masking-and-blending/masks/groups-and-operators/">
+            Français: groups &amp; operators
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/">
+            Ukrainian: Групи та оператори
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<nav class="prev-next" aria-label="Page navigation">
+    
+    <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">Previous</span>
+        <span class="prev-next__title">the mask panel</span>
+    </a>
+    
+    
+    <a href="/dtdocs/en/darkroom/masking-and-blending/masks/drawn/" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">Next</span>
+        <span class="prev-next__title">drawn shapes</span>
+    </a>
+    
+</nav>
+
+
+<div class="dt-page-meta">
+    <a href="https://github.com/darktable-org/dtdocs/edit/master/content/darkroom/masking-and-blending/masks/groups-and-operators.md"><i class="fa fa-github" aria-hidden="true"></i>Edit this page on GitHub</a>
+    <a href="/dtdocs/en/darktable_user_manual.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download manual (PDF)</a>
+</div>
+
+
+
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    
+<div class="dt-toc__inner">
+    <a class="dt-toc__title" href="#" title="Back to top">Table of Contents</a>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-one-rule">the one rule</a></li>
+    <li><a href="#operators">operators</a>
+      <ul>
+        <li><a href="#soft-edges-union-and-intersection-variants">soft edges: union and intersection variants</a></li>
+        <li><a href="#order-matters-in-a-difference">order matters in a difference</a></li>
+      </ul>
+    </li>
+    <li><a href="#reading-a-mask">reading a mask</a></li>
+    <li><a href="#an-example">an example</a>
+      <ul>
+        <li><a href="#adding-the-lake">adding the lake</a></li>
+        <li><a href="#building-it-in-the-panel">building it in the panel</a></li>
+        <li><a href="#the-power-of-composition">the power of composition</a></li>
+      </ul>
+    </li>
+    <li><a href="#inverting">inverting</a></li>
+    <li><a href="#opacity">opacity</a></li>
+    <li><a href="#restructuring">restructuring</a></li>
+    <li><a href="#cheat-sheet">cheat sheet</a></li>
+  </ul>
+</nav>
+</div>
+
+                </aside>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

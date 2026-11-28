@@ -1,0 +1,3942 @@
+<!doctype html>
+<html lang="uk">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - Групи та оператори</title>
+<meta name="description" content="Маска — це дерево груп. Кожна група об’єднує своїх учасників — окремі елементи та інші групи — за допомогою єдиного оператора. На цій сторінці пояснюються …">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.508d8a7d0d3bebef7aa77947cc7a1b631efa0c716fea5f2346d6ad96f47684a7.css" integrity="sha256-UI2KfQ076&#43;96p3lHzHobYx76DHFv6l8jRtatlvR2hKc=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/uk\/index.json"</script>
+    
+	<script src="/dtdocs/js/bundle.min.42af7beb0e2d8b285c5278eff99d26a28029994f5a7979d518a46189be6ce623.js" integrity="sha256-Qq976w4tiyhcUnjv&#43;Z0mooApmU9aeXnVGKRhib5s5iM=" crossorigin="anonymous"></script>
+    
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="Групи та оператори">
+<meta property="og:description" content="Маска — це дерево груп. Кожна група об’єднує своїх учасників — окремі елементи та інші групи — за допомогою єдиного оператора. На цій сторінці пояснюються оператори, а також те, як організувати групи для створення потрібної вам маски.
+#Одне правило Група — це послідовність елементів, взаємодія яких визначається оператором цієї групи. Обробка групи починається з її нижнього елемента; оператор групи послідовно застосовується до кожного наступного елемента, розташованого вище — подібно до того, як модулі застосовуються в конвеєрі обробки пікселів. Елементом групи може бути як окремий компонент, так і інша група: після обчислення групи отриманий результат використовується наступним (вищим) рівнем так, ніби це був єдиний елемент — за тим самим принципом, що й використання дужок в арифметиці.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="uk">
+<meta property="og:type" content="article">
+<meta property="article:section" content="darkroom">
+
+    </head>
+    <body style="--dt-section: #f85d07; --dt-section-text: #702a03;">
+        <header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="/dtdocs" rel="home" title="darktable user manual">
+      
+        <img src="/dtdocs/images/darktable.svg" alt="" width="32" height="32" />
+      
+      <span>darktable user manual</span>
+    </a>
+
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      <div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/uk/darkroom/masking-and-blending/masks/groups-and-operators/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/uk/darkroom/masking-and-blending/masks/groups-and-operators/">Version 5.6</a>
+  </div>
+</div>
+
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      
+<div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Ukrainian"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Ukrainian</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="uk"
+      role="option"
+      lang="uk"
+      href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/"
+      >Ukrainian</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >Français</a
+      >
+    
+  </div>
+</div>
+
+    </div><div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd><div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div><button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="Chapters"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div><div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="Chapters">
+                    <div class="dt-nav-tree">
+                        <ul>
+   
+   <li class="parent" style="--dt-nav-color: #d70016;">
+   
+
+      <a href="/dtdocs/uk/overview/" class=""><span class="dt-dot" aria-hidden="true"></span>Огляд
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/" class="">Інтерфейс користувача
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/views/" class="">Режими
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/screen-layout/" class="">Макет екрана
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/filmstrip/" class="">Стрічка знімків
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/top-panel/" class="">Верхня панель
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/bottom-panel/" class="">Нижня панель
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/user-interface/keyboard-shortcuts/" class="">Клавіатурні прискорювачі
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/supported-file-formats/" class="">Підтримувані формати файлів
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/overview/sidecar-files/" class="">Файли XMP та неруйнівне редагування
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/sidecar-files/sidecar/" class="">Супровідні файли
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/sidecar-files/sidecar-import/" class="">Імпортування файлів XMP, створених іншими програмами
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/sidecar-files/local-copies/" class="">Локальні копії
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/overview/workflow/" class="">Введення в робочий процес Darktable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/workflow/introduction/" class="">Вступ
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/workflow/import-review/" class="">Імпорт і огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/workflow/process/" class="">Обробка
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/workflow/tone-mapping/" class="">Відображення тонів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/overview/workflow/export/" class="">Експорт
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e82f0f;">
+   
+
+      <a href="/dtdocs/uk/lighttable/" class=""><span class="dt-dot" aria-hidden="true"></span>Світловий стіл
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/lighttable-view-layout/" class="">Розкладка режиму Світлового столу
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/undo-redo/" class="">Скасувати/повторити
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/lighttable/lighttable-modes/" class="">Режими Світлового столу
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/lighttable-modes/filemanager/" class="">Файловий менеджер
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/lighttable-modes/zoomable-lighttable/" class="">Масштабований світловий стіл
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/lighttable-modes/culling/" class="">Вибракування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/lighttable-modes/full-preview/" class="">Повний попередній перегляд
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/" class="">Управління цифровими активами
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/collections/" class="">Колекції та плівки
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/sequence/" class="">Послідовність зображень
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/thumbnails/" class="">Мініатюри
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/star-color/" class="">Рейтинги зірок та кольорові позначки
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/grouping/" class="">Групування зображень
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lighttable/digital-asset-management/metadata-tagging/" class="">Метадані та тегування
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open" style="--dt-nav-color: #f85d07;">
+   
+
+      <a href="/dtdocs/uk/darkroom/" class=""><span class="dt-dot" aria-hidden="true"></span>Темна кімната
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/darkroom-view-layout/" class="">Розкладка режиму темної кімнати
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/darkroom/pixelpipe/" class="">Конвеєр обробки
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">Анатомія модуля обробки
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/pixelpipe/the-pixelpipe-and-module-order/" class="">Конвеєр обробки та порядок модулів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/pixelpipe/history-stack/" class="">Стек історії змін
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/pixelpipe/undo-redo/" class="">Скасування і повторення
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/" class="">Модулі обробки
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/module-header/" class="">Заголовок модуля
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/multiple-instances/" class="">Кілька екземплярів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/presets/" class="">Пресети
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/module-controls/" class="">Елементи керування модулем
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/curves/" class="">Криві
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/wavelets/" class="">Вейвлети
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/processing-modules/deprecated/" class="">Застарілі модулі
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/" class="">Маскування і змішування
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/blend-modes/" class="">Режими змішування
+      </a>
+
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/" class="">Маски
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/mask-panel/" class="">Панель масок
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/" class=" active" aria-current="page">Групи та оператори
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/drawn/" class="">Намальовані фігури
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/parametric/" class="">Параметричні елементи
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/raster/" class="">Растрові маски
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/ai-masking/" class="">ШІ-маскування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/refinement-controls/" class="">Уточнення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/layout-presets/" class="">Пресети макетів груп
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/migration/" class="">Перехід від &#34;класичних&#34; масок
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/darkroom/organization/" class="">Організація
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/organization/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/organization/module-groups/" class="">Групи модулів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/organization/quick-access-panel/" class="">Панель швидкого доступу
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/darkroom/organization/manage-module-layouts/" class="">Керування розкладкою модулів
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #fc8c06;">
+   
+
+      <a href="/dtdocs/uk/tethering/" class=""><span class="dt-dot" aria-hidden="true"></span>Керування камерою
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/tethering/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/tethering/tethering-view-layout/" class="">Розкладка режиму камери
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/tethering/examples/" class="">Приклади
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/tethering/troubleshooting/" class="">Вирішення проблем
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f6b909;">
+   
+
+      <a href="/dtdocs/uk/map/" class=""><span class="dt-dot" aria-hidden="true"></span>Мапа
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/map/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/map/map-view-layout/" class="">Розкладка режиму Мапи
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e0db0d;">
+   
+
+      <a href="/dtdocs/uk/slideshow/" class=""><span class="dt-dot" aria-hidden="true"></span>Слайд-шоу
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/slideshow/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/slideshow/usage/" class="">Використання
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #85c910;">
+   
+
+      <a href="/dtdocs/uk/print/" class=""><span class="dt-dot" aria-hidden="true"></span>Друк
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/print/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/print/print-view-layout/" class="">Розкладка режиму друку
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #29b813;">
+   
+
+      <a href="/dtdocs/uk/module-reference/" class=""><span class="dt-dot" aria-hidden="true"></span>Довідка про модулі
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/" class="">Модулі обробки
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/agx/" class="">AgX
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/filmic-rgb/" class="">Filmic RGB
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/lut-3d/" class="">LUT 3D
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/raw-chromatic-aberrations/" class="">Raw хроматичні аберації
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/spektrafilm/" class="">Spektrafilm
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/velvia/" class="">Velvia
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/base-curve/" class="">Базова крива
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/white-balance/" class="">Баланс білого
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/haze-removal/" class="">Видалення серпанку
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/output-color-profile/" class="">Вихідний колірний профіль
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-reconstruction/" class="">Відновлення кольору
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/highlight-reconstruction/" class="">Відновлення переекспонованого
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/vignetting/" class="">Віньєтування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/watermark/" class="">Водяний знак
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/input-color-profile/" class="">Вхідний колірний профіль
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-harmonizer/" class="">Гармонізатор кольорів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/graduated-density/" class="">Градієнтний фільтр
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/demosaic/" class="">Демозаїкізація
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/hot-pixels/" class="">Дефектні пікселі
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/dither-or-posterize/" class="">Дизеринг або постеризація
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/diffuse/" class="">Дифузія / різкість
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-equalizer/" class="">Еквалайзер кольорів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/contrast-equalizer/" class="">Еквалайзер контрасту
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/tone-equalizer/" class="">Еквалайзер тонів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/exposure/" class="">Експозиція
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/enlarge-canvas/" class="">Збільшення полотна
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/grain/" class="">Зерно
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/denoise-profiled/" class="">Знешумлення (профільоване)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/raw-denoise/" class="">Знешумлення raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/astrophoto-denoise/" class="">Знешумлення астрофото
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/external-raster/" class="">Зовнішні растрові маски
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/crop/" class="">Кадрування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-calibration/" class="">Калібрування кольору
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-balance/" class="">Колірний баланс
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-balance-rgb/" class="">Колірний баланс RGB
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-contrast/" class="">Колірний контраст
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-zones/" class="">Колірні зони
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/composite/" class="">Композитинг
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/contrast-texture/" class="">Контраст і Текстура
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/unbreak-input-profile/" class="">Корекція вхідного профілю
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-correction/" class="">Корекція кольору
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/lens-correction/" class="">Корекція оптики
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/rgb-curve/" class="">Крива RGB
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/satcurve-rgb/" class="">Крива насиченості
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/local-contrast/" class="">Локальний контраст
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/scale-pixels/" class="">Масштабування пікселів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/monochrome/" class="">Монохром
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/negadoctor/" class="">Негадоктор
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/lowlight-vision/" class="">Нічне бачення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/rotate-pixels/" class="">Обертання пікселів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/rotate-perspective/" class="">Обертання та перспектива
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/framing/" class="">Обрамлення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/orientation/" class="">Орієнтація
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/rgb-primaries/" class="">Основні кольори RGB
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-mapping/" class="">Перенос кольорів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/liquify/" class="">Пластика
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/surface-blur/" class="">Поверхневе розмиття
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/soften/" class="">Пом&#39;якшення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/retouch/" class="">Ретуш
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/rgb-levels/" class="">Рівні RGB
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/sharpen/" class="">Різкість
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/blurs/" class="">Розмиття
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/bloom/" class="">Світіння
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/sigmoid/" class="">Сигмоїда
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/split-toning/" class="">Спліт-тонування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/color-look-up-table/" class="">Таблиця пошуку кольорів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/shadows-and-highlights/" class="">Тіні та світлі тони
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/tone-curve/" class="">Тонова крива
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/colorize/" class="">Тонування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/raw-black-white-point/" class="">Точки чорного і білого в raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/highpass/" class="">Фільтр високих частот
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/lowpass/" class="">Фільтр низьких частот
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/chromatic-aberrations/" class="">Хроматичні аберації
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/censorize/" class="">Цензурування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/spot-removal/" class="">(застарілий) Видалення плям
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/global-tonemap/" class="">(застарілий) Глобальне тональне відображення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/fill-light/" class="">(застарілий) Заповнююче світло
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/channel-mixer/" class="">(застарілий) Змішувач каналів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/zone-system/" class="">(застарілий) Зонна система
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/invert/" class="">(застарілий) Інверсія
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/contrast-brightness-saturation/" class="">(застарілий) Контраст, яскравість, насиченість
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/basic-adjustments/" class="">(застарілий) Основні коригування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/defringe/" class="">(застарілий) Прибирання кайми
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/vibrance/" class="">(застарілий) Резонанс
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/levels/" class="">(застарілий) Рівні
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/tone-mapping/" class="">(застарілий) Тональне відображення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/processing-modules/crop-rotate/" class="">(застарілий) Трансформації
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/" class="">Сервісні модулі
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/print/" class="">Друк
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/print/print-settings/" class="">Налаштування друку
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/tethering/" class="">Керування камерою
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/tethering/live-view/" class="">Live view
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/tethering/camera-settings/" class="">Налаштування камери
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/tethering/session/" class="">Сеанс
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/map/" class="">Мапа
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/map/locations/" class="">Місця
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/map/map-settings/" class="">Налаштування Мапи
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/map/find-location/" class="">Пошук на мапі
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/" class="">Світловий стіл
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/lua-scripts-installer/" class="">(застарілий) Lua scripts installer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/select/" class="">Вибір
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/selected-image/" class="">Дії з вибраним
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/import/" class="">Імпорт
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/history-stack/" class="">Історія змін
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/scripts/" class="">Сценарії
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/lighttable/timeline/" class="">Шкала часу
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/" class="">Спільні
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/focus-peaking/" class="">Виділення контурів у фокусі
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/geotagging/" class="">Геотегування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/scopes/" class="">Гістограми
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/export/" class="">Експорт
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/image-information/" class="">Інформація про зображення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/collections/" class="">Колекції
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/copy-paste/" class="">Копіювання та вставлення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/recent-collections/" class="">Недавно використані колекції
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/neural-restore/" class="">Нейронне відновлення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/metadata-editor/" class="">Редактор метаданих
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/styles/" class="">Стилі
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/filmstrip/" class="">Стрічка знімків
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/tagging/" class="">Теги
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/shared/collection-filters/" class="">Фільтри для колекцій
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/" class="">Темна кімната
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/high-quality-processing/" class="">Високоякісна обробка
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/soft-proof/" class="">Екранна кольоропроба
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/history-stack/" class="">Історія змін
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/masking/" class="">Маскування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/duplicate-manager/" class="">Менеджер дублікатів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/snapshots/" class="">Миттєві знімки
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/navigation/" class="">Навігація
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/guides-overlays/" class="">Напрямні та накладки
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/color-assessment/" class="">Оцінка кольорів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/gamut/" class="">Перевірка охоплення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/global-color-picker/" class="">Піпетка кольору
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/clipping/" class="">Попередження про кліппінг
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/raw-overexposed/" class="">Попередження про переекспозицію в raw
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/module-order/" class="">Порядок застосування модулів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/module-reference/utility-modules/darkroom/image-info-line/" class="">Рядок інформації про зображення
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #169f5a;">
+   
+
+      <a href="/dtdocs/uk/preferences-settings/" class=""><span class="dt-dot" aria-hidden="true"></span>Налаштування
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/backups/" class="">Резервне копіювання налаштувань та редагувань
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/general/" class="">Загальні
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/import/" class="">Імпорт
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/lighttable/" class="">Світловий стіл
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/darkroom/" class="">Темна кімната
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/processing/" class="">Обробка
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/security/" class="">Безпека
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/storage/" class="">Збереження даних
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/miscellaneous/" class="">Різне
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/shortcuts/" class="">Клавіатурні прискорювачі
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/presets/" class="">Пресети
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/ai/" class="">ШІ
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/lua-options/" class="">Опції Lua
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/preferences-settings/config-directory/" class="">Каталог конфігурації
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #1586b2;">
+   
+
+      <a href="/dtdocs/uk/lua/" class=""><span class="dt-dot" aria-hidden="true"></span>Сценарії
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lua/using-lua-scripts/" class="">Використання сценаріїв Lua
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/lua/writing-lua-scripts/" class="">Написання сценаріїв на Lua
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #3362e2;">
+   
+
+      <a href="/dtdocs/uk/guides-tutorials/" class=""><span class="dt-dot" aria-hidden="true"></span>Посібники та підручники
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/guides-tutorials/monochrome/" class="">Обробка монохромних зображень
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/guides-tutorials/batch-editing/" class="">Пакетне редагування зображень
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/guides-tutorials/other-resources/" class="">Інші ресурси
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #8231d9;">
+   
+
+      <a href="/dtdocs/uk/special-topics/" class=""><span class="dt-dot" aria-hidden="true"></span>Спеціальні теми
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/special-topics/color-pipeline/" class="">Колірний конвеєр Darktable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-pipeline/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-pipeline/color-spaces/" class="">Колірні простори Darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-pipeline/unbounded-colors/" class="">Необмежені кольори
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-pipeline/color-artifacts/" class="">Можливі кольорові артефакти
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-pipeline/color-dimensions/" class="">Виміри кольору Darktable
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/special-topics/color-management/" class="">Управління кольором
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-management/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-management/display-profile/" class="">Профіль дисплея
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-management/rendering-method/" class="">Метод візуалізації
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/color-management/rendering-intent/" class="">Метод візуалізації
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/" class="">OpenCL
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/background/" class="">Загальна інформація
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/how-opencl-works/" class="">Як працює OpenCL
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/activate-opencl/" class="">Активація OpenCL у Darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/setting-up/" class="">Налаштування OpenCL
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/problems-solutions/" class="">Можливі проблеми та рішення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/scheduling-profile/" class="">Профіль планування
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/multiple-devices/" class="">Кілька пристроїв
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/opencl/still-doesnt-work/" class="">OpenCL все ще не працює в мене
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/special-topics/ai/" class="">Функції ШІ
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/ai/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/ai/how-ai-works/" class="">Як працюють функції ШІ
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/ai/gpu-acceleration/" class="">Прискорення GPU
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/ai/performance-and-troubleshooting/" class="">Продуктивність та усунення несправностей
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/mem-performance/" class="">Налаштування пам&#39;яті та продуктивності
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/" class="">Використання darktable-chart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/usage/" class="">Використання
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/source-image/" class="">Джерельне зображення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/reference-values/" class="">Контрольні значення
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/process/" class="">Обробка
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/darktable-chart/making-input-images/" class="">Створення вхідних зображень для darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/" class="">Виклик програми
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/invocation-per-os/" class="">Виклик для кожної ОС
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable/" class="">Darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable-cli/" class="">darktable-cli
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable-generate-cache/" class="">darktable-generate-cache
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable-chart/" class="">darktable-chart
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable-cltest/" class="">darktable-cltest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable-cmstest/" class="">darktable-cmstest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/darktable-mcp/" class="">darktable-mcp
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/purge_non_existing_images_sh/" class="">purge_non_existing_images.sh
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/program-invocation/gimp-integration/" class="">Інтеграція GIMP
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/variables/" class="">Змінні
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/midi-device-support/" class="">Підтримка пристроїв MIDI
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/multiple-computers/" class="">Використання кількох комп&#39;ютерів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/special-topics/test-environment/" class="">Використання тестового середовища
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #d000d0;">
+   
+
+      <a href="/dtdocs/uk/contributing/" class=""><span class="dt-dot" aria-hidden="true"></span>Внесок у dtdocs
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/contributing/overview/" class="">Огляд
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/contributing/development-deployment/" class="">Розробка та розгортання
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/contributing/workflow/" class="">Робочий процес
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/contributing/styles-conventions/" class="">Стилі та домовленості
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/contributing/translations-setup/" class="">Налаштування перекладів
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/uk/contributing/translators-guide/" class="">Посібник перекладачів
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        <div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/uk/darkroom/masking-and-blending/masks/groups-and-operators/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/uk/darkroom/masking-and-blending/masks/groups-and-operators/">Version 5.6</a>
+  </div>
+</div>
+
+                        
+<div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: Ukrainian"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>Ukrainian</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="uk"
+      role="option"
+      lang="uk"
+      href="https://darktable-org.github.io/dtdocs/uk/darkroom/masking-and-blending/masks/groups-and-operators/"
+      >Ukrainian</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="en"
+        role="option"
+        lang="en"
+        href="https://darktable-org.github.io/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >English</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/darkroom/masking-and-blending/masks/groups-and-operators/"
+        >Français</a
+      >
+    
+  </div>
+</div>
+
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        
+
+
+
+<nav class="crumbs" aria-label="Breadcrumbs"><a href="/dtdocs/uk/darkroom/">Темна кімната</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/uk/darkroom/masking-and-blending/">Маскування і змішування</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/uk/darkroom/masking-and-blending/masks/">Маски</a><span class="crumbs__sep" aria-hidden="true">/</span><span class="crumbs__current" aria-current="page">Групи та оператори</span>
+</nav>
+
+
+<article>
+
+    <h1 class="title">
+        Групи та оператори
+    </h1>
+
+    
+<details class="dt-toc-inline d-xl-none">
+    <summary>Table of Contents</summary>
+    <nav >
+  <ul>
+    <li><a href="#одне-правило">Одне правило</a></li>
+    <li><a href="#оператори">Оператори</a>
+      <ul>
+        <li><a href="#мякі-краї-варіанти-обєднання-та-перетину">М’які краї: варіанти об’єднання та перетину</a></li>
+        <li><a href="#для-різниці-порядок-має-значення">Для різниці порядок має значення</a></li>
+      </ul>
+    </li>
+    <li><a href="#читання-маски">Читання маски</a></li>
+    <li><a href="#приклад">Приклад</a>
+      <ul>
+        <li><a href="#додавання-озера">Додавання озера</a></li>
+        <li><a href="#як-будувавти-маску-в-панелі">Як будувавти маску в панелі</a></li>
+        <li><a href="#сила-композиції">Сила композиції</a></li>
+      </ul>
+    </li>
+    <li><a href="#інвертування">Інвертування</a></li>
+    <li><a href="#непрозорість">Непрозорість</a></li>
+    <li><a href="#реструктуризація">Реструктуризація</a></li>
+    <li><a href="#шпаргалка">Шпаргалка</a></li>
+  </ul>
+</nav>
+</details>
+
+
+    <p>Маска — це дерево груп. Кожна група об’єднує своїх учасників — окремі елементи та інші групи — за допомогою єдиного оператора. На цій сторінці пояснюються оператори, а також те, як організувати групи для створення потрібної вам маски.</p>
+<h1 id="одне-правило"><a class="dt-anchor" href="#%d0%be%d0%b4%d0%bd%d0%b5-%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%be" aria-label="Link to this section">#</a>Одне правило</h1>
+<p>Група — це послідовність елементів, взаємодія яких визначається оператором цієї групи. Обробка групи починається з її <em>нижнього</em> елемента; оператор групи послідовно застосовується до кожного наступного елемента, розташованого вище — подібно до того, як модулі застосовуються в конвеєрі обробки пікселів. Елементом групи може бути як окремий компонент, так і інша група: після обчислення групи отриманий результат використовується наступним (вищим) рівнем так, ніби це був єдиний елемент — за тим самим принципом, що й використання дужок в арифметиці.</p>
+<p><a href="#%d1%88%d0%bf%d0%b0%d1%80%d0%b3%d0%b0%d0%bb%d0%ba%d0%b0">Шпаргалка</a> в кінці цієї сторінки підсумовує оператори.</p>
+<p>Усе інше — це питання вибору оператора для кожної групи та розміщення її елементів у правильному порядку.</p>
+<h1 id="оператори"><a class="dt-anchor" href="#%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d0%b8" aria-label="Link to this section">#</a>Оператори</h1>
+<p>На наведених нижче зображеннях показано результат для групи, що складається з двох кіл. Синій контур — це нижній елемент, рожевий контур — елемент над ним, а отримана маска позначена жовтим кольором.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-maximum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-maximum.png" alt="maximum (union)" class="w25 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-minimum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-minimum.png" alt="minimum (intersection)" class="w25 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-difference.png" alt="difference" class="w25 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-exclusion.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/op-exclusion.png" alt="exclusion" class="w25 inline" /></a>
+
+</p>
+<p><em>Зліва направо: максимум (об’єднання), мінімум (перетин), різниця, виключення.</em></p>
+<dl>
+<dt id="максимум-обєднання">Максимум (об’єднання)</dt>
+<dd>Усе, що покриває будь-який із елементів. Там, де елементи перекриваються, перевагу має &ldquo;сильніший&rdquo; із них. Порядок елементів не має значення.</dd>
+<dt id="мінімум-перетин">Мінімум (перетин)</dt>
+<dd>Лише та область, яку покривають усі елементи. Там, де елементи перекриваються, перемагає &ldquo;слабший&rdquo;. Порядок елементів не має значення.</dd>
+<dt id="різниця">Різниця</dt>
+<dd>Нижній елемент мінус усі елементи, що розташовані над ним. Використовується для вирізання частини з виділеного об’єкта. <strong>Порядок має значення</strong>: див. <a href="#%d0%bf%d0%be%d1%80%d1%8f%d0%b4%d0%be%d0%ba-%d0%bc%d0%b0%d1%94-%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%bd%d1%8f-%d0%bf%d1%80%d0%b8-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%96-%d1%80%d1%96%d0%b7%d0%bd%d0%b8%d1%86%d1%96">Порядок має значення при застосуванні різниці</a>.</dd>
+<dt id="виключення">Виключення</dt>
+<dd>Області, покриті непарною кількістю елементів. У випадку двох елементів це означає &ldquo;або один, або інший, але не обидва разом&rdquo;: там, де два елементи перекриваються, вони взаємно виключаються. Додавання третього елемента повертає область, у якій перекриваються всі три.</dd>
+</dl>
+<h2 id="мякі-краї-варіанти-обєднання-та-перетину"><a class="dt-anchor" href="#%d0%bc%d1%8f%d0%ba%d1%96-%d0%ba%d1%80%d0%b0%d1%97-%d0%b2%d0%b0%d1%80%d1%96%d0%b0%d0%bd%d1%82%d0%b8-%d0%be%d0%b1%d1%94%d0%b4%d0%bd%d0%b0%d0%bd%d0%bd%d1%8f-%d1%82%d0%b0-%d0%bf%d0%b5%d1%80%d0%b5%d1%82%d0%b8%d0%bd%d1%83" aria-label="Link to this section">#</a>М’які краї: варіанти об’єднання та перетину</h2>
+<p>Маски — це не просто &ldquo;є&rdquo; або &ldquo;немає&rdquo;: завдяки розтушованим краям, параметричним переходам і зниженій непрозорості вони можуть бути частковими. Відповідно, операції об’єднання та перетину мають кілька варіантів: на повністю непрозорих ділянках вони діють однаково, а відрізняються лише тим, як поєднуються часткові ділянки.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-maximum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-maximum.png" alt="maximum (union)" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-screen.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-screen.png" alt="screen (smooth union)" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-sum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-sum.png" alt="sum (additive union)" class="w33 inline" /></a>
+
+</p>
+<p><em>Зліва направо: максимум (об’єднання), екран (плавне об’єднання), сума (адитивне об’єднання) — з використанням кіл із розтушованими краями.</em></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-minimum.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-minimum.png" alt="minimum (intersection)" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-product.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/soft-product.png" alt="product (smooth intersection)" class="w33 inline" /></a>
+
+</p>
+<p><em>Зліва направо: мінімум (перетин), добуток (плавний перетин), із розтушованими колами.</em></p>
+<dl>
+<dt id="екран-плавне-обєднання">Екран (плавне об’єднання)</dt>
+<dd>Подібно до <em>Максимум (об’єднання)</em>, але краї, що перекриваються та мають розтушовані межі, зливаються плавно, без помітного шва. Математично: a + b - a×b.</dd>
+<dt id="сума-адитивне-обєднання">Сума (адитивне об’єднання)</dt>
+<dd>Подібно до <em>Максимум (об’єднання)</em>, але в місцях перекриття елементів їхня непрозорість додається (максимум до 100%). Якщо два елементи мають непрозорість 50%, то в зоні їхнього перекриття вони стають повністю непрозорими. Це зручно для поступового створення ефекту за допомогою кількох мазків пензля з низькою непрозорістю (наприклад, для технік освітлення та випалювання — &ldquo;dodging and burning&rdquo;).</dd>
+<dt id="добуток-плавний-перетин">Добуток (плавний перетин)</dt>
+<dd>Подібно до <em>Мінімум (перетин)</em>, але розтушовані краї плавно зливаються: маска сильна лише там, де сильний кожен із її компонентів. Математично: a×b. Саме так у Darktable завжди поєднувалися параметричні канали.</dd>
+</dl>
+<p>У разі сумнівів використовуйте <em>максимум (об’єднання)</em> для додавання, а <em>мінімум (перетин)</em> — для обмеження.</p>
+<h2 id="для-різниці-порядок-має-значення"><a class="dt-anchor" href="#%d0%b4%d0%bb%d1%8f-%d1%80%d1%96%d0%b7%d0%bd%d0%b8%d1%86%d1%96-%d0%bf%d0%be%d1%80%d1%8f%d0%b4%d0%be%d0%ba-%d0%bc%d0%b0%d1%94-%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%bd%d1%8f" aria-label="Link to this section">#</a>Для різниці порядок має значення</h2>
+<p><em>Різниця</em> зберігає нижній елемент і відсікає все, що знаходиться над ним. Якщо поміняти елементи місцями, відсікання відбудеться у протилежному напрямку:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference.png" alt="difference" class="w33 inline" /></a>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference-swapped.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/order-difference-swapped.png" alt="difference, members swapped" class="w33 inline" /></a>
+
+</p>
+<p>Отже, щоб відняти <em>A</em> від <em>B</em>, створіть групу з оператором <em>Різниця</em>, розмістивши <em>B</em> знизу, а <em>A</em> — вище. Читайте це знизу вгору, як речення: &ldquo;<em>B</em> мінус <em>A</em>&rdquo;. Якщо результат виявився протилежним до того, що ви хотіли отримати, перетягніть елементи, щоб поміняти їх місцями.</p>
+<h1 id="читання-маски"><a class="dt-anchor" href="#%d1%87%d0%b8%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-%d0%bc%d0%b0%d1%81%d0%ba%d0%b8" aria-label="Link to this section">#</a>Читання маски</h1>
+<p>Читайте кожну групу так:</p>
+<blockquote>
+<p><strong>[оператор]</strong> ряду елементів: <em>[нижній елемент]</em>, &hellip;, <em>[верхній елемент]</em></p>
+</blockquote>
+<p>або, для <em>Різниці</em>:</p>
+<blockquote>
+<p><em>[нижній елемент]</em> мінус <em>[усі елементи над ним]</em></p>
+</blockquote>
+<p>Читайте всю маску ззовні всередину (почніть із маски загалом, потім прочитайте кожну групу, яку вона містить), а в межах кожної групи — знизу вгору.</p>
+<h1 id="приклад"><a class="dt-anchor" href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4" aria-label="Link to this section">#</a>Приклад</h1>
+<p>Припустімо, ви хочете затемнити небо на цьому фото за допомогою модуля <a href="/dtdocs/uk/module-reference/processing-modules/exposure/"><em>Експозиція</em></a>, але в небо стирчить дерево, експозицію якого потрібно зберегти.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree.png" alt="the photo" class="w50" /></a>
+
+</p>
+<p>Ви хочете створити маску для <em>неба</em>, а потім прибрати з неї <em>дерево</em>. Припустімо, у вас уже є один елемент (або група), що покриває небо, та інший, що покриває дерево — це можуть бути намальовані фігури, параметричні елементи, растрові маски або об’єкти ШІ; це не має значення. Якщо ви додасте обидва елементи до загальної маски, використовуючи стандартний оператор <em>об’єднання</em> , ви отримаєте:</p>
+<pre tabindex="0"><code>Уся маска: Максимум (об&#39;єднання)
+├ дерево
+└ небо
+</code></pre><p>Це читається як &ldquo;об&rsquo;єднання <em>неба</em> й <em>дерева</em>&rdquo; — що включає дерево, а не виключає його:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-union.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-union.png" alt="sky and tree" class="w50" /></a>
+
+</p>
+<p>Ви хочете відняти <em>дерево</em> від <em>неба</em>, тому змініть оператор усієї маски на <em>різниця</em>:</p>
+<pre tabindex="0"><code>Уся маска: різниця
+├ дерево
+└ небо
+</code></pre><p>Це читається як &ldquo;<em>небо</em> мінус <em>дерево</em>&rdquo; — саме те, чого ви хотіли:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-difference.png" alt="sky minus tree" class="w50" /></a>
+
+</p>
+<p>Якщо поміняти ці два елементи місцями, вийде &ldquo;<em>дерево</em> мінус <em>небо</em>&rdquo; — саме та частина стовбура, що знаходиться нижче горизонту:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-swapped.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-tree-swapped.png" alt="tree minus sky" class="w50" /></a>
+
+</p>
+<h2 id="додавання-озера"><a class="dt-anchor" href="#%d0%b4%d0%be%d0%b4%d0%b0%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%be%d0%b7%d0%b5%d1%80%d0%b0" aria-label="Link to this section">#</a>Додавання озера</h2>
+<p>Тепер припустімо, що на фото також є озеро, яке теж слід зробити темнішим:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree.png" alt="the photo with a lake" class="w50" /></a>
+
+</p>
+<p>Додавання <em>озера</em> до всієї маски не працює:</p>
+<pre tabindex="0"><code>Уся маска: різниця
+├ дерево
+├ озеро
+└ небо
+</code></pre><p>Операція <em>різниці</em> видаляє все, що знаходиться над її нижнім елементом; отже, це читається як &ldquo;<em>небо</em> мінус <em>озеро</em> та <em>дерево</em>&rdquo; — озеро тут віднімається, а не додається:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-difference.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-difference.png" alt="sky minus lake and tree" class="w50" /></a>
+
+</p>
+<p>Ви хочете відняти <em>дерево</em> від об&rsquo;єднання <em>неба</em> та <em>озера</em>. Об’єднання потрібно обчислити першим, тому для нього потрібна власна група:</p>
+<pre tabindex="0"><code>Уся маска: різниця
+├ дерево
+└ затемнити: максимум (об&#39;єднання)
+  ├ озеро
+  └ небо
+</code></pre><p>Це читається як &ldquo;те, що ви хочете <em>затемнити</em>, мінус <em>дерево</em>&rdquo;, де те, що ви хочете <em>затемнити</em>, — це &ldquo;об’єднання <em>неба</em> та <em>озера</em>&rdquo;:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-correct.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-correct.png" alt="the correct mask" class="w50" /></a>
+
+</p>
+<p>Часто існує кілька способів створити одну й ту саму маску. У цьому прикладі дерево не перекриває озеро, тому можна спочатку відняти дерево від неба, а потім додати озеро:</p>
+<pre tabindex="0"><code>Уся маска: максимум (об&#39;єднання)
+├ озеро
+└ небо без дерева: різниця
+  ├ дерево
+  └ небо
+</code></pre><p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-alternative.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/lake-sky-tree-alternative.png" alt="the same mask, built the other way" class="w50" /></a>
+
+</p>
+<p>Виберіть той варіант, який краще відповідає вашому баченню фотографії. Однак зауважте: обидва варіанти дають однаковий результат лише тому, що дерево й озеро не перекриваються. Якби гілка нависала над водою, то лише в першому варіанті вона не потрапила б до маски.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-lake-tree-panel.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/sky-lake-tree-panel.png" alt="the example in the mask panel" class="w50" /></a>
+
+</p>
+<p>Це та сама маска, що й на <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/mask-panel/#%d0%bc%d0%b0%d0%ba%d0%b5%d1%82-%d0%bc%d0%b0%d1%81%d0%ba%d0%b8">панелі масок</a>, але вона складається з реальних елементів: небо — це параметричний елемент (діапазон відтінків), дерево — об’єкт, створений за допомогою ШІ, а озеро — контур. Небо виділено, тому відповідний рядок обведений рамкою.</p>
+<h2 id="як-будувавти-маску-в-панелі"><a class="dt-anchor" href="#%d1%8f%d0%ba-%d0%b1%d1%83%d0%b4%d1%83%d0%b2%d0%b0%d0%b2%d1%82%d0%b8-%d0%bc%d0%b0%d1%81%d0%ba%d1%83-%d0%b2-%d0%bf%d0%b0%d0%bd%d0%b5%d0%bb%d1%96" aria-label="Link to this section">#</a>Як будувавти маску в панелі</h2>
+<p>Працюйте ззовні всередину, починаючи з речення, яке описує те, чого ви хочете:</p>
+<ol>
+<li>
+<p>Знайдіть останній крок. У виразі &ldquo;<em>небо</em> і <em>озеро</em>, але не <em>дерево</em>&rdquo; останнім кроком є &ldquo;але не&rdquo; — тобто відсікання. Отже, вся маска — це <em>різниця</em>.</p>
+</li>
+<li>
+<p>Знайдіть те, що відсікається. У випадку <em>різниці</em> це нижній елемент: &ldquo;<em>небо</em> та <em>озеро</em>&rdquo;. Оскільки йдеться про кілька елементів, для них потрібна окрема група — <em>максимум (об’єднання)</em>.</p>
+</li>
+<li>
+<p>Знайдіть те, що відсікає: усе, що знаходиться над нижнім елементом. У даному випадку — <em>дерево</em>.</p>
+</li>
+<li>
+<p>Повторюйте це всередині кожної нової групи, доки кожен учасник не стане окремим елементом.</p>
+</li>
+</ol>
+<p>Потім, на <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/mask-panel/">панелі масок</a>:</p>
+<ol>
+<li>
+<p>Клікніть оператор усієї маски та виберіть <em>Різниця</em>.</p>
+</li>
+<li>
+<p>Клікніть 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-add-group.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-add-group.png" alt="add group" class="icon" /></a>
+
+ <em>додати групу</em> та виберіть <em>Максимум (об&rsquo;єднання)</em>. Клікніть на її імені, утримуючи клавішу Alt, щоб перейменувати її на &ldquo;затемнити&rdquo;.</p>
+</li>
+<li>
+<p>Коли вибрано &ldquo;затемнити&rdquo;, намалюйте <em>небо</em> та <em>озеро</em>: нові елементи потраплять до вибраної групи.</p>
+</li>
+<li>
+<p>Ще раз клікніть на імені &ldquo;затемнити&rdquo;, щоб вибрати всю маску, а потім намалюйте <em>дерево</em>: нові елементи тепер додаються до всієї маски.</p>
+</li>
+<li>
+<p>Якщо елемент опинився не на своєму місці, перетягніть його. Елемент, який ми хочемо &ldquo;затемнити&rdquo;, має бути найнижчим у всій масці.</p>
+</li>
+</ol>
+<h2 id="сила-композиції"><a class="dt-anchor" href="#%d1%81%d0%b8%d0%bb%d0%b0-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%b7%d0%b8%d1%86%d1%96%d1%97" aria-label="Link to this section">#</a>Сила композиції</h2>
+<p>Щойно ви це зрозумієте, стане очевидно, що для створення складніших масок не потрібно нічого нового. Кожен елемент у нашому прикладі сам по собі може складатися з кількох частин. Наприклад, <em>дерево</em> може бути об’єднанням двох параметричних елементів у каналі <em>hz</em> (один виділяє зелене листя, інший — коричневий стовбур), мінус кілька мазків пензля для уточнення виділення. У такому разі <em>дерево</em> перетворюється на групу з оператором <em>різниця</em>: внизу розміщується об’єднання параметричних елементів (оскільки саме від них ми віднімаємо), а над ним — мазки пензля:</p>
+<pre tabindex="0"><code>Уся маска: різниця
+├ дерево: різниця
+│ ├ очищення: максимум (об&#39;єднання)
+│ │ ├ мазок пензля 2
+│ │ └ мазок пензля 1
+│ └ листя та стовбур: максимум (об&#39;єднання)
+│   ├ hz &#34;листя&#34;
+│   └ hz &#34;стовбур&#34;
+└ затемнити: максимум (об&#39;єднання)
+  ├ озеро
+  └ небо
+</code></pre><p>Маска стає більшою, але принцип завжди той самий.</p>
+<h1 id="інвертування"><a class="dt-anchor" href="#%d1%96%d0%bd%d0%b2%d0%b5%d1%80%d1%82%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f" aria-label="Link to this section">#</a>Інвертування</h1>
+<dl>
+<dt id="інвертувати-елемент">Інвертувати елемент</dt>
+<dd>Елемент вибирає те, що раніше пропускав: &ldquo;усе, крім цього кола&rdquo;.</dd>
+<dt id="інвертувати-групу">Інвертувати групу</dt>
+<dd>Результат групи інвертується після того, як її оператор об’єднає елементи.</dd>
+</dl>
+<p>Якщо група складається з кількох елементів, ці поняття не є тотожними. У групі, що являє собою <em>об’єднання</em> двох кіл, інвертування кожного кола виділяє все, крім області їхнього перетину, тоді як інвертування всієї групи виділяє все, крім самих кіл. Якщо клікнути кнопку інвертування групи, утримуючи клавішу Shift, інверсія кожного з її елементів зміниться на протилежну — замість того, щоб інвертувати групу як єдине ціле.</p>
+<h1 id="непрозорість"><a class="dt-anchor" href="#%d0%bd%d0%b5%d0%bf%d1%80%d0%be%d0%b7%d0%be%d1%80%d1%96%d1%81%d1%82%d1%8c" aria-label="Link to this section">#</a>Непрозорість</h1>
+<p>Непрозорість елемента масштабує його перед тим, як він комбінується з іншими. У групі з режимом змішування <em>різниця</em> елемент із непрозорістю 50% &ldquo;вирізає&rdquo; лише впівсили. Непрозорість групи масштабує її підсумковий результат — додатково до непрозорості окремих елементів, що входять до її складу.</p>
+<h1 id="реструктуризація"><a class="dt-anchor" href="#%d1%80%d0%b5%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d0%b8%d0%b7%d0%b0%d1%86%d1%96%d1%8f" aria-label="Link to this section">#</a>Реструктуризація</h1>
+<p>Меню реструктуризації (
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+
+
+
+
+<a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-wand.png" target="_blank" rel="noopener noreferrer"><img src="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/icon-wand.png" alt="wand" class="icon" /></a>
+
+) у <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/mask-panel/#%d0%bf%d1%96%d0%b4%d0%bf%d0%b8%d1%81-%d0%b4%d0%be-%d0%b2%d0%b8%d0%b1%d0%be%d1%80%d1%83">підписі до вибору</a> змінює структуру маски навколо вибраного елемента:</p>
+<dl>
+<dt id="загорнути-в-групу">Загорнути в групу</dt>
+<dd>Помістити вибраний елемент у нову групу вибраного оператора, там де він є, щоб згодом його можна було об’єднати з іншими елементами, які ви додасте до цієї нової групи.</dd>
+<dt id="компонувати">Компонувати</dt>
+<dd>Використати вибраний елемент як складовий блок для створення більшої маски. Він розміщується в нижній частині нової групи вибраного оператора, а над ним розташовується порожня група, в якій можна малювати. Наприклад, щоб вирізати певну область із готового виділення, <em>скомпонуйте</em> елемент із оператором <em>Різниця</em> і намалюйте область, яку потрібно видалити, у порожній групі.</dd>
+<dt id="спростити">Спростити</dt>
+<dd>Видалити групи всередині вибраної групи, які нічого не змінюють (наприклад, групу, що містить лише один елемент). Групи, яким ви дали імена, зберігаються.</dd>
+</dl>
+<p>Оператори, які нічого б не змінили, не пропонуються. Ви також можете вибрати кілька елементів і скористатися функцією <em>Згрупувати разом&hellip;</em> (див. <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/mask-panel/#%d0%bc%d0%bd%d0%be%d0%b6%d0%b8%d0%bd%d0%bd%d0%b8%d0%b9-%d0%b2%d0%b8%d0%b1%d1%96%d1%80">Множинний вибір</a>).</p>
+<h1 id="шпаргалка"><a class="dt-anchor" href="#%d1%88%d0%bf%d0%b0%d1%80%d0%b3%d0%b0%d0%bb%d0%ba%d0%b0" aria-label="Link to this section">#</a>Шпаргалка</h1>
+<div class="dt-table">
+<table>
+  <thead>
+      <tr>
+          <th>Я хочу&hellip;</th>
+          <th>Побудова маски</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><em>A</em> та <em>B</em> разом</td>
+          <td><em>Максимум (об’єднання)</em>, у будь-якому порядку</td>
+      </tr>
+      <tr>
+          <td>Тільки там, де <em>A</em> та <em>B</em> перекриваються</td>
+          <td><em>Мінімум (перетин)</em>, у будь-якому порядку</td>
+      </tr>
+      <tr>
+          <td><em>B</em> без <em>A</em></td>
+          <td><em>Різниця</em>: <em>B</em> — знизу, <em>A</em> — зверху</td>
+      </tr>
+      <tr>
+          <td><em>A</em> або <em>B</em>, але не там, де вони перекриваються</td>
+          <td><em>Виключення</em></td>
+      </tr>
+      <tr>
+          <td>Усе, крім <em>A</em></td>
+          <td><em>A</em> інвертовано</td>
+      </tr>
+      <tr>
+          <td><em>A</em> та <em>B</em> без <em>C</em></td>
+          <td><em>Різниця</em>: <em>A</em> та <em>B</em> об’єднані в одну групу знизу, <em>C</em> — зверху</td>
+      </tr>
+      <tr>
+          <td>М’які мазки пензля, що зливаються без швів</td>
+          <td><em>Екран (плавне об’єднання)</em></td>
+      </tr>
+      <tr>
+          <td>Мазки пензля, ефект від яких посилюється в місцях перекриття</td>
+          <td><em>Сума (адитивне об’єднання)</em></td>
+      </tr>
+      <tr>
+          <td>Діапазон кольорів, обмежений намальованою ділянкою</td>
+          <td><em>Добуток</em> або <em>Мінімум</em>: параметричні елементи та намальовані фігури в одній групі</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+
+    
+    <h3 class="translations_head">Translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/">
+            English: groups &amp; operators
+        </a></li>
+        
+        <li><a href="/dtdocs/fr/darkroom/masking-and-blending/masks/groups-and-operators/">
+            Français: groups &amp; operators
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<nav class="prev-next" aria-label="Page navigation">
+    
+    <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/mask-panel/" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">Previous</span>
+        <span class="prev-next__title">Панель масок</span>
+    </a>
+    
+    
+    <a href="/dtdocs/uk/darkroom/masking-and-blending/masks/drawn/" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">Next</span>
+        <span class="prev-next__title">Намальовані фігури</span>
+    </a>
+    
+</nav>
+
+
+<div class="dt-page-meta">
+    <a href="/dtdocs/uk/darktable_user_manual.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download manual (PDF)</a>
+</div>
+
+
+
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    
+<div class="dt-toc__inner">
+    <a class="dt-toc__title" href="#" title="Back to top">Table of Contents</a>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#одне-правило">Одне правило</a></li>
+    <li><a href="#оператори">Оператори</a>
+      <ul>
+        <li><a href="#мякі-краї-варіанти-обєднання-та-перетину">М’які краї: варіанти об’єднання та перетину</a></li>
+        <li><a href="#для-різниці-порядок-має-значення">Для різниці порядок має значення</a></li>
+      </ul>
+    </li>
+    <li><a href="#читання-маски">Читання маски</a></li>
+    <li><a href="#приклад">Приклад</a>
+      <ul>
+        <li><a href="#додавання-озера">Додавання озера</a></li>
+        <li><a href="#як-будувавти-маску-в-панелі">Як будувавти маску в панелі</a></li>
+        <li><a href="#сила-композиції">Сила композиції</a></li>
+      </ul>
+    </li>
+    <li><a href="#інвертування">Інвертування</a></li>
+    <li><a href="#непрозорість">Непрозорість</a></li>
+    <li><a href="#реструктуризація">Реструктуризація</a></li>
+    <li><a href="#шпаргалка">Шпаргалка</a></li>
+  </ul>
+</nav>
+</div>
+
+                </aside>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

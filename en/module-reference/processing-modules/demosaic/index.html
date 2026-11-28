@@ -1,0 +1,3351 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>darktable user manual - demosaic</title>
+<meta name="description" content="Control how raw files are demosaiced and optionally apply capture sharpening. #bayer filters The sensor cells of a digital camera (commonly named “photosites”) …">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+      
+
+    
+    
+	
+	    
+		<link rel="stylesheet" href="/dtdocs/css/style.min.508d8a7d0d3bebef7aa77947cc7a1b631efa0c716fea5f2346d6ad96f47684a7.css" integrity="sha256-UI2KfQ076&#43;96p3lHzHobYx76DHFv6l8jRtatlvR2hKc=" crossorigin="anonymous">
+	    
+	
+    
+
+
+      
+
+
+<script> var indexURL="https:\/\/darktable-org.github.io\/dtdocs\/en\/index.json"</script>
+    
+	<script src="/dtdocs/js/bundle.min.42af7beb0e2d8b285c5278eff99d26a28029994f5a7979d518a46189be6ce623.js" integrity="sha256-Qq976w4tiyhcUnjv&#43;Z0mooApmU9aeXnVGKRhib5s5iM=" crossorigin="anonymous"></script>
+    
+
+
+      <meta property="og:url" content="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/demosaic/">
+<meta property="og:site_name" content="darktable user manual">
+<meta property="og:title" content="demosaic">
+<meta property="og:description" content="Technical information description reconstruct full RGB pixels from a sensor color filter array reading. purpose mandatory. input linear, raw, scene-referred. processing linear, raw. output linear, RGB, scene-referred. Control how raw files are demosaiced and optionally apply capture sharpening.
+#bayer filters The sensor cells of a digital camera (commonly named “photosites”) are not color-sensitive – they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a colored filter (red, green or blue) that primarily passes light of that color. This means that each photosite (and therefore each “pixel” of the raw image) only contains information about a single color channel.">
+
+<meta property="og:image" content="https://darktable-org.github.io/dtdocs//darktable.svg">
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="module-reference">
+
+    </head>
+    <body style="--dt-section: #29b813; --dt-section-text: #135309;">
+        <header class="dt-header sticky-top">
+  <div class="dt-header__inner">
+    <a class="dt-brand" href="/dtdocs" rel="home" title="darktable user manual">
+      
+        <img src="/dtdocs/images/darktable.svg" alt="" width="32" height="32" />
+      
+      <span>darktable user manual</span>
+    </a>
+
+    <div class="dt-header__switcher dt-header__switcher--version d-none d-md-flex">
+      <div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/en/module-reference/processing-modules/demosaic/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/en/module-reference/processing-modules/demosaic/">Version 5.6</a>
+  </div>
+</div>
+
+    </div>
+
+    <div class="dt-header__spacer"></div>
+
+    <div class="dt-header__switcher d-none d-md-flex">
+      
+<div class="dt-switcher dropdown">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: English"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>English</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="en"
+      role="option"
+      lang="en"
+      href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/demosaic/"
+      >English</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/demosaic/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/demosaic/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/demosaic/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+    </div><div class="dt-header__search" id="dtSearchSlot">
+      <form class="dt-search" id="dtSearch" role="search">
+        <input
+          id="search-input"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+          aria-controls="search-results"
+        />
+        <kbd class="dt-search__hint" aria-hidden="true">Ctrl K</kbd><div id="search-results" class="search-results" role="listbox"></div>
+      </form>
+    </div><button
+      class="dt-iconbtn d-md-none"
+      type="button"
+      id="dtMenuButton"
+      aria-controls="dtChapters"
+      aria-expanded="false"
+      aria-label="Chapters"
+    >
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div><div class="dt-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="dt-backdrop" id="dtBackdrop"></div>
+        <div class="dt-page">
+            <div class="dt-layout">
+                <nav class="navigation" id="dtChapters" aria-label="Chapters">
+                    <div class="dt-nav-tree">
+                        <ul>
+   
+   <li class="parent" style="--dt-nav-color: #d70016;">
+   
+
+      <a href="/dtdocs/en/overview/" class=""><span class="dt-dot" aria-hidden="true"></span>Overview
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/overview/user-interface/" class="">user interface
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/views/" class="">views
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/screen-layout/" class="">screen layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/filmstrip/" class="">filmstrip
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/top-panel/" class="">top panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/bottom-panel/" class="">bottom panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/user-interface/keyboard-shortcuts/" class="">keyboard shortcuts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/supported-file-formats/" class="">supported file formats
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/" class="">sidecar files &amp; non-destructive editing
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/sidecar/" class="">sidecar files
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/sidecar-import/" class="">importing sidecar files generated by other applications
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/sidecar-files/local-copies/" class="">local copies
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/overview/workflow/" class="">an introduction to darktable&#39;s workflow
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/introduction/" class="">introduction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/import-review/" class="">import &amp; review
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/process/" class="">process
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/tone-mapping/" class="">tone mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/overview/workflow/export/" class="">export
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e82f0f;">
+   
+
+      <a href="/dtdocs/en/lighttable/" class=""><span class="dt-dot" aria-hidden="true"></span>Lighttable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-view-layout/" class="">lighttable view layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/undo-redo/" class="">undo/redo
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/" class="">lighttable modes
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/filemanager/" class="">filemanager
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/zoomable-lighttable/" class="">zoomable lighttable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/culling/" class="">culling
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/lighttable-modes/full-preview/" class="">full preview
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/" class="">digital asset management
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/collections/" class="">collections &amp; film rolls
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/sequence/" class="">image sequence
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/thumbnails/" class="">thumbnails
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/star-color/" class="">star ratings &amp; color labels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/grouping/" class="">image grouping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lighttable/digital-asset-management/metadata-tagging/" class="">metadata and tagging
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f85d07;">
+   
+
+      <a href="/dtdocs/en/darkroom/" class=""><span class="dt-dot" aria-hidden="true"></span>Darkroom
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/darkroom-view-layout/" class="">darkroom view layout
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/" class="">the pixelpipe
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/the-anatomy-of-a-module/" class="">the anatomy of a processing module
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/the-pixelpipe-and-module-order/" class="">the pixelpipe &amp; module order
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/history-stack/" class="">the history stack
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/pixelpipe/undo-redo/" class="">undo and redo
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/" class="">processing modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/module-header/" class="">module header
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/multiple-instances/" class="">multiple instances
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/presets/" class="">presets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/module-controls/" class="">module controls
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/curves/" class="">curves
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/wavelets/" class="">wavelets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/processing-modules/deprecated/" class="">deprecated modules
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/" class="">masking &amp; blending
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/blend-modes/" class="">blend modes
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/" class="">masks
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/mask-panel/" class="">the mask panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/groups-and-operators/" class="">groups &amp; operators
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/drawn/" class="">drawn shapes
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/parametric/" class="">parametric elements
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/raster/" class="">raster masks
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/ai-masking/" class="">AI masking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/refinement-controls/" class="">refinements
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/layout-presets/" class="">group layout presets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/masking-and-blending/masks/migration/" class="">migrating from classic masks
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/darkroom/organization/" class="">organization
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/module-groups/" class="">module groups
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/quick-access-panel/" class="">quick access panel
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/darkroom/organization/manage-module-layouts/" class="">manage module layouts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #fc8c06;">
+   
+
+      <a href="/dtdocs/en/tethering/" class=""><span class="dt-dot" aria-hidden="true"></span>Tethering
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/tethering-view-layout/" class="">tethering view layout
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/examples/" class="">examples
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/tethering/troubleshooting/" class="">troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #f6b909;">
+   
+
+      <a href="/dtdocs/en/map/" class=""><span class="dt-dot" aria-hidden="true"></span>Map
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/map/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/map/map-view-layout/" class="">map view layout
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #e0db0d;">
+   
+
+      <a href="/dtdocs/en/slideshow/" class=""><span class="dt-dot" aria-hidden="true"></span>Slideshow
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/slideshow/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/slideshow/usage/" class="">usage
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #85c910;">
+   
+
+      <a href="/dtdocs/en/print/" class=""><span class="dt-dot" aria-hidden="true"></span>Print
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/print/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/print/print-view-layout/" class="">print view layout
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent in-trail open" style="--dt-nav-color: #29b813;">
+   
+
+      <a href="/dtdocs/en/module-reference/" class=""><span class="dt-dot" aria-hidden="true"></span>Module Reference
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li class="parent in-trail open">
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/" class="">processing modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="true" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/agx/" class="">AgX
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/astrophoto-denoise/" class="">astrophoto denoise
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/base-curve/" class="">base curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/bloom/" class="">bloom
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/blurs/" class="">blurs
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/censorize/" class="">censorize
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/chromatic-aberrations/" class="">chromatic aberrations
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-balance/" class="">color balance
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-balance-rgb/" class="">color balance rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-calibration/" class="">color calibration
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-contrast/" class="">color contrast
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-correction/" class="">color correction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-equalizer/" class="">color equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-harmonizer/" class="">color harmonizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-look-up-table/" class="">color look up table
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-mapping/" class="">color mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-reconstruction/" class="">color reconstruction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/color-zones/" class="">color zones
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/colorize/" class="">colorize
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/composite/" class="">composite
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-texture/" class="">contrast &amp; texture
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-equalizer/" class="">contrast equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/crop/" class="">crop
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/demosaic/" class=" active" aria-current="page">demosaic
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/" class="">denoise (profiled)
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/diffuse/" class="">diffuse or sharpen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/dither-or-posterize/" class="">dither or posterize
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/enlarge-canvas/" class="">enlarge canvas
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/exposure/" class="">exposure
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/external-raster/" class="">external raster mask
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/filmic-rgb/" class="">filmic rgb
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/framing/" class="">framing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/graduated-density/" class="">graduated density
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/grain/" class="">grain
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/haze-removal/" class="">haze removal
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/highlight-reconstruction/" class="">highlight reconstruction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/highpass/" class="">highpass
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/hot-pixels/" class="">hot pixels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/input-color-profile/" class="">input color profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lens-correction/" class="">lens correction
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/liquify/" class="">liquify
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/local-contrast/" class="">local contrast
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lowlight-vision/" class="">lowlight vision
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lowpass/" class="">lowpass
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/lut-3d/" class="">LUT 3D
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/monochrome/" class="">monochrome
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/negadoctor/" class="">negadoctor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/orientation/" class="">orientation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/output-color-profile/" class="">output color profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-black-white-point/" class="">raw black/white point
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-chromatic-aberrations/" class="">raw chromatic aberrations
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/raw-denoise/" class="">raw denoise
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/retouch/" class="">retouch
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-curve/" class="">rgb curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-levels/" class="">rgb levels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rgb-primaries/" class="">rgb primaries
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rotate-perspective/" class="">rotate and perspective
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/rotate-pixels/" class="">rotate pixels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/satcurve-rgb/" class="">saturation curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/scale-pixels/" class="">scale pixels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/shadows-and-highlights/" class="">shadows and highlights
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/sharpen/" class="">sharpen
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/sigmoid/" class="">sigmoid
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/soften/" class="">soften
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/spektrafilm/" class="">spektrafilm
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/split-toning/" class="">split-toning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/surface-blur/" class="">surface blur
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-curve/" class="">tone curve
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-equalizer/" class="">tone equalizer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/unbreak-input-profile/" class="">unbreak input profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/velvia/" class="">velvia
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/vignetting/" class="">vignetting
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/watermark/" class="">watermark
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/white-balance/" class="">white balance
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/basic-adjustments/" class="">(deprecated) basic adjustments
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/channel-mixer/" class="">(deprecated) channel mixer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/contrast-brightness-saturation/" class="">(deprecated) contrast brightness saturation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/crop-rotate/" class="">(deprecated) crop and rotate
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/defringe/" class="">(deprecated) defringe
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/fill-light/" class="">(deprecated) fill light
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/global-tonemap/" class="">(deprecated) global tonemap
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/invert/" class="">(deprecated) invert
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/levels/" class="">(deprecated) levels
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/spot-removal/" class="">(deprecated) spot removal
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/tone-mapping/" class="">(deprecated) tone mapping
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/vibrance/" class="">(deprecated) vibrance
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/processing-modules/zone-system/" class="">(deprecated) zone system
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/" class="">utility modules
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/" class="">darkroom
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/clipping/" class="">clipping warning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/color-assessment/" class="">color assessment
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/duplicate-manager/" class="">duplicate manager
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/gamut/" class="">gamut check
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/global-color-picker/" class="">global color picker
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/guides-overlays/" class="">guides &amp; overlays
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/high-quality-processing/" class="">high quality processing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/history-stack/" class="">history stack
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/image-info-line/" class="">image information line
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/masking/" class="">masking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/module-order/" class="">module order
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/navigation/" class="">navigation
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/raw-overexposed/" class="">raw overexposed warning
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/snapshots/" class="">snapshots
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/darkroom/soft-proof/" class="">soft proof
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/" class="">lighttable
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/lua-scripts-installer/" class="">(deprecated) lua scripts installer
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/selected-image/" class="">actions on selection
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/history-stack/" class="">history stack
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/import/" class="">import
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/scripts/" class="">scripts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/select/" class="">selection
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/lighttable/timeline/" class="">timeline
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/" class="">map
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/find-location/" class="">find location
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/locations/" class="">locations
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/map/map-settings/" class="">map settings
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/print/" class="">print
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/print/print-settings/" class="">print settings
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/" class="">shared
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/collection-filters/" class="">collection filters
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/collections/" class="">collections
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/copy-paste/" class="">copy and paste
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/export/" class="">export
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/filmstrip/" class="">filmstrip
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/focus-peaking/" class="">focus peaking
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/geotagging/" class="">geotagging
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/image-information/" class="">image information
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/metadata-editor/" class="">metadata editor
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/neural-restore/" class="">neural restore
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/recent-collections/" class="">recently used collections
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/scopes/" class="">scopes
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/styles/" class="">styles
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/shared/tagging/" class="">tagging
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/" class="">tethering
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/camera-settings/" class="">camera settings
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/live-view/" class="">live view
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/module-reference/utility-modules/tethering/session/" class="">session
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #169f5a;">
+   
+
+      <a href="/dtdocs/en/preferences-settings/" class=""><span class="dt-dot" aria-hidden="true"></span>Preferences &amp; Settings
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/backups/" class="">backup settings &amp; edits
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/general/" class="">general
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/import/" class="">import
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/lighttable/" class="">lighttable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/darkroom/" class="">darkroom
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/processing/" class="">processing
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/security/" class="">security
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/storage/" class="">storage
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/miscellaneous/" class="">miscellaneous
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/shortcuts/" class="">shortcuts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/presets/" class="">presets
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/ai/" class="">AI
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/lua-options/" class="">lua options
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/preferences-settings/config-directory/" class="">configuration directory
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #1586b2;">
+   
+
+      <a href="/dtdocs/en/lua/" class=""><span class="dt-dot" aria-hidden="true"></span>Scripting
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lua/using-lua-scripts/" class="">using Lua scripts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/lua/writing-lua-scripts/" class="">writing Lua scripts
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #3362e2;">
+   
+
+      <a href="/dtdocs/en/guides-tutorials/" class=""><span class="dt-dot" aria-hidden="true"></span>Guides &amp; Tutorials
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/monochrome/" class="">developing monochrome images
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/batch-editing/" class="">batch-editing images
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/guides-tutorials/other-resources/" class="">other resources
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #8231d9;">
+   
+
+      <a href="/dtdocs/en/special-topics/" class=""><span class="dt-dot" aria-hidden="true"></span>Special Topics
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/" class="">darktable’s color pipeline
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/color-spaces/" class="">darktable&#39;s color spaces
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/unbounded-colors/" class="">unbounded colors
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/color-artifacts/" class="">possible color artifacts
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-pipeline/color-dimensions/" class="">darktable&#39;s color dimensions
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/" class="">color management
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/display-profile/" class="">display profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/rendering-method/" class="">rendering method
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/color-management/rendering-intent/" class="">rendering intent
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/" class="">OpenCL
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/background/" class="">the background
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/how-opencl-works/" class="">how OpenCL works
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/activate-opencl/" class="">activating OpenCL in darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/setting-up/" class="">setting up OpenCL
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/problems-solutions/" class="">possible problems &amp; solutions
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/scheduling-profile/" class="">scheduling profile
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/multiple-devices/" class="">multiple devices
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/opencl/still-doesnt-work/" class="">OpenCL still does not run for me
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/ai/" class="">AI features
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/how-ai-works/" class="">how AI features work
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/gpu-acceleration/" class="">GPU acceleration
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/ai/performance-and-troubleshooting/" class="">performance &amp; troubleshooting
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/mem-performance/" class="">memory &amp; performance tuning
+      </a>
+
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/" class="">using darktable-chart
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/usage/" class="">usage
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/source-image/" class="">source image
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/reference-values/" class="">reference values
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/process/" class="">process
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/darktable-chart/making-input-images/" class="">making input images for darktable-chart
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent">
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/" class="">program invocation
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/invocation-per-os/" class="">invocation per OS
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable/" class="">darktable
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cli/" class="">darktable-cli
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-generate-cache/" class="">darktable-generate-cache
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-chart/" class="">darktable-chart
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cltest/" class="">darktable-cltest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-cmstest/" class="">darktable-cmstest
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/darktable-mcp/" class="">darktable-mcp
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/purge_non_existing_images_sh/" class="">purge_non_existing_images.sh
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/program-invocation/gimp-integration/" class="">gimp integration
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/variables/" class="">variables
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/midi-device-support/" class="">midi device support
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/test-environment/" class="">using a test environment
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/special-topics/multiple-computers/" class="">using multiple computers
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   
+   
+   <li class="parent" style="--dt-nav-color: #d000d0;">
+   
+
+      <a href="/dtdocs/en/contributing/" class=""><span class="dt-dot" aria-hidden="true"></span>Contributing to the Docs
+      </a>
+
+      <button type="button" class="dt-nav-toggle" aria-expanded="false" aria-label="Show or hide subpages">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+   <ul>
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/overview/" class="">overview
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/development-deployment/" class="">development &amp; deployment
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/workflow/" class="">workflow
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/styles-conventions/" class="">styles &amp; conventions
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/translations-setup/" class="">translations setup
+      </a>
+
+   </li>
+   
+   
+   <li>
+   
+
+      <a href="/dtdocs/en/contributing/translators-guide/" class="">translators guide
+      </a>
+
+   </li>
+   </ul>
+   </li>
+   </ul>
+
+                    </div>
+                    <div class="dt-nav-switchers d-md-none">
+                        <div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span>Version: /dtdocs</span>
+  </a>
+  <div class="dropdown-menu" role="listbox">
+    <a class="dropdown-item" href="/usermanual/development/en/module-reference/processing-modules/demosaic/">Development (Master)</a>
+    <a class="dropdown-item" href="/usermanual/5.6/en/module-reference/processing-modules/demosaic/">Version 5.6</a>
+  </div>
+</div>
+
+                        
+<div class="dt-switcher dropup">
+  <a
+    class="dt-switcher__toggle dropdown-toggle"
+    href="#"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Languages: English"
+  >
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <span>English</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" role="listbox">
+    <a
+      class="dropdown-item"
+      aria-selected="true"
+      hreflang="en"
+      role="option"
+      lang="en"
+      href="https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/demosaic/"
+      >English</a
+    >
+    
+      <a
+        class="dropdown-item"
+        hreflang="fr"
+        role="option"
+        lang="fr"
+        href="https://darktable-org.github.io/dtdocs/fr/module-reference/processing-modules/demosaic/"
+        >Français</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="lo"
+        role="option"
+        lang="lo"
+        href="https://darktable-org.github.io/dtdocs/lo/module-reference/processing-modules/demosaic/"
+        >Lao</a
+      >
+    
+      <a
+        class="dropdown-item"
+        hreflang="uk"
+        role="option"
+        lang="uk"
+        href="https://darktable-org.github.io/dtdocs/uk/module-reference/processing-modules/demosaic/"
+        >Ukrainian</a
+      >
+    
+  </div>
+</div>
+
+                    </div>
+                </nav>
+                <main class="content">
+                    <div class="dt-content-inner">
+                        
+
+
+
+<nav class="crumbs" aria-label="Breadcrumbs"><a href="/dtdocs/en/module-reference/">Module Reference</a><span class="crumbs__sep" aria-hidden="true">/</span><a href="/dtdocs/en/module-reference/processing-modules/">processing modules</a><span class="crumbs__sep" aria-hidden="true">/</span><span class="crumbs__current" aria-current="page">demosaic</span>
+</nav>
+
+
+<article>
+
+    <h1 class="title">
+        demosaic
+    </h1>
+
+    
+<details class="dt-toc-inline d-xl-none">
+    <summary>Table of Contents</summary>
+    <nav >
+  <ul>
+    <li><a href="#bayer-filters">bayer filters</a></li>
+    <li><a href="#sensors-without-bayer-filters">sensors without bayer filters</a></li>
+    <li><a href="#special-algorithms">special algorithms</a></li>
+    <li><a href="#dual-demosaic-algorithms">dual demosaic algorithms</a>
+      <ul>
+        <li><a href="#selecting-the-threshold">selecting the threshold</a></li>
+      </ul>
+    </li>
+    <li><a href="#capture-sharpen">capture sharpen</a></li>
+    <li><a href="#module-controls">module controls</a></li>
+    <li><a href="#presets-styles-and-copypaste">presets, styles and copy/paste</a></li>
+  </ul>
+</nav>
+</details>
+
+
+    
+<details class="technical-info">
+  <summary>Technical information</summary>
+  <dl>
+<dt id="description">description</dt>
+<dd>reconstruct full RGB pixels from a sensor color filter array reading.</dd>
+<dt id="purpose">purpose</dt>
+<dd>mandatory.</dd>
+<dt id="input">input</dt>
+<dd>linear, raw, scene-referred.</dd>
+<dt id="processing">processing</dt>
+<dd>linear, raw.</dd>
+<dt id="output">output</dt>
+<dd>linear, RGB, scene-referred.</dd>
+</dl>
+</details>
+
+<p>Control how raw files are demosaiced and optionally apply capture sharpening.</p>
+<h1 id="bayer-filters"><a class="dt-anchor" href="#bayer-filters" aria-label="Link to this section">#</a>bayer filters</h1>
+<p>The sensor cells of a digital camera (commonly named &ldquo;photosites&rdquo;) are not color-sensitive &ndash; they are only able to record different levels of lightness. In order to obtain a color image, each cell is covered by a colored filter (red, green or blue) that primarily passes light of that color. This means that each photosite (and therefore each &ldquo;pixel&rdquo; of the raw image) only contains information about a single color channel.</p>
+<p>The array of color filters covering the sensor, known as a color filter array (CFA), is commonly arranged in a mosaic pattern known as a Bayer filter (though other patterns are also used). A demosaic algorithm reconstructs the other color channels by interpolation with data from the neighboring photosites. For further reading see the Wikipedia articles on <a href="https://en.wikipedia.org/wiki/Demosaicing" target="_blank">demosaicing</a> and the <a href="http://en.wikipedia.org/wiki/Bayer_filter" target="_blank">Bayer filter</a>.</p>
+<p>Darktable offers several demosaic algorithms, each with its own characteristics. The differences between them are often very subtle and might only be visible while pixel-peeping. However, as the program works on a pixel-by-pixel basis and demosaic generates the base data for the other modules, the choice of the algorithm can have a visually significant effect on the quality of very fine details in the image. This can include the appearance of false maze patterns as well as the rendering quality of colored edges.</p>
+<p>Demosaic interpolation algorithms are often prone to produce artifacts, typically visible as <a href="https://en.wikipedia.org/wiki/Moire_pattern" target="_blank">Moiré patterns</a> when zooming into the image. The chosen algorithm might handle <em>pre-existing</em> Moiré- or Maze-like patterns in the raw data in a better or worse way. In these circumstances <em>VNG4</em> and <em>LMMSE</em> are often more stable.</p>
+<p>The following demosaic algorithms are available for sensors with Bayer filters:</p>
+<ul>
+<li>
+<p><em>PPG</em> used to be darktable&rsquo;s default demosaic algorithm. It is fast, but other algorithms generally yield better results.</p>
+</li>
+<li>
+<p><em>AMaZE</em> and <em>RCD</em> offer better reconstruction of high-frequency content (finer details, edges, stars) but might struggle with color reconstruction overshoots or added noise in areas of low contrast. While <em>AMaZE</em> often retains more high-frequency details it is also more prone to color overshoots than <em>RCD</em>. Since <em>RCD</em> now offers similar performance to <em>PPG</em>, but with better results, it is now the default algorithm.</p>
+</li>
+<li>
+<p><em>LMMSE</em> is better suited for use on high ISO and noisy images than <em>AMaZE</em> or <em>RCD</em>, both of which tend to generate overshooting artifacts when applied to such images. It can also be useful to manage images that exhibit Moiré patterns with other algorithms.</p>
+</li>
+<li>
+<p><em>VNG4</em> is better suited for use on images with low-frequency content (e.g. low contrast regions such as sky or snow-fields). Compared to <em>AMaZE</em> and <em>RCD</em>, it causes loss of some details but is very stable for maze artifacts. VNG4 is no longer recommended &ndash; for most images, other algorithms provide better results.</p>
+</li>
+</ul>
+<hr>
+<p><strong>Note:</strong> The performance of the demosaic algorithms differs significantly, <em>AMaZE</em> being by far the slowest.</p>
+<hr>
+<h1 id="sensors-without-bayer-filters"><a class="dt-anchor" href="#sensors-without-bayer-filters" aria-label="Link to this section">#</a>sensors without bayer filters</h1>
+<p>There are a few cameras whose sensors do not use a Bayer filter. Cameras with an &ldquo;X-Trans&rdquo; sensor have their own set of demosaic algorithms. The default algorithm for X-Trans sensors is <em>Markesteijn 1-pass</em>, which produces fairly good results. For slightly better quality (at the cost of much slower processing), choose <em>Markesteijn 3-pass</em>. Though <em>VNG</em> is faster than <em>Markesteijn 1-pass</em> on some computers, it is prone to artifacts.</p>
+<p>Images from monochrome cameras do not require demosaicing, however, since darktable 5.4 they use this module to support <a href="#capture-sharpen">capture sharpening</a>.</p>
+<h1 id="special-algorithms"><a class="dt-anchor" href="#special-algorithms" aria-label="Link to this section">#</a>special algorithms</h1>
+<p><em>passthrough (monochrome)</em> is only useful for cameras that have had the color filter array physically removed from the sensor (e.g. scratched off). Demosaic algorithms usually reconstruct other color channels by interpolation with data from the neighboring pixels. However, if the color filter array is not present, there is nothing to interpolate, so this algorithm simply sets all the color channels to the same value, resulting in a monochrome image. This method avoids the interpolation artifacts that the standard demosaic algorithms might introduce.</p>
+<p><em>photosite_color</em> is not meant to be used for image processing. It takes the raw photosite data and presents it as red, blue or green pixels. This is designed for debugging purposes in order to see the raw data and can assist with analysis of errors produced by the other demosaic algorithms.</p>
+<p><em>monochrome</em> is only available for monochrome cameras.</p>
+<h1 id="dual-demosaic-algorithms"><a class="dt-anchor" href="#dual-demosaic-algorithms" aria-label="Link to this section">#</a>dual demosaic algorithms</h1>
+<p>Some images have areas best demosaiced using an algorithm that preserves high frequency information (like <em>AMaZE</em> or <em>RCD</em>) and other areas that might profit from an algorithm more suited to low frequency content (like <em>VNG4</em>).</p>
+<p>In dual demosaic algorithms (e.g. <em>RCD + VNG4</em>) the sensor data is demosaiced twice, first by <em>RCD</em>, <em>AMaZE</em> or <em>Markesteijn 3-pass</em> and then by <em>VNG4</em>. Both sets of demosaiced data are retained for subsequent processing.</p>
+<p>The data from the high frequency algorithm is then analysed for <em>local data change</em> and, using a threshold (there is a bit more of maths involved here), the output image is written pixel-by-pixel for each color channel using data from each demosaic algorithm weighed by the local data change.</p>
+<p>In general, areas with greater detail are demosaiced by the algorithm best suited to that purpose (<em>RCD, AMaZe, Markesteijn 3-pass</em>) and any flat areas (like blue sky) are demosaiced using the second algorithm (<em>VNG4</em>).</p>
+<p><em>The &rsquo;local data change&rsquo; is technically implemented as a gaussian-blurred single channel selection mask calculated from a combination of the threshold value and the pixels&rsquo; luminance.</em></p>
+<h2 id="selecting-the-threshold"><a class="dt-anchor" href="#selecting-the-threshold" aria-label="Link to this section">#</a>selecting the threshold</h2>
+<p>An automatically-calculated threshold is difficult to implement. Instead, the &ldquo;display blending mask&rdquo; button can be used to display the <em>selection mask</em> so you can control the selection of the algorithm manually. The brighter the pixel in the displayed mask, the more the output is taken from the high-frequency algorithm.</p>
+<h1 id="capture-sharpen"><a class="dt-anchor" href="#capture-sharpen" aria-label="Link to this section">#</a>capture sharpen</h1>
+<p>Capture sharpening recovers details lost due to in-camera or lens blurring, which can be caused by diffraction, the anti-aliasing filter or other sources of gaussian-type blur.</p>
+<p>Capture sharpening is performed inside the demosaic module because some parts of the algorithm require raw CFA data. The sharpening itself is performed on demosaiced RGB data and is available for bayer, xtrans and monochrome sensors.</p>
+<p>Capture sharpening is not intended to be used as a general sharpening / local contrast enhancing tool. It should instead be understood as a way to increase micro-contrast in structures with lots of detail, and leads to better results for further processing. Excellent examples would be details of surfaces like wood, brick walls, hair etc.</p>
+<p>Prerequisites for optimal results are:</p>
+<ul>
+<li>Decent white balance parameters (same requirement as for <a href="/dtdocs/en/module-reference/processing-modules/highlight-reconstruction/"><em>highlight reconstruction</em></a> or <em>demosaic</em>) &ndash; in very rare cases this could lead to inferior sharpening quality.</li>
+<li>Low chromatic aberration &ndash; you might want to use the <a href="/dtdocs/en/module-reference/processing-modules/raw-chromatic-aberrations/"><em>raw chromatic aberrations</em></a> module to reduce problems &ndash; there will still likely be more and stronger halo artifacts.</li>
+<li>Acceptable sensor noise, as noise will generally be amplified by capture sharpening (see <em>contrast sensitivity</em> below).</li>
+</ul>
+<p>Capture sharpening works in an iterative process using specialized gaussian kernels using a different sigma (in the range of 0.0 -&gt; 1.5) for every single pixel location.</p>
+<h1 id="module-controls"><a class="dt-anchor" href="#module-controls" aria-label="Link to this section">#</a>module controls</h1>
+<dl>
+<dt id="method">method</dt>
+<dd>The demosaic algorithm to use (see above).</dd>
+<dt id="edge-threshold-ppg-only">edge threshold (<em>PPG</em> only)</dt>
+<dd>The threshold for an additional median pass. Defaults to “0” which disables median filtering.</dd>
+<dt id="lmmse-refine-lmmse-only">LMMSE refine (<em>LMMSE</em> only)</dt>
+<dd>Refinement steps for use with the LMMSE demosaic algorithm. Median steps average the output. Refinement steps add some recalculation of red and blue channels. While the refinement options work well for luma noise, they may decrease quality on images with heavy chroma noise.</dd>
+<dt id="color-smoothing">color smoothing</dt>
+<dd>Activate a number of additional color smoothing passes. Defaults to “off”.</dd>
+<dt id="match-greens">match greens</dt>
+<dd>In some cameras the green filters have slightly varying properties. This parameter adds an additional equalization step to suppress artifacts. Available options are “disabled”, “local average”, “full average” and “full and local average”. This option is not shown for X-Trans sensors.</dd>
+<dt id="dual-threshold-dual-demosaic-modes-only">dual threshold <em>(dual demosaic modes only)</em></dt>
+<dd>Set the contrast threshold for dual demosaic modes. Lower values favor the high frequency demosaic algorithm and higher values favor the low frequency algorithm.</dd>
+<dt id="display-blending-mask-dual-demosaic-modes-only">display blending mask <em>(dual demosaic modes only)</em></dt>
+<dd>Show the blending mask that is used to differentiate between high and low frequency areas (adjusted by the &ldquo;switch dual threshold&rdquo; parameter). For each pixel, the brighter the mask, the more the module&rsquo;s output is taken from the high frequency demosaic algorithm.</dd>
+<dt id="capture-sharpen-1">capture sharpen</dt>
+<dd>Enable capture sharpening. Selecting this option will enable additional controls (see below) and attempt to auto-calculate the <em>radius</em> and <em>contrast sensitivity</em> based on the current image&rsquo;s raw sensor data (see below).</dd>
+<dt id="iterations-capture-sharpen">iterations (capture sharpen)</dt>
+<dd>The strength of the effect increases with more iterations. For most images a setting of 8 will be sufficient.</dd>
+<dt id="radius-capture-sharpen">radius (capture sharpen)</dt>
+<dd>Defines the mathematics used (sigma) for the special gaussian kernels. Analysis of many images (also from the RawTherapee community) show that, on modern sensors, using a good lens and a high quality demosaicer, a typical radius will be between 0.5 and 0.8.</dd>
+<dd>To auto-calculate the <em>radius</em> for the current image (based on raw sensor data), click the button on the right of the radius slider. The underlying algorithm has been used for some time with reliable results, though it might fail on images with lots of chroma noise. This calculation works better when the image is fully-zoomed out and uncropped in the darkroom view.</dd>
+</dl>
+<hr>
+<p><strong>Note:</strong> Do not manually increase the radius much further than the auto-calculated value, as this will soon lead to halo artifacts.</p>
+<hr>
+<dl>
+<dt id="contrast-sensitivity-capture-sharpen">contrast sensitivity (capture sharpen)</dt>
+<dd>As sensor noise will typically be amplified by capture sharpening, we try to counter this problem by performing an analysis of local variance, luminance and a user-defined threshold. Sharpening is applied only to regions that are considered by this analysis to be safe. This analysis results in a mask that can be visualised by clicking the button to the right of the contrast sensitivity slider.</dd>
+<dd>For a good default we check the image ISO and sensor readout precision as a starting point.</dd>
+<dd>Very noisy images will require larger values than default. For very low sensor noise you can decrease the threshold to also improve capture sharpening in very dark parts of the image.</dd>
+<dt id="corner-boost--sharp-center-capture-sharpen">corner boost / sharp center (capture sharpen)</dt>
+<dd>Most lenses are sharper in the central part than the corners of the image. Increasing the <em>corner boost</em> parameter causes a larger per-pixel radius to be used in the capture sharpen kernels for the image corners. This extra radius is controlled by the <em>corner boost</em> control. Adjusting the <em>corner boost</em> will cause an additional slider (<em>sharp center</em>) to appear. This controls the affected area using the distance from the image center. Again, the mask button to the right of the slider allows you to visualize the effect.</dd>
+</dl>
+<h1 id="presets-styles-and-copypaste"><a class="dt-anchor" href="#presets-styles-and-copypaste" aria-label="Link to this section">#</a>presets, styles and copy/paste</h1>
+<p>Defining demosaic <a href="/dtdocs/en/darkroom/processing-modules/presets/">presets</a> or using demosaic parameters for <a href="/dtdocs/en/module-reference/utility-modules/shared/styles/">styles</a> or copying/pasting <a href="/dtdocs/en/module-reference/utility-modules/lighttable/history-stack/">history stacks</a> is a bit more tricky than for other modules. Please bear in mind that demosaic works for a range of sensors each offering different algorithms and some specific options. Here are some reminders:</p>
+<ol>
+<li>It should always be safe to create an automatic preset that only applies to a specific camera.</li>
+<li>If a preset was defined while working on an image with a different sensor than the current image, darktable translates the algorithm as follows:
+<ul>
+<li>bayer sensors fall back to <em>RCD</em></li>
+<li>xtrans sensors fall back to <em>markjestejn</em></li>
+<li>bayer4 sensors always use <em>vng4</em>.</li>
+<li>dual demosaicing will also be available on bayer and xtrans sensors</li>
+</ul>
+</li>
+<li>Extra options like <em>green equalizing</em> will only be applied where they are supported by the current sensor.</li>
+<li>In auto-applied presets with capture sharpen enabled, you might want to use the auto-calculated radius (or contrast sensitivity) instead of using hard-coded values. To achieve this, you must set the radius (or contrast sensitivity) to zero before saving the preset. If this preset is then applied to another image, darktable accepts this as a request for these values to be automatically recalculated.</li>
+</ol>
+<p>Capture sharpening is not enabled by default but you could achieve this by defining an auto-applied preset after setting radius and contrast threshold to zero. You are advised to leave the iterations setting at its default setting of 8, as this leads to good sharpening with very low risk for artifacts when used with an auto-calculated radius.</p>
+<p>It is generally safe to auto-apply capture sharpening to images with ISO values below 1000. If you have a good sensor, with low noise even on high ISO values, you might be able to use it for ISOs as high as 3200.</p>
+
+
+    
+    <h3 class="translations_head">Translations</h3>
+    <ul class="translations">
+        
+        <li><a href="/dtdocs/fr/module-reference/processing-modules/demosaic/">
+            Français: Dématriçage
+        </a></li>
+        
+        <li><a href="/dtdocs/lo/module-reference/processing-modules/demosaic/">
+            Lao: ການເດໂມເຊກ (demosaic)
+        </a></li>
+        
+        <li><a href="/dtdocs/uk/module-reference/processing-modules/demosaic/">
+            Ukrainian: Демозаїкізація
+        </a></li>
+        
+    </ul>
+    
+</article>
+
+<nav class="prev-next" aria-label="Page navigation">
+    
+    <a href="/dtdocs/en/module-reference/processing-modules/crop/" class="prev-next__link prev-next__link--prev">
+        <span class="prev-next__label">Previous</span>
+        <span class="prev-next__title">crop</span>
+    </a>
+    
+    
+    <a href="/dtdocs/en/module-reference/processing-modules/denoise-profiled/" class="prev-next__link prev-next__link--next">
+        <span class="prev-next__label">Next</span>
+        <span class="prev-next__title">denoise (profiled)</span>
+    </a>
+    
+</nav>
+
+
+<div class="dt-page-meta">
+    <a href="https://github.com/darktable-org/dtdocs/edit/master/content/module-reference/processing-modules/demosaic.md"><i class="fa fa-github" aria-hidden="true"></i>Edit this page on GitHub</a>
+    <a href="/dtdocs/en/darktable_user_manual.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download manual (PDF)</a>
+</div>
+
+
+
+                    </div>
+                </main>
+                <aside class="dt-toc d-none d-xl-block">
+                    
+<div class="dt-toc__inner">
+    <a class="dt-toc__title" href="#" title="Back to top">Table of Contents</a>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bayer-filters">bayer filters</a></li>
+    <li><a href="#sensors-without-bayer-filters">sensors without bayer filters</a></li>
+    <li><a href="#special-algorithms">special algorithms</a></li>
+    <li><a href="#dual-demosaic-algorithms">dual demosaic algorithms</a>
+      <ul>
+        <li><a href="#selecting-the-threshold">selecting the threshold</a></li>
+      </ul>
+    </li>
+    <li><a href="#capture-sharpen">capture sharpen</a></li>
+    <li><a href="#module-controls">module controls</a></li>
+    <li><a href="#presets-styles-and-copypaste">presets, styles and copy/paste</a></li>
+  </ul>
+</nav>
+</div>
+
+                </aside>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

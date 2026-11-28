@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>darktable’s color pipeline on darktable user manual</title>
+    <link>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/</link>
+    <description>Recent content in darktable’s color pipeline on darktable user manual</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>overview</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/overview/</guid>
+      <description>&lt;p&gt;Most image processing applications come from the 1990s and/or inherit a 1990s workflow. These applications processed images encoded with 8 bit unsigned integers because it was more memory- and computationally-efficient. However, due to the use of an integer format (which implies rounding errors) they had to apply a &amp;ldquo;gamma&amp;rdquo; (essentially a transfer function applying a power 1/2.2 or 1/2.4 to encode the RGB values) and increase the bit-depth in the low-lights in order to reduce rounding errors there (humans are very sensitive to low-light details). The 8 bit integer formats are also technically limited to the 0-255 range. Anything outside of this range overflows and is clipped to the nearest bound.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>darktable&#39;s color spaces</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-spaces/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-spaces/</guid>
+      <description>&lt;p&gt;Input images are either RGB files (like JPEGs or TIFFs) or camera RAWs. Both store visual information as a combination of primary colors (e.g. red, green and blue) which together describe a light emission to be recreated by a display.&lt;/p&gt;&#xA;&lt;p&gt;The following image illustrates this concept.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;  &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-spaces/spectral-decomposition.png&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&lt;img src=&#34;https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-spaces/spectral-decomposition.png&#34; alt=&#34;Spectral decomposition of a light emission into 3 RGB intensities&#34; class=&#34;w100&#34; /&gt;&lt;/a&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The left-hand-side of the image depicts a colored light that we need to represent digitally. We can use three ideal color filters to decompose this light into three colored primary lights at different intensities. In order to recreate the original colored light from our ideal decomposition (as illustrated in the center of the image) we simply need to recombine those three primary lights by addition.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>unbounded colors</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/unbounded-colors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/unbounded-colors/</guid>
+      <description>&lt;p&gt;Screens and most image file formats can only encode RGB intensities confined within a certain range. For example, images encoded on 8 bits can only contain values from 0 to 255, images on 10 bits from 0 to 1023, and so on… Graphic standards postulate that the maximum of that range, no matter its actual value, will always represent the maximum brightness that the display medium is able to render, usually between 100 and 160 Cd/m² (or nits) depending on the actual standard. We generally call this maximum &amp;ldquo;100 % display-referred&amp;rdquo;. The minimum of the range, encoded 0 no matter the bit-depth used, becomes then &amp;ldquo;0 % display-referred&amp;rdquo;. 100 % encodes pure white, 0 % encodes pure black.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>possible color artifacts</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-artifacts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-artifacts/</guid>
+      <description>&lt;p&gt;There are some infrequent situations that still can lead to problematic results unless the user takes some action. Some modules in Lab color space, like &lt;a href=&#34;https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/levels/&#34;&gt;&lt;em&gt;levels&lt;/em&gt;&lt;/a&gt; and &lt;a href=&#34;https://darktable-org.github.io/dtdocs/en/module-reference/processing-modules/monochrome/&#34;&gt;&lt;em&gt;monochrome&lt;/em&gt;&lt;/a&gt;, rely on the fact that the L channels carries all lightness information, with the a and b channels purely representing chroma and hue. Unbounded colors with negative L values are especially problematic to these modules and can lead to black pixel artifacts.&lt;/p&gt;&#xA;&lt;p&gt;It has been found that highly saturated blue light sources in the image frame are likely candidates for pixels with negative L values. If you are engaged in stage photography you should pay close attention to such lights appearing in images.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>darktable&#39;s color dimensions</title>
+      <link>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-dimensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://darktable-org.github.io/dtdocs/en/special-topics/color-pipeline/color-dimensions/</guid>
+      <description>&lt;p&gt;This section defines the perceptual properties of color, both conceptually and quantitatively, in order to characterize and quantify the creative and corrective adjustments made to color in darktable.&lt;/p&gt;&#xA;&lt;h1 id=&#34;definitions&#34;&gt;&lt;a class=&#34;dt-anchor&#34; href=&#34;#definitions&#34; aria-label=&#34;Link to this section&#34;&gt;#&lt;/a&gt;definitions&lt;/h1&gt;&#xA;&lt;p&gt;Color properties like &amp;ldquo;saturation&amp;rdquo;, &amp;ldquo;brightness&amp;rdquo; or &amp;ldquo;lightness&amp;rdquo; have passed into common usage but are largely misused and often used to mean different things. In color science, each of these terms has a precise meaning.&lt;/p&gt;&#xA;&lt;p&gt;There are two frameworks within which color properties may be analyzed and described:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
