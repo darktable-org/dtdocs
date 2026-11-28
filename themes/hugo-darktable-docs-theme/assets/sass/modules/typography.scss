@@ -2,6 +2,25 @@
 
 html {
     font-size: 100%; /*16px*/
+    // keeps anchor targets and focused elements clear of the sticky header
+    scroll-padding-top: calc(#{$dt-header-height} + 1rem);
+}
+
+// "skip to content" link, visible only while focused
+.dt-skip.sr-only-focusable:focus {
+    position: absolute;
+    z-index: 1050;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: $white;
+    color: $gray-900;
+}
+
+// target of the skip link; focused by script only, so no outline
+main:focus {
+    outline: none;
 }
 
 body {
@@ -66,8 +85,6 @@ h1, h2, h3, h4, h5 {
     font-family: $font-family-sans-serif;
     font-weight: 500;
     line-height: 1.2;
-    // keep headings clear of the sticky header when jumping to an anchor
-    scroll-margin-top: calc(#{$dt-header-height} + 1rem);
 }
 
 h1.title {
@@ -134,6 +151,7 @@ dd p {
 // link to a heading, shown in the margin when hovering the heading
 .content a.dt-anchor {
     position: absolute;
+    top: 0;
     left: -1.4rem;
     width: 1.4rem;
     opacity: 0;
